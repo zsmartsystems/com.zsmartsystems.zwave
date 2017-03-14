@@ -1,12 +1,19 @@
-*.class
+target/
+bin/
+*.iml
+*.log
+*.log.*
+*.json
+.metadata
+local.properties
+# Eclipse project specific
+.classpath
+.settings
+.recommenders
+RemoteSystemsTempFiles/
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
 
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+# Temporary
+travis.yml
+settings.xml
+com.zsmartsystems.zigbee/doc
