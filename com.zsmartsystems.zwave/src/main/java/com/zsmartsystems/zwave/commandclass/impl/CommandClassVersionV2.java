@@ -164,25 +164,25 @@ public class CommandClassVersionV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Z-Wave Library Type'
-        response.put("Z_WAVE_LIBRARY_TYPE", new Integer(payload[2]));
+        response.put("Z_WAVE_LIBRARY_TYPE", Integer.valueOf(payload[2]));
 
         // Process 'Z-Wave Protocol Version'
-        response.put("Z_WAVE_PROTOCOL_VERSION", new Integer(payload[3]));
+        response.put("Z_WAVE_PROTOCOL_VERSION", Integer.valueOf(payload[3]));
 
         // Process 'Z-Wave Protocol Sub Version'
-        response.put("Z_WAVE_PROTOCOL_SUB_VERSION", new Integer(payload[4]));
+        response.put("Z_WAVE_PROTOCOL_SUB_VERSION", Integer.valueOf(payload[4]));
 
         // Process 'Firmware 0 Version'
-        response.put("FIRMWARE_0_VERSION", new Integer(payload[5]));
+        response.put("FIRMWARE_0_VERSION", Integer.valueOf(payload[5]));
 
         // Process 'Firmware 0 Sub Version'
-        response.put("FIRMWARE_0_SUB_VERSION", new Integer(payload[6]));
+        response.put("FIRMWARE_0_SUB_VERSION", Integer.valueOf(payload[6]));
 
         // Process 'Hardware Version'
-        response.put("HARDWARE_VERSION", new Integer(payload[7]));
+        response.put("HARDWARE_VERSION", Integer.valueOf(payload[7]));
 
         // Process 'Number of firmware targets'
-        response.put("NUMBER_OF_FIRMWARE_TARGETS", new Integer(payload[8]));
+        response.put("NUMBER_OF_FIRMWARE_TARGETS", Integer.valueOf(payload[8]));
 
         // Process 'vg'
 
@@ -195,10 +195,10 @@ public class CommandClassVersionV2 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Firmware Version'
-            variant.put("FIRMWARE_VERSION", new Integer(payload[9]));
+            variant.put("FIRMWARE_VERSION", Integer.valueOf(payload[9]));
 
             // Process 'Firmware Sub Version'
-            variant.put("FIRMWARE_SUB_VERSION", new Integer(payload[10]));
+            variant.put("FIRMWARE_SUB_VERSION", Integer.valueOf(payload[10]));
 
             // Add to the list
             variantList.add(variant);
@@ -256,7 +256,7 @@ public class CommandClassVersionV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Requested Command Class'
-        response.put("REQUESTED_COMMAND_CLASS", new Integer(payload[2]));
+        response.put("REQUESTED_COMMAND_CLASS", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -309,10 +309,10 @@ public class CommandClassVersionV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Requested Command Class'
-        response.put("REQUESTED_COMMAND_CLASS", new Integer(payload[2]));
+        response.put("REQUESTED_COMMAND_CLASS", Integer.valueOf(payload[2]));
 
         // Process 'Command Class Version'
-        response.put("COMMAND_CLASS_VERSION", new Integer(payload[3]));
+        response.put("COMMAND_CLASS_VERSION", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;

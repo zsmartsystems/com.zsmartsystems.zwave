@@ -189,7 +189,7 @@ public class CommandClassMailboxV1 {
         response.put("FORWARDING_DESTINATION_IPV6_ADDRESS", valForwardingDestinationIpv6Address);
 
         // Process 'UDP Port Number'
-        response.put("UDP_PORT_NUMBER", new Integer(payload[19] << 8 + payload[20]));
+        response.put("UDP_PORT_NUMBER", Integer.valueOf(payload[19] << 8 + payload[20]));
 
         // Return the map of processed response data;
         return response;
@@ -313,7 +313,7 @@ public class CommandClassMailboxV1 {
         }
 
         // Process 'Mailbox Capacity'
-        response.put("MAILBOX_CAPACITY", new Integer(payload[3] << 8 + payload[4]));
+        response.put("MAILBOX_CAPACITY", Integer.valueOf(payload[3] << 8 + payload[4]));
 
         // Process 'Forwarding Destination IPv6 Address'
         byte[] valForwardingDestinationIpv6Address = new byte[16];
@@ -323,7 +323,7 @@ public class CommandClassMailboxV1 {
         response.put("FORWARDING_DESTINATION_IPV6_ADDRESS", valForwardingDestinationIpv6Address);
 
         // Process 'UDP Port Number'
-        response.put("UDP_PORT_NUMBER", new Integer(payload[21] << 8 + payload[22]));
+        response.put("UDP_PORT_NUMBER", Integer.valueOf(payload[21] << 8 + payload[22]));
 
         // Return the map of processed response data;
         return response;
@@ -424,7 +424,7 @@ public class CommandClassMailboxV1 {
         int msgOffset = 2;
 
         // Process 'Sequence Number'
-        response.put("SEQUENCE_NUMBER", new Integer(payload[msgOffset]));
+        response.put("SEQUENCE_NUMBER", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties1'
@@ -453,11 +453,11 @@ public class CommandClassMailboxV1 {
             default:
                 logger.debug("Unknown enum value {} for MODE", String.format("0x%02X", msgOffset));
         }
-        response.put("LAST", new Boolean((payload[msgOffset] & 0x04) != 0));
+        response.put("LAST", Boolean.valueOf((payload[msgOffset] & 0x04) != 0));
         msgOffset += 1;
 
         // Process 'Queue Handle'
-        response.put("QUEUE_HANDLE", new Integer(payload[msgOffset]));
+        response.put("QUEUE_HANDLE", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Mailbox Entry'
@@ -514,7 +514,7 @@ public class CommandClassMailboxV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Queue Handle'
-        response.put("QUEUE_HANDLE", new Integer(payload[2]));
+        response.put("QUEUE_HANDLE", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -562,7 +562,7 @@ public class CommandClassMailboxV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Queue Handle'
-        response.put("QUEUE_HANDLE", new Integer(payload[2]));
+        response.put("QUEUE_HANDLE", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;

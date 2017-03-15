@@ -97,10 +97,10 @@ public class CommandClassScreenMdV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Number of Reports'
-        response.put("NUMBER_OF_REPORTS", new Integer(payload[2]));
+        response.put("NUMBER_OF_REPORTS", Integer.valueOf(payload[2]));
 
         // Process 'Node ID'
-        response.put("NODE_ID", new Integer(payload[3]));
+        response.put("NODE_ID", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -161,9 +161,9 @@ public class CommandClassScreenMdV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("CHAR_PRESENTATION", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCREEN_SETTINGS", new Integer((payload[msgOffset] & 0x38 >> 3)));
-        response.put("MORE_DATA", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("CHAR_PRESENTATION", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCREEN_SETTINGS", Integer.valueOf((payload[msgOffset] & 0x38 >> 3)));
+        response.put("MORE_DATA", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'vg'
@@ -177,17 +177,17 @@ public class CommandClassScreenMdV1 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Properties1'
-            variant.put("LINE_NUMBER", new Integer(payload[msgOffset] & 0x0F));
-            variant.put("CLEAR", new Boolean((payload[msgOffset] & 0x10) != 0));
-            variant.put("LINE_SETTINGS", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+            variant.put("LINE_NUMBER", Integer.valueOf(payload[msgOffset] & 0x0F));
+            variant.put("CLEAR", Boolean.valueOf((payload[msgOffset] & 0x10) != 0));
+            variant.put("LINE_SETTINGS", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
             msgOffset += 1;
 
             // Process 'Character Position'
-            variant.put("CHARACTER_POSITION", new Integer(payload[msgOffset]));
+            variant.put("CHARACTER_POSITION", Integer.valueOf(payload[msgOffset]));
             msgOffset += 1;
 
             // Process 'Number of Characters'
-            variant.put("NUMBER_OF_CHARACTERS", new Integer(payload[msgOffset]));
+            variant.put("NUMBER_OF_CHARACTERS", Integer.valueOf(payload[msgOffset]));
             msgOffset += 1;
 
             // Process 'Character'

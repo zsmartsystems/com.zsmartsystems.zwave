@@ -282,14 +282,14 @@ public class CommandClassSwitchMultilevelV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("IGNORE_START_LEVEL", new Boolean((payload[2] & 0x20) != 0));
-        response.put("UP_DOWN", new Boolean((payload[2] & 0x40) != 0));
+        response.put("IGNORE_START_LEVEL", Boolean.valueOf((payload[2] & 0x20) != 0));
+        response.put("UP_DOWN", Boolean.valueOf((payload[2] & 0x40) != 0));
 
         // Process 'Start Level'
-        response.put("START_LEVEL", new Integer(payload[3]));
+        response.put("START_LEVEL", Integer.valueOf(payload[3]));
 
         // Process 'Dimming Duration'
-        response.put("DIMMING_DURATION", new Integer(payload[4]));
+        response.put("DIMMING_DURATION", Integer.valueOf(payload[4]));
 
         // Return the map of processed response data;
         return response;

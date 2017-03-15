@@ -105,7 +105,7 @@ public class CommandClassSceneActuatorConfV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Scene ID'
-        response.put("SCENE_ID", new Integer(payload[2]));
+        response.put("SCENE_ID", Integer.valueOf(payload[2]));
 
         // Process 'Dimming Duration'
         switch ((int) payload[3]) {
@@ -121,10 +121,10 @@ public class CommandClassSceneActuatorConfV1 {
         }
 
         // Process 'Level2'
-        response.put("OVERRIDE", new Boolean((payload[4] & 0x80) != 0));
+        response.put("OVERRIDE", Boolean.valueOf((payload[4] & 0x80) != 0));
 
         // Process 'Level'
-        response.put("LEVEL", new Integer(payload[5]));
+        response.put("LEVEL", Integer.valueOf(payload[5]));
 
         // Return the map of processed response data;
         return response;
@@ -172,7 +172,7 @@ public class CommandClassSceneActuatorConfV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Scene ID'
-        response.put("SCENE_ID", new Integer(payload[2]));
+        response.put("SCENE_ID", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -230,10 +230,10 @@ public class CommandClassSceneActuatorConfV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Scene ID'
-        response.put("SCENE_ID", new Integer(payload[2]));
+        response.put("SCENE_ID", Integer.valueOf(payload[2]));
 
         // Process 'Level'
-        response.put("LEVEL", new Integer(payload[3]));
+        response.put("LEVEL", Integer.valueOf(payload[3]));
 
         // Process 'Dimming Duration'
         switch ((int) payload[4]) {

@@ -547,7 +547,7 @@ public class CommandClassChimneyFanV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Speed'
-        response.put("SPEED", new Integer(payload[2]));
+        response.put("SPEED", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -614,9 +614,9 @@ public class CommandClassChimneyFanV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("SIZE", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCALE", new Integer((payload[msgOffset] & 0x18 >> 3)));
-        response.put("PRECISION", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("SIZE", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCALE", Integer.valueOf((payload[msgOffset] & 0x18 >> 3)));
+        response.put("PRECISION", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Value'
@@ -728,9 +728,9 @@ public class CommandClassChimneyFanV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("SIZE", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCALE", new Integer((payload[msgOffset] & 0x18 >> 3)));
-        response.put("PRECISION", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("SIZE", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCALE", Integer.valueOf((payload[msgOffset] & 0x18 >> 3)));
+        response.put("PRECISION", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Value'
@@ -807,9 +807,9 @@ public class CommandClassChimneyFanV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("SIZE", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCALE", new Integer((payload[msgOffset] & 0x18 >> 3)));
-        response.put("PRECISION", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("SIZE", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCALE", Integer.valueOf((payload[msgOffset] & 0x18 >> 3)));
+        response.put("PRECISION", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Value'
@@ -921,9 +921,9 @@ public class CommandClassChimneyFanV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("SIZE", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCALE", new Integer((payload[msgOffset] & 0x18 >> 3)));
-        response.put("PRECISION", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("SIZE", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCALE", Integer.valueOf((payload[msgOffset] & 0x18 >> 3)));
+        response.put("PRECISION", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Value'
@@ -1000,9 +1000,9 @@ public class CommandClassChimneyFanV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("SIZE", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCALE", new Integer((payload[msgOffset] & 0x18 >> 3)));
-        response.put("PRECISION", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("SIZE", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCALE", Integer.valueOf((payload[msgOffset] & 0x18 >> 3)));
+        response.put("PRECISION", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Value'
@@ -1114,9 +1114,9 @@ public class CommandClassChimneyFanV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("SIZE", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCALE", new Integer((payload[msgOffset] & 0x18 >> 3)));
-        response.put("PRECISION", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("SIZE", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCALE", Integer.valueOf((payload[msgOffset] & 0x18 >> 3)));
+        response.put("PRECISION", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Value'
@@ -1174,7 +1174,7 @@ public class CommandClassChimneyFanV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Time'
-        response.put("TIME", new Integer(payload[2]));
+        response.put("TIME", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -1257,7 +1257,7 @@ public class CommandClassChimneyFanV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Time'
-        response.put("TIME", new Integer(payload[2]));
+        response.put("TIME", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -1305,7 +1305,7 @@ public class CommandClassChimneyFanV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Time'
-        response.put("TIME", new Integer(payload[2]));
+        response.put("TIME", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -1388,7 +1388,7 @@ public class CommandClassChimneyFanV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Time'
-        response.put("TIME", new Integer(payload[2]));
+        response.put("TIME", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -1715,21 +1715,21 @@ public class CommandClassChimneyFanV1 {
         msgOffset += 1;
 
         // Process 'Boost Time'
-        response.put("BOOST_TIME", new Integer(payload[msgOffset]));
+        response.put("BOOST_TIME", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Stop Time'
-        response.put("STOP_TIME", new Integer(payload[msgOffset]));
+        response.put("STOP_TIME", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Min. Speed'
-        response.put("MIN_SPEED", new Integer(payload[msgOffset]));
+        response.put("MIN_SPEED", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties1'
-        response.put("SIZE_1", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCALE_1", new Integer((payload[msgOffset] & 0x18 >> 3)));
-        response.put("PRECISION_1", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("SIZE_1", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCALE_1", Integer.valueOf((payload[msgOffset] & 0x18 >> 3)));
+        response.put("PRECISION_1", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Start Temperature'
@@ -1742,9 +1742,9 @@ public class CommandClassChimneyFanV1 {
         msgOffset += lenStartTemperature;
 
         // Process 'Properties2'
-        response.put("SIZE_2", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCALE_2", new Integer((payload[msgOffset] & 0x18 >> 3)));
-        response.put("PRECISION_2", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("SIZE_2", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCALE_2", Integer.valueOf((payload[msgOffset] & 0x18 >> 3)));
+        response.put("PRECISION_2", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Stop Temperature'
@@ -1757,9 +1757,9 @@ public class CommandClassChimneyFanV1 {
         msgOffset += lenStopTemperature;
 
         // Process 'Properties3'
-        response.put("SIZE_3", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCALE_3", new Integer((payload[msgOffset] & 0x18 >> 3)));
-        response.put("PRECISION_3", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("SIZE_3", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCALE_3", Integer.valueOf((payload[msgOffset] & 0x18 >> 3)));
+        response.put("PRECISION_3", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Alarm Temperature Value'
@@ -1960,21 +1960,21 @@ public class CommandClassChimneyFanV1 {
         msgOffset += 1;
 
         // Process 'Boost Time'
-        response.put("BOOST_TIME", new Integer(payload[msgOffset]));
+        response.put("BOOST_TIME", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Stop Time'
-        response.put("STOP_TIME", new Integer(payload[msgOffset]));
+        response.put("STOP_TIME", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Min. Speed'
-        response.put("MIN_SPEED", new Integer(payload[msgOffset]));
+        response.put("MIN_SPEED", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties1'
-        response.put("SIZE_1", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCALE_1", new Integer((payload[msgOffset] & 0x18 >> 3)));
-        response.put("PRECISION_1", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("SIZE_1", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCALE_1", Integer.valueOf((payload[msgOffset] & 0x18 >> 3)));
+        response.put("PRECISION_1", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Start Temperature'
@@ -1987,9 +1987,9 @@ public class CommandClassChimneyFanV1 {
         msgOffset += lenStartTemperature;
 
         // Process 'Properties2'
-        response.put("SIZE_2", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCALE_2", new Integer((payload[msgOffset] & 0x18 >> 3)));
-        response.put("PRECISION_2", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("SIZE_2", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCALE_2", Integer.valueOf((payload[msgOffset] & 0x18 >> 3)));
+        response.put("PRECISION_2", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Stop Temperature'
@@ -2002,9 +2002,9 @@ public class CommandClassChimneyFanV1 {
         msgOffset += lenStopTemperature;
 
         // Process 'Properties3'
-        response.put("SIZE_3", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCALE_3", new Integer((payload[msgOffset] & 0x18 >> 3)));
-        response.put("PRECISION_3", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("SIZE_3", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCALE_3", Integer.valueOf((payload[msgOffset] & 0x18 >> 3)));
+        response.put("PRECISION_3", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Alarm Temperature Value'
@@ -2228,22 +2228,22 @@ public class CommandClassChimneyFanV1 {
         msgOffset += 1;
 
         // Process 'Speed'
-        response.put("SPEED", new Integer(payload[msgOffset]));
+        response.put("SPEED", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Alarm Status'
-        response.put("SERVICE", new Boolean((payload[msgOffset] & 0x01) != 0));
-        response.put("EXTERNAL_ALARM", new Boolean((payload[msgOffset] & 0x02) != 0));
-        response.put("SENSOR_ERROR", new Boolean((payload[msgOffset] & 0x04) != 0));
-        response.put("ALARM_TEMPERATURE_EXCEEDED", new Boolean((payload[msgOffset] & 0x08) != 0));
-        response.put("SPEED_CHANGE_ENABLE", new Boolean((payload[msgOffset] & 0x40) != 0));
-        response.put("START_TEMPERATURE_EXCEEDED", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("SERVICE", Boolean.valueOf((payload[msgOffset] & 0x01) != 0));
+        response.put("EXTERNAL_ALARM", Boolean.valueOf((payload[msgOffset] & 0x02) != 0));
+        response.put("SENSOR_ERROR", Boolean.valueOf((payload[msgOffset] & 0x04) != 0));
+        response.put("ALARM_TEMPERATURE_EXCEEDED", Boolean.valueOf((payload[msgOffset] & 0x08) != 0));
+        response.put("SPEED_CHANGE_ENABLE", Boolean.valueOf((payload[msgOffset] & 0x40) != 0));
+        response.put("START_TEMPERATURE_EXCEEDED", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'Properties1'
-        response.put("SIZE", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCALE", new Integer((payload[msgOffset] & 0x18 >> 3)));
-        response.put("PRECISION", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("SIZE", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCALE", Integer.valueOf((payload[msgOffset] & 0x18 >> 3)));
+        response.put("PRECISION", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Value'
@@ -2478,34 +2478,34 @@ public class CommandClassChimneyFanV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Alarm Event 1'
-        response.put("EXTERNAL_ALARM_1", new Boolean((payload[2] & 0x02) != 0));
-        response.put("SENSOR_ERROR_1", new Boolean((payload[2] & 0x04) != 0));
-        response.put("ALARM_TEMPERATURE_EXCEEDED_1", new Boolean((payload[2] & 0x08) != 0));
-        response.put("ALARM_STILL_ACTIVE_1", new Boolean((payload[2] & 0x80) != 0));
+        response.put("EXTERNAL_ALARM_1", Boolean.valueOf((payload[2] & 0x02) != 0));
+        response.put("SENSOR_ERROR_1", Boolean.valueOf((payload[2] & 0x04) != 0));
+        response.put("ALARM_TEMPERATURE_EXCEEDED_1", Boolean.valueOf((payload[2] & 0x08) != 0));
+        response.put("ALARM_STILL_ACTIVE_1", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Process 'Alarm Event 2'
-        response.put("EXTERNAL_ALARM_2", new Boolean((payload[3] & 0x02) != 0));
-        response.put("SENSOR_ERROR_2", new Boolean((payload[3] & 0x04) != 0));
-        response.put("ALARM_TEMPERATURE_EXCEEDED_2", new Boolean((payload[3] & 0x08) != 0));
-        response.put("ALARM_STILL_ACTIVE_2", new Boolean((payload[3] & 0x80) != 0));
+        response.put("EXTERNAL_ALARM_2", Boolean.valueOf((payload[3] & 0x02) != 0));
+        response.put("SENSOR_ERROR_2", Boolean.valueOf((payload[3] & 0x04) != 0));
+        response.put("ALARM_TEMPERATURE_EXCEEDED_2", Boolean.valueOf((payload[3] & 0x08) != 0));
+        response.put("ALARM_STILL_ACTIVE_2", Boolean.valueOf((payload[3] & 0x80) != 0));
 
         // Process 'Alarm Event 3'
-        response.put("EXTERNAL_ALARM_3", new Boolean((payload[4] & 0x02) != 0));
-        response.put("SENSOR_ERROR_3", new Boolean((payload[4] & 0x04) != 0));
-        response.put("ALARM_TEMPERATURE_EXCEEDED_3", new Boolean((payload[4] & 0x08) != 0));
-        response.put("ALARM_STILL_ACTIVE_3", new Boolean((payload[4] & 0x80) != 0));
+        response.put("EXTERNAL_ALARM_3", Boolean.valueOf((payload[4] & 0x02) != 0));
+        response.put("SENSOR_ERROR_3", Boolean.valueOf((payload[4] & 0x04) != 0));
+        response.put("ALARM_TEMPERATURE_EXCEEDED_3", Boolean.valueOf((payload[4] & 0x08) != 0));
+        response.put("ALARM_STILL_ACTIVE_3", Boolean.valueOf((payload[4] & 0x80) != 0));
 
         // Process 'Alarm Event 4'
-        response.put("EXTERNAL_ALARM_4", new Boolean((payload[5] & 0x02) != 0));
-        response.put("SENSOR_ERROR_4", new Boolean((payload[5] & 0x04) != 0));
-        response.put("ALARM_TEMPERATURE_EXCEEDED_4", new Boolean((payload[5] & 0x08) != 0));
-        response.put("ALARM_STILL_ACTIVE_4", new Boolean((payload[5] & 0x80) != 0));
+        response.put("EXTERNAL_ALARM_4", Boolean.valueOf((payload[5] & 0x02) != 0));
+        response.put("SENSOR_ERROR_4", Boolean.valueOf((payload[5] & 0x04) != 0));
+        response.put("ALARM_TEMPERATURE_EXCEEDED_4", Boolean.valueOf((payload[5] & 0x08) != 0));
+        response.put("ALARM_STILL_ACTIVE_4", Boolean.valueOf((payload[5] & 0x80) != 0));
 
         // Process 'Alarm Event 5'
-        response.put("EXTERNAL_ALARM_5", new Boolean((payload[6] & 0x02) != 0));
-        response.put("SENSOR_ERROR_5", new Boolean((payload[6] & 0x04) != 0));
-        response.put("ALARM_TEMPERATURE_EXCEEDED_5", new Boolean((payload[6] & 0x08) != 0));
-        response.put("ALARM_STILL_ACTIVE_5", new Boolean((payload[6] & 0x80) != 0));
+        response.put("EXTERNAL_ALARM_5", Boolean.valueOf((payload[6] & 0x02) != 0));
+        response.put("SENSOR_ERROR_5", Boolean.valueOf((payload[6] & 0x04) != 0));
+        response.put("ALARM_TEMPERATURE_EXCEEDED_5", Boolean.valueOf((payload[6] & 0x08) != 0));
+        response.put("ALARM_STILL_ACTIVE_5", Boolean.valueOf((payload[6] & 0x80) != 0));
 
         // Return the map of processed response data;
         return response;
@@ -2562,9 +2562,9 @@ public class CommandClassChimneyFanV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Message'
-        response.put("ACKNOWLEDGE_EXTERNAL_ALARM", new Boolean((payload[2] & 0x02) != 0));
-        response.put("ACKNOWLEDGE_SENSOR_ERROR", new Boolean((payload[2] & 0x04) != 0));
-        response.put("ACKNOWLEDGE_ALARM_TEMPERATURE_EXCEEDED", new Boolean((payload[2] & 0x08) != 0));
+        response.put("ACKNOWLEDGE_EXTERNAL_ALARM", Boolean.valueOf((payload[2] & 0x02) != 0));
+        response.put("ACKNOWLEDGE_SENSOR_ERROR", Boolean.valueOf((payload[2] & 0x04) != 0));
+        response.put("ACKNOWLEDGE_ALARM_TEMPERATURE_EXCEEDED", Boolean.valueOf((payload[2] & 0x08) != 0));
 
         // Return the map of processed response data;
         return response;
@@ -2665,12 +2665,12 @@ public class CommandClassChimneyFanV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Alarm Status'
-        response.put("SERVICE", new Boolean((payload[2] & 0x01) != 0));
-        response.put("EXTERNAL_ALARM", new Boolean((payload[2] & 0x02) != 0));
-        response.put("SENSOR_ERROR", new Boolean((payload[2] & 0x04) != 0));
-        response.put("ALARM_TEMPERATURE_EXCEEDED", new Boolean((payload[2] & 0x08) != 0));
-        response.put("SPEED_CHANGE_ENABLE", new Boolean((payload[2] & 0x40) != 0));
-        response.put("START_TEMPERATURE_EXCEEDED", new Boolean((payload[2] & 0x80) != 0));
+        response.put("SERVICE", Boolean.valueOf((payload[2] & 0x01) != 0));
+        response.put("EXTERNAL_ALARM", Boolean.valueOf((payload[2] & 0x02) != 0));
+        response.put("SENSOR_ERROR", Boolean.valueOf((payload[2] & 0x04) != 0));
+        response.put("ALARM_TEMPERATURE_EXCEEDED", Boolean.valueOf((payload[2] & 0x08) != 0));
+        response.put("SPEED_CHANGE_ENABLE", Boolean.valueOf((payload[2] & 0x40) != 0));
+        response.put("START_TEMPERATURE_EXCEEDED", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Return the map of processed response data;
         return response;
@@ -2718,7 +2718,7 @@ public class CommandClassChimneyFanV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Min Speed'
-        response.put("MIN_SPEED", new Integer(payload[2]));
+        response.put("MIN_SPEED", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -2801,7 +2801,7 @@ public class CommandClassChimneyFanV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Min Speed'
-        response.put("MIN_SPEED", new Integer(payload[2]));
+        response.put("MIN_SPEED", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;

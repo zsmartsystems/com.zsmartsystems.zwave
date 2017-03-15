@@ -1165,7 +1165,7 @@ public class CommandClassSensorMultilevelV8 {
         }
 
         // Process 'Properties1'
-        response.put("SCALE", new Integer((payload[3] & 0x18 >> 3)));
+        response.put("SCALE", Integer.valueOf((payload[3] & 0x18 >> 3)));
 
         // Return the map of processed response data;
         return response;
@@ -1580,9 +1580,9 @@ public class CommandClassSensorMultilevelV8 {
         msgOffset += 1;
 
         // Process 'Level'
-        response.put("SIZE", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCALE", new Integer((payload[msgOffset] & 0x18 >> 3)));
-        response.put("PRECISION", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("SIZE", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCALE", Integer.valueOf((payload[msgOffset] & 0x18 >> 3)));
+        response.put("PRECISION", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Sensor Value'
@@ -1986,7 +1986,7 @@ public class CommandClassSensorMultilevelV8 {
         }
 
         // Process 'Properties1'
-        response.put("SCALE_BIT_MASK", new Integer(payload[3] & 0x0F));
+        response.put("SCALE_BIT_MASK", Integer.valueOf(payload[3] & 0x0F));
 
         // Return the map of processed response data;
         return response;

@@ -188,7 +188,7 @@ public class CommandClassMeterTblMonitorV2 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("NUMBER_OF_CHARACTERS", new Integer(payload[msgOffset] & 0x1F));
+        response.put("NUMBER_OF_CHARACTERS", Integer.valueOf(payload[msgOffset] & 0x1F));
         msgOffset += 1;
 
         // Process 'Meter Point Adm Number Character'
@@ -292,7 +292,7 @@ public class CommandClassMeterTblMonitorV2 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("NUMBER_OF_CHARACTERS", new Integer(payload[msgOffset] & 0x1F));
+        response.put("NUMBER_OF_CHARACTERS", Integer.valueOf(payload[msgOffset] & 0x1F));
         msgOffset += 1;
 
         // Process 'Meter ID Character'
@@ -415,8 +415,8 @@ public class CommandClassMeterTblMonitorV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("METER_TYPE", new Integer(payload[2] & 0x3F));
-        response.put("RATE_TYPE", new Integer((payload[2] & 0xC0 >> 6)));
+        response.put("METER_TYPE", Integer.valueOf(payload[2] & 0x3F));
+        response.put("RATE_TYPE", Integer.valueOf((payload[2] & 0xC0 >> 6)));
 
         // Process 'Properties2'
         switch ((int) payload[3] & 0x0F) {
@@ -524,7 +524,7 @@ public class CommandClassMeterTblMonitorV2 {
         // Process 'Supported Operating Status'
 
         // Process 'Status Event Log Depth'
-        response.put("STATUS_EVENT_LOG_DEPTH", new Integer(payload[5]));
+        response.put("STATUS_EVENT_LOG_DEPTH", Integer.valueOf(payload[5]));
 
         // Return the map of processed response data;
         return response;
@@ -572,7 +572,7 @@ public class CommandClassMeterTblMonitorV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Status Event Log Depth'
-        response.put("STATUS_EVENT_LOG_DEPTH", new Integer(payload[2]));
+        response.put("STATUS_EVENT_LOG_DEPTH", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -685,43 +685,43 @@ public class CommandClassMeterTblMonitorV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Maximum Reports'
-        response.put("MAXIMUM_REPORTS", new Integer(payload[2]));
+        response.put("MAXIMUM_REPORTS", Integer.valueOf(payload[2]));
 
         // Process 'Start Year'
-        response.put("START_YEAR", new Integer(payload[3] << 8 + payload[4]));
+        response.put("START_YEAR", Integer.valueOf(payload[3] << 8 + payload[4]));
 
         // Process 'Start Month'
-        response.put("START_MONTH", new Integer(payload[5]));
+        response.put("START_MONTH", Integer.valueOf(payload[5]));
 
         // Process 'Start Day'
-        response.put("START_DAY", new Integer(payload[6]));
+        response.put("START_DAY", Integer.valueOf(payload[6]));
 
         // Process 'Start Hour Local Time'
-        response.put("START_HOUR_LOCAL_TIME", new Integer(payload[7]));
+        response.put("START_HOUR_LOCAL_TIME", Integer.valueOf(payload[7]));
 
         // Process 'Start Minute Local Time'
-        response.put("START_MINUTE_LOCAL_TIME", new Integer(payload[8]));
+        response.put("START_MINUTE_LOCAL_TIME", Integer.valueOf(payload[8]));
 
         // Process 'Start Second Local Time'
-        response.put("START_SECOND_LOCAL_TIME", new Integer(payload[9]));
+        response.put("START_SECOND_LOCAL_TIME", Integer.valueOf(payload[9]));
 
         // Process 'Stop Year'
-        response.put("STOP_YEAR", new Integer(payload[10] << 8 + payload[11]));
+        response.put("STOP_YEAR", Integer.valueOf(payload[10] << 8 + payload[11]));
 
         // Process 'Stop Month'
-        response.put("STOP_MONTH", new Integer(payload[12]));
+        response.put("STOP_MONTH", Integer.valueOf(payload[12]));
 
         // Process 'Stop Day'
-        response.put("STOP_DAY", new Integer(payload[13]));
+        response.put("STOP_DAY", Integer.valueOf(payload[13]));
 
         // Process 'Stop Hour Local Time'
-        response.put("STOP_HOUR_LOCAL_TIME", new Integer(payload[14]));
+        response.put("STOP_HOUR_LOCAL_TIME", Integer.valueOf(payload[14]));
 
         // Process 'Stop Minute Local Time'
-        response.put("STOP_MINUTE_LOCAL_TIME", new Integer(payload[15]));
+        response.put("STOP_MINUTE_LOCAL_TIME", Integer.valueOf(payload[15]));
 
         // Process 'Stop Second Local Time'
-        response.put("STOP_SECOND_LOCAL_TIME", new Integer(payload[16]));
+        response.put("STOP_SECOND_LOCAL_TIME", Integer.valueOf(payload[16]));
 
         // Return the map of processed response data;
         return response;
@@ -773,7 +773,7 @@ public class CommandClassMeterTblMonitorV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Reports to follow'
-        response.put("REPORTS_TO_FOLLOW", new Integer(payload[2]));
+        response.put("REPORTS_TO_FOLLOW", Integer.valueOf(payload[2]));
 
         // Process 'Current Operating Status'
 
@@ -788,26 +788,26 @@ public class CommandClassMeterTblMonitorV2 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Properties1'
-            variant.put("OPERATING_STATUS_EVENT_ID", new Integer(payload[6] & 0x1F));
-            variant.put("TYPE", new Boolean((payload[6] & 0x80) != 0));
+            variant.put("OPERATING_STATUS_EVENT_ID", Integer.valueOf(payload[6] & 0x1F));
+            variant.put("TYPE", Boolean.valueOf((payload[6] & 0x80) != 0));
 
             // Process 'Year'
-            variant.put("YEAR", new Integer(payload[7] << 8 + payload[8]));
+            variant.put("YEAR", Integer.valueOf(payload[7] << 8 + payload[8]));
 
             // Process 'Month'
-            variant.put("MONTH", new Integer(payload[9]));
+            variant.put("MONTH", Integer.valueOf(payload[9]));
 
             // Process 'Day'
-            variant.put("DAY", new Integer(payload[10]));
+            variant.put("DAY", Integer.valueOf(payload[10]));
 
             // Process 'Hour Local Time'
-            variant.put("HOUR_LOCAL_TIME", new Integer(payload[11]));
+            variant.put("HOUR_LOCAL_TIME", Integer.valueOf(payload[11]));
 
             // Process 'Minute Local Time'
-            variant.put("MINUTE_LOCAL_TIME", new Integer(payload[12]));
+            variant.put("MINUTE_LOCAL_TIME", Integer.valueOf(payload[12]));
 
             // Process 'Second Local Time'
-            variant.put("SECOND_LOCAL_TIME", new Integer(payload[13]));
+            variant.put("SECOND_LOCAL_TIME", Integer.valueOf(payload[13]));
 
             // Add to the list
             variantList.add(variant);
@@ -951,31 +951,31 @@ public class CommandClassMeterTblMonitorV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Reports to Follow'
-        response.put("REPORTS_TO_FOLLOW", new Integer(payload[2]));
+        response.put("REPORTS_TO_FOLLOW", Integer.valueOf(payload[2]));
 
         // Process 'Properties1'
-        response.put("RATE_TYPE", new Integer(payload[3] & 0x03));
-        response.put("OPERATING_STATUS_INDICATION", new Boolean((payload[3] & 0x80) != 0));
+        response.put("RATE_TYPE", Integer.valueOf(payload[3] & 0x03));
+        response.put("OPERATING_STATUS_INDICATION", Boolean.valueOf((payload[3] & 0x80) != 0));
 
         // Process 'Dataset'
 
         // Process 'Year'
-        response.put("YEAR", new Integer(payload[7] << 8 + payload[8]));
+        response.put("YEAR", Integer.valueOf(payload[7] << 8 + payload[8]));
 
         // Process 'Month'
-        response.put("MONTH", new Integer(payload[9]));
+        response.put("MONTH", Integer.valueOf(payload[9]));
 
         // Process 'Day'
-        response.put("DAY", new Integer(payload[10]));
+        response.put("DAY", Integer.valueOf(payload[10]));
 
         // Process 'Hour Local Time'
-        response.put("HOUR_LOCAL_TIME", new Integer(payload[11]));
+        response.put("HOUR_LOCAL_TIME", Integer.valueOf(payload[11]));
 
         // Process 'Minute Local Time'
-        response.put("MINUTE_LOCAL_TIME", new Integer(payload[12]));
+        response.put("MINUTE_LOCAL_TIME", Integer.valueOf(payload[12]));
 
         // Process 'Second Local Time'
-        response.put("SECOND_LOCAL_TIME", new Integer(payload[13]));
+        response.put("SECOND_LOCAL_TIME", Integer.valueOf(payload[13]));
 
         // Process 'vg'
 
@@ -988,11 +988,11 @@ public class CommandClassMeterTblMonitorV2 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Properties1'
-            variant.put("CURRENT_SCALE", new Integer(payload[14] & 0x1F));
-            variant.put("CURRENT_PRECISION", new Integer((payload[14] & 0xE0 >> 5)));
+            variant.put("CURRENT_SCALE", Integer.valueOf(payload[14] & 0x1F));
+            variant.put("CURRENT_PRECISION", Integer.valueOf((payload[14] & 0xE0 >> 5)));
 
             // Process 'Current Value'
-            variant.put("CURRENT_VALUE", new Long(payload[15] << 24 + payload[16] << 16 + payload[17] << 8 + payload[18]));
+            variant.put("CURRENT_VALUE", Long.valueOf(payload[15] << 24 + payload[16] << 16 + payload[17] << 8 + payload[18]));
 
             // Add to the list
             variantList.add(variant);
@@ -1117,45 +1117,45 @@ public class CommandClassMeterTblMonitorV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Maximum Reports'
-        response.put("MAXIMUM_REPORTS", new Integer(payload[2]));
+        response.put("MAXIMUM_REPORTS", Integer.valueOf(payload[2]));
 
         // Process 'Historical Dataset Requested'
 
         // Process 'Start Year'
-        response.put("START_YEAR", new Integer(payload[6] << 8 + payload[7]));
+        response.put("START_YEAR", Integer.valueOf(payload[6] << 8 + payload[7]));
 
         // Process 'Start Month'
-        response.put("START_MONTH", new Integer(payload[8]));
+        response.put("START_MONTH", Integer.valueOf(payload[8]));
 
         // Process 'Start Day'
-        response.put("START_DAY", new Integer(payload[9]));
+        response.put("START_DAY", Integer.valueOf(payload[9]));
 
         // Process 'Start Hour Local Time'
-        response.put("START_HOUR_LOCAL_TIME", new Integer(payload[10]));
+        response.put("START_HOUR_LOCAL_TIME", Integer.valueOf(payload[10]));
 
         // Process 'Start Minute Local Time'
-        response.put("START_MINUTE_LOCAL_TIME", new Integer(payload[11]));
+        response.put("START_MINUTE_LOCAL_TIME", Integer.valueOf(payload[11]));
 
         // Process 'Start Second Local Time'
-        response.put("START_SECOND_LOCAL_TIME", new Integer(payload[12]));
+        response.put("START_SECOND_LOCAL_TIME", Integer.valueOf(payload[12]));
 
         // Process 'Stop Year'
-        response.put("STOP_YEAR", new Integer(payload[13] << 8 + payload[14]));
+        response.put("STOP_YEAR", Integer.valueOf(payload[13] << 8 + payload[14]));
 
         // Process 'Stop Month'
-        response.put("STOP_MONTH", new Integer(payload[15]));
+        response.put("STOP_MONTH", Integer.valueOf(payload[15]));
 
         // Process 'Stop Day'
-        response.put("STOP_DAY", new Integer(payload[16]));
+        response.put("STOP_DAY", Integer.valueOf(payload[16]));
 
         // Process 'Stop Hour Local Time'
-        response.put("STOP_HOUR_LOCAL_TIME", new Integer(payload[17]));
+        response.put("STOP_HOUR_LOCAL_TIME", Integer.valueOf(payload[17]));
 
         // Process 'Stop Minute Local Time'
-        response.put("STOP_MINUTE_LOCAL_TIME", new Integer(payload[18]));
+        response.put("STOP_MINUTE_LOCAL_TIME", Integer.valueOf(payload[18]));
 
         // Process 'Stop Second Local Time'
-        response.put("STOP_SECOND_LOCAL_TIME", new Integer(payload[19]));
+        response.put("STOP_SECOND_LOCAL_TIME", Integer.valueOf(payload[19]));
 
         // Return the map of processed response data;
         return response;
@@ -1250,31 +1250,31 @@ public class CommandClassMeterTblMonitorV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Reports to Follow'
-        response.put("REPORTS_TO_FOLLOW", new Integer(payload[2]));
+        response.put("REPORTS_TO_FOLLOW", Integer.valueOf(payload[2]));
 
         // Process 'Properties1'
-        response.put("RATE_TYPE", new Integer(payload[3] & 0x03));
-        response.put("OPERATING_STATUS_INDICATION", new Boolean((payload[3] & 0x80) != 0));
+        response.put("RATE_TYPE", Integer.valueOf(payload[3] & 0x03));
+        response.put("OPERATING_STATUS_INDICATION", Boolean.valueOf((payload[3] & 0x80) != 0));
 
         // Process 'Dataset'
 
         // Process 'Year'
-        response.put("YEAR", new Integer(payload[7] << 8 + payload[8]));
+        response.put("YEAR", Integer.valueOf(payload[7] << 8 + payload[8]));
 
         // Process 'Month'
-        response.put("MONTH", new Integer(payload[9]));
+        response.put("MONTH", Integer.valueOf(payload[9]));
 
         // Process 'Day'
-        response.put("DAY", new Integer(payload[10]));
+        response.put("DAY", Integer.valueOf(payload[10]));
 
         // Process 'Hour Local Time'
-        response.put("HOUR_LOCAL_TIME", new Integer(payload[11]));
+        response.put("HOUR_LOCAL_TIME", Integer.valueOf(payload[11]));
 
         // Process 'Minute Local Time'
-        response.put("MINUTE_LOCAL_TIME", new Integer(payload[12]));
+        response.put("MINUTE_LOCAL_TIME", Integer.valueOf(payload[12]));
 
         // Process 'Second Local Time'
-        response.put("SECOND_LOCAL_TIME", new Integer(payload[13]));
+        response.put("SECOND_LOCAL_TIME", Integer.valueOf(payload[13]));
 
         // Process 'vg'
 
@@ -1287,11 +1287,11 @@ public class CommandClassMeterTblMonitorV2 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Properties1'
-            variant.put("HISTORICAL_SCALE", new Integer(payload[14] & 0x1F));
-            variant.put("HISTORICAL_PRECISION", new Integer((payload[14] & 0xE0 >> 5)));
+            variant.put("HISTORICAL_SCALE", Integer.valueOf(payload[14] & 0x1F));
+            variant.put("HISTORICAL_PRECISION", Integer.valueOf((payload[14] & 0xE0 >> 5)));
 
             // Process 'Historical Value'
-            variant.put("HISTORICAL_VALUE", new Long(payload[15] << 24 + payload[16] << 16 + payload[17] << 8 + payload[18]));
+            variant.put("HISTORICAL_VALUE", Long.valueOf(payload[15] << 24 + payload[16] << 16 + payload[17] << 8 + payload[18]));
 
             // Add to the list
             variantList.add(variant);

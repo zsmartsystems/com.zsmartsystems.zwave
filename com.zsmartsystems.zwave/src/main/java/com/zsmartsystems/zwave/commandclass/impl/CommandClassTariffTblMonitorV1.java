@@ -202,43 +202,43 @@ public class CommandClassTariffTblMonitorV1 {
         int msgOffset = 2;
 
         // Process 'Year'
-        response.put("YEAR", new Integer(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("YEAR", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
         msgOffset += 2;
 
         // Process 'Month'
-        response.put("MONTH", new Integer(payload[msgOffset]));
+        response.put("MONTH", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Day'
-        response.put("DAY", new Integer(payload[msgOffset]));
+        response.put("DAY", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Hour Local Time'
-        response.put("HOUR_LOCAL_TIME", new Integer(payload[msgOffset]));
+        response.put("HOUR_LOCAL_TIME", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Minute Local Time'
-        response.put("MINUTE_LOCAL_TIME", new Integer(payload[msgOffset]));
+        response.put("MINUTE_LOCAL_TIME", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Second Local Time'
-        response.put("SECOND_LOCAL_TIME", new Integer(payload[msgOffset]));
+        response.put("SECOND_LOCAL_TIME", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Currency'
         msgOffset += 3;
 
         // Process 'Properties1'
-        response.put("STANDING_CHARGE_PERIOD", new Integer(payload[msgOffset] & 0x1F));
-        response.put("STANDING_CHARGE_PRECISION", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("STANDING_CHARGE_PERIOD", Integer.valueOf(payload[msgOffset] & 0x1F));
+        response.put("STANDING_CHARGE_PRECISION", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Standing Charge Value'
-        response.put("STANDING_CHARGE_VALUE", new Long(payload[msgOffset] << 24 + payload[msgOffset + 12] << 16 + payload[msgOffset + 22] << 8 + payload[msgOffset + 32]));
+        response.put("STANDING_CHARGE_VALUE", Long.valueOf(payload[msgOffset] << 24 + payload[msgOffset + 12] << 16 + payload[msgOffset + 22] << 8 + payload[msgOffset + 32]));
         msgOffset += 4;
 
         // Process 'Properties2'
-        response.put("NUMBER_OF_SUPPLIER_CHARACTERS", new Integer(payload[msgOffset] & 0x1F));
+        response.put("NUMBER_OF_SUPPLIER_CHARACTERS", Integer.valueOf(payload[msgOffset] & 0x1F));
         msgOffset += 1;
 
         // Process 'Supplier Character'
@@ -296,7 +296,7 @@ public class CommandClassTariffTblMonitorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Rate Parameter Set ID'
-        response.put("RATE_PARAMETER_SET_ID", new Integer(payload[2]));
+        response.put("RATE_PARAMETER_SET_ID", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -357,13 +357,13 @@ public class CommandClassTariffTblMonitorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Rate Parameter Set ID'
-        response.put("RATE_PARAMETER_SET_ID", new Integer(payload[2]));
+        response.put("RATE_PARAMETER_SET_ID", Integer.valueOf(payload[2]));
 
         // Process 'Properties1'
-        response.put("TARIFF_PRECISION", new Integer((payload[3] & 0xE0 >> 5)));
+        response.put("TARIFF_PRECISION", Integer.valueOf((payload[3] & 0xE0 >> 5)));
 
         // Process 'Tariff Value'
-        response.put("TARIFF_VALUE", new Long(payload[4] << 24 + payload[5] << 16 + payload[6] << 8 + payload[7]));
+        response.put("TARIFF_VALUE", Long.valueOf(payload[4] << 24 + payload[5] << 16 + payload[6] << 8 + payload[7]));
 
         // Return the map of processed response data;
         return response;
@@ -465,37 +465,37 @@ public class CommandClassTariffTblMonitorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Rate Parameter Set ID'
-        response.put("RATE_PARAMETER_SET_ID", new Integer(payload[2]));
+        response.put("RATE_PARAMETER_SET_ID", Integer.valueOf(payload[2]));
 
         // Process 'Start Year'
-        response.put("START_YEAR", new Integer(payload[3] << 8 + payload[4]));
+        response.put("START_YEAR", Integer.valueOf(payload[3] << 8 + payload[4]));
 
         // Process 'Start Month'
-        response.put("START_MONTH", new Integer(payload[5]));
+        response.put("START_MONTH", Integer.valueOf(payload[5]));
 
         // Process 'Start Day'
-        response.put("START_DAY", new Integer(payload[6]));
+        response.put("START_DAY", Integer.valueOf(payload[6]));
 
         // Process 'Start Hour Local Time'
-        response.put("START_HOUR_LOCAL_TIME", new Integer(payload[7]));
+        response.put("START_HOUR_LOCAL_TIME", Integer.valueOf(payload[7]));
 
         // Process 'Start Minute Local Time'
-        response.put("START_MINUTE_LOCAL_TIME", new Integer(payload[8]));
+        response.put("START_MINUTE_LOCAL_TIME", Integer.valueOf(payload[8]));
 
         // Process 'Stop Year'
-        response.put("STOP_YEAR", new Integer(payload[9] << 8 + payload[10]));
+        response.put("STOP_YEAR", Integer.valueOf(payload[9] << 8 + payload[10]));
 
         // Process 'Stop Month'
-        response.put("STOP_MONTH", new Integer(payload[11]));
+        response.put("STOP_MONTH", Integer.valueOf(payload[11]));
 
         // Process 'Stop Day'
-        response.put("STOP_DAY", new Integer(payload[12]));
+        response.put("STOP_DAY", Integer.valueOf(payload[12]));
 
         // Process 'Stop Hour Local Time'
-        response.put("STOP_HOUR_LOCAL_TIME", new Integer(payload[13]));
+        response.put("STOP_HOUR_LOCAL_TIME", Integer.valueOf(payload[13]));
 
         // Process 'Stop Minute Local Time'
-        response.put("STOP_MINUTE_LOCAL_TIME", new Integer(payload[14]));
+        response.put("STOP_MINUTE_LOCAL_TIME", Integer.valueOf(payload[14]));
 
         // Return the map of processed response data;
         return response;
@@ -618,48 +618,48 @@ public class CommandClassTariffTblMonitorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Rate Parameter Set ID'
-        response.put("RATE_PARAMETER_SET_ID", new Integer(payload[2]));
+        response.put("RATE_PARAMETER_SET_ID", Integer.valueOf(payload[2]));
 
         // Process 'Properties1'
-        response.put("RATE_TYPE", new Integer(payload[3] & 0x03));
+        response.put("RATE_TYPE", Integer.valueOf(payload[3] & 0x03));
 
         // Process 'Start Year'
-        response.put("START_YEAR", new Integer(payload[4] << 8 + payload[5]));
+        response.put("START_YEAR", Integer.valueOf(payload[4] << 8 + payload[5]));
 
         // Process 'Start Month'
-        response.put("START_MONTH", new Integer(payload[6]));
+        response.put("START_MONTH", Integer.valueOf(payload[6]));
 
         // Process 'Start Day'
-        response.put("START_DAY", new Integer(payload[7]));
+        response.put("START_DAY", Integer.valueOf(payload[7]));
 
         // Process 'Start Hour Local Time'
-        response.put("START_HOUR_LOCAL_TIME", new Integer(payload[8]));
+        response.put("START_HOUR_LOCAL_TIME", Integer.valueOf(payload[8]));
 
         // Process 'Start Minute Local Time'
-        response.put("START_MINUTE_LOCAL_TIME", new Integer(payload[9]));
+        response.put("START_MINUTE_LOCAL_TIME", Integer.valueOf(payload[9]));
 
         // Process 'Stop Year'
-        response.put("STOP_YEAR", new Integer(payload[10] << 8 + payload[11]));
+        response.put("STOP_YEAR", Integer.valueOf(payload[10] << 8 + payload[11]));
 
         // Process 'Stop Month'
-        response.put("STOP_MONTH", new Integer(payload[12]));
+        response.put("STOP_MONTH", Integer.valueOf(payload[12]));
 
         // Process 'Stop Day'
-        response.put("STOP_DAY", new Integer(payload[13]));
+        response.put("STOP_DAY", Integer.valueOf(payload[13]));
 
         // Process 'Stop Hour Local Time'
-        response.put("STOP_HOUR_LOCAL_TIME", new Integer(payload[14]));
+        response.put("STOP_HOUR_LOCAL_TIME", Integer.valueOf(payload[14]));
 
         // Process 'Stop Minute Local Time'
-        response.put("STOP_MINUTE_LOCAL_TIME", new Integer(payload[15]));
+        response.put("STOP_MINUTE_LOCAL_TIME", Integer.valueOf(payload[15]));
 
         // Process 'Currency'
 
         // Process 'Properties2'
-        response.put("COST_PRECISION", new Integer((payload[19] & 0xE0 >> 5)));
+        response.put("COST_PRECISION", Integer.valueOf((payload[19] & 0xE0 >> 5)));
 
         // Process 'Cost Value'
-        response.put("COST_VALUE", new Long(payload[20] << 24 + payload[21] << 16 + payload[22] << 8 + payload[23]));
+        response.put("COST_VALUE", Long.valueOf(payload[20] << 24 + payload[21] << 16 + payload[22] << 8 + payload[23]));
 
         // Return the map of processed response data;
         return response;

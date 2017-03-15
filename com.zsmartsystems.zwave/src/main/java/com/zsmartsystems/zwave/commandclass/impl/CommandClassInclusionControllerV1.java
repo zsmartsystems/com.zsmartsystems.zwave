@@ -105,7 +105,7 @@ public class CommandClassInclusionControllerV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Node ID'
-        response.put("NODE_ID", new Integer(payload[2]));
+        response.put("NODE_ID", Integer.valueOf(payload[2]));
 
         // Process 'Step ID'
         switch ((int) payload[3]) {

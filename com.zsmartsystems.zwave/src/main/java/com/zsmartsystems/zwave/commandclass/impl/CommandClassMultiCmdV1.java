@@ -88,7 +88,7 @@ public class CommandClassMultiCmdV1 {
         int msgOffset = 2;
 
         // Process 'Number of Commands'
-        response.put("NUMBER_OF_COMMANDS", new Integer(payload[msgOffset]));
+        response.put("NUMBER_OF_COMMANDS", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Encapsulated_Command'
@@ -102,15 +102,15 @@ public class CommandClassMultiCmdV1 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Command Length'
-            variant.put("COMMAND_LENGTH", new Integer(payload[msgOffset]));
+            variant.put("COMMAND_LENGTH", Integer.valueOf(payload[msgOffset]));
             msgOffset += 1;
 
             // Process 'Command Class'
-            variant.put("COMMAND_CLASS", new Integer(payload[msgOffset]));
+            variant.put("COMMAND_CLASS", Integer.valueOf(payload[msgOffset]));
             msgOffset += 1;
 
             // Process 'Command'
-            variant.put("COMMAND", new Integer(payload[msgOffset]));
+            variant.put("COMMAND", Integer.valueOf(payload[msgOffset]));
             msgOffset += 1;
 
             // Process 'Data'

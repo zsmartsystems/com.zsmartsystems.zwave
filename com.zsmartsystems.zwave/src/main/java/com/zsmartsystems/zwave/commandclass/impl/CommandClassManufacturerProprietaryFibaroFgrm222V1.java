@@ -138,10 +138,10 @@ public class CommandClassManufacturerProprietaryFibaroFgrm222V1 {
         }
 
         // Process 'Shutter Position'
-        response.put("SHUTTER_POSITION", new Integer(payload[6]));
+        response.put("SHUTTER_POSITION", Integer.valueOf(payload[6]));
 
         // Process 'Lamella Position'
-        response.put("LAMELLA_POSITION", new Integer(payload[7]));
+        response.put("LAMELLA_POSITION", Integer.valueOf(payload[7]));
 
         // Return the map of processed response data;
         return response;
@@ -245,10 +245,10 @@ public class CommandClassManufacturerProprietaryFibaroFgrm222V1 {
         // Process 'Constant3'
 
         // Process 'Shutter Position'
-        response.put("SHUTTER_POSITION", new Integer(payload[6]));
+        response.put("SHUTTER_POSITION", Integer.valueOf(payload[6]));
 
         // Process 'Lamella Position'
-        response.put("LAMELLA_POSITION", new Integer(payload[7]));
+        response.put("LAMELLA_POSITION", Integer.valueOf(payload[7]));
 
         // Return the map of processed response data;
         return response;

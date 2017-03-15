@@ -189,7 +189,7 @@ public class CommandClassSensorAlarmV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Source Node ID'
-        response.put("SOURCE_NODE_ID", new Integer(payload[2]));
+        response.put("SOURCE_NODE_ID", Integer.valueOf(payload[2]));
 
         // Process 'Sensor Type'
         switch ((int) payload[3]) {
@@ -233,7 +233,7 @@ public class CommandClassSensorAlarmV1 {
         }
 
         // Process 'Seconds'
-        response.put("SECONDS", new Integer(payload[5] << 8 + payload[6]));
+        response.put("SECONDS", Integer.valueOf(payload[5] << 8 + payload[6]));
 
         // Return the map of processed response data;
         return response;
@@ -327,7 +327,7 @@ public class CommandClassSensorAlarmV1 {
         int msgOffset = 2;
 
         // Process 'Number of Bit Masks'
-        response.put("NUMBER_OF_BIT_MASKS", new Integer(payload[msgOffset]));
+        response.put("NUMBER_OF_BIT_MASKS", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Bit Mask'

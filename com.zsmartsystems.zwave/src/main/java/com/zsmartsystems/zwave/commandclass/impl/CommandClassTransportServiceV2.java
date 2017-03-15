@@ -145,20 +145,20 @@ public class CommandClassTransportServiceV2 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("DATAGRAM_SIZE_1", new Integer(payload[msgOffset] & 0x07));
+        response.put("DATAGRAM_SIZE_1", Integer.valueOf(payload[msgOffset] & 0x07));
         msgOffset += 1;
 
         // Process 'datagram_size_2'
-        response.put("DATAGRAM_SIZE_2", new Integer(payload[msgOffset]));
+        response.put("DATAGRAM_SIZE_2", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties2'
-        response.put("EXT", new Boolean((payload[msgOffset] & 0x08) != 0));
-        response.put("SESSION_ID", new Integer((payload[msgOffset] & 0xF0 >> 4)));
+        response.put("EXT", Boolean.valueOf((payload[msgOffset] & 0x08) != 0));
+        response.put("SESSION_ID", Integer.valueOf((payload[msgOffset] & 0xF0 >> 4)));
         msgOffset += 1;
 
         // Process 'Header Extension Length'
-        response.put("HEADER_EXTENSION_LENGTH", new Integer(payload[msgOffset]));
+        response.put("HEADER_EXTENSION_LENGTH", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Header Extension'
@@ -179,7 +179,7 @@ public class CommandClassTransportServiceV2 {
         response.put("PAYLOAD", valPayload);
 
         // Process 'Frame Check Sequence'
-        response.put("FRAME_CHECK_SEQUENCE", new Integer(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("FRAME_CHECK_SEQUENCE", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
         msgOffset += 2;
 
         // Return the map of processed response data;
@@ -242,11 +242,11 @@ public class CommandClassTransportServiceV2 {
         // Process 'Properties1'
 
         // Process 'Properties2'
-        response.put("DATAGRAM_OFFSET_1", new Integer(payload[3] & 0x07));
-        response.put("SESSION_ID", new Integer((payload[3] & 0xF0 >> 4)));
+        response.put("DATAGRAM_OFFSET_1", Integer.valueOf(payload[3] & 0x07));
+        response.put("SESSION_ID", Integer.valueOf((payload[3] & 0xF0 >> 4)));
 
         // Process 'datagram_offset_2'
-        response.put("DATAGRAM_OFFSET_2", new Integer(payload[4]));
+        response.put("DATAGRAM_OFFSET_2", Integer.valueOf(payload[4]));
 
         // Return the map of processed response data;
         return response;
@@ -349,25 +349,25 @@ public class CommandClassTransportServiceV2 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("DATAGRAM_SIZE_1", new Integer(payload[msgOffset] & 0x07));
+        response.put("DATAGRAM_SIZE_1", Integer.valueOf(payload[msgOffset] & 0x07));
         msgOffset += 1;
 
         // Process 'datagram_size_2'
-        response.put("DATAGRAM_SIZE_2", new Integer(payload[msgOffset]));
+        response.put("DATAGRAM_SIZE_2", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties2'
-        response.put("DATAGRAM_OFFSET_1", new Integer(payload[msgOffset] & 0x07));
-        response.put("EXT", new Boolean((payload[msgOffset] & 0x08) != 0));
-        response.put("SESSION_ID", new Integer((payload[msgOffset] & 0xF0 >> 4)));
+        response.put("DATAGRAM_OFFSET_1", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("EXT", Boolean.valueOf((payload[msgOffset] & 0x08) != 0));
+        response.put("SESSION_ID", Integer.valueOf((payload[msgOffset] & 0xF0 >> 4)));
         msgOffset += 1;
 
         // Process 'datagram_offset_2'
-        response.put("DATAGRAM_OFFSET_2", new Integer(payload[msgOffset]));
+        response.put("DATAGRAM_OFFSET_2", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Header Extension Length'
-        response.put("HEADER_EXTENSION_LENGTH", new Integer(payload[msgOffset]));
+        response.put("HEADER_EXTENSION_LENGTH", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Header Extension'
@@ -388,7 +388,7 @@ public class CommandClassTransportServiceV2 {
         response.put("PAYLOAD", valPayload);
 
         // Process 'Frame Check Sequence'
-        response.put("FRAME_CHECK_SEQUENCE", new Integer(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("FRAME_CHECK_SEQUENCE", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
         msgOffset += 2;
 
         // Return the map of processed response data;
@@ -441,7 +441,7 @@ public class CommandClassTransportServiceV2 {
         // Process 'Properties1'
 
         // Process 'Properties2'
-        response.put("SESSION_ID", new Integer((payload[3] & 0xF0 >> 4)));
+        response.put("SESSION_ID", Integer.valueOf((payload[3] & 0xF0 >> 4)));
 
         // Return the map of processed response data;
         return response;
@@ -493,7 +493,7 @@ public class CommandClassTransportServiceV2 {
         // Process 'Properties1'
 
         // Process 'pending_fragments'
-        response.put("PENDING_FRAGMENTS", new Integer(payload[3]));
+        response.put("PENDING_FRAGMENTS", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;

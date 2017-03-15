@@ -147,20 +147,20 @@ public class CommandClassScreenAttributesV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("NUMBER_OF_LINES", new Integer(payload[2] & 0x1F));
-        response.put("ESCAPE_SEQUENCE", new Boolean((payload[2] & 0x20) != 0));
+        response.put("NUMBER_OF_LINES", Integer.valueOf(payload[2] & 0x1F));
+        response.put("ESCAPE_SEQUENCE", Boolean.valueOf((payload[2] & 0x20) != 0));
 
         // Process 'Number of Characters per Line'
-        response.put("NUMBER_OF_CHARACTERS_PER_LINE", new Integer(payload[3]));
+        response.put("NUMBER_OF_CHARACTERS_PER_LINE", Integer.valueOf(payload[3]));
 
         // Process 'Size of Line Buffer'
-        response.put("SIZE_OF_LINE_BUFFER", new Integer(payload[4]));
+        response.put("SIZE_OF_LINE_BUFFER", Integer.valueOf(payload[4]));
 
         // Process 'Numerical Presentation of a Character'
-        response.put("NUMERICAL_PRESENTATION_OF_A_CHARACTER", new Integer(payload[5]));
+        response.put("NUMERICAL_PRESENTATION_OF_A_CHARACTER", Integer.valueOf(payload[5]));
 
         // Process 'Screen Timeout'
-        response.put("SCREEN_TIMEOUT", new Integer(payload[6]));
+        response.put("SCREEN_TIMEOUT", Integer.valueOf(payload[6]));
 
         // Return the map of processed response data;
         return response;

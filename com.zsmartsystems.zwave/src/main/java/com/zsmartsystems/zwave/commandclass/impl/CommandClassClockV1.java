@@ -99,11 +99,11 @@ public class CommandClassClockV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        response.put("HOUR", new Integer(payload[2] & 0x1F));
-        response.put("WEEKDAY", new Integer((payload[2] & 0xE0 >> 5)));
+        response.put("HOUR", Integer.valueOf(payload[2] & 0x1F));
+        response.put("WEEKDAY", Integer.valueOf((payload[2] & 0xE0 >> 5)));
 
         // Process 'Minute'
-        response.put("MINUTE", new Integer(payload[3]));
+        response.put("MINUTE", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -196,11 +196,11 @@ public class CommandClassClockV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        response.put("HOUR", new Integer(payload[2] & 0x1F));
-        response.put("WEEKDAY", new Integer((payload[2] & 0xE0 >> 5)));
+        response.put("HOUR", Integer.valueOf(payload[2] & 0x1F));
+        response.put("WEEKDAY", Integer.valueOf((payload[2] & 0xE0 >> 5)));
 
         // Process 'Minute'
-        response.put("MINUTE", new Integer(payload[3]));
+        response.put("MINUTE", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;

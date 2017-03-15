@@ -92,13 +92,13 @@ public class CommandClassApplicationCapabilityV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("DYNAMIC", new Boolean((payload[2] & 0x80) != 0));
+        response.put("DYNAMIC", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Process 'Offending Command Class'
-        response.put("OFFENDING_COMMAND_CLASS", new Integer(payload[3]));
+        response.put("OFFENDING_COMMAND_CLASS", Integer.valueOf(payload[3]));
 
         // Process 'Offending Command'
-        response.put("OFFENDING_COMMAND", new Integer(payload[4]));
+        response.put("OFFENDING_COMMAND", Integer.valueOf(payload[4]));
 
         // Return the map of processed response data;
         return response;

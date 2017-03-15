@@ -108,15 +108,15 @@ public class CommandClassZip6lowpanV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("DATAGRAM_SIZE_1", new Integer(payload[msgOffset] & 0x07));
+        response.put("DATAGRAM_SIZE_1", Integer.valueOf(payload[msgOffset] & 0x07));
         msgOffset += 1;
 
         // Process 'Datagram Size 2'
-        response.put("DATAGRAM_SIZE_2", new Integer(payload[msgOffset]));
+        response.put("DATAGRAM_SIZE_2", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Datagram Tag'
-        response.put("DATAGRAM_TAG", new Integer(payload[msgOffset]));
+        response.put("DATAGRAM_TAG", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Payload'
@@ -200,19 +200,19 @@ public class CommandClassZip6lowpanV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("DATAGRAM_SIZE_1", new Integer(payload[msgOffset] & 0x07));
+        response.put("DATAGRAM_SIZE_1", Integer.valueOf(payload[msgOffset] & 0x07));
         msgOffset += 1;
 
         // Process 'Datagram Size 2'
-        response.put("DATAGRAM_SIZE_2", new Integer(payload[msgOffset]));
+        response.put("DATAGRAM_SIZE_2", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Datagram Tag'
-        response.put("DATAGRAM_TAG", new Integer(payload[msgOffset]));
+        response.put("DATAGRAM_TAG", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Datagram Offset'
-        response.put("DATAGRAM_OFFSET", new Integer(payload[msgOffset]));
+        response.put("DATAGRAM_OFFSET", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Payload'

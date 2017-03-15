@@ -142,7 +142,7 @@ public class CommandClassAlarmV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Alarm Type'
-        response.put("ALARM_TYPE", new Integer(payload[2]));
+        response.put("ALARM_TYPE", Integer.valueOf(payload[2]));
 
         // Process 'ZWave Alarm Type'
         switch ((int) payload[3]) {
@@ -315,15 +315,15 @@ public class CommandClassAlarmV2 {
         int msgOffset = 2;
 
         // Process 'Alarm Type'
-        response.put("ALARM_TYPE", new Integer(payload[msgOffset]));
+        response.put("ALARM_TYPE", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Alarm Level'
-        response.put("ALARM_LEVEL", new Integer(payload[msgOffset]));
+        response.put("ALARM_LEVEL", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Zensor Net Source Node ID'
-        response.put("ZENSOR_NET_SOURCE_NODE_ID", new Integer(payload[msgOffset]));
+        response.put("ZENSOR_NET_SOURCE_NODE_ID", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'ZWave Alarm Status'
@@ -383,11 +383,11 @@ public class CommandClassAlarmV2 {
         msgOffset += 1;
 
         // Process 'ZWave Alarm Event'
-        response.put("ZWAVE_ALARM_EVENT", new Integer(payload[msgOffset]));
+        response.put("ZWAVE_ALARM_EVENT", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Number of Event Parameters'
-        response.put("NUMBER_OF_EVENT_PARAMETERS", new Integer(payload[msgOffset]));
+        response.put("NUMBER_OF_EVENT_PARAMETERS", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Event Parameter'
@@ -642,7 +642,7 @@ public class CommandClassAlarmV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("V1_ALARM", new Boolean((payload[2] & 0x80) != 0));
+        response.put("V1_ALARM", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Process 'Bit Mask'
         List<String> responseBitMask = new ArrayList<String>();

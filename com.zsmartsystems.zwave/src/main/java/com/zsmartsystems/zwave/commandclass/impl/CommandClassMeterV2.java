@@ -98,7 +98,7 @@ public class CommandClassMeterV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("SCALE", new Integer((payload[2] & 0x18 >> 3)));
+        response.put("SCALE", Integer.valueOf((payload[2] & 0x18 >> 3)));
 
         // Return the map of processed response data;
         return response;
@@ -190,14 +190,14 @@ public class CommandClassMeterV2 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("METER_TYPE", new Integer(payload[msgOffset] & 0x1F));
-        response.put("RATE_TYPE", new Integer((payload[msgOffset] & 0x60 >> 5)));
+        response.put("METER_TYPE", Integer.valueOf(payload[msgOffset] & 0x1F));
+        response.put("RATE_TYPE", Integer.valueOf((payload[msgOffset] & 0x60 >> 5)));
         msgOffset += 1;
 
         // Process 'Properties2'
-        response.put("SIZE", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCALE", new Integer((payload[msgOffset] & 0x18 >> 3)));
-        response.put("PRECISION", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("SIZE", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCALE", Integer.valueOf((payload[msgOffset] & 0x18 >> 3)));
+        response.put("PRECISION", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Meter Value'
@@ -210,7 +210,7 @@ public class CommandClassMeterV2 {
         msgOffset += lenMeterValue;
 
         // Process 'Delta Time'
-        response.put("DELTA_TIME", new Integer(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("DELTA_TIME", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
         msgOffset += 2;
 
         // Process 'Previous Meter Value'
@@ -313,11 +313,11 @@ public class CommandClassMeterV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("METER_TYPE", new Integer(payload[2] & 0x1F));
-        response.put("METER_RESET", new Boolean((payload[2] & 0x80) != 0));
+        response.put("METER_TYPE", Integer.valueOf(payload[2] & 0x1F));
+        response.put("METER_RESET", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Process 'Properties2'
-        response.put("SCALE_SUPPORTED", new Integer(payload[3] & 0x0F));
+        response.put("SCALE_SUPPORTED", Integer.valueOf(payload[3] & 0x0F));
 
         // Return the map of processed response data;
         return response;

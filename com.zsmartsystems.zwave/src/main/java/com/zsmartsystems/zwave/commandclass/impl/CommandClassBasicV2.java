@@ -89,7 +89,7 @@ public class CommandClassBasicV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Value'
-        response.put("VALUE", new Integer(payload[2]));
+        response.put("VALUE", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -182,13 +182,13 @@ public class CommandClassBasicV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Current Value'
-        response.put("CURRENT_VALUE", new Integer(payload[2]));
+        response.put("CURRENT_VALUE", Integer.valueOf(payload[2]));
 
         // Process 'Target Value'
-        response.put("TARGET_VALUE", new Integer(payload[3]));
+        response.put("TARGET_VALUE", Integer.valueOf(payload[3]));
 
         // Process 'Duration'
-        response.put("DURATION", new Integer(payload[4]));
+        response.put("DURATION", Integer.valueOf(payload[4]));
 
         // Return the map of processed response data;
         return response;

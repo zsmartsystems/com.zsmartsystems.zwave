@@ -144,7 +144,7 @@ public class CommandClassSwitchColorV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Color Component mask'
-        response.put("COLOR_COMPONENT_MASK", new Integer(payload[2] << 8 + payload[3]));
+        response.put("COLOR_COMPONENT_MASK", Integer.valueOf(payload[2] << 8 + payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -192,7 +192,7 @@ public class CommandClassSwitchColorV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Color Component ID'
-        response.put("COLOR_COMPONENT_ID", new Integer(payload[2]));
+        response.put("COLOR_COMPONENT_ID", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -265,13 +265,13 @@ public class CommandClassSwitchColorV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Color Component ID'
-        response.put("COLOR_COMPONENT_ID", new Integer(payload[2]));
+        response.put("COLOR_COMPONENT_ID", Integer.valueOf(payload[2]));
 
         // Process 'Current Value'
-        response.put("CURRENT_VALUE", new Integer(payload[3]));
+        response.put("CURRENT_VALUE", Integer.valueOf(payload[3]));
 
         // Process 'Target Value'
-        response.put("TARGET_VALUE", new Integer(payload[4]));
+        response.put("TARGET_VALUE", Integer.valueOf(payload[4]));
 
         // Process 'Duration'
         switch ((int) payload[5]) {
@@ -349,7 +349,7 @@ public class CommandClassSwitchColorV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("COLOR_COMPONENT_COUNT", new Integer(payload[2] & 0x1F));
+        response.put("COLOR_COMPONENT_COUNT", Integer.valueOf(payload[2] & 0x1F));
 
         // Process 'vg1'
 
@@ -362,10 +362,10 @@ public class CommandClassSwitchColorV3 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Color Component ID'
-            variant.put("COLOR_COMPONENT_ID", new Integer(payload[3]));
+            variant.put("COLOR_COMPONENT_ID", Integer.valueOf(payload[3]));
 
             // Process 'Value'
-            variant.put("VALUE", new Integer(payload[4]));
+            variant.put("VALUE", Integer.valueOf(payload[4]));
 
             // Add to the list
             variantList.add(variant);
@@ -473,16 +473,16 @@ public class CommandClassSwitchColorV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("RES1", new Integer(payload[2] & 0x1F));
-        response.put("IGNORE_START_STATE", new Boolean((payload[2] & 0x20) != 0));
-        response.put("UP_DOWN", new Boolean((payload[2] & 0x40) != 0));
-        response.put("RES2", new Boolean((payload[2] & 0x80) != 0));
+        response.put("RES1", Integer.valueOf(payload[2] & 0x1F));
+        response.put("IGNORE_START_STATE", Boolean.valueOf((payload[2] & 0x20) != 0));
+        response.put("UP_DOWN", Boolean.valueOf((payload[2] & 0x40) != 0));
+        response.put("RES2", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Process 'Color Component ID'
-        response.put("COLOR_COMPONENT_ID", new Integer(payload[3]));
+        response.put("COLOR_COMPONENT_ID", Integer.valueOf(payload[3]));
 
         // Process 'Start Level'
-        response.put("START_LEVEL", new Integer(payload[4]));
+        response.put("START_LEVEL", Integer.valueOf(payload[4]));
 
         // Process 'Duration'
         switch ((int) payload[5]) {
@@ -544,7 +544,7 @@ public class CommandClassSwitchColorV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Color Component ID'
-        response.put("COLOR_COMPONENT_ID", new Integer(payload[2]));
+        response.put("COLOR_COMPONENT_ID", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;

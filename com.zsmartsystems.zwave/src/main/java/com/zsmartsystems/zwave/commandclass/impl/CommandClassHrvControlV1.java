@@ -331,7 +331,7 @@ public class CommandClassHrvControlV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Bypass'
-        response.put("BYPASS", new Integer(payload[2]));
+        response.put("BYPASS", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -414,7 +414,7 @@ public class CommandClassHrvControlV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Bypass'
-        response.put("BYPASS", new Integer(payload[2]));
+        response.put("BYPASS", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -462,7 +462,7 @@ public class CommandClassHrvControlV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Ventilation Rate'
-        response.put("VENTILATION_RATE", new Integer(payload[2]));
+        response.put("VENTILATION_RATE", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -545,7 +545,7 @@ public class CommandClassHrvControlV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Ventilation Rate'
-        response.put("VENTILATION_RATE", new Integer(payload[2]));
+        response.put("VENTILATION_RATE", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;

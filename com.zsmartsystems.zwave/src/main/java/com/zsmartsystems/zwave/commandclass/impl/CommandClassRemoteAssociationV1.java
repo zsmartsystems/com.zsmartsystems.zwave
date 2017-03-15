@@ -125,7 +125,7 @@ public class CommandClassRemoteAssociationV1 {
         }
 
         // Process 'Remote Grouping identifier'
-        response.put("REMOTE_GROUPING_IDENTIFIER", new Integer(payload[4]));
+        response.put("REMOTE_GROUPING_IDENTIFIER", Integer.valueOf(payload[4]));
 
         // Return the map of processed response data;
         return response;
@@ -173,7 +173,7 @@ public class CommandClassRemoteAssociationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Local Grouping identifier'
-        response.put("LOCAL_GROUPING_IDENTIFIER", new Integer(payload[2]));
+        response.put("LOCAL_GROUPING_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -257,7 +257,7 @@ public class CommandClassRemoteAssociationV1 {
         }
 
         // Process 'Remote Grouping identifier'
-        response.put("REMOTE_GROUPING_IDENTIFIER", new Integer(payload[4]));
+        response.put("REMOTE_GROUPING_IDENTIFIER", Integer.valueOf(payload[4]));
 
         // Return the map of processed response data;
         return response;

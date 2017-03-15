@@ -146,7 +146,7 @@ public class CommandClassScheduleEntryLockV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'User Identifier'
-        response.put("USER_IDENTIFIER", new Integer(payload[2]));
+        response.put("USER_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Process 'Enabled'
         switch ((int) payload[3]) {
@@ -315,25 +315,25 @@ public class CommandClassScheduleEntryLockV3 {
         }
 
         // Process 'User Identifier'
-        response.put("USER_IDENTIFIER", new Integer(payload[3]));
+        response.put("USER_IDENTIFIER", Integer.valueOf(payload[3]));
 
         // Process 'Schedule Slot ID'
-        response.put("SCHEDULE_SLOT_ID", new Integer(payload[4]));
+        response.put("SCHEDULE_SLOT_ID", Integer.valueOf(payload[4]));
 
         // Process 'Day of Week'
-        response.put("DAY_OF_WEEK", new Integer(payload[5]));
+        response.put("DAY_OF_WEEK", Integer.valueOf(payload[5]));
 
         // Process 'Start Hour'
-        response.put("START_HOUR", new Integer(payload[6]));
+        response.put("START_HOUR", Integer.valueOf(payload[6]));
 
         // Process 'Start Minute'
-        response.put("START_MINUTE", new Integer(payload[7]));
+        response.put("START_MINUTE", Integer.valueOf(payload[7]));
 
         // Process 'Stop Hour'
-        response.put("STOP_HOUR", new Integer(payload[8]));
+        response.put("STOP_HOUR", Integer.valueOf(payload[8]));
 
         // Process 'Stop Minute'
-        response.put("STOP_MINUTE", new Integer(payload[9]));
+        response.put("STOP_MINUTE", Integer.valueOf(payload[9]));
 
         // Return the map of processed response data;
         return response;
@@ -386,10 +386,10 @@ public class CommandClassScheduleEntryLockV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'User Identifier'
-        response.put("USER_IDENTIFIER", new Integer(payload[2]));
+        response.put("USER_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Process 'Schedule Slot ID'
-        response.put("SCHEDULE_SLOT_ID", new Integer(payload[3]));
+        response.put("SCHEDULE_SLOT_ID", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -468,25 +468,25 @@ public class CommandClassScheduleEntryLockV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'User Identifier'
-        response.put("USER_IDENTIFIER", new Integer(payload[2]));
+        response.put("USER_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Process 'Schedule Slot ID'
-        response.put("SCHEDULE_SLOT_ID", new Integer(payload[3]));
+        response.put("SCHEDULE_SLOT_ID", Integer.valueOf(payload[3]));
 
         // Process 'Day of Week'
-        response.put("DAY_OF_WEEK", new Integer(payload[4]));
+        response.put("DAY_OF_WEEK", Integer.valueOf(payload[4]));
 
         // Process 'Start Hour'
-        response.put("START_HOUR", new Integer(payload[5]));
+        response.put("START_HOUR", Integer.valueOf(payload[5]));
 
         // Process 'Start Minute'
-        response.put("START_MINUTE", new Integer(payload[6]));
+        response.put("START_MINUTE", Integer.valueOf(payload[6]));
 
         // Process 'Stop Hour'
-        response.put("STOP_HOUR", new Integer(payload[7]));
+        response.put("STOP_HOUR", Integer.valueOf(payload[7]));
 
         // Process 'Stop Minute'
-        response.put("STOP_MINUTE", new Integer(payload[8]));
+        response.put("STOP_MINUTE", Integer.valueOf(payload[8]));
 
         // Return the map of processed response data;
         return response;
@@ -610,40 +610,40 @@ public class CommandClassScheduleEntryLockV3 {
         }
 
         // Process 'User Identifier'
-        response.put("USER_IDENTIFIER", new Integer(payload[3]));
+        response.put("USER_IDENTIFIER", Integer.valueOf(payload[3]));
 
         // Process 'Schedule Slot ID'
-        response.put("SCHEDULE_SLOT_ID", new Integer(payload[4]));
+        response.put("SCHEDULE_SLOT_ID", Integer.valueOf(payload[4]));
 
         // Process 'Start Year'
-        response.put("START_YEAR", new Integer(payload[5]));
+        response.put("START_YEAR", Integer.valueOf(payload[5]));
 
         // Process 'Start Month'
-        response.put("START_MONTH", new Integer(payload[6]));
+        response.put("START_MONTH", Integer.valueOf(payload[6]));
 
         // Process 'Start Day'
-        response.put("START_DAY", new Integer(payload[7]));
+        response.put("START_DAY", Integer.valueOf(payload[7]));
 
         // Process 'Start Hour'
-        response.put("START_HOUR", new Integer(payload[8]));
+        response.put("START_HOUR", Integer.valueOf(payload[8]));
 
         // Process 'Start Minute'
-        response.put("START_MINUTE", new Integer(payload[9]));
+        response.put("START_MINUTE", Integer.valueOf(payload[9]));
 
         // Process 'Stop Year'
-        response.put("STOP_YEAR", new Integer(payload[10]));
+        response.put("STOP_YEAR", Integer.valueOf(payload[10]));
 
         // Process 'Stop Month'
-        response.put("STOP_MONTH", new Integer(payload[11]));
+        response.put("STOP_MONTH", Integer.valueOf(payload[11]));
 
         // Process 'Stop Day'
-        response.put("STOP_DAY", new Integer(payload[12]));
+        response.put("STOP_DAY", Integer.valueOf(payload[12]));
 
         // Process 'Stop Hour'
-        response.put("STOP_HOUR", new Integer(payload[13]));
+        response.put("STOP_HOUR", Integer.valueOf(payload[13]));
 
         // Process 'Stop Minute'
-        response.put("STOP_MINUTE", new Integer(payload[14]));
+        response.put("STOP_MINUTE", Integer.valueOf(payload[14]));
 
         // Return the map of processed response data;
         return response;
@@ -696,10 +696,10 @@ public class CommandClassScheduleEntryLockV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'User Identifier'
-        response.put("USER_IDENTIFIER", new Integer(payload[2]));
+        response.put("USER_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Process 'Schedule Slot ID'
-        response.put("SCHEDULE_SLOT_ID", new Integer(payload[3]));
+        response.put("SCHEDULE_SLOT_ID", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -804,40 +804,40 @@ public class CommandClassScheduleEntryLockV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'User Identifier'
-        response.put("USER_IDENTIFIER", new Integer(payload[2]));
+        response.put("USER_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Process 'Schedule Slot ID'
-        response.put("SCHEDULE_SLOT_ID", new Integer(payload[3]));
+        response.put("SCHEDULE_SLOT_ID", Integer.valueOf(payload[3]));
 
         // Process 'Start Year'
-        response.put("START_YEAR", new Integer(payload[4]));
+        response.put("START_YEAR", Integer.valueOf(payload[4]));
 
         // Process 'Start Month'
-        response.put("START_MONTH", new Integer(payload[5]));
+        response.put("START_MONTH", Integer.valueOf(payload[5]));
 
         // Process 'Start Day'
-        response.put("START_DAY", new Integer(payload[6]));
+        response.put("START_DAY", Integer.valueOf(payload[6]));
 
         // Process 'Start Hour'
-        response.put("START_HOUR", new Integer(payload[7]));
+        response.put("START_HOUR", Integer.valueOf(payload[7]));
 
         // Process 'Start Minute'
-        response.put("START_MINUTE", new Integer(payload[8]));
+        response.put("START_MINUTE", Integer.valueOf(payload[8]));
 
         // Process 'Stop Year'
-        response.put("STOP_YEAR", new Integer(payload[9]));
+        response.put("STOP_YEAR", Integer.valueOf(payload[9]));
 
         // Process 'Stop Month'
-        response.put("STOP_MONTH", new Integer(payload[10]));
+        response.put("STOP_MONTH", Integer.valueOf(payload[10]));
 
         // Process 'Stop Day'
-        response.put("STOP_DAY", new Integer(payload[11]));
+        response.put("STOP_DAY", Integer.valueOf(payload[11]));
 
         // Process 'Stop Hour'
-        response.put("STOP_HOUR", new Integer(payload[12]));
+        response.put("STOP_HOUR", Integer.valueOf(payload[12]));
 
         // Process 'Stop Minute'
-        response.put("STOP_MINUTE", new Integer(payload[13]));
+        response.put("STOP_MINUTE", Integer.valueOf(payload[13]));
 
         // Return the map of processed response data;
         return response;
@@ -931,13 +931,13 @@ public class CommandClassScheduleEntryLockV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Number of Slots Week Day'
-        response.put("NUMBER_OF_SLOTS_WEEK_DAY", new Integer(payload[2]));
+        response.put("NUMBER_OF_SLOTS_WEEK_DAY", Integer.valueOf(payload[2]));
 
         // Process 'Number of Slots Year Day'
-        response.put("NUMBER_OF_SLOTS_YEAR_DAY", new Integer(payload[3]));
+        response.put("NUMBER_OF_SLOTS_YEAR_DAY", Integer.valueOf(payload[3]));
 
         // Process 'Number of Slots Daily Repeating'
-        response.put("NUMBER_OF_SLOTS_DAILY_REPEATING", new Integer(payload[4]));
+        response.put("NUMBER_OF_SLOTS_DAILY_REPEATING", Integer.valueOf(payload[4]));
 
         // Return the map of processed response data;
         return response;
@@ -1041,15 +1041,15 @@ public class CommandClassScheduleEntryLockV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        response.put("HOUR_TZO", new Integer(payload[2] & 0x7F));
-        response.put("SIGN_TZO", new Boolean((payload[2] & 0x80) != 0));
+        response.put("HOUR_TZO", Integer.valueOf(payload[2] & 0x7F));
+        response.put("SIGN_TZO", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Process 'Minute TZO'
-        response.put("MINUTE_TZO", new Integer(payload[3]));
+        response.put("MINUTE_TZO", Integer.valueOf(payload[3]));
 
         // Process 'Level2'
-        response.put("MINUTE_OFFSET_DST", new Integer(payload[4] & 0x7F));
-        response.put("SIGN_OFFSET_DST", new Boolean((payload[4] & 0x80) != 0));
+        response.put("MINUTE_OFFSET_DST", Integer.valueOf(payload[4] & 0x7F));
+        response.put("SIGN_OFFSET_DST", Boolean.valueOf((payload[4] & 0x80) != 0));
 
         // Return the map of processed response data;
         return response;
@@ -1118,15 +1118,15 @@ public class CommandClassScheduleEntryLockV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        response.put("HOUR_TZO", new Integer(payload[2] & 0x7F));
-        response.put("SIGN_TZO", new Boolean((payload[2] & 0x80) != 0));
+        response.put("HOUR_TZO", Integer.valueOf(payload[2] & 0x7F));
+        response.put("SIGN_TZO", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Process 'Minute TZO'
-        response.put("MINUTE_TZO", new Integer(payload[3]));
+        response.put("MINUTE_TZO", Integer.valueOf(payload[3]));
 
         // Process 'Level2'
-        response.put("MINUTE_OFFSET_DST", new Integer(payload[4] & 0x7F));
-        response.put("SIGN_OFFSET_DST", new Boolean((payload[4] & 0x80) != 0));
+        response.put("MINUTE_OFFSET_DST", Integer.valueOf(payload[4] & 0x7F));
+        response.put("SIGN_OFFSET_DST", Boolean.valueOf((payload[4] & 0x80) != 0));
 
         // Return the map of processed response data;
         return response;
@@ -1179,10 +1179,10 @@ public class CommandClassScheduleEntryLockV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'User Identifier'
-        response.put("USER_IDENTIFIER", new Integer(payload[2]));
+        response.put("USER_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Process 'Schedule Slot ID'
-        response.put("SCHEDULE_SLOT_ID", new Integer(payload[3]));
+        response.put("SCHEDULE_SLOT_ID", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -1261,25 +1261,25 @@ public class CommandClassScheduleEntryLockV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'User Identifier'
-        response.put("USER_IDENTIFIER", new Integer(payload[2]));
+        response.put("USER_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Process 'Schedule Slot ID'
-        response.put("SCHEDULE_SLOT_ID", new Integer(payload[3]));
+        response.put("SCHEDULE_SLOT_ID", Integer.valueOf(payload[3]));
 
         // Process 'Week Day Bitmask'
-        response.put("WEEK_DAY_BITMASK", new Integer(payload[4]));
+        response.put("WEEK_DAY_BITMASK", Integer.valueOf(payload[4]));
 
         // Process 'Start Hour'
-        response.put("START_HOUR", new Integer(payload[5]));
+        response.put("START_HOUR", Integer.valueOf(payload[5]));
 
         // Process 'Start Minute'
-        response.put("START_MINUTE", new Integer(payload[6]));
+        response.put("START_MINUTE", Integer.valueOf(payload[6]));
 
         // Process 'Duration Hour'
-        response.put("DURATION_HOUR", new Integer(payload[7]));
+        response.put("DURATION_HOUR", Integer.valueOf(payload[7]));
 
         // Process 'Duration Minute'
-        response.put("DURATION_MINUTE", new Integer(payload[8]));
+        response.put("DURATION_MINUTE", Integer.valueOf(payload[8]));
 
         // Return the map of processed response data;
         return response;
@@ -1377,25 +1377,25 @@ public class CommandClassScheduleEntryLockV3 {
         }
 
         // Process 'User Identifier'
-        response.put("USER_IDENTIFIER", new Integer(payload[3]));
+        response.put("USER_IDENTIFIER", Integer.valueOf(payload[3]));
 
         // Process 'Schedule Slot ID'
-        response.put("SCHEDULE_SLOT_ID", new Integer(payload[4]));
+        response.put("SCHEDULE_SLOT_ID", Integer.valueOf(payload[4]));
 
         // Process 'Week Day Bitmask'
-        response.put("WEEK_DAY_BITMASK", new Integer(payload[5]));
+        response.put("WEEK_DAY_BITMASK", Integer.valueOf(payload[5]));
 
         // Process 'Start Hour'
-        response.put("START_HOUR", new Integer(payload[6]));
+        response.put("START_HOUR", Integer.valueOf(payload[6]));
 
         // Process 'Start Minute'
-        response.put("START_MINUTE", new Integer(payload[7]));
+        response.put("START_MINUTE", Integer.valueOf(payload[7]));
 
         // Process 'Duration Hour'
-        response.put("DURATION_HOUR", new Integer(payload[8]));
+        response.put("DURATION_HOUR", Integer.valueOf(payload[8]));
 
         // Process 'Duration Minute'
-        response.put("DURATION_MINUTE", new Integer(payload[9]));
+        response.put("DURATION_MINUTE", Integer.valueOf(payload[9]));
 
         // Return the map of processed response data;
         return response;

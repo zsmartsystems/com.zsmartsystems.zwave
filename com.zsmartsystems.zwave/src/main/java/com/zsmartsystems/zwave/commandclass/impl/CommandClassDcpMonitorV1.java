@@ -249,31 +249,31 @@ public class CommandClassDcpMonitorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Reports to Follow'
-        response.put("REPORTS_TO_FOLLOW", new Integer(payload[2]));
+        response.put("REPORTS_TO_FOLLOW", Integer.valueOf(payload[2]));
 
         // Process 'Year'
-        response.put("YEAR", new Integer(payload[3] << 8 + payload[4]));
+        response.put("YEAR", Integer.valueOf(payload[3] << 8 + payload[4]));
 
         // Process 'Month'
-        response.put("MONTH", new Integer(payload[5]));
+        response.put("MONTH", Integer.valueOf(payload[5]));
 
         // Process 'Day'
-        response.put("DAY", new Integer(payload[6]));
+        response.put("DAY", Integer.valueOf(payload[6]));
 
         // Process 'Hour Local Time'
-        response.put("HOUR_LOCAL_TIME", new Integer(payload[7]));
+        response.put("HOUR_LOCAL_TIME", Integer.valueOf(payload[7]));
 
         // Process 'Minute Local Time'
-        response.put("MINUTE_LOCAL_TIME", new Integer(payload[8]));
+        response.put("MINUTE_LOCAL_TIME", Integer.valueOf(payload[8]));
 
         // Process 'Second Local Time'
-        response.put("SECOND_LOCAL_TIME", new Integer(payload[9]));
+        response.put("SECOND_LOCAL_TIME", Integer.valueOf(payload[9]));
 
         // Process 'DCP ID'
-        response.put("DCP_ID", new Integer(payload[10]));
+        response.put("DCP_ID", Integer.valueOf(payload[10]));
 
         // Process 'Properties1'
-        response.put("NUMBER_OF_DC", new Integer(payload[11] & 0x03));
+        response.put("NUMBER_OF_DC", Integer.valueOf(payload[11] & 0x03));
 
         // Process 'vg1'
 
@@ -286,10 +286,10 @@ public class CommandClassDcpMonitorV1 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Generic Device Class'
-            variant.put("GENERIC_DEVICE_CLASS", new Integer(payload[12]));
+            variant.put("GENERIC_DEVICE_CLASS", Integer.valueOf(payload[12]));
 
             // Process 'Specific Device Class'
-            variant.put("SPECIFIC_DEVICE_CLASS", new Integer(payload[13]));
+            variant.put("SPECIFIC_DEVICE_CLASS", Integer.valueOf(payload[13]));
 
             // Add to the list
             variantList.add(variant);
@@ -302,46 +302,46 @@ public class CommandClassDcpMonitorV1 {
         response.put("VG1", variantList);
 
         // Process 'Start Year'
-        response.put("START_YEAR", new Integer(payload[14] << 8 + payload[15]));
+        response.put("START_YEAR", Integer.valueOf(payload[14] << 8 + payload[15]));
 
         // Process 'Start Month'
-        response.put("START_MONTH", new Integer(payload[16]));
+        response.put("START_MONTH", Integer.valueOf(payload[16]));
 
         // Process 'Start Day'
-        response.put("START_DAY", new Integer(payload[17]));
+        response.put("START_DAY", Integer.valueOf(payload[17]));
 
         // Process 'Start Hour Local Time'
-        response.put("START_HOUR_LOCAL_TIME", new Integer(payload[18]));
+        response.put("START_HOUR_LOCAL_TIME", Integer.valueOf(payload[18]));
 
         // Process 'Start Minute Local Time'
-        response.put("START_MINUTE_LOCAL_TIME", new Integer(payload[19]));
+        response.put("START_MINUTE_LOCAL_TIME", Integer.valueOf(payload[19]));
 
         // Process 'Start Second Local Time'
-        response.put("START_SECOND_LOCAL_TIME", new Integer(payload[20]));
+        response.put("START_SECOND_LOCAL_TIME", Integer.valueOf(payload[20]));
 
         // Process 'Duration Hour Time'
-        response.put("DURATION_HOUR_TIME", new Integer(payload[21]));
+        response.put("DURATION_HOUR_TIME", Integer.valueOf(payload[21]));
 
         // Process 'Duration Minute Time'
-        response.put("DURATION_MINUTE_TIME", new Integer(payload[22]));
+        response.put("DURATION_MINUTE_TIME", Integer.valueOf(payload[22]));
 
         // Process 'Duration Second Time'
-        response.put("DURATION_SECOND_TIME", new Integer(payload[23]));
+        response.put("DURATION_SECOND_TIME", Integer.valueOf(payload[23]));
 
         // Process 'Event Priority'
-        response.put("EVENT_PRIORITY", new Integer(payload[24]));
+        response.put("EVENT_PRIORITY", Integer.valueOf(payload[24]));
 
         // Process 'Load shedding'
-        response.put("LOAD_SHEDDING", new Integer(payload[25]));
+        response.put("LOAD_SHEDDING", Integer.valueOf(payload[25]));
 
         // Process 'Start Association Group'
-        response.put("START_ASSOCIATION_GROUP", new Integer(payload[26]));
+        response.put("START_ASSOCIATION_GROUP", Integer.valueOf(payload[26]));
 
         // Process 'Stop Association Group'
-        response.put("STOP_ASSOCIATION_GROUP", new Integer(payload[27]));
+        response.put("STOP_ASSOCIATION_GROUP", Integer.valueOf(payload[27]));
 
         // Process 'Randomization interval'
-        response.put("RANDOMIZATION_INTERVAL", new Integer(payload[28]));
+        response.put("RANDOMIZATION_INTERVAL", Integer.valueOf(payload[28]));
 
         // Return the map of processed response data;
         return response;
@@ -416,22 +416,22 @@ public class CommandClassDcpMonitorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Year'
-        response.put("YEAR", new Integer(payload[2] << 8 + payload[3]));
+        response.put("YEAR", Integer.valueOf(payload[2] << 8 + payload[3]));
 
         // Process 'Month'
-        response.put("MONTH", new Integer(payload[4]));
+        response.put("MONTH", Integer.valueOf(payload[4]));
 
         // Process 'Day'
-        response.put("DAY", new Integer(payload[5]));
+        response.put("DAY", Integer.valueOf(payload[5]));
 
         // Process 'Hour Local Time'
-        response.put("HOUR_LOCAL_TIME", new Integer(payload[6]));
+        response.put("HOUR_LOCAL_TIME", Integer.valueOf(payload[6]));
 
         // Process 'Minute Local Time'
-        response.put("MINUTE_LOCAL_TIME", new Integer(payload[7]));
+        response.put("MINUTE_LOCAL_TIME", Integer.valueOf(payload[7]));
 
         // Process 'Second Local Time'
-        response.put("SECOND_LOCAL_TIME", new Integer(payload[8]));
+        response.put("SECOND_LOCAL_TIME", Integer.valueOf(payload[8]));
 
         // Return the map of processed response data;
         return response;
@@ -511,22 +511,22 @@ public class CommandClassDcpMonitorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Year'
-        response.put("YEAR", new Integer(payload[2] << 8 + payload[3]));
+        response.put("YEAR", Integer.valueOf(payload[2] << 8 + payload[3]));
 
         // Process 'Month'
-        response.put("MONTH", new Integer(payload[4]));
+        response.put("MONTH", Integer.valueOf(payload[4]));
 
         // Process 'Day'
-        response.put("DAY", new Integer(payload[5]));
+        response.put("DAY", Integer.valueOf(payload[5]));
 
         // Process 'Hour Local Time'
-        response.put("HOUR_LOCAL_TIME", new Integer(payload[6]));
+        response.put("HOUR_LOCAL_TIME", Integer.valueOf(payload[6]));
 
         // Process 'Minute Local Time'
-        response.put("MINUTE_LOCAL_TIME", new Integer(payload[7]));
+        response.put("MINUTE_LOCAL_TIME", Integer.valueOf(payload[7]));
 
         // Process 'Second Local Time'
-        response.put("SECOND_LOCAL_TIME", new Integer(payload[8]));
+        response.put("SECOND_LOCAL_TIME", Integer.valueOf(payload[8]));
 
         // Process 'Event status'
         switch ((int) payload[9]) {

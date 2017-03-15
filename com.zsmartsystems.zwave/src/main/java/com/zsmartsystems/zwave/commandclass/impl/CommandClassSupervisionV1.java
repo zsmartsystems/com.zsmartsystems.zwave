@@ -109,12 +109,12 @@ public class CommandClassSupervisionV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("SESSION_ID", new Integer(payload[msgOffset] & 0x3F));
-        response.put("STATUS_UPDATES", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("SESSION_ID", Integer.valueOf(payload[msgOffset] & 0x3F));
+        response.put("STATUS_UPDATES", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'Encapsulated Command Length'
-        response.put("ENCAPSULATED_COMMAND_LENGTH", new Integer(payload[msgOffset]));
+        response.put("ENCAPSULATED_COMMAND_LENGTH", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Encapsulated Command'
@@ -206,8 +206,8 @@ public class CommandClassSupervisionV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("SESSION_ID", new Integer(payload[2] & 0x3F));
-        response.put("MORE_STATUS_UPDATES", new Boolean((payload[2] & 0x80) != 0));
+        response.put("SESSION_ID", Integer.valueOf(payload[2] & 0x3F));
+        response.put("MORE_STATUS_UPDATES", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Process 'Status'
         switch ((int) payload[3]) {
@@ -233,7 +233,7 @@ public class CommandClassSupervisionV1 {
         }
 
         // Process 'Duration'
-        response.put("DURATION", new Integer(payload[4]));
+        response.put("DURATION", Integer.valueOf(payload[4]));
 
         // Return the map of processed response data;
         return response;

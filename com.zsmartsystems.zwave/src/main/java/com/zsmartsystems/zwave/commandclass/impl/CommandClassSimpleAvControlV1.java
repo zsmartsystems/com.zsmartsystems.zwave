@@ -113,13 +113,13 @@ public class CommandClassSimpleAvControlV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Sequence Number'
-        response.put("SEQUENCE_NUMBER", new Integer(payload[2]));
+        response.put("SEQUENCE_NUMBER", Integer.valueOf(payload[2]));
 
         // Process 'Properties1'
-        response.put("KEY_ATTRIBUTES", new Integer(payload[3] & 0x07));
+        response.put("KEY_ATTRIBUTES", Integer.valueOf(payload[3] & 0x07));
 
         // Process 'Item ID'
-        response.put("ITEM_ID", new Integer(payload[4] << 8 + payload[5]));
+        response.put("ITEM_ID", Integer.valueOf(payload[4] << 8 + payload[5]));
 
         // Process 'vg'
 
@@ -132,7 +132,7 @@ public class CommandClassSimpleAvControlV1 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Command'
-            variant.put("COMMAND", new Integer(payload[6] << 8 + payload[7]));
+            variant.put("COMMAND", Integer.valueOf(payload[6] << 8 + payload[7]));
 
         }
 
@@ -220,7 +220,7 @@ public class CommandClassSimpleAvControlV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Number of reports'
-        response.put("NUMBER_OF_REPORTS", new Integer(payload[2]));
+        response.put("NUMBER_OF_REPORTS", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -268,7 +268,7 @@ public class CommandClassSimpleAvControlV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Report No'
-        response.put("REPORT_NO", new Integer(payload[2]));
+        response.put("REPORT_NO", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -331,7 +331,7 @@ public class CommandClassSimpleAvControlV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Report No'
-        response.put("REPORT_NO", new Integer(payload[2]));
+        response.put("REPORT_NO", Integer.valueOf(payload[2]));
 
         // Process 'Bit Mask'
         List<Integer> responseBitMask = new ArrayList<Integer>();

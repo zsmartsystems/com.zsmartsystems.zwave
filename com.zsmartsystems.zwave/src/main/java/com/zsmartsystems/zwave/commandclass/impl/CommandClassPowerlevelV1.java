@@ -178,7 +178,7 @@ public class CommandClassPowerlevelV1 {
         }
 
         // Process 'Timeout'
-        response.put("TIMEOUT", new Integer(payload[3]));
+        response.put("TIMEOUT", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -337,7 +337,7 @@ public class CommandClassPowerlevelV1 {
         }
 
         // Process 'Timeout'
-        response.put("TIMEOUT", new Integer(payload[3]));
+        response.put("TIMEOUT", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -434,7 +434,7 @@ public class CommandClassPowerlevelV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Test NodeID'
-        response.put("TEST_NODEID", new Integer(payload[2]));
+        response.put("TEST_NODEID", Integer.valueOf(payload[2]));
 
         // Process 'Power level'
         switch ((int) payload[3]) {
@@ -475,7 +475,7 @@ public class CommandClassPowerlevelV1 {
         }
 
         // Process 'Test frame count'
-        response.put("TEST_FRAME_COUNT", new Integer(payload[4] << 8 + payload[5]));
+        response.put("TEST_FRAME_COUNT", Integer.valueOf(payload[4] << 8 + payload[5]));
 
         // Return the map of processed response data;
         return response;
@@ -615,7 +615,7 @@ public class CommandClassPowerlevelV1 {
         }
 
         // Process 'Test Frame Count'
-        response.put("TEST_FRAME_COUNT", new Integer(payload[4] << 8 + payload[5]));
+        response.put("TEST_FRAME_COUNT", Integer.valueOf(payload[4] << 8 + payload[5]));
 
         // Return the map of processed response data;
         return response;

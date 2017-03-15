@@ -162,7 +162,7 @@ public class CommandClassThermostatFanModeV3 {
             default:
                 logger.debug("Unknown enum value {} for FAN_MODE", String.format("0x%02X", 2));
         }
-        response.put("OFF", new Boolean((payload[2] & 0x80) != 0));
+        response.put("OFF", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Return the map of processed response data;
         return response;
@@ -307,7 +307,7 @@ public class CommandClassThermostatFanModeV3 {
             default:
                 logger.debug("Unknown enum value {} for FAN_MODE", String.format("0x%02X", 2));
         }
-        response.put("OFF", new Boolean((payload[2] & 0x80) != 0));
+        response.put("OFF", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Return the map of processed response data;
         return response;

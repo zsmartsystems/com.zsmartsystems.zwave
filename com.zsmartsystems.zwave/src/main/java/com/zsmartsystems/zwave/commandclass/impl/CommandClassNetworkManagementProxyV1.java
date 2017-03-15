@@ -98,7 +98,7 @@ public class CommandClassNetworkManagementProxyV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Seq. No'
-        response.put("SEQ_NO", new Integer(payload[2]));
+        response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -172,7 +172,7 @@ public class CommandClassNetworkManagementProxyV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Seq. No'
-        response.put("SEQ_NO", new Integer(payload[2]));
+        response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Process 'Status'
         switch ((int) payload[3]) {
@@ -188,7 +188,7 @@ public class CommandClassNetworkManagementProxyV1 {
         }
 
         // Process 'Node List Controller ID'
-        response.put("NODE_LIST_CONTROLLER_ID", new Integer(payload[4]));
+        response.put("NODE_LIST_CONTROLLER_ID", Integer.valueOf(payload[4]));
 
         // Process 'Node List Data'
         List<Integer> responseNodeListData = new ArrayList<Integer>();
@@ -262,13 +262,13 @@ public class CommandClassNetworkManagementProxyV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Seq. No'
-        response.put("SEQ_NO", new Integer(payload[2]));
+        response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Process 'Properties1'
-        response.put("MAX_AGE", new Integer(payload[3] & 0x0F));
+        response.put("MAX_AGE", Integer.valueOf(payload[3] & 0x0F));
 
         // Process 'Node ID'
-        response.put("NODE_ID", new Integer(payload[4]));
+        response.put("NODE_ID", Integer.valueOf(payload[4]));
 
         // Return the map of processed response data;
         return response;
@@ -404,11 +404,11 @@ public class CommandClassNetworkManagementProxyV1 {
         int msgOffset = 2;
 
         // Process 'Seq. No'
-        response.put("SEQ_NO", new Integer(payload[msgOffset]));
+        response.put("SEQ_NO", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties1'
-        response.put("AGE", new Integer(payload[msgOffset] & 0x0F));
+        response.put("AGE", Integer.valueOf(payload[msgOffset] & 0x0F));
         switch ((payload[msgOffset] & 0xF0) >> 4) {
             case 0x00:
                 response.put("STATUS", "STATUS_OK");
@@ -425,28 +425,28 @@ public class CommandClassNetworkManagementProxyV1 {
         msgOffset += 1;
 
         // Process 'Properties2'
-        response.put("CAPABILITY", new Integer(payload[msgOffset] & 0x7F));
-        response.put("LISTENING", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("CAPABILITY", Integer.valueOf(payload[msgOffset] & 0x7F));
+        response.put("LISTENING", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'Properties3'
-        response.put("SECURITY", new Integer(payload[msgOffset] & 0x0F));
-        response.put("SENSOR", new Integer((payload[msgOffset] & 0x70 >> 4)));
-        response.put("OPT", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("SECURITY", Integer.valueOf(payload[msgOffset] & 0x0F));
+        response.put("SENSOR", Integer.valueOf((payload[msgOffset] & 0x70 >> 4)));
+        response.put("OPT", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         msgOffset += 1;
 
         // Process 'Basic Device Class'
-        response.put("BASIC_DEVICE_CLASS", new Integer(payload[msgOffset]));
+        response.put("BASIC_DEVICE_CLASS", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Generic Device Class'
-        response.put("GENERIC_DEVICE_CLASS", new Integer(payload[msgOffset]));
+        response.put("GENERIC_DEVICE_CLASS", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Specific Device Class'
-        response.put("SPECIFIC_DEVICE_CLASS", new Integer(payload[msgOffset]));
+        response.put("SPECIFIC_DEVICE_CLASS", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Non-Secure Command Class'

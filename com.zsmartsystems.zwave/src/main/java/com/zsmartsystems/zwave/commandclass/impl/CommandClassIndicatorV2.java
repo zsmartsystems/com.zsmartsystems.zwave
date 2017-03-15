@@ -120,7 +120,7 @@ public class CommandClassIndicatorV2 {
         }
 
         // Process 'Properties1'
-        response.put("INDICATOR_OBJECT_COUNT", new Integer(payload[3] & 0x1F));
+        response.put("INDICATOR_OBJECT_COUNT", Integer.valueOf(payload[3] & 0x1F));
 
         // Process 'vg1'
 
@@ -263,7 +263,7 @@ public class CommandClassIndicatorV2 {
             }
 
             // Process 'Value'
-            variant.put("VALUE", new Integer(payload[6]));
+            variant.put("VALUE", Integer.valueOf(payload[6]));
 
             // Add to the list
             variantList.add(variant);
@@ -595,7 +595,7 @@ public class CommandClassIndicatorV2 {
         }
 
         // Process 'Properties1'
-        response.put("INDICATOR_OBJECT_COUNT", new Integer(payload[3] & 0x1F));
+        response.put("INDICATOR_OBJECT_COUNT", Integer.valueOf(payload[3] & 0x1F));
 
         // Process 'vg1'
 
@@ -738,7 +738,7 @@ public class CommandClassIndicatorV2 {
             }
 
             // Process 'Value'
-            variant.put("VALUE", new Integer(payload[6]));
+            variant.put("VALUE", Integer.valueOf(payload[6]));
 
             // Add to the list
             variantList.add(variant);

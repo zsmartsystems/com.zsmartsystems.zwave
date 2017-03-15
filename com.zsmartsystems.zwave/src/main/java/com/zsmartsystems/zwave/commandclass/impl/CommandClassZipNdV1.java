@@ -150,10 +150,10 @@ public class CommandClassZipNdV1 {
             default:
                 logger.debug("Unknown enum value {} for VALIDITY", String.format("0x%02X", 2));
         }
-        response.put("LOCAL", new Boolean((payload[2] & 0x04) != 0));
+        response.put("LOCAL", Boolean.valueOf((payload[2] & 0x04) != 0));
 
         // Process 'Node ID'
-        response.put("NODE_ID", new Integer(payload[3]));
+        response.put("NODE_ID", Integer.valueOf(payload[3]));
 
         // Process 'IPv6 Address'
         byte[] valIpv6Address = new byte[16];
@@ -229,7 +229,7 @@ public class CommandClassZipNdV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Node ID'
-        response.put("NODE_ID", new Integer(payload[3]));
+        response.put("NODE_ID", Integer.valueOf(payload[3]));
 
         // Process 'IPv6 Address'
         byte[] valIpv6Address = new byte[16];
@@ -294,10 +294,10 @@ public class CommandClassZipNdV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("LOCAL", new Boolean((payload[2] & 0x04) != 0));
+        response.put("LOCAL", Boolean.valueOf((payload[2] & 0x04) != 0));
 
         // Process 'Node ID'
-        response.put("NODE_ID", new Integer(payload[3]));
+        response.put("NODE_ID", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;

@@ -124,7 +124,7 @@ public class CommandClassUserCodeV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'User Identifier'
-        response.put("USER_IDENTIFIER", new Integer(payload[2]));
+        response.put("USER_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Process 'User ID Status'
         switch ((int) payload[3]) {
@@ -196,7 +196,7 @@ public class CommandClassUserCodeV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'User Identifier'
-        response.put("USER_IDENTIFIER", new Integer(payload[2]));
+        response.put("USER_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -269,7 +269,7 @@ public class CommandClassUserCodeV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'User Identifier'
-        response.put("USER_IDENTIFIER", new Integer(payload[2]));
+        response.put("USER_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Process 'User ID Status'
         switch ((int) payload[3]) {
@@ -376,7 +376,7 @@ public class CommandClassUserCodeV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Supported Users'
-        response.put("SUPPORTED_USERS", new Integer(payload[2]));
+        response.put("SUPPORTED_USERS", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;

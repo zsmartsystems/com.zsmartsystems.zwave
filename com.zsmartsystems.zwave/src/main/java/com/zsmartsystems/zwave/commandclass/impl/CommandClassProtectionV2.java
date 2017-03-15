@@ -126,10 +126,10 @@ public class CommandClassProtectionV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        response.put("LOCAL_PROTECTION_STATE", new Integer(payload[2] & 0x0F));
+        response.put("LOCAL_PROTECTION_STATE", Integer.valueOf(payload[2] & 0x0F));
 
         // Process 'Level2'
-        response.put("RF_PROTECTION_STATE", new Integer(payload[3] & 0x0F));
+        response.put("RF_PROTECTION_STATE", Integer.valueOf(payload[3] & 0x0F));
 
         // Return the map of processed response data;
         return response;
@@ -217,10 +217,10 @@ public class CommandClassProtectionV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        response.put("LOCAL_PROTECTION_STATE", new Integer(payload[2] & 0x0F));
+        response.put("LOCAL_PROTECTION_STATE", Integer.valueOf(payload[2] & 0x0F));
 
         // Process 'Level2'
-        response.put("RF_PROTECTION_STATE", new Integer(payload[3] & 0x0F));
+        response.put("RF_PROTECTION_STATE", Integer.valueOf(payload[3] & 0x0F));
 
         // Return the map of processed response data;
         return response;
@@ -321,14 +321,14 @@ public class CommandClassProtectionV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        response.put("TIMEOUT", new Boolean((payload[2] & 0x01) != 0));
-        response.put("EXCLUSIVE_CONTROL", new Boolean((payload[2] & 0x02) != 0));
+        response.put("TIMEOUT", Boolean.valueOf((payload[2] & 0x01) != 0));
+        response.put("EXCLUSIVE_CONTROL", Boolean.valueOf((payload[2] & 0x02) != 0));
 
         // Process 'Local Protection State'
-        response.put("LOCAL_PROTECTION_STATE", new Integer(payload[3] << 8 + payload[4]));
+        response.put("LOCAL_PROTECTION_STATE", Integer.valueOf(payload[3] << 8 + payload[4]));
 
         // Process 'RF Protection State'
-        response.put("RF_PROTECTION_STATE", new Integer(payload[5] << 8 + payload[6]));
+        response.put("RF_PROTECTION_STATE", Integer.valueOf(payload[5] << 8 + payload[6]));
 
         // Return the map of processed response data;
         return response;
@@ -381,7 +381,7 @@ public class CommandClassProtectionV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Node ID'
-        response.put("NODE_ID", new Integer(payload[2]));
+        response.put("NODE_ID", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -469,7 +469,7 @@ public class CommandClassProtectionV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Node ID'
-        response.put("NODE_ID", new Integer(payload[2]));
+        response.put("NODE_ID", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;

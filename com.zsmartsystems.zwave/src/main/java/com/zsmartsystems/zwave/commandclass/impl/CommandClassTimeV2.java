@@ -156,14 +156,14 @@ public class CommandClassTimeV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Hour Local Time'
-        response.put("HOUR_LOCAL_TIME", new Integer(payload[2] & 0x1F));
-        response.put("RTC_FAILURE", new Boolean((payload[2] & 0x80) != 0));
+        response.put("HOUR_LOCAL_TIME", Integer.valueOf(payload[2] & 0x1F));
+        response.put("RTC_FAILURE", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Process 'Minute Local Time'
-        response.put("MINUTE_LOCAL_TIME", new Integer(payload[3]));
+        response.put("MINUTE_LOCAL_TIME", Integer.valueOf(payload[3]));
 
         // Process 'Second Local Time'
-        response.put("SECOND_LOCAL_TIME", new Integer(payload[4]));
+        response.put("SECOND_LOCAL_TIME", Integer.valueOf(payload[4]));
 
         // Return the map of processed response data;
         return response;
@@ -257,13 +257,13 @@ public class CommandClassTimeV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Year'
-        response.put("YEAR", new Integer(payload[2] << 8 + payload[3]));
+        response.put("YEAR", Integer.valueOf(payload[2] << 8 + payload[3]));
 
         // Process 'Month'
-        response.put("MONTH", new Integer(payload[4]));
+        response.put("MONTH", Integer.valueOf(payload[4]));
 
         // Process 'Day'
-        response.put("DAY", new Integer(payload[5]));
+        response.put("DAY", Integer.valueOf(payload[5]));
 
         // Return the map of processed response data;
         return response;
@@ -363,33 +363,33 @@ public class CommandClassTimeV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        response.put("HOUR_TZO", new Integer(payload[2] & 0x7F));
-        response.put("SIGN_TZO", new Boolean((payload[2] & 0x80) != 0));
+        response.put("HOUR_TZO", Integer.valueOf(payload[2] & 0x7F));
+        response.put("SIGN_TZO", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Process 'Minute TZO'
-        response.put("MINUTE_TZO", new Integer(payload[3]));
+        response.put("MINUTE_TZO", Integer.valueOf(payload[3]));
 
         // Process 'Level2'
-        response.put("MINUTE_OFFSET_DST", new Integer(payload[4] & 0x7F));
-        response.put("SIGN_OFFSET_DST", new Boolean((payload[4] & 0x80) != 0));
+        response.put("MINUTE_OFFSET_DST", Integer.valueOf(payload[4] & 0x7F));
+        response.put("SIGN_OFFSET_DST", Boolean.valueOf((payload[4] & 0x80) != 0));
 
         // Process 'Month Start DST'
-        response.put("MONTH_START_DST", new Integer(payload[5]));
+        response.put("MONTH_START_DST", Integer.valueOf(payload[5]));
 
         // Process 'Day Start DST'
-        response.put("DAY_START_DST", new Integer(payload[6]));
+        response.put("DAY_START_DST", Integer.valueOf(payload[6]));
 
         // Process 'Hour Start DST'
-        response.put("HOUR_START_DST", new Integer(payload[7]));
+        response.put("HOUR_START_DST", Integer.valueOf(payload[7]));
 
         // Process 'Month End DST'
-        response.put("MONTH_END_DST", new Integer(payload[8]));
+        response.put("MONTH_END_DST", Integer.valueOf(payload[8]));
 
         // Process 'Day End DST'
-        response.put("DAY_END_DST", new Integer(payload[9]));
+        response.put("DAY_END_DST", Integer.valueOf(payload[9]));
 
         // Process 'Hour End DST'
-        response.put("HOUR_END_DST", new Integer(payload[10]));
+        response.put("HOUR_END_DST", Integer.valueOf(payload[10]));
 
         // Return the map of processed response data;
         return response;
@@ -524,33 +524,33 @@ public class CommandClassTimeV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        response.put("HOUR_TZO", new Integer(payload[2] & 0x7F));
-        response.put("SIGN_TZO", new Boolean((payload[2] & 0x80) != 0));
+        response.put("HOUR_TZO", Integer.valueOf(payload[2] & 0x7F));
+        response.put("SIGN_TZO", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Process 'Minute TZO'
-        response.put("MINUTE_TZO", new Integer(payload[3]));
+        response.put("MINUTE_TZO", Integer.valueOf(payload[3]));
 
         // Process 'Level2'
-        response.put("MINUTE_OFFSET_DST", new Integer(payload[4] & 0x7F));
-        response.put("SIGN_OFFSET_DST", new Boolean((payload[4] & 0x80) != 0));
+        response.put("MINUTE_OFFSET_DST", Integer.valueOf(payload[4] & 0x7F));
+        response.put("SIGN_OFFSET_DST", Boolean.valueOf((payload[4] & 0x80) != 0));
 
         // Process 'Month Start DST'
-        response.put("MONTH_START_DST", new Integer(payload[5]));
+        response.put("MONTH_START_DST", Integer.valueOf(payload[5]));
 
         // Process 'Day Start DST'
-        response.put("DAY_START_DST", new Integer(payload[6]));
+        response.put("DAY_START_DST", Integer.valueOf(payload[6]));
 
         // Process 'Hour Start DST'
-        response.put("HOUR_START_DST", new Integer(payload[7]));
+        response.put("HOUR_START_DST", Integer.valueOf(payload[7]));
 
         // Process 'Month End DST'
-        response.put("MONTH_END_DST", new Integer(payload[8]));
+        response.put("MONTH_END_DST", Integer.valueOf(payload[8]));
 
         // Process 'Day End DST'
-        response.put("DAY_END_DST", new Integer(payload[9]));
+        response.put("DAY_END_DST", Integer.valueOf(payload[9]));
 
         // Process 'Hour End DST'
-        response.put("HOUR_END_DST", new Integer(payload[10]));
+        response.put("HOUR_END_DST", Integer.valueOf(payload[10]));
 
         // Return the map of processed response data;
         return response;

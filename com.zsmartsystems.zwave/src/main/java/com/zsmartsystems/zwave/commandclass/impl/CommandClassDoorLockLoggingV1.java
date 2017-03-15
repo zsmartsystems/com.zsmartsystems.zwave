@@ -129,7 +129,7 @@ public class CommandClassDoorLockLoggingV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Max records stored'
-        response.put("MAX_RECORDS_STORED", new Integer(payload[2]));
+        response.put("MAX_RECORDS_STORED", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -177,7 +177,7 @@ public class CommandClassDoorLockLoggingV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Record number'
-        response.put("RECORD_NUMBER", new Integer(payload[2]));
+        response.put("RECORD_NUMBER", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -289,44 +289,44 @@ public class CommandClassDoorLockLoggingV1 {
         int msgOffset = 2;
 
         // Process 'Record number'
-        response.put("RECORD_NUMBER", new Integer(payload[msgOffset]));
+        response.put("RECORD_NUMBER", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Year'
-        response.put("YEAR", new Integer(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("YEAR", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
         msgOffset += 2;
 
         // Process 'Month'
-        response.put("MONTH", new Integer(payload[msgOffset]));
+        response.put("MONTH", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Day'
-        response.put("DAY", new Integer(payload[msgOffset]));
+        response.put("DAY", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties1'
-        response.put("HOUR_LOCAL_TIME", new Integer(payload[msgOffset] & 0x1F));
-        response.put("RECORD_STATUS", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("HOUR_LOCAL_TIME", Integer.valueOf(payload[msgOffset] & 0x1F));
+        response.put("RECORD_STATUS", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Minute Local Time'
-        response.put("MINUTE_LOCAL_TIME", new Integer(payload[msgOffset]));
+        response.put("MINUTE_LOCAL_TIME", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Second Local Time'
-        response.put("SECOND_LOCAL_TIME", new Integer(payload[msgOffset]));
+        response.put("SECOND_LOCAL_TIME", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Event Type'
-        response.put("EVENT_TYPE", new Integer(payload[msgOffset]));
+        response.put("EVENT_TYPE", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'User Identifier'
-        response.put("USER_IDENTIFIER", new Integer(payload[msgOffset]));
+        response.put("USER_IDENTIFIER", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'User Code Length'
-        response.put("USER_CODE_LENGTH", new Integer(payload[msgOffset]));
+        response.put("USER_CODE_LENGTH", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'USER_CODE'

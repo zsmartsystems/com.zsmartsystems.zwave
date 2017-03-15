@@ -395,13 +395,13 @@ public class CommandClassThermostatHeatingV1 {
         int msgOffset = 2;
 
         // Process 'Setpoint Nr'
-        response.put("SETPOINT_NR", new Integer(payload[msgOffset]));
+        response.put("SETPOINT_NR", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties1'
-        response.put("SIZE", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCALE", new Integer((payload[msgOffset] & 0x18 >> 3)));
-        response.put("PRECISION", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("SIZE", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCALE", Integer.valueOf((payload[msgOffset] & 0x18 >> 3)));
+        response.put("PRECISION", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Value'
@@ -459,7 +459,7 @@ public class CommandClassThermostatHeatingV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Setpoint Nr'
-        response.put("SETPOINT_NR", new Integer(payload[2]));
+        response.put("SETPOINT_NR", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -532,13 +532,13 @@ public class CommandClassThermostatHeatingV1 {
         int msgOffset = 2;
 
         // Process 'Setpoint Nr'
-        response.put("SETPOINT_NR", new Integer(payload[msgOffset]));
+        response.put("SETPOINT_NR", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties1'
-        response.put("SIZE", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCALE", new Integer((payload[msgOffset] & 0x18 >> 3)));
-        response.put("PRECISION", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("SIZE", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCALE", Integer.valueOf((payload[msgOffset] & 0x18 >> 3)));
+        response.put("PRECISION", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Value'
@@ -875,10 +875,10 @@ public class CommandClassThermostatHeatingV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Minutes'
-        response.put("MINUTES", new Integer(payload[2]));
+        response.put("MINUTES", Integer.valueOf(payload[2]));
 
         // Process 'Hours'
-        response.put("HOURS", new Integer(payload[3]));
+        response.put("HOURS", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;

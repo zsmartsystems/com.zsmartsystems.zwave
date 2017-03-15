@@ -103,10 +103,10 @@ public class CommandClassGroupingNameV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Grouping identifier'
-        response.put("GROUPING_IDENTIFIER", new Integer(payload[2]));
+        response.put("GROUPING_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Process 'Properties1'
-        response.put("CHAR_PRESENTATION", new Integer(payload[3] & 0x07));
+        response.put("CHAR_PRESENTATION", Integer.valueOf(payload[3] & 0x07));
 
         // Process 'Grouping Name'
         byte[] valGroupingName = new byte[16];
@@ -161,7 +161,7 @@ public class CommandClassGroupingNameV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Grouping identifier'
-        response.put("GROUPING_IDENTIFIER", new Integer(payload[2]));
+        response.put("GROUPING_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -222,10 +222,10 @@ public class CommandClassGroupingNameV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Grouping identifier'
-        response.put("GROUPING_IDENTIFIER", new Integer(payload[2]));
+        response.put("GROUPING_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Process 'Properties1'
-        response.put("CHAR_PRESENTATION", new Integer(payload[3] & 0x07));
+        response.put("CHAR_PRESENTATION", Integer.valueOf(payload[3] & 0x07));
 
         // Process 'Grouping Name'
         byte[] valGroupingName = new byte[16];

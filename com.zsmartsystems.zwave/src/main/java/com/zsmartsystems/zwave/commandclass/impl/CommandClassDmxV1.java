@@ -107,10 +107,10 @@ public class CommandClassDmxV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("PAGE_ID", new Integer(payload[2] & 0x0F));
+        response.put("PAGE_ID", Integer.valueOf(payload[2] & 0x0F));
 
         // Process 'Channel ID'
-        response.put("CHANNEL_ID", new Integer(payload[3]));
+        response.put("CHANNEL_ID", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -198,10 +198,10 @@ public class CommandClassDmxV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("PAGE_ID", new Integer(payload[2] & 0x0F));
+        response.put("PAGE_ID", Integer.valueOf(payload[2] & 0x0F));
 
         // Process 'Channel ID'
-        response.put("CHANNEL_ID", new Integer(payload[3]));
+        response.put("CHANNEL_ID", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -249,7 +249,7 @@ public class CommandClassDmxV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Channel ID'
-        response.put("CHANNEL_ID", new Integer(payload[2]));
+        response.put("CHANNEL_ID", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -314,16 +314,16 @@ public class CommandClassDmxV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Channel ID'
-        response.put("CHANNEL_ID", new Integer(payload[2]));
+        response.put("CHANNEL_ID", Integer.valueOf(payload[2]));
 
         // Process 'Property ID'
-        response.put("PROPERTY_ID", new Integer(payload[3] << 8 + payload[4]));
+        response.put("PROPERTY_ID", Integer.valueOf(payload[3] << 8 + payload[4]));
 
         // Process 'Device Channels'
-        response.put("DEVICE_CHANNELS", new Integer(payload[5]));
+        response.put("DEVICE_CHANNELS", Integer.valueOf(payload[5]));
 
         // Process 'Max Channels'
-        response.put("MAX_CHANNELS", new Integer(payload[6]));
+        response.put("MAX_CHANNELS", Integer.valueOf(payload[6]));
 
         // Return the map of processed response data;
         return response;
@@ -392,12 +392,12 @@ public class CommandClassDmxV1 {
         int msgOffset = 2;
 
         // Process 'Source'
-        response.put("SOURCE", new Integer(payload[msgOffset]));
+        response.put("SOURCE", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties1'
-        response.put("PAGE", new Integer(payload[msgOffset] & 0x0F));
-        response.put("SEQUENCE_NO", new Integer((payload[msgOffset] & 0x30 >> 4)));
+        response.put("PAGE", Integer.valueOf(payload[msgOffset] & 0x0F));
+        response.put("SEQUENCE_NO", Integer.valueOf((payload[msgOffset] & 0x30 >> 4)));
         msgOffset += 1;
 
         // Process 'DMX channel'

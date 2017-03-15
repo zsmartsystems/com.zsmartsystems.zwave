@@ -204,16 +204,16 @@ public class CommandClassIrrigationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("MASTER_VALVE", new Boolean((payload[2] & 0x01) != 0));
+        response.put("MASTER_VALVE", Boolean.valueOf((payload[2] & 0x01) != 0));
 
         // Process 'Total Number of Valves'
-        response.put("TOTAL_NUMBER_OF_VALVES", new Integer(payload[3]));
+        response.put("TOTAL_NUMBER_OF_VALVES", Integer.valueOf(payload[3]));
 
         // Process 'Total Number of Valve Tables'
-        response.put("TOTAL_NUMBER_OF_VALVE_TABLES", new Integer(payload[4]));
+        response.put("TOTAL_NUMBER_OF_VALVE_TABLES", Integer.valueOf(payload[4]));
 
         // Process 'Properties2'
-        response.put("VALVE_TABLE_MAX_SIZE", new Integer(payload[5] & 0x0F));
+        response.put("VALVE_TABLE_MAX_SIZE", Integer.valueOf(payload[5] & 0x0F));
 
         // Return the map of processed response data;
         return response;
@@ -377,7 +377,7 @@ public class CommandClassIrrigationV1 {
         int msgOffset = 2;
 
         // Process 'System Voltage'
-        response.put("SYSTEM_VOLTAGE", new Integer(payload[msgOffset]));
+        response.put("SYSTEM_VOLTAGE", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Sensor Status'
@@ -426,7 +426,7 @@ public class CommandClassIrrigationV1 {
         msgOffset += lenPressureValue;
 
         // Process 'Shutoff Duration'
-        response.put("SHUTOFF_DURATION", new Integer(payload[msgOffset]));
+        response.put("SHUTOFF_DURATION", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'System Error Status'
@@ -461,11 +461,11 @@ public class CommandClassIrrigationV1 {
         msgOffset += 1;
 
         // Process 'Properties3'
-        response.put("MASTER_VALVE", new Boolean((payload[msgOffset] & 0x01) != 0));
+        response.put("MASTER_VALVE", Boolean.valueOf((payload[msgOffset] & 0x01) != 0));
         msgOffset += 1;
 
         // Process 'Valve ID'
-        response.put("VALVE_ID", new Integer(payload[msgOffset]));
+        response.put("VALVE_ID", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Return the map of processed response data;
@@ -557,7 +557,7 @@ public class CommandClassIrrigationV1 {
         int msgOffset = 2;
 
         // Process 'Master Valve Delay'
-        response.put("MASTER_VALVE_DELAY", new Integer(payload[msgOffset]));
+        response.put("MASTER_VALVE_DELAY", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties1'
@@ -733,7 +733,7 @@ public class CommandClassIrrigationV1 {
         int msgOffset = 2;
 
         // Process 'Master Valve Delay'
-        response.put("MASTER_VALVE_DELAY", new Integer(payload[msgOffset]));
+        response.put("MASTER_VALVE_DELAY", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties1'
@@ -836,10 +836,10 @@ public class CommandClassIrrigationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("MASTER_VALVE", new Boolean((payload[2] & 0x01) != 0));
+        response.put("MASTER_VALVE", Boolean.valueOf((payload[2] & 0x01) != 0));
 
         // Process 'Valve ID'
-        response.put("VALVE_ID", new Integer(payload[3]));
+        response.put("VALVE_ID", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -915,14 +915,14 @@ public class CommandClassIrrigationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("MASTER", new Boolean((payload[2] & 0x01) != 0));
-        response.put("CONNECTED", new Boolean((payload[2] & 0x02) != 0));
+        response.put("MASTER", Boolean.valueOf((payload[2] & 0x01) != 0));
+        response.put("CONNECTED", Boolean.valueOf((payload[2] & 0x02) != 0));
 
         // Process 'Valve ID'
-        response.put("VALVE_ID", new Integer(payload[3]));
+        response.put("VALVE_ID", Integer.valueOf(payload[3]));
 
         // Process 'Nominal Current'
-        response.put("NOMINAL_CURRENT", new Integer(payload[4]));
+        response.put("NOMINAL_CURRENT", Integer.valueOf(payload[4]));
 
         // Process 'Valve Error Status'
         List<String> responseValveErrorStatus = new ArrayList<String>();
@@ -1076,19 +1076,19 @@ public class CommandClassIrrigationV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("MASTER_VALVE", new Boolean((payload[msgOffset] & 0x01) != 0));
+        response.put("MASTER_VALVE", Boolean.valueOf((payload[msgOffset] & 0x01) != 0));
         msgOffset += 1;
 
         // Process 'Valve ID'
-        response.put("VALVE_ID", new Integer(payload[msgOffset]));
+        response.put("VALVE_ID", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Nominal Current High Threshold'
-        response.put("NOMINAL_CURRENT_HIGH_THRESHOLD", new Integer(payload[msgOffset]));
+        response.put("NOMINAL_CURRENT_HIGH_THRESHOLD", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Nominal Current Low Threshold'
-        response.put("NOMINAL_CURRENT_LOW_THRESHOLD", new Integer(payload[msgOffset]));
+        response.put("NOMINAL_CURRENT_LOW_THRESHOLD", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties2'
@@ -1200,10 +1200,10 @@ public class CommandClassIrrigationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("MASTER_VALVE", new Boolean((payload[2] & 0x01) != 0));
+        response.put("MASTER_VALVE", Boolean.valueOf((payload[2] & 0x01) != 0));
 
         // Process 'Valve ID'
-        response.put("VALVE_ID", new Integer(payload[3]));
+        response.put("VALVE_ID", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -1324,19 +1324,19 @@ public class CommandClassIrrigationV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("MASTER_VALVE", new Boolean((payload[msgOffset] & 0x01) != 0));
+        response.put("MASTER_VALVE", Boolean.valueOf((payload[msgOffset] & 0x01) != 0));
         msgOffset += 1;
 
         // Process 'Valve ID'
-        response.put("VALVE_ID", new Integer(payload[msgOffset]));
+        response.put("VALVE_ID", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Nominal Current High Threshold'
-        response.put("NOMINAL_CURRENT_HIGH_THRESHOLD", new Integer(payload[msgOffset]));
+        response.put("NOMINAL_CURRENT_HIGH_THRESHOLD", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Nominal Current Low Threshold'
-        response.put("NOMINAL_CURRENT_LOW_THRESHOLD", new Integer(payload[msgOffset]));
+        response.put("NOMINAL_CURRENT_LOW_THRESHOLD", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties2'
@@ -1454,13 +1454,13 @@ public class CommandClassIrrigationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("MASTER_VALVE", new Boolean((payload[2] & 0x01) != 0));
+        response.put("MASTER_VALVE", Boolean.valueOf((payload[2] & 0x01) != 0));
 
         // Process 'Valve ID'
-        response.put("VALVE_ID", new Integer(payload[3]));
+        response.put("VALVE_ID", Integer.valueOf(payload[3]));
 
         // Process 'Duration'
-        response.put("DURATION", new Integer(payload[4] << 8 + payload[5]));
+        response.put("DURATION", Integer.valueOf(payload[4] << 8 + payload[5]));
 
         // Return the map of processed response data;
         return response;
@@ -1510,7 +1510,7 @@ public class CommandClassIrrigationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Valve Table ID'
-        response.put("VALVE_TABLE_ID", new Integer(payload[2]));
+        response.put("VALVE_TABLE_ID", Integer.valueOf(payload[2]));
 
         // Process 'vg1'
 
@@ -1523,10 +1523,10 @@ public class CommandClassIrrigationV1 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Valve ID'
-            variant.put("VALVE_ID", new Integer(payload[3]));
+            variant.put("VALVE_ID", Integer.valueOf(payload[3]));
 
             // Process 'Duration'
-            variant.put("DURATION", new Integer(payload[4] << 8 + payload[5]));
+            variant.put("DURATION", Integer.valueOf(payload[4] << 8 + payload[5]));
 
         }
 
@@ -1579,7 +1579,7 @@ public class CommandClassIrrigationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Valve Table ID'
-        response.put("VALVE_TABLE_ID", new Integer(payload[2]));
+        response.put("VALVE_TABLE_ID", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -1629,7 +1629,7 @@ public class CommandClassIrrigationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Valve Table ID'
-        response.put("VALVE_TABLE_ID", new Integer(payload[2]));
+        response.put("VALVE_TABLE_ID", Integer.valueOf(payload[2]));
 
         // Process 'vg1'
 
@@ -1642,10 +1642,10 @@ public class CommandClassIrrigationV1 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Valve ID'
-            variant.put("VALVE_ID", new Integer(payload[3]));
+            variant.put("VALVE_ID", Integer.valueOf(payload[3]));
 
             // Process 'Duration'
-            variant.put("DURATION", new Integer(payload[4] << 8 + payload[5]));
+            variant.put("DURATION", Integer.valueOf(payload[4] << 8 + payload[5]));
 
         }
 
@@ -1757,7 +1757,7 @@ public class CommandClassIrrigationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Duration'
-        response.put("DURATION", new Integer(payload[2]));
+        response.put("DURATION", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;

@@ -102,11 +102,11 @@ public class CommandClassCrc16EncapV1 {
         int msgOffset = 2;
 
         // Process 'Command Class'
-        response.put("COMMAND_CLASS", new Integer(payload[msgOffset]));
+        response.put("COMMAND_CLASS", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Command'
-        response.put("COMMAND", new Integer(payload[msgOffset]));
+        response.put("COMMAND", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Data'
@@ -118,7 +118,7 @@ public class CommandClassCrc16EncapV1 {
         response.put("DATA", valData);
 
         // Process 'Checksum'
-        response.put("CHECKSUM", new Integer(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("CHECKSUM", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
         msgOffset += 2;
 
         // Return the map of processed response data;

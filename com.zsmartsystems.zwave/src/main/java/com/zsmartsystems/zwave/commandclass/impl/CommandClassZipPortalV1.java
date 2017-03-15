@@ -140,7 +140,7 @@ public class CommandClassZipPortalV1 {
         response.put("LAN_IPV6_ADDRESS", valLanIpv6Address);
 
         // Process 'LAN IPv6 Prefix Length'
-        response.put("LAN_IPV6_PREFIX_LENGTH", new Integer(payload[18]));
+        response.put("LAN_IPV6_PREFIX_LENGTH", Integer.valueOf(payload[18]));
 
         // Process 'Portal IPv6 Prefix'
         byte[] valPortalIpv6Prefix = new byte[16];
@@ -150,7 +150,7 @@ public class CommandClassZipPortalV1 {
         response.put("PORTAL_IPV6_PREFIX", valPortalIpv6Prefix);
 
         // Process 'Portal IPv6 Prefix Length'
-        response.put("PORTAL_IPV6_PREFIX_LENGTH", new Integer(payload[35]));
+        response.put("PORTAL_IPV6_PREFIX_LENGTH", Integer.valueOf(payload[35]));
 
         // Process 'Default Gateway IPv6 Address'
         byte[] valDefaultGatewayIpv6Address = new byte[16];
@@ -212,7 +212,7 @@ public class CommandClassZipPortalV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Status'
-        response.put("STATUS", new Integer(payload[2]));
+        response.put("STATUS", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -341,7 +341,7 @@ public class CommandClassZipPortalV1 {
         response.put("LAN_IPV6_ADDRESS", valLanIpv6Address);
 
         // Process 'LAN IPv6 Prefix Length'
-        response.put("LAN_IPV6_PREFIX_LENGTH", new Integer(payload[18]));
+        response.put("LAN_IPV6_PREFIX_LENGTH", Integer.valueOf(payload[18]));
 
         // Process 'Portal IPv6 Prefix'
         byte[] valPortalIpv6Prefix = new byte[16];
@@ -351,7 +351,7 @@ public class CommandClassZipPortalV1 {
         response.put("PORTAL_IPV6_PREFIX", valPortalIpv6Prefix);
 
         // Process 'Portal IPv6 Prefix Length'
-        response.put("PORTAL_IPV6_PREFIX_LENGTH", new Integer(payload[35]));
+        response.put("PORTAL_IPV6_PREFIX_LENGTH", Integer.valueOf(payload[35]));
 
         // Process 'Default Gateway IPv6 Address'
         byte[] valDefaultGatewayIpv6Address = new byte[16];

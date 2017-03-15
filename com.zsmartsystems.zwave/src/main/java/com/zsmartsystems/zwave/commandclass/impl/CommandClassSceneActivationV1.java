@@ -86,7 +86,7 @@ public class CommandClassSceneActivationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Scene ID'
-        response.put("SCENE_ID", new Integer(payload[2]));
+        response.put("SCENE_ID", Integer.valueOf(payload[2]));
 
         // Process 'Dimming Duration'
         switch ((int) payload[3]) {

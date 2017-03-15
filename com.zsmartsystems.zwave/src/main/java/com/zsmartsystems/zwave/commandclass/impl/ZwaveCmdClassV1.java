@@ -380,18 +380,18 @@ public class ZwaveCmdClassV1 {
             default:
                 logger.debug("Unknown enum value {} for MAX_BAUD_RATE", String.format("0x%02X", 2));
         }
-        response.put("ROUTING", new Boolean((payload[2] & 0x40) != 0));
-        response.put("LISTENING", new Boolean((payload[2] & 0x80) != 0));
+        response.put("ROUTING", Boolean.valueOf((payload[2] & 0x40) != 0));
+        response.put("LISTENING", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Process 'Security'
-        response.put("SECURITY", new Boolean((payload[3] & 0x01) != 0));
-        response.put("CONTROLLER", new Boolean((payload[3] & 0x02) != 0));
-        response.put("SPECIFIC_DEVICE", new Boolean((payload[3] & 0x04) != 0));
-        response.put("ROUTING_SLAVE", new Boolean((payload[3] & 0x08) != 0));
-        response.put("BEAM_CAPABILITY", new Boolean((payload[3] & 0x10) != 0));
-        response.put("SENSOR_250MS", new Boolean((payload[3] & 0x20) != 0));
-        response.put("SENSOR_1000MS", new Boolean((payload[3] & 0x40) != 0));
-        response.put("OPTIONAL_FUNCTIONALITY", new Boolean((payload[3] & 0x80) != 0));
+        response.put("SECURITY", Boolean.valueOf((payload[3] & 0x01) != 0));
+        response.put("CONTROLLER", Boolean.valueOf((payload[3] & 0x02) != 0));
+        response.put("SPECIFIC_DEVICE", Boolean.valueOf((payload[3] & 0x04) != 0));
+        response.put("ROUTING_SLAVE", Boolean.valueOf((payload[3] & 0x08) != 0));
+        response.put("BEAM_CAPABILITY", Boolean.valueOf((payload[3] & 0x10) != 0));
+        response.put("SENSOR_250MS", Boolean.valueOf((payload[3] & 0x20) != 0));
+        response.put("SENSOR_1000MS", Boolean.valueOf((payload[3] & 0x40) != 0));
+        response.put("OPTIONAL_FUNCTIONALITY", Boolean.valueOf((payload[3] & 0x80) != 0));
 
         // Process 'Properties1'
         switch ((int) payload[4] & 0x07) {

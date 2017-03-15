@@ -145,7 +145,7 @@ public class CommandClassSecurity2V1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Sequence Number'
-        response.put("SEQUENCE_NUMBER", new Integer(payload[2]));
+        response.put("SEQUENCE_NUMBER", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -212,11 +212,11 @@ public class CommandClassSecurity2V1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Sequence Number'
-        response.put("SEQUENCE_NUMBER", new Integer(payload[2]));
+        response.put("SEQUENCE_NUMBER", Integer.valueOf(payload[2]));
 
         // Process 'Properties1'
-        response.put("SOS", new Boolean((payload[3] & 0x01) != 0));
-        response.put("MOS", new Boolean((payload[3] & 0x02) != 0));
+        response.put("SOS", Boolean.valueOf((payload[3] & 0x01) != 0));
+        response.put("MOS", Boolean.valueOf((payload[3] & 0x02) != 0));
 
         // Process 'Receivers Entropy Input'
         byte[] valReceiversEntropyInput = new byte[16];
@@ -295,12 +295,12 @@ public class CommandClassSecurity2V1 {
         int msgOffset = 2;
 
         // Process 'Sequence Number'
-        response.put("SEQUENCE_NUMBER", new Integer(payload[msgOffset]));
+        response.put("SEQUENCE_NUMBER", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties1'
-        response.put("EXTENSION", new Boolean((payload[msgOffset] & 0x01) != 0));
-        response.put("ENCRYPTED_EXTENSION", new Boolean((payload[msgOffset] & 0x02) != 0));
+        response.put("EXTENSION", Boolean.valueOf((payload[msgOffset] & 0x01) != 0));
+        response.put("ENCRYPTED_EXTENSION", Boolean.valueOf((payload[msgOffset] & 0x02) != 0));
         msgOffset += 1;
 
         // Process 'vg1'
@@ -314,13 +314,13 @@ public class CommandClassSecurity2V1 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Extension Length'
-            variant.put("EXTENSION_LENGTH", new Integer(payload[msgOffset]));
+            variant.put("EXTENSION_LENGTH", Integer.valueOf(payload[msgOffset]));
             msgOffset += 1;
 
             // Process 'Properties1'
-            variant.put("TYPE", new Integer(payload[msgOffset] & 0x3F));
-            variant.put("CRITICAL", new Boolean((payload[msgOffset] & 0x40) != 0));
-            variant.put("MORE_TO_FOLLOW", new Boolean((payload[msgOffset] & 0x80) != 0));
+            variant.put("TYPE", Integer.valueOf(payload[msgOffset] & 0x3F));
+            variant.put("CRITICAL", Boolean.valueOf((payload[msgOffset] & 0x40) != 0));
+            variant.put("MORE_TO_FOLLOW", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
             msgOffset += 1;
 
             // Process 'Extension'
@@ -452,14 +452,14 @@ public class CommandClassSecurity2V1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("ECHO", new Boolean((payload[2] & 0x01) != 0));
-        response.put("REQUEST_CSA", new Boolean((payload[2] & 0x02) != 0));
+        response.put("ECHO", Boolean.valueOf((payload[2] & 0x01) != 0));
+        response.put("REQUEST_CSA", Boolean.valueOf((payload[2] & 0x02) != 0));
 
         // Process 'Supported KEX Schemes'
-        response.put("SUPPORTED_KEX_SCHEMES", new Integer(payload[3]));
+        response.put("SUPPORTED_KEX_SCHEMES", Integer.valueOf(payload[3]));
 
         // Process 'Supported ECDH Profiles'
-        response.put("SUPPORTED_ECDH_PROFILES", new Integer(payload[4]));
+        response.put("SUPPORTED_ECDH_PROFILES", Integer.valueOf(payload[4]));
 
         // Process 'Requested Keys'
         List<String> responseRequestedKeys = new ArrayList<String>();
@@ -560,14 +560,14 @@ public class CommandClassSecurity2V1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("ECHO", new Boolean((payload[2] & 0x01) != 0));
-        response.put("REQUEST_CSA", new Boolean((payload[2] & 0x02) != 0));
+        response.put("ECHO", Boolean.valueOf((payload[2] & 0x01) != 0));
+        response.put("REQUEST_CSA", Boolean.valueOf((payload[2] & 0x02) != 0));
 
         // Process 'Selected KEX Scheme'
-        response.put("SELECTED_KEX_SCHEME", new Integer(payload[3]));
+        response.put("SELECTED_KEX_SCHEME", Integer.valueOf(payload[3]));
 
         // Process 'Selected ECDH Profile'
-        response.put("SELECTED_ECDH_PROFILE", new Integer(payload[4]));
+        response.put("SELECTED_ECDH_PROFILE", Integer.valueOf(payload[4]));
 
         // Process 'Granted Keys'
         List<String> responseGrantedKeys = new ArrayList<String>();
@@ -763,7 +763,7 @@ public class CommandClassSecurity2V1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("INCLUDING_NODE", new Boolean((payload[msgOffset] & 0x01) != 0));
+        response.put("INCLUDING_NODE", Boolean.valueOf((payload[msgOffset] & 0x01) != 0));
         msgOffset += 1;
 
         // Process 'ECDH Public Key'
@@ -1003,8 +1003,8 @@ public class CommandClassSecurity2V1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("KEY_REQUEST_COMPLETE", new Boolean((payload[2] & 0x01) != 0));
-        response.put("KEY_VERIFIED", new Boolean((payload[2] & 0x02) != 0));
+        response.put("KEY_REQUEST_COMPLETE", Boolean.valueOf((payload[2] & 0x01) != 0));
+        response.put("KEY_VERIFIED", Boolean.valueOf((payload[2] & 0x02) != 0));
 
         // Return the map of processed response data;
         return response;
@@ -1185,10 +1185,10 @@ public class CommandClassSecurity2V1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Supported SPANs'
-        response.put("SUPPORTED_SPANS", new Integer(payload[2]));
+        response.put("SUPPORTED_SPANS", Integer.valueOf(payload[2]));
 
         // Process 'Supported MPANs'
-        response.put("SUPPORTED_MPANS", new Integer(payload[3]));
+        response.put("SUPPORTED_MPANS", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;

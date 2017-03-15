@@ -109,13 +109,13 @@ public class CommandClassControllerReplicationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Sequence Number'
-        response.put("SEQUENCE_NUMBER", new Integer(payload[2]));
+        response.put("SEQUENCE_NUMBER", Integer.valueOf(payload[2]));
 
         // Process 'Group ID'
-        response.put("GROUP_ID", new Integer(payload[3]));
+        response.put("GROUP_ID", Integer.valueOf(payload[3]));
 
         // Process 'Node ID'
-        response.put("NODE_ID", new Integer(payload[4]));
+        response.put("NODE_ID", Integer.valueOf(payload[4]));
 
         // Return the map of processed response data;
         return response;
@@ -179,11 +179,11 @@ public class CommandClassControllerReplicationV1 {
         int msgOffset = 2;
 
         // Process 'Sequence Number'
-        response.put("SEQUENCE_NUMBER", new Integer(payload[msgOffset]));
+        response.put("SEQUENCE_NUMBER", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Group ID'
-        response.put("GROUP_ID", new Integer(payload[msgOffset]));
+        response.put("GROUP_ID", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Group Name'
@@ -261,16 +261,16 @@ public class CommandClassControllerReplicationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Sequence Number'
-        response.put("SEQUENCE_NUMBER", new Integer(payload[2]));
+        response.put("SEQUENCE_NUMBER", Integer.valueOf(payload[2]));
 
         // Process 'Scene ID'
-        response.put("SCENE_ID", new Integer(payload[3]));
+        response.put("SCENE_ID", Integer.valueOf(payload[3]));
 
         // Process 'Node ID'
-        response.put("NODE_ID", new Integer(payload[4]));
+        response.put("NODE_ID", Integer.valueOf(payload[4]));
 
         // Process 'Level'
-        response.put("LEVEL", new Integer(payload[5]));
+        response.put("LEVEL", Integer.valueOf(payload[5]));
 
         // Return the map of processed response data;
         return response;
@@ -334,11 +334,11 @@ public class CommandClassControllerReplicationV1 {
         int msgOffset = 2;
 
         // Process 'Sequence Number'
-        response.put("SEQUENCE_NUMBER", new Integer(payload[msgOffset]));
+        response.put("SEQUENCE_NUMBER", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Scene ID'
-        response.put("SCENE_ID", new Integer(payload[msgOffset]));
+        response.put("SCENE_ID", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Scene Name'

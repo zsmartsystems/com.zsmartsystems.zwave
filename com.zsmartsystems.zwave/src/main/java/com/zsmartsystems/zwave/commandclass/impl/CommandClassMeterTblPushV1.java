@@ -128,25 +128,25 @@ public class CommandClassMeterTblPushV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("OPERATING_STATUS_PUSH_MODE", new Integer(payload[2] & 0x0F));
-        response.put("PS", new Boolean((payload[2] & 0x10) != 0));
+        response.put("OPERATING_STATUS_PUSH_MODE", Integer.valueOf(payload[2] & 0x0F));
+        response.put("PS", Boolean.valueOf((payload[2] & 0x10) != 0));
 
         // Process 'Push Dataset'
 
         // Process 'Interval Months'
-        response.put("INTERVAL_MONTHS", new Integer(payload[6]));
+        response.put("INTERVAL_MONTHS", Integer.valueOf(payload[6]));
 
         // Process 'Interval Days'
-        response.put("INTERVAL_DAYS", new Integer(payload[7]));
+        response.put("INTERVAL_DAYS", Integer.valueOf(payload[7]));
 
         // Process 'Interval Hours'
-        response.put("INTERVAL_HOURS", new Integer(payload[8]));
+        response.put("INTERVAL_HOURS", Integer.valueOf(payload[8]));
 
         // Process 'Interval Minutes'
-        response.put("INTERVAL_MINUTES", new Integer(payload[9]));
+        response.put("INTERVAL_MINUTES", Integer.valueOf(payload[9]));
 
         // Process 'Push Node ID'
-        response.put("PUSH_NODE_ID", new Integer(payload[10]));
+        response.put("PUSH_NODE_ID", Integer.valueOf(payload[10]));
 
         // Return the map of processed response data;
         return response;
@@ -268,25 +268,25 @@ public class CommandClassMeterTblPushV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("OPERATING_STATUS_PUSH_MODE", new Integer(payload[2] & 0x0F));
-        response.put("PS", new Boolean((payload[2] & 0x10) != 0));
+        response.put("OPERATING_STATUS_PUSH_MODE", Integer.valueOf(payload[2] & 0x0F));
+        response.put("PS", Boolean.valueOf((payload[2] & 0x10) != 0));
 
         // Process 'Push Dataset'
 
         // Process 'Interval Months'
-        response.put("INTERVAL_MONTHS", new Integer(payload[6]));
+        response.put("INTERVAL_MONTHS", Integer.valueOf(payload[6]));
 
         // Process 'Interval Days'
-        response.put("INTERVAL_DAYS", new Integer(payload[7]));
+        response.put("INTERVAL_DAYS", Integer.valueOf(payload[7]));
 
         // Process 'Interval Hours'
-        response.put("INTERVAL_HOURS", new Integer(payload[8]));
+        response.put("INTERVAL_HOURS", Integer.valueOf(payload[8]));
 
         // Process 'Interval Minutes'
-        response.put("INTERVAL_MINUTES", new Integer(payload[9]));
+        response.put("INTERVAL_MINUTES", Integer.valueOf(payload[9]));
 
         // Process 'Push Node ID'
-        response.put("PUSH_NODE_ID", new Integer(payload[10]));
+        response.put("PUSH_NODE_ID", Integer.valueOf(payload[10]));
 
         // Return the map of processed response data;
         return response;

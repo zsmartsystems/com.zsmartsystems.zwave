@@ -116,7 +116,7 @@ public class CommandClassScheduleV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Schedule ID Block'
-        response.put("SCHEDULE_ID_BLOCK", new Integer(payload[2]));
+        response.put("SCHEDULE_ID_BLOCK", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -207,15 +207,15 @@ public class CommandClassScheduleV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Number of Supported Schedule ID'
-        response.put("NUMBER_OF_SUPPORTED_SCHEDULE_ID", new Integer(payload[2]));
+        response.put("NUMBER_OF_SUPPORTED_SCHEDULE_ID", Integer.valueOf(payload[2]));
 
         // Process 'Properties1'
-        response.put("START_TIME_SUPPORT", new Integer(payload[3] & 0x3F));
-        response.put("FALLBACK_SUPPORT", new Boolean((payload[3] & 0x40) != 0));
-        response.put("SUPPORT_ENABLE_DISABLE", new Boolean((payload[3] & 0x80) != 0));
+        response.put("START_TIME_SUPPORT", Integer.valueOf(payload[3] & 0x3F));
+        response.put("FALLBACK_SUPPORT", Boolean.valueOf((payload[3] & 0x40) != 0));
+        response.put("SUPPORT_ENABLE_DISABLE", Boolean.valueOf((payload[3] & 0x80) != 0));
 
         // Process 'Number of supported CC'
-        response.put("NUMBER_OF_SUPPORTED_CC", new Integer(payload[4]));
+        response.put("NUMBER_OF_SUPPORTED_CC", Integer.valueOf(payload[4]));
 
         // Process 'vg1'
 
@@ -228,10 +228,10 @@ public class CommandClassScheduleV3 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Supported CC'
-            variant.put("SUPPORTED_CC", new Integer(payload[5]));
+            variant.put("SUPPORTED_CC", Integer.valueOf(payload[5]));
 
             // Process 'Properties2'
-            variant.put("SUPPORTED_COMMAND", new Integer(payload[6] & 0x03));
+            variant.put("SUPPORTED_COMMAND", Integer.valueOf(payload[6] & 0x03));
 
             // Add to the list
             variantList.add(variant);
@@ -244,14 +244,14 @@ public class CommandClassScheduleV3 {
         response.put("VG1", variantList);
 
         // Process 'Properties3'
-        response.put("SUPPORTED_OVERRIDE_TYPES", new Integer(payload[7] & 0x7F));
-        response.put("OVERRIDE_SUPPORT", new Boolean((payload[7] & 0x80) != 0));
+        response.put("SUPPORTED_OVERRIDE_TYPES", Integer.valueOf(payload[7] & 0x7F));
+        response.put("OVERRIDE_SUPPORT", Boolean.valueOf((payload[7] & 0x80) != 0));
 
         // Process 'Schedule ID Block'
-        response.put("SCHEDULE_ID_BLOCK", new Integer(payload[8]));
+        response.put("SCHEDULE_ID_BLOCK", Integer.valueOf(payload[8]));
 
         // Process 'Number of Supported Schedule Blocks'
-        response.put("NUMBER_OF_SUPPORTED_SCHEDULE_BLOCKS", new Integer(payload[9]));
+        response.put("NUMBER_OF_SUPPORTED_SCHEDULE_BLOCKS", Integer.valueOf(payload[9]));
 
         // Return the map of processed response data;
         return response;
@@ -392,24 +392,24 @@ public class CommandClassScheduleV3 {
         int msgOffset = 2;
 
         // Process 'Schedule ID'
-        response.put("SCHEDULE_ID", new Integer(payload[msgOffset]));
+        response.put("SCHEDULE_ID", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Schedule ID Block'
-        response.put("SCHEDULE_ID_BLOCK", new Integer(payload[msgOffset]));
+        response.put("SCHEDULE_ID_BLOCK", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Start Year'
-        response.put("START_YEAR", new Integer(payload[msgOffset]));
+        response.put("START_YEAR", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties1'
-        response.put("START_MONTH", new Integer(payload[msgOffset] & 0x0F));
-        response.put("RECURRENCE_OFFSET", new Integer((payload[msgOffset] & 0xF0 >> 4)));
+        response.put("START_MONTH", Integer.valueOf(payload[msgOffset] & 0x0F));
+        response.put("RECURRENCE_OFFSET", Integer.valueOf((payload[msgOffset] & 0xF0 >> 4)));
         msgOffset += 1;
 
         // Process 'Properties2'
-        response.put("START_DAY_OF_MONTH", new Integer(payload[msgOffset] & 0x1F));
+        response.put("START_DAY_OF_MONTH", Integer.valueOf(payload[msgOffset] & 0x1F));
         switch ((payload[msgOffset] & 0x60) >> 5) {
             case 0x00:
                 response.put("RECURRENCE_MODE", "REPEAT_EVERY_N_HOURS");
@@ -426,29 +426,29 @@ public class CommandClassScheduleV3 {
         msgOffset += 1;
 
         // Process 'Properties3'
-        response.put("START_WEEKDAY", new Integer(payload[msgOffset] & 0x7F));
+        response.put("START_WEEKDAY", Integer.valueOf(payload[msgOffset] & 0x7F));
         msgOffset += 1;
 
         // Process 'Properties4'
-        response.put("START_HOUR", new Integer(payload[msgOffset] & 0x1F));
-        response.put("DURATION_TYPE", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("START_HOUR", Integer.valueOf(payload[msgOffset] & 0x1F));
+        response.put("DURATION_TYPE", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Properties5'
-        response.put("START_MINUTE", new Integer(payload[msgOffset] & 0x3F));
-        response.put("RELATIVE", new Boolean((payload[msgOffset] & 0x40) != 0));
+        response.put("START_MINUTE", Integer.valueOf(payload[msgOffset] & 0x3F));
+        response.put("RELATIVE", Boolean.valueOf((payload[msgOffset] & 0x40) != 0));
         msgOffset += 1;
 
         // Process 'Duration Byte'
-        response.put("DURATION_BYTE", new Integer(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("DURATION_BYTE", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
         msgOffset += 2;
 
         // Process 'Reports to Follow'
-        response.put("REPORTS_TO_FOLLOW", new Integer(payload[msgOffset]));
+        response.put("REPORTS_TO_FOLLOW", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Number of Cmd to Follow'
-        response.put("NUMBER_OF_CMD_TO_FOLLOW", new Integer(payload[msgOffset]));
+        response.put("NUMBER_OF_CMD_TO_FOLLOW", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'vg1'
@@ -462,7 +462,7 @@ public class CommandClassScheduleV3 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Cmd Length'
-            variant.put("CMD_LENGTH", new Integer(payload[msgOffset]));
+            variant.put("CMD_LENGTH", Integer.valueOf(payload[msgOffset]));
             msgOffset += 1;
 
             // Process 'Cmd Byte'
@@ -540,13 +540,13 @@ public class CommandClassScheduleV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Schedule ID'
-        response.put("SCHEDULE_ID", new Integer(payload[2]));
+        response.put("SCHEDULE_ID", Integer.valueOf(payload[2]));
 
         // Process 'Schedule ID Block'
-        response.put("SCHEDULE_ID_BLOCK", new Integer(payload[3]));
+        response.put("SCHEDULE_ID_BLOCK", Integer.valueOf(payload[3]));
 
         // Process 'Properties1'
-        response.put("AID_RO_CTL", new Boolean((payload[4] & 0x80) != 0));
+        response.put("AID_RO_CTL", Boolean.valueOf((payload[4] & 0x80) != 0));
 
         // Return the map of processed response data;
         return response;
@@ -690,24 +690,24 @@ public class CommandClassScheduleV3 {
         int msgOffset = 2;
 
         // Process 'Schedule ID'
-        response.put("SCHEDULE_ID", new Integer(payload[msgOffset]));
+        response.put("SCHEDULE_ID", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Schedule ID Block'
-        response.put("SCHEDULE_ID_BLOCK", new Integer(payload[msgOffset]));
+        response.put("SCHEDULE_ID_BLOCK", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Start Year'
-        response.put("START_YEAR", new Integer(payload[msgOffset]));
+        response.put("START_YEAR", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties1'
-        response.put("START_MONTH", new Integer(payload[msgOffset] & 0x0F));
-        response.put("AID_RO", new Integer((payload[msgOffset] & 0xF0 >> 4)));
+        response.put("START_MONTH", Integer.valueOf(payload[msgOffset] & 0x0F));
+        response.put("AID_RO", Integer.valueOf((payload[msgOffset] & 0xF0 >> 4)));
         msgOffset += 1;
 
         // Process 'Properties2'
-        response.put("START_DAY_OF_MONTH", new Integer(payload[msgOffset] & 0x1F));
+        response.put("START_DAY_OF_MONTH", Integer.valueOf(payload[msgOffset] & 0x1F));
         switch ((payload[msgOffset] & 0x60) >> 5) {
             case 0x00:
                 response.put("RECURRENCE_MODE", "REPEAT_EVERY_N_HOURS");
@@ -721,33 +721,33 @@ public class CommandClassScheduleV3 {
             default:
                 logger.debug("Unknown enum value {} for RECURRENCE_MODE", String.format("0x%02X", msgOffset));
         }
-        response.put("AID_RO_CTL", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("AID_RO_CTL", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'Properties3'
-        response.put("START_WEEKDAY", new Integer(payload[msgOffset] & 0x7F));
+        response.put("START_WEEKDAY", Integer.valueOf(payload[msgOffset] & 0x7F));
         msgOffset += 1;
 
         // Process 'Properties4'
-        response.put("START_HOUR", new Integer(payload[msgOffset] & 0x1F));
-        response.put("DURATION_TYPE", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("START_HOUR", Integer.valueOf(payload[msgOffset] & 0x1F));
+        response.put("DURATION_TYPE", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Properties5'
-        response.put("START_MINUTE", new Integer(payload[msgOffset] & 0x3F));
-        response.put("RELATIVE", new Boolean((payload[msgOffset] & 0x40) != 0));
+        response.put("START_MINUTE", Integer.valueOf(payload[msgOffset] & 0x3F));
+        response.put("RELATIVE", Boolean.valueOf((payload[msgOffset] & 0x40) != 0));
         msgOffset += 1;
 
         // Process 'Duration Byte'
-        response.put("DURATION_BYTE", new Integer(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("DURATION_BYTE", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
         msgOffset += 2;
 
         // Process 'Reports to Follow'
-        response.put("REPORTS_TO_FOLLOW", new Integer(payload[msgOffset]));
+        response.put("REPORTS_TO_FOLLOW", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Number of Cmd to Follow'
-        response.put("NUMBER_OF_CMD_TO_FOLLOW", new Integer(payload[msgOffset]));
+        response.put("NUMBER_OF_CMD_TO_FOLLOW", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'vg1'
@@ -761,7 +761,7 @@ public class CommandClassScheduleV3 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Cmd Length'
-            variant.put("CMD_LENGTH", new Integer(payload[msgOffset]));
+            variant.put("CMD_LENGTH", Integer.valueOf(payload[msgOffset]));
             msgOffset += 1;
 
             // Process 'Cmd Byte'
@@ -834,10 +834,10 @@ public class CommandClassScheduleV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Schedule ID'
-        response.put("SCHEDULE_ID", new Integer(payload[2]));
+        response.put("SCHEDULE_ID", Integer.valueOf(payload[2]));
 
         // Process 'Schedule ID Block'
-        response.put("SCHEDULE_ID_BLOCK", new Integer(payload[3]));
+        response.put("SCHEDULE_ID_BLOCK", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -895,13 +895,13 @@ public class CommandClassScheduleV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Schedule ID'
-        response.put("SCHEDULE_ID", new Integer(payload[2]));
+        response.put("SCHEDULE_ID", Integer.valueOf(payload[2]));
 
         // Process 'Schedule State'
-        response.put("SCHEDULE_STATE", new Integer(payload[3]));
+        response.put("SCHEDULE_STATE", Integer.valueOf(payload[3]));
 
         // Process 'Schedule ID Block'
-        response.put("SCHEDULE_ID_BLOCK", new Integer(payload[4]));
+        response.put("SCHEDULE_ID_BLOCK", Integer.valueOf(payload[4]));
 
         // Return the map of processed response data;
         return response;
@@ -949,7 +949,7 @@ public class CommandClassScheduleV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Schedule ID Block'
-        response.put("SCHEDULE_ID_BLOCK", new Integer(payload[2]));
+        response.put("SCHEDULE_ID_BLOCK", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -1034,22 +1034,22 @@ public class CommandClassScheduleV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Number of Supported Schedule ID'
-        response.put("NUMBER_OF_SUPPORTED_SCHEDULE_ID", new Integer(payload[2]));
+        response.put("NUMBER_OF_SUPPORTED_SCHEDULE_ID", Integer.valueOf(payload[2]));
 
         // Process 'Properties1'
-        response.put("OVERRIDE", new Boolean((payload[3] & 0x01) != 0));
-        response.put("REPORTS_TO_FOLLOW", new Integer((payload[3] & 0xFE >> 1)));
+        response.put("OVERRIDE", Boolean.valueOf((payload[3] & 0x01) != 0));
+        response.put("REPORTS_TO_FOLLOW", Integer.valueOf((payload[3] & 0xFE >> 1)));
 
         // Process 'Properties2'
-        response.put("ACTIVE_ID_1", new Integer(payload[4] & 0x0F));
-        response.put("ACTIVE_ID_2", new Integer((payload[4] & 0xF0 >> 4)));
+        response.put("ACTIVE_ID_1", Integer.valueOf(payload[4] & 0x0F));
+        response.put("ACTIVE_ID_2", Integer.valueOf((payload[4] & 0xF0 >> 4)));
 
         // Process 'Properties3'
-        response.put("ACTIVE_ID_3", new Integer(payload[5] & 0x0F));
-        response.put("ACTIVE_ID_N", new Integer((payload[5] & 0xF0 >> 4)));
+        response.put("ACTIVE_ID_3", Integer.valueOf(payload[5] & 0x0F));
+        response.put("ACTIVE_ID_N", Integer.valueOf((payload[5] & 0xF0 >> 4)));
 
         // Process 'Schedule ID Block'
-        response.put("SCHEDULE_ID_BLOCK", new Integer(payload[6]));
+        response.put("SCHEDULE_ID_BLOCK", Integer.valueOf(payload[6]));
 
         // Return the map of processed response data;
         return response;

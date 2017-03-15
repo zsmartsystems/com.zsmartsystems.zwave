@@ -81,7 +81,7 @@ public class CommandClassRemoteAssociationActivateV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Grouping identifier'
-        response.put("GROUPING_IDENTIFIER", new Integer(payload[2]));
+        response.put("GROUPING_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;

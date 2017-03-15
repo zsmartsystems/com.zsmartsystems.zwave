@@ -123,7 +123,7 @@ public class CommandClassMeterV4 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("SCALE", new Integer((payload[2] & 0x38 >> 3)));
+        response.put("SCALE", Integer.valueOf((payload[2] & 0x38 >> 3)));
         switch ((payload[2] & 0xC0) >> 6) {
             case 0x01:
                 response.put("RATE_TYPE", "IMPORT");
@@ -139,7 +139,7 @@ public class CommandClassMeterV4 {
         }
 
         // Process 'Scale 2'
-        response.put("SCALE_2", new Integer(payload[3]));
+        response.put("SCALE_2", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -294,13 +294,13 @@ public class CommandClassMeterV4 {
             default:
                 logger.debug("Unknown enum value {} for RATE_TYPE", String.format("0x%02X", msgOffset));
         }
-        response.put("SCALE_BIT_2", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("SCALE_BIT_2", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'Properties2'
-        response.put("SIZE", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCALE_BITS_10", new Integer((payload[msgOffset] & 0x18 >> 3)));
-        response.put("PRECISION", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("SIZE", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCALE_BITS_10", Integer.valueOf((payload[msgOffset] & 0x18 >> 3)));
+        response.put("PRECISION", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Meter Value'
@@ -313,7 +313,7 @@ public class CommandClassMeterV4 {
         msgOffset += lenMeterValue;
 
         // Process 'Delta Time'
-        response.put("DELTA_TIME", new Integer(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("DELTA_TIME", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
         msgOffset += 2;
 
         // Process 'Previous Meter Value'
@@ -326,7 +326,7 @@ public class CommandClassMeterV4 {
         msgOffset += lenPreviousMeterValue;
 
         // Process 'Scale 2'
-        response.put("SCALE_2", new Integer(payload[msgOffset]));
+        response.put("SCALE_2", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Return the map of processed response data;
@@ -499,16 +499,16 @@ public class CommandClassMeterV4 {
             default:
                 logger.debug("Unknown enum value {} for RATE_TYPE", String.format("0x%02X", msgOffset));
         }
-        response.put("METER_RESET", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("METER_RESET", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'Properties2'
-        response.put("SCALE_SUPPORTED_0", new Integer(payload[msgOffset] & 0x7F));
-        response.put("M_S_T", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("SCALE_SUPPORTED_0", Integer.valueOf(payload[msgOffset] & 0x7F));
+        response.put("M_S_T", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'Number of Scale Supported Bytes to Follow'
-        response.put("NUMBER_OF_SCALE_SUPPORTED_BYTES_TO_FOLLOW", new Integer(payload[msgOffset]));
+        response.put("NUMBER_OF_SCALE_SUPPORTED_BYTES_TO_FOLLOW", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Scale Supported'

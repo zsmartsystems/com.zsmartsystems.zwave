@@ -149,19 +149,19 @@ public class CommandClassVersionV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Z-Wave Library Type'
-        response.put("Z_WAVE_LIBRARY_TYPE", new Integer(payload[2]));
+        response.put("Z_WAVE_LIBRARY_TYPE", Integer.valueOf(payload[2]));
 
         // Process 'Z-Wave Protocol Version'
-        response.put("Z_WAVE_PROTOCOL_VERSION", new Integer(payload[3]));
+        response.put("Z_WAVE_PROTOCOL_VERSION", Integer.valueOf(payload[3]));
 
         // Process 'Z-Wave Protocol Sub Version'
-        response.put("Z_WAVE_PROTOCOL_SUB_VERSION", new Integer(payload[4]));
+        response.put("Z_WAVE_PROTOCOL_SUB_VERSION", Integer.valueOf(payload[4]));
 
         // Process 'Application Version'
-        response.put("APPLICATION_VERSION", new Integer(payload[5]));
+        response.put("APPLICATION_VERSION", Integer.valueOf(payload[5]));
 
         // Process 'Application Sub Version'
-        response.put("APPLICATION_SUB_VERSION", new Integer(payload[6]));
+        response.put("APPLICATION_SUB_VERSION", Integer.valueOf(payload[6]));
 
         // Return the map of processed response data;
         return response;
@@ -209,7 +209,7 @@ public class CommandClassVersionV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Requested Command Class'
-        response.put("REQUESTED_COMMAND_CLASS", new Integer(payload[2]));
+        response.put("REQUESTED_COMMAND_CLASS", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -262,10 +262,10 @@ public class CommandClassVersionV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Requested Command Class'
-        response.put("REQUESTED_COMMAND_CLASS", new Integer(payload[2]));
+        response.put("REQUESTED_COMMAND_CLASS", Integer.valueOf(payload[2]));
 
         // Process 'Command Class Version'
-        response.put("COMMAND_CLASS_VERSION", new Integer(payload[3]));
+        response.put("COMMAND_CLASS_VERSION", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;

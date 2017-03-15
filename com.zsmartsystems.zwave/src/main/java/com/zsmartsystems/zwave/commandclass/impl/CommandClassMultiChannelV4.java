@@ -128,7 +128,7 @@ public class CommandClassMultiChannelV4 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Command Class'
-        response.put("COMMAND_CLASS", new Integer(payload[2]));
+        response.put("COMMAND_CLASS", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -186,11 +186,11 @@ public class CommandClassMultiChannelV4 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Command Class'
-        response.put("COMMAND_CLASS", new Integer(payload[2]));
+        response.put("COMMAND_CLASS", Integer.valueOf(payload[2]));
 
         // Process 'Properties1'
-        response.put("INSTANCES", new Integer(payload[3] & 0x7F));
-        response.put("RES", new Boolean((payload[3] & 0x80) != 0));
+        response.put("INSTANCES", Integer.valueOf(payload[3] & 0x7F));
+        response.put("RES", Boolean.valueOf((payload[3] & 0x80) != 0));
 
         // Return the map of processed response data;
         return response;
@@ -264,16 +264,16 @@ public class CommandClassMultiChannelV4 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("INSTANCE", new Integer(payload[msgOffset] & 0x7F));
-        response.put("RES", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("INSTANCE", Integer.valueOf(payload[msgOffset] & 0x7F));
+        response.put("RES", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'Command Class'
-        response.put("COMMAND_CLASS", new Integer(payload[msgOffset]));
+        response.put("COMMAND_CLASS", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Command'
-        response.put("COMMAND", new Integer(payload[msgOffset]));
+        response.put("COMMAND", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Parameter'
@@ -394,17 +394,17 @@ public class CommandClassMultiChannelV4 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("RES1", new Integer(payload[2] & 0x3F));
-        response.put("IDENTICAL", new Boolean((payload[2] & 0x40) != 0));
-        response.put("DYNAMIC", new Boolean((payload[2] & 0x80) != 0));
+        response.put("RES1", Integer.valueOf(payload[2] & 0x3F));
+        response.put("IDENTICAL", Boolean.valueOf((payload[2] & 0x40) != 0));
+        response.put("DYNAMIC", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Process 'Properties2'
-        response.put("INDIVIDUAL_END_POINTS", new Integer(payload[3] & 0x7F));
-        response.put("RES2", new Boolean((payload[3] & 0x80) != 0));
+        response.put("INDIVIDUAL_END_POINTS", Integer.valueOf(payload[3] & 0x7F));
+        response.put("RES2", Boolean.valueOf((payload[3] & 0x80) != 0));
 
         // Process 'Properties3'
-        response.put("AGGREGATED_END_POINTS", new Integer(payload[4] & 0x7F));
-        response.put("RES3", new Boolean((payload[4] & 0x80) != 0));
+        response.put("AGGREGATED_END_POINTS", Integer.valueOf(payload[4] & 0x7F));
+        response.put("RES3", Boolean.valueOf((payload[4] & 0x80) != 0));
 
         // Return the map of processed response data;
         return response;
@@ -457,8 +457,8 @@ public class CommandClassMultiChannelV4 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("END_POINT", new Integer(payload[2] & 0x7F));
-        response.put("RES", new Boolean((payload[2] & 0x80) != 0));
+        response.put("END_POINT", Integer.valueOf(payload[2] & 0x7F));
+        response.put("RES", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Return the map of processed response data;
         return response;
@@ -532,16 +532,16 @@ public class CommandClassMultiChannelV4 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("END_POINT", new Integer(payload[msgOffset] & 0x7F));
-        response.put("DYNAMIC", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("END_POINT", Integer.valueOf(payload[msgOffset] & 0x7F));
+        response.put("DYNAMIC", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'Generic Device Class'
-        response.put("GENERIC_DEVICE_CLASS", new Integer(payload[msgOffset]));
+        response.put("GENERIC_DEVICE_CLASS", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Specific Device Class'
-        response.put("SPECIFIC_DEVICE_CLASS", new Integer(payload[msgOffset]));
+        response.put("SPECIFIC_DEVICE_CLASS", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Command Class'
@@ -603,10 +603,10 @@ public class CommandClassMultiChannelV4 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Generic Device Class'
-        response.put("GENERIC_DEVICE_CLASS", new Integer(payload[2]));
+        response.put("GENERIC_DEVICE_CLASS", Integer.valueOf(payload[2]));
 
         // Process 'Specific Device Class'
-        response.put("SPECIFIC_DEVICE_CLASS", new Integer(payload[3]));
+        response.put("SPECIFIC_DEVICE_CLASS", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -667,13 +667,13 @@ public class CommandClassMultiChannelV4 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Reports to Follow'
-        response.put("REPORTS_TO_FOLLOW", new Integer(payload[2]));
+        response.put("REPORTS_TO_FOLLOW", Integer.valueOf(payload[2]));
 
         // Process 'Generic Device Class'
-        response.put("GENERIC_DEVICE_CLASS", new Integer(payload[3]));
+        response.put("GENERIC_DEVICE_CLASS", Integer.valueOf(payload[3]));
 
         // Process 'Specific Device Class'
-        response.put("SPECIFIC_DEVICE_CLASS", new Integer(payload[4]));
+        response.put("SPECIFIC_DEVICE_CLASS", Integer.valueOf(payload[4]));
 
         // Process 'vg'
 
@@ -686,8 +686,8 @@ public class CommandClassMultiChannelV4 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Properties1'
-            variant.put("END_POINT", new Integer(payload[5] & 0x7F));
-            variant.put("RES", new Boolean((payload[5] & 0x80) != 0));
+            variant.put("END_POINT", Integer.valueOf(payload[5] & 0x7F));
+            variant.put("RES", Boolean.valueOf((payload[5] & 0x80) != 0));
 
             // Add to the list
             variantList.add(variant);
@@ -781,21 +781,21 @@ public class CommandClassMultiChannelV4 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("SOURCE_END_POINT", new Integer(payload[msgOffset] & 0x7F));
-        response.put("RES", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("SOURCE_END_POINT", Integer.valueOf(payload[msgOffset] & 0x7F));
+        response.put("RES", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'Properties2'
-        response.put("DESTINATION_END_POINT", new Integer(payload[msgOffset] & 0x7F));
-        response.put("BIT_ADDRESS", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("DESTINATION_END_POINT", Integer.valueOf(payload[msgOffset] & 0x7F));
+        response.put("BIT_ADDRESS", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'Command Class'
-        response.put("COMMAND_CLASS", new Integer(payload[msgOffset]));
+        response.put("COMMAND_CLASS", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Command'
-        response.put("COMMAND", new Integer(payload[msgOffset]));
+        response.put("COMMAND", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Parameter'
@@ -857,8 +857,8 @@ public class CommandClassMultiChannelV4 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("AGGREGATED_END_POINT", new Integer(payload[2] & 0x7F));
-        response.put("RES", new Boolean((payload[2] & 0x80) != 0));
+        response.put("AGGREGATED_END_POINT", Integer.valueOf(payload[2] & 0x7F));
+        response.put("RES", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Return the map of processed response data;
         return response;
@@ -930,10 +930,10 @@ public class CommandClassMultiChannelV4 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("RES", new Boolean((payload[2] & 0x80) != 0));
+        response.put("RES", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Process 'Number of Bit Masks'
-        response.put("NUMBER_OF_BIT_MASKS", new Integer(payload[3]));
+        response.put("NUMBER_OF_BIT_MASKS", Integer.valueOf(payload[3]));
 
         // Process 'Aggregated Members Bit Mask'
         List<Integer> responseAggregatedMembersBitMask = new ArrayList<Integer>();

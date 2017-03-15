@@ -180,7 +180,7 @@ public class CommandClassZwaveplusInfoV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Z-Wave+ Version'
-        response.put("Z_WAVE_PLUS_VERSION", new Integer(payload[2]));
+        response.put("Z_WAVE_PLUS_VERSION", Integer.valueOf(payload[2]));
 
         // Process 'Role Type'
         switch ((int) payload[3]) {
@@ -229,10 +229,10 @@ public class CommandClassZwaveplusInfoV2 {
         }
 
         // Process 'Installer Icon Type'
-        response.put("INSTALLER_ICON_TYPE", new Integer(payload[5] << 8 + payload[6]));
+        response.put("INSTALLER_ICON_TYPE", Integer.valueOf(payload[5] << 8 + payload[6]));
 
         // Process 'User Icon Type'
-        response.put("USER_ICON_TYPE", new Integer(payload[7] << 8 + payload[8]));
+        response.put("USER_ICON_TYPE", Integer.valueOf(payload[7] << 8 + payload[8]));
 
         // Return the map of processed response data;
         return response;

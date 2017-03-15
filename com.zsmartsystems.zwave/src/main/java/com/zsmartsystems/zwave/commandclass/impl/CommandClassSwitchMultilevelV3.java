@@ -340,7 +340,7 @@ public class CommandClassSwitchMultilevelV3 {
             default:
                 logger.debug("Unknown enum value {} for INC_DEC", String.format("0x%02X", 2));
         }
-        response.put("IGNORE_START_LEVEL", new Boolean((payload[2] & 0x20) != 0));
+        response.put("IGNORE_START_LEVEL", Boolean.valueOf((payload[2] & 0x20) != 0));
         switch ((payload[2] & 0xC0) >> 6) {
             case 0x00:
                 response.put("UP_DOWN", "UP");
@@ -356,13 +356,13 @@ public class CommandClassSwitchMultilevelV3 {
         }
 
         // Process 'Start Level'
-        response.put("START_LEVEL", new Integer(payload[3]));
+        response.put("START_LEVEL", Integer.valueOf(payload[3]));
 
         // Process 'Dimming Duration'
-        response.put("DIMMING_DURATION", new Integer(payload[4]));
+        response.put("DIMMING_DURATION", Integer.valueOf(payload[4]));
 
         // Process 'Step Size'
-        response.put("STEP_SIZE", new Integer(payload[5]));
+        response.put("STEP_SIZE", Integer.valueOf(payload[5]));
 
         // Return the map of processed response data;
         return response;
@@ -485,10 +485,10 @@ public class CommandClassSwitchMultilevelV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("PRIMARY_SWITCH_TYPE", new Integer(payload[2] & 0x1F));
+        response.put("PRIMARY_SWITCH_TYPE", Integer.valueOf(payload[2] & 0x1F));
 
         // Process 'Properties2'
-        response.put("SECONDARY_SWITCH_TYPE", new Integer(payload[3] & 0x1F));
+        response.put("SECONDARY_SWITCH_TYPE", Integer.valueOf(payload[3] & 0x1F));
 
         // Return the map of processed response data;
         return response;

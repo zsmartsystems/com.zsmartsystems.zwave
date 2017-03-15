@@ -177,9 +177,9 @@ public class CommandClassSensorMultilevelV1 {
         msgOffset += 1;
 
         // Process 'Level'
-        response.put("SIZE", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCALE", new Integer((payload[msgOffset] & 0x18 >> 3)));
-        response.put("PRECISION", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("SIZE", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCALE", Integer.valueOf((payload[msgOffset] & 0x18 >> 3)));
+        response.put("PRECISION", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Sensor Value'

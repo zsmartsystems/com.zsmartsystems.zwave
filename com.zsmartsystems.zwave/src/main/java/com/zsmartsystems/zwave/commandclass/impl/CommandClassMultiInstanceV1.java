@@ -89,7 +89,7 @@ public class CommandClassMultiInstanceV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Command Class'
-        response.put("COMMAND_CLASS", new Integer(payload[2]));
+        response.put("COMMAND_CLASS", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -142,10 +142,10 @@ public class CommandClassMultiInstanceV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Command Class'
-        response.put("COMMAND_CLASS", new Integer(payload[2]));
+        response.put("COMMAND_CLASS", Integer.valueOf(payload[2]));
 
         // Process 'Instances'
-        response.put("INSTANCES", new Integer(payload[3]));
+        response.put("INSTANCES", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -214,15 +214,15 @@ public class CommandClassMultiInstanceV1 {
         int msgOffset = 2;
 
         // Process 'Instance'
-        response.put("INSTANCE", new Integer(payload[msgOffset]));
+        response.put("INSTANCE", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Command Class'
-        response.put("COMMAND_CLASS", new Integer(payload[msgOffset]));
+        response.put("COMMAND_CLASS", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Command'
-        response.put("COMMAND", new Integer(payload[msgOffset]));
+        response.put("COMMAND", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Parameter'
