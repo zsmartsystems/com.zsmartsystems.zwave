@@ -122,7 +122,7 @@ public class CommandClassNetworkManagementBasicV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Seq. No'
-        response.put("SEQ_NO", new Integer(payload[2]));
+        response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Process 'Mode'
         switch ((int) payload[4]) {
@@ -216,7 +216,7 @@ public class CommandClassNetworkManagementBasicV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Seq. No'
-        response.put("SEQ_NO", new Integer(payload[2]));
+        response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Process 'Status'
         switch ((int) payload[3]) {
@@ -238,10 +238,10 @@ public class CommandClassNetworkManagementBasicV2 {
         }
 
         // Process 'New Node ID'
-        response.put("NEW_NODE_ID", new Integer(payload[5]));
+        response.put("NEW_NODE_ID", Integer.valueOf(payload[5]));
 
         // Process 'Granted Keys'
-        response.put("GRANTED_KEYS", new Integer(payload[6]));
+        response.put("GRANTED_KEYS", Integer.valueOf(payload[6]));
 
         // Process 'DSK'
         byte[] valDsk = new byte[16];
@@ -296,7 +296,7 @@ public class CommandClassNetworkManagementBasicV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Seq. No'
-        response.put("SEQ_NO", new Integer(payload[2]));
+        response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -349,7 +349,7 @@ public class CommandClassNetworkManagementBasicV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Seq. No'
-        response.put("SEQ_NO", new Integer(payload[2]));
+        response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Process 'Status'
         switch ((int) payload[3]) {
@@ -451,10 +451,10 @@ public class CommandClassNetworkManagementBasicV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Seq. No'
-        response.put("SEQ_NO", new Integer(payload[2]));
+        response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Process 'Destination Node ID'
-        response.put("DESTINATION_NODE_ID", new Integer(payload[4]));
+        response.put("DESTINATION_NODE_ID", Integer.valueOf(payload[4]));
 
         // Process 'tx Options'
         List<String> responseTxOptions = new ArrayList<String>();
@@ -538,7 +538,7 @@ public class CommandClassNetworkManagementBasicV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Seq. No'
-        response.put("SEQ_NO", new Integer(payload[2]));
+        response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -591,7 +591,7 @@ public class CommandClassNetworkManagementBasicV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Seq. No'
-        response.put("SEQ_NO", new Integer(payload[2]));
+        response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Process 'Status'
         switch ((int) payload[3]) {
@@ -652,7 +652,7 @@ public class CommandClassNetworkManagementBasicV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Seq No'
-        response.put("SEQ_NO", new Integer(payload[2]));
+        response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -708,7 +708,7 @@ public class CommandClassNetworkManagementBasicV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Seq No'
-        response.put("SEQ_NO", new Integer(payload[2]));
+        response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Process 'DSK'
         byte[] valDsk = new byte[16];

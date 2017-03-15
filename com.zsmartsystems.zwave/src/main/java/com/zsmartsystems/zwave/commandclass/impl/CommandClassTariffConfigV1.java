@@ -155,43 +155,43 @@ public class CommandClassTariffConfigV1 {
         int msgOffset = 2;
 
         // Process 'Year'
-        response.put("YEAR", new Integer(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("YEAR", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
         msgOffset += 2;
 
         // Process 'Month'
-        response.put("MONTH", new Integer(payload[msgOffset]));
+        response.put("MONTH", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Day'
-        response.put("DAY", new Integer(payload[msgOffset]));
+        response.put("DAY", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Hour Local Time'
-        response.put("HOUR_LOCAL_TIME", new Integer(payload[msgOffset]));
+        response.put("HOUR_LOCAL_TIME", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Minute Local Time'
-        response.put("MINUTE_LOCAL_TIME", new Integer(payload[msgOffset]));
+        response.put("MINUTE_LOCAL_TIME", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Second Local Time'
-        response.put("SECOND_LOCAL_TIME", new Integer(payload[msgOffset]));
+        response.put("SECOND_LOCAL_TIME", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Currency'
         msgOffset += 3;
 
         // Process 'Properties1'
-        response.put("STANDING_CHARGE_PERIOD", new Integer(payload[msgOffset] & 0x1F));
-        response.put("STANDING_CHARGE_PRECISION", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("STANDING_CHARGE_PERIOD", Integer.valueOf(payload[msgOffset] & 0x1F));
+        response.put("STANDING_CHARGE_PRECISION", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Standing Charge Value'
-        response.put("STANDING_CHARGE_VALUE", new Long(payload[msgOffset] << 24 + payload[msgOffset + 12] << 16 + payload[msgOffset + 22] << 8 + payload[msgOffset + 32]));
+        response.put("STANDING_CHARGE_VALUE", Long.valueOf(payload[msgOffset] << 24 + payload[msgOffset + 12] << 16 + payload[msgOffset + 22] << 8 + payload[msgOffset + 32]));
         msgOffset += 4;
 
         // Process 'Properties2'
-        response.put("NUMBER_OF_SUPPLIER_CHARACTERS", new Integer(payload[msgOffset] & 0x1F));
+        response.put("NUMBER_OF_SUPPLIER_CHARACTERS", Integer.valueOf(payload[msgOffset] & 0x1F));
         msgOffset += 1;
 
         // Process 'Supplier Character'
@@ -262,13 +262,13 @@ public class CommandClassTariffConfigV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Rate Parameter Set ID'
-        response.put("RATE_PARAMETER_SET_ID", new Integer(payload[2]));
+        response.put("RATE_PARAMETER_SET_ID", Integer.valueOf(payload[2]));
 
         // Process 'Properties1'
-        response.put("TARIFF_PRECISION", new Integer((payload[3] & 0xE0 >> 5)));
+        response.put("TARIFF_PRECISION", Integer.valueOf((payload[3] & 0xE0 >> 5)));
 
         // Process 'Tariff Value'
-        response.put("TARIFF_VALUE", new Long(payload[4] << 24 + payload[5] << 16 + payload[6] << 8 + payload[7]));
+        response.put("TARIFF_VALUE", Long.valueOf(payload[4] << 24 + payload[5] << 16 + payload[6] << 8 + payload[7]));
 
         // Return the map of processed response data;
         return response;
@@ -327,7 +327,7 @@ public class CommandClassTariffConfigV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("RATE_PARAMETER_SET_IDS", new Integer(payload[msgOffset] & 0x3F));
+        response.put("RATE_PARAMETER_SET_IDS", Integer.valueOf(payload[msgOffset] & 0x3F));
         msgOffset += 1;
 
         // Process 'Rate Parameter Set ID'

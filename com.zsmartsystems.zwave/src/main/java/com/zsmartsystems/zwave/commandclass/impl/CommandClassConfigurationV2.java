@@ -126,12 +126,12 @@ public class CommandClassConfigurationV2 {
         int msgOffset = 2;
 
         // Process 'Parameter Number'
-        response.put("PARAMETER_NUMBER", new Integer(payload[msgOffset]));
+        response.put("PARAMETER_NUMBER", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Level'
-        response.put("SIZE", new Integer(payload[msgOffset] & 0x07));
-        response.put("DEFAULT", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("SIZE", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("DEFAULT", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'Configuration Value'
@@ -189,7 +189,7 @@ public class CommandClassConfigurationV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Parameter Number'
-        response.put("PARAMETER_NUMBER", new Integer(payload[2]));
+        response.put("PARAMETER_NUMBER", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -253,11 +253,11 @@ public class CommandClassConfigurationV2 {
         int msgOffset = 2;
 
         // Process 'Parameter Number'
-        response.put("PARAMETER_NUMBER", new Integer(payload[msgOffset]));
+        response.put("PARAMETER_NUMBER", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Level'
-        response.put("SIZE", new Integer(payload[msgOffset] & 0x07));
+        response.put("SIZE", Integer.valueOf(payload[msgOffset] & 0x07));
         msgOffset += 1;
 
         // Process 'Configuration Value'
@@ -340,17 +340,17 @@ public class CommandClassConfigurationV2 {
         int msgOffset = 2;
 
         // Process 'Parameter Offset'
-        response.put("PARAMETER_OFFSET", new Integer(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("PARAMETER_OFFSET", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
         msgOffset += 2;
 
         // Process 'Number of Parameters'
-        response.put("NUMBER_OF_PARAMETERS", new Integer(payload[msgOffset]));
+        response.put("NUMBER_OF_PARAMETERS", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties1'
-        response.put("SIZE", new Integer(payload[msgOffset] & 0x07));
-        response.put("HANDSHAKE", new Boolean((payload[msgOffset] & 0x40) != 0));
-        response.put("DEFAULT", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("SIZE", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("HANDSHAKE", Boolean.valueOf((payload[msgOffset] & 0x40) != 0));
+        response.put("DEFAULT", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'vg'
@@ -434,10 +434,10 @@ public class CommandClassConfigurationV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Parameter Offset'
-        response.put("PARAMETER_OFFSET", new Integer(payload[2] << 8 + payload[3]));
+        response.put("PARAMETER_OFFSET", Integer.valueOf(payload[2] << 8 + payload[3]));
 
         // Process 'Number of Parameters'
-        response.put("NUMBER_OF_PARAMETERS", new Integer(payload[4]));
+        response.put("NUMBER_OF_PARAMETERS", Integer.valueOf(payload[4]));
 
         // Return the map of processed response data;
         return response;
@@ -515,21 +515,21 @@ public class CommandClassConfigurationV2 {
         int msgOffset = 2;
 
         // Process 'Parameter Offset'
-        response.put("PARAMETER_OFFSET", new Integer(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("PARAMETER_OFFSET", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
         msgOffset += 2;
 
         // Process 'Number of Parameters'
-        response.put("NUMBER_OF_PARAMETERS", new Integer(payload[msgOffset]));
+        response.put("NUMBER_OF_PARAMETERS", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Reports to follow'
-        response.put("REPORTS_TO_FOLLOW", new Integer(payload[msgOffset]));
+        response.put("REPORTS_TO_FOLLOW", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties1'
-        response.put("SIZE", new Integer(payload[msgOffset] & 0x07));
-        response.put("HANDSHAKE", new Boolean((payload[msgOffset] & 0x40) != 0));
-        response.put("DEFAULT", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("SIZE", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("HANDSHAKE", Boolean.valueOf((payload[msgOffset] & 0x40) != 0));
+        response.put("DEFAULT", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'vg'

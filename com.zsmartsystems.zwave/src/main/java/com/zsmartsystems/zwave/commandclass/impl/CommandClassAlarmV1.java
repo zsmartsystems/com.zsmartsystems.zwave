@@ -85,7 +85,7 @@ public class CommandClassAlarmV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Alarm Type'
-        response.put("ALARM_TYPE", new Integer(payload[2]));
+        response.put("ALARM_TYPE", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -138,10 +138,10 @@ public class CommandClassAlarmV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Alarm Type'
-        response.put("ALARM_TYPE", new Integer(payload[2]));
+        response.put("ALARM_TYPE", Integer.valueOf(payload[2]));
 
         // Process 'Alarm Level'
-        response.put("ALARM_LEVEL", new Integer(payload[3]));
+        response.put("ALARM_LEVEL", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;

@@ -120,7 +120,7 @@ public class CommandClassApplicationStatusV1 {
         }
 
         // Process 'Wait Time'
-        response.put("WAIT_TIME", new Integer(payload[3]));
+        response.put("WAIT_TIME", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -168,7 +168,7 @@ public class CommandClassApplicationStatusV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Status'
-        response.put("STATUS", new Integer(payload[2]));
+        response.put("STATUS", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;

@@ -242,9 +242,9 @@ public class CommandClassThermostatSetpointV3 {
         msgOffset += 1;
 
         // Process 'Level2'
-        response.put("SIZE", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCALE", new Integer((payload[msgOffset] & 0x18 >> 3)));
-        response.put("PRECISION", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("SIZE", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCALE", Integer.valueOf((payload[msgOffset] & 0x18 >> 3)));
+        response.put("PRECISION", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Value'
@@ -587,9 +587,9 @@ public class CommandClassThermostatSetpointV3 {
         msgOffset += 1;
 
         // Process 'Level2'
-        response.put("SIZE", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCALE", new Integer((payload[msgOffset] & 0x18 >> 3)));
-        response.put("PRECISION", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("SIZE", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCALE", Integer.valueOf((payload[msgOffset] & 0x18 >> 3)));
+        response.put("PRECISION", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Value'
@@ -1099,9 +1099,9 @@ public class CommandClassThermostatSetpointV3 {
         msgOffset += 1;
 
         // Process 'Properties2'
-        response.put("SIZE1", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCALE1", new Integer((payload[msgOffset] & 0x18 >> 3)));
-        response.put("PRECISION1", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("SIZE1", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCALE1", Integer.valueOf((payload[msgOffset] & 0x18 >> 3)));
+        response.put("PRECISION1", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Min Value'
@@ -1114,9 +1114,9 @@ public class CommandClassThermostatSetpointV3 {
         msgOffset += lenMinValue;
 
         // Process 'Properties3'
-        response.put("SIZE2", new Integer(payload[msgOffset] & 0x07));
-        response.put("SCALE2", new Integer((payload[msgOffset] & 0x18 >> 3)));
-        response.put("PRECISION2", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("SIZE2", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SCALE2", Integer.valueOf((payload[msgOffset] & 0x18 >> 3)));
+        response.put("PRECISION2", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'MaxValue'

@@ -99,10 +99,10 @@ public class CommandClassSceneControllerConfV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Group ID'
-        response.put("GROUP_ID", new Integer(payload[2]));
+        response.put("GROUP_ID", Integer.valueOf(payload[2]));
 
         // Process 'Scene ID'
-        response.put("SCENE_ID", new Integer(payload[3]));
+        response.put("SCENE_ID", Integer.valueOf(payload[3]));
 
         // Process 'Dimming Duration'
         switch ((int) payload[4]) {
@@ -163,7 +163,7 @@ public class CommandClassSceneControllerConfV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Group ID'
-        response.put("GROUP_ID", new Integer(payload[2]));
+        response.put("GROUP_ID", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -221,10 +221,10 @@ public class CommandClassSceneControllerConfV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Group ID'
-        response.put("GROUP_ID", new Integer(payload[2]));
+        response.put("GROUP_ID", Integer.valueOf(payload[2]));
 
         // Process 'Scene ID'
-        response.put("SCENE_ID", new Integer(payload[3]));
+        response.put("SCENE_ID", Integer.valueOf(payload[3]));
 
         // Process 'Dimming Duration'
         switch ((int) payload[4]) {

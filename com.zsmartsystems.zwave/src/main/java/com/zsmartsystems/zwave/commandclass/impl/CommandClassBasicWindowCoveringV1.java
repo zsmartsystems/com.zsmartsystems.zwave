@@ -85,7 +85,7 @@ public class CommandClassBasicWindowCoveringV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        response.put("OPEN_CLOSE", new Boolean((payload[2] & 0x40) != 0));
+        response.put("OPEN_CLOSE", Boolean.valueOf((payload[2] & 0x40) != 0));
 
         // Return the map of processed response data;
         return response;

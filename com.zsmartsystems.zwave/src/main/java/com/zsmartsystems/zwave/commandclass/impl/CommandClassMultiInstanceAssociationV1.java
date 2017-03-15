@@ -120,7 +120,7 @@ public class CommandClassMultiInstanceAssociationV1 {
         int msgOffset = 2;
 
         // Process 'Grouping identifier'
-        response.put("GROUPING_IDENTIFIER", new Integer(payload[msgOffset]));
+        response.put("GROUPING_IDENTIFIER", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Node ID'
@@ -150,11 +150,11 @@ public class CommandClassMultiInstanceAssociationV1 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Multi Instance Node ID'
-            variant.put("MULTI_INSTANCE_NODE_ID", new Integer(payload[msgOffset]));
+            variant.put("MULTI_INSTANCE_NODE_ID", Integer.valueOf(payload[msgOffset]));
             msgOffset += 1;
 
             // Process 'Instance'
-            variant.put("INSTANCE", new Integer(payload[msgOffset]));
+            variant.put("INSTANCE", Integer.valueOf(payload[msgOffset]));
             msgOffset += 1;
 
             // Add to the list
@@ -214,7 +214,7 @@ public class CommandClassMultiInstanceAssociationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Grouping Identifier'
-        response.put("GROUPING_IDENTIFIER", new Integer(payload[2]));
+        response.put("GROUPING_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -289,15 +289,15 @@ public class CommandClassMultiInstanceAssociationV1 {
         int msgOffset = 2;
 
         // Process 'Grouping Identifier'
-        response.put("GROUPING_IDENTIFIER", new Integer(payload[msgOffset]));
+        response.put("GROUPING_IDENTIFIER", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Max Nodes Supported'
-        response.put("MAX_NODES_SUPPORTED", new Integer(payload[msgOffset]));
+        response.put("MAX_NODES_SUPPORTED", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Reports to Follow'
-        response.put("REPORTS_TO_FOLLOW", new Integer(payload[msgOffset]));
+        response.put("REPORTS_TO_FOLLOW", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Node ID'
@@ -327,11 +327,11 @@ public class CommandClassMultiInstanceAssociationV1 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Multi Instance Node ID'
-            variant.put("MULTI_INSTANCE_NODE_ID", new Integer(payload[msgOffset]));
+            variant.put("MULTI_INSTANCE_NODE_ID", Integer.valueOf(payload[msgOffset]));
             msgOffset += 1;
 
             // Process 'Instance'
-            variant.put("INSTANCE", new Integer(payload[msgOffset]));
+            variant.put("INSTANCE", Integer.valueOf(payload[msgOffset]));
             msgOffset += 1;
 
             // Add to the list
@@ -407,7 +407,7 @@ public class CommandClassMultiInstanceAssociationV1 {
         int msgOffset = 2;
 
         // Process 'Grouping identifier'
-        response.put("GROUPING_IDENTIFIER", new Integer(payload[msgOffset]));
+        response.put("GROUPING_IDENTIFIER", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Node ID'
@@ -437,11 +437,11 @@ public class CommandClassMultiInstanceAssociationV1 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Multi Instance Node ID'
-            variant.put("MULTI_INSTANCE_NODE_ID", new Integer(payload[msgOffset]));
+            variant.put("MULTI_INSTANCE_NODE_ID", Integer.valueOf(payload[msgOffset]));
             msgOffset += 1;
 
             // Process 'Instance'
-            variant.put("INSTANCE", new Integer(payload[msgOffset]));
+            variant.put("INSTANCE", Integer.valueOf(payload[msgOffset]));
             msgOffset += 1;
 
             // Add to the list
@@ -536,7 +536,7 @@ public class CommandClassMultiInstanceAssociationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Supported Groupings'
-        response.put("SUPPORTED_GROUPINGS", new Integer(payload[2]));
+        response.put("SUPPORTED_GROUPINGS", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;

@@ -143,7 +143,7 @@ public class CommandClassSwitchColorV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Color Component mask'
-        response.put("COLOR_COMPONENT_MASK", new Integer(payload[2] << 8 + payload[3]));
+        response.put("COLOR_COMPONENT_MASK", Integer.valueOf(payload[2] << 8 + payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -191,7 +191,7 @@ public class CommandClassSwitchColorV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Color Component ID'
-        response.put("COLOR_COMPONENT_ID", new Integer(payload[2]));
+        response.put("COLOR_COMPONENT_ID", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -244,10 +244,10 @@ public class CommandClassSwitchColorV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Color Component ID'
-        response.put("COLOR_COMPONENT_ID", new Integer(payload[2]));
+        response.put("COLOR_COMPONENT_ID", Integer.valueOf(payload[2]));
 
         // Process 'Value'
-        response.put("VALUE", new Integer(payload[3]));
+        response.put("VALUE", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -302,7 +302,7 @@ public class CommandClassSwitchColorV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("COLOR_COMPONENT_COUNT", new Integer(payload[2] & 0x1F));
+        response.put("COLOR_COMPONENT_COUNT", Integer.valueOf(payload[2] & 0x1F));
 
         // Process 'vg1'
 
@@ -315,10 +315,10 @@ public class CommandClassSwitchColorV2 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Color Component ID'
-            variant.put("COLOR_COMPONENT_ID", new Integer(payload[3]));
+            variant.put("COLOR_COMPONENT_ID", Integer.valueOf(payload[3]));
 
             // Process 'Value'
-            variant.put("VALUE", new Integer(payload[4]));
+            variant.put("VALUE", Integer.valueOf(payload[4]));
 
             // Add to the list
             variantList.add(variant);
@@ -331,7 +331,7 @@ public class CommandClassSwitchColorV2 {
         response.put("VG1", variantList);
 
         // Process 'Duration'
-        response.put("DURATION", new Integer(payload[5]));
+        response.put("DURATION", Integer.valueOf(payload[5]));
 
         // Return the map of processed response data;
         return response;
@@ -401,16 +401,16 @@ public class CommandClassSwitchColorV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("RES1", new Integer(payload[2] & 0x1F));
-        response.put("IGNORE_START_STATE", new Boolean((payload[2] & 0x20) != 0));
-        response.put("UP_DOWN", new Boolean((payload[2] & 0x40) != 0));
-        response.put("RES2", new Boolean((payload[2] & 0x80) != 0));
+        response.put("RES1", Integer.valueOf(payload[2] & 0x1F));
+        response.put("IGNORE_START_STATE", Boolean.valueOf((payload[2] & 0x20) != 0));
+        response.put("UP_DOWN", Boolean.valueOf((payload[2] & 0x40) != 0));
+        response.put("RES2", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Process 'Color Component ID'
-        response.put("COLOR_COMPONENT_ID", new Integer(payload[3]));
+        response.put("COLOR_COMPONENT_ID", Integer.valueOf(payload[3]));
 
         // Process 'Start Level'
-        response.put("START_LEVEL", new Integer(payload[4]));
+        response.put("START_LEVEL", Integer.valueOf(payload[4]));
 
         // Return the map of processed response data;
         return response;
@@ -458,7 +458,7 @@ public class CommandClassSwitchColorV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Color Component ID'
-        response.put("COLOR_COMPONENT_ID", new Integer(payload[2]));
+        response.put("COLOR_COMPONENT_ID", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;

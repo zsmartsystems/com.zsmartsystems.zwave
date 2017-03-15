@@ -177,7 +177,7 @@ public class CommandClassHumidityControlSetpointV1 {
         msgOffset += 1;
 
         // Process 'Properties2'
-        response.put("SIZE", new Integer(payload[msgOffset] & 0x07));
+        response.put("SIZE", Integer.valueOf(payload[msgOffset] & 0x07));
         switch ((payload[msgOffset] & 0x18) >> 3) {
             case 0x00:
                 response.put("SCALE", "PERCENTAGE");
@@ -188,7 +188,7 @@ public class CommandClassHumidityControlSetpointV1 {
             default:
                 logger.debug("Unknown enum value {} for SCALE", String.format("0x%02X", msgOffset));
         }
-        response.put("PRECISION", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("PRECISION", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Value'
@@ -374,7 +374,7 @@ public class CommandClassHumidityControlSetpointV1 {
         msgOffset += 1;
 
         // Process 'Properties2'
-        response.put("SIZE", new Integer(payload[msgOffset] & 0x07));
+        response.put("SIZE", Integer.valueOf(payload[msgOffset] & 0x07));
         switch ((payload[msgOffset] & 0x18) >> 3) {
             case 0x00:
                 response.put("SCALE", "PERCENTAGE");
@@ -385,7 +385,7 @@ public class CommandClassHumidityControlSetpointV1 {
             default:
                 logger.debug("Unknown enum value {} for SCALE", String.format("0x%02X", msgOffset));
         }
-        response.put("PRECISION", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("PRECISION", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Value'
@@ -844,7 +844,7 @@ public class CommandClassHumidityControlSetpointV1 {
         msgOffset += 1;
 
         // Process 'Properties2'
-        response.put("SIZE1", new Integer(payload[msgOffset] & 0x07));
+        response.put("SIZE1", Integer.valueOf(payload[msgOffset] & 0x07));
         switch ((payload[msgOffset] & 0x18) >> 3) {
             case 0x00:
                 response.put("SCALE1", "PERCENTAGE");
@@ -855,7 +855,7 @@ public class CommandClassHumidityControlSetpointV1 {
             default:
                 logger.debug("Unknown enum value {} for SCALE1", String.format("0x%02X", msgOffset));
         }
-        response.put("PRECISION1", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("PRECISION1", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Minimum Value'
@@ -868,7 +868,7 @@ public class CommandClassHumidityControlSetpointV1 {
         msgOffset += lenMinimumValue;
 
         // Process 'Properties3'
-        response.put("SIZE2", new Integer(payload[msgOffset] & 0x07));
+        response.put("SIZE2", Integer.valueOf(payload[msgOffset] & 0x07));
         switch ((payload[msgOffset] & 0x18) >> 3) {
             case 0x00:
                 response.put("SCALE2", "PERCENTAGE");
@@ -879,7 +879,7 @@ public class CommandClassHumidityControlSetpointV1 {
             default:
                 logger.debug("Unknown enum value {} for SCALE2", String.format("0x%02X", msgOffset));
         }
-        response.put("PRECISION2", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("PRECISION2", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Maximum Value'

@@ -124,11 +124,11 @@ public class CommandClassSilenceAlarmV1 {
         msgOffset += 1;
 
         // Process 'Seconds'
-        response.put("SECONDS", new Integer(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("SECONDS", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
         msgOffset += 2;
 
         // Process 'Number of Bit Masks'
-        response.put("NUMBER_OF_BIT_MASKS", new Integer(payload[msgOffset]));
+        response.put("NUMBER_OF_BIT_MASKS", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Bit Mask'

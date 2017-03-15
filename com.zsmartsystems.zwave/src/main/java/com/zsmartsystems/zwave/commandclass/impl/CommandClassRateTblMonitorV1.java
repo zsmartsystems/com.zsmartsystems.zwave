@@ -161,10 +161,10 @@ public class CommandClassRateTblMonitorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Rates Supported'
-        response.put("RATES_SUPPORTED", new Integer(payload[2]));
+        response.put("RATES_SUPPORTED", Integer.valueOf(payload[2]));
 
         // Process 'Parameter Set Supported Bit Mask'
-        response.put("PARAMETER_SET_SUPPORTED_BIT_MASK", new Integer(payload[3] << 8 + payload[4]));
+        response.put("PARAMETER_SET_SUPPORTED_BIT_MASK", Integer.valueOf(payload[3] << 8 + payload[4]));
 
         // Return the map of processed response data;
         return response;
@@ -212,7 +212,7 @@ public class CommandClassRateTblMonitorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Rate Parameter Set ID'
-        response.put("RATE_PARAMETER_SET_ID", new Integer(payload[2]));
+        response.put("RATE_PARAMETER_SET_ID", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -349,12 +349,12 @@ public class CommandClassRateTblMonitorV1 {
         int msgOffset = 2;
 
         // Process 'Rate Parameter Set ID'
-        response.put("RATE_PARAMETER_SET_ID", new Integer(payload[msgOffset]));
+        response.put("RATE_PARAMETER_SET_ID", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties1'
-        response.put("NUMBER_OF_RATE_CHAR", new Integer(payload[msgOffset] & 0x1F));
-        response.put("RATE_TYPE", new Integer((payload[msgOffset] & 0x60 >> 5)));
+        response.put("NUMBER_OF_RATE_CHAR", Integer.valueOf(payload[msgOffset] & 0x1F));
+        response.put("RATE_TYPE", Integer.valueOf((payload[msgOffset] & 0x60 >> 5)));
         msgOffset += 1;
 
         // Process 'Rate Character'
@@ -367,41 +367,41 @@ public class CommandClassRateTblMonitorV1 {
         msgOffset += lenRateCharacter;
 
         // Process 'Start Hour Local Time'
-        response.put("START_HOUR_LOCAL_TIME", new Integer(payload[msgOffset]));
+        response.put("START_HOUR_LOCAL_TIME", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Start Minute Local Time'
-        response.put("START_MINUTE_LOCAL_TIME", new Integer(payload[msgOffset]));
+        response.put("START_MINUTE_LOCAL_TIME", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Duration Minute'
-        response.put("DURATION_MINUTE", new Integer(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("DURATION_MINUTE", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
         msgOffset += 2;
 
         // Process 'Properties2'
-        response.put("CONSUMPTION_SCALE", new Integer(payload[msgOffset] & 0x1F));
-        response.put("CONSUMPTION_PRECISION", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("CONSUMPTION_SCALE", Integer.valueOf(payload[msgOffset] & 0x1F));
+        response.put("CONSUMPTION_PRECISION", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Min Consumption Value'
-        response.put("MIN_CONSUMPTION_VALUE", new Long(payload[msgOffset] << 24 + payload[msgOffset + 12] << 16 + payload[msgOffset + 22] << 8 + payload[msgOffset + 32]));
+        response.put("MIN_CONSUMPTION_VALUE", Long.valueOf(payload[msgOffset] << 24 + payload[msgOffset + 12] << 16 + payload[msgOffset + 22] << 8 + payload[msgOffset + 32]));
         msgOffset += 4;
 
         // Process 'Max Consumption Value'
-        response.put("MAX_CONSUMPTION_VALUE", new Long(payload[msgOffset] << 24 + payload[msgOffset + 12] << 16 + payload[msgOffset + 22] << 8 + payload[msgOffset + 32]));
+        response.put("MAX_CONSUMPTION_VALUE", Long.valueOf(payload[msgOffset] << 24 + payload[msgOffset + 12] << 16 + payload[msgOffset + 22] << 8 + payload[msgOffset + 32]));
         msgOffset += 4;
 
         // Process 'Properties3'
-        response.put("MAX_DEMAND_SCALE", new Integer(payload[msgOffset] & 0x1F));
-        response.put("MAX_DEMAND_PRECISION", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("MAX_DEMAND_SCALE", Integer.valueOf(payload[msgOffset] & 0x1F));
+        response.put("MAX_DEMAND_PRECISION", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Max Demand Value'
-        response.put("MAX_DEMAND_VALUE", new Long(payload[msgOffset] << 24 + payload[msgOffset + 12] << 16 + payload[msgOffset + 22] << 8 + payload[msgOffset + 32]));
+        response.put("MAX_DEMAND_VALUE", Long.valueOf(payload[msgOffset] << 24 + payload[msgOffset + 12] << 16 + payload[msgOffset + 22] << 8 + payload[msgOffset + 32]));
         msgOffset += 4;
 
         // Process 'DCP Rate ID'
-        response.put("DCP_RATE_ID", new Integer(payload[msgOffset]));
+        response.put("DCP_RATE_ID", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Return the map of processed response data;
@@ -485,7 +485,7 @@ public class CommandClassRateTblMonitorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Rate Parameter Set ID'
-        response.put("RATE_PARAMETER_SET_ID", new Integer(payload[2]));
+        response.put("RATE_PARAMETER_SET_ID", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -535,7 +535,7 @@ public class CommandClassRateTblMonitorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Rate Parameter Set ID'
-        response.put("RATE_PARAMETER_SET_ID", new Integer(payload[2]));
+        response.put("RATE_PARAMETER_SET_ID", Integer.valueOf(payload[2]));
 
         // Process 'Dataset Requested'
 
@@ -626,30 +626,30 @@ public class CommandClassRateTblMonitorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Reports to Follow'
-        response.put("REPORTS_TO_FOLLOW", new Integer(payload[2]));
+        response.put("REPORTS_TO_FOLLOW", Integer.valueOf(payload[2]));
 
         // Process 'Rate Parameter Set ID'
-        response.put("RATE_PARAMETER_SET_ID", new Integer(payload[3]));
+        response.put("RATE_PARAMETER_SET_ID", Integer.valueOf(payload[3]));
 
         // Process 'Dataset'
 
         // Process 'Year'
-        response.put("YEAR", new Integer(payload[7] << 8 + payload[8]));
+        response.put("YEAR", Integer.valueOf(payload[7] << 8 + payload[8]));
 
         // Process 'Month'
-        response.put("MONTH", new Integer(payload[9]));
+        response.put("MONTH", Integer.valueOf(payload[9]));
 
         // Process 'Day'
-        response.put("DAY", new Integer(payload[10]));
+        response.put("DAY", Integer.valueOf(payload[10]));
 
         // Process 'Hour Local Time'
-        response.put("HOUR_LOCAL_TIME", new Integer(payload[11]));
+        response.put("HOUR_LOCAL_TIME", Integer.valueOf(payload[11]));
 
         // Process 'Minute Local Time'
-        response.put("MINUTE_LOCAL_TIME", new Integer(payload[12]));
+        response.put("MINUTE_LOCAL_TIME", Integer.valueOf(payload[12]));
 
         // Process 'Second Local Time'
-        response.put("SECOND_LOCAL_TIME", new Integer(payload[13]));
+        response.put("SECOND_LOCAL_TIME", Integer.valueOf(payload[13]));
 
         // Process 'vg'
 
@@ -662,11 +662,11 @@ public class CommandClassRateTblMonitorV1 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Properties1'
-            variant.put("CURRENT_SCALE", new Integer(payload[14] & 0x1F));
-            variant.put("CURRENT_PRECISION", new Integer((payload[14] & 0xE0 >> 5)));
+            variant.put("CURRENT_SCALE", Integer.valueOf(payload[14] & 0x1F));
+            variant.put("CURRENT_PRECISION", Integer.valueOf((payload[14] & 0xE0 >> 5)));
 
             // Process 'Current Value'
-            variant.put("CURRENT_VALUE", new Long(payload[15] << 24 + payload[16] << 16 + payload[17] << 8 + payload[18]));
+            variant.put("CURRENT_VALUE", Long.valueOf(payload[15] << 24 + payload[16] << 16 + payload[17] << 8 + payload[18]));
 
             // Add to the list
             variantList.add(variant);
@@ -796,48 +796,48 @@ public class CommandClassRateTblMonitorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Maximum Reports'
-        response.put("MAXIMUM_REPORTS", new Integer(payload[2]));
+        response.put("MAXIMUM_REPORTS", Integer.valueOf(payload[2]));
 
         // Process 'Rate Parameter Set ID'
-        response.put("RATE_PARAMETER_SET_ID", new Integer(payload[3]));
+        response.put("RATE_PARAMETER_SET_ID", Integer.valueOf(payload[3]));
 
         // Process 'Dataset Requested'
 
         // Process 'Start Year'
-        response.put("START_YEAR", new Integer(payload[7] << 8 + payload[8]));
+        response.put("START_YEAR", Integer.valueOf(payload[7] << 8 + payload[8]));
 
         // Process 'Start Month'
-        response.put("START_MONTH", new Integer(payload[9]));
+        response.put("START_MONTH", Integer.valueOf(payload[9]));
 
         // Process 'Start Day'
-        response.put("START_DAY", new Integer(payload[10]));
+        response.put("START_DAY", Integer.valueOf(payload[10]));
 
         // Process 'Start Hour Local Time'
-        response.put("START_HOUR_LOCAL_TIME", new Integer(payload[11]));
+        response.put("START_HOUR_LOCAL_TIME", Integer.valueOf(payload[11]));
 
         // Process 'Start Minute Local Time'
-        response.put("START_MINUTE_LOCAL_TIME", new Integer(payload[12]));
+        response.put("START_MINUTE_LOCAL_TIME", Integer.valueOf(payload[12]));
 
         // Process 'Start Second Local Time'
-        response.put("START_SECOND_LOCAL_TIME", new Integer(payload[13]));
+        response.put("START_SECOND_LOCAL_TIME", Integer.valueOf(payload[13]));
 
         // Process 'Stop Year'
-        response.put("STOP_YEAR", new Integer(payload[14] << 8 + payload[15]));
+        response.put("STOP_YEAR", Integer.valueOf(payload[14] << 8 + payload[15]));
 
         // Process 'Stop Month'
-        response.put("STOP_MONTH", new Integer(payload[16]));
+        response.put("STOP_MONTH", Integer.valueOf(payload[16]));
 
         // Process 'Stop Day'
-        response.put("STOP_DAY", new Integer(payload[17]));
+        response.put("STOP_DAY", Integer.valueOf(payload[17]));
 
         // Process 'Stop Hour Local Time'
-        response.put("STOP_HOUR_LOCAL_TIME", new Integer(payload[18]));
+        response.put("STOP_HOUR_LOCAL_TIME", Integer.valueOf(payload[18]));
 
         // Process 'Stop Minute Local Time'
-        response.put("STOP_MINUTE_LOCAL_TIME", new Integer(payload[19]));
+        response.put("STOP_MINUTE_LOCAL_TIME", Integer.valueOf(payload[19]));
 
         // Process 'Stop Second Local Time'
-        response.put("STOP_SECOND_LOCAL_TIME", new Integer(payload[20]));
+        response.put("STOP_SECOND_LOCAL_TIME", Integer.valueOf(payload[20]));
 
         // Return the map of processed response data;
         return response;
@@ -927,30 +927,30 @@ public class CommandClassRateTblMonitorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Reports to Follow'
-        response.put("REPORTS_TO_FOLLOW", new Integer(payload[2]));
+        response.put("REPORTS_TO_FOLLOW", Integer.valueOf(payload[2]));
 
         // Process 'Rate Parameter Set ID'
-        response.put("RATE_PARAMETER_SET_ID", new Integer(payload[3]));
+        response.put("RATE_PARAMETER_SET_ID", Integer.valueOf(payload[3]));
 
         // Process 'Dataset'
 
         // Process 'Year'
-        response.put("YEAR", new Integer(payload[7] << 8 + payload[8]));
+        response.put("YEAR", Integer.valueOf(payload[7] << 8 + payload[8]));
 
         // Process 'Month'
-        response.put("MONTH", new Integer(payload[9]));
+        response.put("MONTH", Integer.valueOf(payload[9]));
 
         // Process 'Day'
-        response.put("DAY", new Integer(payload[10]));
+        response.put("DAY", Integer.valueOf(payload[10]));
 
         // Process 'Hour Local Time'
-        response.put("HOUR_LOCAL_TIME", new Integer(payload[11]));
+        response.put("HOUR_LOCAL_TIME", Integer.valueOf(payload[11]));
 
         // Process 'Minute Local Time'
-        response.put("MINUTE_LOCAL_TIME", new Integer(payload[12]));
+        response.put("MINUTE_LOCAL_TIME", Integer.valueOf(payload[12]));
 
         // Process 'Second Local Time'
-        response.put("SECOND_LOCAL_TIME", new Integer(payload[13]));
+        response.put("SECOND_LOCAL_TIME", Integer.valueOf(payload[13]));
 
         // Process 'vg'
 
@@ -963,11 +963,11 @@ public class CommandClassRateTblMonitorV1 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Properties1'
-            variant.put("HISTORICAL_SCALE", new Integer(payload[14] & 0x1F));
-            variant.put("HISTORICAL_PRECISION", new Integer((payload[14] & 0xE0 >> 5)));
+            variant.put("HISTORICAL_SCALE", Integer.valueOf(payload[14] & 0x1F));
+            variant.put("HISTORICAL_PRECISION", Integer.valueOf((payload[14] & 0xE0 >> 5)));
 
             // Process 'Historical Value'
-            variant.put("HISTORICAL_VALUE", new Long(payload[15] << 24 + payload[16] << 16 + payload[17] << 8 + payload[18]));
+            variant.put("HISTORICAL_VALUE", Long.valueOf(payload[15] << 24 + payload[16] << 16 + payload[17] << 8 + payload[18]));
 
             // Add to the list
             variantList.add(variant);

@@ -168,29 +168,29 @@ public class CommandClassBasicTariffInfoV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("TOTAL_NO_IMPORT_RATES", new Integer(payload[2] & 0x0F));
-        response.put("DUAL", new Boolean((payload[2] & 0x80) != 0));
+        response.put("TOTAL_NO_IMPORT_RATES", Integer.valueOf(payload[2] & 0x0F));
+        response.put("DUAL", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Process 'Properties2'
-        response.put("E1_CURRENT_RATE_IN_USE", new Integer(payload[3] & 0x0F));
+        response.put("E1_CURRENT_RATE_IN_USE", Integer.valueOf(payload[3] & 0x0F));
 
         // Process 'E1 Rate Consumption Register'
-        response.put("E1_RATE_CONSUMPTION_REGISTER", new Long(payload[4] << 24 + payload[5] << 16 + payload[6] << 8 + payload[7]));
+        response.put("E1_RATE_CONSUMPTION_REGISTER", Long.valueOf(payload[4] << 24 + payload[5] << 16 + payload[6] << 8 + payload[7]));
 
         // Process 'E1 Time for Next Rate Hours'
-        response.put("E1_TIME_FOR_NEXT_RATE_HOURS", new Integer(payload[8]));
+        response.put("E1_TIME_FOR_NEXT_RATE_HOURS", Integer.valueOf(payload[8]));
 
         // Process 'E1 Time for Next Rate Minutes'
-        response.put("E1_TIME_FOR_NEXT_RATE_MINUTES", new Integer(payload[9]));
+        response.put("E1_TIME_FOR_NEXT_RATE_MINUTES", Integer.valueOf(payload[9]));
 
         // Process 'E1 Time for Next Rate Seconds'
-        response.put("E1_TIME_FOR_NEXT_RATE_SECONDS", new Integer(payload[10]));
+        response.put("E1_TIME_FOR_NEXT_RATE_SECONDS", Integer.valueOf(payload[10]));
 
         // Process 'Properties3'
-        response.put("E2_CURRENT_RATE_IN_USE", new Integer(payload[11] & 0x0F));
+        response.put("E2_CURRENT_RATE_IN_USE", Integer.valueOf(payload[11] & 0x0F));
 
         // Process 'E2 Rate Consumption Register'
-        response.put("E2_RATE_CONSUMPTION_REGISTER", new Long(payload[12] << 24 + payload[13] << 16 + payload[14] << 8 + payload[15]));
+        response.put("E2_RATE_CONSUMPTION_REGISTER", Long.valueOf(payload[12] << 24 + payload[13] << 16 + payload[14] << 8 + payload[15]));
 
         // Return the map of processed response data;
         return response;

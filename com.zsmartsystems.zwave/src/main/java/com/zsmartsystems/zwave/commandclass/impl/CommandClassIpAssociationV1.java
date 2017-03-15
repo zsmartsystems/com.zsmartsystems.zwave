@@ -107,7 +107,7 @@ public class CommandClassIpAssociationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Grouping Identifier'
-        response.put("GROUPING_IDENTIFIER", new Integer(payload[2]));
+        response.put("GROUPING_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Process 'IPv6 Address'
         byte[] valIpv6Address = new byte[16];
@@ -117,7 +117,7 @@ public class CommandClassIpAssociationV1 {
         response.put("IPV6_ADDRESS", valIpv6Address);
 
         // Process 'End Point'
-        response.put("END_POINT", new Integer(payload[19]));
+        response.put("END_POINT", Integer.valueOf(payload[19]));
 
         // Return the map of processed response data;
         return response;
@@ -170,10 +170,10 @@ public class CommandClassIpAssociationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Grouping Identifier'
-        response.put("GROUPING_IDENTIFIER", new Integer(payload[2]));
+        response.put("GROUPING_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Process 'Index'
-        response.put("INDEX", new Integer(payload[3]));
+        response.put("INDEX", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -245,13 +245,13 @@ public class CommandClassIpAssociationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Grouping Identifier'
-        response.put("GROUPING_IDENTIFIER", new Integer(payload[2]));
+        response.put("GROUPING_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Process 'Index'
-        response.put("INDEX", new Integer(payload[3]));
+        response.put("INDEX", Integer.valueOf(payload[3]));
 
         // Process 'Actual Nodes'
-        response.put("ACTUAL_NODES", new Integer(payload[4]));
+        response.put("ACTUAL_NODES", Integer.valueOf(payload[4]));
 
         // Process 'IPv6 Address'
         byte[] valIpv6Address = new byte[16];
@@ -261,7 +261,7 @@ public class CommandClassIpAssociationV1 {
         response.put("IPV6_ADDRESS", valIpv6Address);
 
         // Process 'End Point'
-        response.put("END_POINT", new Integer(payload[21]));
+        response.put("END_POINT", Integer.valueOf(payload[21]));
 
         // Return the map of processed response data;
         return response;
@@ -322,7 +322,7 @@ public class CommandClassIpAssociationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Grouping Identifier'
-        response.put("GROUPING_IDENTIFIER", new Integer(payload[2]));
+        response.put("GROUPING_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Process 'IPv6 Address'
         byte[] valIpv6Address = new byte[16];
@@ -332,7 +332,7 @@ public class CommandClassIpAssociationV1 {
         response.put("IPV6_ADDRESS", valIpv6Address);
 
         // Process 'End Point'
-        response.put("END_POINT", new Integer(payload[19]));
+        response.put("END_POINT", Integer.valueOf(payload[19]));
 
         // Return the map of processed response data;
         return response;

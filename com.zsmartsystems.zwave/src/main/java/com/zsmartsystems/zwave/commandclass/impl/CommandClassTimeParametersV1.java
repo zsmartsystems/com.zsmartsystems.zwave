@@ -116,22 +116,22 @@ public class CommandClassTimeParametersV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Year'
-        response.put("YEAR", new Integer(payload[2] << 8 + payload[3]));
+        response.put("YEAR", Integer.valueOf(payload[2] << 8 + payload[3]));
 
         // Process 'Month'
-        response.put("MONTH", new Integer(payload[4]));
+        response.put("MONTH", Integer.valueOf(payload[4]));
 
         // Process 'Day'
-        response.put("DAY", new Integer(payload[5]));
+        response.put("DAY", Integer.valueOf(payload[5]));
 
         // Process 'Hour UTC'
-        response.put("HOUR_UTC", new Integer(payload[6]));
+        response.put("HOUR_UTC", Integer.valueOf(payload[6]));
 
         // Process 'Minute UTC'
-        response.put("MINUTE_UTC", new Integer(payload[7]));
+        response.put("MINUTE_UTC", Integer.valueOf(payload[7]));
 
         // Process 'Second UTC'
-        response.put("SECOND_UTC", new Integer(payload[8]));
+        response.put("SECOND_UTC", Integer.valueOf(payload[8]));
 
         // Return the map of processed response data;
         return response;
@@ -241,22 +241,22 @@ public class CommandClassTimeParametersV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Year'
-        response.put("YEAR", new Integer(payload[2] << 8 + payload[3]));
+        response.put("YEAR", Integer.valueOf(payload[2] << 8 + payload[3]));
 
         // Process 'Month'
-        response.put("MONTH", new Integer(payload[4]));
+        response.put("MONTH", Integer.valueOf(payload[4]));
 
         // Process 'Day'
-        response.put("DAY", new Integer(payload[5]));
+        response.put("DAY", Integer.valueOf(payload[5]));
 
         // Process 'Hour UTC'
-        response.put("HOUR_UTC", new Integer(payload[6]));
+        response.put("HOUR_UTC", Integer.valueOf(payload[6]));
 
         // Process 'Minute UTC'
-        response.put("MINUTE_UTC", new Integer(payload[7]));
+        response.put("MINUTE_UTC", Integer.valueOf(payload[7]));
 
         // Process 'Second UTC'
-        response.put("SECOND_UTC", new Integer(payload[8]));
+        response.put("SECOND_UTC", Integer.valueOf(payload[8]));
 
         // Return the map of processed response data;
         return response;

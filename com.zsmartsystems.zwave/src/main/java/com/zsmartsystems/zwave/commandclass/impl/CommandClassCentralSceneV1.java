@@ -124,7 +124,7 @@ public class CommandClassCentralSceneV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Supported Scenes'
-        response.put("SUPPORTED_SCENES", new Integer(payload[2]));
+        response.put("SUPPORTED_SCENES", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -182,13 +182,13 @@ public class CommandClassCentralSceneV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Sequence Number'
-        response.put("SEQUENCE_NUMBER", new Integer(payload[2]));
+        response.put("SEQUENCE_NUMBER", Integer.valueOf(payload[2]));
 
         // Process 'Properties1'
-        response.put("KEY_ATTRIBUTES", new Integer(payload[3] & 0x07));
+        response.put("KEY_ATTRIBUTES", Integer.valueOf(payload[3] & 0x07));
 
         // Process 'Scene Number'
-        response.put("SCENE_NUMBER", new Integer(payload[4]));
+        response.put("SCENE_NUMBER", Integer.valueOf(payload[4]));
 
         // Return the map of processed response data;
         return response;

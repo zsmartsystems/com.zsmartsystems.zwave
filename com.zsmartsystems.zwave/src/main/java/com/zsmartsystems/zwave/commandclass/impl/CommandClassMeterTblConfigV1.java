@@ -93,7 +93,7 @@ public class CommandClassMeterTblConfigV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("NUMBER_OF_CHARACTERS", new Integer(payload[msgOffset] & 0x1F));
+        response.put("NUMBER_OF_CHARACTERS", Integer.valueOf(payload[msgOffset] & 0x1F));
         msgOffset += 1;
 
         // Process 'Meter Point Adm Number Character'

@@ -154,31 +154,31 @@ public class CommandClassZipV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("NACK_OPTION_ERROR", new Boolean((payload[msgOffset] & 0x04) != 0));
-        response.put("NACK_QUEUE_FULL", new Boolean((payload[msgOffset] & 0x08) != 0));
-        response.put("NACK_WAITING", new Boolean((payload[msgOffset] & 0x10) != 0));
-        response.put("NACK_RESPONSE", new Boolean((payload[msgOffset] & 0x20) != 0));
-        response.put("ACK_RESPONSE", new Boolean((payload[msgOffset] & 0x40) != 0));
-        response.put("ACK_REQUEST", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("NACK_OPTION_ERROR", Boolean.valueOf((payload[msgOffset] & 0x04) != 0));
+        response.put("NACK_QUEUE_FULL", Boolean.valueOf((payload[msgOffset] & 0x08) != 0));
+        response.put("NACK_WAITING", Boolean.valueOf((payload[msgOffset] & 0x10) != 0));
+        response.put("NACK_RESPONSE", Boolean.valueOf((payload[msgOffset] & 0x20) != 0));
+        response.put("ACK_RESPONSE", Boolean.valueOf((payload[msgOffset] & 0x40) != 0));
+        response.put("ACK_REQUEST", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'Properties2'
-        response.put("MORE_INFORMATION", new Boolean((payload[msgOffset] & 0x20) != 0));
-        response.put("Z_WAVE_CMD_INCLUDED", new Boolean((payload[msgOffset] & 0x40) != 0));
-        response.put("HEADER_EXT_INCLUDED", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("MORE_INFORMATION", Boolean.valueOf((payload[msgOffset] & 0x20) != 0));
+        response.put("Z_WAVE_CMD_INCLUDED", Boolean.valueOf((payload[msgOffset] & 0x40) != 0));
+        response.put("HEADER_EXT_INCLUDED", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'Seq No'
-        response.put("SEQ_NO", new Integer(payload[msgOffset]));
+        response.put("SEQ_NO", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties3'
-        response.put("SOURCE_END_POINT", new Integer(payload[msgOffset] & 0x7F));
+        response.put("SOURCE_END_POINT", Integer.valueOf(payload[msgOffset] & 0x7F));
         msgOffset += 1;
 
         // Process 'Properties4'
-        response.put("DESTINATION_END_POINT", new Integer(payload[msgOffset] & 0x7F));
-        response.put("BIT_ADDRESS", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("DESTINATION_END_POINT", Integer.valueOf(payload[msgOffset] & 0x7F));
+        response.put("BIT_ADDRESS", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'Header extension'

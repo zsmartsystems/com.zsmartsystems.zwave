@@ -154,15 +154,15 @@ public class CommandClassAssociationCommandConfigurationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("CONF_CMD", new Boolean((payload[2] & 0x01) != 0));
-        response.put("V_C", new Boolean((payload[2] & 0x02) != 0));
-        response.put("MAX_COMMAND_LENGTH", new Integer((payload[2] & 0xFC >> 2)));
+        response.put("CONF_CMD", Boolean.valueOf((payload[2] & 0x01) != 0));
+        response.put("V_C", Boolean.valueOf((payload[2] & 0x02) != 0));
+        response.put("MAX_COMMAND_LENGTH", Integer.valueOf((payload[2] & 0xFC >> 2)));
 
         // Process 'Free Command records'
-        response.put("FREE_COMMAND_RECORDS", new Integer(payload[3] << 8 + payload[4]));
+        response.put("FREE_COMMAND_RECORDS", Integer.valueOf(payload[3] << 8 + payload[4]));
 
         // Process 'Max Command records'
-        response.put("MAX_COMMAND_RECORDS", new Integer(payload[5] << 8 + payload[6]));
+        response.put("MAX_COMMAND_RECORDS", Integer.valueOf(payload[5] << 8 + payload[6]));
 
         // Return the map of processed response data;
         return response;
@@ -247,23 +247,23 @@ public class CommandClassAssociationCommandConfigurationV1 {
         int msgOffset = 2;
 
         // Process 'Grouping identifier'
-        response.put("GROUPING_IDENTIFIER", new Integer(payload[msgOffset]));
+        response.put("GROUPING_IDENTIFIER", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Node ID'
-        response.put("NODE_ID", new Integer(payload[msgOffset]));
+        response.put("NODE_ID", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Command length'
-        response.put("COMMAND_LENGTH", new Integer(payload[msgOffset]));
+        response.put("COMMAND_LENGTH", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Command Class identifier'
-        response.put("COMMAND_CLASS_IDENTIFIER", new Integer(payload[msgOffset]));
+        response.put("COMMAND_CLASS_IDENTIFIER", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Command identifier'
-        response.put("COMMAND_IDENTIFIER", new Integer(payload[msgOffset]));
+        response.put("COMMAND_IDENTIFIER", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Command byte'
@@ -330,10 +330,10 @@ public class CommandClassAssociationCommandConfigurationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Grouping identifier'
-        response.put("GROUPING_IDENTIFIER", new Integer(payload[2]));
+        response.put("GROUPING_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Process 'Node ID'
-        response.put("NODE_ID", new Integer(payload[3]));
+        response.put("NODE_ID", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -424,27 +424,27 @@ public class CommandClassAssociationCommandConfigurationV1 {
         int msgOffset = 2;
 
         // Process 'Grouping identifier'
-        response.put("GROUPING_IDENTIFIER", new Integer(payload[msgOffset]));
+        response.put("GROUPING_IDENTIFIER", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Node ID'
-        response.put("NODE_ID", new Integer(payload[msgOffset]));
+        response.put("NODE_ID", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties1'
-        response.put("REPORTS_TO_FOLLOW", new Integer(payload[msgOffset] & 0x0F));
+        response.put("REPORTS_TO_FOLLOW", Integer.valueOf(payload[msgOffset] & 0x0F));
         msgOffset += 1;
 
         // Process 'Command length'
-        response.put("COMMAND_LENGTH", new Integer(payload[msgOffset]));
+        response.put("COMMAND_LENGTH", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Command Class identifier'
-        response.put("COMMAND_CLASS_IDENTIFIER", new Integer(payload[msgOffset]));
+        response.put("COMMAND_CLASS_IDENTIFIER", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Command identifier'
-        response.put("COMMAND_IDENTIFIER", new Integer(payload[msgOffset]));
+        response.put("COMMAND_IDENTIFIER", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Command byte'

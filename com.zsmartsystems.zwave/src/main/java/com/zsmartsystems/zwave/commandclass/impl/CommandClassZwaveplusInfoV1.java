@@ -176,7 +176,7 @@ public class CommandClassZwaveplusInfoV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Z-Wave+ Version'
-        response.put("Z_WAVE_PLUS_VERSION", new Integer(payload[2]));
+        response.put("Z_WAVE_PLUS_VERSION", Integer.valueOf(payload[2]));
 
         // Process 'Role Type'
         switch ((int) payload[3]) {

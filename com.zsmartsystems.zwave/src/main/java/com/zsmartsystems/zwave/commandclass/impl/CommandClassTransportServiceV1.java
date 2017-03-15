@@ -114,15 +114,15 @@ public class CommandClassTransportServiceV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("DATAGRAM_SIZE_1", new Integer(payload[msgOffset] & 0x07));
+        response.put("DATAGRAM_SIZE_1", Integer.valueOf(payload[msgOffset] & 0x07));
         msgOffset += 1;
 
         // Process 'datagram_size_2'
-        response.put("DATAGRAM_SIZE_2", new Integer(payload[msgOffset]));
+        response.put("DATAGRAM_SIZE_2", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties2'
-        response.put("SEQUENCE_NO", new Integer(payload[msgOffset] & 0x0F));
+        response.put("SEQUENCE_NO", Integer.valueOf(payload[msgOffset] & 0x0F));
         msgOffset += 1;
 
         // Process 'Payload'
@@ -134,7 +134,7 @@ public class CommandClassTransportServiceV1 {
         response.put("PAYLOAD", valPayload);
 
         // Process 'Checksum'
-        response.put("CHECKSUM", new Integer(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("CHECKSUM", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
         msgOffset += 2;
 
         // Return the map of processed response data;
@@ -221,20 +221,20 @@ public class CommandClassTransportServiceV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("DATAGRAM_SIZE_1", new Integer(payload[msgOffset] & 0x07));
+        response.put("DATAGRAM_SIZE_1", Integer.valueOf(payload[msgOffset] & 0x07));
         msgOffset += 1;
 
         // Process 'datagram_size_2'
-        response.put("DATAGRAM_SIZE_2", new Integer(payload[msgOffset]));
+        response.put("DATAGRAM_SIZE_2", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties2'
-        response.put("DATAGRAM_OFFSET_1", new Integer(payload[msgOffset] & 0x07));
-        response.put("SEQUENCE_NO", new Integer((payload[msgOffset] & 0x78 >> 3)));
+        response.put("DATAGRAM_OFFSET_1", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("SEQUENCE_NO", Integer.valueOf((payload[msgOffset] & 0x78 >> 3)));
         msgOffset += 1;
 
         // Process 'datagram_offset_2'
-        response.put("DATAGRAM_OFFSET_2", new Integer(payload[msgOffset]));
+        response.put("DATAGRAM_OFFSET_2", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Payload'
@@ -246,7 +246,7 @@ public class CommandClassTransportServiceV1 {
         response.put("PAYLOAD", valPayload);
 
         // Process 'Checksum'
-        response.put("CHECKSUM", new Integer(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("CHECKSUM", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
         msgOffset += 2;
 
         // Return the map of processed response data;

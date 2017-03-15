@@ -222,7 +222,7 @@ public class CommandClassThermostatModeV3 {
             default:
                 logger.debug("Unknown enum value {} for MODE", String.format("0x%02X", msgOffset));
         }
-        response.put("NO_OF_MANUFACTURER_DATA_FIELDS", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("NO_OF_MANUFACTURER_DATA_FIELDS", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Manufacturer Data'
@@ -437,7 +437,7 @@ public class CommandClassThermostatModeV3 {
             default:
                 logger.debug("Unknown enum value {} for MODE", String.format("0x%02X", msgOffset));
         }
-        response.put("NO_OF_MANUFACTURER_DATA_FIELDS", new Integer((payload[msgOffset] & 0xE0 >> 5)));
+        response.put("NO_OF_MANUFACTURER_DATA_FIELDS", Integer.valueOf((payload[msgOffset] & 0xE0 >> 5)));
         msgOffset += 1;
 
         // Process 'Manufacturer Data'

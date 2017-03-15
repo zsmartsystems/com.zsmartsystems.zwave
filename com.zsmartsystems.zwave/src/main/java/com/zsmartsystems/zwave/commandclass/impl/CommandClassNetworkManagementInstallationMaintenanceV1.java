@@ -194,19 +194,19 @@ public class CommandClassNetworkManagementInstallationMaintenanceV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'NodeID'
-        response.put("NODEID", new Integer(payload[2]));
+        response.put("NODEID", Integer.valueOf(payload[2]));
 
         // Process 'Repeater 1'
-        response.put("REPEATER_1", new Integer(payload[3]));
+        response.put("REPEATER_1", Integer.valueOf(payload[3]));
 
         // Process 'Repeater 2'
-        response.put("REPEATER_2", new Integer(payload[4]));
+        response.put("REPEATER_2", Integer.valueOf(payload[4]));
 
         // Process 'Repeater 3'
-        response.put("REPEATER_3", new Integer(payload[5]));
+        response.put("REPEATER_3", Integer.valueOf(payload[5]));
 
         // Process 'Repeater 4'
-        response.put("REPEATER_4", new Integer(payload[6]));
+        response.put("REPEATER_4", Integer.valueOf(payload[6]));
 
         // Process 'Speed'
         switch ((int) payload[7]) {
@@ -279,7 +279,7 @@ public class CommandClassNetworkManagementInstallationMaintenanceV1 {
         int msgOffset = 2;
 
         // Process 'NodeID'
-        response.put("NODEID", new Integer(payload[msgOffset]));
+        response.put("NODEID", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Statistics'
@@ -320,7 +320,7 @@ public class CommandClassNetworkManagementInstallationMaintenanceV1 {
             msgOffset += 1;
 
             // Process 'Length'
-            variant.put("LENGTH", new Integer(payload[msgOffset]));
+            variant.put("LENGTH", Integer.valueOf(payload[msgOffset]));
             msgOffset += 1;
 
             // Process 'Value'

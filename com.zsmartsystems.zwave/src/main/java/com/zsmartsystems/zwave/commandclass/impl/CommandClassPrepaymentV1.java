@@ -220,32 +220,32 @@ public class CommandClassPrepaymentV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("METER_TYPE", new Integer(payload[2] & 0x3F));
-        response.put("BALANCE_TYPE", new Integer((payload[2] & 0xC0 >> 6)));
+        response.put("METER_TYPE", Integer.valueOf(payload[2] & 0x3F));
+        response.put("BALANCE_TYPE", Integer.valueOf((payload[2] & 0xC0 >> 6)));
 
         // Process 'Properties2'
-        response.put("SCALE", new Integer(payload[3] & 0x1F));
-        response.put("BALANCE_PRECISION", new Integer((payload[3] & 0xE0 >> 5)));
+        response.put("SCALE", Integer.valueOf(payload[3] & 0x1F));
+        response.put("BALANCE_PRECISION", Integer.valueOf((payload[3] & 0xE0 >> 5)));
 
         // Process 'Balance Value'
-        response.put("BALANCE_VALUE", new Long(payload[4] << 24 + payload[5] << 16 + payload[6] << 8 + payload[7]));
+        response.put("BALANCE_VALUE", Long.valueOf(payload[4] << 24 + payload[5] << 16 + payload[6] << 8 + payload[7]));
 
         // Process 'Properties3'
-        response.put("DEBT_PRECISION", new Integer((payload[8] & 0xE0 >> 5)));
+        response.put("DEBT_PRECISION", Integer.valueOf((payload[8] & 0xE0 >> 5)));
 
         // Process 'Debt'
-        response.put("DEBT", new Long(payload[9] << 24 + payload[10] << 16 + payload[11] << 8 + payload[12]));
+        response.put("DEBT", Long.valueOf(payload[9] << 24 + payload[10] << 16 + payload[11] << 8 + payload[12]));
 
         // Process 'Properties4'
-        response.put("EMER_CREDIT_PRECISION", new Integer((payload[13] & 0xE0 >> 5)));
+        response.put("EMER_CREDIT_PRECISION", Integer.valueOf((payload[13] & 0xE0 >> 5)));
 
         // Process 'Emer Credit'
-        response.put("EMER_CREDIT", new Long(payload[14] << 24 + payload[15] << 16 + payload[16] << 8 + payload[17]));
+        response.put("EMER_CREDIT", Long.valueOf(payload[14] << 24 + payload[15] << 16 + payload[16] << 8 + payload[17]));
 
         // Process 'Currency'
 
         // Process 'Debt Recovery Percentage'
-        response.put("DEBT_RECOVERY_PERCENTAGE", new Integer(payload[21]));
+        response.put("DEBT_RECOVERY_PERCENTAGE", Integer.valueOf(payload[21]));
 
         // Return the map of processed response data;
         return response;
@@ -328,7 +328,7 @@ public class CommandClassPrepaymentV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("TYPES_SUPPORTED", new Integer(payload[2] & 0x0F));
+        response.put("TYPES_SUPPORTED", Integer.valueOf(payload[2] & 0x0F));
 
         // Return the map of processed response data;
         return response;

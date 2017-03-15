@@ -141,8 +141,8 @@ public class CommandClassSecurityPanelZoneV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Parameters1'
-        response.put("ZONES_SUPPORTED", new Integer(payload[2] & 0x7F));
-        response.put("ZM", new Boolean((payload[2] & 0x80) != 0));
+        response.put("ZONES_SUPPORTED", Integer.valueOf(payload[2] & 0x7F));
+        response.put("ZM", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Return the map of processed response data;
         return response;
@@ -190,7 +190,7 @@ public class CommandClassSecurityPanelZoneV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Zone Number'
-        response.put("ZONE_NUMBER", new Integer(payload[2]));
+        response.put("ZONE_NUMBER", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -243,7 +243,7 @@ public class CommandClassSecurityPanelZoneV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Zone Number'
-        response.put("ZONE_NUMBER", new Integer(payload[2]));
+        response.put("ZONE_NUMBER", Integer.valueOf(payload[2]));
 
         // Process 'Zone Type'
         switch ((int) payload[3]) {
@@ -304,7 +304,7 @@ public class CommandClassSecurityPanelZoneV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Zone Number'
-        response.put("ZONE_NUMBER", new Integer(payload[2]));
+        response.put("ZONE_NUMBER", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -357,7 +357,7 @@ public class CommandClassSecurityPanelZoneV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Zone number'
-        response.put("ZONE_NUMBER", new Integer(payload[2]));
+        response.put("ZONE_NUMBER", Integer.valueOf(payload[2]));
 
         // Process 'Zone State'
         switch ((int) payload[3]) {

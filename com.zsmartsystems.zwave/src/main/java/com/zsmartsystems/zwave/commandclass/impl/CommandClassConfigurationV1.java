@@ -112,12 +112,12 @@ public class CommandClassConfigurationV1 {
         int msgOffset = 2;
 
         // Process 'Parameter Number'
-        response.put("PARAMETER_NUMBER", new Integer(payload[msgOffset]));
+        response.put("PARAMETER_NUMBER", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Level'
-        response.put("SIZE", new Integer(payload[msgOffset] & 0x07));
-        response.put("DEFAULT", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("SIZE", Integer.valueOf(payload[msgOffset] & 0x07));
+        response.put("DEFAULT", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'Configuration Value'
@@ -175,7 +175,7 @@ public class CommandClassConfigurationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Parameter Number'
-        response.put("PARAMETER_NUMBER", new Integer(payload[2]));
+        response.put("PARAMETER_NUMBER", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -239,11 +239,11 @@ public class CommandClassConfigurationV1 {
         int msgOffset = 2;
 
         // Process 'Parameter Number'
-        response.put("PARAMETER_NUMBER", new Integer(payload[msgOffset]));
+        response.put("PARAMETER_NUMBER", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Level'
-        response.put("SIZE", new Integer(payload[msgOffset] & 0x07));
+        response.put("SIZE", Integer.valueOf(payload[msgOffset] & 0x07));
         msgOffset += 1;
 
         // Process 'Configuration Value'

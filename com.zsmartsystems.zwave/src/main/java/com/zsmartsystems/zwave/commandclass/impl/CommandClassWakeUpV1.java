@@ -106,7 +106,7 @@ public class CommandClassWakeUpV1 {
         // Process 'Seconds'
 
         // Process 'NodeID'
-        response.put("NODEID", new Integer(payload[5]));
+        response.put("NODEID", Integer.valueOf(payload[5]));
 
         // Return the map of processed response data;
         return response;
@@ -198,7 +198,7 @@ public class CommandClassWakeUpV1 {
         // Process 'Seconds'
 
         // Process 'NodeID'
-        response.put("NODEID", new Integer(payload[5]));
+        response.put("NODEID", Integer.valueOf(payload[5]));
 
         // Return the map of processed response data;
         return response;

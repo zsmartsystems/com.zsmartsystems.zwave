@@ -128,7 +128,7 @@ public class CommandClassClimateControlScheduleV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("WEEKDAY", new Integer(payload[2] & 0x07));
+        response.put("WEEKDAY", Integer.valueOf(payload[2] & 0x07));
 
         // Process 'Switchpoint 0'
 
@@ -194,7 +194,7 @@ public class CommandClassClimateControlScheduleV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("WEEKDAY", new Integer(payload[2] & 0x07));
+        response.put("WEEKDAY", Integer.valueOf(payload[2] & 0x07));
 
         // Return the map of processed response data;
         return response;
@@ -260,7 +260,7 @@ public class CommandClassClimateControlScheduleV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("WEEKDAY", new Integer(payload[2] & 0x07));
+        response.put("WEEKDAY", Integer.valueOf(payload[2] & 0x07));
 
         // Process 'Switchpoint 0'
 
@@ -361,7 +361,7 @@ public class CommandClassClimateControlScheduleV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'ChangeCounter'
-        response.put("CHANGECOUNTER", new Integer(payload[2]));
+        response.put("CHANGECOUNTER", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -426,7 +426,7 @@ public class CommandClassClimateControlScheduleV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("OVERRIDE_TYPE", new Integer(payload[2] & 0x03));
+        response.put("OVERRIDE_TYPE", Integer.valueOf(payload[2] & 0x03));
 
         // Process 'Override State'
         switch ((int) payload[3]) {
@@ -543,7 +543,7 @@ public class CommandClassClimateControlScheduleV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("OVERRIDE_TYPE", new Integer(payload[2] & 0x03));
+        response.put("OVERRIDE_TYPE", Integer.valueOf(payload[2] & 0x03));
 
         // Process 'Override State'
         switch ((int) payload[3]) {

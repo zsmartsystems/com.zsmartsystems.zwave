@@ -144,14 +144,14 @@ public class CommandClassTimeV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Hour Local Time'
-        response.put("HOUR_LOCAL_TIME", new Integer(payload[2] & 0x1F));
-        response.put("RTC_FAILURE", new Boolean((payload[2] & 0x80) != 0));
+        response.put("HOUR_LOCAL_TIME", Integer.valueOf(payload[2] & 0x1F));
+        response.put("RTC_FAILURE", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Process 'Minute Local Time'
-        response.put("MINUTE_LOCAL_TIME", new Integer(payload[3]));
+        response.put("MINUTE_LOCAL_TIME", Integer.valueOf(payload[3]));
 
         // Process 'Second Local Time'
-        response.put("SECOND_LOCAL_TIME", new Integer(payload[4]));
+        response.put("SECOND_LOCAL_TIME", Integer.valueOf(payload[4]));
 
         // Return the map of processed response data;
         return response;
@@ -245,13 +245,13 @@ public class CommandClassTimeV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Year'
-        response.put("YEAR", new Integer(payload[2] << 8 + payload[3]));
+        response.put("YEAR", Integer.valueOf(payload[2] << 8 + payload[3]));
 
         // Process 'Month'
-        response.put("MONTH", new Integer(payload[4]));
+        response.put("MONTH", Integer.valueOf(payload[4]));
 
         // Process 'Day'
-        response.put("DAY", new Integer(payload[5]));
+        response.put("DAY", Integer.valueOf(payload[5]));
 
         // Return the map of processed response data;
         return response;

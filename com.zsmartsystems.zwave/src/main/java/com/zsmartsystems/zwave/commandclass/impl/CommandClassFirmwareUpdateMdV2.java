@@ -155,13 +155,13 @@ public class CommandClassFirmwareUpdateMdV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Manufacturer ID'
-        response.put("MANUFACTURER_ID", new Integer(payload[2] << 8 + payload[3]));
+        response.put("MANUFACTURER_ID", Integer.valueOf(payload[2] << 8 + payload[3]));
 
         // Process 'Firmware ID'
-        response.put("FIRMWARE_ID", new Integer(payload[4] << 8 + payload[5]));
+        response.put("FIRMWARE_ID", Integer.valueOf(payload[4] << 8 + payload[5]));
 
         // Process 'Checksum'
-        response.put("CHECKSUM", new Integer(payload[6] << 8 + payload[7]));
+        response.put("CHECKSUM", Integer.valueOf(payload[6] << 8 + payload[7]));
 
         // Return the map of processed response data;
         return response;
@@ -222,13 +222,13 @@ public class CommandClassFirmwareUpdateMdV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Manufacturer ID'
-        response.put("MANUFACTURER_ID", new Integer(payload[2] << 8 + payload[3]));
+        response.put("MANUFACTURER_ID", Integer.valueOf(payload[2] << 8 + payload[3]));
 
         // Process 'Firmware ID'
-        response.put("FIRMWARE_ID", new Integer(payload[4] << 8 + payload[5]));
+        response.put("FIRMWARE_ID", Integer.valueOf(payload[4] << 8 + payload[5]));
 
         // Process 'Checksum'
-        response.put("CHECKSUM", new Integer(payload[6] << 8 + payload[7]));
+        response.put("CHECKSUM", Integer.valueOf(payload[6] << 8 + payload[7]));
 
         // Return the map of processed response data;
         return response;
@@ -366,14 +366,14 @@ public class CommandClassFirmwareUpdateMdV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Number of Reports'
-        response.put("NUMBER_OF_REPORTS", new Integer(payload[2]));
+        response.put("NUMBER_OF_REPORTS", Integer.valueOf(payload[2]));
 
         // Process 'Properties1'
-        response.put("REPORT_NUMBER_1", new Integer(payload[3] & 0x7F));
-        response.put("ZERO", new Boolean((payload[3] & 0x80) != 0));
+        response.put("REPORT_NUMBER_1", Integer.valueOf(payload[3] & 0x7F));
+        response.put("ZERO", Boolean.valueOf((payload[3] & 0x80) != 0));
 
         // Process 'Report number 2'
-        response.put("REPORT_NUMBER_2", new Integer(payload[4]));
+        response.put("REPORT_NUMBER_2", Integer.valueOf(payload[4]));
 
         // Return the map of processed response data;
         return response;
@@ -449,12 +449,12 @@ public class CommandClassFirmwareUpdateMdV2 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("REPORT_NUMBER_1", new Integer(payload[msgOffset] & 0x7F));
-        response.put("LAST", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("REPORT_NUMBER_1", Integer.valueOf(payload[msgOffset] & 0x7F));
+        response.put("LAST", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'Report number 2'
-        response.put("REPORT_NUMBER_2", new Integer(payload[msgOffset]));
+        response.put("REPORT_NUMBER_2", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Data'
@@ -466,7 +466,7 @@ public class CommandClassFirmwareUpdateMdV2 {
         response.put("DATA", valData);
 
         // Process 'Checksum'
-        response.put("CHECKSUM", new Integer(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("CHECKSUM", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
         msgOffset += 2;
 
         // Return the map of processed response data;

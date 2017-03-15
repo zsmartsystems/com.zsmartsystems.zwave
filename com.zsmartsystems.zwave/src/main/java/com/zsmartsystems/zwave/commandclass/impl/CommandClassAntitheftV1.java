@@ -126,8 +126,8 @@ public class CommandClassAntitheftV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("NUMBER_OF_MAGIC_CODE_BYTES", new Integer(payload[msgOffset] & 0x7F));
-        response.put("ENABLE", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("NUMBER_OF_MAGIC_CODE_BYTES", Integer.valueOf(payload[msgOffset] & 0x7F));
+        response.put("ENABLE", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'Magic Code'
@@ -140,11 +140,11 @@ public class CommandClassAntitheftV1 {
         msgOffset += lenMagicCode;
 
         // Process 'Manufacturer ID'
-        response.put("MANUFACTURER_ID", new Integer(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("MANUFACTURER_ID", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
         msgOffset += 2;
 
         // Process 'Anti-theft Hint Number Bytes'
-        response.put("ANTI_THEFT_HINT_NUMBER_BYTES", new Integer(payload[msgOffset]));
+        response.put("ANTI_THEFT_HINT_NUMBER_BYTES", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Anti-theft Hint Byte'
@@ -260,15 +260,15 @@ public class CommandClassAntitheftV1 {
         int msgOffset = 2;
 
         // Process 'Anti-theft Protection Status'
-        response.put("ANTI_THEFT_PROTECTION_STATUS", new Integer(payload[msgOffset]));
+        response.put("ANTI_THEFT_PROTECTION_STATUS", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Manufacturer ID'
-        response.put("MANUFACTURER_ID", new Integer(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("MANUFACTURER_ID", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
         msgOffset += 2;
 
         // Process 'Anti-theft Hint Number Bytes'
-        response.put("ANTI_THEFT_HINT_NUMBER_BYTES", new Integer(payload[msgOffset]));
+        response.put("ANTI_THEFT_HINT_NUMBER_BYTES", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Anti-theft Hint Byte'

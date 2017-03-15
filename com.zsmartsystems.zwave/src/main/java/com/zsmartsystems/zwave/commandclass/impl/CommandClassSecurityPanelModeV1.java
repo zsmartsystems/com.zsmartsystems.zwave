@@ -133,7 +133,7 @@ public class CommandClassSecurityPanelModeV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Supported Mode Bit Mask'
-        response.put("SUPPORTED_MODE_BIT_MASK", new Integer(payload[2] << 8 + payload[3]));
+        response.put("SUPPORTED_MODE_BIT_MASK", Integer.valueOf(payload[2] << 8 + payload[3]));
 
         // Return the map of processed response data;
         return response;

@@ -239,7 +239,7 @@ public class CommandClassEntryControlV1 {
         int msgOffset = 2;
 
         // Process 'Sequence Number'
-        response.put("SEQUENCE_NUMBER", new Integer(payload[msgOffset]));
+        response.put("SEQUENCE_NUMBER", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties1'
@@ -349,7 +349,7 @@ public class CommandClassEntryControlV1 {
         msgOffset += 1;
 
         // Process 'Event Data Length'
-        response.put("EVENT_DATA_LENGTH", new Integer(payload[msgOffset]));
+        response.put("EVENT_DATA_LENGTH", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Event Data'
@@ -458,7 +458,7 @@ public class CommandClassEntryControlV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Key Supported Bit Mask Length'
-        response.put("KEY_SUPPORTED_BIT_MASK_LENGTH", new Integer(payload[2]));
+        response.put("KEY_SUPPORTED_BIT_MASK_LENGTH", Integer.valueOf(payload[2]));
 
         // Process 'Key Supported Bit Mask'
         List<Integer> responseKeySupportedBitMask = new ArrayList<Integer>();
@@ -748,16 +748,16 @@ public class CommandClassEntryControlV1 {
         response.put("EVENT_TYPE_SUPPORTED_BIT_MASK", responseEventTypeSupportedBitMask);
 
         // Process 'Key Cached Size supported Minimum'
-        response.put("KEY_CACHED_SIZE_SUPPORTED_MINIMUM", new Integer(payload[6]));
+        response.put("KEY_CACHED_SIZE_SUPPORTED_MINIMUM", Integer.valueOf(payload[6]));
 
         // Process 'Key Cached Size supported Maximum'
-        response.put("KEY_CACHED_SIZE_SUPPORTED_MAXIMUM", new Integer(payload[7]));
+        response.put("KEY_CACHED_SIZE_SUPPORTED_MAXIMUM", Integer.valueOf(payload[7]));
 
         // Process 'Key Cached Timeout supported Minimum'
-        response.put("KEY_CACHED_TIMEOUT_SUPPORTED_MINIMUM", new Integer(payload[8]));
+        response.put("KEY_CACHED_TIMEOUT_SUPPORTED_MINIMUM", Integer.valueOf(payload[8]));
 
         // Process 'Key Cached Timeout supported Maximum'
-        response.put("KEY_CACHED_TIMEOUT_SUPPORTED_MAXIMUM", new Integer(payload[9]));
+        response.put("KEY_CACHED_TIMEOUT_SUPPORTED_MAXIMUM", Integer.valueOf(payload[9]));
 
         // Return the map of processed response data;
         return response;
@@ -810,10 +810,10 @@ public class CommandClassEntryControlV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Key Cache Size'
-        response.put("KEY_CACHE_SIZE", new Integer(payload[2]));
+        response.put("KEY_CACHE_SIZE", Integer.valueOf(payload[2]));
 
         // Process 'Key Cache Timeout'
-        response.put("KEY_CACHE_TIMEOUT", new Integer(payload[3]));
+        response.put("KEY_CACHE_TIMEOUT", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -901,10 +901,10 @@ public class CommandClassEntryControlV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Key Cache Size'
-        response.put("KEY_CACHE_SIZE", new Integer(payload[2]));
+        response.put("KEY_CACHE_SIZE", Integer.valueOf(payload[2]));
 
         // Process 'Key Cache Timeout'
-        response.put("KEY_CACHE_TIMEOUT", new Integer(payload[3]));
+        response.put("KEY_CACHE_TIMEOUT", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;

@@ -184,22 +184,22 @@ public class CommandClassFirmwareUpdateMdV4 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Manufacturer ID'
-        response.put("MANUFACTURER_ID", new Integer(payload[2] << 8 + payload[3]));
+        response.put("MANUFACTURER_ID", Integer.valueOf(payload[2] << 8 + payload[3]));
 
         // Process 'Firmware 0 ID'
-        response.put("FIRMWARE_0_ID", new Integer(payload[4] << 8 + payload[5]));
+        response.put("FIRMWARE_0_ID", Integer.valueOf(payload[4] << 8 + payload[5]));
 
         // Process 'Firmware 0 Checksum'
-        response.put("FIRMWARE_0_CHECKSUM", new Integer(payload[6] << 8 + payload[7]));
+        response.put("FIRMWARE_0_CHECKSUM", Integer.valueOf(payload[6] << 8 + payload[7]));
 
         // Process 'Firmware Upgradable'
-        response.put("FIRMWARE_UPGRADABLE", new Integer(payload[8]));
+        response.put("FIRMWARE_UPGRADABLE", Integer.valueOf(payload[8]));
 
         // Process 'Number of Firmware Targets'
-        response.put("NUMBER_OF_FIRMWARE_TARGETS", new Integer(payload[9]));
+        response.put("NUMBER_OF_FIRMWARE_TARGETS", Integer.valueOf(payload[9]));
 
         // Process 'Max Fragment Size '
-        response.put("MAX_FRAGMENT_SIZE", new Integer(payload[10] << 8 + payload[11]));
+        response.put("MAX_FRAGMENT_SIZE", Integer.valueOf(payload[10] << 8 + payload[11]));
 
         // Process 'vg1'
 
@@ -212,7 +212,7 @@ public class CommandClassFirmwareUpdateMdV4 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Firmware ID'
-            variant.put("FIRMWARE_ID", new Integer(payload[12] << 8 + payload[13]));
+            variant.put("FIRMWARE_ID", Integer.valueOf(payload[12] << 8 + payload[13]));
 
             // Add to the list
             variantList.add(variant);
@@ -300,22 +300,22 @@ public class CommandClassFirmwareUpdateMdV4 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Manufacturer ID'
-        response.put("MANUFACTURER_ID", new Integer(payload[2] << 8 + payload[3]));
+        response.put("MANUFACTURER_ID", Integer.valueOf(payload[2] << 8 + payload[3]));
 
         // Process 'Firmware ID'
-        response.put("FIRMWARE_ID", new Integer(payload[4] << 8 + payload[5]));
+        response.put("FIRMWARE_ID", Integer.valueOf(payload[4] << 8 + payload[5]));
 
         // Process 'Checksum'
-        response.put("CHECKSUM", new Integer(payload[6] << 8 + payload[7]));
+        response.put("CHECKSUM", Integer.valueOf(payload[6] << 8 + payload[7]));
 
         // Process 'Firmware Target'
-        response.put("FIRMWARE_TARGET", new Integer(payload[8]));
+        response.put("FIRMWARE_TARGET", Integer.valueOf(payload[8]));
 
         // Process 'Fragment Size'
-        response.put("FRAGMENT_SIZE", new Integer(payload[9] << 8 + payload[10]));
+        response.put("FRAGMENT_SIZE", Integer.valueOf(payload[9] << 8 + payload[10]));
 
         // Process 'Properties1'
-        response.put("ACTIVATION", new Boolean((payload[11] & 0x01) != 0));
+        response.put("ACTIVATION", Boolean.valueOf((payload[11] & 0x01) != 0));
 
         // Return the map of processed response data;
         return response;
@@ -465,14 +465,14 @@ public class CommandClassFirmwareUpdateMdV4 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Number of Reports'
-        response.put("NUMBER_OF_REPORTS", new Integer(payload[2]));
+        response.put("NUMBER_OF_REPORTS", Integer.valueOf(payload[2]));
 
         // Process 'Properties1'
-        response.put("REPORT_NUMBER_1", new Integer(payload[3] & 0x7F));
-        response.put("ZERO", new Boolean((payload[3] & 0x80) != 0));
+        response.put("REPORT_NUMBER_1", Integer.valueOf(payload[3] & 0x7F));
+        response.put("ZERO", Boolean.valueOf((payload[3] & 0x80) != 0));
 
         // Process 'Report number 2'
-        response.put("REPORT_NUMBER_2", new Integer(payload[4]));
+        response.put("REPORT_NUMBER_2", Integer.valueOf(payload[4]));
 
         // Return the map of processed response data;
         return response;
@@ -548,12 +548,12 @@ public class CommandClassFirmwareUpdateMdV4 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        response.put("REPORT_NUMBER_1", new Integer(payload[msgOffset] & 0x7F));
-        response.put("LAST", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("REPORT_NUMBER_1", Integer.valueOf(payload[msgOffset] & 0x7F));
+        response.put("LAST", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'Report number 2'
-        response.put("REPORT_NUMBER_2", new Integer(payload[msgOffset]));
+        response.put("REPORT_NUMBER_2", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Data'
@@ -565,7 +565,7 @@ public class CommandClassFirmwareUpdateMdV4 {
         response.put("DATA", valData);
 
         // Process 'Checksum'
-        response.put("CHECKSUM", new Integer(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("CHECKSUM", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
         msgOffset += 2;
 
         // Return the map of processed response data;
@@ -697,7 +697,7 @@ public class CommandClassFirmwareUpdateMdV4 {
         }
 
         // Process 'WaitTime'
-        response.put("WAITTIME", new Integer(payload[3] << 8 + payload[4]));
+        response.put("WAITTIME", Integer.valueOf(payload[3] << 8 + payload[4]));
 
         // Return the map of processed response data;
         return response;
@@ -764,16 +764,16 @@ public class CommandClassFirmwareUpdateMdV4 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Manufacturer ID'
-        response.put("MANUFACTURER_ID", new Integer(payload[2] << 8 + payload[3]));
+        response.put("MANUFACTURER_ID", Integer.valueOf(payload[2] << 8 + payload[3]));
 
         // Process 'Firmware ID'
-        response.put("FIRMWARE_ID", new Integer(payload[4] << 8 + payload[5]));
+        response.put("FIRMWARE_ID", Integer.valueOf(payload[4] << 8 + payload[5]));
 
         // Process 'Checksum'
-        response.put("CHECKSUM", new Integer(payload[6] << 8 + payload[7]));
+        response.put("CHECKSUM", Integer.valueOf(payload[6] << 8 + payload[7]));
 
         // Process 'Firmware Target'
-        response.put("FIRMWARE_TARGET", new Integer(payload[8]));
+        response.put("FIRMWARE_TARGET", Integer.valueOf(payload[8]));
 
         // Return the map of processed response data;
         return response;
@@ -856,16 +856,16 @@ public class CommandClassFirmwareUpdateMdV4 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Manufacturer ID'
-        response.put("MANUFACTURER_ID", new Integer(payload[2] << 8 + payload[3]));
+        response.put("MANUFACTURER_ID", Integer.valueOf(payload[2] << 8 + payload[3]));
 
         // Process 'Firmware ID'
-        response.put("FIRMWARE_ID", new Integer(payload[4]));
+        response.put("FIRMWARE_ID", Integer.valueOf(payload[4]));
 
         // Process 'Checksum'
-        response.put("CHECKSUM", new Integer(payload[5] << 8 + payload[6]));
+        response.put("CHECKSUM", Integer.valueOf(payload[5] << 8 + payload[6]));
 
         // Process 'Firmware Target'
-        response.put("FIRMWARE_TARGET", new Integer(payload[7]));
+        response.put("FIRMWARE_TARGET", Integer.valueOf(payload[7]));
 
         // Process 'Firmware Update Status'
         switch ((int) payload[8]) {

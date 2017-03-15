@@ -526,7 +526,7 @@ public class CommandClassThermostatOperatingStateV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Reports to Follow'
-        response.put("REPORTS_TO_FOLLOW", new Integer(payload[2]));
+        response.put("REPORTS_TO_FOLLOW", Integer.valueOf(payload[2]));
 
         // Process 'vg1'
 
@@ -539,19 +539,19 @@ public class CommandClassThermostatOperatingStateV2 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Properties1'
-            variant.put("OPERATING_STATE_LOG_TYPE", new Integer(payload[3] & 0x0F));
+            variant.put("OPERATING_STATE_LOG_TYPE", Integer.valueOf(payload[3] & 0x0F));
 
             // Process 'Usage Today (Hours)'
-            variant.put("USAGE_TODAY", new Integer(payload[4]));
+            variant.put("USAGE_TODAY", Integer.valueOf(payload[4]));
 
             // Process 'Usage Today (Minutes)'
-            variant.put("USAGE_TODAY", new Integer(payload[5]));
+            variant.put("USAGE_TODAY", Integer.valueOf(payload[5]));
 
             // Process 'Usage Yesterday (Hours)'
-            variant.put("USAGE_YESTERDAY", new Integer(payload[6]));
+            variant.put("USAGE_YESTERDAY", Integer.valueOf(payload[6]));
 
             // Process 'Usage Yesterday (Minutes)'
-            variant.put("USAGE_YESTERDAY", new Integer(payload[7]));
+            variant.put("USAGE_YESTERDAY", Integer.valueOf(payload[7]));
 
             // Add to the list
             variantList.add(variant);

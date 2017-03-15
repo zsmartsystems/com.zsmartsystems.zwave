@@ -110,7 +110,7 @@ public class CommandClassNodeNamingV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        response.put("CHAR_PRESENTATION", new Integer(payload[2] & 0x07));
+        response.put("CHAR_PRESENTATION", Integer.valueOf(payload[2] & 0x07));
 
         // Process 'Node name char'
         byte[] valNodeNameChar = new byte[16];
@@ -208,7 +208,7 @@ public class CommandClassNodeNamingV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        response.put("CHAR_PRESENTATION", new Integer(payload[2] & 0x07));
+        response.put("CHAR_PRESENTATION", Integer.valueOf(payload[2] & 0x07));
 
         // Process 'Node name char'
         byte[] valNodeNameChar = new byte[16];
@@ -271,7 +271,7 @@ public class CommandClassNodeNamingV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        response.put("CHAR_PRESENTATION", new Integer(payload[2] & 0x07));
+        response.put("CHAR_PRESENTATION", Integer.valueOf(payload[2] & 0x07));
 
         // Process 'Node location char'
         byte[] valNodeLocationChar = new byte[16];
@@ -369,7 +369,7 @@ public class CommandClassNodeNamingV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        response.put("CHAR_PRESENTATION", new Integer(payload[2] & 0x07));
+        response.put("CHAR_PRESENTATION", Integer.valueOf(payload[2] & 0x07));
 
         // Process 'Node location char'
         byte[] valNodeLocationChar = new byte[16];

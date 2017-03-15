@@ -315,17 +315,17 @@ public class CommandClassDoorLockV1 {
         }
 
         // Process 'Properties1'
-        response.put("INSIDE_DOOR_HANDLES_MODE", new Integer(payload[3] & 0x0F));
-        response.put("OUTSIDE_DOOR_HANDLES_MODE", new Integer((payload[3] & 0xF0 >> 4)));
+        response.put("INSIDE_DOOR_HANDLES_MODE", Integer.valueOf(payload[3] & 0x0F));
+        response.put("OUTSIDE_DOOR_HANDLES_MODE", Integer.valueOf((payload[3] & 0xF0 >> 4)));
 
         // Process 'Door Condition'
-        response.put("DOOR_CONDITION", new Integer(payload[4]));
+        response.put("DOOR_CONDITION", Integer.valueOf(payload[4]));
 
         // Process 'Lock Timeout Minutes'
-        response.put("LOCK_TIMEOUT_MINUTES", new Integer(payload[5]));
+        response.put("LOCK_TIMEOUT_MINUTES", Integer.valueOf(payload[5]));
 
         // Process 'Lock Timeout Seconds'
-        response.put("LOCK_TIMEOUT_SECONDS", new Integer(payload[6]));
+        response.put("LOCK_TIMEOUT_SECONDS", Integer.valueOf(payload[6]));
 
         // Return the map of processed response data;
         return response;
@@ -417,14 +417,14 @@ public class CommandClassDoorLockV1 {
         }
 
         // Process 'Properties1'
-        response.put("INSIDE_DOOR_HANDLES_STATE", new Integer(payload[3] & 0x0F));
-        response.put("OUTSIDE_DOOR_HANDLES_STATE", new Integer((payload[3] & 0xF0 >> 4)));
+        response.put("INSIDE_DOOR_HANDLES_STATE", Integer.valueOf(payload[3] & 0x0F));
+        response.put("OUTSIDE_DOOR_HANDLES_STATE", Integer.valueOf((payload[3] & 0xF0 >> 4)));
 
         // Process 'Lock Timeout Minutes'
-        response.put("LOCK_TIMEOUT_MINUTES", new Integer(payload[4]));
+        response.put("LOCK_TIMEOUT_MINUTES", Integer.valueOf(payload[4]));
 
         // Process 'Lock Timeout Seconds'
-        response.put("LOCK_TIMEOUT_SECONDS", new Integer(payload[5]));
+        response.put("LOCK_TIMEOUT_SECONDS", Integer.valueOf(payload[5]));
 
         // Return the map of processed response data;
         return response;
@@ -551,14 +551,14 @@ public class CommandClassDoorLockV1 {
         }
 
         // Process 'Properties1'
-        response.put("INSIDE_DOOR_HANDLES_STATE", new Integer(payload[3] & 0x0F));
-        response.put("OUTSIDE_DOOR_HANDLES_STATE", new Integer((payload[3] & 0xF0 >> 4)));
+        response.put("INSIDE_DOOR_HANDLES_STATE", Integer.valueOf(payload[3] & 0x0F));
+        response.put("OUTSIDE_DOOR_HANDLES_STATE", Integer.valueOf((payload[3] & 0xF0 >> 4)));
 
         // Process 'Lock Timeout Minutes'
-        response.put("LOCK_TIMEOUT_MINUTES", new Integer(payload[4]));
+        response.put("LOCK_TIMEOUT_MINUTES", Integer.valueOf(payload[4]));
 
         // Process 'Lock Timeout Seconds'
-        response.put("LOCK_TIMEOUT_SECONDS", new Integer(payload[5]));
+        response.put("LOCK_TIMEOUT_SECONDS", Integer.valueOf(payload[5]));
 
         // Return the map of processed response data;
         return response;

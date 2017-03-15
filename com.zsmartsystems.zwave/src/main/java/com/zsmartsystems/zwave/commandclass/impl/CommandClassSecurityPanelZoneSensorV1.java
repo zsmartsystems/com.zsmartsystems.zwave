@@ -101,7 +101,7 @@ public class CommandClassSecurityPanelZoneSensorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Zone number'
-        response.put("ZONE_NUMBER", new Integer(payload[2]));
+        response.put("ZONE_NUMBER", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -155,10 +155,10 @@ public class CommandClassSecurityPanelZoneSensorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Zone number'
-        response.put("ZONE_NUMBER", new Integer(payload[2]));
+        response.put("ZONE_NUMBER", Integer.valueOf(payload[2]));
 
         // Process 'Number of Sensors'
-        response.put("NUMBER_OF_SENSORS", new Integer(payload[3]));
+        response.put("NUMBER_OF_SENSORS", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -211,10 +211,10 @@ public class CommandClassSecurityPanelZoneSensorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Zone Number'
-        response.put("ZONE_NUMBER", new Integer(payload[2]));
+        response.put("ZONE_NUMBER", Integer.valueOf(payload[2]));
 
         // Process 'Sensor Number'
-        response.put("SENSOR_NUMBER", new Integer(payload[3]));
+        response.put("SENSOR_NUMBER", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -273,13 +273,13 @@ public class CommandClassSecurityPanelZoneSensorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Zone Number'
-        response.put("ZONE_NUMBER", new Integer(payload[2]));
+        response.put("ZONE_NUMBER", Integer.valueOf(payload[2]));
 
         // Process 'Sensor Number'
-        response.put("SENSOR_NUMBER", new Integer(payload[3]));
+        response.put("SENSOR_NUMBER", Integer.valueOf(payload[3]));
 
         // Process 'ZWave Alarm Type'
-        response.put("ZWAVE_ALARM_TYPE", new Integer(payload[4]));
+        response.put("ZWAVE_ALARM_TYPE", Integer.valueOf(payload[4]));
 
         // Return the map of processed response data;
         return response;
@@ -332,10 +332,10 @@ public class CommandClassSecurityPanelZoneSensorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Zone Number'
-        response.put("ZONE_NUMBER", new Integer(payload[2]));
+        response.put("ZONE_NUMBER", Integer.valueOf(payload[2]));
 
         // Process 'Sensor Number'
-        response.put("SENSOR_NUMBER", new Integer(payload[3]));
+        response.put("SENSOR_NUMBER", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -404,19 +404,19 @@ public class CommandClassSecurityPanelZoneSensorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Zone Number'
-        response.put("ZONE_NUMBER", new Integer(payload[2]));
+        response.put("ZONE_NUMBER", Integer.valueOf(payload[2]));
 
         // Process 'Sensor Number'
-        response.put("SENSOR_NUMBER", new Integer(payload[3]));
+        response.put("SENSOR_NUMBER", Integer.valueOf(payload[3]));
 
         // Process 'ZWave Alarm Type'
-        response.put("ZWAVE_ALARM_TYPE", new Integer(payload[4]));
+        response.put("ZWAVE_ALARM_TYPE", Integer.valueOf(payload[4]));
 
         // Process 'ZWave Alarm Event'
-        response.put("ZWAVE_ALARM_EVENT", new Integer(payload[5]));
+        response.put("ZWAVE_ALARM_EVENT", Integer.valueOf(payload[5]));
 
         // Process 'Event Parameters'
-        response.put("EVENT_PARAMETERS", new Integer(payload[6]));
+        response.put("EVENT_PARAMETERS", Integer.valueOf(payload[6]));
 
         // Return the map of processed response data;
         return response;

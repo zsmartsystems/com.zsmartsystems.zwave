@@ -115,18 +115,18 @@ public class CommandClassGeographicLocationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Longitude Degrees'
-        response.put("LONGITUDE_DEGREES", new Integer(payload[2]));
+        response.put("LONGITUDE_DEGREES", Integer.valueOf(payload[2]));
 
         // Process 'Level'
-        response.put("LONGITUDE_MINUTES", new Integer(payload[3] & 0x7F));
-        response.put("LONG_SIGN", new Boolean((payload[3] & 0x80) != 0));
+        response.put("LONGITUDE_MINUTES", Integer.valueOf(payload[3] & 0x7F));
+        response.put("LONG_SIGN", Boolean.valueOf((payload[3] & 0x80) != 0));
 
         // Process 'Latitude Degrees'
-        response.put("LATITUDE_DEGREES", new Integer(payload[4]));
+        response.put("LATITUDE_DEGREES", Integer.valueOf(payload[4]));
 
         // Process 'Level2'
-        response.put("LATITUDE_MINUTES", new Integer(payload[5] & 0x7F));
-        response.put("LAT_SIGN", new Boolean((payload[5] & 0x80) != 0));
+        response.put("LATITUDE_MINUTES", Integer.valueOf(payload[5] & 0x7F));
+        response.put("LAT_SIGN", Boolean.valueOf((payload[5] & 0x80) != 0));
 
         // Return the map of processed response data;
         return response;
@@ -235,18 +235,18 @@ public class CommandClassGeographicLocationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Longitude Degrees'
-        response.put("LONGITUDE_DEGREES", new Integer(payload[2]));
+        response.put("LONGITUDE_DEGREES", Integer.valueOf(payload[2]));
 
         // Process 'Level'
-        response.put("LONGITUDE_MINUTES", new Integer(payload[3] & 0x7F));
-        response.put("LONG_SIGN", new Boolean((payload[3] & 0x80) != 0));
+        response.put("LONGITUDE_MINUTES", Integer.valueOf(payload[3] & 0x7F));
+        response.put("LONG_SIGN", Boolean.valueOf((payload[3] & 0x80) != 0));
 
         // Process 'Latitude Degrees'
-        response.put("LATITUDE_DEGREES", new Integer(payload[4]));
+        response.put("LATITUDE_DEGREES", Integer.valueOf(payload[4]));
 
         // Process 'Level2'
-        response.put("LATITUDE_MINUTES", new Integer(payload[5] & 0x7F));
-        response.put("LAT_SIGN", new Boolean((payload[5] & 0x80) != 0));
+        response.put("LATITUDE_MINUTES", Integer.valueOf(payload[5] & 0x7F));
+        response.put("LAT_SIGN", Boolean.valueOf((payload[5] & 0x80) != 0));
 
         // Return the map of processed response data;
         return response;

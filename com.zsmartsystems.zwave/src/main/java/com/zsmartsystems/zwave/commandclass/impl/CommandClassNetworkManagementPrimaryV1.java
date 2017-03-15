@@ -115,7 +115,7 @@ public class CommandClassNetworkManagementPrimaryV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Seq. No'
-        response.put("SEQ_NO", new Integer(payload[2]));
+        response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Process 'Mode'
         switch ((int) payload[4]) {
@@ -281,7 +281,7 @@ public class CommandClassNetworkManagementPrimaryV1 {
         int msgOffset = 2;
 
         // Process 'Seq. No'
-        response.put("SEQ_NO", new Integer(payload[msgOffset]));
+        response.put("SEQ_NO", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Status'
@@ -304,33 +304,33 @@ public class CommandClassNetworkManagementPrimaryV1 {
         msgOffset += 1;
 
         // Process 'New Node ID'
-        response.put("NEW_NODE_ID", new Integer(payload[msgOffset]));
+        response.put("NEW_NODE_ID", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Node Info Length'
-        response.put("NODE_INFO_LENGTH", new Integer(payload[msgOffset]));
+        response.put("NODE_INFO_LENGTH", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties1'
-        response.put("CAPABILITY", new Integer(payload[msgOffset] & 0x7F));
-        response.put("LISTENING", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("CAPABILITY", Integer.valueOf(payload[msgOffset] & 0x7F));
+        response.put("LISTENING", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'Properties2'
-        response.put("SECURITY", new Integer(payload[msgOffset] & 0x7F));
-        response.put("OPT", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("SECURITY", Integer.valueOf(payload[msgOffset] & 0x7F));
+        response.put("OPT", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'Basic Device Class'
-        response.put("BASIC_DEVICE_CLASS", new Integer(payload[msgOffset]));
+        response.put("BASIC_DEVICE_CLASS", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Generic Device Class'
-        response.put("GENERIC_DEVICE_CLASS", new Integer(payload[msgOffset]));
+        response.put("GENERIC_DEVICE_CLASS", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Specific Device Class'
-        response.put("SPECIFIC_DEVICE_CLASS", new Integer(payload[msgOffset]));
+        response.put("SPECIFIC_DEVICE_CLASS", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Command Class'

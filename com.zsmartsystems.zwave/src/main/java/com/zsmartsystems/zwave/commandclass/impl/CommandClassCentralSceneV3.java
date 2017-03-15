@@ -155,12 +155,12 @@ public class CommandClassCentralSceneV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Supported Scenes'
-        response.put("SUPPORTED_SCENES", new Integer(payload[2]));
+        response.put("SUPPORTED_SCENES", Integer.valueOf(payload[2]));
 
         // Process 'Properties1'
-        response.put("IDENTICAL", new Boolean((payload[3] & 0x01) != 0));
-        response.put("NUMBER_OF_BIT_MASK_BYTES", new Integer((payload[3] & 0x06 >> 1)));
-        response.put("SLOW_REFRESH_SUPPORT", new Boolean((payload[3] & 0x80) != 0));
+        response.put("IDENTICAL", Boolean.valueOf((payload[3] & 0x01) != 0));
+        response.put("NUMBER_OF_BIT_MASK_BYTES", Integer.valueOf((payload[3] & 0x06 >> 1)));
+        response.put("SLOW_REFRESH_SUPPORT", Boolean.valueOf((payload[3] & 0x80) != 0));
 
         // Process 'vg1'
 
@@ -306,7 +306,7 @@ public class CommandClassCentralSceneV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Sequence Number'
-        response.put("SEQUENCE_NUMBER", new Integer(payload[2]));
+        response.put("SEQUENCE_NUMBER", Integer.valueOf(payload[2]));
 
         // Process 'Properties1'
         switch ((int) payload[3] & 0x07) {
@@ -334,10 +334,10 @@ public class CommandClassCentralSceneV3 {
             default:
                 logger.debug("Unknown enum value {} for KEY_ATTRIBUTES", String.format("0x%02X", 3));
         }
-        response.put("SLOW_REFRESH", new Boolean((payload[3] & 0x80) != 0));
+        response.put("SLOW_REFRESH", Boolean.valueOf((payload[3] & 0x80) != 0));
 
         // Process 'Scene Number'
-        response.put("SCENE_NUMBER", new Integer(payload[4]));
+        response.put("SCENE_NUMBER", Integer.valueOf(payload[4]));
 
         // Return the map of processed response data;
         return response;
@@ -385,7 +385,7 @@ public class CommandClassCentralSceneV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("SLOW_REFRESH", new Boolean((payload[2] & 0x80) != 0));
+        response.put("SLOW_REFRESH", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Return the map of processed response data;
         return response;
@@ -468,7 +468,7 @@ public class CommandClassCentralSceneV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("SLOW_REFRESH", new Boolean((payload[2] & 0x80) != 0));
+        response.put("SLOW_REFRESH", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Return the map of processed response data;
         return response;

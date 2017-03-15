@@ -143,13 +143,13 @@ public class CommandClassManufacturerSpecificV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Manufacturer ID'
-        response.put("MANUFACTURER_ID", new Integer(payload[2] << 8 + payload[3]));
+        response.put("MANUFACTURER_ID", Integer.valueOf(payload[2] << 8 + payload[3]));
 
         // Process 'Product Type ID'
-        response.put("PRODUCT_TYPE_ID", new Integer(payload[4] << 8 + payload[5]));
+        response.put("PRODUCT_TYPE_ID", Integer.valueOf(payload[4] << 8 + payload[5]));
 
         // Process 'Product ID'
-        response.put("PRODUCT_ID", new Integer(payload[6] << 8 + payload[7]));
+        response.put("PRODUCT_ID", Integer.valueOf(payload[6] << 8 + payload[7]));
 
         // Return the map of processed response data;
         return response;
@@ -307,7 +307,7 @@ public class CommandClassManufacturerSpecificV2 {
         msgOffset += 1;
 
         // Process 'Properties2'
-        response.put("DEVICE_ID_DATA_LENGTH_INDICATOR", new Integer(payload[msgOffset] & 0x1F));
+        response.put("DEVICE_ID_DATA_LENGTH_INDICATOR", Integer.valueOf(payload[msgOffset] & 0x1F));
         switch ((payload[msgOffset] & 0xE0) >> 5) {
             case 0x01:
                 response.put("DEVICE_ID_DATA_FORMAT", "BINARY");

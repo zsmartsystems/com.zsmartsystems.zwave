@@ -104,7 +104,7 @@ public class CommandClassAssociationGrpInfoV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Grouping Identifier'
-        response.put("GROUPING_IDENTIFIER", new Integer(payload[2]));
+        response.put("GROUPING_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Return the map of processed response data;
         return response;
@@ -168,11 +168,11 @@ public class CommandClassAssociationGrpInfoV2 {
         int msgOffset = 2;
 
         // Process 'Grouping Identifier'
-        response.put("GROUPING_IDENTIFIER", new Integer(payload[msgOffset]));
+        response.put("GROUPING_IDENTIFIER", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Length of Name'
-        response.put("LENGTH_OF_NAME", new Integer(payload[msgOffset]));
+        response.put("LENGTH_OF_NAME", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Name'
@@ -240,11 +240,11 @@ public class CommandClassAssociationGrpInfoV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("LIST_MODE", new Boolean((payload[2] & 0x40) != 0));
-        response.put("REFRESH_CACHE", new Boolean((payload[2] & 0x80) != 0));
+        response.put("LIST_MODE", Boolean.valueOf((payload[2] & 0x40) != 0));
+        response.put("REFRESH_CACHE", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Process 'Grouping Identifier'
-        response.put("GROUPING_IDENTIFIER", new Integer(payload[3]));
+        response.put("GROUPING_IDENTIFIER", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -302,9 +302,9 @@ public class CommandClassAssociationGrpInfoV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("GROUP_COUNT", new Integer(payload[2] & 0x3F));
-        response.put("DYNAMIC_INFO", new Boolean((payload[2] & 0x40) != 0));
-        response.put("LIST_MODE", new Boolean((payload[2] & 0x80) != 0));
+        response.put("GROUP_COUNT", Integer.valueOf(payload[2] & 0x3F));
+        response.put("DYNAMIC_INFO", Boolean.valueOf((payload[2] & 0x40) != 0));
+        response.put("LIST_MODE", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Process 'vg1'
 
@@ -317,10 +317,10 @@ public class CommandClassAssociationGrpInfoV2 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Grouping Identifier'
-            variant.put("GROUPING_IDENTIFIER", new Integer(payload[3]));
+            variant.put("GROUPING_IDENTIFIER", Integer.valueOf(payload[3]));
 
             // Process 'Mode'
-            variant.put("MODE", new Integer(payload[4]));
+            variant.put("MODE", Integer.valueOf(payload[4]));
 
             // Process 'Profile1'
             switch ((int) payload[5]) {
@@ -348,7 +348,7 @@ public class CommandClassAssociationGrpInfoV2 {
             // Process 'Profile2'
 
             // Process 'Event Code'
-            variant.put("EVENT_CODE", new Integer(payload[8] << 8 + payload[9]));
+            variant.put("EVENT_CODE", Integer.valueOf(payload[8] << 8 + payload[9]));
 
             // Add to the list
             variantList.add(variant);
@@ -411,10 +411,10 @@ public class CommandClassAssociationGrpInfoV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("ALLOW_CACHE", new Boolean((payload[2] & 0x80) != 0));
+        response.put("ALLOW_CACHE", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Process 'Grouping Identifier'
-        response.put("GROUPING_IDENTIFIER", new Integer(payload[3]));
+        response.put("GROUPING_IDENTIFIER", Integer.valueOf(payload[3]));
 
         // Return the map of processed response data;
         return response;
@@ -479,11 +479,11 @@ public class CommandClassAssociationGrpInfoV2 {
         int msgOffset = 2;
 
         // Process 'Grouping Identifier'
-        response.put("GROUPING_IDENTIFIER", new Integer(payload[msgOffset]));
+        response.put("GROUPING_IDENTIFIER", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'List Length'
-        response.put("LIST_LENGTH", new Integer(payload[msgOffset]));
+        response.put("LIST_LENGTH", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Command'

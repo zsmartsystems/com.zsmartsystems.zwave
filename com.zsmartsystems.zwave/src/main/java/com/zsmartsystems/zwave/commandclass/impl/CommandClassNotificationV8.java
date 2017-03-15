@@ -674,11 +674,11 @@ public class CommandClassNotificationV8 {
         int msgOffset = 2;
 
         // Process 'V1 Alarm Type'
-        response.put("V1_ALARM_TYPE", new Integer(payload[msgOffset]));
+        response.put("V1_ALARM_TYPE", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'V1 Alarm Level'
-        response.put("V1_ALARM_LEVEL", new Integer(payload[msgOffset]));
+        response.put("V1_ALARM_LEVEL", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         msgOffset += 1;
@@ -765,12 +765,12 @@ public class CommandClassNotificationV8 {
         msgOffset += 1;
 
         // Process 'Event'
-        response.put("EVENT", new Integer(payload[msgOffset]));
+        response.put("EVENT", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Process 'Properties1'
-        response.put("EVENT_PARAMETERS_LENGTH", new Integer(payload[msgOffset] & 0x1F));
-        response.put("SEQUENCE", new Boolean((payload[msgOffset] & 0x80) != 0));
+        response.put("EVENT_PARAMETERS_LENGTH", Integer.valueOf(payload[msgOffset] & 0x1F));
+        response.put("SEQUENCE", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
         // Process 'Event Parameter'
@@ -783,7 +783,7 @@ public class CommandClassNotificationV8 {
         msgOffset += lenEventParameter;
 
         // Process 'Sequence Number'
-        response.put("SEQUENCE_NUMBER", new Integer(payload[msgOffset]));
+        response.put("SEQUENCE_NUMBER", Integer.valueOf(payload[msgOffset]));
         msgOffset += 1;
 
         // Return the map of processed response data;
@@ -1096,7 +1096,7 @@ public class CommandClassNotificationV8 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        response.put("V1_ALARM", new Boolean((payload[2] & 0x80) != 0));
+        response.put("V1_ALARM", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Process 'Bit Mask'
         List<String> responseBitMask = new ArrayList<String>();
