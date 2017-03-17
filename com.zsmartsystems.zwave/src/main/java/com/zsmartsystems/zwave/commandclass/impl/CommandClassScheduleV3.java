@@ -9,7 +9,6 @@
 package com.zsmartsystems.zwave.commandclass.impl;
 
 import java.io.ByteArrayOutputStream;
-import java.lang.IllegalArgumentException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
