@@ -128,7 +128,7 @@ public class CommandClassSensorConfigurationV1 {
         msgOffset += 1;
 
         // Process 'Sensor Type'
-        switch ((int) payload[msgOffset]) {
+        switch (payload[msgOffset] & 0xff) {
             case 0x01:
                 response.put("SENSOR_TYPE", "TEMPERATURE");
                 break;
@@ -169,7 +169,8 @@ public class CommandClassSensorConfigurationV1 {
                 response.put("SENSOR_TYPE", "TIDE_LEVEL");
                 break;
             default:
-                logger.debug("");
+                response.put("SENSOR_TYPE", String.format("%02X", payload[msgOffset] & 0xff));
+                logger.debug("Unknown value {}", payload[msgOffset] & 0xff);
                 break;
         }
         msgOffset += 1;
@@ -182,7 +183,7 @@ public class CommandClassSensorConfigurationV1 {
 
         // Process 'Trigger Value'
         int valTriggerValue = 0;
-        int lenTriggerValue = payload[msgOffset - 1] & 0x07;
+        int lenTriggerValue = payload[3] & 0x07;
         for (int cntTriggerValue = 0; cntTriggerValue < lenTriggerValue; cntTriggerValue++) {
             valTriggerValue = (valTriggerValue << 8) + payload[msgOffset + cntTriggerValue];
         }
@@ -291,7 +292,7 @@ public class CommandClassSensorConfigurationV1 {
         int msgOffset = 2;
 
         // Process 'Sensor Type'
-        switch ((int) payload[msgOffset]) {
+        switch (payload[msgOffset] & 0xff) {
             case 0x01:
                 response.put("SENSOR_TYPE", "TEMPERATURE");
                 break;
@@ -332,7 +333,8 @@ public class CommandClassSensorConfigurationV1 {
                 response.put("SENSOR_TYPE", "TIDE_LEVEL");
                 break;
             default:
-                logger.debug("");
+                response.put("SENSOR_TYPE", String.format("%02X", payload[msgOffset] & 0xff));
+                logger.debug("Unknown value {}", payload[msgOffset] & 0xff);
                 break;
         }
         msgOffset += 1;
@@ -345,7 +347,7 @@ public class CommandClassSensorConfigurationV1 {
 
         // Process 'Trigger Value'
         int valTriggerValue = 0;
-        int lenTriggerValue = payload[msgOffset - 1] & 0x07;
+        int lenTriggerValue = payload[3] & 0x07;
         for (int cntTriggerValue = 0; cntTriggerValue < lenTriggerValue; cntTriggerValue++) {
             valTriggerValue = (valTriggerValue << 8) + payload[msgOffset + cntTriggerValue];
         }

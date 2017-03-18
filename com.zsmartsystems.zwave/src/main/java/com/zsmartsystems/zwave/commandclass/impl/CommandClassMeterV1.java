@@ -168,7 +168,7 @@ public class CommandClassMeterV1 {
 
         // Process 'Meter Value'
         int valMeterValue = 0;
-        int lenMeterValue = payload[msgOffset - 1] & 0x07;
+        int lenMeterValue = payload[3] & 0x07;
         for (int cntMeterValue = 0; cntMeterValue < lenMeterValue; cntMeterValue++) {
             valMeterValue = (valMeterValue << 8) + payload[msgOffset + cntMeterValue];
         }

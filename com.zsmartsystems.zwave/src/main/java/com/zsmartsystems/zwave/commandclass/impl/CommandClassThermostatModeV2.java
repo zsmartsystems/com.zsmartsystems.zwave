@@ -144,7 +144,7 @@ public class CommandClassThermostatModeV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        switch ((int) payload[2] & 0x1F) {
+        switch (payload[2] & 0x1F) {
             case 0x00:
                 response.put("MODE", "OFF");
                 break;
@@ -315,7 +315,7 @@ public class CommandClassThermostatModeV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        switch ((int) payload[2] & 0x1F) {
+        switch (payload[2] & 0x1F) {
             case 0x00:
                 response.put("MODE", "OFF");
                 break;

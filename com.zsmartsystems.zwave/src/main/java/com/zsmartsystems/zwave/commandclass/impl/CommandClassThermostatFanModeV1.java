@@ -114,7 +114,7 @@ public class CommandClassThermostatFanModeV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        switch ((int) payload[2] & 0x0F) {
+        switch (payload[2] & 0x0F) {
             case 0x00:
                 response.put("FAN_MODE", "AUTO_LOW");
                 break;
@@ -225,7 +225,7 @@ public class CommandClassThermostatFanModeV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        switch ((int) payload[2] & 0x0F) {
+        switch (payload[2] & 0x0F) {
             case 0x00:
                 response.put("FAN_MODE", "AUTO_LOW");
                 break;

@@ -92,7 +92,7 @@ public class CommandClassSensorAlarmV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Sensor Type'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("SENSOR_TYPE", "GENERAL_PURPOSE_ALARM");
                 break;
@@ -115,7 +115,8 @@ public class CommandClassSensorAlarmV1 {
                 response.put("SENSOR_TYPE", "RETURN_FIRST_ALARM_ON_SUPPORTED_LIST");
                 break;
             default:
-                logger.debug("");
+                response.put("SENSOR_TYPE", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 
@@ -188,7 +189,7 @@ public class CommandClassSensorAlarmV1 {
         response.put("SOURCE_NODE_ID", Integer.valueOf(payload[2]));
 
         // Process 'Sensor Type'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x00:
                 response.put("SENSOR_TYPE", "GENERAL_PURPOSE_ALARM");
                 break;
@@ -211,12 +212,13 @@ public class CommandClassSensorAlarmV1 {
                 response.put("SENSOR_TYPE", "RETURN_FIRST_ALARM_ON_SUPPORTED_LIST");
                 break;
             default:
-                logger.debug("");
+                response.put("SENSOR_TYPE", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 
         // Process 'Sensor State'
-        switch ((int) payload[4]) {
+        switch (payload[4] & 0xff) {
             case 0x00:
                 response.put("SENSOR_STATE", "NO_ALARM");
                 break;
@@ -224,7 +226,8 @@ public class CommandClassSensorAlarmV1 {
                 response.put("SENSOR_STATE", "ALARM");
                 break;
             default:
-                logger.debug("");
+                response.put("SENSOR_STATE", String.format("%02X", payload[4] & 0xff));
+                logger.debug("Unknown value {}", payload[4] & 0xff);
                 break;
         }
 
@@ -323,13 +326,8 @@ public class CommandClassSensorAlarmV1 {
         msgOffset += 1;
 
         // Process 'Bit Mask'
-        int valBitMask = 0;
-        int lenBitMask = payload[msgOffset - 1];
-        for (int cntBitMask = 0; cntBitMask < lenBitMask; cntBitMask++) {
-            valBitMask = (valBitMask << 8) + payload[msgOffset + cntBitMask];
-        }
-        response.put("BIT_MASK", valBitMask);
-        msgOffset += lenBitMask;
+        response.put("BIT_MASK", Integer.valueOf(payload[msgOffset]));
+        msgOffset += payload[msgOffset - 1];
 
         // Return the map of processed response data;
         return response;

@@ -135,7 +135,7 @@ public class CommandClassSensorBinaryV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Sensor Type'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("SENSOR_TYPE", "RESERVED");
                 break;
@@ -182,7 +182,8 @@ public class CommandClassSensorBinaryV2 {
                 response.put("SENSOR_TYPE", "FIRST");
                 break;
             default:
-                logger.debug("");
+                response.put("SENSOR_TYPE", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 
@@ -243,7 +244,7 @@ public class CommandClassSensorBinaryV2 {
         response.put("SENSOR_VALUE", constantSensorValue.get(payload[2] & 0xff));
 
         // Process 'Sensor Type'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x00:
                 response.put("SENSOR_TYPE", "RESERVED");
                 break;
@@ -290,7 +291,8 @@ public class CommandClassSensorBinaryV2 {
                 response.put("SENSOR_TYPE", "FIRST");
                 break;
             default:
-                logger.debug("");
+                response.put("SENSOR_TYPE", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 

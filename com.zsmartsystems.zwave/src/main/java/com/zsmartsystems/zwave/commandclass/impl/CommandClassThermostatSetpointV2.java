@@ -170,7 +170,7 @@ public class CommandClassThermostatSetpointV2 {
         int msgOffset = 2;
 
         // Process 'Level'
-        switch ((int) payload[msgOffset] & 0x0F) {
+        switch (payload[msgOffset] & 0x0F) {
             case 0x00:
                 response.put("SETPOINT_TYPE", "NOT_SUPPORTED");
                 break;
@@ -324,7 +324,7 @@ public class CommandClassThermostatSetpointV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        switch ((int) payload[2] & 0x0F) {
+        switch (payload[2] & 0x0F) {
             case 0x00:
                 response.put("SETPOINT_TYPE", "NOT_SUPPORTED");
                 break;
@@ -487,7 +487,7 @@ public class CommandClassThermostatSetpointV2 {
         int msgOffset = 2;
 
         // Process 'Level'
-        switch ((int) payload[msgOffset] & 0x0F) {
+        switch (payload[msgOffset] & 0x0F) {
             case 0x00:
                 response.put("SETPOINT_TYPE", "NOT_SUPPORTED");
                 break;

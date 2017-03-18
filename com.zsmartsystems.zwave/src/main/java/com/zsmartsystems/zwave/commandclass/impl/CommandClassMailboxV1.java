@@ -162,7 +162,7 @@ public class CommandClassMailboxV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch ((int) payload[2] & 0x07) {
+        switch (payload[2] & 0x07) {
             case 0x00:
                 response.put("MODE", "DISABLE");
                 break;
@@ -281,7 +281,7 @@ public class CommandClassMailboxV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch ((int) payload[2] & 0x07) {
+        switch (payload[2] & 0x07) {
             case 0x00:
                 response.put("MODE", "DISABLE");
                 break;
@@ -419,7 +419,7 @@ public class CommandClassMailboxV1 {
         msgOffset += 1;
 
         // Process 'Properties1'
-        switch ((int) payload[msgOffset] & 0x03) {
+        switch (payload[msgOffset] & 0x03) {
             case 0x00:
                 response.put("MODE", "PUSH");
                 break;

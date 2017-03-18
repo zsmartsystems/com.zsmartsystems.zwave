@@ -141,7 +141,7 @@ public class CommandClassHrvControlV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch ((int) payload[2] & 0x1F) {
+        switch (payload[2] & 0x1F) {
             case 0x00:
                 response.put("MODE", "OFF");
                 break;
@@ -258,7 +258,7 @@ public class CommandClassHrvControlV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch ((int) payload[2] & 0x1F) {
+        switch (payload[2] & 0x1F) {
             case 0x00:
                 response.put("MODE", "OFF");
                 break;
@@ -633,7 +633,7 @@ public class CommandClassHrvControlV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch ((int) payload[2] & 0x0F) {
+        switch (payload[2] & 0x0F) {
             case 0x00:
                 response.put("MANUAL_CONTROL_SUPPORTED", "BYPASS_OPEN_CLOSE");
                 break;

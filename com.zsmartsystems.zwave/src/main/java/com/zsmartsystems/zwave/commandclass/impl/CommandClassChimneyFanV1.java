@@ -384,7 +384,7 @@ public class CommandClassChimneyFanV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Speed'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x65:
                 response.put("SPEED", "SPEED_DOWN");
                 break;
@@ -392,7 +392,8 @@ public class CommandClassChimneyFanV1 {
                 response.put("SPEED", "SPEED_UP");
                 break;
             default:
-                logger.debug("");
+                response.put("SPEED", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 
@@ -544,13 +545,8 @@ public class CommandClassChimneyFanV1 {
         msgOffset += 1;
 
         // Process 'Value'
-        int valValue = 0;
-        int lenValue = payload[msgOffset - 1] & 0x07;
-        for (int cntValue = 0; cntValue < lenValue; cntValue++) {
-            valValue = (valValue << 8) + payload[msgOffset + cntValue];
-        }
-        response.put("VALUE", valValue);
-        msgOffset += lenValue;
+        response.put("VALUE", Integer.valueOf(payload[msgOffset]));
+        msgOffset += payload[msgOffset - 1];
 
         // Return the map of processed response data;
         return response;
@@ -654,13 +650,8 @@ public class CommandClassChimneyFanV1 {
         msgOffset += 1;
 
         // Process 'Value'
-        int valValue = 0;
-        int lenValue = payload[msgOffset - 1] & 0x07;
-        for (int cntValue = 0; cntValue < lenValue; cntValue++) {
-            valValue = (valValue << 8) + payload[msgOffset + cntValue];
-        }
-        response.put("VALUE", valValue);
-        msgOffset += lenValue;
+        response.put("VALUE", Integer.valueOf(payload[msgOffset]));
+        msgOffset += payload[msgOffset - 1];
 
         // Return the map of processed response data;
         return response;
@@ -731,13 +722,8 @@ public class CommandClassChimneyFanV1 {
         msgOffset += 1;
 
         // Process 'Value'
-        int valValue = 0;
-        int lenValue = payload[msgOffset - 1] & 0x07;
-        for (int cntValue = 0; cntValue < lenValue; cntValue++) {
-            valValue = (valValue << 8) + payload[msgOffset + cntValue];
-        }
-        response.put("VALUE", valValue);
-        msgOffset += lenValue;
+        response.put("VALUE", Integer.valueOf(payload[msgOffset]));
+        msgOffset += payload[msgOffset - 1];
 
         // Return the map of processed response data;
         return response;
@@ -841,13 +827,8 @@ public class CommandClassChimneyFanV1 {
         msgOffset += 1;
 
         // Process 'Value'
-        int valValue = 0;
-        int lenValue = payload[msgOffset - 1] & 0x07;
-        for (int cntValue = 0; cntValue < lenValue; cntValue++) {
-            valValue = (valValue << 8) + payload[msgOffset + cntValue];
-        }
-        response.put("VALUE", valValue);
-        msgOffset += lenValue;
+        response.put("VALUE", Integer.valueOf(payload[msgOffset]));
+        msgOffset += payload[msgOffset - 1];
 
         // Return the map of processed response data;
         return response;
@@ -918,13 +899,8 @@ public class CommandClassChimneyFanV1 {
         msgOffset += 1;
 
         // Process 'Value'
-        int valValue = 0;
-        int lenValue = payload[msgOffset - 1] & 0x07;
-        for (int cntValue = 0; cntValue < lenValue; cntValue++) {
-            valValue = (valValue << 8) + payload[msgOffset + cntValue];
-        }
-        response.put("VALUE", valValue);
-        msgOffset += lenValue;
+        response.put("VALUE", Integer.valueOf(payload[msgOffset]));
+        msgOffset += payload[msgOffset - 1];
 
         // Return the map of processed response data;
         return response;
@@ -1028,13 +1004,8 @@ public class CommandClassChimneyFanV1 {
         msgOffset += 1;
 
         // Process 'Value'
-        int valValue = 0;
-        int lenValue = payload[msgOffset - 1] & 0x07;
-        for (int cntValue = 0; cntValue < lenValue; cntValue++) {
-            valValue = (valValue << 8) + payload[msgOffset + cntValue];
-        }
-        response.put("VALUE", valValue);
-        msgOffset += lenValue;
+        response.put("VALUE", Integer.valueOf(payload[msgOffset]));
+        msgOffset += payload[msgOffset - 1];
 
         // Return the map of processed response data;
         return response;
@@ -1577,7 +1548,7 @@ public class CommandClassChimneyFanV1 {
 
         // Process 'Start Temperature'
         int valStartTemperature = 0;
-        int lenStartTemperature = payload[msgOffset - 1] & 0x07;
+        int lenStartTemperature = payload[3] & 0x07;
         for (int cntStartTemperature = 0; cntStartTemperature < lenStartTemperature; cntStartTemperature++) {
             valStartTemperature = (valStartTemperature << 8) + payload[msgOffset + cntStartTemperature];
         }
@@ -1592,7 +1563,7 @@ public class CommandClassChimneyFanV1 {
 
         // Process 'Stop Temperature'
         int valStopTemperature = 0;
-        int lenStopTemperature = payload[msgOffset - 1] & 0x07;
+        int lenStopTemperature = payload[3] & 0x07;
         for (int cntStopTemperature = 0; cntStopTemperature < lenStopTemperature; cntStopTemperature++) {
             valStopTemperature = (valStopTemperature << 8) + payload[msgOffset + cntStopTemperature];
         }
@@ -1607,7 +1578,7 @@ public class CommandClassChimneyFanV1 {
 
         // Process 'Alarm Temperature Value'
         int valAlarmTemperatureValue = 0;
-        int lenAlarmTemperatureValue = payload[msgOffset - 1] & 0x07;
+        int lenAlarmTemperatureValue = payload[3] & 0x07;
         for (int cntAlarmTemperatureValue = 0; cntAlarmTemperatureValue < lenAlarmTemperatureValue; cntAlarmTemperatureValue++) {
             valAlarmTemperatureValue = (valAlarmTemperatureValue << 8) + payload[msgOffset + cntAlarmTemperatureValue];
         }
@@ -1803,7 +1774,7 @@ public class CommandClassChimneyFanV1 {
 
         // Process 'Start Temperature'
         int valStartTemperature = 0;
-        int lenStartTemperature = payload[msgOffset - 1] & 0x07;
+        int lenStartTemperature = payload[3] & 0x07;
         for (int cntStartTemperature = 0; cntStartTemperature < lenStartTemperature; cntStartTemperature++) {
             valStartTemperature = (valStartTemperature << 8) + payload[msgOffset + cntStartTemperature];
         }
@@ -1818,7 +1789,7 @@ public class CommandClassChimneyFanV1 {
 
         // Process 'Stop Temperature'
         int valStopTemperature = 0;
-        int lenStopTemperature = payload[msgOffset - 1] & 0x07;
+        int lenStopTemperature = payload[3] & 0x07;
         for (int cntStopTemperature = 0; cntStopTemperature < lenStopTemperature; cntStopTemperature++) {
             valStopTemperature = (valStopTemperature << 8) + payload[msgOffset + cntStopTemperature];
         }
@@ -1833,7 +1804,7 @@ public class CommandClassChimneyFanV1 {
 
         // Process 'Alarm Temperature Value'
         int valAlarmTemperatureValue = 0;
-        int lenAlarmTemperatureValue = payload[msgOffset - 1] & 0x07;
+        int lenAlarmTemperatureValue = payload[3] & 0x07;
         for (int cntAlarmTemperatureValue = 0; cntAlarmTemperatureValue < lenAlarmTemperatureValue; cntAlarmTemperatureValue++) {
             valAlarmTemperatureValue = (valAlarmTemperatureValue << 8) + payload[msgOffset + cntAlarmTemperatureValue];
         }
@@ -1999,7 +1970,7 @@ public class CommandClassChimneyFanV1 {
 
         // Process 'Value'
         int valValue = 0;
-        int lenValue = payload[msgOffset - 1] & 0x07;
+        int lenValue = payload[3] & 0x07;
         for (int cntValue = 0; cntValue < lenValue; cntValue++) {
             valValue = (valValue << 8) + payload[msgOffset + cntValue];
         }

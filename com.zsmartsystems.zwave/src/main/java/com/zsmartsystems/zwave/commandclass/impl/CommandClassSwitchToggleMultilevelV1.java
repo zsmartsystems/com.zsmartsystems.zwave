@@ -166,7 +166,7 @@ public class CommandClassSwitchToggleMultilevelV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Value'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("VALUE", "OFF_DISABLE");
                 break;
@@ -174,7 +174,8 @@ public class CommandClassSwitchToggleMultilevelV1 {
                 response.put("VALUE", "ON_ENABLE");
                 break;
             default:
-                logger.debug("");
+                response.put("VALUE", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 

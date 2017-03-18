@@ -103,22 +103,24 @@ public class CommandClassRemoteAssociationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Local Grouping identifier'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("LOCAL_GROUPING_IDENTIFIER", "ERASE_ALL_LIN");
                 break;
             default:
-                logger.debug("");
+                response.put("LOCAL_GROUPING_IDENTIFIER", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 
         // Process 'Remote NodeID'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x00:
                 response.put("REMOTE_NODEID", "REMOVE_A_LINK");
                 break;
             default:
-                logger.debug("");
+                response.put("REMOTE_NODEID", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 
@@ -231,22 +233,24 @@ public class CommandClassRemoteAssociationV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Local Grouping identifier'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("LOCAL_GROUPING_IDENTIFIER", "ERASE_ALL_LIN");
                 break;
             default:
-                logger.debug("");
+                response.put("LOCAL_GROUPING_IDENTIFIER", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 
         // Process 'Remote NodeID'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x00:
                 response.put("REMOTE_NODEID", "REMOVE_A_LINK");
                 break;
             default:
-                logger.debug("");
+                response.put("REMOTE_NODEID", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 

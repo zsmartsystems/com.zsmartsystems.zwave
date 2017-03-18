@@ -198,7 +198,7 @@ public class CommandClassManufacturerSpecificV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch ((int) payload[2] & 0x07) {
+        switch (payload[2] & 0x07) {
             case 0x01:
                 response.put("DEVICE_ID_TYPE", "SERIAL_NUMBER");
                 break;
@@ -288,7 +288,7 @@ public class CommandClassManufacturerSpecificV2 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        switch ((int) payload[msgOffset] & 0x07) {
+        switch (payload[msgOffset] & 0x07) {
             case 0x01:
                 response.put("DEVICE_ID_TYPE", "SERIAL_NUMBER");
                 break;

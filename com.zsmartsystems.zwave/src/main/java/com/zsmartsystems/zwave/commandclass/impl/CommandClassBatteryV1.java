@@ -116,12 +116,13 @@ public class CommandClassBatteryV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Battery Level'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0xFF:
                 response.put("BATTERY_LEVEL", "BATTERY_LOW_WARNING");
                 break;
             default:
-                logger.debug("");
+                response.put("BATTERY_LEVEL", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 

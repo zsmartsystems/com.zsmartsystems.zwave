@@ -205,7 +205,7 @@ public class CommandClassNotificationV3 {
 
         // Process 'Bit Mask'
         List<Integer> responseBitMask = new ArrayList<Integer>();
-        int lenBitMask = (payload[-1] & 0x1F) * 8;
+        int lenBitMask = (payload[3] & 0x1F) * 8;
         for (int cntBitMask = 0; cntBitMask < lenBitMask; cntBitMask++) {
             if ((payload[4 + (cntBitMask / 8)] & cntBitMask % 8) == 0) {
                 continue;
@@ -356,7 +356,7 @@ public class CommandClassNotificationV3 {
         msgOffset += 1;
 
         // Process 'Notification Status'
-        switch ((int) payload[msgOffset]) {
+        switch (payload[msgOffset] & 0xff) {
             case 0x00:
                 response.put("NOTIFICATION_STATUS", "OFF");
                 break;
@@ -364,7 +364,8 @@ public class CommandClassNotificationV3 {
                 response.put("NOTIFICATION_STATUS", "ON");
                 break;
             default:
-                logger.debug("");
+                response.put("NOTIFICATION_STATUS", String.format("%02X", payload[msgOffset] & 0xff));
+                logger.debug("Unknown value {}", payload[msgOffset] & 0xff);
                 break;
         }
         msgOffset += 1;
@@ -384,7 +385,7 @@ public class CommandClassNotificationV3 {
 
         // Process 'Event Parameter'
         int valEventParameter = 0;
-        int lenEventParameter = payload[msgOffset - 1] & 0x1F;
+        int lenEventParameter = payload[3] & 0x1F;
         for (int cntEventParameter = 0; cntEventParameter < lenEventParameter; cntEventParameter++) {
             valEventParameter = (valEventParameter << 8) + payload[msgOffset + cntEventParameter];
         }
@@ -452,7 +453,7 @@ public class CommandClassNotificationV3 {
         response.put("NOTIFICATION_TYPE", constantNotificationType.get(payload[2] & 0xff));
 
         // Process 'Notification Status'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x00:
                 response.put("NOTIFICATION_STATUS", "OFF");
                 break;
@@ -460,7 +461,8 @@ public class CommandClassNotificationV3 {
                 response.put("NOTIFICATION_STATUS", "ON");
                 break;
             default:
-                logger.debug("");
+                response.put("NOTIFICATION_STATUS", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 
@@ -567,7 +569,7 @@ public class CommandClassNotificationV3 {
 
         // Process 'Bit Mask'
         List<String> responseBitMask = new ArrayList<String>();
-        int lenBitMask = (payload[0] & 0x1F) * 8;
+        int lenBitMask = (payload[2] & 0x1F) * 8;
         for (int cntBitMask = 0; cntBitMask < lenBitMask; cntBitMask++) {
             if ((payload[3 + (cntBitMask / 8)] & cntBitMask % 8) == 0) {
                 continue;

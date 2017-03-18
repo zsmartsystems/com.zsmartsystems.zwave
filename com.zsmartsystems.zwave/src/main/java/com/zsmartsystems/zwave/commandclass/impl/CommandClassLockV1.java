@@ -87,7 +87,7 @@ public class CommandClassLockV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Lock State'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("LOCK_STATE", "UNLOCKED");
                 break;
@@ -95,7 +95,8 @@ public class CommandClassLockV1 {
                 response.put("LOCK_STATE", "LOCKED");
                 break;
             default:
-                logger.debug("");
+                response.put("LOCK_STATE", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 
@@ -176,7 +177,7 @@ public class CommandClassLockV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Lock State'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("LOCK_STATE", "UNLOCKED");
                 break;
@@ -184,7 +185,8 @@ public class CommandClassLockV1 {
                 response.put("LOCK_STATE", "LOCKED");
                 break;
             default:
-                logger.debug("");
+                response.put("LOCK_STATE", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 

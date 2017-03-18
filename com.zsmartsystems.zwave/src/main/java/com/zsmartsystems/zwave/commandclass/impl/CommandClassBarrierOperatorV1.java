@@ -380,7 +380,7 @@ public class CommandClassBarrierOperatorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Subsystem Type'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("SUBSYSTEM_TYPE", "NOT_SUPPORTED");
                 break;
@@ -391,7 +391,8 @@ public class CommandClassBarrierOperatorV1 {
                 response.put("SUBSYSTEM_TYPE", "VISUAL_NOTIFICATION");
                 break;
             default:
-                logger.debug("");
+                response.put("SUBSYSTEM_TYPE", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 
@@ -442,7 +443,7 @@ public class CommandClassBarrierOperatorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Subsystem Type'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("SUBSYSTEM_TYPE", "NOT_SUPPORTED");
                 break;
@@ -453,7 +454,8 @@ public class CommandClassBarrierOperatorV1 {
                 response.put("SUBSYSTEM_TYPE", "VISUAL_NOTIFICATION");
                 break;
             default:
-                logger.debug("");
+                response.put("SUBSYSTEM_TYPE", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 
@@ -511,7 +513,7 @@ public class CommandClassBarrierOperatorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Subsystem Type'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("SUBSYSTEM_TYPE", "NOT_SUPPORTED");
                 break;
@@ -522,7 +524,8 @@ public class CommandClassBarrierOperatorV1 {
                 response.put("SUBSYSTEM_TYPE", "VISUAL_NOTIFICATION");
                 break;
             default:
-                logger.debug("");
+                response.put("SUBSYSTEM_TYPE", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 

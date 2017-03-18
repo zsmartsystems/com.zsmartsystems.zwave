@@ -352,7 +352,7 @@ public class ZwaveCmdClassV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Capability'
-        switch ((int) payload[2] & 0x07) {
+        switch (payload[2] & 0x07) {
             case 0x01:
                 response.put("PROTOCOL_VERSION", "Z_WAVE_VERSION_2_0");
                 break;
@@ -389,7 +389,7 @@ public class ZwaveCmdClassV1 {
         response.put("OPTIONAL_FUNCTIONALITY", Boolean.valueOf((payload[3] & 0x80) != 0));
 
         // Process 'Properties1'
-        switch ((int) payload[4] & 0x07) {
+        switch (payload[4] & 0x07) {
             case 0x01:
                 response.put("SPEED_EXTENSION", "100_KBPS");
                 break;

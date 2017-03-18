@@ -106,7 +106,7 @@ public class CommandClassSceneActuatorConfV1 {
         response.put("SCENE_ID", Integer.valueOf(payload[2]));
 
         // Process 'Dimming Duration'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x00:
                 response.put("DIMMING_DURATION", "SPECIFY_INSTANTLY");
                 break;
@@ -114,7 +114,8 @@ public class CommandClassSceneActuatorConfV1 {
                 response.put("DIMMING_DURATION", "FACTORY_DEFAULT");
                 break;
             default:
-                logger.debug("");
+                response.put("DIMMING_DURATION", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 
@@ -230,12 +231,13 @@ public class CommandClassSceneActuatorConfV1 {
         response.put("LEVEL", Integer.valueOf(payload[3]));
 
         // Process 'Dimming Duration'
-        switch ((int) payload[4]) {
+        switch (payload[4] & 0xff) {
             case 0x00:
                 response.put("DIMMING_DURATION", "INSTANTLY");
                 break;
             default:
-                logger.debug("");
+                response.put("DIMMING_DURATION", String.format("%02X", payload[4] & 0xff));
+                logger.debug("Unknown value {}", payload[4] & 0xff);
                 break;
         }
 

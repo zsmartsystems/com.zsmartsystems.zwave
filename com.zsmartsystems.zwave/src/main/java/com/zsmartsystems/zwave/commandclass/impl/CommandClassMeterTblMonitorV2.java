@@ -396,7 +396,7 @@ public class CommandClassMeterTblMonitorV2 {
         response.put("RATE_TYPE", Integer.valueOf((payload[2] & 0xC0 >> 6)));
 
         // Process 'Properties2'
-        switch ((int) payload[3] & 0x0F) {
+        switch (payload[3] & 0x0F) {
             case 0x01:
                 response.put("PAY_METER", "CREDITMETER");
                 break;

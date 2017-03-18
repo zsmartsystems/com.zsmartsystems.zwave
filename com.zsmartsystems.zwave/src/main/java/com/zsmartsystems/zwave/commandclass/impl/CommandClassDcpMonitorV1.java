@@ -521,7 +521,7 @@ public class CommandClassDcpMonitorV1 {
         response.put("SECOND_LOCAL_TIME", Integer.valueOf(payload[8]));
 
         // Process 'Event status'
-        switch ((int) payload[9]) {
+        switch (payload[9] & 0xff) {
             case 0x00:
                 response.put("EVENT_STATUS", "RESERVED");
                 break;
@@ -538,7 +538,8 @@ public class CommandClassDcpMonitorV1 {
                 response.put("EVENT_STATUS", "EVENT_NOT_APPLICABLE");
                 break;
             default:
-                logger.debug("");
+                response.put("EVENT_STATUS", String.format("%02X", payload[9] & 0xff));
+                logger.debug("Unknown value {}", payload[9] & 0xff);
                 break;
         }
 

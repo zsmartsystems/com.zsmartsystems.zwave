@@ -499,7 +499,7 @@ public class CommandClassProtectionV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Timeout'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("TIMEOUT", "NO_TIMER_IS_SET");
                 break;
@@ -507,7 +507,8 @@ public class CommandClassProtectionV2 {
                 response.put("TIMEOUT", "NO_TIMEOUT");
                 break;
             default:
-                logger.debug("");
+                response.put("TIMEOUT", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 
@@ -588,7 +589,7 @@ public class CommandClassProtectionV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Timeout'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("TIMEOUT", "NO_TIMER_IS_SET");
                 break;
@@ -596,7 +597,8 @@ public class CommandClassProtectionV2 {
                 response.put("TIMEOUT", "NO_TIMEOUT_IS_SET");
                 break;
             default:
-                logger.debug("");
+                response.put("TIMEOUT", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 

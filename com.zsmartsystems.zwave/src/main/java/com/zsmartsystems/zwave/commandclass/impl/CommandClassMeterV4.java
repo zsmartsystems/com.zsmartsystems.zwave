@@ -263,7 +263,7 @@ public class CommandClassMeterV4 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        switch ((int) payload[msgOffset] & 0x1F) {
+        switch (payload[msgOffset] & 0x1F) {
             case 0x01:
                 response.put("METER_TYPE", "ELECTRIC_METER");
                 break;
@@ -464,7 +464,7 @@ public class CommandClassMeterV4 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        switch ((int) payload[msgOffset] & 0x1F) {
+        switch (payload[msgOffset] & 0x1F) {
             case 0x01:
                 response.put("METER_TYPE", "ELECTRIC_METER");
                 break;

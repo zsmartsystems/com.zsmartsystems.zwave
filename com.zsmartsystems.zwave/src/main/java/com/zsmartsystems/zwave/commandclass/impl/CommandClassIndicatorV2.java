@@ -188,7 +188,7 @@ public class CommandClassIndicatorV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Indicator 0 Value'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("INDICATOR_0_VALUE", "OFF_DISABLE");
                 break;
@@ -196,7 +196,8 @@ public class CommandClassIndicatorV2 {
                 response.put("INDICATOR_0_VALUE", "ON_ENABLE");
                 break;
             default:
-                logger.debug("");
+                response.put("INDICATOR_0_VALUE", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 
@@ -334,7 +335,7 @@ public class CommandClassIndicatorV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Indicator 0 Value'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("INDICATOR_0_VALUE", "OFF_DISABLE");
                 break;
@@ -342,7 +343,8 @@ public class CommandClassIndicatorV2 {
                 response.put("INDICATOR_0_VALUE", "ON_ENABLE");
                 break;
             default:
-                logger.debug("");
+                response.put("INDICATOR_0_VALUE", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 
@@ -514,7 +516,7 @@ public class CommandClassIndicatorV2 {
 
         // Process 'Property Supported Bit Mask'
         List<String> responsePropertySupportedBitMask = new ArrayList<String>();
-        int lenPropertySupportedBitMask = (payload[-2] & 0x1F) * 8;
+        int lenPropertySupportedBitMask = (payload[4] & 0x1F) * 8;
         for (int cntPropertySupportedBitMask = 0; cntPropertySupportedBitMask < lenPropertySupportedBitMask; cntPropertySupportedBitMask++) {
             if ((payload[5 + (cntPropertySupportedBitMask / 8)] & cntPropertySupportedBitMask % 8) == 0) {
                 continue;

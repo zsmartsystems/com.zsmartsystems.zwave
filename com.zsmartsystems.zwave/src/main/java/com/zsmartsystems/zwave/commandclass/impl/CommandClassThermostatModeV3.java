@@ -167,7 +167,7 @@ public class CommandClassThermostatModeV3 {
         int msgOffset = 2;
 
         // Process 'Level'
-        switch ((int) payload[msgOffset] & 0x1F) {
+        switch (payload[msgOffset] & 0x1F) {
             case 0x00:
                 response.put("MODE", "OFF");
                 break;
@@ -373,7 +373,7 @@ public class CommandClassThermostatModeV3 {
         int msgOffset = 2;
 
         // Process 'Level'
-        switch ((int) payload[msgOffset] & 0x1F) {
+        switch (payload[msgOffset] & 0x1F) {
             case 0x00:
                 response.put("MODE", "OFF");
                 break;

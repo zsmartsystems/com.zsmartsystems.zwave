@@ -106,7 +106,7 @@ public class CommandClassThermostatSetbackV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch ((int) payload[2] & 0x03) {
+        switch (payload[2] & 0x03) {
             case 0x00:
                 response.put("SETBACK_TYPE", "NO_OVERRIDE");
                 break;
@@ -121,7 +121,7 @@ public class CommandClassThermostatSetbackV1 {
         }
 
         // Process 'Setback State'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x79:
                 response.put("SETBACK_STATE", "FROST_PROTECTION");
                 break;
@@ -144,7 +144,8 @@ public class CommandClassThermostatSetbackV1 {
                 response.put("SETBACK_STATE", "UNUSED_STATE");
                 break;
             default:
-                logger.debug("");
+                response.put("SETBACK_STATE", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 
@@ -244,7 +245,7 @@ public class CommandClassThermostatSetbackV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch ((int) payload[2] & 0x03) {
+        switch (payload[2] & 0x03) {
             case 0x00:
                 response.put("SETBACK_TYPE", "NO_OVERRIDE");
                 break;
@@ -259,7 +260,7 @@ public class CommandClassThermostatSetbackV1 {
         }
 
         // Process 'Setback State'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x79:
                 response.put("SETBACK_STATE", "FROST_PROTECTION");
                 break;
@@ -282,7 +283,8 @@ public class CommandClassThermostatSetbackV1 {
                 response.put("SETBACK_STATE", "UNUSED_STATE");
                 break;
             default:
-                logger.debug("");
+                response.put("SETBACK_STATE", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 
