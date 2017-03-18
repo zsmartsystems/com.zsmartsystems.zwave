@@ -254,7 +254,7 @@ public class CommandClassChimneyFanV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'State'
-        constantState.get((int) payload[2]);
+        response.put("STATE", constantState.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -338,7 +338,7 @@ public class CommandClassChimneyFanV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'State'
-        constantState.get((int) payload[2]);
+        response.put("STATE", constantState.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -1335,7 +1335,7 @@ public class CommandClassChimneyFanV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Mode'
-        constantMode.get((int) payload[2]);
+        response.put("MODE", constantMode.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -1419,7 +1419,7 @@ public class CommandClassChimneyFanV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Mode'
-        constantMode.get((int) payload[2]);
+        response.put("MODE", constantMode.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -1554,7 +1554,7 @@ public class CommandClassChimneyFanV1 {
         int msgOffset = 2;
 
         // Process 'Mode'
-        constantMode.get((int) payload[msgOffset]);
+        response.put("MODE", constantMode.get(payload[msgOffset] & 0xff));
         msgOffset += 1;
 
         // Process 'Boost Time'
@@ -1780,7 +1780,7 @@ public class CommandClassChimneyFanV1 {
         int msgOffset = 2;
 
         // Process 'Mode'
-        constantMode.get((int) payload[msgOffset]);
+        response.put("MODE", constantMode.get(payload[msgOffset] & 0xff));
         msgOffset += 1;
 
         // Process 'Boost Time'
@@ -1975,7 +1975,7 @@ public class CommandClassChimneyFanV1 {
         int msgOffset = 2;
 
         // Process 'State'
-        constantState.get((int) payload[msgOffset]);
+        response.put("STATE", constantState.get(payload[msgOffset] & 0xff));
         msgOffset += 1;
 
         // Process 'Speed'
@@ -2055,7 +2055,7 @@ public class CommandClassChimneyFanV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Message'
-        constantMessage.get((int) payload[2]);
+        response.put("MESSAGE", constantMessage.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;

@@ -139,7 +139,7 @@ public class CommandClassNotificationV6 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Notification Type'
-        constantNotificationType.get((int) payload[2]);
+        response.put("NOTIFICATION_TYPE", constantNotificationType.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -208,7 +208,7 @@ public class CommandClassNotificationV6 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Notification Type'
-        constantNotificationType.get((int) payload[2]);
+        response.put("NOTIFICATION_TYPE", constantNotificationType.get(payload[2] & 0xff));
 
         // Process 'Properties1'
 
@@ -370,11 +370,11 @@ public class CommandClassNotificationV6 {
         msgOffset += 1;
 
         // Process 'Notification Status'
-        constantNotificationStatus.get((int) payload[msgOffset]);
+        response.put("NOTIFICATION_STATUS", constantNotificationStatus.get(payload[msgOffset] & 0xff));
         msgOffset += 1;
 
         // Process 'Notification Type'
-        constantNotificationType.get((int) payload[msgOffset]);
+        response.put("NOTIFICATION_TYPE", constantNotificationType.get(payload[msgOffset] & 0xff));
         msgOffset += 1;
 
         // Process 'Event'
@@ -458,10 +458,10 @@ public class CommandClassNotificationV6 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Notification Type'
-        constantNotificationType.get((int) payload[2]);
+        response.put("NOTIFICATION_TYPE", constantNotificationType.get(payload[2] & 0xff));
 
         // Process 'Notification Status'
-        constantNotificationStatus.get((int) payload[3]);
+        response.put("NOTIFICATION_STATUS", constantNotificationStatus.get(payload[3] & 0xff));
 
         // Return the map of processed response data;
         return response;

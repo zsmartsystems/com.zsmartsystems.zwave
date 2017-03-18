@@ -136,7 +136,7 @@ public class CommandClassPowerlevelV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Power level'
-        constantPowerLevel.get((int) payload[2]);
+        response.put("POWER_LEVEL", constantPowerLevel.get(payload[2] & 0xff));
 
         // Process 'Timeout'
         response.put("TIMEOUT", Integer.valueOf(payload[3]));
@@ -228,7 +228,7 @@ public class CommandClassPowerlevelV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Power level'
-        constantPowerLevel.get((int) payload[2]);
+        response.put("POWER_LEVEL", constantPowerLevel.get(payload[2] & 0xff));
 
         // Process 'Timeout'
         response.put("TIMEOUT", Integer.valueOf(payload[3]));
@@ -301,7 +301,7 @@ public class CommandClassPowerlevelV1 {
         response.put("TEST_NODEID", Integer.valueOf(payload[2]));
 
         // Process 'Power level'
-        constantPowerLevel.get((int) payload[3]);
+        response.put("POWER_LEVEL", constantPowerLevel.get(payload[3] & 0xff));
 
         // Process 'Test frame count'
         response.put("TEST_FRAME_COUNT", Integer.valueOf(payload[4] << 8 + payload[5]));
@@ -404,10 +404,10 @@ public class CommandClassPowerlevelV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Test NodeID'
-        constantTestNodeid.get((int) payload[2]);
+        response.put("TEST_NODEID", constantTestNodeid.get(payload[2] & 0xff));
 
         // Process 'Status of operation'
-        constantStatusOfOperation.get((int) payload[3]);
+        response.put("STATUS_OF_OPERATION", constantStatusOfOperation.get(payload[3] & 0xff));
 
         // Process 'Test Frame Count'
         response.put("TEST_FRAME_COUNT", Integer.valueOf(payload[4] << 8 + payload[5]));

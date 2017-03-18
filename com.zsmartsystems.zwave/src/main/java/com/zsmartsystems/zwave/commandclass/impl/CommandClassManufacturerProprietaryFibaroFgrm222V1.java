@@ -126,7 +126,7 @@ public class CommandClassManufacturerProprietaryFibaroFgrm222V1 {
         // Process 'Constant3'
 
         // Process 'Command'
-        constantCommand.get((int) payload[5]);
+        response.put("COMMAND", constantCommand.get(payload[5] & 0xff));
 
         // Process 'Shutter Position'
         response.put("SHUTTER_POSITION", Integer.valueOf(payload[6]));

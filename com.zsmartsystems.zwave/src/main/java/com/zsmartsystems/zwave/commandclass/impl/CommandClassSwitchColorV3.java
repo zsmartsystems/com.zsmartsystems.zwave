@@ -270,7 +270,7 @@ public class CommandClassSwitchColorV3 {
         response.put("TARGET_VALUE", Integer.valueOf(payload[4]));
 
         // Process 'Duration'
-        constantDuration.get((int) payload[5]);
+        response.put("DURATION", constantDuration.get(payload[5] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -357,7 +357,7 @@ public class CommandClassSwitchColorV3 {
         response.put("VG1", variantList);
 
         // Process 'Duration'
-        constantDuration.get((int) payload[5]);
+        response.put("DURATION", constantDuration.get(payload[5] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -447,7 +447,7 @@ public class CommandClassSwitchColorV3 {
         response.put("START_LEVEL", Integer.valueOf(payload[4]));
 
         // Process 'Duration'
-        constantDuration.get((int) payload[5]);
+        response.put("DURATION", constantDuration.get(payload[5] & 0xff));
 
         // Return the map of processed response data;
         return response;

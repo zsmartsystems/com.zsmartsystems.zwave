@@ -419,7 +419,7 @@ public class CommandClassClimateControlScheduleV1 {
         response.put("OVERRIDE_TYPE", Integer.valueOf(payload[2] & 0x03));
 
         // Process 'Override State'
-        constantOverrideState.get((int) payload[3]);
+        response.put("OVERRIDE_STATE", constantOverrideState.get(payload[3] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -511,7 +511,7 @@ public class CommandClassClimateControlScheduleV1 {
         response.put("OVERRIDE_TYPE", Integer.valueOf(payload[2] & 0x03));
 
         // Process 'Override State'
-        constantOverrideState.get((int) payload[3]);
+        response.put("OVERRIDE_STATE", constantOverrideState.get(payload[3] & 0xff));
 
         // Return the map of processed response data;
         return response;

@@ -140,7 +140,7 @@ public class CommandClassSwitchMultilevelV4 {
         }
 
         // Process 'Dimming Duration'
-        constantDimmingDuration.get((int) payload[3]);
+        response.put("DIMMING_DURATION", constantDimmingDuration.get(payload[3] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -250,7 +250,7 @@ public class CommandClassSwitchMultilevelV4 {
         response.put("TARGET_VALUE", Integer.valueOf(payload[3]));
 
         // Process 'Duration'
-        constantDuration.get((int) payload[4]);
+        response.put("DURATION", constantDuration.get(payload[4] & 0xff));
 
         // Return the map of processed response data;
         return response;

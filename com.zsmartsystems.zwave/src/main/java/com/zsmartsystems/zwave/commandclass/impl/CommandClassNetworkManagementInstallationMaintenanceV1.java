@@ -217,7 +217,7 @@ public class CommandClassNetworkManagementInstallationMaintenanceV1 {
         response.put("REPEATER_4", Integer.valueOf(payload[6]));
 
         // Process 'Speed'
-        constantSpeed.get((int) payload[7]);
+        response.put("SPEED", constantSpeed.get(payload[7] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -285,7 +285,7 @@ public class CommandClassNetworkManagementInstallationMaintenanceV1 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Type'
-            constantType.get((int) payload[msgOffset]);
+            variant.put("TYPE", constantType.get(payload[msgOffset] & 0xff));
             msgOffset += 1;
 
             // Process 'Length'

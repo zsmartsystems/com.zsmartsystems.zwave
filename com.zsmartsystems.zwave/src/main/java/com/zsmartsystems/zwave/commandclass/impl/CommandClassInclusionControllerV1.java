@@ -117,7 +117,7 @@ public class CommandClassInclusionControllerV1 {
         response.put("NODE_ID", Integer.valueOf(payload[2]));
 
         // Process 'Step ID'
-        constantStepId.get((int) payload[3]);
+        response.put("STEP_ID", constantStepId.get(payload[3] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -178,10 +178,10 @@ public class CommandClassInclusionControllerV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Step ID'
-        constantStepId.get((int) payload[2]);
+        response.put("STEP_ID", constantStepId.get(payload[2] & 0xff));
 
         // Process 'Status'
-        constantStatus.get((int) payload[3]);
+        response.put("STATUS", constantStatus.get(payload[3] & 0xff));
 
         // Return the map of processed response data;
         return response;

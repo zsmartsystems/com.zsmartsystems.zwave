@@ -167,7 +167,7 @@ public class CommandClassSensorMultilevelV2 {
         int msgOffset = 2;
 
         // Process 'Sensor Type'
-        constantSensorType.get((int) payload[msgOffset]);
+        response.put("SENSOR_TYPE", constantSensorType.get(payload[msgOffset] & 0xff));
         msgOffset += 1;
 
         // Process 'Level'

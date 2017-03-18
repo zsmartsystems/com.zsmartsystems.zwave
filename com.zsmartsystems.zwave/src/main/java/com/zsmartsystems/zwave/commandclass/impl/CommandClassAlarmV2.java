@@ -129,7 +129,7 @@ public class CommandClassAlarmV2 {
         response.put("ALARM_TYPE", Integer.valueOf(payload[2]));
 
         // Process 'ZWave Alarm Type'
-        constantZwaveAlarmType.get((int) payload[3]);
+        response.put("ZWAVE_ALARM_TYPE", constantZwaveAlarmType.get(payload[3] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -254,7 +254,7 @@ public class CommandClassAlarmV2 {
         msgOffset += 1;
 
         // Process 'ZWave Alarm Type'
-        constantZwaveAlarmType.get((int) payload[msgOffset]);
+        response.put("ZWAVE_ALARM_TYPE", constantZwaveAlarmType.get(payload[msgOffset] & 0xff));
         msgOffset += 1;
 
         // Process 'ZWave Alarm Event'
@@ -328,7 +328,7 @@ public class CommandClassAlarmV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'ZWave Alarm Type'
-        constantZwaveAlarmType.get((int) payload[2]);
+        response.put("ZWAVE_ALARM_TYPE", constantZwaveAlarmType.get(payload[2] & 0xff));
 
         // Process 'ZWave Alarm Status'
         switch ((int) payload[3]) {

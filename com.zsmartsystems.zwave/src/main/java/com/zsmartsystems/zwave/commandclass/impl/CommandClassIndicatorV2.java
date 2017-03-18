@@ -214,10 +214,10 @@ public class CommandClassIndicatorV2 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Indicator ID'
-            constantIndicatorId.get((int) payload[4]);
+            variant.put("INDICATOR_ID", constantIndicatorId.get(payload[4] & 0xff));
 
             // Process 'Property ID'
-            constantPropertyId.get((int) payload[5]);
+            variant.put("PROPERTY_ID", constantPropertyId.get(payload[5] & 0xff));
 
             // Process 'Value'
             variant.put("VALUE", Integer.valueOf(payload[6]));
@@ -281,7 +281,7 @@ public class CommandClassIndicatorV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Indicator ID'
-        constantIndicatorId.get((int) payload[2]);
+        response.put("INDICATOR_ID", constantIndicatorId.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -360,10 +360,10 @@ public class CommandClassIndicatorV2 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Indicator ID'
-            constantIndicatorId.get((int) payload[4]);
+            variant.put("INDICATOR_ID", constantIndicatorId.get(payload[4] & 0xff));
 
             // Process 'Property ID'
-            constantPropertyId.get((int) payload[5]);
+            variant.put("PROPERTY_ID", constantPropertyId.get(payload[5] & 0xff));
 
             // Process 'Value'
             variant.put("VALUE", Integer.valueOf(payload[6]));
@@ -427,7 +427,7 @@ public class CommandClassIndicatorV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Indicator ID'
-        constantIndicatorId.get((int) payload[2]);
+        response.put("INDICATOR_ID", constantIndicatorId.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -505,10 +505,10 @@ public class CommandClassIndicatorV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Indicator ID'
-        constantIndicatorId.get((int) payload[2]);
+        response.put("INDICATOR_ID", constantIndicatorId.get(payload[2] & 0xff));
 
         // Process 'Next Indicator ID'
-        constantNextIndicatorId.get((int) payload[3]);
+        response.put("NEXT_INDICATOR_ID", constantNextIndicatorId.get(payload[3] & 0xff));
 
         // Process 'Properties1'
 

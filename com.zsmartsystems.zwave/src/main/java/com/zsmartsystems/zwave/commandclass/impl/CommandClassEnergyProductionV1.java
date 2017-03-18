@@ -100,7 +100,7 @@ public class CommandClassEnergyProductionV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Parameter Number'
-        constantParameterNumber.get((int) payload[2]);
+        response.put("PARAMETER_NUMBER", constantParameterNumber.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -176,7 +176,7 @@ public class CommandClassEnergyProductionV1 {
         int msgOffset = 2;
 
         // Process 'Parameter Number'
-        constantParameterNumber.get((int) payload[msgOffset]);
+        response.put("PARAMETER_NUMBER", constantParameterNumber.get(payload[msgOffset] & 0xff));
         msgOffset += 1;
 
         // Process 'Level'

@@ -130,7 +130,7 @@ public class CommandClassSensorBinaryV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Sensor Value'
-        constantSensorValue.get((int) payload[2]);
+        response.put("SENSOR_VALUE", constantSensorValue.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;

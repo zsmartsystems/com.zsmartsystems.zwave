@@ -127,7 +127,7 @@ public class CommandClassUserCodeV1 {
         response.put("USER_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Process 'User ID Status'
-        constantUserIdStatus.get((int) payload[3]);
+        response.put("USER_ID_STATUS", constantUserIdStatus.get(payload[3] & 0xff));
 
         // Process 'USER_CODE'
         byte[] valUserCode = new byte[10];
@@ -247,7 +247,7 @@ public class CommandClassUserCodeV1 {
         response.put("USER_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Process 'User ID Status'
-        constantUserIdStatus.get((int) payload[3]);
+        response.put("USER_ID_STATUS", constantUserIdStatus.get(payload[3] & 0xff));
 
         // Process 'USER_CODE'
         byte[] valUserCode = new byte[10];

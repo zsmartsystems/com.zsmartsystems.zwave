@@ -403,7 +403,7 @@ public class CommandClassFirmwareUpdateMdV5 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Status'
-        constantStatus.get((int) payload[2]);
+        response.put("STATUS", constantStatus.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -621,7 +621,7 @@ public class CommandClassFirmwareUpdateMdV5 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Status'
-        constantStatus.get((int) payload[2]);
+        response.put("STATUS", constantStatus.get(payload[2] & 0xff));
 
         // Process 'WaitTime'
         response.put("WAITTIME", Integer.valueOf(payload[3] << 8 + payload[4]));
@@ -797,7 +797,7 @@ public class CommandClassFirmwareUpdateMdV5 {
         response.put("FIRMWARE_TARGET", Integer.valueOf(payload[7]));
 
         // Process 'Firmware Update Status'
-        constantFirmwareUpdateStatus.get((int) payload[8]);
+        response.put("FIRMWARE_UPDATE_STATUS", constantFirmwareUpdateStatus.get(payload[8] & 0xff));
 
         // Process 'Hardware Version'
         response.put("HARDWARE_VERSION", Integer.valueOf(payload[9]));
@@ -939,7 +939,7 @@ public class CommandClassFirmwareUpdateMdV5 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Status'
-        constantStatus.get((int) payload[2]);
+        response.put("STATUS", constantStatus.get(payload[2] & 0xff));
 
         // Process 'Firmware Checksum'
         response.put("FIRMWARE_CHECKSUM", Integer.valueOf(payload[3] << 8 + payload[4]));

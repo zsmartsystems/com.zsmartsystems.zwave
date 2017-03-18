@@ -102,7 +102,7 @@ public class CommandClassProtectionV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Protection State'
-        constantProtectionState.get((int) payload[2]);
+        response.put("PROTECTION_STATE", constantProtectionState.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -186,7 +186,7 @@ public class CommandClassProtectionV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Protection State'
-        constantProtectionState.get((int) payload[2]);
+        response.put("PROTECTION_STATE", constantProtectionState.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;
