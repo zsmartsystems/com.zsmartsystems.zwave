@@ -121,10 +121,6 @@ public class ZWaveTransactionManager {
     private final int INITIAL_TX_QUEUE_SIZE = 128;
     // private final int MAX_OUTSTANDING_TRANSACTIONS = 3;
 
-    public final int TRANSMIT_OPTION_ACK = 0x01;
-    public final int TRANSMIT_OPTION_AUTO_ROUTE = 0x04;
-    private final int TRANSMIT_OPTION_EXPLORE = 0x20;
-
     private ZWaveNetwork controller;
 
     /**

@@ -10,15 +10,6 @@ import java.util.Comparator;
 public class ZWaveCommandClassTransactionPayloadComparator implements Comparator<ZWaveCommandClassTransactionPayload> {
 
     /**
-     * Constructor. Creates a new instance of the SerialMessageComparator class.
-     *
-     * @param controller the {@link ZWaveController to use}
-     */
-    public ZWaveCommandClassTransactionPayloadComparator() {
-        // this.controller = controller;
-    }
-
-    /**
      * Compares a serial message to another serial message.
      * Used by the priority queue to order messages.
      *

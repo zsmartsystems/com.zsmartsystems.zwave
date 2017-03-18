@@ -76,7 +76,7 @@ public class ZWaveCommandClassTransactionPayloadBuilder {
 
     public ZWaveCommandClassTransactionPayload build() {
         byte[] output;
-        if (payloadBuilt == true) {
+        if (payloadBuilt) {
             output = payload;
         } else {
             if (payload == null) {
