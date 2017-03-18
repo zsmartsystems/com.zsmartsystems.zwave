@@ -300,7 +300,7 @@ public class CommandClassMeterV4 {
 
         // Process 'Meter Value'
         int valMeterValue = 0;
-        int lenMeterValue = payload[msgOffset - 1] & 0x07;
+        int lenMeterValue = payload[3] & 0x07;
         for (int cntMeterValue = 0; cntMeterValue < lenMeterValue; cntMeterValue++) {
             valMeterValue = (valMeterValue << 8) + payload[msgOffset + cntMeterValue];
         }
@@ -308,12 +308,12 @@ public class CommandClassMeterV4 {
         msgOffset += lenMeterValue;
 
         // Process 'Delta Time'
-        response.put("DELTA_TIME", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("DELTA_TIME", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
         msgOffset += 2;
 
         // Process 'Previous Meter Value'
         int valPreviousMeterValue = 0;
-        int lenPreviousMeterValue = payload[msgOffset - 3] & 0x07;
+        int lenPreviousMeterValue = payload[5] & 0x07;
         for (int cntPreviousMeterValue = 0; cntPreviousMeterValue < lenPreviousMeterValue; cntPreviousMeterValue++) {
             valPreviousMeterValue = (valPreviousMeterValue << 8) + payload[msgOffset + cntPreviousMeterValue];
         }
@@ -504,7 +504,7 @@ public class CommandClassMeterV4 {
 
         // Process 'Scale Supported'
         int valScaleSupported = 0;
-        int lenScaleSupported = payload[msgOffset - 1];
+        int lenScaleSupported = payload[3];
         for (int cntScaleSupported = 0; cntScaleSupported < lenScaleSupported; cntScaleSupported++) {
             valScaleSupported = (valScaleSupported << 8) + payload[msgOffset + cntScaleSupported];
         }

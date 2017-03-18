@@ -315,7 +315,7 @@ public class CommandClassZipGatewayV1 {
         msgOffset += 16;
 
         // Process 'Port'
-        response.put("PORT", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("PORT", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
         msgOffset += 2;
 
         // Process 'Properties1'
@@ -324,7 +324,7 @@ public class CommandClassZipGatewayV1 {
 
         // Process 'Peer Name'
         int valPeerName = 0;
-        int lenPeerName = payload[msgOffset - 1] & 0x3F;
+        int lenPeerName = payload[3] & 0x3F;
         for (int cntPeerName = 0; cntPeerName < lenPeerName; cntPeerName++) {
             valPeerName = (valPeerName << 8) + payload[msgOffset + cntPeerName];
         }
@@ -473,7 +473,7 @@ public class CommandClassZipGatewayV1 {
         msgOffset += 16;
 
         // Process 'Port'
-        response.put("PORT", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("PORT", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
         msgOffset += 2;
 
         // Process 'Properties1'
@@ -482,7 +482,7 @@ public class CommandClassZipGatewayV1 {
 
         // Process 'Peer Name'
         int valPeerName = 0;
-        int lenPeerName = payload[msgOffset - 1] & 0x3F;
+        int lenPeerName = payload[3] & 0x3F;
         for (int cntPeerName = 0; cntPeerName < lenPeerName; cntPeerName++) {
             valPeerName = (valPeerName << 8) + payload[msgOffset + cntPeerName];
         }

@@ -194,7 +194,7 @@ public class CommandClassScreenMdV2 {
 
             // Process 'Character'
             int valCharacter = 0;
-            int lenCharacter = payload[msgOffset - 1];
+            int lenCharacter = payload[3];
             for (int cntCharacter = 0; cntCharacter < lenCharacter; cntCharacter++) {
                 valCharacter = (valCharacter << 8) + payload[msgOffset + cntCharacter];
             }

@@ -246,7 +246,7 @@ public class CommandClassThermostatSetpointV3 {
 
         // Process 'Value'
         int valValue = 0;
-        int lenValue = payload[msgOffset - 1] & 0x07;
+        int lenValue = payload[3] & 0x07;
         for (int cntValue = 0; cntValue < lenValue; cntValue++) {
             valValue = (valValue << 8) + payload[msgOffset + cntValue];
         }
@@ -587,7 +587,7 @@ public class CommandClassThermostatSetpointV3 {
 
         // Process 'Value'
         int valValue = 0;
-        int lenValue = payload[msgOffset - 1] & 0x07;
+        int lenValue = payload[3] & 0x07;
         for (int cntValue = 0; cntValue < lenValue; cntValue++) {
             valValue = (valValue << 8) + payload[msgOffset + cntValue];
         }
@@ -1091,7 +1091,7 @@ public class CommandClassThermostatSetpointV3 {
 
         // Process 'Min Value'
         int valMinValue = 0;
-        int lenMinValue = payload[msgOffset - 1] & 0x07;
+        int lenMinValue = payload[3] & 0x07;
         for (int cntMinValue = 0; cntMinValue < lenMinValue; cntMinValue++) {
             valMinValue = (valMinValue << 8) + payload[msgOffset + cntMinValue];
         }
@@ -1106,7 +1106,7 @@ public class CommandClassThermostatSetpointV3 {
 
         // Process 'MaxValue'
         int valMaxvalue = 0;
-        int lenMaxvalue = payload[msgOffset - 1] & 0x07;
+        int lenMaxvalue = payload[3] & 0x07;
         for (int cntMaxvalue = 0; cntMaxvalue < lenMaxvalue; cntMaxvalue++) {
             valMaxvalue = (valMaxvalue << 8) + payload[msgOffset + cntMaxvalue];
         }

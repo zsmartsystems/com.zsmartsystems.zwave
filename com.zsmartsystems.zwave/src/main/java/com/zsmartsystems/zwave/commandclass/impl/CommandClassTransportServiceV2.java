@@ -161,7 +161,7 @@ public class CommandClassTransportServiceV2 {
 
         // Process 'Header Extension'
         int valHeaderExtension = 0;
-        int lenHeaderExtension = payload[msgOffset - 1];
+        int lenHeaderExtension = payload[3];
         for (int cntHeaderExtension = 0; cntHeaderExtension < lenHeaderExtension; cntHeaderExtension++) {
             valHeaderExtension = (valHeaderExtension << 8) + payload[msgOffset + cntHeaderExtension];
         }
@@ -177,7 +177,7 @@ public class CommandClassTransportServiceV2 {
         response.put("PAYLOAD", valPayload);
 
         // Process 'Frame Check Sequence'
-        response.put("FRAME_CHECK_SEQUENCE", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("FRAME_CHECK_SEQUENCE", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
         msgOffset += 2;
 
         // Return the map of processed response data;
@@ -366,7 +366,7 @@ public class CommandClassTransportServiceV2 {
 
         // Process 'Header Extension'
         int valHeaderExtension = 0;
-        int lenHeaderExtension = payload[msgOffset - 1];
+        int lenHeaderExtension = payload[3];
         for (int cntHeaderExtension = 0; cntHeaderExtension < lenHeaderExtension; cntHeaderExtension++) {
             valHeaderExtension = (valHeaderExtension << 8) + payload[msgOffset + cntHeaderExtension];
         }
@@ -382,7 +382,7 @@ public class CommandClassTransportServiceV2 {
         response.put("PAYLOAD", valPayload);
 
         // Process 'Frame Check Sequence'
-        response.put("FRAME_CHECK_SEQUENCE", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("FRAME_CHECK_SEQUENCE", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
         msgOffset += 2;
 
         // Return the map of processed response data;

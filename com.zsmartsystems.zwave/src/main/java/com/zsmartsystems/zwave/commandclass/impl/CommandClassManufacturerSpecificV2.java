@@ -310,7 +310,7 @@ public class CommandClassManufacturerSpecificV2 {
 
         // Process 'Device ID Data'
         int valDeviceIdData = 0;
-        int lenDeviceIdData = payload[msgOffset - 1] & 0x1F;
+        int lenDeviceIdData = payload[3] & 0x1F;
         for (int cntDeviceIdData = 0; cntDeviceIdData < lenDeviceIdData; cntDeviceIdData++) {
             valDeviceIdData = (valDeviceIdData << 8) + payload[msgOffset + cntDeviceIdData];
         }

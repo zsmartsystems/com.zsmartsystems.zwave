@@ -116,7 +116,7 @@ public class CommandClassCrc16EncapV1 {
         response.put("DATA", valData);
 
         // Process 'Checksum'
-        response.put("CHECKSUM", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("CHECKSUM", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
         msgOffset += 2;
 
         // Return the map of processed response data;

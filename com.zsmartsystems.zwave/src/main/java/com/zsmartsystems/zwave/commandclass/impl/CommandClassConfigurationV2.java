@@ -134,7 +134,7 @@ public class CommandClassConfigurationV2 {
 
         // Process 'Configuration Value'
         int valConfigurationValue = 0;
-        int lenConfigurationValue = payload[msgOffset - 1] & 0x07;
+        int lenConfigurationValue = payload[3] & 0x07;
         for (int cntConfigurationValue = 0; cntConfigurationValue < lenConfigurationValue; cntConfigurationValue++) {
             valConfigurationValue = (valConfigurationValue << 8) + payload[msgOffset + cntConfigurationValue];
         }
@@ -256,7 +256,7 @@ public class CommandClassConfigurationV2 {
 
         // Process 'Configuration Value'
         int valConfigurationValue = 0;
-        int lenConfigurationValue = payload[msgOffset - 1] & 0x07;
+        int lenConfigurationValue = payload[3] & 0x07;
         for (int cntConfigurationValue = 0; cntConfigurationValue < lenConfigurationValue; cntConfigurationValue++) {
             valConfigurationValue = (valConfigurationValue << 8) + payload[msgOffset + cntConfigurationValue];
         }
@@ -332,7 +332,7 @@ public class CommandClassConfigurationV2 {
         int msgOffset = 2;
 
         // Process 'Parameter Offset'
-        response.put("PARAMETER_OFFSET", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("PARAMETER_OFFSET", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
         msgOffset += 2;
 
         // Process 'Number of Parameters'
@@ -357,7 +357,7 @@ public class CommandClassConfigurationV2 {
 
             // Process 'Parameter'
             int valParameter = 0;
-            int lenParameter = payload[msgOffset - -130] & 0x07;
+            int lenParameter = payload[-128] & 0x07;
             for (int cntParameter = 0; cntParameter < lenParameter; cntParameter++) {
                 valParameter = (valParameter << 8) + payload[msgOffset + cntParameter];
             }
@@ -503,7 +503,7 @@ public class CommandClassConfigurationV2 {
         int msgOffset = 2;
 
         // Process 'Parameter Offset'
-        response.put("PARAMETER_OFFSET", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("PARAMETER_OFFSET", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
         msgOffset += 2;
 
         // Process 'Number of Parameters'
@@ -532,7 +532,7 @@ public class CommandClassConfigurationV2 {
 
             // Process 'Parameter'
             int valParameter = 0;
-            int lenParameter = payload[msgOffset - -131] & 0x07;
+            int lenParameter = payload[-129] & 0x07;
             for (int cntParameter = 0; cntParameter < lenParameter; cntParameter++) {
                 valParameter = (valParameter << 8) + payload[msgOffset + cntParameter];
             }

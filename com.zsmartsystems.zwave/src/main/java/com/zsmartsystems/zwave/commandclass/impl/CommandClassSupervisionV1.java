@@ -128,7 +128,7 @@ public class CommandClassSupervisionV1 {
 
         // Process 'Encapsulated Command'
         int valEncapsulatedCommand = 0;
-        int lenEncapsulatedCommand = payload[msgOffset - 1];
+        int lenEncapsulatedCommand = payload[3];
         for (int cntEncapsulatedCommand = 0; cntEncapsulatedCommand < lenEncapsulatedCommand; cntEncapsulatedCommand++) {
             valEncapsulatedCommand = (valEncapsulatedCommand << 8) + payload[msgOffset + cntEncapsulatedCommand];
         }

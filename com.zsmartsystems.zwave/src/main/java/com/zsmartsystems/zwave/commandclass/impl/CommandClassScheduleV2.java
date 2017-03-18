@@ -388,7 +388,7 @@ public class CommandClassScheduleV2 {
         msgOffset += 1;
 
         // Process 'Duration Byte'
-        response.put("DURATION_BYTE", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("DURATION_BYTE", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
         msgOffset += 2;
 
         // Process 'Reports to Follow'
@@ -414,13 +414,8 @@ public class CommandClassScheduleV2 {
             msgOffset += 1;
 
             // Process 'Cmd Byte'
-            int valCmdByte = 0;
-            int lenCmdByte = payload[msgOffset - 1];
-            for (int cntCmdByte = 0; cntCmdByte < lenCmdByte; cntCmdByte++) {
-                valCmdByte = (valCmdByte << 8) + payload[msgOffset + cntCmdByte];
-            }
-            variant.put("CMD_BYTE", valCmdByte);
-            msgOffset += lenCmdByte;
+            variant.put("CMD_BYTE", Integer.valueOf(payload[msgOffset]));
+            msgOffset += payload[msgOffset - 1];
 
             // Add to the list
             variantList.add(variant);
@@ -646,7 +641,7 @@ public class CommandClassScheduleV2 {
         msgOffset += 1;
 
         // Process 'Duration Byte'
-        response.put("DURATION_BYTE", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("DURATION_BYTE", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
         msgOffset += 2;
 
         // Process 'Reports to Follow'
@@ -672,13 +667,8 @@ public class CommandClassScheduleV2 {
             msgOffset += 1;
 
             // Process 'Cmd Byte'
-            int valCmdByte = 0;
-            int lenCmdByte = payload[msgOffset - 1];
-            for (int cntCmdByte = 0; cntCmdByte < lenCmdByte; cntCmdByte++) {
-                valCmdByte = (valCmdByte << 8) + payload[msgOffset + cntCmdByte];
-            }
-            variant.put("CMD_BYTE", valCmdByte);
-            msgOffset += lenCmdByte;
+            variant.put("CMD_BYTE", Integer.valueOf(payload[msgOffset]));
+            msgOffset += payload[msgOffset - 1];
 
             // Add to the list
             variantList.add(variant);

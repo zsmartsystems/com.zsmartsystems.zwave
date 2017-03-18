@@ -198,7 +198,7 @@ public class CommandClassTariffTblMonitorV1 {
         int msgOffset = 2;
 
         // Process 'Year'
-        response.put("YEAR", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("YEAR", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
         msgOffset += 2;
 
         // Process 'Month'
@@ -230,7 +230,7 @@ public class CommandClassTariffTblMonitorV1 {
         msgOffset += 1;
 
         // Process 'Standing Charge Value'
-        response.put("STANDING_CHARGE_VALUE", Long.valueOf(payload[msgOffset] << 24 + payload[msgOffset + 12] << 16 + payload[msgOffset + 22] << 8 + payload[msgOffset + 32]));
+        response.put("STANDING_CHARGE_VALUE", Long.valueOf(payload[msgOffset] << 24 + payload[msgOffset + 1] << 16 + payload[msgOffset + 2] << 8 + payload[msgOffset + 3]));
         msgOffset += 4;
 
         // Process 'Properties2'
@@ -239,7 +239,7 @@ public class CommandClassTariffTblMonitorV1 {
 
         // Process 'Supplier Character'
         int valSupplierCharacter = 0;
-        int lenSupplierCharacter = payload[msgOffset - 1] & 0x1F;
+        int lenSupplierCharacter = payload[3] & 0x1F;
         for (int cntSupplierCharacter = 0; cntSupplierCharacter < lenSupplierCharacter; cntSupplierCharacter++) {
             valSupplierCharacter = (valSupplierCharacter << 8) + payload[msgOffset + cntSupplierCharacter];
         }

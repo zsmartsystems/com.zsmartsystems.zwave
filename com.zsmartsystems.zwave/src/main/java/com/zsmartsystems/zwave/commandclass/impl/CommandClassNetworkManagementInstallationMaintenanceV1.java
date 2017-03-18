@@ -294,7 +294,7 @@ public class CommandClassNetworkManagementInstallationMaintenanceV1 {
 
             // Process 'Value'
             int valValue = 0;
-            int lenValue = payload[msgOffset - 1];
+            int lenValue = payload[3];
             for (int cntValue = 0; cntValue < lenValue; cntValue++) {
                 valValue = (valValue << 8) + payload[msgOffset + cntValue];
             }

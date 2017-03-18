@@ -195,7 +195,7 @@ public class CommandClassConfigurationV4 {
 
         // Process 'Configuration Value'
         int valConfigurationValue = 0;
-        int lenConfigurationValue = payload[msgOffset - 1] & 0x07;
+        int lenConfigurationValue = payload[3] & 0x07;
         for (int cntConfigurationValue = 0; cntConfigurationValue < lenConfigurationValue; cntConfigurationValue++) {
             valConfigurationValue = (valConfigurationValue << 8) + payload[msgOffset + cntConfigurationValue];
         }
@@ -317,7 +317,7 @@ public class CommandClassConfigurationV4 {
 
         // Process 'Configuration Value'
         int valConfigurationValue = 0;
-        int lenConfigurationValue = payload[msgOffset - 1] & 0x07;
+        int lenConfigurationValue = payload[3] & 0x07;
         for (int cntConfigurationValue = 0; cntConfigurationValue < lenConfigurationValue; cntConfigurationValue++) {
             valConfigurationValue = (valConfigurationValue << 8) + payload[msgOffset + cntConfigurationValue];
         }
@@ -393,7 +393,7 @@ public class CommandClassConfigurationV4 {
         int msgOffset = 2;
 
         // Process 'Parameter Offset'
-        response.put("PARAMETER_OFFSET", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("PARAMETER_OFFSET", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
         msgOffset += 2;
 
         // Process 'Number of Parameters'
@@ -418,7 +418,7 @@ public class CommandClassConfigurationV4 {
 
             // Process 'Parameter'
             int valParameter = 0;
-            int lenParameter = payload[msgOffset - -130] & 0x07;
+            int lenParameter = payload[-128] & 0x07;
             for (int cntParameter = 0; cntParameter < lenParameter; cntParameter++) {
                 valParameter = (valParameter << 8) + payload[msgOffset + cntParameter];
             }
@@ -564,7 +564,7 @@ public class CommandClassConfigurationV4 {
         int msgOffset = 2;
 
         // Process 'Parameter Offset'
-        response.put("PARAMETER_OFFSET", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("PARAMETER_OFFSET", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
         msgOffset += 2;
 
         // Process 'Number of Parameters'
@@ -593,7 +593,7 @@ public class CommandClassConfigurationV4 {
 
             // Process 'Parameter'
             int valParameter = 0;
-            int lenParameter = payload[msgOffset - -131] & 0x07;
+            int lenParameter = payload[-129] & 0x07;
             for (int cntParameter = 0; cntParameter < lenParameter; cntParameter++) {
                 valParameter = (valParameter << 8) + payload[msgOffset + cntParameter];
             }
@@ -718,7 +718,7 @@ public class CommandClassConfigurationV4 {
         int msgOffset = 2;
 
         // Process 'Parameter Number'
-        response.put("PARAMETER_NUMBER", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("PARAMETER_NUMBER", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
         msgOffset += 2;
 
         // Process 'Reports to follow'
@@ -841,7 +841,7 @@ public class CommandClassConfigurationV4 {
         int msgOffset = 2;
 
         // Process 'Parameter Number'
-        response.put("PARAMETER_NUMBER", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("PARAMETER_NUMBER", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
         msgOffset += 2;
 
         // Process 'Reports to follow'
@@ -1026,7 +1026,7 @@ public class CommandClassConfigurationV4 {
         int msgOffset = 2;
 
         // Process 'Parameter Number'
-        response.put("PARAMETER_NUMBER", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("PARAMETER_NUMBER", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
         msgOffset += 2;
 
         // Process 'Properties1'
@@ -1053,7 +1053,7 @@ public class CommandClassConfigurationV4 {
 
         // Process 'Min Value'
         int valMinValue = 0;
-        int lenMinValue = payload[msgOffset - 1] & 0x07;
+        int lenMinValue = payload[3] & 0x07;
         for (int cntMinValue = 0; cntMinValue < lenMinValue; cntMinValue++) {
             valMinValue = (valMinValue << 8) + payload[msgOffset + cntMinValue];
         }
@@ -1062,7 +1062,7 @@ public class CommandClassConfigurationV4 {
 
         // Process 'Max Value'
         int valMaxValue = 0;
-        int lenMaxValue = payload[msgOffset - 2] & 0x07;
+        int lenMaxValue = payload[4] & 0x07;
         for (int cntMaxValue = 0; cntMaxValue < lenMaxValue; cntMaxValue++) {
             valMaxValue = (valMaxValue << 8) + payload[msgOffset + cntMaxValue];
         }
@@ -1071,7 +1071,7 @@ public class CommandClassConfigurationV4 {
 
         // Process 'Default Value'
         int valDefaultValue = 0;
-        int lenDefaultValue = payload[msgOffset - 3] & 0x07;
+        int lenDefaultValue = payload[5] & 0x07;
         for (int cntDefaultValue = 0; cntDefaultValue < lenDefaultValue; cntDefaultValue++) {
             valDefaultValue = (valDefaultValue << 8) + payload[msgOffset + cntDefaultValue];
         }
@@ -1079,7 +1079,7 @@ public class CommandClassConfigurationV4 {
         msgOffset += lenDefaultValue;
 
         // Process 'Next Parameter Number'
-        response.put("NEXT_PARAMETER_NUMBER", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("NEXT_PARAMETER_NUMBER", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
         msgOffset += 2;
 
         // Process 'Properties2'

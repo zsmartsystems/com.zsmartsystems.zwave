@@ -223,13 +223,8 @@ public class CommandClassThermostatModeV3 {
         msgOffset += 1;
 
         // Process 'Manufacturer Data'
-        int valManufacturerData = 0;
-        int lenManufacturerData = payload[msgOffset - 1] & 0xE0;
-        for (int cntManufacturerData = 0; cntManufacturerData < lenManufacturerData; cntManufacturerData++) {
-            valManufacturerData = (valManufacturerData << 8) + payload[msgOffset + cntManufacturerData];
-        }
-        response.put("MANUFACTURER_DATA", valManufacturerData);
-        msgOffset += lenManufacturerData;
+        response.put("MANUFACTURER_DATA", Integer.valueOf(payload[msgOffset]));
+        msgOffset += payload[msgOffset - 1];
 
         // Return the map of processed response data;
         return response;
@@ -434,13 +429,8 @@ public class CommandClassThermostatModeV3 {
         msgOffset += 1;
 
         // Process 'Manufacturer Data'
-        int valManufacturerData = 0;
-        int lenManufacturerData = payload[msgOffset - 1] & 0xE0;
-        for (int cntManufacturerData = 0; cntManufacturerData < lenManufacturerData; cntManufacturerData++) {
-            valManufacturerData = (valManufacturerData << 8) + payload[msgOffset + cntManufacturerData];
-        }
-        response.put("MANUFACTURER_DATA", valManufacturerData);
-        msgOffset += lenManufacturerData;
+        response.put("MANUFACTURER_DATA", Integer.valueOf(payload[msgOffset]));
+        msgOffset += payload[msgOffset - 1];
 
         // Return the map of processed response data;
         return response;

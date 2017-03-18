@@ -185,7 +185,7 @@ public class CommandClassAssociationGrpInfoV1 {
 
         // Process 'Name'
         int valName = 0;
-        int lenName = payload[msgOffset - 1];
+        int lenName = payload[3];
         for (int cntName = 0; cntName < lenName; cntName++) {
             valName += payload[msgOffset + cntName];
         }
@@ -468,7 +468,7 @@ public class CommandClassAssociationGrpInfoV1 {
 
         // Process 'Command'
         int valCommand = 0;
-        int lenCommand = payload[msgOffset - 1];
+        int lenCommand = payload[3];
         for (int cntCommand = 0; cntCommand < lenCommand; cntCommand++) {
             valCommand = (valCommand << 8) + payload[msgOffset + cntCommand];
         }

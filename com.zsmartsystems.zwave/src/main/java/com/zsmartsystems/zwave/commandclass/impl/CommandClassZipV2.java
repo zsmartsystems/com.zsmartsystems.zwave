@@ -195,7 +195,7 @@ public class CommandClassZipV2 {
 
         // Process 'Header extension'
         int valHeaderExtension = 0;
-        int lenHeaderExtension = payload[msgOffset - 1];
+        int lenHeaderExtension = payload[3];
         for (int cntHeaderExtension = 0; cntHeaderExtension < lenHeaderExtension; cntHeaderExtension++) {
             valHeaderExtension = (valHeaderExtension << 8) + payload[msgOffset + cntHeaderExtension];
         }

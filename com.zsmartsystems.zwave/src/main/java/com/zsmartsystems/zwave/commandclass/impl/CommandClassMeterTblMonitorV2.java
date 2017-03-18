@@ -187,13 +187,8 @@ public class CommandClassMeterTblMonitorV2 {
         msgOffset += 1;
 
         // Process 'Meter Point Adm Number Character'
-        int valMeterPointAdmNumberCharacter = 0;
-        int lenMeterPointAdmNumberCharacter = payload[msgOffset - 1] & 0x1F;
-        for (int cntMeterPointAdmNumberCharacter = 0; cntMeterPointAdmNumberCharacter < lenMeterPointAdmNumberCharacter; cntMeterPointAdmNumberCharacter++) {
-            valMeterPointAdmNumberCharacter = (valMeterPointAdmNumberCharacter << 8) + payload[msgOffset + cntMeterPointAdmNumberCharacter];
-        }
-        response.put("METER_POINT_ADM_NUMBER_CHARACTER", valMeterPointAdmNumberCharacter);
-        msgOffset += lenMeterPointAdmNumberCharacter;
+        response.put("METER_POINT_ADM_NUMBER_CHARACTER", Integer.valueOf(payload[msgOffset]));
+        msgOffset += payload[msgOffset - 1];
 
         // Return the map of processed response data;
         return response;
@@ -287,13 +282,8 @@ public class CommandClassMeterTblMonitorV2 {
         msgOffset += 1;
 
         // Process 'Meter ID Character'
-        int valMeterIdCharacter = 0;
-        int lenMeterIdCharacter = payload[msgOffset - 1] & 0x1F;
-        for (int cntMeterIdCharacter = 0; cntMeterIdCharacter < lenMeterIdCharacter; cntMeterIdCharacter++) {
-            valMeterIdCharacter = (valMeterIdCharacter << 8) + payload[msgOffset + cntMeterIdCharacter];
-        }
-        response.put("METER_ID_CHARACTER", valMeterIdCharacter);
-        msgOffset += lenMeterIdCharacter;
+        response.put("METER_ID_CHARACTER", Integer.valueOf(payload[msgOffset]));
+        msgOffset += payload[msgOffset - 1];
 
         // Return the map of processed response data;
         return response;

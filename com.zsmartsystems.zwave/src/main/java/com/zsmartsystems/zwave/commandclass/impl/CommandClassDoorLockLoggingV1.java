@@ -285,7 +285,7 @@ public class CommandClassDoorLockLoggingV1 {
         msgOffset += 1;
 
         // Process 'Year'
-        response.put("YEAR", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("YEAR", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
         msgOffset += 2;
 
         // Process 'Month'

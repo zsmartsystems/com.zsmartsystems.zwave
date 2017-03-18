@@ -381,7 +381,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'Flow Value'
         int valFlowValue = 0;
-        int lenFlowValue = payload[msgOffset - 1] & 0x07;
+        int lenFlowValue = payload[3] & 0x07;
         for (int cntFlowValue = 0; cntFlowValue < lenFlowValue; cntFlowValue++) {
             valFlowValue = (valFlowValue << 8) + payload[msgOffset + cntFlowValue];
         }
@@ -393,7 +393,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'Pressure Value'
         int valPressureValue = 0;
-        int lenPressureValue = payload[msgOffset - 1] & 0x07;
+        int lenPressureValue = payload[3] & 0x07;
         for (int cntPressureValue = 0; cntPressureValue < lenPressureValue; cntPressureValue++) {
             valPressureValue = (valPressureValue << 8) + payload[msgOffset + cntPressureValue];
         }
@@ -538,7 +538,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'High Pressure Threshold Value'
         int valHighPressureThresholdValue = 0;
-        int lenHighPressureThresholdValue = payload[msgOffset - 1] & 0x07;
+        int lenHighPressureThresholdValue = payload[3] & 0x07;
         for (int cntHighPressureThresholdValue = 0; cntHighPressureThresholdValue < lenHighPressureThresholdValue; cntHighPressureThresholdValue++) {
             valHighPressureThresholdValue = (valHighPressureThresholdValue << 8) + payload[msgOffset + cntHighPressureThresholdValue];
         }
@@ -550,7 +550,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'Low Pressure Threshold Value'
         int valLowPressureThresholdValue = 0;
-        int lenLowPressureThresholdValue = payload[msgOffset - 1] & 0x07;
+        int lenLowPressureThresholdValue = payload[3] & 0x07;
         for (int cntLowPressureThresholdValue = 0; cntLowPressureThresholdValue < lenLowPressureThresholdValue; cntLowPressureThresholdValue++) {
             valLowPressureThresholdValue = (valLowPressureThresholdValue << 8) + payload[msgOffset + cntLowPressureThresholdValue];
         }
@@ -710,7 +710,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'High Pressure Threshold Value'
         int valHighPressureThresholdValue = 0;
-        int lenHighPressureThresholdValue = payload[msgOffset - 1] & 0x07;
+        int lenHighPressureThresholdValue = payload[3] & 0x07;
         for (int cntHighPressureThresholdValue = 0; cntHighPressureThresholdValue < lenHighPressureThresholdValue; cntHighPressureThresholdValue++) {
             valHighPressureThresholdValue = (valHighPressureThresholdValue << 8) + payload[msgOffset + cntHighPressureThresholdValue];
         }
@@ -722,7 +722,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'Low Pressure Threshold Value'
         int valLowPressureThresholdValue = 0;
-        int lenLowPressureThresholdValue = payload[msgOffset - 1] & 0x07;
+        int lenLowPressureThresholdValue = payload[3] & 0x07;
         for (int cntLowPressureThresholdValue = 0; cntLowPressureThresholdValue < lenLowPressureThresholdValue; cntLowPressureThresholdValue++) {
             valLowPressureThresholdValue = (valLowPressureThresholdValue << 8) + payload[msgOffset + cntLowPressureThresholdValue];
         }
@@ -1059,7 +1059,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'Maximum Flow Value'
         int valMaximumFlowValue = 0;
-        int lenMaximumFlowValue = payload[msgOffset - 1] & 0x07;
+        int lenMaximumFlowValue = payload[3] & 0x07;
         for (int cntMaximumFlowValue = 0; cntMaximumFlowValue < lenMaximumFlowValue; cntMaximumFlowValue++) {
             valMaximumFlowValue = (valMaximumFlowValue << 8) + payload[msgOffset + cntMaximumFlowValue];
         }
@@ -1071,7 +1071,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'Flow High Threshold Value'
         int valFlowHighThresholdValue = 0;
-        int lenFlowHighThresholdValue = payload[msgOffset - 1] & 0x07;
+        int lenFlowHighThresholdValue = payload[3] & 0x07;
         for (int cntFlowHighThresholdValue = 0; cntFlowHighThresholdValue < lenFlowHighThresholdValue; cntFlowHighThresholdValue++) {
             valFlowHighThresholdValue = (valFlowHighThresholdValue << 8) + payload[msgOffset + cntFlowHighThresholdValue];
         }
@@ -1083,7 +1083,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'Flow Low Threshold Value'
         int valFlowLowThresholdValue = 0;
-        int lenFlowLowThresholdValue = payload[msgOffset - 1] & 0x07;
+        int lenFlowLowThresholdValue = payload[3] & 0x07;
         for (int cntFlowLowThresholdValue = 0; cntFlowLowThresholdValue < lenFlowLowThresholdValue; cntFlowLowThresholdValue++) {
             valFlowLowThresholdValue = (valFlowLowThresholdValue << 8) + payload[msgOffset + cntFlowLowThresholdValue];
         }
@@ -1303,7 +1303,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'Maximum Flow Value'
         int valMaximumFlowValue = 0;
-        int lenMaximumFlowValue = payload[msgOffset - 1] & 0x07;
+        int lenMaximumFlowValue = payload[3] & 0x07;
         for (int cntMaximumFlowValue = 0; cntMaximumFlowValue < lenMaximumFlowValue; cntMaximumFlowValue++) {
             valMaximumFlowValue = (valMaximumFlowValue << 8) + payload[msgOffset + cntMaximumFlowValue];
         }
@@ -1315,7 +1315,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'Flow High Threshold Value'
         int valFlowHighThresholdValue = 0;
-        int lenFlowHighThresholdValue = payload[msgOffset - 1] & 0x07;
+        int lenFlowHighThresholdValue = payload[3] & 0x07;
         for (int cntFlowHighThresholdValue = 0; cntFlowHighThresholdValue < lenFlowHighThresholdValue; cntFlowHighThresholdValue++) {
             valFlowHighThresholdValue = (valFlowHighThresholdValue << 8) + payload[msgOffset + cntFlowHighThresholdValue];
         }
@@ -1327,7 +1327,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'Flow Low Threshold Value'
         int valFlowLowThresholdValue = 0;
-        int lenFlowLowThresholdValue = payload[msgOffset - 1] & 0x07;
+        int lenFlowLowThresholdValue = payload[3] & 0x07;
         for (int cntFlowLowThresholdValue = 0; cntFlowLowThresholdValue < lenFlowLowThresholdValue; cntFlowLowThresholdValue++) {
             valFlowLowThresholdValue = (valFlowLowThresholdValue << 8) + payload[msgOffset + cntFlowLowThresholdValue];
         }

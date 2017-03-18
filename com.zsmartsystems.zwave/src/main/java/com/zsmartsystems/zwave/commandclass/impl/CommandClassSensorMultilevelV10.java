@@ -666,7 +666,7 @@ public class CommandClassSensorMultilevelV10 {
 
         // Process 'Sensor Value'
         int valSensorValue = 0;
-        int lenSensorValue = payload[msgOffset - 1] & 0x07;
+        int lenSensorValue = payload[3] & 0x07;
         for (int cntSensorValue = 0; cntSensorValue < lenSensorValue; cntSensorValue++) {
             valSensorValue = (valSensorValue << 8) + payload[msgOffset + cntSensorValue];
         }

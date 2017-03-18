@@ -351,7 +351,7 @@ public class CommandClassRateTblMonitorV1 {
 
         // Process 'Rate Character'
         int valRateCharacter = 0;
-        int lenRateCharacter = payload[msgOffset - 1] & 0x1F;
+        int lenRateCharacter = payload[3] & 0x1F;
         for (int cntRateCharacter = 0; cntRateCharacter < lenRateCharacter; cntRateCharacter++) {
             valRateCharacter = (valRateCharacter << 8) + payload[msgOffset + cntRateCharacter];
         }
@@ -367,7 +367,7 @@ public class CommandClassRateTblMonitorV1 {
         msgOffset += 1;
 
         // Process 'Duration Minute'
-        response.put("DURATION_MINUTE", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("DURATION_MINUTE", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
         msgOffset += 2;
 
         // Process 'Properties2'
@@ -376,11 +376,11 @@ public class CommandClassRateTblMonitorV1 {
         msgOffset += 1;
 
         // Process 'Min Consumption Value'
-        response.put("MIN_CONSUMPTION_VALUE", Long.valueOf(payload[msgOffset] << 24 + payload[msgOffset + 12] << 16 + payload[msgOffset + 22] << 8 + payload[msgOffset + 32]));
+        response.put("MIN_CONSUMPTION_VALUE", Long.valueOf(payload[msgOffset] << 24 + payload[msgOffset + 1] << 16 + payload[msgOffset + 2] << 8 + payload[msgOffset + 3]));
         msgOffset += 4;
 
         // Process 'Max Consumption Value'
-        response.put("MAX_CONSUMPTION_VALUE", Long.valueOf(payload[msgOffset] << 24 + payload[msgOffset + 12] << 16 + payload[msgOffset + 22] << 8 + payload[msgOffset + 32]));
+        response.put("MAX_CONSUMPTION_VALUE", Long.valueOf(payload[msgOffset] << 24 + payload[msgOffset + 1] << 16 + payload[msgOffset + 2] << 8 + payload[msgOffset + 3]));
         msgOffset += 4;
 
         // Process 'Properties3'
@@ -389,7 +389,7 @@ public class CommandClassRateTblMonitorV1 {
         msgOffset += 1;
 
         // Process 'Max Demand Value'
-        response.put("MAX_DEMAND_VALUE", Long.valueOf(payload[msgOffset] << 24 + payload[msgOffset + 12] << 16 + payload[msgOffset + 22] << 8 + payload[msgOffset + 32]));
+        response.put("MAX_DEMAND_VALUE", Long.valueOf(payload[msgOffset] << 24 + payload[msgOffset + 1] << 16 + payload[msgOffset + 2] << 8 + payload[msgOffset + 3]));
         msgOffset += 4;
 
         // Process 'DCP Rate ID'
