@@ -17,7 +17,7 @@ public class ZWaveNonce {
     private byte[] nonceBytes;
     private long timer;
 
-    private static SecureRandom secureRandom = null;
+    private static SecureRandom secureRandom;
     private static long reseedAt = 0;
 
     public ZWaveNonce() {

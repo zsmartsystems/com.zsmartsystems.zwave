@@ -14,5 +14,5 @@ public interface ZWaveEventListener {
      *
      * @param event the incoming Z-Wave event.
      */
-    void ZWaveIncomingEvent();
+    void zwaveIncomingEvent();
 }

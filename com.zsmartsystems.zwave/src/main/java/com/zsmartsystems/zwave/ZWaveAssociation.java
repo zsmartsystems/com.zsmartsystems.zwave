@@ -1,6 +1,5 @@
 package com.zsmartsystems.zwave;
 
-
 /**
  * Representation of a single association - stores a node and option endpoint
  * 
@@ -32,9 +31,6 @@ public class ZWaveAssociation {
     @Override
     public boolean equals(Object checker) {
         ZWaveAssociation assoc = (ZWaveAssociation) checker;
-        if (this.node == assoc.node && this.endpoint == assoc.endpoint) {
-            return true;
-        }
-        return false;
+        return (this.node == assoc.node && this.endpoint == assoc.endpoint);
     }
 }

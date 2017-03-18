@@ -103,7 +103,7 @@ public class CommandClassApplicationStatusV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Status'
-        constantStatus.get((int) payload[2]);
+        response.put("STATUS", constantStatus.get(payload[2] & 0xff));
 
         // Process 'Wait Time'
         response.put("WAIT_TIME", Integer.valueOf(payload[3]));

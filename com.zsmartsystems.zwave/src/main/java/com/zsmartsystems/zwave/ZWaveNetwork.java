@@ -100,4 +100,13 @@ public class ZWaveNetwork {
         return transactionManager.getSendQueueLength(nodeId);
     }
 
+    /**
+     * Notifies event listeners of network level events
+     * 
+     * @param event
+     */
+    public void notifyEventListeners(ZWaveEvent event) {
+
+    }
+
 }

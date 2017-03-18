@@ -157,7 +157,7 @@ public class CommandClassMeterV1 {
         int msgOffset = 2;
 
         // Process 'Meter Type'
-        constantMeterType.get((int) payload[msgOffset]);
+        response.put("METER_TYPE", constantMeterType.get(payload[msgOffset] & 0xff));
         msgOffset += 1;
 
         // Process 'Properties1'

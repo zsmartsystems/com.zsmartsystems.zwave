@@ -648,7 +648,7 @@ public class CommandClassSecurity2V1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'KEX Fail Type'
-        constantKexFailType.get((int) payload[2]);
+        response.put("KEX_FAIL_TYPE", constantKexFailType.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;

@@ -24,18 +24,6 @@ import com.zsmartsystems.zwave.ZWaveEndpoint;
 public abstract class ZWaveCommandClass {
     private static final Logger logger = LoggerFactory.getLogger(ZWaveCommandClass.class);
 
-    private class ZWaveResponseHandlerMethod {
-        int id;
-        String name;
-        Method method;
-
-        ZWaveResponseHandlerMethod(int id, String name, Method method) {
-            this.id = id;
-            this.name = name;
-            this.method = method;
-        }
-    };
-
     protected ZWaveCommandClassEnum commandClass;
 
     /**
@@ -47,6 +35,18 @@ public abstract class ZWaveCommandClass {
 
     private int version = 0;
     private int instances = 0;
+
+    private class ZWaveResponseHandlerMethod {
+        private int id;
+        private String name;
+        private Method method;
+
+        ZWaveResponseHandlerMethod(int id, String name, Method method) {
+            this.id = id;
+            this.name = name;
+            this.method = method;
+        }
+    };
 
     protected ZWaveCommandClass(ZWaveEndpoint endpoint, ZWaveCommandClassEnum commandClass) {
         // Create the map of response command handlers
@@ -66,47 +66,6 @@ public abstract class ZWaveCommandClass {
 
         logger.debug("NODE {}: Command class {}, endpoint {} created", endpoint.getNodeId(), commandClass.toString(),
                 endpoint == null ? 0 : endpoint.getEndpointId());
-    }
-
-    /**
-     * Gets an instance of the right command class.
-     * Returns null if the command class is not found.
-     *
-     * @param classId the code to instantiate
-     * @param endpoint the endpoint this Command class belongs to
-     * @return the ZWaveCommandClass instance that was instantiated, null otherwise
-     */
-    public static ZWaveCommandClass getInstance(int classId, ZWaveEndpoint endpoint) {
-        try {
-            ZWaveCommandClassEnum commandClass = ZWaveCommandClassEnum.getCommandClass(classId);
-            // if (commandClass != null
-            // && commandClass.equals(ZWaveCommandClassEnum.COMMAND_CLASS_MANUFACTURER_PROPRIETARY)) {
-            // commandClass = ZWaveCommandClassEnum.getCommandClass(node.getManufacturer(), node.getDeviceType());
-            // }
-            if (commandClass == null) {
-                logger.debug(String.format("NODE %d: Unknown command class 0x%02x", endpoint.getNodeId(), classId));
-                return null;
-            }
-            Class<? extends ZWaveCommandClass> commandClassClass = commandClass.getCommandClassClass();
-
-            if (commandClassClass == null) {
-                logger.debug("NODE {}: Unsupported command class {}", endpoint.getNodeId(), commandClass.toString(),
-                        classId);
-                return null;
-            }
-            logger.debug("NODE {}: Creating new instance of command class {}", endpoint.getNodeId(),
-                    commandClass.toString());
-
-            Constructor<? extends ZWaveCommandClass> constructor = commandClassClass
-                    .getConstructor(ZWaveEndpoint.class);
-            return constructor.newInstance(new Object[] { endpoint });
-        } catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
-                | NoSuchMethodException | SecurityException e) {
-            logger.debug(
-                    String.format("NODE %d: Error instantiating command class 0x%02x", endpoint.getNodeId(), classId));
-            e.printStackTrace();
-            return null;
-        }
     }
 
     /**
@@ -222,6 +181,63 @@ public abstract class ZWaveCommandClass {
             result.append(String.format("%02X ", bb[i]));
         }
         return result.toString();
+    }
+
+    /**
+     * Gets an instance of the right command class.
+     * <p>
+     * Returns null if the command class is not found.
+     *
+     * @param classId the code to instantiate
+     * @param endpoint the {@link ZWaveEndpoint} this Command class belongs to
+     * @return the ZWaveCommandClass instance that was instantiated, null otherwise
+     */
+    public static ZWaveCommandClass getInstance(int commandClassId, ZWaveEndpoint endpoint) {
+        ZWaveCommandClassEnum commandClass = ZWaveCommandClassEnum.getCommandClass(commandClassId);
+        if (commandClass == null) {
+            logger.debug("NODE {}: Unknown command class ", endpoint.getNodeId(),
+                    String.format("%02X", commandClassId));
+            return null;
+        }
+
+        return getInstance(commandClass, endpoint);
+    }
+
+    /**
+     * Gets an instance of the right command class.
+     * <p>
+     * Returns null if the command class is not found.
+     *
+     * @param commandClass the {@link ZWaveCommandClassEnum} to instantiate
+     * @param endpoint the {@link ZWaveEndpoint} this Command class belongs to
+     * @return the ZWaveCommandClass instance that was instantiated, null otherwise
+     */
+    public static ZWaveCommandClass getInstance(ZWaveCommandClassEnum commandClass, ZWaveEndpoint endpoint) {
+        try {
+            // ZWaveCommandClassEnum commandClass = ZWaveCommandClassEnum.getCommandClass(classId);
+            // if (commandClass == null) {
+            // logger.debug(String.format("NODE %d: Unknown command class 0x%02x", node.getNodeId(), classId));
+            // return null;
+            // }
+            Class<? extends ZWaveCommandClass> commandClassClass = commandClass.getCommandClassClass();
+
+            if (commandClassClass == null) {
+                logger.debug("NODE {}: Unsupported command class {}", endpoint.getNodeId(), commandClass.toString(),
+                        commandClass);
+                return null;
+            }
+            logger.debug("NODE {}: Creating new instance of command class {}", endpoint.getNodeId(),
+                    commandClass.toString());
+
+            Constructor<? extends ZWaveCommandClass> constructor = commandClassClass
+                    .getConstructor(ZWaveEndpoint.class);
+            return constructor.newInstance(new Object[] { endpoint });
+        } catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
+                | NoSuchMethodException | SecurityException e) {
+            logger.debug("NODE {}: Error instantiating command class {}", endpoint.getNodeId(), commandClass);
+            e.printStackTrace();
+            return null;
+        }
     }
 
 }

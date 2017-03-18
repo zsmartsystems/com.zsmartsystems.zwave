@@ -121,10 +121,10 @@ public class CommandClassSwitchBinaryV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Target Value'
-        constantTargetValue.get((int) payload[2]);
+        response.put("TARGET_VALUE", constantTargetValue.get(payload[2] & 0xff));
 
         // Process 'Duration'
-        constantDuration.get((int) payload[3]);
+        response.put("DURATION", constantDuration.get(payload[3] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -228,13 +228,13 @@ public class CommandClassSwitchBinaryV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Current Value'
-        constantCurrentValue.get((int) payload[2]);
+        response.put("CURRENT_VALUE", constantCurrentValue.get(payload[2] & 0xff));
 
         // Process 'Target Value'
-        constantTargetValue.get((int) payload[3]);
+        response.put("TARGET_VALUE", constantTargetValue.get(payload[3] & 0xff));
 
         // Process 'Duration'
-        constantDuration.get((int) payload[4]);
+        response.put("DURATION", constantDuration.get(payload[4] & 0xff));
 
         // Return the map of processed response data;
         return response;

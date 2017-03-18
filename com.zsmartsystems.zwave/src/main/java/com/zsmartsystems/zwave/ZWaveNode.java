@@ -54,7 +54,7 @@ public class ZWaveNode {
      * Provides the manufacturer ID for this device. This contains the manufacturer reference, the device type and
      * device ID.
      */
-    ZWaveManufacturerId manufacturerId;
+    private ZWaveManufacturerId manufacturerId;
 
     /**
      * Provides the list of command classes reported in the NIF (Node Information Frame)
@@ -359,7 +359,7 @@ public class ZWaveNode {
      */
     public void setAwake(boolean awake) {
         // Don't do anything if this node is listening
-        if (listening == true || frequentlyListening == true) {
+        if (listening || frequentlyListening) {
             logger.debug("NODE {}: Node is listening - ignore wakeup", getNodeId());
             return;
         }
@@ -374,7 +374,7 @@ public class ZWaveNode {
         this.awake = awake;
 
         // Start the timer
-        if (awake == true) {
+        if (awake) {
             logger.debug("NODE {}: Is awake with {} messages in the queue", getNodeId(),
                     network.getSendQueueLength(getNodeId()));
 
@@ -398,7 +398,7 @@ public class ZWaveNode {
     public boolean isAwake() {
         logger.debug("NODE {}: listening == {}, frequentlyListening == {}, awake == {}", getNodeId(), listening,
                 frequentlyListening, awake);
-        return (listening == true || frequentlyListening == true || awake == true);
+        return (listening || frequentlyListening || awake);
     }
 
     /**
@@ -426,7 +426,7 @@ public class ZWaveNode {
 
         @Override
         public void run() {
-            if (isAwake() == false) {
+            if (!isAwake()) {
                 logger.debug("NODE {}: WakeupTimerTask Already asleep", getNodeId());
                 return;
             }
@@ -438,7 +438,7 @@ public class ZWaveNode {
                 return;
             }
 
-            if (triggered == false) {
+            if (!triggered) {
                 logger.debug("NODE {}: WakeupTimerTask First iteration", getNodeId());
                 triggered = true;
                 return;

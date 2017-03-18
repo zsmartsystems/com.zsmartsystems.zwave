@@ -256,7 +256,7 @@ public class ZWaveSecurityCommandClass extends ZWaveCommandClass {
         }
 
         // Make sure we sent a NONCE
-        if (ourNonce == null || ourNonce.isValid() == false) {
+        if (ourNonce == null || !ourNonce.isValid()) {
             logger.debug("NODE {}: SECURITY_ERR No valid NONCE! {}", getEndpoint().getNodeId(), ourNonce);
             return null;
         }

@@ -172,10 +172,10 @@ public class CommandClassZwaveplusInfoV2 {
         response.put("Z_WAVE_PLUS_VERSION", Integer.valueOf(payload[2]));
 
         // Process 'Role Type'
-        constantRoleType.get((int) payload[3]);
+        response.put("ROLE_TYPE", constantRoleType.get(payload[3] & 0xff));
 
         // Process 'Node Type'
-        constantNodeType.get((int) payload[4]);
+        response.put("NODE_TYPE", constantNodeType.get(payload[4] & 0xff));
 
         // Process 'Installer Icon Type'
         response.put("INSTALLER_ICON_TYPE", Integer.valueOf(payload[5] << 8 + payload[6]));

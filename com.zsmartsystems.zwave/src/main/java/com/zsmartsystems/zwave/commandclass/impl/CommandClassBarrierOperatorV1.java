@@ -136,7 +136,7 @@ public class CommandClassBarrierOperatorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Target Value'
-        constantTargetValue.get((int) payload[2]);
+        response.put("TARGET_VALUE", constantTargetValue.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -220,7 +220,7 @@ public class CommandClassBarrierOperatorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'State'
-        constantState.get((int) payload[2]);
+        response.put("STATE", constantState.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -396,7 +396,7 @@ public class CommandClassBarrierOperatorV1 {
         }
 
         // Process 'Subsystem State'
-        constantSubsystemState.get((int) payload[3]);
+        response.put("SUBSYSTEM_STATE", constantSubsystemState.get(payload[3] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -527,7 +527,7 @@ public class CommandClassBarrierOperatorV1 {
         }
 
         // Process 'Subsystem State'
-        constantSubsystemState.get((int) payload[3]);
+        response.put("SUBSYSTEM_STATE", constantSubsystemState.get(payload[3] & 0xff));
 
         // Return the map of processed response data;
         return response;

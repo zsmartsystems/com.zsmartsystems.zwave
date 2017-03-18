@@ -216,7 +216,7 @@ public class CommandClassEntryControlV1 {
         msgOffset += 1;
 
         // Process 'Event Type'
-        constantEventType.get((int) payload[msgOffset]);
+        response.put("EVENT_TYPE", constantEventType.get(payload[msgOffset] & 0xff));
         msgOffset += 1;
 
         // Process 'Event Data Length'

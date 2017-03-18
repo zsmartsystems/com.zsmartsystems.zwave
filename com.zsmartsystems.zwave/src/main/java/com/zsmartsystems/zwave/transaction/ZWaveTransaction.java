@@ -256,7 +256,7 @@ public class ZWaveTransaction {
                 break;
         }
         logger.debug("TransactionAdvance TO: {}", transactionStateTracker);
-        return transactionStateTracker != stateTrackerStart;
+        return !transactionStateTracker.equals(stateTrackerStart);
     }
 
     public boolean getRequiresSecurity() {

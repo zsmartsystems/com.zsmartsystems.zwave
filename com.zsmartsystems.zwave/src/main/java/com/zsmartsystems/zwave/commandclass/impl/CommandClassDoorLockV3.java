@@ -151,7 +151,7 @@ public class CommandClassDoorLockV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Door Lock Mode'
-        constantDoorLockMode.get((int) payload[2]);
+        response.put("DOOR_LOCK_MODE", constantDoorLockMode.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -282,7 +282,7 @@ public class CommandClassDoorLockV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Current Door Lock Mode'
-        constantCurrentDoorLockMode.get((int) payload[2]);
+        response.put("CURRENT_DOOR_LOCK_MODE", constantCurrentDoorLockMode.get(payload[2] & 0xff));
 
         // Process 'Properties1'
         response.put("INSIDE_DOOR_HANDLES_MODE", Integer.valueOf(payload[3] & 0x0F));
@@ -298,10 +298,10 @@ public class CommandClassDoorLockV3 {
         response.put("LOCK_TIMEOUT_SECONDS", Integer.valueOf(payload[6]));
 
         // Process 'Target Door Lock Mode'
-        constantTargetDoorLockMode.get((int) payload[7]);
+        response.put("TARGET_DOOR_LOCK_MODE", constantTargetDoorLockMode.get(payload[7] & 0xff));
 
         // Process 'Duration'
-        constantDuration.get((int) payload[8]);
+        response.put("DURATION", constantDuration.get(payload[8] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -373,7 +373,7 @@ public class CommandClassDoorLockV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Operation Type'
-        constantOperationType.get((int) payload[2]);
+        response.put("OPERATION_TYPE", constantOperationType.get(payload[2] & 0xff));
 
         // Process 'Properties1'
         response.put("INSIDE_DOOR_HANDLES_STATE", Integer.valueOf(payload[3] & 0x0F));
@@ -488,7 +488,7 @@ public class CommandClassDoorLockV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Operation Type'
-        constantOperationType.get((int) payload[2]);
+        response.put("OPERATION_TYPE", constantOperationType.get(payload[2] & 0xff));
 
         // Process 'Properties1'
         response.put("INSIDE_DOOR_HANDLES_STATE", Integer.valueOf(payload[3] & 0x0F));

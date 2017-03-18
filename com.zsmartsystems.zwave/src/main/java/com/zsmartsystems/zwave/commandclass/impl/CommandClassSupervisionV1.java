@@ -204,7 +204,7 @@ public class CommandClassSupervisionV1 {
         response.put("MORE_STATUS_UPDATES", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Process 'Status'
-        constantStatus.get((int) payload[3]);
+        response.put("STATUS", constantStatus.get(payload[3] & 0xff));
 
         // Process 'Duration'
         response.put("DURATION", Integer.valueOf(payload[4]));

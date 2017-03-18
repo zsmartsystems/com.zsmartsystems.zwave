@@ -243,7 +243,7 @@ public class CommandClassWindowCoveringV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Parameter ID'
-        constantParameterId.get((int) payload[2]);
+        response.put("PARAMETER_ID", constantParameterId.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -310,7 +310,7 @@ public class CommandClassWindowCoveringV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Parameter ID'
-        constantParameterId.get((int) payload[2]);
+        response.put("PARAMETER_ID", constantParameterId.get(payload[2] & 0xff));
 
         // Process 'Current Value'
         response.put("CURRENT_VALUE", Integer.valueOf(payload[3]));
@@ -385,7 +385,7 @@ public class CommandClassWindowCoveringV1 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Parameter ID'
-            constantParameterId.get((int) payload[3]);
+            variant.put("PARAMETER_ID", constantParameterId.get(payload[3] & 0xff));
 
             // Process 'Value'
             variant.put("VALUE", Integer.valueOf(payload[4]));
@@ -476,7 +476,7 @@ public class CommandClassWindowCoveringV1 {
         response.put("RES2", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Process 'Parameter ID'
-        constantParameterId.get((int) payload[3]);
+        response.put("PARAMETER_ID", constantParameterId.get(payload[3] & 0xff));
 
         // Process 'Duration'
         response.put("DURATION", Integer.valueOf(payload[4]));
@@ -530,7 +530,7 @@ public class CommandClassWindowCoveringV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Parameter ID'
-        constantParameterId.get((int) payload[2]);
+        response.put("PARAMETER_ID", constantParameterId.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;

@@ -328,7 +328,7 @@ public class CommandClassAssociationGrpInfoV2 {
             variant.put("MODE", Integer.valueOf(payload[4]));
 
             // Process 'Profile1'
-            constantProfile1.get((int) payload[5]);
+            variant.put("PROFILE1", constantProfile1.get(payload[5] & 0xff));
 
             // Process 'Profile2'
 

@@ -373,7 +373,7 @@ public class CommandClassIrrigationV1 {
         msgOffset += 1;
 
         // Process 'Sensor Status'
-        constantSensorStatus.get((int) payload[msgOffset]);
+        response.put("SENSOR_STATUS", constantSensorStatus.get(payload[msgOffset] & 0xff));
         msgOffset += 1;
 
         // Process 'Properties1'

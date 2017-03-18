@@ -520,7 +520,7 @@ public class CommandClassSensorMultilevelV10 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Sensor Type'
-        constantSensorType.get((int) payload[2]);
+        response.put("SENSOR_TYPE", constantSensorType.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -576,7 +576,7 @@ public class CommandClassSensorMultilevelV10 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Sensor Type'
-        constantSensorType.get((int) payload[2]);
+        response.put("SENSOR_TYPE", constantSensorType.get(payload[2] & 0xff));
 
         // Process 'Properties1'
         response.put("SCALE", Integer.valueOf((payload[3] & 0x18 >> 3)));
@@ -655,7 +655,7 @@ public class CommandClassSensorMultilevelV10 {
         int msgOffset = 2;
 
         // Process 'Sensor Type'
-        constantSensorType.get((int) payload[msgOffset]);
+        response.put("SENSOR_TYPE", constantSensorType.get(payload[msgOffset] & 0xff));
         msgOffset += 1;
 
         // Process 'Level'
@@ -727,7 +727,7 @@ public class CommandClassSensorMultilevelV10 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Sensor Type'
-        constantSensorType.get((int) payload[2]);
+        response.put("SENSOR_TYPE", constantSensorType.get(payload[2] & 0xff));
 
         // Process 'Properties1'
         response.put("SCALE_BIT_MASK", Integer.valueOf(payload[3] & 0x0F));

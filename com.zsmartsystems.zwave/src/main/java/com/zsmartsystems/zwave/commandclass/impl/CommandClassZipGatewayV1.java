@@ -142,7 +142,7 @@ public class CommandClassZipGatewayV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Mode'
-        constantMode.get((int) payload[2]);
+        response.put("MODE", constantMode.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -226,7 +226,7 @@ public class CommandClassZipGatewayV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Mode'
-        constantMode.get((int) payload[2]);
+        response.put("MODE", constantMode.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;

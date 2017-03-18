@@ -124,7 +124,7 @@ public class CommandClassDoorLockV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Door Lock Mode'
-        constantDoorLockMode.get((int) payload[2]);
+        response.put("DOOR_LOCK_MODE", constantDoorLockMode.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -235,7 +235,7 @@ public class CommandClassDoorLockV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Door Lock Mode'
-        constantDoorLockMode.get((int) payload[2]);
+        response.put("DOOR_LOCK_MODE", constantDoorLockMode.get(payload[2] & 0xff));
 
         // Process 'Properties1'
         response.put("INSIDE_DOOR_HANDLES_MODE", Integer.valueOf(payload[3] & 0x0F));
@@ -320,7 +320,7 @@ public class CommandClassDoorLockV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Operation Type'
-        constantOperationType.get((int) payload[2]);
+        response.put("OPERATION_TYPE", constantOperationType.get(payload[2] & 0xff));
 
         // Process 'Properties1'
         response.put("INSIDE_DOOR_HANDLES_STATE", Integer.valueOf(payload[3] & 0x0F));
@@ -435,7 +435,7 @@ public class CommandClassDoorLockV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Operation Type'
-        constantOperationType.get((int) payload[2]);
+        response.put("OPERATION_TYPE", constantOperationType.get(payload[2] & 0xff));
 
         // Process 'Properties1'
         response.put("INSIDE_DOOR_HANDLES_STATE", Integer.valueOf(payload[3] & 0x0F));

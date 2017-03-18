@@ -154,7 +154,7 @@ public class CommandClassThermostatHeatingV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Mode'
-        constantMode.get((int) payload[2]);
+        response.put("MODE", constantMode.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -238,7 +238,7 @@ public class CommandClassThermostatHeatingV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Mode'
-        constantMode.get((int) payload[2]);
+        response.put("MODE", constantMode.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -542,7 +542,7 @@ public class CommandClassThermostatHeatingV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Relay Status'
-        constantRelayStatus.get((int) payload[2]);
+        response.put("RELAY_STATUS", constantRelayStatus.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -593,7 +593,7 @@ public class CommandClassThermostatHeatingV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Status'
-        constantStatus.get((int) payload[2]);
+        response.put("STATUS", constantStatus.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;
@@ -677,7 +677,7 @@ public class CommandClassThermostatHeatingV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Status'
-        constantStatus.get((int) payload[2]);
+        response.put("STATUS", constantStatus.get(payload[2] & 0xff));
 
         // Return the map of processed response data;
         return response;

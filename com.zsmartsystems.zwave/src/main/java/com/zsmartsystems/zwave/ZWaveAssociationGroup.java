@@ -6,7 +6,6 @@ import java.util.Set;
 
 import com.zsmartsystems.zwave.commandclass.ZWaveCommandClassEnum;
 
-
 /**
  * This class provides a storage class for zwave association groups
  * within the node class. This is then serialised to XML.
@@ -27,7 +26,7 @@ public class ZWaveAssociationGroup {
     private Integer profile2;
     private Set<ZWaveCommandClassEnum> commands;
 
-    List<ZWaveAssociation> associations = new ArrayList<ZWaveAssociation>();
+    private List<ZWaveAssociation> associations = new ArrayList<ZWaveAssociation>();
 
     public ZWaveAssociationGroup(int index) {
         this.index = index;
