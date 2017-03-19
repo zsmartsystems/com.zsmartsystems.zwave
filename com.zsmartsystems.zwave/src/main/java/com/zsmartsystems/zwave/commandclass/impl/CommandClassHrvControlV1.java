@@ -652,9 +652,8 @@ public class CommandClassHrvControlV1 {
 
         // Process 'Bit Mask'
         List<String> responseBitMask = new ArrayList<String>();
-        int cntBitMask = 0;
-        while (cntBitMask < payload.length - 3) {
-            if ((payload[3 + (cntBitMask / 8)] & cntBitMask % 8) == 0) {
+        for (int cntBitMask = 0; cntBitMask < (payload.length - 3) * 8; cntBitMask++) {
+            if ((payload[3 + (cntBitMask / 8)] & (1 << cntBitMask % 8)) == 0) {
                 continue;
             }
             switch (cntBitMask) {

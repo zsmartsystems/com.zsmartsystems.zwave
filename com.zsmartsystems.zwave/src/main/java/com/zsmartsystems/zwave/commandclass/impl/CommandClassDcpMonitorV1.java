@@ -248,7 +248,7 @@ public class CommandClassDcpMonitorV1 {
         response.put("REPORTS_TO_FOLLOW", Integer.valueOf(payload[2]));
 
         // Process 'Year'
-        response.put("YEAR", Integer.valueOf(payload[3] << 8 + payload[4]));
+        response.put("YEAR", Integer.valueOf(((payload[3] & 0xff) << 8) + (payload[4] & 0xff)));
 
         // Process 'Month'
         response.put("MONTH", Integer.valueOf(payload[5]));
@@ -298,7 +298,7 @@ public class CommandClassDcpMonitorV1 {
         response.put("VG1", variantList);
 
         // Process 'Start Year'
-        response.put("START_YEAR", Integer.valueOf(payload[14] << 8 + payload[15]));
+        response.put("START_YEAR", Integer.valueOf(((payload[14] & 0xff) << 8) + (payload[15] & 0xff)));
 
         // Process 'Start Month'
         response.put("START_MONTH", Integer.valueOf(payload[16]));
@@ -410,7 +410,7 @@ public class CommandClassDcpMonitorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Year'
-        response.put("YEAR", Integer.valueOf(payload[2] << 8 + payload[3]));
+        response.put("YEAR", Integer.valueOf(((payload[2] & 0xff) << 8) + (payload[3] & 0xff)));
 
         // Process 'Month'
         response.put("MONTH", Integer.valueOf(payload[4]));
@@ -503,7 +503,7 @@ public class CommandClassDcpMonitorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Year'
-        response.put("YEAR", Integer.valueOf(payload[2] << 8 + payload[3]));
+        response.put("YEAR", Integer.valueOf(((payload[2] & 0xff) << 8) + (payload[3] & 0xff)));
 
         // Process 'Month'
         response.put("MONTH", Integer.valueOf(payload[4]));

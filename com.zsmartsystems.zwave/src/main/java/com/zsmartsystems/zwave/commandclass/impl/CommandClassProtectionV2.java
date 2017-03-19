@@ -315,10 +315,10 @@ public class CommandClassProtectionV2 {
         response.put("EXCLUSIVE_CONTROL", Boolean.valueOf((payload[2] & 0x02) != 0));
 
         // Process 'Local Protection State'
-        response.put("LOCAL_PROTECTION_STATE", Integer.valueOf(payload[3] << 8 + payload[4]));
+        response.put("LOCAL_PROTECTION_STATE", Integer.valueOf(((payload[3] & 0xff) << 8) + (payload[4] & 0xff)));
 
         // Process 'RF Protection State'
-        response.put("RF_PROTECTION_STATE", Integer.valueOf(payload[5] << 8 + payload[6]));
+        response.put("RF_PROTECTION_STATE", Integer.valueOf(((payload[5] & 0xff) << 8) + (payload[6] & 0xff)));
 
         // Return the map of processed response data;
         return response;

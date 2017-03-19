@@ -110,7 +110,8 @@ public class CommandClassIrrigationV1 {
      */
     public final static int IRRIGATION_SYSTEM_SHUTOFF = 0x12;
 
-    // Constants for Sensor Status
+
+    // Define constants for Sensor Status
     private static Map<Integer, String> constantSensorStatus = new HashMap<Integer, String>();
 
     static {
@@ -408,7 +409,7 @@ public class CommandClassIrrigationV1 {
         List<String> responseSystemErrorStatus = new ArrayList<String>();
         int lenSystemErrorStatus = 1;
         for (int cntSystemErrorStatus = 0; cntSystemErrorStatus < lenSystemErrorStatus; cntSystemErrorStatus++) {
-            if ((payload[msgOffset + (cntSystemErrorStatus / 8)] & cntSystemErrorStatus % 8) == 0) {
+            if ((payload[msgOffset + (cntSystemErrorStatus / 8)] & (1 << cntSystemErrorStatus % 8)) == 0) {
                 continue;
             }
             switch (cntSystemErrorStatus) {
@@ -561,7 +562,7 @@ public class CommandClassIrrigationV1 {
         List<String> responseSensorPolarity = new ArrayList<String>();
         int lenSensorPolarity = 1;
         for (int cntSensorPolarity = 0; cntSensorPolarity < lenSensorPolarity; cntSensorPolarity++) {
-            if ((payload[msgOffset + (cntSensorPolarity / 8)] & cntSensorPolarity % 8) == 0) {
+            if ((payload[msgOffset + (cntSensorPolarity / 8)] & (1 << cntSensorPolarity % 8)) == 0) {
                 continue;
             }
             switch (cntSensorPolarity) {
@@ -733,7 +734,7 @@ public class CommandClassIrrigationV1 {
         List<String> responseSensorPolarity = new ArrayList<String>();
         int lenSensorPolarity = 1;
         for (int cntSensorPolarity = 0; cntSensorPolarity < lenSensorPolarity; cntSensorPolarity++) {
-            if ((payload[msgOffset + (cntSensorPolarity / 8)] & cntSensorPolarity % 8) == 0) {
+            if ((payload[msgOffset + (cntSensorPolarity / 8)] & (1 << cntSensorPolarity % 8)) == 0) {
                 continue;
             }
             switch (cntSensorPolarity) {
@@ -893,7 +894,7 @@ public class CommandClassIrrigationV1 {
         List<String> responseValveErrorStatus = new ArrayList<String>();
         int lenValveErrorStatus = 1;
         for (int cntValveErrorStatus = 0; cntValveErrorStatus < lenValveErrorStatus; cntValveErrorStatus++) {
-            if ((payload[5 + (cntValveErrorStatus / 8)] & cntValveErrorStatus % 8) == 0) {
+            if ((payload[5 + (cntValveErrorStatus / 8)] & (1 << cntValveErrorStatus % 8)) == 0) {
                 continue;
             }
             switch (cntValveErrorStatus) {
@@ -1094,7 +1095,7 @@ public class CommandClassIrrigationV1 {
         List<String> responseSensorUsage = new ArrayList<String>();
         int lenSensorUsage = 1;
         for (int cntSensorUsage = 0; cntSensorUsage < lenSensorUsage; cntSensorUsage++) {
-            if ((payload[msgOffset + (cntSensorUsage / 8)] & cntSensorUsage % 8) == 0) {
+            if ((payload[msgOffset + (cntSensorUsage / 8)] & (1 << cntSensorUsage % 8)) == 0) {
                 continue;
             }
             switch (cntSensorUsage) {
@@ -1338,7 +1339,7 @@ public class CommandClassIrrigationV1 {
         List<String> responseSensorUsage = new ArrayList<String>();
         int lenSensorUsage = 1;
         for (int cntSensorUsage = 0; cntSensorUsage < lenSensorUsage; cntSensorUsage++) {
-            if ((payload[msgOffset + (cntSensorUsage / 8)] & cntSensorUsage % 8) == 0) {
+            if ((payload[msgOffset + (cntSensorUsage / 8)] & (1 << cntSensorUsage % 8)) == 0) {
                 continue;
             }
             switch (cntSensorUsage) {
@@ -1417,7 +1418,7 @@ public class CommandClassIrrigationV1 {
         response.put("VALVE_ID", Integer.valueOf(payload[3]));
 
         // Process 'Duration'
-        response.put("DURATION", Integer.valueOf(payload[4] << 8 + payload[5]));
+        response.put("DURATION", Integer.valueOf(((payload[4] & 0xff) << 8) + (payload[5] & 0xff)));
 
         // Return the map of processed response data;
         return response;
@@ -1481,7 +1482,7 @@ public class CommandClassIrrigationV1 {
             variant.put("VALVE_ID", Integer.valueOf(payload[3]));
 
             // Process 'Duration'
-            variant.put("DURATION", Integer.valueOf(payload[4] << 8 + payload[5]));
+            variant.put("DURATION", Integer.valueOf(((payload[4] & 0xff) << 8) + (payload[5] & 0xff)));
 
         }
 
@@ -1596,7 +1597,7 @@ public class CommandClassIrrigationV1 {
             variant.put("VALVE_ID", Integer.valueOf(payload[3]));
 
             // Process 'Duration'
-            variant.put("DURATION", Integer.valueOf(payload[4] << 8 + payload[5]));
+            variant.put("DURATION", Integer.valueOf(((payload[4] & 0xff) << 8) + (payload[5] & 0xff)));
 
         }
 

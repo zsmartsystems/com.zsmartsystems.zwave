@@ -177,7 +177,7 @@ public class CommandClassTransportServiceV2 {
         response.put("PAYLOAD", valPayload);
 
         // Process 'Frame Check Sequence'
-        response.put("FRAME_CHECK_SEQUENCE", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
+        response.put("FRAME_CHECK_SEQUENCE", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Return the map of processed response data;
@@ -382,7 +382,7 @@ public class CommandClassTransportServiceV2 {
         response.put("PAYLOAD", valPayload);
 
         // Process 'Frame Check Sequence'
-        response.put("FRAME_CHECK_SEQUENCE", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
+        response.put("FRAME_CHECK_SEQUENCE", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Return the map of processed response data;

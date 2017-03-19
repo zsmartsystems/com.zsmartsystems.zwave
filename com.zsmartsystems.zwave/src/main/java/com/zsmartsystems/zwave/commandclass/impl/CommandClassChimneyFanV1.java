@@ -192,11 +192,14 @@ public class CommandClassChimneyFanV1 {
      */
     public final static int CHIMNEY_FAN_DEFAULT_SET = 0x28;
 
-    // Constants for State
+
+    // Define constants for State
     private static Map<Integer, String> constantState = new HashMap<Integer, String>();
-    // Constants for Message
+
+    // Define constants for Message
     private static Map<Integer, String> constantMessage = new HashMap<Integer, String>();
-    // Constants for Mode
+
+    // Define constants for Mode
     private static Map<Integer, String> constantMode = new HashMap<Integer, String>();
 
     static {

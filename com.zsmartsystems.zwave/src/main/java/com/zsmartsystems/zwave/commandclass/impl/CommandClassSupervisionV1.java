@@ -44,7 +44,8 @@ public class CommandClassSupervisionV1 {
      */
     public final static int SUPERVISION_REPORT = 0x02;
 
-    // Constants for Status
+
+    // Define constants for Status
     private static Map<Integer, String> constantStatus = new HashMap<Integer, String>();
 
     static {

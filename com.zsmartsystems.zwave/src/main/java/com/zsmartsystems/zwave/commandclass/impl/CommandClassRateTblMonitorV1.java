@@ -160,7 +160,7 @@ public class CommandClassRateTblMonitorV1 {
         response.put("RATES_SUPPORTED", Integer.valueOf(payload[2]));
 
         // Process 'Parameter Set Supported Bit Mask'
-        response.put("PARAMETER_SET_SUPPORTED_BIT_MASK", Integer.valueOf(payload[3] << 8 + payload[4]));
+        response.put("PARAMETER_SET_SUPPORTED_BIT_MASK", Integer.valueOf(((payload[3] & 0xff) << 8) + (payload[4] & 0xff)));
 
         // Return the map of processed response data;
         return response;
@@ -367,7 +367,7 @@ public class CommandClassRateTblMonitorV1 {
         msgOffset += 1;
 
         // Process 'Duration Minute'
-        response.put("DURATION_MINUTE", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
+        response.put("DURATION_MINUTE", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Process 'Properties2'
@@ -376,11 +376,11 @@ public class CommandClassRateTblMonitorV1 {
         msgOffset += 1;
 
         // Process 'Min Consumption Value'
-        response.put("MIN_CONSUMPTION_VALUE", Long.valueOf(payload[msgOffset] << 24 + payload[msgOffset + 1] << 16 + payload[msgOffset + 2] << 8 + payload[msgOffset + 3]));
+        response.put("MIN_CONSUMPTION_VALUE", Long.valueOf((payload[msgOffset] << 24) + (payload[msgOffset + 1] << 16) + (payload[msgOffset + 2] << 8) + payload[msgOffset + 3]));
         msgOffset += 4;
 
         // Process 'Max Consumption Value'
-        response.put("MAX_CONSUMPTION_VALUE", Long.valueOf(payload[msgOffset] << 24 + payload[msgOffset + 1] << 16 + payload[msgOffset + 2] << 8 + payload[msgOffset + 3]));
+        response.put("MAX_CONSUMPTION_VALUE", Long.valueOf((payload[msgOffset] << 24) + (payload[msgOffset + 1] << 16) + (payload[msgOffset + 2] << 8) + payload[msgOffset + 3]));
         msgOffset += 4;
 
         // Process 'Properties3'
@@ -389,7 +389,7 @@ public class CommandClassRateTblMonitorV1 {
         msgOffset += 1;
 
         // Process 'Max Demand Value'
-        response.put("MAX_DEMAND_VALUE", Long.valueOf(payload[msgOffset] << 24 + payload[msgOffset + 1] << 16 + payload[msgOffset + 2] << 8 + payload[msgOffset + 3]));
+        response.put("MAX_DEMAND_VALUE", Long.valueOf((payload[msgOffset] << 24) + (payload[msgOffset + 1] << 16) + (payload[msgOffset + 2] << 8) + payload[msgOffset + 3]));
         msgOffset += 4;
 
         // Process 'DCP Rate ID'
@@ -618,7 +618,7 @@ public class CommandClassRateTblMonitorV1 {
         // Process 'Dataset'
 
         // Process 'Year'
-        response.put("YEAR", Integer.valueOf(payload[7] << 8 + payload[8]));
+        response.put("YEAR", Integer.valueOf(((payload[7] & 0xff) << 8) + (payload[8] & 0xff)));
 
         // Process 'Month'
         response.put("MONTH", Integer.valueOf(payload[9]));
@@ -650,7 +650,7 @@ public class CommandClassRateTblMonitorV1 {
             variant.put("CURRENT_PRECISION", Integer.valueOf((payload[14] & 0xE0 >> 5)));
 
             // Process 'Current Value'
-            variant.put("CURRENT_VALUE", Long.valueOf(payload[15] << 24 + payload[16] << 16 + payload[17] << 8 + payload[18]));
+            variant.put("CURRENT_VALUE", Long.valueOf((payload[15] << 24) + (payload[16] << 16) + (payload[17] << 8) + payload[18]));
 
             // Add to the list
             variantList.add(variant);
@@ -786,7 +786,7 @@ public class CommandClassRateTblMonitorV1 {
         // Process 'Dataset Requested'
 
         // Process 'Start Year'
-        response.put("START_YEAR", Integer.valueOf(payload[7] << 8 + payload[8]));
+        response.put("START_YEAR", Integer.valueOf(((payload[7] & 0xff) << 8) + (payload[8] & 0xff)));
 
         // Process 'Start Month'
         response.put("START_MONTH", Integer.valueOf(payload[9]));
@@ -804,7 +804,7 @@ public class CommandClassRateTblMonitorV1 {
         response.put("START_SECOND_LOCAL_TIME", Integer.valueOf(payload[13]));
 
         // Process 'Stop Year'
-        response.put("STOP_YEAR", Integer.valueOf(payload[14] << 8 + payload[15]));
+        response.put("STOP_YEAR", Integer.valueOf(((payload[14] & 0xff) << 8) + (payload[15] & 0xff)));
 
         // Process 'Stop Month'
         response.put("STOP_MONTH", Integer.valueOf(payload[16]));
@@ -915,7 +915,7 @@ public class CommandClassRateTblMonitorV1 {
         // Process 'Dataset'
 
         // Process 'Year'
-        response.put("YEAR", Integer.valueOf(payload[7] << 8 + payload[8]));
+        response.put("YEAR", Integer.valueOf(((payload[7] & 0xff) << 8) + (payload[8] & 0xff)));
 
         // Process 'Month'
         response.put("MONTH", Integer.valueOf(payload[9]));
@@ -947,7 +947,7 @@ public class CommandClassRateTblMonitorV1 {
             variant.put("HISTORICAL_PRECISION", Integer.valueOf((payload[14] & 0xE0 >> 5)));
 
             // Process 'Historical Value'
-            variant.put("HISTORICAL_VALUE", Long.valueOf(payload[15] << 24 + payload[16] << 16 + payload[17] << 8 + payload[18]));
+            variant.put("HISTORICAL_VALUE", Long.valueOf((payload[15] << 24) + (payload[16] << 16) + (payload[17] << 8) + payload[18]));
 
             // Add to the list
             variantList.add(variant);

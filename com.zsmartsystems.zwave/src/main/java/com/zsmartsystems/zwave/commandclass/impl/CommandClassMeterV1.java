@@ -44,7 +44,8 @@ public class CommandClassMeterV1 {
      */
     public final static int METER_REPORT = 0x02;
 
-    // Constants for Meter Type
+
+    // Define constants for Meter Type
     private static Map<Integer, String> constantMeterType = new HashMap<Integer, String>();
 
     static {

@@ -67,7 +67,8 @@ public class CommandClassNotificationV3 {
      */
     public final static int NOTIFICATION_SUPPORTED_REPORT = 0x08;
 
-    // Constants for Notification Type
+
+    // Define constants for Notification Type
     private static Map<Integer, String> constantNotificationType = new HashMap<Integer, String>();
 
     static {
@@ -207,7 +208,7 @@ public class CommandClassNotificationV3 {
         List<Integer> responseBitMask = new ArrayList<Integer>();
         int lenBitMask = (payload[3] & 0x1F) * 8;
         for (int cntBitMask = 0; cntBitMask < lenBitMask; cntBitMask++) {
-            if ((payload[4 + (cntBitMask / 8)] & cntBitMask % 8) == 0) {
+            if ((payload[4 + (cntBitMask / 8)] & (1 << cntBitMask % 8)) == 0) {
                 continue;
             }
             responseBitMask.add(cntBitMask);
@@ -571,7 +572,7 @@ public class CommandClassNotificationV3 {
         List<String> responseBitMask = new ArrayList<String>();
         int lenBitMask = (payload[2] & 0x1F) * 8;
         for (int cntBitMask = 0; cntBitMask < lenBitMask; cntBitMask++) {
-            if ((payload[3 + (cntBitMask / 8)] & cntBitMask % 8) == 0) {
+            if ((payload[3 + (cntBitMask / 8)] & (1 << cntBitMask % 8)) == 0) {
                 continue;
             }
             switch (cntBitMask) {

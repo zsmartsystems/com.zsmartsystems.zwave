@@ -915,7 +915,7 @@ public class CommandClassMultiChannelV4 {
         List<Integer> responseAggregatedMembersBitMask = new ArrayList<Integer>();
         int lenAggregatedMembersBitMask = (payload[3] & 0xFF) * 8;
         for (int cntAggregatedMembersBitMask = 0; cntAggregatedMembersBitMask < lenAggregatedMembersBitMask; cntAggregatedMembersBitMask++) {
-            if ((payload[4 + (cntAggregatedMembersBitMask / 8)] & cntAggregatedMembersBitMask % 8) == 0) {
+            if ((payload[4 + (cntAggregatedMembersBitMask / 8)] & (1 << cntAggregatedMembersBitMask % 8)) == 0) {
                 continue;
             }
             responseAggregatedMembersBitMask.add(cntAggregatedMembersBitMask);

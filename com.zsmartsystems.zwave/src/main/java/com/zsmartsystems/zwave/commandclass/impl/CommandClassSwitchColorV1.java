@@ -139,7 +139,7 @@ public class CommandClassSwitchColorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Color Component mask'
-        response.put("COLOR_COMPONENT_MASK", Integer.valueOf(payload[2] << 8 + payload[3]));
+        response.put("COLOR_COMPONENT_MASK", Integer.valueOf(((payload[2] & 0xff) << 8) + (payload[3] & 0xff)));
 
         // Return the map of processed response data;
         return response;

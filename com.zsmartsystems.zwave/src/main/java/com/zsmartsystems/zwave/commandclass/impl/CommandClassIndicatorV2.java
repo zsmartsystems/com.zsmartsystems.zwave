@@ -57,11 +57,14 @@ public class CommandClassIndicatorV2 {
      */
     public final static int INDICATOR_SUPPORTED_REPORT = 0x05;
 
-    // Constants for Next Indicator ID
+
+    // Define constants for Next Indicator ID
     private static Map<Integer, String> constantNextIndicatorId = new HashMap<Integer, String>();
-    // Constants for Property ID
+
+    // Define constants for Property ID
     private static Map<Integer, String> constantPropertyId = new HashMap<Integer, String>();
-    // Constants for Indicator ID
+
+    // Define constants for Indicator ID
     private static Map<Integer, String> constantIndicatorId = new HashMap<Integer, String>();
 
     static {
@@ -518,7 +521,7 @@ public class CommandClassIndicatorV2 {
         List<String> responsePropertySupportedBitMask = new ArrayList<String>();
         int lenPropertySupportedBitMask = (payload[4] & 0x1F) * 8;
         for (int cntPropertySupportedBitMask = 0; cntPropertySupportedBitMask < lenPropertySupportedBitMask; cntPropertySupportedBitMask++) {
-            if ((payload[5 + (cntPropertySupportedBitMask / 8)] & cntPropertySupportedBitMask % 8) == 0) {
+            if ((payload[5 + (cntPropertySupportedBitMask / 8)] & (1 << cntPropertySupportedBitMask % 8)) == 0) {
                 continue;
             }
             switch (cntPropertySupportedBitMask) {

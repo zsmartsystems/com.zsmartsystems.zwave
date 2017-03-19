@@ -199,7 +199,7 @@ public class CommandClassRateTblConfigV1 {
         msgOffset += 1;
 
         // Process 'Duration Minute'
-        response.put("DURATION_MINUTE", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
+        response.put("DURATION_MINUTE", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Process 'Properties2'
@@ -208,11 +208,11 @@ public class CommandClassRateTblConfigV1 {
         msgOffset += 1;
 
         // Process 'Min Consumption Value'
-        response.put("MIN_CONSUMPTION_VALUE", Long.valueOf(payload[msgOffset] << 24 + payload[msgOffset + 1] << 16 + payload[msgOffset + 2] << 8 + payload[msgOffset + 3]));
+        response.put("MIN_CONSUMPTION_VALUE", Long.valueOf((payload[msgOffset] << 24) + (payload[msgOffset + 1] << 16) + (payload[msgOffset + 2] << 8) + payload[msgOffset + 3]));
         msgOffset += 4;
 
         // Process 'Max Consumption Value'
-        response.put("MAX_CONSUMPTION_VALUE", Long.valueOf(payload[msgOffset] << 24 + payload[msgOffset + 1] << 16 + payload[msgOffset + 2] << 8 + payload[msgOffset + 3]));
+        response.put("MAX_CONSUMPTION_VALUE", Long.valueOf((payload[msgOffset] << 24) + (payload[msgOffset + 1] << 16) + (payload[msgOffset + 2] << 8) + payload[msgOffset + 3]));
         msgOffset += 4;
 
         // Process 'Properties3'
@@ -221,7 +221,7 @@ public class CommandClassRateTblConfigV1 {
         msgOffset += 1;
 
         // Process 'Max Demand Value'
-        response.put("MAX_DEMAND_VALUE", Long.valueOf(payload[msgOffset] << 24 + payload[msgOffset + 1] << 16 + payload[msgOffset + 2] << 8 + payload[msgOffset + 3]));
+        response.put("MAX_DEMAND_VALUE", Long.valueOf((payload[msgOffset] << 24) + (payload[msgOffset + 1] << 16) + (payload[msgOffset + 2] << 8) + payload[msgOffset + 3]));
         msgOffset += 4;
 
         // Process 'DCP Rate ID'

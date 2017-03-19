@@ -171,7 +171,7 @@ public class CommandClassCentralSceneV3 {
             List<String> responseSupportedKeyAttributesForScene = new ArrayList<String>();
             int lenSupportedKeyAttributesForScene = (payload[5] & 0x06 >> 1) * 8;
             for (int cntSupportedKeyAttributesForScene = 0; cntSupportedKeyAttributesForScene < lenSupportedKeyAttributesForScene; cntSupportedKeyAttributesForScene++) {
-                if ((payload[4 + (cntSupportedKeyAttributesForScene / 8)] & cntSupportedKeyAttributesForScene % 8) == 0) {
+                if ((payload[4 + (cntSupportedKeyAttributesForScene / 8)] & (1 << cntSupportedKeyAttributesForScene % 8)) == 0) {
                     continue;
                 }
                 switch (cntSupportedKeyAttributesForScene) {

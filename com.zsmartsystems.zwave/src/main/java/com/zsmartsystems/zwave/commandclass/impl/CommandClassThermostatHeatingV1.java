@@ -84,11 +84,14 @@ public class CommandClassThermostatHeatingV1 {
      */
     public final static int THERMOSTAT_HEATING_TIMED_OFF_SET = 0x11;
 
-    // Constants for Status
+
+    // Define constants for Status
     private static Map<Integer, String> constantStatus = new HashMap<Integer, String>();
-    // Constants for Relay Status
+
+    // Define constants for Relay Status
     private static Map<Integer, String> constantRelayStatus = new HashMap<Integer, String>();
-    // Constants for Mode
+
+    // Define constants for Mode
     private static Map<Integer, String> constantMode = new HashMap<Integer, String>();
 
     static {

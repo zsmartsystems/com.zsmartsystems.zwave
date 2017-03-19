@@ -393,7 +393,7 @@ public class CommandClassConfigurationV4 {
         int msgOffset = 2;
 
         // Process 'Parameter Offset'
-        response.put("PARAMETER_OFFSET", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
+        response.put("PARAMETER_OFFSET", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Process 'Number of Parameters'
@@ -485,7 +485,7 @@ public class CommandClassConfigurationV4 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Parameter Offset'
-        response.put("PARAMETER_OFFSET", Integer.valueOf(payload[2] << 8 + payload[3]));
+        response.put("PARAMETER_OFFSET", Integer.valueOf(((payload[2] & 0xff) << 8) + (payload[3] & 0xff)));
 
         // Process 'Number of Parameters'
         response.put("NUMBER_OF_PARAMETERS", Integer.valueOf(payload[4]));
@@ -564,7 +564,7 @@ public class CommandClassConfigurationV4 {
         int msgOffset = 2;
 
         // Process 'Parameter Offset'
-        response.put("PARAMETER_OFFSET", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
+        response.put("PARAMETER_OFFSET", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Process 'Number of Parameters'
@@ -655,7 +655,7 @@ public class CommandClassConfigurationV4 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Parameter Number'
-        response.put("PARAMETER_NUMBER", Integer.valueOf(payload[2] << 8 + payload[3]));
+        response.put("PARAMETER_NUMBER", Integer.valueOf(((payload[2] & 0xff) << 8) + (payload[3] & 0xff)));
 
         // Return the map of processed response data;
         return response;
@@ -718,7 +718,7 @@ public class CommandClassConfigurationV4 {
         int msgOffset = 2;
 
         // Process 'Parameter Number'
-        response.put("PARAMETER_NUMBER", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
+        response.put("PARAMETER_NUMBER", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Process 'Reports to follow'
@@ -778,7 +778,7 @@ public class CommandClassConfigurationV4 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Parameter Number'
-        response.put("PARAMETER_NUMBER", Integer.valueOf(payload[2] << 8 + payload[3]));
+        response.put("PARAMETER_NUMBER", Integer.valueOf(((payload[2] & 0xff) << 8) + (payload[3] & 0xff)));
 
         // Return the map of processed response data;
         return response;
@@ -841,7 +841,7 @@ public class CommandClassConfigurationV4 {
         int msgOffset = 2;
 
         // Process 'Parameter Number'
-        response.put("PARAMETER_NUMBER", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
+        response.put("PARAMETER_NUMBER", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Process 'Reports to follow'
@@ -901,7 +901,7 @@ public class CommandClassConfigurationV4 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Parameter Number'
-        response.put("PARAMETER_NUMBER", Integer.valueOf(payload[2] << 8 + payload[3]));
+        response.put("PARAMETER_NUMBER", Integer.valueOf(((payload[2] & 0xff) << 8) + (payload[3] & 0xff)));
 
         // Return the map of processed response data;
         return response;
@@ -1026,7 +1026,7 @@ public class CommandClassConfigurationV4 {
         int msgOffset = 2;
 
         // Process 'Parameter Number'
-        response.put("PARAMETER_NUMBER", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
+        response.put("PARAMETER_NUMBER", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Process 'Properties1'
@@ -1079,7 +1079,7 @@ public class CommandClassConfigurationV4 {
         msgOffset += lenDefaultValue;
 
         // Process 'Next Parameter Number'
-        response.put("NEXT_PARAMETER_NUMBER", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
+        response.put("NEXT_PARAMETER_NUMBER", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Process 'Properties2'

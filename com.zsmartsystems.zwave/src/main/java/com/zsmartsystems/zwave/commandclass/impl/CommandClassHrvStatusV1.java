@@ -54,7 +54,8 @@ public class CommandClassHrvStatusV1 {
      */
     public final static int HRV_STATUS_SUPPORTED_REPORT = 0x04;
 
-    // Constants for Status Parameter
+
+    // Define constants for Status Parameter
     private static Map<Integer, String> constantStatusParameter = new HashMap<Integer, String>();
 
     static {
@@ -292,9 +293,8 @@ public class CommandClassHrvStatusV1 {
 
         // Process 'Bit Mask'
         List<String> responseBitMask = new ArrayList<String>();
-        int cntBitMask = 0;
-        while (cntBitMask < payload.length - 2) {
-            if ((payload[2 + (cntBitMask / 8)] & cntBitMask % 8) == 0) {
+        for (int cntBitMask = 0; cntBitMask < (payload.length - 2) * 8; cntBitMask++) {
+            if ((payload[2 + (cntBitMask / 8)] & (1 << cntBitMask % 8)) == 0) {
                 continue;
             }
             switch (cntBitMask) {

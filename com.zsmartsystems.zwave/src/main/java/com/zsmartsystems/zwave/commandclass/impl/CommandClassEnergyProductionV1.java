@@ -44,7 +44,8 @@ public class CommandClassEnergyProductionV1 {
      */
     public final static int ENERGY_PRODUCTION_REPORT = 0x03;
 
-    // Constants for Parameter Number
+
+    // Define constants for Parameter Number
     private static Map<Integer, String> constantParameterNumber = new HashMap<Integer, String>();
 
     static {

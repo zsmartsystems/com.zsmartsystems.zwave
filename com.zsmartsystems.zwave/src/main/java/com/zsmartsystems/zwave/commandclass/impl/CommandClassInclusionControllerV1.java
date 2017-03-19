@@ -43,9 +43,11 @@ public class CommandClassInclusionControllerV1 {
      */
     public final static int COMPLETE = 0x02;
 
-    // Constants for Status
+
+    // Define constants for Status
     private static Map<Integer, String> constantStatus = new HashMap<Integer, String>();
-    // Constants for Step ID
+
+    // Define constants for Step ID
     private static Map<Integer, String> constantStepId = new HashMap<Integer, String>();
 
     static {

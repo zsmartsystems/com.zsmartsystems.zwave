@@ -365,7 +365,7 @@ public class CommandClassScheduleV1 {
         msgOffset += 1;
 
         // Process 'Duration Byte'
-        response.put("DURATION_BYTE", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
+        response.put("DURATION_BYTE", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Process 'Reports to Follow'
@@ -603,7 +603,7 @@ public class CommandClassScheduleV1 {
         msgOffset += 1;
 
         // Process 'Duration Byte'
-        response.put("DURATION_BYTE", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
+        response.put("DURATION_BYTE", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Process 'Reports to Follow'

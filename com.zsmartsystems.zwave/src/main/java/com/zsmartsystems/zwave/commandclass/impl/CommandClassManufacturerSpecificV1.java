@@ -129,13 +129,13 @@ public class CommandClassManufacturerSpecificV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Manufacturer ID'
-        response.put("MANUFACTURER_ID", Integer.valueOf(payload[2] << 8 + payload[3]));
+        response.put("MANUFACTURER_ID", Integer.valueOf(((payload[2] & 0xff) << 8) + (payload[3] & 0xff)));
 
         // Process 'Product Type ID'
-        response.put("PRODUCT_TYPE_ID", Integer.valueOf(payload[4] << 8 + payload[5]));
+        response.put("PRODUCT_TYPE_ID", Integer.valueOf(((payload[4] & 0xff) << 8) + (payload[5] & 0xff)));
 
         // Process 'Product ID'
-        response.put("PRODUCT_ID", Integer.valueOf(payload[6] << 8 + payload[7]));
+        response.put("PRODUCT_ID", Integer.valueOf(((payload[6] & 0xff) << 8) + (payload[7] & 0xff)));
 
         // Return the map of processed response data;
         return response;

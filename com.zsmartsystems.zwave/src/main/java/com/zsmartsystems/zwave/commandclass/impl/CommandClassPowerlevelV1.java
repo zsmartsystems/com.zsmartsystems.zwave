@@ -59,11 +59,14 @@ public class CommandClassPowerlevelV1 {
      */
     public final static int POWERLEVEL_TEST_NODE_REPORT = 0x06;
 
-    // Constants for Status of operation
+
+    // Define constants for Status of operation
     private static Map<Integer, String> constantStatusOfOperation = new HashMap<Integer, String>();
-    // Constants for Test NodeID
+
+    // Define constants for Test NodeID
     private static Map<Integer, String> constantTestNodeid = new HashMap<Integer, String>();
-    // Constants for Power level
+
+    // Define constants for Power level
     private static Map<Integer, String> constantPowerLevel = new HashMap<Integer, String>();
 
     static {
@@ -304,7 +307,7 @@ public class CommandClassPowerlevelV1 {
         response.put("POWER_LEVEL", constantPowerLevel.get(payload[3] & 0xff));
 
         // Process 'Test frame count'
-        response.put("TEST_FRAME_COUNT", Integer.valueOf(payload[4] << 8 + payload[5]));
+        response.put("TEST_FRAME_COUNT", Integer.valueOf(((payload[4] & 0xff) << 8) + (payload[5] & 0xff)));
 
         // Return the map of processed response data;
         return response;
@@ -410,7 +413,7 @@ public class CommandClassPowerlevelV1 {
         response.put("STATUS_OF_OPERATION", constantStatusOfOperation.get(payload[3] & 0xff));
 
         // Process 'Test Frame Count'
-        response.put("TEST_FRAME_COUNT", Integer.valueOf(payload[4] << 8 + payload[5]));
+        response.put("TEST_FRAME_COUNT", Integer.valueOf(((payload[4] & 0xff) << 8) + (payload[5] & 0xff)));
 
         // Return the map of processed response data;
         return response;

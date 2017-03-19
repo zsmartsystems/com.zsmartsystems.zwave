@@ -63,9 +63,11 @@ public class CommandClassSwitchMultilevelV4 {
      */
     public final static int SWITCH_MULTILEVEL_SUPPORTED_REPORT = 0x07;
 
-    // Constants for Duration
+
+    // Define constants for Duration
     private static Map<Integer, String> constantDuration = new HashMap<Integer, String>();
-    // Constants for Dimming Duration
+
+    // Define constants for Dimming Duration
     private static Map<Integer, String> constantDimmingDuration = new HashMap<Integer, String>();
 
     static {

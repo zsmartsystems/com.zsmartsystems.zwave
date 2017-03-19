@@ -223,19 +223,19 @@ public class CommandClassPrepaymentV1 {
         response.put("BALANCE_PRECISION", Integer.valueOf((payload[3] & 0xE0 >> 5)));
 
         // Process 'Balance Value'
-        response.put("BALANCE_VALUE", Long.valueOf(payload[4] << 24 + payload[5] << 16 + payload[6] << 8 + payload[7]));
+        response.put("BALANCE_VALUE", Long.valueOf((payload[4] << 24) + (payload[5] << 16) + (payload[6] << 8) + payload[7]));
 
         // Process 'Properties3'
         response.put("DEBT_PRECISION", Integer.valueOf((payload[8] & 0xE0 >> 5)));
 
         // Process 'Debt'
-        response.put("DEBT", Long.valueOf(payload[9] << 24 + payload[10] << 16 + payload[11] << 8 + payload[12]));
+        response.put("DEBT", Long.valueOf((payload[9] << 24) + (payload[10] << 16) + (payload[11] << 8) + payload[12]));
 
         // Process 'Properties4'
         response.put("EMER_CREDIT_PRECISION", Integer.valueOf((payload[13] & 0xE0 >> 5)));
 
         // Process 'Emer Credit'
-        response.put("EMER_CREDIT", Long.valueOf(payload[14] << 24 + payload[15] << 16 + payload[16] << 8 + payload[17]));
+        response.put("EMER_CREDIT", Long.valueOf((payload[14] << 24) + (payload[15] << 16) + (payload[16] << 8) + payload[17]));
 
         // Process 'Currency'
 

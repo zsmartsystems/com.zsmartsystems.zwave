@@ -232,7 +232,7 @@ public class CommandClassSensorAlarmV1 {
         }
 
         // Process 'Seconds'
-        response.put("SECONDS", Integer.valueOf(payload[5] << 8 + payload[6]));
+        response.put("SECONDS", Integer.valueOf(((payload[5] & 0xff) << 8) + (payload[6] & 0xff)));
 
         // Return the map of processed response data;
         return response;

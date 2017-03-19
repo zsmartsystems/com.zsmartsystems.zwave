@@ -198,7 +198,7 @@ public class CommandClassTariffTblMonitorV1 {
         int msgOffset = 2;
 
         // Process 'Year'
-        response.put("YEAR", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
+        response.put("YEAR", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Process 'Month'
@@ -230,7 +230,7 @@ public class CommandClassTariffTblMonitorV1 {
         msgOffset += 1;
 
         // Process 'Standing Charge Value'
-        response.put("STANDING_CHARGE_VALUE", Long.valueOf(payload[msgOffset] << 24 + payload[msgOffset + 1] << 16 + payload[msgOffset + 2] << 8 + payload[msgOffset + 3]));
+        response.put("STANDING_CHARGE_VALUE", Long.valueOf((payload[msgOffset] << 24) + (payload[msgOffset + 1] << 16) + (payload[msgOffset + 2] << 8) + payload[msgOffset + 3]));
         msgOffset += 4;
 
         // Process 'Properties2'
@@ -355,7 +355,7 @@ public class CommandClassTariffTblMonitorV1 {
         response.put("TARIFF_PRECISION", Integer.valueOf((payload[3] & 0xE0 >> 5)));
 
         // Process 'Tariff Value'
-        response.put("TARIFF_VALUE", Long.valueOf(payload[4] << 24 + payload[5] << 16 + payload[6] << 8 + payload[7]));
+        response.put("TARIFF_VALUE", Long.valueOf((payload[4] << 24) + (payload[5] << 16) + (payload[6] << 8) + payload[7]));
 
         // Return the map of processed response data;
         return response;
@@ -458,7 +458,7 @@ public class CommandClassTariffTblMonitorV1 {
         response.put("RATE_PARAMETER_SET_ID", Integer.valueOf(payload[2]));
 
         // Process 'Start Year'
-        response.put("START_YEAR", Integer.valueOf(payload[3] << 8 + payload[4]));
+        response.put("START_YEAR", Integer.valueOf(((payload[3] & 0xff) << 8) + (payload[4] & 0xff)));
 
         // Process 'Start Month'
         response.put("START_MONTH", Integer.valueOf(payload[5]));
@@ -473,7 +473,7 @@ public class CommandClassTariffTblMonitorV1 {
         response.put("START_MINUTE_LOCAL_TIME", Integer.valueOf(payload[8]));
 
         // Process 'Stop Year'
-        response.put("STOP_YEAR", Integer.valueOf(payload[9] << 8 + payload[10]));
+        response.put("STOP_YEAR", Integer.valueOf(((payload[9] & 0xff) << 8) + (payload[10] & 0xff)));
 
         // Process 'Stop Month'
         response.put("STOP_MONTH", Integer.valueOf(payload[11]));
@@ -612,7 +612,7 @@ public class CommandClassTariffTblMonitorV1 {
         response.put("RATE_TYPE", Integer.valueOf(payload[3] & 0x03));
 
         // Process 'Start Year'
-        response.put("START_YEAR", Integer.valueOf(payload[4] << 8 + payload[5]));
+        response.put("START_YEAR", Integer.valueOf(((payload[4] & 0xff) << 8) + (payload[5] & 0xff)));
 
         // Process 'Start Month'
         response.put("START_MONTH", Integer.valueOf(payload[6]));
@@ -627,7 +627,7 @@ public class CommandClassTariffTblMonitorV1 {
         response.put("START_MINUTE_LOCAL_TIME", Integer.valueOf(payload[9]));
 
         // Process 'Stop Year'
-        response.put("STOP_YEAR", Integer.valueOf(payload[10] << 8 + payload[11]));
+        response.put("STOP_YEAR", Integer.valueOf(((payload[10] & 0xff) << 8) + (payload[11] & 0xff)));
 
         // Process 'Stop Month'
         response.put("STOP_MONTH", Integer.valueOf(payload[12]));
@@ -647,7 +647,7 @@ public class CommandClassTariffTblMonitorV1 {
         response.put("COST_PRECISION", Integer.valueOf((payload[19] & 0xE0 >> 5)));
 
         // Process 'Cost Value'
-        response.put("COST_VALUE", Long.valueOf(payload[20] << 24 + payload[21] << 16 + payload[22] << 8 + payload[23]));
+        response.put("COST_VALUE", Long.valueOf((payload[20] << 24) + (payload[21] << 16) + (payload[22] << 8) + payload[23]));
 
         // Return the map of processed response data;
         return response;

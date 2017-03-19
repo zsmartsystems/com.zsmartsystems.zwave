@@ -55,7 +55,8 @@ public class CommandClassSwitchAllV1 {
      */
     public final static int SWITCH_ALL_OFF = 0x05;
 
-    // Constants for Mode
+
+    // Define constants for Mode
     private static Map<Integer, String> constantMode = new HashMap<Integer, String>();
 
     static {

@@ -153,7 +153,7 @@ public class CommandClassTariffConfigV1 {
         int msgOffset = 2;
 
         // Process 'Year'
-        response.put("YEAR", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
+        response.put("YEAR", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Process 'Month'
@@ -185,7 +185,7 @@ public class CommandClassTariffConfigV1 {
         msgOffset += 1;
 
         // Process 'Standing Charge Value'
-        response.put("STANDING_CHARGE_VALUE", Long.valueOf(payload[msgOffset] << 24 + payload[msgOffset + 1] << 16 + payload[msgOffset + 2] << 8 + payload[msgOffset + 3]));
+        response.put("STANDING_CHARGE_VALUE", Long.valueOf((payload[msgOffset] << 24) + (payload[msgOffset + 1] << 16) + (payload[msgOffset + 2] << 8) + payload[msgOffset + 3]));
         msgOffset += 4;
 
         // Process 'Properties2'
@@ -264,7 +264,7 @@ public class CommandClassTariffConfigV1 {
         response.put("TARIFF_PRECISION", Integer.valueOf((payload[3] & 0xE0 >> 5)));
 
         // Process 'Tariff Value'
-        response.put("TARIFF_VALUE", Long.valueOf(payload[4] << 24 + payload[5] << 16 + payload[6] << 8 + payload[7]));
+        response.put("TARIFF_VALUE", Long.valueOf((payload[4] << 24) + (payload[5] << 16) + (payload[6] << 8) + payload[7]));
 
         // Return the map of processed response data;
         return response;

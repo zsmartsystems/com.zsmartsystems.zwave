@@ -22,8 +22,9 @@ public class CommandClassAlarmV1Test {
         assertTrue(Arrays.equals(CommandClassAlarmV1.getAlarmGet(6), expectedResponse));
     }
 
-    private static Map<String, Map<String, Object>> tests = new HashMap<String, Map<String, Object>>();
-    static {
+    @Test
+    public void handleNotificationReport() {
+        Map<String, Map<String, Object>> tests = new HashMap<String, Map<String, Object>>();
         Map<String, Object> test = new HashMap<String, Object>();
 
         test.clear();
@@ -31,14 +32,11 @@ public class CommandClassAlarmV1Test {
         test.put("ALARM_TYPE", 0);
         test.put("ALARM_LEVEL", 0);
         tests.put("GENERAL == 0", test);
-    }
 
-    @Test
-    public void handleNotificationReport() {
-        for (String test : tests.keySet()) {
-            System.out.println("Running report test for " + this.getClass().getSimpleName() + ": " + test);
+        for (String testName : tests.keySet()) {
+            System.out.println("Running report test for " + this.getClass().getSimpleName() + ": " + testName);
 
-            Map<String, Object> testData = tests.get(test);
+            Map<String, Object> testData = tests.get(testName);
             Map<String, Object> report = CommandClassAlarmV1.handleAlarmReport((byte[]) testData.get("input"));
 
             for (String data : testData.keySet()) {

@@ -67,7 +67,8 @@ public class CommandClassClimateControlScheduleV1 {
      */
     public final static int SCHEDULE_OVERRIDE_REPORT = 0x08;
 
-    // Constants for Override State
+
+    // Define constants for Override State
     private static Map<Integer, String> constantOverrideState = new HashMap<Integer, String>();
 
     static {

@@ -102,7 +102,8 @@ public class CommandClassSecurity2V1 {
      */
     public final static int SECURITY_2_CAPABILITIES_REPORT = 0x10;
 
-    // Constants for KEX Fail Type
+
+    // Define constants for KEX Fail Type
     private static Map<Integer, String> constantKexFailType = new HashMap<Integer, String>();
 
     static {
@@ -465,7 +466,7 @@ public class CommandClassSecurity2V1 {
         List<String> responseRequestedKeys = new ArrayList<String>();
         int lenRequestedKeys = 1;
         for (int cntRequestedKeys = 0; cntRequestedKeys < lenRequestedKeys; cntRequestedKeys++) {
-            if ((payload[5 + (cntRequestedKeys / 8)] & cntRequestedKeys % 8) == 0) {
+            if ((payload[5 + (cntRequestedKeys / 8)] & (1 << cntRequestedKeys % 8)) == 0) {
                 continue;
             }
             switch (cntRequestedKeys) {
@@ -571,7 +572,7 @@ public class CommandClassSecurity2V1 {
         List<String> responseGrantedKeys = new ArrayList<String>();
         int lenGrantedKeys = 1;
         for (int cntGrantedKeys = 0; cntGrantedKeys < lenGrantedKeys; cntGrantedKeys++) {
-            if ((payload[5 + (cntGrantedKeys / 8)] & cntGrantedKeys % 8) == 0) {
+            if ((payload[5 + (cntGrantedKeys / 8)] & (1 << cntGrantedKeys % 8)) == 0) {
                 continue;
             }
             switch (cntGrantedKeys) {

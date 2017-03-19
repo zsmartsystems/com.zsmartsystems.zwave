@@ -66,7 +66,8 @@ public class CommandClassFirmwareUpdateMdV3 {
      */
     public final static int FIRMWARE_UPDATE_MD_STATUS_REPORT = 0x07;
 
-    // Constants for Status
+
+    // Define constants for Status
     private static Map<Integer, String> constantStatus = new HashMap<Integer, String>();
 
     static {
@@ -183,13 +184,13 @@ public class CommandClassFirmwareUpdateMdV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Manufacturer ID'
-        response.put("MANUFACTURER_ID", Integer.valueOf(payload[2] << 8 + payload[3]));
+        response.put("MANUFACTURER_ID", Integer.valueOf(((payload[2] & 0xff) << 8) + (payload[3] & 0xff)));
 
         // Process 'Firmware 0 ID'
-        response.put("FIRMWARE_0_ID", Integer.valueOf(payload[4] << 8 + payload[5]));
+        response.put("FIRMWARE_0_ID", Integer.valueOf(((payload[4] & 0xff) << 8) + (payload[5] & 0xff)));
 
         // Process 'Firmware 0 Checksum'
-        response.put("FIRMWARE_0_CHECKSUM", Integer.valueOf(payload[6] << 8 + payload[7]));
+        response.put("FIRMWARE_0_CHECKSUM", Integer.valueOf(((payload[6] & 0xff) << 8) + (payload[7] & 0xff)));
 
         // Process 'Firmware Upgradable'
         response.put("FIRMWARE_UPGRADABLE", Integer.valueOf(payload[8]));
@@ -198,7 +199,7 @@ public class CommandClassFirmwareUpdateMdV3 {
         response.put("NUMBER_OF_FIRMWARE_TARGETS", Integer.valueOf(payload[9]));
 
         // Process 'Max Fragment Size '
-        response.put("MAX_FRAGMENT_SIZE", Integer.valueOf(payload[10] << 8 + payload[11]));
+        response.put("MAX_FRAGMENT_SIZE", Integer.valueOf(((payload[10] & 0xff) << 8) + (payload[11] & 0xff)));
 
         // Process 'vg1'
 
@@ -211,7 +212,7 @@ public class CommandClassFirmwareUpdateMdV3 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Firmware ID'
-            variant.put("FIRMWARE_ID", Integer.valueOf(payload[12] << 8 + payload[13]));
+            variant.put("FIRMWARE_ID", Integer.valueOf(((payload[12] & 0xff) << 8) + (payload[13] & 0xff)));
 
             // Add to the list
             variantList.add(variant);
@@ -292,19 +293,19 @@ public class CommandClassFirmwareUpdateMdV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Manufacturer ID'
-        response.put("MANUFACTURER_ID", Integer.valueOf(payload[2] << 8 + payload[3]));
+        response.put("MANUFACTURER_ID", Integer.valueOf(((payload[2] & 0xff) << 8) + (payload[3] & 0xff)));
 
         // Process 'Firmware ID'
-        response.put("FIRMWARE_ID", Integer.valueOf(payload[4] << 8 + payload[5]));
+        response.put("FIRMWARE_ID", Integer.valueOf(((payload[4] & 0xff) << 8) + (payload[5] & 0xff)));
 
         // Process 'Checksum'
-        response.put("CHECKSUM", Integer.valueOf(payload[6] << 8 + payload[7]));
+        response.put("CHECKSUM", Integer.valueOf(((payload[6] & 0xff) << 8) + (payload[7] & 0xff)));
 
         // Process 'Firmware Target'
         response.put("FIRMWARE_TARGET", Integer.valueOf(payload[8]));
 
         // Process 'Fragment Size'
-        response.put("FRAGMENT_SIZE", Integer.valueOf(payload[9] << 8 + payload[10]));
+        response.put("FRAGMENT_SIZE", Integer.valueOf(((payload[9] & 0xff) << 8) + (payload[10] & 0xff)));
 
         // Return the map of processed response data;
         return response;
@@ -515,7 +516,7 @@ public class CommandClassFirmwareUpdateMdV3 {
         response.put("DATA", valData);
 
         // Process 'Checksum'
-        response.put("CHECKSUM", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
+        response.put("CHECKSUM", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Return the map of processed response data;
@@ -576,7 +577,7 @@ public class CommandClassFirmwareUpdateMdV3 {
         response.put("STATUS", constantStatus.get(payload[2] & 0xff));
 
         // Process 'WaitTime'
-        response.put("WAITTIME", Integer.valueOf(payload[3] << 8 + payload[4]));
+        response.put("WAITTIME", Integer.valueOf(((payload[3] & 0xff) << 8) + (payload[4] & 0xff)));
 
         // Return the map of processed response data;
         return response;

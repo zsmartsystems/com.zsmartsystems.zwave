@@ -63,7 +63,8 @@ public class CommandClassAssociationGrpInfoV3 {
     public final static int ASSOCIATION_GROUP_COMMAND_LIST_REPORT = 0x06;
 
 
-    // Constants for Profile1
+
+    // Define constants for Profile1
     private static Map<Integer, String> constantProfile1 = new HashMap<Integer, String>();
 
     static {
@@ -334,7 +335,7 @@ public class CommandClassAssociationGrpInfoV3 {
             // Process 'Profile2'
 
             // Process 'Event Code'
-            variant.put("EVENT_CODE", Integer.valueOf(payload[8] << 8 + payload[9]));
+            variant.put("EVENT_CODE", Integer.valueOf(((payload[8] & 0xff) << 8) + (payload[9] & 0xff)));
 
             // Add to the list
             variantList.add(variant);

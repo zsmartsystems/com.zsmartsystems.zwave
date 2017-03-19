@@ -119,7 +119,7 @@ public class CommandClassMeterPulseV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Pulse Count'
-        response.put("PULSE_COUNT", Long.valueOf(payload[2] << 24 + payload[3] << 16 + payload[4] << 8 + payload[5]));
+        response.put("PULSE_COUNT", Long.valueOf((payload[2] << 24) + (payload[3] << 16) + (payload[4] << 8) + payload[5]));
 
         // Return the map of processed response data;
         return response;

@@ -53,7 +53,8 @@ public class CommandClassSensorBinaryV2 {
      */
     public final static int SENSOR_BINARY_SUPPORTED_SENSOR_REPORT = 0x04;
 
-    // Constants for Sensor Value
+
+    // Define constants for Sensor Value
     private static Map<Integer, String> constantSensorValue = new HashMap<Integer, String>();
 
     static {
@@ -357,9 +358,8 @@ public class CommandClassSensorBinaryV2 {
 
         // Process 'Bit Mask'
         List<String> responseBitMask = new ArrayList<String>();
-        int cntBitMask = 0;
-        while (cntBitMask < payload.length - 2) {
-            if ((payload[2 + (cntBitMask / 8)] & cntBitMask % 8) == 0) {
+        for (int cntBitMask = 0; cntBitMask < (payload.length - 2) * 8; cntBitMask++) {
+            if ((payload[2 + (cntBitMask / 8)] & (1 << cntBitMask % 8)) == 0) {
                 continue;
             }
             switch (cntBitMask) {

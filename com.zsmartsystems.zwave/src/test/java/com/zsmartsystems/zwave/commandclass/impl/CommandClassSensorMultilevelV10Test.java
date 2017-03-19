@@ -29,8 +29,9 @@ public class CommandClassSensorMultilevelV10Test {
                 expectedResponse));
     }
 
-    private static Map<String, Map<String, Object>> tests = new HashMap<String, Map<String, Object>>();
-    static {
+    @Test
+    public void handleSensorMultilevelReport() {
+        Map<String, Map<String, Object>> tests = new HashMap<String, Map<String, Object>>();
         Map<String, Object> test = new HashMap<String, Object>();
 
         test.clear();
@@ -50,14 +51,11 @@ public class CommandClassSensorMultilevelV10Test {
         test.put("PRECISION", 1);
         test.put("SENSOR_VALUE", -32);
         tests.put("ACCELERATION_Z_AXIS == -3.2", test);
-    }
 
-    @Test
-    public void handleSensorMultilevelReport() {
-        for (String test : tests.keySet()) {
-            System.out.println("Running report test for " + this.getClass().getSimpleName() + ": " + test);
+        for (String testName : tests.keySet()) {
+            System.out.println("Running report test for " + this.getClass().getSimpleName() + ": " + testName);
 
-            Map<String, Object> testData = tests.get(test);
+            Map<String, Object> testData = tests.get(testName);
             Map<String, Object> report = CommandClassSensorMultilevelV10
                     .handleSensorMultilevelReport((byte[]) testData.get("input"));
 

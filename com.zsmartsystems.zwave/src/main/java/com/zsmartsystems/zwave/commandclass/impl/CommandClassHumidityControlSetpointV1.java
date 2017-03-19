@@ -473,7 +473,7 @@ public class CommandClassHumidityControlSetpointV1 {
         List<String> responseBitMask = new ArrayList<String>();
         int lenBitMask = 1;
         for (int cntBitMask = 0; cntBitMask < lenBitMask; cntBitMask++) {
-            if ((payload[2 + (cntBitMask / 8)] & cntBitMask % 8) == 0) {
+            if ((payload[2 + (cntBitMask / 8)] & (1 << cntBitMask % 8)) == 0) {
                 continue;
             }
             switch (cntBitMask) {

@@ -47,11 +47,14 @@ public class CommandClassSwitchBinaryV2 {
      */
     public final static int SWITCH_BINARY_REPORT = 0x03;
 
-    // Constants for Duration
+
+    // Define constants for Duration
     private static Map<Integer, String> constantDuration = new HashMap<Integer, String>();
-    // Constants for Target Value
+
+    // Define constants for Target Value
     private static Map<Integer, String> constantTargetValue = new HashMap<Integer, String>();
-    // Constants for Current Value
+
+    // Define constants for Current Value
     private static Map<Integer, String> constantCurrentValue = new HashMap<Integer, String>();
 
     static {

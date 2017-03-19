@@ -294,7 +294,7 @@ public class CommandClassDcpConfigV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Year'
-        response.put("YEAR", Integer.valueOf(payload[2] << 8 + payload[3]));
+        response.put("YEAR", Integer.valueOf(((payload[2] & 0xff) << 8) + (payload[3] & 0xff)));
 
         // Process 'Month'
         response.put("MONTH", Integer.valueOf(payload[4]));
@@ -344,7 +344,7 @@ public class CommandClassDcpConfigV1 {
         response.put("VG1", variantList);
 
         // Process 'Start Year'
-        response.put("START_YEAR", Integer.valueOf(payload[13] << 8 + payload[14]));
+        response.put("START_YEAR", Integer.valueOf(((payload[13] & 0xff) << 8) + (payload[14] & 0xff)));
 
         // Process 'Start Month'
         response.put("START_MONTH", Integer.valueOf(payload[15]));
@@ -456,7 +456,7 @@ public class CommandClassDcpConfigV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Year'
-        response.put("YEAR", Integer.valueOf(payload[2] << 8 + payload[3]));
+        response.put("YEAR", Integer.valueOf(((payload[2] & 0xff) << 8) + (payload[3] & 0xff)));
 
         // Process 'Month'
         response.put("MONTH", Integer.valueOf(payload[4]));

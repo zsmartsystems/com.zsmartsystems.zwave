@@ -114,7 +114,7 @@ public class CommandClassTimeParametersV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Year'
-        response.put("YEAR", Integer.valueOf(payload[2] << 8 + payload[3]));
+        response.put("YEAR", Integer.valueOf(((payload[2] & 0xff) << 8) + (payload[3] & 0xff)));
 
         // Process 'Month'
         response.put("MONTH", Integer.valueOf(payload[4]));
@@ -235,7 +235,7 @@ public class CommandClassTimeParametersV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Year'
-        response.put("YEAR", Integer.valueOf(payload[2] << 8 + payload[3]));
+        response.put("YEAR", Integer.valueOf(((payload[2] & 0xff) << 8) + (payload[3] & 0xff)));
 
         // Process 'Month'
         response.put("MONTH", Integer.valueOf(payload[4]));

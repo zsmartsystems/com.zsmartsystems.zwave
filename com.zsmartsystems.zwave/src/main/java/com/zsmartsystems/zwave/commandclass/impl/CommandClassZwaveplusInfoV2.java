@@ -43,9 +43,11 @@ public class CommandClassZwaveplusInfoV2 {
      */
     public final static int ZWAVEPLUS_INFO_REPORT = 0x02;
 
-    // Constants for Role Type
+
+    // Define constants for Role Type
     private static Map<Integer, String> constantRoleType = new HashMap<Integer, String>();
-    // Constants for Node Type
+
+    // Define constants for Node Type
     private static Map<Integer, String> constantNodeType = new HashMap<Integer, String>();
 
     static {
@@ -178,10 +180,10 @@ public class CommandClassZwaveplusInfoV2 {
         response.put("NODE_TYPE", constantNodeType.get(payload[4] & 0xff));
 
         // Process 'Installer Icon Type'
-        response.put("INSTALLER_ICON_TYPE", Integer.valueOf(payload[5] << 8 + payload[6]));
+        response.put("INSTALLER_ICON_TYPE", Integer.valueOf(((payload[5] & 0xff) << 8) + (payload[6] & 0xff)));
 
         // Process 'User Icon Type'
-        response.put("USER_ICON_TYPE", Integer.valueOf(payload[7] << 8 + payload[8]));
+        response.put("USER_ICON_TYPE", Integer.valueOf(((payload[7] & 0xff) << 8) + (payload[8] & 0xff)));
 
         // Return the map of processed response data;
         return response;

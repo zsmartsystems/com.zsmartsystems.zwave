@@ -28,8 +28,9 @@ public class CommandClassMeterV4Test {
         assertTrue(Arrays.equals(CommandClassMeterV2.getMeterReset(), expectedResponse));
     }
 
-    private static Map<String, Map<String, Object>> tests = new HashMap<String, Map<String, Object>>();
-    static {
+    @Test
+    public void handleMeterReport() {
+        Map<String, Map<String, Object>> tests = new HashMap<String, Map<String, Object>>();
         Map<String, Object> test = new HashMap<String, Object>();
 
         test.clear();
@@ -38,14 +39,11 @@ public class CommandClassMeterV4Test {
         test.put("METER_TYPE", 1);
         test.put("METER_VALUE", 183);
         tests.put("ELECTRIC_METER ...", test);
-    }
 
-    @Test
-    public void handleMeterReport() {
-        for (String test : tests.keySet()) {
-            System.out.println("Running report test for " + this.getClass().getSimpleName() + ": " + test);
+        for (String testName : tests.keySet()) {
+            System.out.println("Running report test for " + this.getClass().getSimpleName() + ": " + testName);
 
-            Map<String, Object> testData = tests.get(test);
+            Map<String, Object> testData = tests.get(testName);
             Map<String, Object> report = CommandClassMeterV2.handleMeterReport((byte[]) testData.get("input"));
 
             for (String data : testData.keySet()) {

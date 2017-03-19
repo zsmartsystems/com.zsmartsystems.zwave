@@ -56,7 +56,8 @@ public class CommandClassUserCodeV1 {
      */
     public final static int USERS_NUMBER_REPORT = 0x05;
 
-    // Constants for User ID Status
+
+    // Define constants for User ID Status
     private static Map<Integer, String> constantUserIdStatus = new HashMap<Integer, String>();
 
     static {

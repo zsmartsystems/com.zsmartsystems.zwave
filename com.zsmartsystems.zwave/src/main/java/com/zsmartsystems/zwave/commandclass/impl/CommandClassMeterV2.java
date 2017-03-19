@@ -206,7 +206,7 @@ public class CommandClassMeterV2 {
         msgOffset += lenMeterValue;
 
         // Process 'Delta Time'
-        response.put("DELTA_TIME", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 1]));
+        response.put("DELTA_TIME", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Process 'Previous Meter Value'

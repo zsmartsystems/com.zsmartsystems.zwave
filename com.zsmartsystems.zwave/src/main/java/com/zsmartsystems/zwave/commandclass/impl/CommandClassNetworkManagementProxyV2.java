@@ -188,9 +188,8 @@ public class CommandClassNetworkManagementProxyV2 {
 
         // Process 'Node List Data'
         List<Integer> responseNodeListData = new ArrayList<Integer>();
-        int cntNodeListData = 0;
-        while (cntNodeListData < payload.length - 5) {
-            if ((payload[5 + (cntNodeListData / 8)] & cntNodeListData % 8) == 0) {
+        for (int cntNodeListData = 0; cntNodeListData < (payload.length - 5) * 8; cntNodeListData++) {
+            if ((payload[5 + (cntNodeListData / 8)] & (1 << cntNodeListData % 8)) == 0) {
                 continue;
             }
             responseNodeListData.add(cntNodeListData);

@@ -44,7 +44,8 @@ public class CommandClassSensorMultilevelV4 {
      */
     public final static int SENSOR_MULTILEVEL_REPORT = 0x05;
 
-    // Constants for Sensor Type
+
+    // Define constants for Sensor Type
     private static Map<Integer, String> constantSensorType = new HashMap<Integer, String>();
 
     static {

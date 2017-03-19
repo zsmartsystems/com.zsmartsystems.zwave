@@ -155,10 +155,10 @@ public class CommandClassAssociationCommandConfigurationV1 {
         response.put("MAX_COMMAND_LENGTH", Integer.valueOf((payload[2] & 0xFC >> 2)));
 
         // Process 'Free Command records'
-        response.put("FREE_COMMAND_RECORDS", Integer.valueOf(payload[3] << 8 + payload[4]));
+        response.put("FREE_COMMAND_RECORDS", Integer.valueOf(((payload[3] & 0xff) << 8) + (payload[4] & 0xff)));
 
         // Process 'Max Command records'
-        response.put("MAX_COMMAND_RECORDS", Integer.valueOf(payload[5] << 8 + payload[6]));
+        response.put("MAX_COMMAND_RECORDS", Integer.valueOf(((payload[5] & 0xff) << 8) + (payload[6] & 0xff)));
 
         // Return the map of processed response data;
         return response;

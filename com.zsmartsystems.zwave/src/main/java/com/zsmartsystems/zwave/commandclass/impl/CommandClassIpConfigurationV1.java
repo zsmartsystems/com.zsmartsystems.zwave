@@ -145,19 +145,19 @@ public class CommandClassIpConfigurationV1 {
         response.put("AUTO_IP", Boolean.valueOf((payload[2] & 0x02) != 0));
 
         // Process 'IP Address'
-        response.put("IP_ADDRESS", Long.valueOf(payload[3] << 24 + payload[4] << 16 + payload[5] << 8 + payload[6]));
+        response.put("IP_ADDRESS", Long.valueOf((payload[3] << 24) + (payload[4] << 16) + (payload[5] << 8) + payload[6]));
 
         // Process 'Subnet Mask'
-        response.put("SUBNET_MASK", Long.valueOf(payload[7] << 24 + payload[8] << 16 + payload[9] << 8 + payload[10]));
+        response.put("SUBNET_MASK", Long.valueOf((payload[7] << 24) + (payload[8] << 16) + (payload[9] << 8) + payload[10]));
 
         // Process 'Gateway'
-        response.put("GATEWAY", Long.valueOf(payload[11] << 24 + payload[12] << 16 + payload[13] << 8 + payload[14]));
+        response.put("GATEWAY", Long.valueOf((payload[11] << 24) + (payload[12] << 16) + (payload[13] << 8) + payload[14]));
 
         // Process 'DNS1'
-        response.put("DNS1", Long.valueOf(payload[15] << 24 + payload[16] << 16 + payload[17] << 8 + payload[18]));
+        response.put("DNS1", Long.valueOf((payload[15] << 24) + (payload[16] << 16) + (payload[17] << 8) + payload[18]));
 
         // Process 'DNS2'
-        response.put("DNS2", Long.valueOf(payload[19] << 24 + payload[20] << 16 + payload[21] << 8 + payload[22]));
+        response.put("DNS2", Long.valueOf((payload[19] << 24) + (payload[20] << 16) + (payload[21] << 8) + payload[22]));
 
         // Return the map of processed response data;
         return response;
@@ -294,22 +294,22 @@ public class CommandClassIpConfigurationV1 {
         response.put("AUTO_IP", Boolean.valueOf((payload[2] & 0x02) != 0));
 
         // Process 'IP Address'
-        response.put("IP_ADDRESS", Long.valueOf(payload[3] << 24 + payload[4] << 16 + payload[5] << 8 + payload[6]));
+        response.put("IP_ADDRESS", Long.valueOf((payload[3] << 24) + (payload[4] << 16) + (payload[5] << 8) + payload[6]));
 
         // Process 'Subnet Mask'
-        response.put("SUBNET_MASK", Long.valueOf(payload[7] << 24 + payload[8] << 16 + payload[9] << 8 + payload[10]));
+        response.put("SUBNET_MASK", Long.valueOf((payload[7] << 24) + (payload[8] << 16) + (payload[9] << 8) + payload[10]));
 
         // Process 'Gateway'
-        response.put("GATEWAY", Long.valueOf(payload[11] << 24 + payload[12] << 16 + payload[13] << 8 + payload[14]));
+        response.put("GATEWAY", Long.valueOf((payload[11] << 24) + (payload[12] << 16) + (payload[13] << 8) + payload[14]));
 
         // Process 'DNS1'
-        response.put("DNS1", Long.valueOf(payload[15] << 24 + payload[16] << 16 + payload[17] << 8 + payload[18]));
+        response.put("DNS1", Long.valueOf((payload[15] << 24) + (payload[16] << 16) + (payload[17] << 8) + payload[18]));
 
         // Process 'DNS2'
-        response.put("DNS2", Long.valueOf(payload[19] << 24 + payload[20] << 16 + payload[21] << 8 + payload[22]));
+        response.put("DNS2", Long.valueOf((payload[19] << 24) + (payload[20] << 16) + (payload[21] << 8) + payload[22]));
 
         // Process 'LeaseTime'
-        response.put("LEASETIME", Long.valueOf(payload[23] << 24 + payload[24] << 16 + payload[25] << 8 + payload[26]));
+        response.put("LEASETIME", Long.valueOf((payload[23] << 24) + (payload[24] << 16) + (payload[25] << 8) + payload[26]));
 
         // Return the map of processed response data;
         return response;

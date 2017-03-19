@@ -69,11 +69,14 @@ public class CommandClassBarrierOperatorV1 {
      */
     public final static int BARRIER_OPERATOR_SIGNAL_REPORT = 0x08;
 
-    // Constants for State
+
+    // Define constants for State
     private static Map<Integer, String> constantState = new HashMap<Integer, String>();
-    // Constants for Target Value
+
+    // Define constants for Target Value
     private static Map<Integer, String> constantTargetValue = new HashMap<Integer, String>();
-    // Constants for Subsystem State
+
+    // Define constants for Subsystem State
     private static Map<Integer, String> constantSubsystemState = new HashMap<Integer, String>();
 
     static {
@@ -304,9 +307,8 @@ public class CommandClassBarrierOperatorV1 {
 
         // Process 'Bit Mask'
         List<String> responseBitMask = new ArrayList<String>();
-        int cntBitMask = 0;
-        while (cntBitMask < payload.length - 2) {
-            if ((payload[2 + (cntBitMask / 8)] & cntBitMask % 8) == 0) {
+        for (int cntBitMask = 0; cntBitMask < (payload.length - 2) * 8; cntBitMask++) {
+            if ((payload[2 + (cntBitMask / 8)] & (1 << cntBitMask % 8)) == 0) {
                 continue;
             }
             switch (cntBitMask) {

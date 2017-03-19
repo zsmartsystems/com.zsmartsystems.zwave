@@ -58,7 +58,8 @@ public class CommandClassAlarmV2 {
      */
     public final static int ALARM_TYPE_SUPPORTED_REPORT = 0x08;
 
-    // Constants for ZWave Alarm Type
+
+    // Define constants for ZWave Alarm Type
     private static Map<Integer, String> constantZwaveAlarmType = new HashMap<Integer, String>();
 
     static {
@@ -450,7 +451,7 @@ public class CommandClassAlarmV2 {
         List<String> responseBitMask = new ArrayList<String>();
         int lenBitMask = (payload[2] & 0x1F) * 8;
         for (int cntBitMask = 0; cntBitMask < lenBitMask; cntBitMask++) {
-            if ((payload[3 + (cntBitMask / 8)] & cntBitMask % 8) == 0) {
+            if ((payload[3 + (cntBitMask / 8)] & (1 << cntBitMask % 8)) == 0) {
                 continue;
             }
             switch (cntBitMask) {

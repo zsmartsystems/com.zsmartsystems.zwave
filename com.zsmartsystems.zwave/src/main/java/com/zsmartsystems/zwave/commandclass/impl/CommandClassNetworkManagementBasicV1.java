@@ -420,7 +420,7 @@ public class CommandClassNetworkManagementBasicV1 {
         List<String> responseTxOptions = new ArrayList<String>();
         int lenTxOptions = 1;
         for (int cntTxOptions = 0; cntTxOptions < lenTxOptions; cntTxOptions++) {
-            if ((payload[5 + (cntTxOptions / 8)] & cntTxOptions % 8) == 0) {
+            if ((payload[5 + (cntTxOptions / 8)] & (1 << cntTxOptions % 8)) == 0) {
                 continue;
             }
             switch (cntTxOptions) {
