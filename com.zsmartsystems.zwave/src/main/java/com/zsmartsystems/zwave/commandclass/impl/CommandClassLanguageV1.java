@@ -92,7 +92,7 @@ public class CommandClassLanguageV1 {
         // Process 'Language'
 
         // Process 'Country'
-        response.put("COUNTRY", Integer.valueOf(payload[5] << 8 + payload[6]));
+        response.put("COUNTRY", Integer.valueOf(((payload[5] & 0xff) << 8) + (payload[6] & 0xff)));
 
         // Return the map of processed response data;
         return response;
@@ -176,7 +176,7 @@ public class CommandClassLanguageV1 {
         // Process 'Language'
 
         // Process 'Country'
-        response.put("COUNTRY", Integer.valueOf(payload[5] << 8 + payload[6]));
+        response.put("COUNTRY", Integer.valueOf(((payload[5] & 0xff) << 8) + (payload[6] & 0xff)));
 
         // Return the map of processed response data;
         return response;

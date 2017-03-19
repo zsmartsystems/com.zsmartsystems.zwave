@@ -164,7 +164,7 @@ public class CommandClassNetworkManagementInclusionV1 {
         response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Process 'Mode'
-        switch ((int) payload[4]) {
+        switch (payload[4] & 0xff) {
             case 0x01:
                 response.put("MODE", "NODE_ADD_ANY");
                 break;
@@ -184,7 +184,8 @@ public class CommandClassNetworkManagementInclusionV1 {
                 response.put("MODE", "NODE_ADD_STOP_FAILED");
                 break;
             default:
-                logger.debug("");
+                response.put("MODE", String.format("%02X", payload[4] & 0xff));
+                logger.debug("Unknown value {}", payload[4] & 0xff);
                 break;
         }
 
@@ -192,7 +193,7 @@ public class CommandClassNetworkManagementInclusionV1 {
         List<String> responseTxOptions = new ArrayList<String>();
         int lenTxOptions = 1;
         for (int cntTxOptions = 0; cntTxOptions < lenTxOptions; cntTxOptions++) {
-            if ((payload[5 + (cntTxOptions / 8)] & cntTxOptions % 8) == 0) {
+            if ((payload[5 + (cntTxOptions / 8)] & (1 << cntTxOptions % 8)) == 0) {
                 continue;
             }
             switch (cntTxOptions) {
@@ -341,7 +342,7 @@ public class CommandClassNetworkManagementInclusionV1 {
         msgOffset += 1;
 
         // Process 'Status'
-        switch ((int) payload[msgOffset]) {
+        switch (payload[msgOffset] & 0xff) {
             case 0x06:
                 response.put("STATUS", "NODE_ADD_STATUS_DONE");
                 break;
@@ -352,7 +353,8 @@ public class CommandClassNetworkManagementInclusionV1 {
                 response.put("STATUS", "NODE_ADD_STATUS_SECURITY_FAILED");
                 break;
             default:
-                logger.debug("");
+                response.put("STATUS", String.format("%02X", payload[msgOffset] & 0xff));
+                logger.debug("Unknown value {}", payload[msgOffset] & 0xff);
                 break;
         }
         msgOffset += 1;
@@ -450,7 +452,7 @@ public class CommandClassNetworkManagementInclusionV1 {
         response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Process 'Mode'
-        switch ((int) payload[4]) {
+        switch (payload[4] & 0xff) {
             case 0x01:
                 response.put("MODE", "NODE_REMOVE_ANY");
                 break;
@@ -464,7 +466,8 @@ public class CommandClassNetworkManagementInclusionV1 {
                 response.put("MODE", "NODE_REMOVE_STOP");
                 break;
             default:
-                logger.debug("");
+                response.put("MODE", String.format("%02X", payload[4] & 0xff));
+                logger.debug("Unknown value {}", payload[4] & 0xff);
                 break;
         }
 
@@ -530,7 +533,7 @@ public class CommandClassNetworkManagementInclusionV1 {
         response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Process 'Status'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x06:
                 response.put("STATUS", "NODE_REMOVE_STATUS_DONE");
                 break;
@@ -538,7 +541,8 @@ public class CommandClassNetworkManagementInclusionV1 {
                 response.put("STATUS", "NODE_REMOVE_STATUS_FAILED");
                 break;
             default:
-                logger.debug("");
+                response.put("STATUS", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 
@@ -666,7 +670,7 @@ public class CommandClassNetworkManagementInclusionV1 {
         response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Process 'Status'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x01:
                 response.put("STATUS", "DONE");
                 break;
@@ -677,7 +681,8 @@ public class CommandClassNetworkManagementInclusionV1 {
                 response.put("STATUS", "FAILED_NODE_REMOVE_FAIL");
                 break;
             default:
-                logger.debug("");
+                response.put("STATUS", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 
@@ -773,7 +778,7 @@ public class CommandClassNetworkManagementInclusionV1 {
         List<String> responseTxOptions = new ArrayList<String>();
         int lenTxOptions = 1;
         for (int cntTxOptions = 0; cntTxOptions < lenTxOptions; cntTxOptions++) {
-            if ((payload[4 + (cntTxOptions / 8)] & cntTxOptions % 8) == 0) {
+            if ((payload[4 + (cntTxOptions / 8)] & (1 << cntTxOptions % 8)) == 0) {
                 continue;
             }
             switch (cntTxOptions) {
@@ -870,7 +875,7 @@ public class CommandClassNetworkManagementInclusionV1 {
         response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Process 'Status'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x04:
                 response.put("STATUS", "DONE");
                 break;
@@ -881,7 +886,8 @@ public class CommandClassNetworkManagementInclusionV1 {
                 response.put("STATUS", "FAILED_NODE_REPLACE_SECURITY_FAILED");
                 break;
             default:
-                logger.debug("");
+                response.put("STATUS", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 
@@ -999,7 +1005,7 @@ public class CommandClassNetworkManagementInclusionV1 {
         response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Process 'Status'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x22:
                 response.put("STATUS", "NEIGHBOR_UPDATE_STATUS_DONE");
                 break;
@@ -1007,7 +1013,8 @@ public class CommandClassNetworkManagementInclusionV1 {
                 response.put("STATUS", "NEIGHBOR_UPDATE_STATUS_FAIL");
                 break;
             default:
-                logger.debug("");
+                response.put("STATUS", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 
@@ -1135,7 +1142,7 @@ public class CommandClassNetworkManagementInclusionV1 {
         response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Process 'Status'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x00:
                 response.put("STATUS", "TRANSMIT_COMPLETE_OK");
                 break;
@@ -1146,7 +1153,8 @@ public class CommandClassNetworkManagementInclusionV1 {
                 response.put("STATUS", "TRANSMIT_COMPLETE_FAIL");
                 break;
             default:
-                logger.debug("");
+                response.put("STATUS", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 
@@ -1261,7 +1269,7 @@ public class CommandClassNetworkManagementInclusionV1 {
         response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Process 'Status'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x00:
                 response.put("STATUS", "TRANSMIT_COMPLETE_OK");
                 break;
@@ -1272,7 +1280,8 @@ public class CommandClassNetworkManagementInclusionV1 {
                 response.put("STATUS", "TRANSMIT_COMPLETE_FAIL");
                 break;
             default:
-                logger.debug("");
+                response.put("STATUS", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 

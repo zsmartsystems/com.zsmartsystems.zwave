@@ -111,7 +111,7 @@ public class CommandClassHumidityControlModeV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch ((int) payload[2] & 0x0F) {
+        switch (payload[2] & 0x0F) {
             case 0x00:
                 response.put("MODE", "OFF");
                 break;
@@ -216,7 +216,7 @@ public class CommandClassHumidityControlModeV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch ((int) payload[2] & 0x0F) {
+        switch (payload[2] & 0x0F) {
             case 0x00:
                 response.put("MODE", "OFF");
                 break;
@@ -314,7 +314,7 @@ public class CommandClassHumidityControlModeV1 {
         List<String> responseBitMask = new ArrayList<String>();
         int lenBitMask = 1;
         for (int cntBitMask = 0; cntBitMask < lenBitMask; cntBitMask++) {
-            if ((payload[2 + (cntBitMask / 8)] & cntBitMask % 8) == 0) {
+            if ((payload[2 + (cntBitMask / 8)] & (1 << cntBitMask % 8)) == 0) {
                 continue;
             }
             switch (cntBitMask) {

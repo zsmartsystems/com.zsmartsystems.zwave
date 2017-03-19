@@ -84,11 +84,14 @@ public class CommandClassThermostatHeatingV1 {
      */
     public final static int THERMOSTAT_HEATING_TIMED_OFF_SET = 0x11;
 
-    // Constants for Status
+
+    // Define constants for Status
     private static Map<Integer, String> constantStatus = new HashMap<Integer, String>();
-    // Constants for Relay Status
+
+    // Define constants for Relay Status
     private static Map<Integer, String> constantRelayStatus = new HashMap<Integer, String>();
-    // Constants for Mode
+
+    // Define constants for Mode
     private static Map<Integer, String> constantMode = new HashMap<Integer, String>();
 
     static {
@@ -320,7 +323,7 @@ public class CommandClassThermostatHeatingV1 {
 
         // Process 'Value'
         int valValue = 0;
-        int lenValue = payload[msgOffset - 1] & 0x07;
+        int lenValue = payload[3] & 0x07;
         for (int cntValue = 0; cntValue < lenValue; cntValue++) {
             valValue = (valValue << 8) + payload[msgOffset + cntValue];
         }
@@ -453,7 +456,7 @@ public class CommandClassThermostatHeatingV1 {
 
         // Process 'Value'
         int valValue = 0;
-        int lenValue = payload[msgOffset - 1] & 0x07;
+        int lenValue = payload[3] & 0x07;
         for (int cntValue = 0; cntValue < lenValue; cntValue++) {
             valValue = (valValue << 8) + payload[msgOffset + cntValue];
         }

@@ -67,9 +67,11 @@ public class CommandClassNotificationV4 {
      */
     public final static int NOTIFICATION_SUPPORTED_REPORT = 0x08;
 
-    // Constants for Notification Status
+
+    // Define constants for Notification Status
     private static Map<Integer, String> constantNotificationStatus = new HashMap<Integer, String>();
-    // Constants for Notification Type
+
+    // Define constants for Notification Type
     private static Map<Integer, String> constantNotificationType = new HashMap<Integer, String>();
 
     static {
@@ -213,9 +215,9 @@ public class CommandClassNotificationV4 {
 
         // Process 'Bit Mask'
         List<Integer> responseBitMask = new ArrayList<Integer>();
-        int lenBitMask = (payload[-1] & 0x1F) * 8;
+        int lenBitMask = (payload[3] & 0x1F) * 8;
         for (int cntBitMask = 0; cntBitMask < lenBitMask; cntBitMask++) {
-            if ((payload[4 + (cntBitMask / 8)] & cntBitMask % 8) == 0) {
+            if ((payload[4 + (cntBitMask / 8)] & (1 << cntBitMask % 8)) == 0) {
                 continue;
             }
             responseBitMask.add(cntBitMask);
@@ -387,7 +389,7 @@ public class CommandClassNotificationV4 {
 
         // Process 'Event Parameter'
         int valEventParameter = 0;
-        int lenEventParameter = payload[msgOffset - 1] & 0x1F;
+        int lenEventParameter = payload[3] & 0x1F;
         for (int cntEventParameter = 0; cntEventParameter < lenEventParameter; cntEventParameter++) {
             valEventParameter = (valEventParameter << 8) + payload[msgOffset + cntEventParameter];
         }
@@ -567,9 +569,9 @@ public class CommandClassNotificationV4 {
 
         // Process 'Bit Mask'
         List<String> responseBitMask = new ArrayList<String>();
-        int lenBitMask = (payload[0] & 0x1F) * 8;
+        int lenBitMask = (payload[2] & 0x1F) * 8;
         for (int cntBitMask = 0; cntBitMask < lenBitMask; cntBitMask++) {
-            if ((payload[3 + (cntBitMask / 8)] & cntBitMask % 8) == 0) {
+            if ((payload[3 + (cntBitMask / 8)] & (1 << cntBitMask % 8)) == 0) {
                 continue;
             }
             switch (cntBitMask) {

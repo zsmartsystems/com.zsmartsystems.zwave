@@ -87,7 +87,7 @@ public class CommandClassSceneActivationV1 {
         response.put("SCENE_ID", Integer.valueOf(payload[2]));
 
         // Process 'Dimming Duration'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x00:
                 response.put("DIMMING_DURATION", "INSTANTLY");
                 break;
@@ -95,7 +95,8 @@ public class CommandClassSceneActivationV1 {
                 response.put("DIMMING_DURATION", "CONFIGURED_DIMMING_DURATION");
                 break;
             default:
-                logger.debug("");
+                response.put("DIMMING_DURATION", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 

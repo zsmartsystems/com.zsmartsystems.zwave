@@ -132,7 +132,7 @@ public class CommandClassTransportServiceV1 {
         response.put("PAYLOAD", valPayload);
 
         // Process 'Checksum'
-        response.put("CHECKSUM", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("CHECKSUM", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Return the map of processed response data;
@@ -242,7 +242,7 @@ public class CommandClassTransportServiceV1 {
         response.put("PAYLOAD", valPayload);
 
         // Process 'Checksum'
-        response.put("CHECKSUM", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("CHECKSUM", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Return the map of processed response data;

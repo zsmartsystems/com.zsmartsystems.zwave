@@ -112,13 +112,8 @@ public class CommandClassMultiCmdV1 {
             msgOffset += 1;
 
             // Process 'Data'
-            int valData = 0;
-            int lenData = payload[msgOffset - 3];
-            for (int cntData = 0; cntData < lenData; cntData++) {
-                valData = (valData << 8) + payload[msgOffset + cntData];
-            }
-            variant.put("DATA", valData);
-            msgOffset += lenData;
+            variant.put("DATA", Integer.valueOf(payload[msgOffset]));
+            msgOffset += payload[msgOffset - 3];
 
             // Add to the list
             variantList.add(variant);

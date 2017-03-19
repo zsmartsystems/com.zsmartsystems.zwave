@@ -102,7 +102,8 @@ public class CommandClassSecurity2V1 {
      */
     public final static int SECURITY_2_CAPABILITIES_REPORT = 0x10;
 
-    // Constants for KEX Fail Type
+
+    // Define constants for KEX Fail Type
     private static Map<Integer, String> constantKexFailType = new HashMap<Integer, String>();
 
     static {
@@ -333,13 +334,8 @@ public class CommandClassSecurity2V1 {
             msgOffset += 1;
 
             // Process 'Extension'
-            int valExtension = 0;
-            int lenExtension = payload[msgOffset - 2];
-            for (int cntExtension = 0; cntExtension < lenExtension; cntExtension++) {
-                valExtension = (valExtension << 8) + payload[msgOffset + cntExtension];
-            }
-            variant.put("EXTENSION", valExtension);
-            msgOffset += lenExtension;
+            variant.put("EXTENSION", Integer.valueOf(payload[msgOffset]));
+            msgOffset += payload[msgOffset - 2];
 
         }
 
@@ -470,7 +466,7 @@ public class CommandClassSecurity2V1 {
         List<String> responseRequestedKeys = new ArrayList<String>();
         int lenRequestedKeys = 1;
         for (int cntRequestedKeys = 0; cntRequestedKeys < lenRequestedKeys; cntRequestedKeys++) {
-            if ((payload[5 + (cntRequestedKeys / 8)] & cntRequestedKeys % 8) == 0) {
+            if ((payload[5 + (cntRequestedKeys / 8)] & (1 << cntRequestedKeys % 8)) == 0) {
                 continue;
             }
             switch (cntRequestedKeys) {
@@ -576,7 +572,7 @@ public class CommandClassSecurity2V1 {
         List<String> responseGrantedKeys = new ArrayList<String>();
         int lenGrantedKeys = 1;
         for (int cntGrantedKeys = 0; cntGrantedKeys < lenGrantedKeys; cntGrantedKeys++) {
-            if ((payload[5 + (cntGrantedKeys / 8)] & cntGrantedKeys % 8) == 0) {
+            if ((payload[5 + (cntGrantedKeys / 8)] & (1 << cntGrantedKeys % 8)) == 0) {
                 continue;
             }
             switch (cntGrantedKeys) {
@@ -760,7 +756,7 @@ public class CommandClassSecurity2V1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Requested Key'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("REQUESTED_KEY", "UNAUTHENTICATED");
                 break;
@@ -774,7 +770,8 @@ public class CommandClassSecurity2V1 {
                 response.put("REQUESTED_KEY", "S0");
                 break;
             default:
-                logger.debug("");
+                response.put("REQUESTED_KEY", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 
@@ -830,7 +827,7 @@ public class CommandClassSecurity2V1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Granted Key'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("GRANTED_KEY", "UNAUTHENTICATED");
                 break;
@@ -844,7 +841,8 @@ public class CommandClassSecurity2V1 {
                 response.put("GRANTED_KEY", "S0");
                 break;
             default:
-                logger.debug("");
+                response.put("GRANTED_KEY", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 

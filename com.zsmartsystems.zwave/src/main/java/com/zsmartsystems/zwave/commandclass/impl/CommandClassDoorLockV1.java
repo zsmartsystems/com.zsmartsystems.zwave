@@ -59,9 +59,11 @@ public class CommandClassDoorLockV1 {
      */
     public final static int DOOR_LOCK_CONFIGURATION_REPORT = 0x06;
 
-    // Constants for Operation Type
+
+    // Define constants for Operation Type
     private static Map<Integer, String> constantOperationType = new HashMap<Integer, String>();
-    // Constants for Door Lock Mode
+
+    // Define constants for Door Lock Mode
     private static Map<Integer, String> constantDoorLockMode = new HashMap<Integer, String>();
 
     static {

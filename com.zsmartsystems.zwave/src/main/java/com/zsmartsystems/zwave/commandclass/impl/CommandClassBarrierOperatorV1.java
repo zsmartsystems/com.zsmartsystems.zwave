@@ -69,11 +69,14 @@ public class CommandClassBarrierOperatorV1 {
      */
     public final static int BARRIER_OPERATOR_SIGNAL_REPORT = 0x08;
 
-    // Constants for State
+
+    // Define constants for State
     private static Map<Integer, String> constantState = new HashMap<Integer, String>();
-    // Constants for Target Value
+
+    // Define constants for Target Value
     private static Map<Integer, String> constantTargetValue = new HashMap<Integer, String>();
-    // Constants for Subsystem State
+
+    // Define constants for Subsystem State
     private static Map<Integer, String> constantSubsystemState = new HashMap<Integer, String>();
 
     static {
@@ -304,9 +307,8 @@ public class CommandClassBarrierOperatorV1 {
 
         // Process 'Bit Mask'
         List<String> responseBitMask = new ArrayList<String>();
-        int cntBitMask = 0;
-        while (cntBitMask < payload.length - 2) {
-            if ((payload[2 + (cntBitMask / 8)] & cntBitMask % 8) == 0) {
+        for (int cntBitMask = 0; cntBitMask < (payload.length - 2) * 8; cntBitMask++) {
+            if ((payload[2 + (cntBitMask / 8)] & (1 << cntBitMask % 8)) == 0) {
                 continue;
             }
             switch (cntBitMask) {
@@ -380,7 +382,7 @@ public class CommandClassBarrierOperatorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Subsystem Type'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("SUBSYSTEM_TYPE", "NOT_SUPPORTED");
                 break;
@@ -391,7 +393,8 @@ public class CommandClassBarrierOperatorV1 {
                 response.put("SUBSYSTEM_TYPE", "VISUAL_NOTIFICATION");
                 break;
             default:
-                logger.debug("");
+                response.put("SUBSYSTEM_TYPE", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 
@@ -442,7 +445,7 @@ public class CommandClassBarrierOperatorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Subsystem Type'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("SUBSYSTEM_TYPE", "NOT_SUPPORTED");
                 break;
@@ -453,7 +456,8 @@ public class CommandClassBarrierOperatorV1 {
                 response.put("SUBSYSTEM_TYPE", "VISUAL_NOTIFICATION");
                 break;
             default:
-                logger.debug("");
+                response.put("SUBSYSTEM_TYPE", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 
@@ -511,7 +515,7 @@ public class CommandClassBarrierOperatorV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Subsystem Type'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("SUBSYSTEM_TYPE", "NOT_SUPPORTED");
                 break;
@@ -522,7 +526,8 @@ public class CommandClassBarrierOperatorV1 {
                 response.put("SUBSYSTEM_TYPE", "VISUAL_NOTIFICATION");
                 break;
             default:
-                logger.debug("");
+                response.put("SUBSYSTEM_TYPE", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 

@@ -63,9 +63,11 @@ public class CommandClassSwitchMultilevelV4 {
      */
     public final static int SWITCH_MULTILEVEL_SUPPORTED_REPORT = 0x07;
 
-    // Constants for Duration
+
+    // Define constants for Duration
     private static Map<Integer, String> constantDuration = new HashMap<Integer, String>();
-    // Constants for Dimming Duration
+
+    // Define constants for Dimming Duration
     private static Map<Integer, String> constantDimmingDuration = new HashMap<Integer, String>();
 
     static {
@@ -127,7 +129,7 @@ public class CommandClassSwitchMultilevelV4 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Value'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("VALUE", "OFF_DISABLE");
                 break;
@@ -135,7 +137,8 @@ public class CommandClassSwitchMultilevelV4 {
                 response.put("VALUE", "ON_ENABLE");
                 break;
             default:
-                logger.debug("");
+                response.put("VALUE", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 
@@ -234,7 +237,7 @@ public class CommandClassSwitchMultilevelV4 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Current Value'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("CURRENT_VALUE", "OFF_DISABLE");
                 break;
@@ -242,7 +245,8 @@ public class CommandClassSwitchMultilevelV4 {
                 response.put("CURRENT_VALUE", "ON_ENABLE");
                 break;
             default:
-                logger.debug("");
+                response.put("CURRENT_VALUE", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 

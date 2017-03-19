@@ -61,9 +61,11 @@ public class CommandClassNetworkManagementInstallationMaintenanceV1 {
      */
     public final static int STATISTICS_CLEAR = 0x06;
 
-    // Constants for Speed
+
+    // Define constants for Speed
     private static Map<Integer, String> constantSpeed = new HashMap<Integer, String>();
-    // Constants for Type
+
+    // Define constants for Type
     private static Map<Integer, String> constantType = new HashMap<Integer, String>();
 
     static {
@@ -294,7 +296,7 @@ public class CommandClassNetworkManagementInstallationMaintenanceV1 {
 
             // Process 'Value'
             int valValue = 0;
-            int lenValue = payload[msgOffset - 1];
+            int lenValue = payload[3];
             for (int cntValue = 0; cntValue < lenValue; cntValue++) {
                 valValue = (valValue << 8) + payload[msgOffset + cntValue];
             }

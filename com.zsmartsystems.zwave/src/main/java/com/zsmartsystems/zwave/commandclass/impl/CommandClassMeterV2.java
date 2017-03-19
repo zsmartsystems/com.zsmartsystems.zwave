@@ -198,7 +198,7 @@ public class CommandClassMeterV2 {
 
         // Process 'Meter Value'
         int valMeterValue = 0;
-        int lenMeterValue = payload[msgOffset - 1] & 0x07;
+        int lenMeterValue = payload[3] & 0x07;
         for (int cntMeterValue = 0; cntMeterValue < lenMeterValue; cntMeterValue++) {
             valMeterValue = (valMeterValue << 8) + payload[msgOffset + cntMeterValue];
         }
@@ -206,12 +206,12 @@ public class CommandClassMeterV2 {
         msgOffset += lenMeterValue;
 
         // Process 'Delta Time'
-        response.put("DELTA_TIME", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("DELTA_TIME", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Process 'Previous Meter Value'
         int valPreviousMeterValue = 0;
-        int lenPreviousMeterValue = payload[msgOffset - 3] & 0x07;
+        int lenPreviousMeterValue = payload[5] & 0x07;
         for (int cntPreviousMeterValue = 0; cntPreviousMeterValue < lenPreviousMeterValue; cntPreviousMeterValue++) {
             valPreviousMeterValue = (valPreviousMeterValue << 8) + payload[msgOffset + cntPreviousMeterValue];
         }

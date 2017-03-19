@@ -138,13 +138,13 @@ public class CommandClassManufacturerSpecificV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Manufacturer ID'
-        response.put("MANUFACTURER_ID", Integer.valueOf(payload[2] << 8 + payload[3]));
+        response.put("MANUFACTURER_ID", Integer.valueOf(((payload[2] & 0xff) << 8) + (payload[3] & 0xff)));
 
         // Process 'Product Type ID'
-        response.put("PRODUCT_TYPE_ID", Integer.valueOf(payload[4] << 8 + payload[5]));
+        response.put("PRODUCT_TYPE_ID", Integer.valueOf(((payload[4] & 0xff) << 8) + (payload[5] & 0xff)));
 
         // Process 'Product ID'
-        response.put("PRODUCT_ID", Integer.valueOf(payload[6] << 8 + payload[7]));
+        response.put("PRODUCT_ID", Integer.valueOf(((payload[6] & 0xff) << 8) + (payload[7] & 0xff)));
 
         // Return the map of processed response data;
         return response;
@@ -198,7 +198,7 @@ public class CommandClassManufacturerSpecificV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch ((int) payload[2] & 0x07) {
+        switch (payload[2] & 0x07) {
             case 0x01:
                 response.put("DEVICE_ID_TYPE", "SERIAL_NUMBER");
                 break;
@@ -288,7 +288,7 @@ public class CommandClassManufacturerSpecificV2 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        switch ((int) payload[msgOffset] & 0x07) {
+        switch (payload[msgOffset] & 0x07) {
             case 0x01:
                 response.put("DEVICE_ID_TYPE", "SERIAL_NUMBER");
                 break;
@@ -310,7 +310,7 @@ public class CommandClassManufacturerSpecificV2 {
 
         // Process 'Device ID Data'
         int valDeviceIdData = 0;
-        int lenDeviceIdData = payload[msgOffset - 1] & 0x1F;
+        int lenDeviceIdData = payload[3] & 0x1F;
         for (int cntDeviceIdData = 0; cntDeviceIdData < lenDeviceIdData; cntDeviceIdData++) {
             valDeviceIdData = (valDeviceIdData << 8) + payload[msgOffset + cntDeviceIdData];
         }

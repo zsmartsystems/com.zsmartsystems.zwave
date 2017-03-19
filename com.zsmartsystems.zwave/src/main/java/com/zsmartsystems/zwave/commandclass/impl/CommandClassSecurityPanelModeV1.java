@@ -129,7 +129,7 @@ public class CommandClassSecurityPanelModeV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Supported Mode Bit Mask'
-        response.put("SUPPORTED_MODE_BIT_MASK", Integer.valueOf(payload[2] << 8 + payload[3]));
+        response.put("SUPPORTED_MODE_BIT_MASK", Integer.valueOf(((payload[2] & 0xff) << 8) + (payload[3] & 0xff)));
 
         // Return the map of processed response data;
         return response;
@@ -208,7 +208,7 @@ public class CommandClassSecurityPanelModeV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'MODE'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x01:
                 response.put("MODE", "ARM_HOME");
                 break;
@@ -225,7 +225,8 @@ public class CommandClassSecurityPanelModeV1 {
                 response.put("MODE", "ALARM_TRIGGER");
                 break;
             default:
-                logger.debug("");
+                response.put("MODE", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 
@@ -273,7 +274,7 @@ public class CommandClassSecurityPanelModeV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'MODE'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x01:
                 response.put("MODE", "ARM_HOME");
                 break;
@@ -290,7 +291,8 @@ public class CommandClassSecurityPanelModeV1 {
                 response.put("MODE", "ALARM_TRIGGER");
                 break;
             default:
-                logger.debug("");
+                response.put("MODE", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 

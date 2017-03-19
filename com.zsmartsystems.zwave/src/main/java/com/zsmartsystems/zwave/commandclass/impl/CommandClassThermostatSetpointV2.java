@@ -170,7 +170,7 @@ public class CommandClassThermostatSetpointV2 {
         int msgOffset = 2;
 
         // Process 'Level'
-        switch ((int) payload[msgOffset] & 0x0F) {
+        switch (payload[msgOffset] & 0x0F) {
             case 0x00:
                 response.put("SETPOINT_TYPE", "NOT_SUPPORTED");
                 break;
@@ -226,7 +226,7 @@ public class CommandClassThermostatSetpointV2 {
 
         // Process 'Value'
         int valValue = 0;
-        int lenValue = payload[msgOffset - 1] & 0x07;
+        int lenValue = payload[3] & 0x07;
         for (int cntValue = 0; cntValue < lenValue; cntValue++) {
             valValue = (valValue << 8) + payload[msgOffset + cntValue];
         }
@@ -324,7 +324,7 @@ public class CommandClassThermostatSetpointV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        switch ((int) payload[2] & 0x0F) {
+        switch (payload[2] & 0x0F) {
             case 0x00:
                 response.put("SETPOINT_TYPE", "NOT_SUPPORTED");
                 break;
@@ -487,7 +487,7 @@ public class CommandClassThermostatSetpointV2 {
         int msgOffset = 2;
 
         // Process 'Level'
-        switch ((int) payload[msgOffset] & 0x0F) {
+        switch (payload[msgOffset] & 0x0F) {
             case 0x00:
                 response.put("SETPOINT_TYPE", "NOT_SUPPORTED");
                 break;
@@ -543,7 +543,7 @@ public class CommandClassThermostatSetpointV2 {
 
         // Process 'Value'
         int valValue = 0;
-        int lenValue = payload[msgOffset - 1] & 0x07;
+        int lenValue = payload[3] & 0x07;
         for (int cntValue = 0; cntValue < lenValue; cntValue++) {
             valValue = (valValue << 8) + payload[msgOffset + cntValue];
         }
@@ -641,9 +641,8 @@ public class CommandClassThermostatSetpointV2 {
 
         // Process 'Bit Mask'
         List<String> responseBitMask = new ArrayList<String>();
-        int cntBitMask = 0;
-        while (cntBitMask < payload.length - 2) {
-            if ((payload[2 + (cntBitMask / 8)] & cntBitMask % 8) == 0) {
+        for (int cntBitMask = 0; cntBitMask < (payload.length - 2) * 8; cntBitMask++) {
+            if ((payload[2 + (cntBitMask / 8)] & (1 << cntBitMask % 8)) == 0) {
                 continue;
             }
             switch (cntBitMask) {

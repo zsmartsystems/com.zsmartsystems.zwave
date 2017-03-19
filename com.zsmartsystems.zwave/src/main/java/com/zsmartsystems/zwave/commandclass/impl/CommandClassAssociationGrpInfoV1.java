@@ -63,7 +63,8 @@ public class CommandClassAssociationGrpInfoV1 {
     public final static int ASSOCIATION_GROUP_COMMAND_LIST_REPORT = 0x06;
 
 
-    // Constants for Profile1
+
+    // Define constants for Profile1
     private static Map<Integer, String> constantProfile1 = new HashMap<Integer, String>();
 
     static {
@@ -185,7 +186,7 @@ public class CommandClassAssociationGrpInfoV1 {
 
         // Process 'Name'
         int valName = 0;
-        int lenName = payload[msgOffset - 1];
+        int lenName = payload[3];
         for (int cntName = 0; cntName < lenName; cntName++) {
             valName += payload[msgOffset + cntName];
         }
@@ -332,7 +333,7 @@ public class CommandClassAssociationGrpInfoV1 {
             // Process 'Profile2'
 
             // Process 'Event Code'
-            variant.put("EVENT_CODE", Integer.valueOf(payload[8] << 8 + payload[9]));
+            variant.put("EVENT_CODE", Integer.valueOf(((payload[8] & 0xff) << 8) + (payload[9] & 0xff)));
 
             // Add to the list
             variantList.add(variant);
@@ -468,7 +469,7 @@ public class CommandClassAssociationGrpInfoV1 {
 
         // Process 'Command'
         int valCommand = 0;
-        int lenCommand = payload[msgOffset - 1];
+        int lenCommand = payload[3];
         for (int cntCommand = 0; cntCommand < lenCommand; cntCommand++) {
             valCommand = (valCommand << 8) + payload[msgOffset + cntCommand];
         }

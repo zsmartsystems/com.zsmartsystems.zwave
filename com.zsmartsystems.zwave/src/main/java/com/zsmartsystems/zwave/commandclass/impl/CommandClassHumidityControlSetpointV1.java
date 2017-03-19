@@ -161,7 +161,7 @@ public class CommandClassHumidityControlSetpointV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        switch ((int) payload[msgOffset] & 0x0F) {
+        switch (payload[msgOffset] & 0x0F) {
             case 0x00:
                 response.put("SETPOINT_TYPE", "HUMIDIFIER");
                 break;
@@ -190,7 +190,7 @@ public class CommandClassHumidityControlSetpointV1 {
 
         // Process 'Value'
         int valValue = 0;
-        int lenValue = payload[msgOffset - 1] & 0x07;
+        int lenValue = payload[3] & 0x07;
         for (int cntValue = 0; cntValue < lenValue; cntValue++) {
             valValue = (valValue << 8) + payload[msgOffset + cntValue];
         }
@@ -252,7 +252,7 @@ public class CommandClassHumidityControlSetpointV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch ((int) payload[2] & 0x0F) {
+        switch (payload[2] & 0x0F) {
             case 0x00:
                 response.put("SETPOINT_TYPE", "HUMIDIFIER");
                 break;
@@ -354,7 +354,7 @@ public class CommandClassHumidityControlSetpointV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        switch ((int) payload[msgOffset] & 0x0F) {
+        switch (payload[msgOffset] & 0x0F) {
             case 0x00:
                 response.put("SETPOINT_TYPE", "HUMIDIFIER");
                 break;
@@ -383,7 +383,7 @@ public class CommandClassHumidityControlSetpointV1 {
 
         // Process 'Value'
         int valValue = 0;
-        int lenValue = payload[msgOffset - 1] & 0x07;
+        int lenValue = payload[3] & 0x07;
         for (int cntValue = 0; cntValue < lenValue; cntValue++) {
             valValue = (valValue << 8) + payload[msgOffset + cntValue];
         }
@@ -473,7 +473,7 @@ public class CommandClassHumidityControlSetpointV1 {
         List<String> responseBitMask = new ArrayList<String>();
         int lenBitMask = 1;
         for (int cntBitMask = 0; cntBitMask < lenBitMask; cntBitMask++) {
-            if ((payload[2 + (cntBitMask / 8)] & cntBitMask % 8) == 0) {
+            if ((payload[2 + (cntBitMask / 8)] & (1 << cntBitMask % 8)) == 0) {
                 continue;
             }
             switch (cntBitMask) {
@@ -545,7 +545,7 @@ public class CommandClassHumidityControlSetpointV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch ((int) payload[2] & 0x0F) {
+        switch (payload[2] & 0x0F) {
             case 0x00:
                 response.put("SETPOINT_TYPE", "HUMIDIFIER");
                 break;
@@ -611,7 +611,7 @@ public class CommandClassHumidityControlSetpointV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch ((int) payload[2] & 0x0F) {
+        switch (payload[2] & 0x0F) {
             case 0x00:
                 response.put("SCALE_BIT_MASK", "PERCENTAGE");
                 break;
@@ -677,7 +677,7 @@ public class CommandClassHumidityControlSetpointV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch ((int) payload[2] & 0x0F) {
+        switch (payload[2] & 0x0F) {
             case 0x00:
                 response.put("SETPOINT_TYPE", "HUMIDIFIER");
                 break;
@@ -812,7 +812,7 @@ public class CommandClassHumidityControlSetpointV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        switch ((int) payload[msgOffset] & 0x0F) {
+        switch (payload[msgOffset] & 0x0F) {
             case 0x00:
                 response.put("SETPOINT_TYPE", "HUMIDIFIER");
                 break;
@@ -841,7 +841,7 @@ public class CommandClassHumidityControlSetpointV1 {
 
         // Process 'Minimum Value'
         int valMinimumValue = 0;
-        int lenMinimumValue = payload[msgOffset - 1] & 0x07;
+        int lenMinimumValue = payload[3] & 0x07;
         for (int cntMinimumValue = 0; cntMinimumValue < lenMinimumValue; cntMinimumValue++) {
             valMinimumValue = (valMinimumValue << 8) + payload[msgOffset + cntMinimumValue];
         }
@@ -865,7 +865,7 @@ public class CommandClassHumidityControlSetpointV1 {
 
         // Process 'Maximum Value'
         int valMaximumValue = 0;
-        int lenMaximumValue = payload[msgOffset - 1] & 0x07;
+        int lenMaximumValue = payload[3] & 0x07;
         for (int cntMaximumValue = 0; cntMaximumValue < lenMaximumValue; cntMaximumValue++) {
             valMaximumValue = (valMaximumValue << 8) + payload[msgOffset + cntMaximumValue];
         }

@@ -44,7 +44,8 @@ public class CommandClassMeterV1 {
      */
     public final static int METER_REPORT = 0x02;
 
-    // Constants for Meter Type
+
+    // Define constants for Meter Type
     private static Map<Integer, String> constantMeterType = new HashMap<Integer, String>();
 
     static {
@@ -168,7 +169,7 @@ public class CommandClassMeterV1 {
 
         // Process 'Meter Value'
         int valMeterValue = 0;
-        int lenMeterValue = payload[msgOffset - 1] & 0x07;
+        int lenMeterValue = payload[3] & 0x07;
         for (int cntMeterValue = 0; cntMeterValue < lenMeterValue; cntMeterValue++) {
             valMeterValue = (valMeterValue << 8) + payload[msgOffset + cntMeterValue];
         }

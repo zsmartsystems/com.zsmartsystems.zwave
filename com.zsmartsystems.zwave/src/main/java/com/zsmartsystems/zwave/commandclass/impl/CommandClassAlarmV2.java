@@ -58,7 +58,8 @@ public class CommandClassAlarmV2 {
      */
     public final static int ALARM_TYPE_SUPPORTED_REPORT = 0x08;
 
-    // Constants for ZWave Alarm Type
+
+    // Define constants for ZWave Alarm Type
     private static Map<Integer, String> constantZwaveAlarmType = new HashMap<Integer, String>();
 
     static {
@@ -240,7 +241,7 @@ public class CommandClassAlarmV2 {
         msgOffset += 1;
 
         // Process 'ZWave Alarm Status'
-        switch ((int) payload[msgOffset]) {
+        switch (payload[msgOffset] & 0xff) {
             case 0x00:
                 response.put("ZWAVE_ALARM_STATUS", "OFF");
                 break;
@@ -248,7 +249,8 @@ public class CommandClassAlarmV2 {
                 response.put("ZWAVE_ALARM_STATUS", "ON");
                 break;
             default:
-                logger.debug("");
+                response.put("ZWAVE_ALARM_STATUS", String.format("%02X", payload[msgOffset] & 0xff));
+                logger.debug("Unknown value {}", payload[msgOffset] & 0xff);
                 break;
         }
         msgOffset += 1;
@@ -267,7 +269,7 @@ public class CommandClassAlarmV2 {
 
         // Process 'Event Parameter'
         int valEventParameter = 0;
-        int lenEventParameter = payload[msgOffset - 1];
+        int lenEventParameter = payload[3];
         for (int cntEventParameter = 0; cntEventParameter < lenEventParameter; cntEventParameter++) {
             valEventParameter = (valEventParameter << 8) + payload[msgOffset + cntEventParameter];
         }
@@ -331,7 +333,7 @@ public class CommandClassAlarmV2 {
         response.put("ZWAVE_ALARM_TYPE", constantZwaveAlarmType.get(payload[2] & 0xff));
 
         // Process 'ZWave Alarm Status'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x00:
                 response.put("ZWAVE_ALARM_STATUS", "OFF");
                 break;
@@ -339,7 +341,8 @@ public class CommandClassAlarmV2 {
                 response.put("ZWAVE_ALARM_STATUS", "ON");
                 break;
             default:
-                logger.debug("");
+                response.put("ZWAVE_ALARM_STATUS", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 
@@ -446,9 +449,9 @@ public class CommandClassAlarmV2 {
 
         // Process 'Bit Mask'
         List<String> responseBitMask = new ArrayList<String>();
-        int lenBitMask = (payload[0] & 0x1F) * 8;
+        int lenBitMask = (payload[2] & 0x1F) * 8;
         for (int cntBitMask = 0; cntBitMask < lenBitMask; cntBitMask++) {
-            if ((payload[3 + (cntBitMask / 8)] & cntBitMask % 8) == 0) {
+            if ((payload[3 + (cntBitMask / 8)] & (1 << cntBitMask % 8)) == 0) {
                 continue;
             }
             switch (cntBitMask) {

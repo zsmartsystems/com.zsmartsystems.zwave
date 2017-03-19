@@ -142,7 +142,7 @@ public class CommandClassThermostatOperatingStateV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        switch ((int) payload[2] & 0x0F) {
+        switch (payload[2] & 0x0F) {
             case 0x00:
                 response.put("OPERATING_STATE", "IDLE");
                 break;

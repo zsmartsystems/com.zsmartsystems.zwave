@@ -47,7 +47,8 @@ public class CommandClassManufacturerProprietaryFibaroFgrm222V1 {
      */
     public final static int FGRM222_REPORT = 0x03;
 
-    // Constants for Command
+
+    // Define constants for Command
     private static Map<Integer, String> constantCommand = new HashMap<Integer, String>();
 
     static {

@@ -62,7 +62,8 @@ public class CommandClassSensorMultilevelV9 {
      */
     public final static int SENSOR_MULTILEVEL_SUPPORTED_SCALE_REPORT = 0x06;
 
-    // Constants for Sensor Type
+
+    // Define constants for Sensor Type
     private static Map<Integer, String> constantSensorType = new HashMap<Integer, String>();
 
     static {
@@ -274,9 +275,8 @@ public class CommandClassSensorMultilevelV9 {
 
         // Process 'Bit Mask'
         List<String> responseBitMask = new ArrayList<String>();
-        int cntBitMask = 0;
-        while (cntBitMask < payload.length - 2) {
-            if ((payload[2 + (cntBitMask / 8)] & cntBitMask % 8) == 0) {
+        for (int cntBitMask = 0; cntBitMask < (payload.length - 2) * 8; cntBitMask++) {
+            if ((payload[2 + (cntBitMask / 8)] & (1 << cntBitMask % 8)) == 0) {
                 continue;
             }
             switch (cntBitMask) {
@@ -656,7 +656,7 @@ public class CommandClassSensorMultilevelV9 {
 
         // Process 'Sensor Value'
         int valSensorValue = 0;
-        int lenSensorValue = payload[msgOffset - 1] & 0x07;
+        int lenSensorValue = payload[3] & 0x07;
         for (int cntSensorValue = 0; cntSensorValue < lenSensorValue; cntSensorValue++) {
             valSensorValue = (valSensorValue << 8) + payload[msgOffset + cntSensorValue];
         }

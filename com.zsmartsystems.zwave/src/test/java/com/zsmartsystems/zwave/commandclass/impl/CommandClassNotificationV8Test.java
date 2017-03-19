@@ -38,8 +38,9 @@ public class CommandClassNotificationV8Test {
         assertEquals("SMOKE", report.get("NOTIFICATION_TYPE"));
     }
 
-    private static Map<String, Map<String, Object>> tests = new HashMap<String, Map<String, Object>>();
-    static {
+    @Test
+    public void handleNotificationReport() {
+        Map<String, Map<String, Object>> tests = new HashMap<String, Map<String, Object>>();
         Map<String, Object> test = new HashMap<String, Object>();
 
         test.clear();
@@ -48,14 +49,11 @@ public class CommandClassNotificationV8Test {
         test.put("EVENT", 1);
         test.put("NOTIFICATION_STATUS", "ON");
         tests.put("POWER_MANAGEMENT Event 1 == FF", test);
-    }
 
-    @Test
-    public void handleNotificationReport() {
-        for (String test : tests.keySet()) {
-            System.out.println("Running report test for " + this.getClass().getSimpleName() + ": " + test);
+        for (String testName : tests.keySet()) {
+            System.out.println("Running report test for " + this.getClass().getSimpleName() + ": " + testName);
 
-            Map<String, Object> testData = tests.get(test);
+            Map<String, Object> testData = tests.get(testName);
             Map<String, Object> report = CommandClassNotificationV8
                     .handleNotificationReport((byte[]) testData.get("input"));
 

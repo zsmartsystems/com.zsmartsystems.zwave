@@ -64,7 +64,8 @@ public class CommandClassFirmwareUpdateMdV2 {
      */
     public final static int FIRMWARE_UPDATE_MD_STATUS_REPORT = 0x07;
 
-    // Constants for Status
+
+    // Define constants for Status
     private static Map<Integer, String> constantStatus = new HashMap<Integer, String>();
 
     static {
@@ -160,13 +161,13 @@ public class CommandClassFirmwareUpdateMdV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Manufacturer ID'
-        response.put("MANUFACTURER_ID", Integer.valueOf(payload[2] << 8 + payload[3]));
+        response.put("MANUFACTURER_ID", Integer.valueOf(((payload[2] & 0xff) << 8) + (payload[3] & 0xff)));
 
         // Process 'Firmware ID'
-        response.put("FIRMWARE_ID", Integer.valueOf(payload[4] << 8 + payload[5]));
+        response.put("FIRMWARE_ID", Integer.valueOf(((payload[4] & 0xff) << 8) + (payload[5] & 0xff)));
 
         // Process 'Checksum'
-        response.put("CHECKSUM", Integer.valueOf(payload[6] << 8 + payload[7]));
+        response.put("CHECKSUM", Integer.valueOf(((payload[6] & 0xff) << 8) + (payload[7] & 0xff)));
 
         // Return the map of processed response data;
         return response;
@@ -225,13 +226,13 @@ public class CommandClassFirmwareUpdateMdV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Manufacturer ID'
-        response.put("MANUFACTURER_ID", Integer.valueOf(payload[2] << 8 + payload[3]));
+        response.put("MANUFACTURER_ID", Integer.valueOf(((payload[2] & 0xff) << 8) + (payload[3] & 0xff)));
 
         // Process 'Firmware ID'
-        response.put("FIRMWARE_ID", Integer.valueOf(payload[4] << 8 + payload[5]));
+        response.put("FIRMWARE_ID", Integer.valueOf(((payload[4] & 0xff) << 8) + (payload[5] & 0xff)));
 
         // Process 'Checksum'
-        response.put("CHECKSUM", Integer.valueOf(payload[6] << 8 + payload[7]));
+        response.put("CHECKSUM", Integer.valueOf(((payload[6] & 0xff) << 8) + (payload[7] & 0xff)));
 
         // Return the map of processed response data;
         return response;
@@ -442,7 +443,7 @@ public class CommandClassFirmwareUpdateMdV2 {
         response.put("DATA", valData);
 
         // Process 'Checksum'
-        response.put("CHECKSUM", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("CHECKSUM", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Return the map of processed response data;

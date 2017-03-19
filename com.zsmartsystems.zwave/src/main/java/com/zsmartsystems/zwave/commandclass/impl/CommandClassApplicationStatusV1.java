@@ -43,7 +43,8 @@ public class CommandClassApplicationStatusV1 {
      */
     public final static int APPLICATION_REJECTED_REQUEST = 0x02;
 
-    // Constants for Status
+
+    // Define constants for Status
     private static Map<Integer, String> constantStatus = new HashMap<Integer, String>();
 
     static {

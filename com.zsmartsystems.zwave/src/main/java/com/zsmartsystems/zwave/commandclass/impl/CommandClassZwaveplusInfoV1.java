@@ -43,9 +43,11 @@ public class CommandClassZwaveplusInfoV1 {
      */
     public final static int ZWAVEPLUS_INFO_REPORT = 0x02;
 
-    // Constants for Role Type
+
+    // Define constants for Role Type
     private static Map<Integer, String> constantRoleType = new HashMap<Integer, String>();
-    // Constants for Node Type
+
+    // Define constants for Node Type
     private static Map<Integer, String> constantNodeType = new HashMap<Integer, String>();
 
     static {

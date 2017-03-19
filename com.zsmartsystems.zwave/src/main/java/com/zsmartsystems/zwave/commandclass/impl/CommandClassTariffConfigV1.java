@@ -153,7 +153,7 @@ public class CommandClassTariffConfigV1 {
         int msgOffset = 2;
 
         // Process 'Year'
-        response.put("YEAR", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("YEAR", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Process 'Month'
@@ -185,7 +185,7 @@ public class CommandClassTariffConfigV1 {
         msgOffset += 1;
 
         // Process 'Standing Charge Value'
-        response.put("STANDING_CHARGE_VALUE", Long.valueOf(payload[msgOffset] << 24 + payload[msgOffset + 12] << 16 + payload[msgOffset + 22] << 8 + payload[msgOffset + 32]));
+        response.put("STANDING_CHARGE_VALUE", Long.valueOf((payload[msgOffset] << 24) + (payload[msgOffset + 1] << 16) + (payload[msgOffset + 2] << 8) + payload[msgOffset + 3]));
         msgOffset += 4;
 
         // Process 'Properties2'
@@ -194,7 +194,7 @@ public class CommandClassTariffConfigV1 {
 
         // Process 'Supplier Character'
         int valSupplierCharacter = 0;
-        int lenSupplierCharacter = payload[msgOffset - 1] & 0x1F;
+        int lenSupplierCharacter = payload[3] & 0x1F;
         for (int cntSupplierCharacter = 0; cntSupplierCharacter < lenSupplierCharacter; cntSupplierCharacter++) {
             valSupplierCharacter = (valSupplierCharacter << 8) + payload[msgOffset + cntSupplierCharacter];
         }
@@ -264,7 +264,7 @@ public class CommandClassTariffConfigV1 {
         response.put("TARIFF_PRECISION", Integer.valueOf((payload[3] & 0xE0 >> 5)));
 
         // Process 'Tariff Value'
-        response.put("TARIFF_VALUE", Long.valueOf(payload[4] << 24 + payload[5] << 16 + payload[6] << 8 + payload[7]));
+        response.put("TARIFF_VALUE", Long.valueOf((payload[4] << 24) + (payload[5] << 16) + (payload[6] << 8) + payload[7]));
 
         // Return the map of processed response data;
         return response;
@@ -325,13 +325,8 @@ public class CommandClassTariffConfigV1 {
         msgOffset += 1;
 
         // Process 'Rate Parameter Set ID'
-        int valRateParameterSetId = 0;
-        int lenRateParameterSetId = payload[msgOffset - 1] & 0x3F;
-        for (int cntRateParameterSetId = 0; cntRateParameterSetId < lenRateParameterSetId; cntRateParameterSetId++) {
-            valRateParameterSetId = (valRateParameterSetId << 8) + payload[msgOffset + cntRateParameterSetId];
-        }
-        response.put("RATE_PARAMETER_SET_ID", valRateParameterSetId);
-        msgOffset += lenRateParameterSetId;
+        response.put("RATE_PARAMETER_SET_ID", Integer.valueOf(payload[msgOffset]));
+        msgOffset += payload[msgOffset - 1];
 
         // Return the map of processed response data;
         return response;

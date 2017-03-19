@@ -162,7 +162,7 @@ public class CommandClassMailboxV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch ((int) payload[2] & 0x07) {
+        switch (payload[2] & 0x07) {
             case 0x00:
                 response.put("MODE", "DISABLE");
                 break;
@@ -184,7 +184,7 @@ public class CommandClassMailboxV1 {
         response.put("FORWARDING_DESTINATION_IPV6_ADDRESS", valForwardingDestinationIpv6Address);
 
         // Process 'UDP Port Number'
-        response.put("UDP_PORT_NUMBER", Integer.valueOf(payload[19] << 8 + payload[20]));
+        response.put("UDP_PORT_NUMBER", Integer.valueOf(((payload[19] & 0xff) << 8) + (payload[20] & 0xff)));
 
         // Return the map of processed response data;
         return response;
@@ -281,7 +281,7 @@ public class CommandClassMailboxV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch ((int) payload[2] & 0x07) {
+        switch (payload[2] & 0x07) {
             case 0x00:
                 response.put("MODE", "DISABLE");
                 break;
@@ -306,7 +306,7 @@ public class CommandClassMailboxV1 {
         }
 
         // Process 'Mailbox Capacity'
-        response.put("MAILBOX_CAPACITY", Integer.valueOf(payload[3] << 8 + payload[4]));
+        response.put("MAILBOX_CAPACITY", Integer.valueOf(((payload[3] & 0xff) << 8) + (payload[4] & 0xff)));
 
         // Process 'Forwarding Destination IPv6 Address'
         byte[] valForwardingDestinationIpv6Address = new byte[16];
@@ -316,7 +316,7 @@ public class CommandClassMailboxV1 {
         response.put("FORWARDING_DESTINATION_IPV6_ADDRESS", valForwardingDestinationIpv6Address);
 
         // Process 'UDP Port Number'
-        response.put("UDP_PORT_NUMBER", Integer.valueOf(payload[21] << 8 + payload[22]));
+        response.put("UDP_PORT_NUMBER", Integer.valueOf(((payload[21] & 0xff) << 8) + (payload[22] & 0xff)));
 
         // Return the map of processed response data;
         return response;
@@ -419,7 +419,7 @@ public class CommandClassMailboxV1 {
         msgOffset += 1;
 
         // Process 'Properties1'
-        switch ((int) payload[msgOffset] & 0x03) {
+        switch (payload[msgOffset] & 0x03) {
             case 0x00:
                 response.put("MODE", "PUSH");
                 break;

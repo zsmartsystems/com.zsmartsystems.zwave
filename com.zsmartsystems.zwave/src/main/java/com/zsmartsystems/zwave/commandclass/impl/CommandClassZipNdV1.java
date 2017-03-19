@@ -134,7 +134,7 @@ public class CommandClassZipNdV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch ((int) payload[2] & 0x03) {
+        switch (payload[2] & 0x03) {
             case 0x00:
                 response.put("VALIDITY", "INFORMATION_OK");
                 break;

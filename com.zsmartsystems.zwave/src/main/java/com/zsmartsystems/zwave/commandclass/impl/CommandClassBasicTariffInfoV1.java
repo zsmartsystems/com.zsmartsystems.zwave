@@ -171,7 +171,7 @@ public class CommandClassBasicTariffInfoV1 {
         response.put("E1_CURRENT_RATE_IN_USE", Integer.valueOf(payload[3] & 0x0F));
 
         // Process 'E1 Rate Consumption Register'
-        response.put("E1_RATE_CONSUMPTION_REGISTER", Long.valueOf(payload[4] << 24 + payload[5] << 16 + payload[6] << 8 + payload[7]));
+        response.put("E1_RATE_CONSUMPTION_REGISTER", Long.valueOf((payload[4] << 24) + (payload[5] << 16) + (payload[6] << 8) + payload[7]));
 
         // Process 'E1 Time for Next Rate Hours'
         response.put("E1_TIME_FOR_NEXT_RATE_HOURS", Integer.valueOf(payload[8]));
@@ -186,7 +186,7 @@ public class CommandClassBasicTariffInfoV1 {
         response.put("E2_CURRENT_RATE_IN_USE", Integer.valueOf(payload[11] & 0x0F));
 
         // Process 'E2 Rate Consumption Register'
-        response.put("E2_RATE_CONSUMPTION_REGISTER", Long.valueOf(payload[12] << 24 + payload[13] << 16 + payload[14] << 8 + payload[15]));
+        response.put("E2_RATE_CONSUMPTION_REGISTER", Long.valueOf((payload[12] << 24) + (payload[13] << 16) + (payload[14] << 8) + payload[15]));
 
         // Return the map of processed response data;
         return response;

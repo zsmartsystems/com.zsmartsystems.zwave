@@ -44,7 +44,8 @@ public class CommandClassEnergyProductionV1 {
      */
     public final static int ENERGY_PRODUCTION_REPORT = 0x03;
 
-    // Constants for Parameter Number
+
+    // Define constants for Parameter Number
     private static Map<Integer, String> constantParameterNumber = new HashMap<Integer, String>();
 
     static {
@@ -187,7 +188,7 @@ public class CommandClassEnergyProductionV1 {
 
         // Process 'Value'
         int valValue = 0;
-        int lenValue = payload[msgOffset - 1] & 0x07;
+        int lenValue = payload[3] & 0x07;
         for (int cntValue = 0; cntValue < lenValue; cntValue++) {
             valValue = (valValue << 8) + payload[msgOffset + cntValue];
         }

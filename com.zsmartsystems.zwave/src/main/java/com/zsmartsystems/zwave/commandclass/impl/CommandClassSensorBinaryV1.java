@@ -43,7 +43,8 @@ public class CommandClassSensorBinaryV1 {
      */
     public final static int SENSOR_BINARY_REPORT = 0x03;
 
-    // Constants for Sensor Value
+
+    // Define constants for Sensor Value
     private static Map<Integer, String> constantSensorValue = new HashMap<Integer, String>();
 
     static {

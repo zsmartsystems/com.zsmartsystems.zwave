@@ -47,7 +47,8 @@ public class CommandClassProtectionV1 {
      */
     public final static int PROTECTION_REPORT = 0x03;
 
-    // Constants for Protection State
+
+    // Define constants for Protection State
     private static Map<Integer, String> constantProtectionState = new HashMap<Integer, String>();
 
     static {

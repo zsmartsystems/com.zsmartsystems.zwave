@@ -147,7 +147,7 @@ public class CommandClassScheduleEntryLockV3 {
         response.put("USER_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Process 'Enabled'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x00:
                 response.put("ENABLED", "DISABLED");
                 break;
@@ -155,7 +155,8 @@ public class CommandClassScheduleEntryLockV3 {
                 response.put("ENABLED", "ENABLED");
                 break;
             default:
-                logger.debug("");
+                response.put("ENABLED", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 
@@ -203,7 +204,7 @@ public class CommandClassScheduleEntryLockV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Enabled'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("ENABLED", "DISABLED");
                 break;
@@ -211,7 +212,8 @@ public class CommandClassScheduleEntryLockV3 {
                 response.put("ENABLED", "ENABLED");
                 break;
             default:
-                logger.debug("");
+                response.put("ENABLED", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 
@@ -296,7 +298,7 @@ public class CommandClassScheduleEntryLockV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Set Action'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("SET_ACTION", "ERASE");
                 break;
@@ -304,7 +306,8 @@ public class CommandClassScheduleEntryLockV3 {
                 response.put("SET_ACTION", "MODIFY");
                 break;
             default:
-                logger.debug("");
+                response.put("SET_ACTION", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 
@@ -585,7 +588,7 @@ public class CommandClassScheduleEntryLockV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Set Action'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("SET_ACTION", "ERASE");
                 break;
@@ -593,7 +596,8 @@ public class CommandClassScheduleEntryLockV3 {
                 response.put("SET_ACTION", "MODIFY");
                 break;
             default:
-                logger.debug("");
+                response.put("SET_ACTION", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 
@@ -1332,7 +1336,7 @@ public class CommandClassScheduleEntryLockV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Set Action'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("SET_ACTION", "ERASE");
                 break;
@@ -1340,7 +1344,8 @@ public class CommandClassScheduleEntryLockV3 {
                 response.put("SET_ACTION", "MODIFY");
                 break;
             default:
-                logger.debug("");
+                response.put("SET_ACTION", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 

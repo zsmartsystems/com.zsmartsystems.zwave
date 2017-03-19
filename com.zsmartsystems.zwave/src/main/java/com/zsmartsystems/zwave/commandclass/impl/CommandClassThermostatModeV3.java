@@ -167,7 +167,7 @@ public class CommandClassThermostatModeV3 {
         int msgOffset = 2;
 
         // Process 'Level'
-        switch ((int) payload[msgOffset] & 0x1F) {
+        switch (payload[msgOffset] & 0x1F) {
             case 0x00:
                 response.put("MODE", "OFF");
                 break;
@@ -223,13 +223,8 @@ public class CommandClassThermostatModeV3 {
         msgOffset += 1;
 
         // Process 'Manufacturer Data'
-        int valManufacturerData = 0;
-        int lenManufacturerData = payload[msgOffset - 1] & 0xE0;
-        for (int cntManufacturerData = 0; cntManufacturerData < lenManufacturerData; cntManufacturerData++) {
-            valManufacturerData = (valManufacturerData << 8) + payload[msgOffset + cntManufacturerData];
-        }
-        response.put("MANUFACTURER_DATA", valManufacturerData);
-        msgOffset += lenManufacturerData;
+        response.put("MANUFACTURER_DATA", Integer.valueOf(payload[msgOffset]));
+        msgOffset += payload[msgOffset - 1];
 
         // Return the map of processed response data;
         return response;
@@ -378,7 +373,7 @@ public class CommandClassThermostatModeV3 {
         int msgOffset = 2;
 
         // Process 'Level'
-        switch ((int) payload[msgOffset] & 0x1F) {
+        switch (payload[msgOffset] & 0x1F) {
             case 0x00:
                 response.put("MODE", "OFF");
                 break;
@@ -434,13 +429,8 @@ public class CommandClassThermostatModeV3 {
         msgOffset += 1;
 
         // Process 'Manufacturer Data'
-        int valManufacturerData = 0;
-        int lenManufacturerData = payload[msgOffset - 1] & 0xE0;
-        for (int cntManufacturerData = 0; cntManufacturerData < lenManufacturerData; cntManufacturerData++) {
-            valManufacturerData = (valManufacturerData << 8) + payload[msgOffset + cntManufacturerData];
-        }
-        response.put("MANUFACTURER_DATA", valManufacturerData);
-        msgOffset += lenManufacturerData;
+        response.put("MANUFACTURER_DATA", Integer.valueOf(payload[msgOffset]));
+        msgOffset += payload[msgOffset - 1];
 
         // Return the map of processed response data;
         return response;
@@ -541,9 +531,8 @@ public class CommandClassThermostatModeV3 {
 
         // Process 'Bit Mask'
         List<String> responseBitMask = new ArrayList<String>();
-        int cntBitMask = 0;
-        while (cntBitMask < payload.length - 2) {
-            if ((payload[2 + (cntBitMask / 8)] & cntBitMask % 8) == 0) {
+        for (int cntBitMask = 0; cntBitMask < (payload.length - 2) * 8; cntBitMask++) {
+            if ((payload[2 + (cntBitMask / 8)] & (1 << cntBitMask % 8)) == 0) {
                 continue;
             }
             switch (cntBitMask) {

@@ -88,7 +88,8 @@ public class CommandClassZipGatewayV1 {
      */
     public final static int COMMAND_APPLICATION_NODE_INFO_REPORT = 0x0D;
 
-    // Constants for Mode
+
+    // Define constants for Mode
     private static Map<Integer, String> constantMode = new HashMap<Integer, String>();
 
     static {
@@ -315,7 +316,7 @@ public class CommandClassZipGatewayV1 {
         msgOffset += 16;
 
         // Process 'Port'
-        response.put("PORT", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("PORT", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Process 'Properties1'
@@ -324,7 +325,7 @@ public class CommandClassZipGatewayV1 {
 
         // Process 'Peer Name'
         int valPeerName = 0;
-        int lenPeerName = payload[msgOffset - 1] & 0x3F;
+        int lenPeerName = payload[3] & 0x3F;
         for (int cntPeerName = 0; cntPeerName < lenPeerName; cntPeerName++) {
             valPeerName = (valPeerName << 8) + payload[msgOffset + cntPeerName];
         }
@@ -473,7 +474,7 @@ public class CommandClassZipGatewayV1 {
         msgOffset += 16;
 
         // Process 'Port'
-        response.put("PORT", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("PORT", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Process 'Properties1'
@@ -482,7 +483,7 @@ public class CommandClassZipGatewayV1 {
 
         // Process 'Peer Name'
         int valPeerName = 0;
-        int lenPeerName = payload[msgOffset - 1] & 0x3F;
+        int lenPeerName = payload[3] & 0x3F;
         for (int cntPeerName = 0; cntPeerName < lenPeerName; cntPeerName++) {
             valPeerName = (valPeerName << 8) + payload[msgOffset + cntPeerName];
         }
@@ -602,7 +603,7 @@ public class CommandClassZipGatewayV1 {
         response.put("UNSOLICITED_IPV6_DESTINATION", valUnsolicitedIpv6Destination);
 
         // Process 'Unsolicited Destination Port'
-        response.put("UNSOLICITED_DESTINATION_PORT", Integer.valueOf(payload[18] << 8 + payload[19]));
+        response.put("UNSOLICITED_DESTINATION_PORT", Integer.valueOf(((payload[18] & 0xff) << 8) + (payload[19] & 0xff)));
 
         // Return the map of processed response data;
         return response;
@@ -698,7 +699,7 @@ public class CommandClassZipGatewayV1 {
         response.put("UNSOLICITED_IPV6_DESTINATION", valUnsolicitedIpv6Destination);
 
         // Process 'Unsolicited Destination Port'
-        response.put("UNSOLICITED_DESTINATION_PORT", Integer.valueOf(payload[18] << 8 + payload[19]));
+        response.put("UNSOLICITED_DESTINATION_PORT", Integer.valueOf(((payload[18] & 0xff) << 8) + (payload[19] & 0xff)));
 
         // Return the map of processed response data;
         return response;

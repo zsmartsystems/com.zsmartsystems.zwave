@@ -102,7 +102,7 @@ public class CommandClassSilenceAlarmV1 {
         int msgOffset = 2;
 
         // Process 'Mode'
-        switch ((int) payload[msgOffset]) {
+        switch (payload[msgOffset] & 0xff) {
             case 0x00:
                 response.put("MODE", "DISABLE_SOUNDING_OF_ALL_SENSOR_ALARMS");
                 break;
@@ -116,13 +116,14 @@ public class CommandClassSilenceAlarmV1 {
                 response.put("MODE", "DISABLE_SOUNDING_OF_ALL_SENSOR_ALARMS_ACCORDING_TO_BIT_MASK_WHICH_HAVE_RECEIVED_THE_ALARM");
                 break;
             default:
-                logger.debug("");
+                response.put("MODE", String.format("%02X", payload[msgOffset] & 0xff));
+                logger.debug("Unknown value {}", payload[msgOffset] & 0xff);
                 break;
         }
         msgOffset += 1;
 
         // Process 'Seconds'
-        response.put("SECONDS", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("SECONDS", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Process 'Number of Bit Masks'
@@ -131,7 +132,7 @@ public class CommandClassSilenceAlarmV1 {
 
         // Process 'Bit Mask'
         int valBitMask = 0;
-        int lenBitMask = payload[msgOffset - 1];
+        int lenBitMask = payload[3];
         for (int cntBitMask = 0; cntBitMask < lenBitMask; cntBitMask++) {
             valBitMask = (valBitMask << 8) + payload[msgOffset + cntBitMask];
         }

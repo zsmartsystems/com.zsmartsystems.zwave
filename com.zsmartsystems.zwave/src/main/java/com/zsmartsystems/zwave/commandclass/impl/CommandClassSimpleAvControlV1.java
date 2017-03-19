@@ -117,7 +117,7 @@ public class CommandClassSimpleAvControlV1 {
         response.put("KEY_ATTRIBUTES", Integer.valueOf(payload[3] & 0x07));
 
         // Process 'Item ID'
-        response.put("ITEM_ID", Integer.valueOf(payload[4] << 8 + payload[5]));
+        response.put("ITEM_ID", Integer.valueOf(((payload[4] & 0xff) << 8) + (payload[5] & 0xff)));
 
         // Process 'vg'
 
@@ -130,7 +130,7 @@ public class CommandClassSimpleAvControlV1 {
             Map<String, Object> variant = new HashMap<String, Object>();
 
             // Process 'Command'
-            variant.put("COMMAND", Integer.valueOf(payload[6] << 8 + payload[7]));
+            variant.put("COMMAND", Integer.valueOf(((payload[6] & 0xff) << 8) + (payload[7] & 0xff)));
 
         }
 
@@ -325,9 +325,8 @@ public class CommandClassSimpleAvControlV1 {
 
         // Process 'Bit Mask'
         List<Integer> responseBitMask = new ArrayList<Integer>();
-        int cntBitMask = 0;
-        while (cntBitMask < payload.length - 3) {
-            if ((payload[3 + (cntBitMask / 8)] & cntBitMask % 8) == 0) {
+        for (int cntBitMask = 0; cntBitMask < (payload.length - 3) * 8; cntBitMask++) {
+            if ((payload[3 + (cntBitMask / 8)] & (1 << cntBitMask % 8)) == 0) {
                 continue;
             }
             responseBitMask.add(cntBitMask);

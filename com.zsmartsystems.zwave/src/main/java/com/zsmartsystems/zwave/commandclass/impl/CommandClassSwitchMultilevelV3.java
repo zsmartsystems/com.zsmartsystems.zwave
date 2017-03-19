@@ -108,7 +108,7 @@ public class CommandClassSwitchMultilevelV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Value'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("VALUE", "OFF_DISABLE");
                 break;
@@ -116,12 +116,13 @@ public class CommandClassSwitchMultilevelV3 {
                 response.put("VALUE", "ON_ENABLE");
                 break;
             default:
-                logger.debug("");
+                response.put("VALUE", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 
         // Process 'Dimming Duration'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x00:
                 response.put("DIMMING_DURATION", "INSTANTLY");
                 break;
@@ -129,7 +130,8 @@ public class CommandClassSwitchMultilevelV3 {
                 response.put("DIMMING_DURATION", "FACTORY_DEFAULT");
                 break;
             default:
-                logger.debug("");
+                response.put("DIMMING_DURATION", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 
@@ -210,7 +212,7 @@ public class CommandClassSwitchMultilevelV3 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Value'
-        switch ((int) payload[2]) {
+        switch (payload[2] & 0xff) {
             case 0x00:
                 response.put("VALUE", "OFF_DISABLE");
                 break;
@@ -218,7 +220,8 @@ public class CommandClassSwitchMultilevelV3 {
                 response.put("VALUE", "ON_ENABLE");
                 break;
             default:
-                logger.debug("");
+                response.put("VALUE", String.format("%02X", payload[2] & 0xff));
+                logger.debug("Unknown value {}", payload[2] & 0xff);
                 break;
         }
 

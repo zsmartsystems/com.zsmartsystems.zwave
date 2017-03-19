@@ -110,7 +110,8 @@ public class CommandClassIrrigationV1 {
      */
     public final static int IRRIGATION_SYSTEM_SHUTOFF = 0x12;
 
-    // Constants for Sensor Status
+
+    // Define constants for Sensor Status
     private static Map<Integer, String> constantSensorStatus = new HashMap<Integer, String>();
 
     static {
@@ -381,7 +382,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'Flow Value'
         int valFlowValue = 0;
-        int lenFlowValue = payload[msgOffset - 1] & 0x07;
+        int lenFlowValue = payload[3] & 0x07;
         for (int cntFlowValue = 0; cntFlowValue < lenFlowValue; cntFlowValue++) {
             valFlowValue = (valFlowValue << 8) + payload[msgOffset + cntFlowValue];
         }
@@ -393,7 +394,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'Pressure Value'
         int valPressureValue = 0;
-        int lenPressureValue = payload[msgOffset - 1] & 0x07;
+        int lenPressureValue = payload[3] & 0x07;
         for (int cntPressureValue = 0; cntPressureValue < lenPressureValue; cntPressureValue++) {
             valPressureValue = (valPressureValue << 8) + payload[msgOffset + cntPressureValue];
         }
@@ -408,7 +409,7 @@ public class CommandClassIrrigationV1 {
         List<String> responseSystemErrorStatus = new ArrayList<String>();
         int lenSystemErrorStatus = 1;
         for (int cntSystemErrorStatus = 0; cntSystemErrorStatus < lenSystemErrorStatus; cntSystemErrorStatus++) {
-            if ((payload[msgOffset + (cntSystemErrorStatus / 8)] & cntSystemErrorStatus % 8) == 0) {
+            if ((payload[msgOffset + (cntSystemErrorStatus / 8)] & (1 << cntSystemErrorStatus % 8)) == 0) {
                 continue;
             }
             switch (cntSystemErrorStatus) {
@@ -538,7 +539,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'High Pressure Threshold Value'
         int valHighPressureThresholdValue = 0;
-        int lenHighPressureThresholdValue = payload[msgOffset - 1] & 0x07;
+        int lenHighPressureThresholdValue = payload[3] & 0x07;
         for (int cntHighPressureThresholdValue = 0; cntHighPressureThresholdValue < lenHighPressureThresholdValue; cntHighPressureThresholdValue++) {
             valHighPressureThresholdValue = (valHighPressureThresholdValue << 8) + payload[msgOffset + cntHighPressureThresholdValue];
         }
@@ -550,7 +551,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'Low Pressure Threshold Value'
         int valLowPressureThresholdValue = 0;
-        int lenLowPressureThresholdValue = payload[msgOffset - 1] & 0x07;
+        int lenLowPressureThresholdValue = payload[3] & 0x07;
         for (int cntLowPressureThresholdValue = 0; cntLowPressureThresholdValue < lenLowPressureThresholdValue; cntLowPressureThresholdValue++) {
             valLowPressureThresholdValue = (valLowPressureThresholdValue << 8) + payload[msgOffset + cntLowPressureThresholdValue];
         }
@@ -561,7 +562,7 @@ public class CommandClassIrrigationV1 {
         List<String> responseSensorPolarity = new ArrayList<String>();
         int lenSensorPolarity = 1;
         for (int cntSensorPolarity = 0; cntSensorPolarity < lenSensorPolarity; cntSensorPolarity++) {
-            if ((payload[msgOffset + (cntSensorPolarity / 8)] & cntSensorPolarity % 8) == 0) {
+            if ((payload[msgOffset + (cntSensorPolarity / 8)] & (1 << cntSensorPolarity % 8)) == 0) {
                 continue;
             }
             switch (cntSensorPolarity) {
@@ -710,7 +711,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'High Pressure Threshold Value'
         int valHighPressureThresholdValue = 0;
-        int lenHighPressureThresholdValue = payload[msgOffset - 1] & 0x07;
+        int lenHighPressureThresholdValue = payload[3] & 0x07;
         for (int cntHighPressureThresholdValue = 0; cntHighPressureThresholdValue < lenHighPressureThresholdValue; cntHighPressureThresholdValue++) {
             valHighPressureThresholdValue = (valHighPressureThresholdValue << 8) + payload[msgOffset + cntHighPressureThresholdValue];
         }
@@ -722,7 +723,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'Low Pressure Threshold Value'
         int valLowPressureThresholdValue = 0;
-        int lenLowPressureThresholdValue = payload[msgOffset - 1] & 0x07;
+        int lenLowPressureThresholdValue = payload[3] & 0x07;
         for (int cntLowPressureThresholdValue = 0; cntLowPressureThresholdValue < lenLowPressureThresholdValue; cntLowPressureThresholdValue++) {
             valLowPressureThresholdValue = (valLowPressureThresholdValue << 8) + payload[msgOffset + cntLowPressureThresholdValue];
         }
@@ -733,7 +734,7 @@ public class CommandClassIrrigationV1 {
         List<String> responseSensorPolarity = new ArrayList<String>();
         int lenSensorPolarity = 1;
         for (int cntSensorPolarity = 0; cntSensorPolarity < lenSensorPolarity; cntSensorPolarity++) {
-            if ((payload[msgOffset + (cntSensorPolarity / 8)] & cntSensorPolarity % 8) == 0) {
+            if ((payload[msgOffset + (cntSensorPolarity / 8)] & (1 << cntSensorPolarity % 8)) == 0) {
                 continue;
             }
             switch (cntSensorPolarity) {
@@ -893,7 +894,7 @@ public class CommandClassIrrigationV1 {
         List<String> responseValveErrorStatus = new ArrayList<String>();
         int lenValveErrorStatus = 1;
         for (int cntValveErrorStatus = 0; cntValveErrorStatus < lenValveErrorStatus; cntValveErrorStatus++) {
-            if ((payload[5 + (cntValveErrorStatus / 8)] & cntValveErrorStatus % 8) == 0) {
+            if ((payload[5 + (cntValveErrorStatus / 8)] & (1 << cntValveErrorStatus % 8)) == 0) {
                 continue;
             }
             switch (cntValveErrorStatus) {
@@ -1059,7 +1060,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'Maximum Flow Value'
         int valMaximumFlowValue = 0;
-        int lenMaximumFlowValue = payload[msgOffset - 1] & 0x07;
+        int lenMaximumFlowValue = payload[3] & 0x07;
         for (int cntMaximumFlowValue = 0; cntMaximumFlowValue < lenMaximumFlowValue; cntMaximumFlowValue++) {
             valMaximumFlowValue = (valMaximumFlowValue << 8) + payload[msgOffset + cntMaximumFlowValue];
         }
@@ -1071,7 +1072,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'Flow High Threshold Value'
         int valFlowHighThresholdValue = 0;
-        int lenFlowHighThresholdValue = payload[msgOffset - 1] & 0x07;
+        int lenFlowHighThresholdValue = payload[3] & 0x07;
         for (int cntFlowHighThresholdValue = 0; cntFlowHighThresholdValue < lenFlowHighThresholdValue; cntFlowHighThresholdValue++) {
             valFlowHighThresholdValue = (valFlowHighThresholdValue << 8) + payload[msgOffset + cntFlowHighThresholdValue];
         }
@@ -1083,7 +1084,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'Flow Low Threshold Value'
         int valFlowLowThresholdValue = 0;
-        int lenFlowLowThresholdValue = payload[msgOffset - 1] & 0x07;
+        int lenFlowLowThresholdValue = payload[3] & 0x07;
         for (int cntFlowLowThresholdValue = 0; cntFlowLowThresholdValue < lenFlowLowThresholdValue; cntFlowLowThresholdValue++) {
             valFlowLowThresholdValue = (valFlowLowThresholdValue << 8) + payload[msgOffset + cntFlowLowThresholdValue];
         }
@@ -1094,7 +1095,7 @@ public class CommandClassIrrigationV1 {
         List<String> responseSensorUsage = new ArrayList<String>();
         int lenSensorUsage = 1;
         for (int cntSensorUsage = 0; cntSensorUsage < lenSensorUsage; cntSensorUsage++) {
-            if ((payload[msgOffset + (cntSensorUsage / 8)] & cntSensorUsage % 8) == 0) {
+            if ((payload[msgOffset + (cntSensorUsage / 8)] & (1 << cntSensorUsage % 8)) == 0) {
                 continue;
             }
             switch (cntSensorUsage) {
@@ -1303,7 +1304,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'Maximum Flow Value'
         int valMaximumFlowValue = 0;
-        int lenMaximumFlowValue = payload[msgOffset - 1] & 0x07;
+        int lenMaximumFlowValue = payload[3] & 0x07;
         for (int cntMaximumFlowValue = 0; cntMaximumFlowValue < lenMaximumFlowValue; cntMaximumFlowValue++) {
             valMaximumFlowValue = (valMaximumFlowValue << 8) + payload[msgOffset + cntMaximumFlowValue];
         }
@@ -1315,7 +1316,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'Flow High Threshold Value'
         int valFlowHighThresholdValue = 0;
-        int lenFlowHighThresholdValue = payload[msgOffset - 1] & 0x07;
+        int lenFlowHighThresholdValue = payload[3] & 0x07;
         for (int cntFlowHighThresholdValue = 0; cntFlowHighThresholdValue < lenFlowHighThresholdValue; cntFlowHighThresholdValue++) {
             valFlowHighThresholdValue = (valFlowHighThresholdValue << 8) + payload[msgOffset + cntFlowHighThresholdValue];
         }
@@ -1327,7 +1328,7 @@ public class CommandClassIrrigationV1 {
 
         // Process 'Flow Low Threshold Value'
         int valFlowLowThresholdValue = 0;
-        int lenFlowLowThresholdValue = payload[msgOffset - 1] & 0x07;
+        int lenFlowLowThresholdValue = payload[3] & 0x07;
         for (int cntFlowLowThresholdValue = 0; cntFlowLowThresholdValue < lenFlowLowThresholdValue; cntFlowLowThresholdValue++) {
             valFlowLowThresholdValue = (valFlowLowThresholdValue << 8) + payload[msgOffset + cntFlowLowThresholdValue];
         }
@@ -1338,7 +1339,7 @@ public class CommandClassIrrigationV1 {
         List<String> responseSensorUsage = new ArrayList<String>();
         int lenSensorUsage = 1;
         for (int cntSensorUsage = 0; cntSensorUsage < lenSensorUsage; cntSensorUsage++) {
-            if ((payload[msgOffset + (cntSensorUsage / 8)] & cntSensorUsage % 8) == 0) {
+            if ((payload[msgOffset + (cntSensorUsage / 8)] & (1 << cntSensorUsage % 8)) == 0) {
                 continue;
             }
             switch (cntSensorUsage) {
@@ -1417,7 +1418,7 @@ public class CommandClassIrrigationV1 {
         response.put("VALVE_ID", Integer.valueOf(payload[3]));
 
         // Process 'Duration'
-        response.put("DURATION", Integer.valueOf(payload[4] << 8 + payload[5]));
+        response.put("DURATION", Integer.valueOf(((payload[4] & 0xff) << 8) + (payload[5] & 0xff)));
 
         // Return the map of processed response data;
         return response;
@@ -1481,7 +1482,7 @@ public class CommandClassIrrigationV1 {
             variant.put("VALVE_ID", Integer.valueOf(payload[3]));
 
             // Process 'Duration'
-            variant.put("DURATION", Integer.valueOf(payload[4] << 8 + payload[5]));
+            variant.put("DURATION", Integer.valueOf(((payload[4] & 0xff) << 8) + (payload[5] & 0xff)));
 
         }
 
@@ -1596,7 +1597,7 @@ public class CommandClassIrrigationV1 {
             variant.put("VALVE_ID", Integer.valueOf(payload[3]));
 
             // Process 'Duration'
-            variant.put("DURATION", Integer.valueOf(payload[4] << 8 + payload[5]));
+            variant.put("DURATION", Integer.valueOf(((payload[4] & 0xff) << 8) + (payload[5] & 0xff)));
 
         }
 

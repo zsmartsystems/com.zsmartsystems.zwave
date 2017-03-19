@@ -114,7 +114,7 @@ public class CommandClassNetworkManagementBasicV1 {
         response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Process 'Mode'
-        switch ((int) payload[4]) {
+        switch (payload[4] & 0xff) {
             case 0x01:
                 response.put("MODE", "LEARN_MODE_SET_CLASSIC");
                 break;
@@ -125,7 +125,8 @@ public class CommandClassNetworkManagementBasicV1 {
                 response.put("MODE", "LEARN_MODE_SET_DISABLE");
                 break;
             default:
-                logger.debug("");
+                response.put("MODE", String.format("%02X", payload[4] & 0xff));
+                logger.debug("Unknown value {}", payload[4] & 0xff);
                 break;
         }
 
@@ -192,7 +193,7 @@ public class CommandClassNetworkManagementBasicV1 {
         response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Process 'Status'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x06:
                 response.put("STATUS", "LEARN_MODE_DONE");
                 break;
@@ -206,7 +207,8 @@ public class CommandClassNetworkManagementBasicV1 {
                 response.put("STATUS", "LEARN_MODE_SECURITY_FAILED");
                 break;
             default:
-                logger.debug("");
+                response.put("STATUS", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 
@@ -311,7 +313,7 @@ public class CommandClassNetworkManagementBasicV1 {
         response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Process 'Status'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x00:
                 response.put("STATUS", "SUC_UPDATE_DONE");
                 break;
@@ -328,7 +330,8 @@ public class CommandClassNetworkManagementBasicV1 {
                 response.put("STATUS", "SUC_UPDATE_OVERFLOW");
                 break;
             default:
-                logger.debug("");
+                response.put("STATUS", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 
@@ -417,7 +420,7 @@ public class CommandClassNetworkManagementBasicV1 {
         List<String> responseTxOptions = new ArrayList<String>();
         int lenTxOptions = 1;
         for (int cntTxOptions = 0; cntTxOptions < lenTxOptions; cntTxOptions++) {
-            if ((payload[5 + (cntTxOptions / 8)] & cntTxOptions % 8) == 0) {
+            if ((payload[5 + (cntTxOptions / 8)] & (1 << cntTxOptions % 8)) == 0) {
                 continue;
             }
             switch (cntTxOptions) {
@@ -547,7 +550,7 @@ public class CommandClassNetworkManagementBasicV1 {
         response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Process 'Status'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x06:
                 response.put("STATUS", "DEFAULT_SET_DONE");
                 break;
@@ -555,7 +558,8 @@ public class CommandClassNetworkManagementBasicV1 {
                 response.put("STATUS", "DEFAULT_SET_BUSY");
                 break;
             default:
-                logger.debug("");
+                response.put("STATUS", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 

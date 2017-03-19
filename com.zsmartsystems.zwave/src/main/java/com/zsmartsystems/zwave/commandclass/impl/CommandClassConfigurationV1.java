@@ -120,7 +120,7 @@ public class CommandClassConfigurationV1 {
 
         // Process 'Configuration Value'
         int valConfigurationValue = 0;
-        int lenConfigurationValue = payload[msgOffset - 1] & 0x07;
+        int lenConfigurationValue = payload[3] & 0x07;
         for (int cntConfigurationValue = 0; cntConfigurationValue < lenConfigurationValue; cntConfigurationValue++) {
             valConfigurationValue = (valConfigurationValue << 8) + payload[msgOffset + cntConfigurationValue];
         }
@@ -242,7 +242,7 @@ public class CommandClassConfigurationV1 {
 
         // Process 'Configuration Value'
         int valConfigurationValue = 0;
-        int lenConfigurationValue = payload[msgOffset - 1] & 0x07;
+        int lenConfigurationValue = payload[3] & 0x07;
         for (int cntConfigurationValue = 0; cntConfigurationValue < lenConfigurationValue; cntConfigurationValue++) {
             valConfigurationValue = (valConfigurationValue << 8) + payload[msgOffset + cntConfigurationValue];
         }

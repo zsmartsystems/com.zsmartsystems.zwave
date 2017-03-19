@@ -44,7 +44,8 @@ public class CommandClassSupervisionV1 {
      */
     public final static int SUPERVISION_REPORT = 0x02;
 
-    // Constants for Status
+
+    // Define constants for Status
     private static Map<Integer, String> constantStatus = new HashMap<Integer, String>();
 
     static {
@@ -128,7 +129,7 @@ public class CommandClassSupervisionV1 {
 
         // Process 'Encapsulated Command'
         int valEncapsulatedCommand = 0;
-        int lenEncapsulatedCommand = payload[msgOffset - 1];
+        int lenEncapsulatedCommand = payload[3];
         for (int cntEncapsulatedCommand = 0; cntEncapsulatedCommand < lenEncapsulatedCommand; cntEncapsulatedCommand++) {
             valEncapsulatedCommand = (valEncapsulatedCommand << 8) + payload[msgOffset + cntEncapsulatedCommand];
         }

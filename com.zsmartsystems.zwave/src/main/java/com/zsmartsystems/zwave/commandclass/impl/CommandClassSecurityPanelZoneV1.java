@@ -238,7 +238,7 @@ public class CommandClassSecurityPanelZoneV1 {
         response.put("ZONE_NUMBER", Integer.valueOf(payload[2]));
 
         // Process 'Zone Type'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x01:
                 response.put("ZONE_TYPE", "ALARM_ZONE");
                 break;
@@ -246,7 +246,8 @@ public class CommandClassSecurityPanelZoneV1 {
                 response.put("ZONE_TYPE", "NOTIFICATION_ZONE");
                 break;
             default:
-                logger.debug("");
+                response.put("ZONE_TYPE", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 
@@ -348,7 +349,7 @@ public class CommandClassSecurityPanelZoneV1 {
         response.put("ZONE_NUMBER", Integer.valueOf(payload[2]));
 
         // Process 'Zone State'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x00:
                 response.put("ZONE_STATE", "FAULTED");
                 break;
@@ -362,7 +363,8 @@ public class CommandClassSecurityPanelZoneV1 {
                 response.put("ZONE_STATE", "BYPASS_NOT_FAULTED");
                 break;
             default:
-                logger.debug("");
+                response.put("ZONE_STATE", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 

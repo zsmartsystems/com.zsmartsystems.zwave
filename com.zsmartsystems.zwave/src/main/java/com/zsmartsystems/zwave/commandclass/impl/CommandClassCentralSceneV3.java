@@ -169,9 +169,9 @@ public class CommandClassCentralSceneV3 {
 
             // Process 'Supported Key Attributes for Scene'
             List<String> responseSupportedKeyAttributesForScene = new ArrayList<String>();
-            int lenSupportedKeyAttributesForScene = (payload[0] & 0x06 >> 1) * 8;
+            int lenSupportedKeyAttributesForScene = (payload[5] & 0x06 >> 1) * 8;
             for (int cntSupportedKeyAttributesForScene = 0; cntSupportedKeyAttributesForScene < lenSupportedKeyAttributesForScene; cntSupportedKeyAttributesForScene++) {
-                if ((payload[4 + (cntSupportedKeyAttributesForScene / 8)] & cntSupportedKeyAttributesForScene % 8) == 0) {
+                if ((payload[4 + (cntSupportedKeyAttributesForScene / 8)] & (1 << cntSupportedKeyAttributesForScene % 8)) == 0) {
                     continue;
                 }
                 switch (cntSupportedKeyAttributesForScene) {
@@ -302,7 +302,7 @@ public class CommandClassCentralSceneV3 {
         response.put("SEQUENCE_NUMBER", Integer.valueOf(payload[2]));
 
         // Process 'Properties1'
-        switch ((int) payload[3] & 0x07) {
+        switch (payload[3] & 0x07) {
             case 0x00:
                 response.put("KEY_ATTRIBUTES", "KEY_PRESSED_1_TIME");
                 break;

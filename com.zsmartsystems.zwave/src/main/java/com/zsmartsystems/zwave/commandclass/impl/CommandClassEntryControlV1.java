@@ -71,7 +71,8 @@ public class CommandClassEntryControlV1 {
      */
     public final static int ENTRY_CONTROL_CONFIGURATION_REPORT = 0x08;
 
-    // Constants for Event Type
+
+    // Define constants for Event Type
     private static Map<Integer, String> constantEventType = new HashMap<Integer, String>();
 
     static {
@@ -197,7 +198,7 @@ public class CommandClassEntryControlV1 {
         msgOffset += 1;
 
         // Process 'Properties1'
-        switch ((int) payload[msgOffset] & 0x03) {
+        switch (payload[msgOffset] & 0x03) {
             case 0x00:
                 response.put("DATA_TYPE", "NA");
                 break;
@@ -225,7 +226,7 @@ public class CommandClassEntryControlV1 {
 
         // Process 'Event Data'
         int valEventData = 0;
-        int lenEventData = payload[msgOffset - 1];
+        int lenEventData = payload[3];
         for (int cntEventData = 0; cntEventData < lenEventData; cntEventData++) {
             valEventData = (valEventData << 8) + payload[msgOffset + cntEventData];
         }
@@ -329,9 +330,9 @@ public class CommandClassEntryControlV1 {
 
         // Process 'Key Supported Bit Mask'
         List<Integer> responseKeySupportedBitMask = new ArrayList<Integer>();
-        int lenKeySupportedBitMask = (payload[0] & 0xFF) * 8;
+        int lenKeySupportedBitMask = (payload[2] & 0xFF) * 8;
         for (int cntKeySupportedBitMask = 0; cntKeySupportedBitMask < lenKeySupportedBitMask; cntKeySupportedBitMask++) {
-            if ((payload[3 + (cntKeySupportedBitMask / 8)] & cntKeySupportedBitMask % 8) == 0) {
+            if ((payload[3 + (cntKeySupportedBitMask / 8)] & (1 << cntKeySupportedBitMask % 8)) == 0) {
                 continue;
             }
             responseKeySupportedBitMask.add(cntKeySupportedBitMask);
@@ -490,9 +491,9 @@ public class CommandClassEntryControlV1 {
 
         // Process 'Data Type Supported Bit Mask'
         List<String> responseDataTypeSupportedBitMask = new ArrayList<String>();
-        int lenDataTypeSupportedBitMask = (payload[0] & 0x03) * 8;
+        int lenDataTypeSupportedBitMask = (payload[2] & 0x03) * 8;
         for (int cntDataTypeSupportedBitMask = 0; cntDataTypeSupportedBitMask < lenDataTypeSupportedBitMask; cntDataTypeSupportedBitMask++) {
-            if ((payload[3 + (cntDataTypeSupportedBitMask / 8)] & cntDataTypeSupportedBitMask % 8) == 0) {
+            if ((payload[3 + (cntDataTypeSupportedBitMask / 8)] & (1 << cntDataTypeSupportedBitMask % 8)) == 0) {
                 continue;
             }
             switch (cntDataTypeSupportedBitMask) {
@@ -519,9 +520,9 @@ public class CommandClassEntryControlV1 {
 
         // Process 'Event Type Supported Bit Mask'
         List<String> responseEventTypeSupportedBitMask = new ArrayList<String>();
-        int lenEventTypeSupportedBitMask = (payload[-2] & 0x1F) * 8;
+        int lenEventTypeSupportedBitMask = (payload[4] & 0x1F) * 8;
         for (int cntEventTypeSupportedBitMask = 0; cntEventTypeSupportedBitMask < lenEventTypeSupportedBitMask; cntEventTypeSupportedBitMask++) {
-            if ((payload[5 + (cntEventTypeSupportedBitMask / 8)] & cntEventTypeSupportedBitMask % 8) == 0) {
+            if ((payload[5 + (cntEventTypeSupportedBitMask / 8)] & (1 << cntEventTypeSupportedBitMask % 8)) == 0) {
                 continue;
             }
             switch (cntEventTypeSupportedBitMask) {

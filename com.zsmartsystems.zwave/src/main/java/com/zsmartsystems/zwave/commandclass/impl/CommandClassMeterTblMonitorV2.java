@@ -187,13 +187,8 @@ public class CommandClassMeterTblMonitorV2 {
         msgOffset += 1;
 
         // Process 'Meter Point Adm Number Character'
-        int valMeterPointAdmNumberCharacter = 0;
-        int lenMeterPointAdmNumberCharacter = payload[msgOffset - 1] & 0x1F;
-        for (int cntMeterPointAdmNumberCharacter = 0; cntMeterPointAdmNumberCharacter < lenMeterPointAdmNumberCharacter; cntMeterPointAdmNumberCharacter++) {
-            valMeterPointAdmNumberCharacter = (valMeterPointAdmNumberCharacter << 8) + payload[msgOffset + cntMeterPointAdmNumberCharacter];
-        }
-        response.put("METER_POINT_ADM_NUMBER_CHARACTER", valMeterPointAdmNumberCharacter);
-        msgOffset += lenMeterPointAdmNumberCharacter;
+        response.put("METER_POINT_ADM_NUMBER_CHARACTER", Integer.valueOf(payload[msgOffset]));
+        msgOffset += payload[msgOffset - 1];
 
         // Return the map of processed response data;
         return response;
@@ -287,13 +282,8 @@ public class CommandClassMeterTblMonitorV2 {
         msgOffset += 1;
 
         // Process 'Meter ID Character'
-        int valMeterIdCharacter = 0;
-        int lenMeterIdCharacter = payload[msgOffset - 1] & 0x1F;
-        for (int cntMeterIdCharacter = 0; cntMeterIdCharacter < lenMeterIdCharacter; cntMeterIdCharacter++) {
-            valMeterIdCharacter = (valMeterIdCharacter << 8) + payload[msgOffset + cntMeterIdCharacter];
-        }
-        response.put("METER_ID_CHARACTER", valMeterIdCharacter);
-        msgOffset += lenMeterIdCharacter;
+        response.put("METER_ID_CHARACTER", Integer.valueOf(payload[msgOffset]));
+        msgOffset += payload[msgOffset - 1];
 
         // Return the map of processed response data;
         return response;
@@ -406,7 +396,7 @@ public class CommandClassMeterTblMonitorV2 {
         response.put("RATE_TYPE", Integer.valueOf((payload[2] & 0xC0 >> 6)));
 
         // Process 'Properties2'
-        switch ((int) payload[3] & 0x0F) {
+        switch (payload[3] & 0x0F) {
             case 0x01:
                 response.put("PAY_METER", "CREDITMETER");
                 break;
@@ -667,7 +657,7 @@ public class CommandClassMeterTblMonitorV2 {
         response.put("MAXIMUM_REPORTS", Integer.valueOf(payload[2]));
 
         // Process 'Start Year'
-        response.put("START_YEAR", Integer.valueOf(payload[3] << 8 + payload[4]));
+        response.put("START_YEAR", Integer.valueOf(((payload[3] & 0xff) << 8) + (payload[4] & 0xff)));
 
         // Process 'Start Month'
         response.put("START_MONTH", Integer.valueOf(payload[5]));
@@ -685,7 +675,7 @@ public class CommandClassMeterTblMonitorV2 {
         response.put("START_SECOND_LOCAL_TIME", Integer.valueOf(payload[9]));
 
         // Process 'Stop Year'
-        response.put("STOP_YEAR", Integer.valueOf(payload[10] << 8 + payload[11]));
+        response.put("STOP_YEAR", Integer.valueOf(((payload[10] & 0xff) << 8) + (payload[11] & 0xff)));
 
         // Process 'Stop Month'
         response.put("STOP_MONTH", Integer.valueOf(payload[12]));
@@ -769,7 +759,7 @@ public class CommandClassMeterTblMonitorV2 {
             variant.put("TYPE", Boolean.valueOf((payload[6] & 0x80) != 0));
 
             // Process 'Year'
-            variant.put("YEAR", Integer.valueOf(payload[7] << 8 + payload[8]));
+            variant.put("YEAR", Integer.valueOf(((payload[7] & 0xff) << 8) + (payload[8] & 0xff)));
 
             // Process 'Month'
             variant.put("MONTH", Integer.valueOf(payload[9]));
@@ -933,7 +923,7 @@ public class CommandClassMeterTblMonitorV2 {
         // Process 'Dataset'
 
         // Process 'Year'
-        response.put("YEAR", Integer.valueOf(payload[7] << 8 + payload[8]));
+        response.put("YEAR", Integer.valueOf(((payload[7] & 0xff) << 8) + (payload[8] & 0xff)));
 
         // Process 'Month'
         response.put("MONTH", Integer.valueOf(payload[9]));
@@ -965,7 +955,7 @@ public class CommandClassMeterTblMonitorV2 {
             variant.put("CURRENT_PRECISION", Integer.valueOf((payload[14] & 0xE0 >> 5)));
 
             // Process 'Current Value'
-            variant.put("CURRENT_VALUE", Long.valueOf(payload[15] << 24 + payload[16] << 16 + payload[17] << 8 + payload[18]));
+            variant.put("CURRENT_VALUE", Long.valueOf((payload[15] << 24) + (payload[16] << 16) + (payload[17] << 8) + payload[18]));
 
             // Add to the list
             variantList.add(variant);
@@ -1093,7 +1083,7 @@ public class CommandClassMeterTblMonitorV2 {
         // Process 'Historical Dataset Requested'
 
         // Process 'Start Year'
-        response.put("START_YEAR", Integer.valueOf(payload[6] << 8 + payload[7]));
+        response.put("START_YEAR", Integer.valueOf(((payload[6] & 0xff) << 8) + (payload[7] & 0xff)));
 
         // Process 'Start Month'
         response.put("START_MONTH", Integer.valueOf(payload[8]));
@@ -1111,7 +1101,7 @@ public class CommandClassMeterTblMonitorV2 {
         response.put("START_SECOND_LOCAL_TIME", Integer.valueOf(payload[12]));
 
         // Process 'Stop Year'
-        response.put("STOP_YEAR", Integer.valueOf(payload[13] << 8 + payload[14]));
+        response.put("STOP_YEAR", Integer.valueOf(((payload[13] & 0xff) << 8) + (payload[14] & 0xff)));
 
         // Process 'Stop Month'
         response.put("STOP_MONTH", Integer.valueOf(payload[15]));
@@ -1228,7 +1218,7 @@ public class CommandClassMeterTblMonitorV2 {
         // Process 'Dataset'
 
         // Process 'Year'
-        response.put("YEAR", Integer.valueOf(payload[7] << 8 + payload[8]));
+        response.put("YEAR", Integer.valueOf(((payload[7] & 0xff) << 8) + (payload[8] & 0xff)));
 
         // Process 'Month'
         response.put("MONTH", Integer.valueOf(payload[9]));
@@ -1260,7 +1250,7 @@ public class CommandClassMeterTblMonitorV2 {
             variant.put("HISTORICAL_PRECISION", Integer.valueOf((payload[14] & 0xE0 >> 5)));
 
             // Process 'Historical Value'
-            variant.put("HISTORICAL_VALUE", Long.valueOf(payload[15] << 24 + payload[16] << 16 + payload[17] << 8 + payload[18]));
+            variant.put("HISTORICAL_VALUE", Long.valueOf((payload[15] << 24) + (payload[16] << 16) + (payload[17] << 8) + payload[18]));
 
             // Add to the list
             variantList.add(variant);

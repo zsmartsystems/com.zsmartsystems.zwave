@@ -66,7 +66,8 @@ public class CommandClassWindowCoveringV1 {
      */
     public final static int WINDOW_COVERING_STOP_LEVEL_CHANGE = 0x07;
 
-    // Constants for Parameter ID
+
+    // Define constants for Parameter ID
     private static Map<Integer, String> constantParameterId = new HashMap<Integer, String>();
 
     static {
@@ -185,9 +186,9 @@ public class CommandClassWindowCoveringV1 {
 
         // Process 'Parameter Mask'
         List<Integer> responseParameterMask = new ArrayList<Integer>();
-        int lenParameterMask = (payload[0] & 0x0F) * 8;
+        int lenParameterMask = (payload[2] & 0x0F) * 8;
         for (int cntParameterMask = 0; cntParameterMask < lenParameterMask; cntParameterMask++) {
-            if ((payload[3 + (cntParameterMask / 8)] & cntParameterMask % 8) == 0) {
+            if ((payload[3 + (cntParameterMask / 8)] & (1 << cntParameterMask % 8)) == 0) {
                 continue;
             }
             responseParameterMask.add(cntParameterMask);

@@ -129,16 +129,11 @@ public class CommandClassAntitheftV2 {
         msgOffset += 1;
 
         // Process 'Magic Code'
-        int valMagicCode = 0;
-        int lenMagicCode = payload[msgOffset - 1] & 0x7F;
-        for (int cntMagicCode = 0; cntMagicCode < lenMagicCode; cntMagicCode++) {
-            valMagicCode = (valMagicCode << 8) + payload[msgOffset + cntMagicCode];
-        }
-        response.put("MAGIC_CODE", valMagicCode);
-        msgOffset += lenMagicCode;
+        response.put("MAGIC_CODE", Integer.valueOf(payload[msgOffset]));
+        msgOffset += payload[msgOffset - 1];
 
         // Process 'Manufacturer ID'
-        response.put("MANUFACTURER_ID", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("MANUFACTURER_ID", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Process 'Anti-theft Hint Number Bytes'
@@ -147,7 +142,7 @@ public class CommandClassAntitheftV2 {
 
         // Process 'Anti-theft Hint Byte'
         int valAntiTheftHintByte = 0;
-        int lenAntiTheftHintByte = payload[msgOffset - 1];
+        int lenAntiTheftHintByte = payload[3];
         for (int cntAntiTheftHintByte = 0; cntAntiTheftHintByte < lenAntiTheftHintByte; cntAntiTheftHintByte++) {
             valAntiTheftHintByte = (valAntiTheftHintByte << 8) + payload[msgOffset + cntAntiTheftHintByte];
         }
@@ -258,7 +253,7 @@ public class CommandClassAntitheftV2 {
         msgOffset += 1;
 
         // Process 'Manufacturer ID'
-        response.put("MANUFACTURER_ID", Integer.valueOf(payload[msgOffset] << 8 + payload[msgOffset + 12]));
+        response.put("MANUFACTURER_ID", Integer.valueOf(((payload[msgOffset] & 0xff) << 8) + (payload[msgOffset + 1] & 0xff)));
         msgOffset += 2;
 
         // Process 'Anti-theft Hint Number Bytes'
@@ -267,7 +262,7 @@ public class CommandClassAntitheftV2 {
 
         // Process 'Anti-theft Hint Byte'
         int valAntiTheftHintByte = 0;
-        int lenAntiTheftHintByte = payload[msgOffset - 1];
+        int lenAntiTheftHintByte = payload[3];
         for (int cntAntiTheftHintByte = 0; cntAntiTheftHintByte < lenAntiTheftHintByte; cntAntiTheftHintByte++) {
             valAntiTheftHintByte = (valAntiTheftHintByte << 8) + payload[msgOffset + cntAntiTheftHintByte];
         }

@@ -307,7 +307,7 @@ public class CommandClassDmxV1 {
         response.put("CHANNEL_ID", Integer.valueOf(payload[2]));
 
         // Process 'Property ID'
-        response.put("PROPERTY_ID", Integer.valueOf(payload[3] << 8 + payload[4]));
+        response.put("PROPERTY_ID", Integer.valueOf(((payload[3] & 0xff) << 8) + (payload[4] & 0xff)));
 
         // Process 'Device Channels'
         response.put("DEVICE_CHANNELS", Integer.valueOf(payload[5]));

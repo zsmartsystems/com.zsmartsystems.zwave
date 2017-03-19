@@ -170,7 +170,7 @@ public class CommandClassNetworkManagementProxyV1 {
         response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Process 'Status'
-        switch ((int) payload[3]) {
+        switch (payload[3] & 0xff) {
             case 0x00:
                 response.put("STATUS", "LATEST");
                 break;
@@ -178,7 +178,8 @@ public class CommandClassNetworkManagementProxyV1 {
                 response.put("STATUS", "MAY_NOT_BE_THE_LATEST");
                 break;
             default:
-                logger.debug("");
+                response.put("STATUS", String.format("%02X", payload[3] & 0xff));
+                logger.debug("Unknown value {}", payload[3] & 0xff);
                 break;
         }
 
@@ -187,9 +188,8 @@ public class CommandClassNetworkManagementProxyV1 {
 
         // Process 'Node List Data'
         List<Integer> responseNodeListData = new ArrayList<Integer>();
-        int cntNodeListData = 0;
-        while (cntNodeListData < payload.length - 5) {
-            if ((payload[5 + (cntNodeListData / 8)] & cntNodeListData % 8) == 0) {
+        for (int cntNodeListData = 0; cntNodeListData < (payload.length - 5) * 8; cntNodeListData++) {
+            if ((payload[5 + (cntNodeListData / 8)] & (1 << cntNodeListData % 8)) == 0) {
                 continue;
             }
             responseNodeListData.add(cntNodeListData);
