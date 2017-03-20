@@ -26,7 +26,7 @@ public class CommandClassSwitchBinaryV1Test extends ZWaveCommandClassTest {
     @Test
     public void getSwitchBinarySet() {
         byte[] expectedResponse = { 37, 1, -1 };
-        assertTrue(Arrays.equals(CommandClassSwitchBinaryV1.getSwitchBinarySet(0xff), expectedResponse));
+        assertTrue(Arrays.equals(CommandClassSwitchBinaryV1.getSwitchBinarySet("ON_ENABLE"), expectedResponse));
     }
 
     @Test

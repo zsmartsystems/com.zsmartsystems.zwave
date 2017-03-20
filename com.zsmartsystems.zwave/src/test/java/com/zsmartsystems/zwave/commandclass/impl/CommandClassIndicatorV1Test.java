@@ -25,8 +25,8 @@ public class CommandClassIndicatorV1Test extends ZWaveCommandClassTest {
 
     @Test
     public void getIndicatorSet() {
-        byte[] expectedResponse = { -121, 1, 34 };
-        assertTrue(Arrays.equals(CommandClassIndicatorV1.getIndicatorSet(34), expectedResponse));
+        byte[] expectedResponse = { -121, 1, -1 };
+        assertTrue(Arrays.equals(CommandClassIndicatorV1.getIndicatorSet("ON_ENABLE"), expectedResponse));
     }
 
     @Test

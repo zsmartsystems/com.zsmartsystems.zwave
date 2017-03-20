@@ -29,7 +29,7 @@ public class CommandClassSensorBinaryV2Test extends ZWaveCommandClassTest {
     @Test
     public void getSensorBinaryGet() {
         byte[] expectedResponse = { 48, 2, 10 };
-        assertTrue(Arrays.equals(CommandClassSensorBinaryV2.getSensorBinaryGet(10), expectedResponse));
+        assertTrue(Arrays.equals(CommandClassSensorBinaryV2.getSensorBinaryGet("DOOR_WINDOW"), expectedResponse));
     }
 
     @Test
