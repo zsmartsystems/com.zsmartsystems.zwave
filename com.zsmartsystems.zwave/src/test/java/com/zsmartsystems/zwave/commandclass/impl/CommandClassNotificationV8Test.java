@@ -10,12 +10,14 @@ import java.util.Map;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import com.zsmartsystems.zwave.commandclass.ZWaveCommandClassTest;
+
 /**
  * Test cases for {@link CommandClassSensorMultilevelV5}.
  *
  * @author Chris Jackson
  */
-public class CommandClassNotificationV8Test {
+public class CommandClassNotificationV8Test extends ZWaveCommandClassTest {
 
     @Test
     public void getEventSupportedGet() {
@@ -57,12 +59,7 @@ public class CommandClassNotificationV8Test {
             Map<String, Object> report = CommandClassNotificationV8
                     .handleNotificationReport((byte[]) testData.get("input"));
 
-            for (String data : testData.keySet()) {
-                if (data.equals("input")) {
-                    continue;
-                }
-                assertEquals(testData.get(data), report.get(data));
-            }
+            checkResponse(testData, report);
         }
     }
 

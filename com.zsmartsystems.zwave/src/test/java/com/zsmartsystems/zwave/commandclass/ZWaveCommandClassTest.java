@@ -8,6 +8,7 @@
  */
 package com.zsmartsystems.zwave.commandclass;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
@@ -226,5 +227,36 @@ public class ZWaveCommandClassTest {
         assertNotNull(cls);
 
         return cmdCls;
+    }
+
+    private String printByteArray(byte[] array) {
+        String string = "";
+        for (byte b : array) {
+            if (string.length() != 0) {
+                string = string + " ";
+            }
+            string = string + String.format("%02X", b);
+        }
+        return string;
+    }
+
+    protected void checkResponse(Map<String, Object> testData, Map<String, Object> report) {
+
+        for (String data : testData.keySet()) {
+            if (data.equals("input")) {
+                continue;
+            }
+
+            Object expected = testData.get(data);
+            Object response = report.get(data);
+
+            if (testData.get(data) instanceof byte[]) {
+                expected = printByteArray((byte[]) testData.get(data));
+                response = printByteArray((byte[]) report.get(data));
+            }
+            System.out.println("    Response: " + data + " == " + response + ", expected " + expected);
+
+            assertEquals(expected, response);
+        }
     }
 }
