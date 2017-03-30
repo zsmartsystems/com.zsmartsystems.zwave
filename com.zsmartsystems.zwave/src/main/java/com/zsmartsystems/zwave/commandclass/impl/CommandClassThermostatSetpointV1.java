@@ -562,6 +562,16 @@ public class CommandClassThermostatSetpointV1 {
      * Thermostat Setpoint Supported Report
      *
      * @param bitMask {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NONE
+     *            <li>HEATING
+     *            <li>COOLING
+     *            <li>FURNACE
+     *            <li>DRY_AIR
+     *            <li>MOIST_AIR
+     *            <li>AUTO_CHANGEOVER
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getThermostatSetpointSupportedReport(List<String> bitMask) {

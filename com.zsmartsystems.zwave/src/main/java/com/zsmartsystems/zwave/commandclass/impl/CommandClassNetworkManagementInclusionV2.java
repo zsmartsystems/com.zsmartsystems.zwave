@@ -183,7 +183,27 @@ public class CommandClassNetworkManagementInclusionV2 {
      *
      * @param seqNo {@link Integer}
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NODE_ADD_ANY
+     *            <li>NODE_ADD_CONTROLLER
+     *            <li>NODE_ADD_SLAVE
+     *            <li>NODE_ADD_EXISTING
+     *            <li>NODE_ADD_STOP
+     *            <li>NODE_ADD_STOP_FAILED
+     *            <li>NODE_ADD_ANY_S2
+     *            </ul>
      * @param txOptions {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NO_ROUTE
+     *            <li>ACK
+     *            <li>EXPLORE
+     *            <li>LOW_POWER
+     *            <li>NO_RETRANSMISSION
+     *            <li>AUTO_ROUTE
+     *            <li>HIGH_POWER
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getNodeAdd(Integer seqNo, String mode, List<String> txOptions) {
@@ -281,6 +301,12 @@ public class CommandClassNetworkManagementInclusionV2 {
      *
      * @param seqNo {@link Integer}
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NODE_ADD_STATUS_DONE
+     *            <li>NODE_ADD_STATUS_FAILED
+     *            <li>NODE_ADD_STATUS_SECURITY_FAILED
+     *            </ul>
      * @param newNodeId {@link Integer}
      * @param nodeInfoLength {@link Integer}
      * @param capability {@link Integer}
@@ -502,6 +528,16 @@ public class CommandClassNetworkManagementInclusionV2 {
      *
      * @param seqNo {@link Integer}
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NODE_ADD_ANY
+     *            <li>NODE_ADD_CONTROLLER
+     *            <li>NODE_ADD_SLAVE
+     *            <li>NODE_ADD_EXISTING
+     *            <li>NODE_ADD_STOP
+     *            <li>NODE_ADD_STOP_FAILED
+     *            <li>NODE_ADD_ANY_S2
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getNodeRemove(Integer seqNo, String mode) {
@@ -568,6 +604,12 @@ public class CommandClassNetworkManagementInclusionV2 {
      *
      * @param seqNo {@link Integer}
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NODE_ADD_STATUS_DONE
+     *            <li>NODE_ADD_STATUS_FAILED
+     *            <li>NODE_ADD_STATUS_SECURITY_FAILED
+     *            </ul>
      * @param nodeid {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */
@@ -706,6 +748,12 @@ public class CommandClassNetworkManagementInclusionV2 {
      *
      * @param seqNo {@link Integer}
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NODE_ADD_STATUS_DONE
+     *            <li>NODE_ADD_STATUS_FAILED
+     *            <li>NODE_ADD_STATUS_SECURITY_FAILED
+     *            </ul>
      * @param nodeId {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */
@@ -785,7 +833,27 @@ public class CommandClassNetworkManagementInclusionV2 {
      * @param seqNo {@link Integer}
      * @param nodeId {@link Integer}
      * @param txOptions {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NO_ROUTE
+     *            <li>ACK
+     *            <li>EXPLORE
+     *            <li>LOW_POWER
+     *            <li>NO_RETRANSMISSION
+     *            <li>AUTO_ROUTE
+     *            <li>HIGH_POWER
+     *            </ul>
      * @param mode {@link Integer}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NODE_ADD_ANY
+     *            <li>NODE_ADD_CONTROLLER
+     *            <li>NODE_ADD_SLAVE
+     *            <li>NODE_ADD_EXISTING
+     *            <li>NODE_ADD_STOP
+     *            <li>NODE_ADD_STOP_FAILED
+     *            <li>NODE_ADD_ANY_S2
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getFailedNodeReplace(Integer seqNo, Integer nodeId, List<String> txOptions, Integer mode) {
@@ -884,6 +952,12 @@ public class CommandClassNetworkManagementInclusionV2 {
      *
      * @param seqNo {@link Integer}
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NODE_ADD_STATUS_DONE
+     *            <li>NODE_ADD_STATUS_FAILED
+     *            <li>NODE_ADD_STATUS_SECURITY_FAILED
+     *            </ul>
      * @param nodeId {@link Integer}
      * @param grantedKeys {@link Integer}
      * @param kexFailType {@link Integer}
@@ -1039,6 +1113,12 @@ public class CommandClassNetworkManagementInclusionV2 {
      *
      * @param seqNo {@link Integer}
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NODE_ADD_STATUS_DONE
+     *            <li>NODE_ADD_STATUS_FAILED
+     *            <li>NODE_ADD_STATUS_SECURITY_FAILED
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getNodeNeighborUpdateStatus(Integer seqNo, String status) {
@@ -1177,6 +1257,12 @@ public class CommandClassNetworkManagementInclusionV2 {
      *
      * @param seqNo {@link Integer}
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NODE_ADD_STATUS_DONE
+     *            <li>NODE_ADD_STATUS_FAILED
+     *            <li>NODE_ADD_STATUS_SECURITY_FAILED
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getReturnRouteAssignComplete(Integer seqNo, String status) {
@@ -1302,6 +1388,12 @@ public class CommandClassNetworkManagementInclusionV2 {
      *
      * @param seqNo {@link Integer}
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NODE_ADD_STATUS_DONE
+     *            <li>NODE_ADD_STATUS_FAILED
+     *            <li>NODE_ADD_STATUS_SECURITY_FAILED
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getReturnRouteDeleteComplete(Integer seqNo, String status) {

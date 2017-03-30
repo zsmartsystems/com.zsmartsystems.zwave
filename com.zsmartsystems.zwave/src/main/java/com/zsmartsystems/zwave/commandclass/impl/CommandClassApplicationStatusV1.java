@@ -53,7 +53,7 @@ public class CommandClassApplicationStatusV1 {
         // Constants for Status
         constantStatus.put(0x00, "TRY_AGAIN_LATER");
         constantStatus.put(0x01, "TRY_AGAIN_IN_WAIT_TIME_SECONDS");
-        constantStatus.put(0x02, "REQUEST_QUEUED,_EXECUTED_LATER");
+        constantStatus.put(0x02, "REQUEST_QUEUED_EXECUTED_LATER");
     }
 
     /**
@@ -62,6 +62,12 @@ public class CommandClassApplicationStatusV1 {
      * Application Busy
      *
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>TRY_AGAIN_LATER
+     *            <li>TRY_AGAIN_IN_WAIT_TIME_SECONDS
+     *            <li>REQUEST_QUEUED_EXECUTED_LATER
+     *            </ul>
      * @param waitTime {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */
@@ -127,6 +133,12 @@ public class CommandClassApplicationStatusV1 {
      * Application Rejected Request
      *
      * @param status {@link Integer}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>TRY_AGAIN_LATER
+     *            <li>TRY_AGAIN_IN_WAIT_TIME_SECONDS
+     *            <li>REQUEST_QUEUED_EXECUTED_LATER
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getApplicationRejectedRequest(Integer status) {

@@ -72,7 +72,15 @@ public class CommandClassRemoteAssociationV1 {
      * Remote Association Configuration Set
      *
      * @param localGroupingIdentifier {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>ERASE_ALL_LIN
+     *            </ul>
      * @param remoteNodeid {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>REMOVE_A_LINK
+     *            </ul>
      * @param remoteGroupingIdentifier {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */
@@ -156,6 +164,10 @@ public class CommandClassRemoteAssociationV1 {
      * Remote Association Configuration Get
      *
      * @param localGroupingIdentifier {@link Integer}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>ERASE_ALL_LIN
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getRemoteAssociationConfigurationGet(Integer localGroupingIdentifier) {
@@ -203,7 +215,15 @@ public class CommandClassRemoteAssociationV1 {
      * Remote Association Configuration Report
      *
      * @param localGroupingIdentifier {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>ERASE_ALL_LIN
+     *            </ul>
      * @param remoteNodeid {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>REMOVE_A_LINK
+     *            </ul>
      * @param remoteGroupingIdentifier {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */

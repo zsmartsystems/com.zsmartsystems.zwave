@@ -103,6 +103,19 @@ public class CommandClassPowerlevelV1 {
      * Powerlevel Set
      *
      * @param powerLevel {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NORMALPOWER
+     *            <li>MINUS1DBM
+     *            <li>MINUS2DBM
+     *            <li>MINUS3DBM
+     *            <li>MINUS4DBM
+     *            <li>MINUS5DBM
+     *            <li>MINUS6DBM
+     *            <li>MINUS7DBM
+     *            <li>MINUS8DBM
+     *            <li>MINUS9DBM
+     *            </ul>
      * @param timeout {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */
@@ -202,6 +215,19 @@ public class CommandClassPowerlevelV1 {
      * Powerlevel Report
      *
      * @param powerLevel {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NORMALPOWER
+     *            <li>MINUS1DBM
+     *            <li>MINUS2DBM
+     *            <li>MINUS3DBM
+     *            <li>MINUS4DBM
+     *            <li>MINUS5DBM
+     *            <li>MINUS6DBM
+     *            <li>MINUS7DBM
+     *            <li>MINUS8DBM
+     *            <li>MINUS9DBM
+     *            </ul>
      * @param timeout {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */
@@ -267,7 +293,24 @@ public class CommandClassPowerlevelV1 {
      * Powerlevel Test Node Set
      *
      * @param testNodeid {@link Integer}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>ZW_TEST_NOT_A_NODEID
+     *            </ul>
      * @param powerLevel {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NORMALPOWER
+     *            <li>MINUS1DBM
+     *            <li>MINUS2DBM
+     *            <li>MINUS3DBM
+     *            <li>MINUS4DBM
+     *            <li>MINUS5DBM
+     *            <li>MINUS6DBM
+     *            <li>MINUS7DBM
+     *            <li>MINUS8DBM
+     *            <li>MINUS9DBM
+     *            </ul>
      * @param testFrameCount {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */
@@ -380,7 +423,17 @@ public class CommandClassPowerlevelV1 {
      * Powerlevel Test Node Report
      *
      * @param testNodeid {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>ZW_TEST_NOT_A_NODEID
+     *            </ul>
      * @param statusOfOperation {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>ZW_TEST_FAILED
+     *            <li>ZW_TEST_SUCCES
+     *            <li>ZW_TEST_INPROGRESS
+     *            </ul>
      * @param testFrameCount {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */

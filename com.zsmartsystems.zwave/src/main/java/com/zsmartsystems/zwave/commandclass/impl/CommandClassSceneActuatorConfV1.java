@@ -74,6 +74,11 @@ public class CommandClassSceneActuatorConfV1 {
      *
      * @param sceneId {@link Integer}
      * @param dimmingDuration {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>SPECIFY_INSTANTLY
+     *            <li>FACTORY_DEFAULT
+     *            </ul>
      * @param override {@link Boolean}
      * @param level {@link Integer}
      * @return the {@link byte[]} array with the command to send
@@ -204,6 +209,11 @@ public class CommandClassSceneActuatorConfV1 {
      * @param sceneId {@link Integer}
      * @param level {@link Integer}
      * @param dimmingDuration {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>SPECIFY_INSTANTLY
+     *            <li>FACTORY_DEFAULT
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSceneActuatorConfReport(Integer sceneId, Integer level, String dimmingDuration) {

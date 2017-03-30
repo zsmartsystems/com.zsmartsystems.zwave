@@ -97,6 +97,12 @@ public class CommandClassSensorMultilevelV1 {
      * Sensor Multilevel Report
      *
      * @param sensorType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>TEMPERATURE
+     *            <li>GENERAL_PURPOSE_VALUE
+     *            <li>LUMINANCE
+     *            </ul>
      * @param scale {@link Integer}
      * @param precision {@link Integer}
      * @param sensorValue {@link byte[]}

@@ -161,6 +161,14 @@ public class CommandClassSupervisionV1 {
      * @param sessionId {@link Integer}
      * @param moreStatusUpdates {@link Boolean}
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NO_SUPPORT
+     *            <li>SUCCESS
+     *            <li>WORKING
+     *            <li>FAIL
+     *            <li>BUSY
+     *            </ul>
      * @param duration {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */

@@ -131,6 +131,17 @@ public class CommandClassDoorLockV3 {
      * Door Lock Operation Set
      *
      * @param doorLockMode {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>DOOR_LOCK_STATE_UNKNOWN
+     *            <li>DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES_WITH_TIMEOUT
+     *            <li>DOOR_UNSECURED
+     *            <li>DOOR_SECURED
+     *            <li>DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES
+     *            <li>DOOR_UNSECURED_WITH_TIMEOUT
+     *            <li>DOOR_UNSECURED_FOR_OUTSIDE_DOOR_HANDLES
+     *            <li>DOOR_UNSECURED_FOR_OUTSIDE_DOOR_HANDLES_WITH_TIMEOUT
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getDoorLockOperationSet(String doorLockMode) {
@@ -222,13 +233,40 @@ public class CommandClassDoorLockV3 {
      * Door Lock Operation Report
      *
      * @param currentDoorLockMode {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>DOOR_LOCK_STATE_UNKNOWN
+     *            <li>DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES_WITH_TIMEOUT
+     *            <li>DOOR_UNSECURED
+     *            <li>DOOR_SECURED
+     *            <li>DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES
+     *            <li>DOOR_UNSECURED_WITH_TIMEOUT
+     *            <li>DOOR_UNSECURED_FOR_OUTSIDE_DOOR_HANDLES
+     *            <li>DOOR_UNSECURED_FOR_OUTSIDE_DOOR_HANDLES_WITH_TIMEOUT
+     *            </ul>
      * @param insideDoorHandlesMode {@link Integer}
      * @param outsideDoorHandlesMode {@link Integer}
      * @param doorCondition {@link Integer}
      * @param lockTimeoutMinutes {@link Integer}
      * @param lockTimeoutSeconds {@link Integer}
      * @param targetDoorLockMode {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>DOOR_LOCK_STATE_UNKNOWN
+     *            <li>DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES_WITH_TIMEOUT
+     *            <li>DOOR_UNSECURED
+     *            <li>DOOR_SECURED
+     *            <li>DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES
+     *            <li>DOOR_UNSECURED_WITH_TIMEOUT
+     *            <li>DOOR_UNSECURED_FOR_OUTSIDE_DOOR_HANDLES
+     *            <li>DOOR_UNSECURED_FOR_OUTSIDE_DOOR_HANDLES_WITH_TIMEOUT
+     *            </ul>
      * @param duration {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>UNKNOWN_DURATION
+     *            <li>ALREADY_AT_THE_TARGET_VALUE
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getDoorLockOperationReport(String currentDoorLockMode, Integer insideDoorHandlesMode,
@@ -355,6 +393,11 @@ public class CommandClassDoorLockV3 {
      * Door Lock Configuration Set
      *
      * @param operationType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>CONSTANT_OPERATION
+     *            <li>TIMED_OPERATION
+     *            </ul>
      * @param insideDoorHandlesState {@link Integer}
      * @param outsideDoorHandlesState {@link Integer}
      * @param lockTimeoutMinutes {@link Integer}
@@ -477,6 +520,11 @@ public class CommandClassDoorLockV3 {
      * Door Lock Configuration Report
      *
      * @param operationType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>CONSTANT_OPERATION
+     *            <li>TIMED_OPERATION
+     *            </ul>
      * @param insideDoorHandlesState {@link Integer}
      * @param outsideDoorHandlesState {@link Integer}
      * @param lockTimeoutMinutes {@link Integer}

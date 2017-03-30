@@ -83,7 +83,17 @@ public class CommandClassSwitchBinaryV2 {
      * Switch Binary Set
      *
      * @param targetValue {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF_DISABLE
+     *            <li>ON_ENABLE
+     *            </ul>
      * @param duration {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>INSTANTLY
+     *            <li>DEFAULT
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSwitchBinarySet(String targetValue, String duration) {
@@ -192,8 +202,23 @@ public class CommandClassSwitchBinaryV2 {
      * Switch Binary Report
      *
      * @param currentValue {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF_DISABLE
+     *            <li>ON_ENABLE
+     *            </ul>
      * @param targetValue {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF_DISABLE
+     *            <li>ON_ENABLE
+     *            </ul>
      * @param duration {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>INSTANTLY
+     *            <li>DEFAULT
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSwitchBinaryReport(String currentValue, String targetValue, String duration) {

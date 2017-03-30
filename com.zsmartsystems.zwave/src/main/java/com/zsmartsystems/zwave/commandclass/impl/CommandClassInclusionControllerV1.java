@@ -73,6 +73,11 @@ public class CommandClassInclusionControllerV1 {
      *
      * @param nodeId {@link Integer}
      * @param stepId {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>PROXY_INCLUSION
+     *            <li>S0_INCLUSION
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getInitiate(Integer nodeId, String stepId) {
@@ -142,7 +147,19 @@ public class CommandClassInclusionControllerV1 {
      * Complete
      *
      * @param stepId {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>PROXY_INCLUSION
+     *            <li>S0_INCLUSION
+     *            </ul>
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>STEP_OK
+     *            <li>STEP_USER_REJECTED
+     *            <li>STEP_FAILED
+     *            <li>STEP_NOT_SUPPORTED
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getComplete(String stepId, String status) {

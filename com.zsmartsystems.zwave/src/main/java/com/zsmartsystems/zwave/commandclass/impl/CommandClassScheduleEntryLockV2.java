@@ -131,6 +131,11 @@ public class CommandClassScheduleEntryLockV2 {
      *
      * @param userIdentifier {@link Integer}
      * @param enabled {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>DISABLED
+     *            <li>ENABLED
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getScheduleEntryLockEnableSet(Integer userIdentifier, String enabled) {
@@ -195,6 +200,11 @@ public class CommandClassScheduleEntryLockV2 {
      * Schedule Entry Lock Enable All Set
      *
      * @param enabled {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>DISABLED
+     *            <li>ENABLED
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getScheduleEntryLockEnableAllSet(String enabled) {
@@ -252,6 +262,11 @@ public class CommandClassScheduleEntryLockV2 {
      * Schedule Entry Lock Week Day Set
      *
      * @param setAction {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>ERASE
+     *            <li>MODIFY
+     *            </ul>
      * @param userIdentifier {@link Integer}
      * @param scheduleSlotId {@link Integer}
      * @param dayOfWeek {@link Integer}
@@ -517,6 +532,11 @@ public class CommandClassScheduleEntryLockV2 {
      * Schedule Entry Lock Year Day Set
      *
      * @param setAction {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>ERASE
+     *            <li>MODIFY
+     *            </ul>
      * @param userIdentifier {@link Integer}
      * @param scheduleSlotId {@link Integer}
      * @param startYear {@link Integer}

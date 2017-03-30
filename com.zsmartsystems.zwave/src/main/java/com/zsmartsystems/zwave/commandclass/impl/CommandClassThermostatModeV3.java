@@ -509,6 +509,25 @@ public class CommandClassThermostatModeV3 {
      * Thermostat Mode Supported Report
      *
      * @param bitMask {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF
+     *            <li>HEAT
+     *            <li>COOL
+     *            <li>AUTO
+     *            <li>AUXILIARY_EMERGENCY_HEAT
+     *            <li>RESUME
+     *            <li>FAN_ONLY
+     *            <li>FURNACE
+     *            <li>DRY_AIR
+     *            <li>MOIST_AIR
+     *            <li>AUTO_CHANGEOVER
+     *            <li>ENERGY_SAVE_HEAT
+     *            <li>ENERGY_SAVE_COOL
+     *            <li>AWAY
+     *            <li>MANUFACTURER_SPECIFC
+     *            <li>FULL_POWER
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getThermostatModeSupportedReport(List<String> bitMask) {

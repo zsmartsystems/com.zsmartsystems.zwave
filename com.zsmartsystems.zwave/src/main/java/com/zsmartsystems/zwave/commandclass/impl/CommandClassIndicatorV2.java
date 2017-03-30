@@ -179,6 +179,11 @@ public class CommandClassIndicatorV2 {
      * Indicator Set
      *
      * @param indicator0Value {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF_DISABLE
+     *            <li>ON_ENABLE
+     *            </ul>
      * @param indicatorObjectCount {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */
@@ -275,6 +280,42 @@ public class CommandClassIndicatorV2 {
      * Indicator Get
      *
      * @param indicatorId {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NA
+     *            <li>BUTTON2_INDICATION
+     *            <li>ARMED
+     *            <li>BUTTON3_INDICATION
+     *            <li>NOT_ARMED
+     *            <li>BUTTON4_INDICATION
+     *            <li>BUTTON5_INDICATION
+     *            <li>READY
+     *            <li>FAULT
+     *            <li>BUTTON_BACKLIGHT_LETTERS
+     *            <li>BUSY
+     *            <li>BUTTON_BACKLIGHT_DIGITS
+     *            <li>ENTER_ID
+     *            <li>BUTTON_BACKLIGHT_COMMAND
+     *            <li>ENTER_PIN
+     *            <li>BUTTON1_INDICATION
+     *            <li>BUTTON10_INDICATION
+     *            <li>OK
+     *            <li>BUTTON11_INDICATION
+     *            <li>NOT_OK
+     *            <li>BUTTON12_INDICATION
+     *            <li>BUTTON6_INDICATION
+     *            <li>BUTTON7_INDICATION
+     *            <li>BUTTON8_INDICATION
+     *            <li>BUTTON9_INDICATION
+     *            <li>ZONE3_ARMED
+     *            <li>ZONE4_ARMED
+     *            <li>ZONE1_ARMED
+     *            <li>ZONE2_ARMED
+     *            <li>ZONE5_ARMED
+     *            <li>ZONE6_ARMED
+     *            <li>LCD_BACKLIGHT
+     *            <li>BUZZER
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getIndicatorGet(String indicatorId) {
@@ -332,6 +373,11 @@ public class CommandClassIndicatorV2 {
      * Indicator Report
      *
      * @param indicator0Value {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF_DISABLE
+     *            <li>ON_ENABLE
+     *            </ul>
      * @param indicatorObjectCount {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */
@@ -428,6 +474,42 @@ public class CommandClassIndicatorV2 {
      * Indicator Supported Get
      *
      * @param indicatorId {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NA
+     *            <li>BUTTON2_INDICATION
+     *            <li>ARMED
+     *            <li>BUTTON3_INDICATION
+     *            <li>NOT_ARMED
+     *            <li>BUTTON4_INDICATION
+     *            <li>BUTTON5_INDICATION
+     *            <li>READY
+     *            <li>FAULT
+     *            <li>BUTTON_BACKLIGHT_LETTERS
+     *            <li>BUSY
+     *            <li>BUTTON_BACKLIGHT_DIGITS
+     *            <li>ENTER_ID
+     *            <li>BUTTON_BACKLIGHT_COMMAND
+     *            <li>ENTER_PIN
+     *            <li>BUTTON1_INDICATION
+     *            <li>BUTTON10_INDICATION
+     *            <li>OK
+     *            <li>BUTTON11_INDICATION
+     *            <li>NOT_OK
+     *            <li>BUTTON12_INDICATION
+     *            <li>BUTTON6_INDICATION
+     *            <li>BUTTON7_INDICATION
+     *            <li>BUTTON8_INDICATION
+     *            <li>BUTTON9_INDICATION
+     *            <li>ZONE3_ARMED
+     *            <li>ZONE4_ARMED
+     *            <li>ZONE1_ARMED
+     *            <li>ZONE2_ARMED
+     *            <li>ZONE5_ARMED
+     *            <li>ZONE6_ARMED
+     *            <li>LCD_BACKLIGHT
+     *            <li>BUZZER
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getIndicatorSupportedGet(String indicatorId) {
@@ -485,8 +567,88 @@ public class CommandClassIndicatorV2 {
      * Indicator Supported Report
      *
      * @param indicatorId {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NA
+     *            <li>BUTTON2_INDICATION
+     *            <li>ARMED
+     *            <li>BUTTON3_INDICATION
+     *            <li>NOT_ARMED
+     *            <li>BUTTON4_INDICATION
+     *            <li>BUTTON5_INDICATION
+     *            <li>READY
+     *            <li>FAULT
+     *            <li>BUTTON_BACKLIGHT_LETTERS
+     *            <li>BUSY
+     *            <li>BUTTON_BACKLIGHT_DIGITS
+     *            <li>ENTER_ID
+     *            <li>BUTTON_BACKLIGHT_COMMAND
+     *            <li>ENTER_PIN
+     *            <li>BUTTON1_INDICATION
+     *            <li>BUTTON10_INDICATION
+     *            <li>OK
+     *            <li>BUTTON11_INDICATION
+     *            <li>NOT_OK
+     *            <li>BUTTON12_INDICATION
+     *            <li>BUTTON6_INDICATION
+     *            <li>BUTTON7_INDICATION
+     *            <li>BUTTON8_INDICATION
+     *            <li>BUTTON9_INDICATION
+     *            <li>ZONE3_ARMED
+     *            <li>ZONE4_ARMED
+     *            <li>ZONE1_ARMED
+     *            <li>ZONE2_ARMED
+     *            <li>ZONE5_ARMED
+     *            <li>ZONE6_ARMED
+     *            <li>LCD_BACKLIGHT
+     *            <li>BUZZER
+     *            </ul>
      * @param nextIndicatorId {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NA
+     *            <li>BUTTON2_INDICATION
+     *            <li>ARMED
+     *            <li>BUTTON3_INDICATION
+     *            <li>NOT_ARMED
+     *            <li>BUTTON4_INDICATION
+     *            <li>BUTTON5_INDICATION
+     *            <li>READY
+     *            <li>FAULT
+     *            <li>BUTTON_BACKLIGHT_LETTERS
+     *            <li>BUSY
+     *            <li>BUTTON_BACKLIGHT_DIGITS
+     *            <li>ENTER_ID
+     *            <li>BUTTON_BACKLIGHT_COMMAND
+     *            <li>ENTER_PIN
+     *            <li>BUTTON1_INDICATION
+     *            <li>BUTTON10_INDICATION
+     *            <li>OK
+     *            <li>BUTTON11_INDICATION
+     *            <li>NOT_OK
+     *            <li>BUTTON12_INDICATION
+     *            <li>BUTTON6_INDICATION
+     *            <li>BUTTON7_INDICATION
+     *            <li>BUTTON8_INDICATION
+     *            <li>BUTTON9_INDICATION
+     *            <li>ZONE3_ARMED
+     *            <li>ZONE4_ARMED
+     *            <li>ZONE1_ARMED
+     *            <li>ZONE2_ARMED
+     *            <li>ZONE5_ARMED
+     *            <li>ZONE6_ARMED
+     *            <li>LCD_BACKLIGHT
+     *            <li>BUZZER
+     *            </ul>
      * @param propertySupportedBitMask {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>LOW_POWER
+     *            <li>MULTILEVEL
+     *            <li>BINARY
+     *            <li>ON_OFF_PERIOD
+     *            <li>ON_OFF_CYCLES
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getIndicatorSupportedReport(String indicatorId, String nextIndicatorId,

@@ -65,6 +65,11 @@ public class CommandClassMtpWindowCoveringV1 {
      * Move To Position Set
      *
      * @param value {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>CLOSE
+     *            <li>OPEN
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getMoveToPositionSet(String value) {
@@ -156,6 +161,11 @@ public class CommandClassMtpWindowCoveringV1 {
      * Move To Position Report
      *
      * @param value {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>CLOSE
+     *            <li>OPEN
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getMoveToPositionReport(String value) {

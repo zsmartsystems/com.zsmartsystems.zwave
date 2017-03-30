@@ -74,6 +74,11 @@ public class CommandClassSwitchBinaryV1 {
      * Switch Binary Set
      *
      * @param switchValue {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF_DISABLE
+     *            <li>ON_ENABLE
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSwitchBinarySet(String switchValue) {
@@ -165,6 +170,11 @@ public class CommandClassSwitchBinaryV1 {
      * Switch Binary Report
      *
      * @param value {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF_DISABLE
+     *            <li>ON_ENABLE
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSwitchBinaryReport(String value) {

@@ -111,7 +111,23 @@ public class CommandClassZwaveplusInfoV2 {
      *
      * @param zWavePlusVersion {@link Integer}
      * @param roleType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>ROLE_TYPE_CONTROLLER_CENTRAL_STATIC
+     *            <li>ROLE_TYPE_CONTROLLER_SUB_STATIC
+     *            <li>ROLE_TYPE_CONTROLLER_PORTABLE
+     *            <li>ROLE_TYPE_CONTROLLER_PORTABLE_REPORTING
+     *            <li>ROLE_TYPE_SLAVE_PORTABLE
+     *            <li>ROLE_TYPE_SLAVE_ALWAYS_ON
+     *            <li>ROLE_TYPE_SLAVE_SLEEPING_REPORTING
+     *            <li>ROLE_TYPE_SLAVE_SLEEPING_LISTENING
+     *            </ul>
      * @param nodeType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NODE_TYPE_ZWAVEPLUS_NODE
+     *            <li>NODE_TYPE_ZWAVEPLUS_FOR_IP_GATEWAY
+     *            </ul>
      * @param installerIconType {@link Integer}
      * @param userIconType {@link Integer}
      * @return the {@link byte[]} array with the command to send

@@ -225,6 +225,11 @@ public class CommandClassSwitchColorV3 {
      * @param currentValue {@link Integer}
      * @param targetValue {@link Integer}
      * @param duration {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>UNKNOWN_DURATION
+     *            <li>ALREADY_AT_THE_TARGET_VALUE
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSwitchColorReport(Integer colorComponentId, Integer currentValue, Integer targetValue,
@@ -305,6 +310,11 @@ public class CommandClassSwitchColorV3 {
      *
      * @param colorComponentCount {@link Integer}
      * @param duration {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>UNKNOWN_DURATION
+     *            <li>ALREADY_AT_THE_TARGET_VALUE
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSwitchColorSet(Integer colorComponentCount, String duration) {
@@ -403,6 +413,11 @@ public class CommandClassSwitchColorV3 {
      * @param colorComponentId {@link Integer}
      * @param startLevel {@link Integer}
      * @param duration {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>UNKNOWN_DURATION
+     *            <li>ALREADY_AT_THE_TARGET_VALUE
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSwitchColorStartLevelChange(Integer res1, Boolean ignoreStartState, Boolean upDown,

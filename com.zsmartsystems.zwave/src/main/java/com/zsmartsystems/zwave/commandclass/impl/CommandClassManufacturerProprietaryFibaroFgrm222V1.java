@@ -86,6 +86,11 @@ public class CommandClassManufacturerProprietaryFibaroFgrm222V1 {
      * Set shutter or lamella position
      *
      * @param command {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>SHUTTER
+     *            <li>LAMELLA
+     *            </ul>
      * @param shutterPosition {@link Integer}
      * @param lamellaPosition {@link Integer}
      * @return the {@link byte[]} array with the command to send

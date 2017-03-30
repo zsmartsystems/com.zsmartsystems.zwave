@@ -375,6 +375,17 @@ public class CommandClassThermostatFanModeV3 {
      * Thermostat Fan Mode Supported Report
      *
      * @param bitMask {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>AUTO
+     *            <li>LOW
+     *            <li>AUTO_HIGH
+     *            <li>HIGH
+     *            <li>AUTO_MEDIUM
+     *            <li>MEDIUM
+     *            <li>CIRCULATION
+     *            <li>HUMIDITY_CIRCULATION
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getThermostatFanModeSupportedReport(List<String> bitMask) {

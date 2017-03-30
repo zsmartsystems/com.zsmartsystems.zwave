@@ -64,6 +64,13 @@ public class CommandClassEnergyProductionV1 {
      * Energy Production Get
      *
      * @param parameterNumber {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>INSTANT_ENERGY_PRODUCTION
+     *            <li>TOTAL_ENERGY_PRODUCTION
+     *            <li>ENERGY_PRODUCTION_TODAY
+     *            <li>TOTAL_PRODUCTION_TIME
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getEnergyProductionGet(String parameterNumber) {
@@ -121,6 +128,13 @@ public class CommandClassEnergyProductionV1 {
      * Energy Production Report
      *
      * @param parameterNumber {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>INSTANT_ENERGY_PRODUCTION
+     *            <li>TOTAL_ENERGY_PRODUCTION
+     *            <li>ENERGY_PRODUCTION_TODAY
+     *            <li>TOTAL_PRODUCTION_TIME
+     *            </ul>
      * @param scale {@link Integer}
      * @param precision {@link Integer}
      * @param value {@link byte[]}

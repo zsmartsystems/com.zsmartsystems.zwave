@@ -91,6 +91,16 @@ public class CommandClassDoorLockV1 {
      * Door Lock Operation Set
      *
      * @param doorLockMode {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES_WITH_TIMEOUT
+     *            <li>DOOR_UNSECURED
+     *            <li>DOOR_SECURED
+     *            <li>DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES
+     *            <li>DOOR_UNSECURED_WITH_TIMEOUT
+     *            <li>DOOR_UNSECURED_FOR_OUTSIDE_DOOR_HANDLES
+     *            <li>DOOR_UNSECURED_FOR_OUTSIDE_DOOR_HANDLES_WITH_TIMEOUT
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getDoorLockOperationSet(String doorLockMode) {
@@ -182,6 +192,16 @@ public class CommandClassDoorLockV1 {
      * Door Lock Operation Report
      *
      * @param doorLockMode {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES_WITH_TIMEOUT
+     *            <li>DOOR_UNSECURED
+     *            <li>DOOR_SECURED
+     *            <li>DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES
+     *            <li>DOOR_UNSECURED_WITH_TIMEOUT
+     *            <li>DOOR_UNSECURED_FOR_OUTSIDE_DOOR_HANDLES
+     *            <li>DOOR_UNSECURED_FOR_OUTSIDE_DOOR_HANDLES_WITH_TIMEOUT
+     *            </ul>
      * @param insideDoorHandlesMode {@link Integer}
      * @param outsideDoorHandlesMode {@link Integer}
      * @param doorCondition {@link Integer}
@@ -279,6 +299,11 @@ public class CommandClassDoorLockV1 {
      * Door Lock Configuration Set
      *
      * @param operationType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>CONSTANT_OPERATION
+     *            <li>TIMED_OPERATION
+     *            </ul>
      * @param insideDoorHandlesState {@link Integer}
      * @param outsideDoorHandlesState {@link Integer}
      * @param lockTimeoutMinutes {@link Integer}
@@ -401,6 +426,11 @@ public class CommandClassDoorLockV1 {
      * Door Lock Configuration Report
      *
      * @param operationType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>CONSTANT_OPERATION
+     *            <li>TIMED_OPERATION
+     *            </ul>
      * @param insideDoorHandlesState {@link Integer}
      * @param outsideDoorHandlesState {@link Integer}
      * @param lockTimeoutMinutes {@link Integer}

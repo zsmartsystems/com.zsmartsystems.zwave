@@ -126,6 +126,17 @@ public class CommandClassThermostatHeatingV1 {
      * Thermostat Heating Mode Set
      *
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF
+     *            <li>OFF_TIMED
+     *            <li>OFF_3_HOURS
+     *            <li>ANTI_FREEZE
+     *            <li>MANUAL
+     *            <li>TEMPORARY_MANUAL
+     *            <li>AUTOMATIC
+     *            <li>MANUAL_TIMED
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getThermostatHeatingModeSet(String mode) {
@@ -217,6 +228,17 @@ public class CommandClassThermostatHeatingV1 {
      * Thermostat Heating Mode Report
      *
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF
+     *            <li>OFF_TIMED
+     *            <li>OFF_3_HOURS
+     *            <li>ANTI_FREEZE
+     *            <li>MANUAL
+     *            <li>TEMPORARY_MANUAL
+     *            <li>AUTOMATIC
+     *            <li>MANUAL_TIMED
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getThermostatHeatingModeReport(String mode) {
@@ -535,6 +557,11 @@ public class CommandClassThermostatHeatingV1 {
      * Thermostat Heating Relay Status Report
      *
      * @param relayStatus {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF
+     *            <li>ON
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getThermostatHeatingRelayStatusReport(String relayStatus) {
@@ -592,6 +619,11 @@ public class CommandClassThermostatHeatingV1 {
      * Thermostat Heating Status Set
      *
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>HEATING
+     *            <li>COOLING
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getThermostatHeatingStatusSet(String status) {
@@ -683,6 +715,11 @@ public class CommandClassThermostatHeatingV1 {
      * Thermostat Heating Heating Status Report
      *
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>HEATING
+     *            <li>COOLING
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getThermostatHeatingStatusReport(String status) {

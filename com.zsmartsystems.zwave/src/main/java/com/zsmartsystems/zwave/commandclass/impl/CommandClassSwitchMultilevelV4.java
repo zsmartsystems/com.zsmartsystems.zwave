@@ -116,7 +116,17 @@ public class CommandClassSwitchMultilevelV4 {
      * Switch Multilevel Set
      *
      * @param value {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF_DISABLE
+     *            <li>ON_ENABLE
+     *            </ul>
      * @param dimmingDuration {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>INSTANTLY
+     *            <li>DEFAULT
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSwitchMultilevelSet(String value, String dimmingDuration) {
@@ -225,8 +235,18 @@ public class CommandClassSwitchMultilevelV4 {
      * Switch Multilevel Report
      *
      * @param currentValue {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF_DISABLE
+     *            <li>ON_ENABLE
+     *            </ul>
      * @param targetValue {@link Integer}
      * @param duration {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>UNKNOWN_DURATION
+     *            <li>ALREADY_AT_THE_TARGET_VALUE
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSwitchMultilevelReport(String currentValue, Integer targetValue, String duration) {
@@ -312,6 +332,11 @@ public class CommandClassSwitchMultilevelV4 {
      * @param upDown {@link String}
      * @param startLevel {@link Integer}
      * @param dimmingDuration {@link Integer}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>INSTANTLY
+     *            <li>DEFAULT
+     *            </ul>
      * @param stepSize {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */

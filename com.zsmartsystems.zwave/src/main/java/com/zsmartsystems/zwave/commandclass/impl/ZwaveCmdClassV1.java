@@ -258,6 +258,17 @@ public class ZwaveCmdClassV1 {
      * @param routing {@link Boolean}
      * @param listening {@link Boolean}
      * @param security {@link Boolean}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>BEAM_CAPABILITY
+     *            <li>SECURITY
+     *            <li>SENSOR_250MS
+     *            <li>CONTROLLER
+     *            <li>SENSOR_1000MS
+     *            <li>SPECIFIC_DEVICE
+     *            <li>ROUTING_SLAVE
+     *            <li>OPTIONAL_FUNCTIONALITY
+     *            </ul>
      * @param controller {@link Boolean}
      * @param specificDevice {@link Boolean}
      * @param routingSlave {@link Boolean}
@@ -284,7 +295,7 @@ public class ZwaveCmdClassV1 {
             case "Z_WAVE_VERSION_2_0":
                 valprotocolVersion = 1;
                 break;
-            case "Z_WAVE_VERSION_ZDK_5_0X,_ZDK_4_2X":
+            case "Z_WAVE_VERSION_ZDK_5_0X_ZDK_4_2X":
                 valprotocolVersion = 2;
                 break;
             case "Z_WAVE_VERSION_ZDK_4_5X_AND_ZDK_6_0X":
@@ -385,7 +396,7 @@ public class ZwaveCmdClassV1 {
                 response.put("PROTOCOL_VERSION", "Z_WAVE_VERSION_2_0");
                 break;
             case 0x02:
-                response.put("PROTOCOL_VERSION", "Z_WAVE_VERSION_ZDK_5_0X,_ZDK_4_2X");
+                response.put("PROTOCOL_VERSION", "Z_WAVE_VERSION_ZDK_5_0X_ZDK_4_2X");
                 break;
             case 0x03:
                 response.put("PROTOCOL_VERSION", "Z_WAVE_VERSION_ZDK_4_5X_AND_ZDK_6_0X");

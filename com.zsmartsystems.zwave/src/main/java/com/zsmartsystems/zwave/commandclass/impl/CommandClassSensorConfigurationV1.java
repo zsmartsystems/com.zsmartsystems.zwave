@@ -88,6 +88,22 @@ public class CommandClassSensorConfigurationV1 {
      * @param current {@link Boolean}
      * @param defaultValue {@link Boolean}
      * @param sensorType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>TEMPERATURE
+     *            <li>GENERAL_PURPOSE_VALUE
+     *            <li>LUMINANCE
+     *            <li>POWER
+     *            <li>RELATIVE_HUMIDITY
+     *            <li>VELOCITY
+     *            <li>DIRECTION
+     *            <li>ATMOSPHERIC_PRESSURE
+     *            <li>BAROMETRIC_PRESSURE
+     *            <li>SOLAR_RADIATION
+     *            <li>DEW_POINT
+     *            <li>RAIN_RATE
+     *            <li>TIDE_LEVEL
+     *            </ul>
      * @param scale {@link Integer}
      * @param precision {@link Integer}
      * @param triggerValue {@link byte[]}
@@ -235,6 +251,22 @@ public class CommandClassSensorConfigurationV1 {
      * Sensor Trigger Level Report
      *
      * @param sensorType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>TEMPERATURE
+     *            <li>GENERAL_PURPOSE_VALUE
+     *            <li>LUMINANCE
+     *            <li>POWER
+     *            <li>RELATIVE_HUMIDITY
+     *            <li>VELOCITY
+     *            <li>DIRECTION
+     *            <li>ATMOSPHERIC_PRESSURE
+     *            <li>BAROMETRIC_PRESSURE
+     *            <li>SOLAR_RADIATION
+     *            <li>DEW_POINT
+     *            <li>RAIN_RATE
+     *            <li>TIDE_LEVEL
+     *            </ul>
      * @param scale {@link Integer}
      * @param precision {@link Integer}
      * @param triggerValue {@link byte[]}

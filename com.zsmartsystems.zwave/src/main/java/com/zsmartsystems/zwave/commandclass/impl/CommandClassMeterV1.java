@@ -97,6 +97,12 @@ public class CommandClassMeterV1 {
      * Meter Report
      *
      * @param meterType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>ELECTRIC_METER
+     *            <li>GAS_METER
+     *            <li>WATER_METER
+     *            </ul>
      * @param scale {@link Integer}
      * @param precision {@link Integer}
      * @param meterValue {@link byte[]}

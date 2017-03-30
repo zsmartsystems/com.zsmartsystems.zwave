@@ -460,6 +460,13 @@ public class CommandClassSecurity2V1 {
      * @param supportedKexSchemes {@link Integer}
      * @param supportedEcdhProfiles {@link Integer}
      * @param requestedKeys {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>UNAUTHENTICATED
+     *            <li>AUTHENTICATED
+     *            <li>ACCESS
+     *            <li>S0
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getKexReport(Boolean echo, Boolean requestCsa, Integer supportedKexSchemes,
@@ -551,6 +558,13 @@ public class CommandClassSecurity2V1 {
      * @param selectedKexScheme {@link Integer}
      * @param selectedEcdhProfile {@link Integer}
      * @param grantedKeys {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>UNAUTHENTICATED
+     *            <li>AUTHENTICATED
+     *            <li>ACCESS
+     *            <li>S0
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getKexSet(Boolean echo, Boolean requestCsa, Integer selectedKexScheme,
@@ -638,6 +652,18 @@ public class CommandClassSecurity2V1 {
      * KEX Fail
      *
      * @param kexFailType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>KEX_KEY
+     *            <li>KEX_SCHEME
+     *            <li>KEX_CURVES
+     *            <li>DECRYPT
+     *            <li>CANCEL
+     *            <li>AUTH
+     *            <li>KEY_GET
+     *            <li>KEY_VERIFY
+     *            <li>KEY_REPORT
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getKexFail(String kexFailType) {
@@ -764,6 +790,13 @@ public class CommandClassSecurity2V1 {
      * S2 Network Key Get
      *
      * @param requestedKey {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>UNAUTHENTICATED
+     *            <li>AUTHENTICATED
+     *            <li>ACCESS
+     *            <li>S0
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSecurity2NetworkKeyGet(String requestedKey) {
@@ -821,6 +854,13 @@ public class CommandClassSecurity2V1 {
      * S2 Network Key Report
      *
      * @param grantedKey {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>UNAUTHENTICATED
+     *            <li>AUTHENTICATED
+     *            <li>ACCESS
+     *            <li>S0
+     *            </ul>
      * @param networkKey {@link byte[]}
      * @return the {@link byte[]} array with the command to send
      */

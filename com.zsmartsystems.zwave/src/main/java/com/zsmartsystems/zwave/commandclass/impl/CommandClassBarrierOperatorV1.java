@@ -128,6 +128,11 @@ public class CommandClassBarrierOperatorV1 {
      * Barrier Operator Set
      *
      * @param targetValue {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>CLOSE
+     *            <li>OPEN
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getBarrierOperatorSet(String targetValue) {
@@ -219,6 +224,14 @@ public class CommandClassBarrierOperatorV1 {
      * Barrier Operator Report
      *
      * @param state {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OPENING
+     *            <li>CLOSED
+     *            <li>OPEN
+     *            <li>CLOSING
+     *            <li>STOPPED
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getBarrierOperatorReport(String state) {
@@ -310,6 +323,12 @@ public class CommandClassBarrierOperatorV1 {
      * Barrier Operator Signal Supported Report
      *
      * @param bitMask {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NOT_SUPPORTED
+     *            <li>AUDIBLE_NOTIFICATION
+     *            <li>VISUAL_NOTIFICATION
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getBarrierOperatorSignalSupportedReport(List<String> bitMask) {
@@ -368,7 +387,18 @@ public class CommandClassBarrierOperatorV1 {
      * Barrier Operator Signal Set
      *
      * @param subsystemType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NOT_SUPPORTED
+     *            <li>AUDIBLE_NOTIFICATION
+     *            <li>VISUAL_NOTIFICATION
+     *            </ul>
      * @param subsystemState {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF
+     *            <li>ON
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getBarrierOperatorSignalSet(String subsystemType, String subsystemState) {
@@ -443,6 +473,12 @@ public class CommandClassBarrierOperatorV1 {
      * Barrier Operator Signal Get
      *
      * @param subsystemType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NOT_SUPPORTED
+     *            <li>AUDIBLE_NOTIFICATION
+     *            <li>VISUAL_NOTIFICATION
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getBarrierOperatorSignalGet(String subsystemType) {
@@ -500,7 +536,18 @@ public class CommandClassBarrierOperatorV1 {
      * Barrier Operator Signal Report
      *
      * @param subsystemType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NOT_SUPPORTED
+     *            <li>AUDIBLE_NOTIFICATION
+     *            <li>VISUAL_NOTIFICATION
+     *            </ul>
      * @param subsystemState {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF
+     *            <li>ON
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getBarrierOperatorSignalReport(String subsystemType, String subsystemState) {

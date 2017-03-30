@@ -82,6 +82,11 @@ public class CommandClassSwitchMultilevelV1 {
      * Switch Multilevel Set
      *
      * @param value {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF_DISABLE
+     *            <li>ON_ENABLE
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSwitchMultilevelSet(String value) {
@@ -173,6 +178,11 @@ public class CommandClassSwitchMultilevelV1 {
      * Switch Multilevel Report
      *
      * @param value {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF_DISABLE
+     *            <li>ON_ENABLE
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSwitchMultilevelReport(String value) {

@@ -134,6 +134,22 @@ public class CommandClassNotificationV5 {
      * Event Supported Get
      *
      * @param notificationType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>SMOKE
+     *            <li>CO
+     *            <li>CO2
+     *            <li>HEAT
+     *            <li>WATER
+     *            <li>ACCESS_CONTROL
+     *            <li>HOME_SECURITY
+     *            <li>POWER_MANAGEMENT
+     *            <li>SYSTEM
+     *            <li>EMERGENCY
+     *            <li>CLOCK
+     *            <li>APPLIANCE
+     *            <li>HOME_HEALTH
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getEventSupportedGet(String notificationType) {
@@ -191,7 +207,39 @@ public class CommandClassNotificationV5 {
      * Event Supported Report
      *
      * @param notificationType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>SMOKE
+     *            <li>CO
+     *            <li>CO2
+     *            <li>HEAT
+     *            <li>WATER
+     *            <li>ACCESS_CONTROL
+     *            <li>HOME_SECURITY
+     *            <li>POWER_MANAGEMENT
+     *            <li>SYSTEM
+     *            <li>EMERGENCY
+     *            <li>CLOCK
+     *            <li>APPLIANCE
+     *            <li>HOME_HEALTH
+     *            </ul>
      * @param bitMask {@link List<Integer>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>SMOKE
+     *            <li>CO
+     *            <li>CO2
+     *            <li>HEAT
+     *            <li>WATER
+     *            <li>ACCESS_CONTROL
+     *            <li>HOME_SECURITY
+     *            <li>POWER_MANAGEMENT
+     *            <li>SYSTEM
+     *            <li>EMERGENCY
+     *            <li>CLOCK
+     *            <li>APPLIANCE
+     *            <li>HOME_HEALTH
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getEventSupportedReport(String notificationType, List<Integer> bitMask) {
@@ -281,6 +329,22 @@ public class CommandClassNotificationV5 {
      *
      * @param v1AlarmType {@link Integer}
      * @param notificationType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>SMOKE
+     *            <li>CO
+     *            <li>CO2
+     *            <li>HEAT
+     *            <li>WATER
+     *            <li>ACCESS_CONTROL
+     *            <li>HOME_SECURITY
+     *            <li>POWER_MANAGEMENT
+     *            <li>SYSTEM
+     *            <li>EMERGENCY
+     *            <li>CLOCK
+     *            <li>APPLIANCE
+     *            <li>HOME_HEALTH
+     *            </ul>
      * @param event {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */
@@ -355,7 +419,29 @@ public class CommandClassNotificationV5 {
      * @param v1AlarmType {@link Integer}
      * @param v1AlarmLevel {@link Integer}
      * @param notificationStatus {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NO_PENDING_NOTIFICATIONS
+     *            <li>OFF
+     *            <li>ON
+     *            </ul>
      * @param notificationType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>SMOKE
+     *            <li>CO
+     *            <li>CO2
+     *            <li>HEAT
+     *            <li>WATER
+     *            <li>ACCESS_CONTROL
+     *            <li>HOME_SECURITY
+     *            <li>POWER_MANAGEMENT
+     *            <li>SYSTEM
+     *            <li>EMERGENCY
+     *            <li>CLOCK
+     *            <li>APPLIANCE
+     *            <li>HOME_HEALTH
+     *            </ul>
      * @param event {@link Integer}
      * @param sequence {@link Boolean}
      * @param eventParameter {@link byte[]}
@@ -507,7 +593,29 @@ public class CommandClassNotificationV5 {
      * Notification Set
      *
      * @param notificationType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>SMOKE
+     *            <li>CO
+     *            <li>CO2
+     *            <li>HEAT
+     *            <li>WATER
+     *            <li>ACCESS_CONTROL
+     *            <li>HOME_SECURITY
+     *            <li>POWER_MANAGEMENT
+     *            <li>SYSTEM
+     *            <li>EMERGENCY
+     *            <li>CLOCK
+     *            <li>APPLIANCE
+     *            <li>HOME_HEALTH
+     *            </ul>
      * @param notificationStatus {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NO_PENDING_NOTIFICATIONS
+     *            <li>OFF
+     *            <li>ON
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getNotificationSet(String notificationType, String notificationStatus) {
@@ -617,6 +725,22 @@ public class CommandClassNotificationV5 {
      *
      * @param v1Alarm {@link Boolean}
      * @param bitMask {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>SMOKE
+     *            <li>CO
+     *            <li>CO2
+     *            <li>HEAT
+     *            <li>WATER
+     *            <li>ACCESS_CONTROL
+     *            <li>HOME_SECURITY
+     *            <li>POWER_MANAGEMENT
+     *            <li>SYSTEM
+     *            <li>EMERGENCY
+     *            <li>CLOCK
+     *            <li>APPLIANCE
+     *            <li>HOME_HEALTH
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getNotificationSupportedReport(Boolean v1Alarm, List<String> bitMask) {

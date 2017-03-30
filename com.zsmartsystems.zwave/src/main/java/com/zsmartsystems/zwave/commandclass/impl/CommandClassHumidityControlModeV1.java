@@ -290,6 +290,12 @@ public class CommandClassHumidityControlModeV1 {
      * Humidity Control Mode Supported Report
      *
      * @param bitMask {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF
+     *            <li>HUMIDIFY
+     *            <li>DEHUMIDIFY
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getHumidityControlModeSupportedReport(List<String> bitMask) {
