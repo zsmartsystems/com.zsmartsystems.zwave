@@ -76,6 +76,12 @@ public class CommandClassUserCodeV1 {
      *
      * @param userIdentifier {@link Integer}
      * @param userIdStatus {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>STATUS_NOT_AVAILABLE
+     *            <li>AVAILABLE
+     *            <li>OCCUPIED
+     *            </ul>
      * @param userCode {@link byte[]}
      * @return the {@link byte[]} array with the command to send
      */
@@ -205,6 +211,12 @@ public class CommandClassUserCodeV1 {
      *
      * @param userIdentifier {@link Integer}
      * @param userIdStatus {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>STATUS_NOT_AVAILABLE
+     *            <li>AVAILABLE
+     *            <li>OCCUPIED
+     *            </ul>
      * @param userCode {@link byte[]}
      * @return the {@link byte[]} array with the command to send
      */

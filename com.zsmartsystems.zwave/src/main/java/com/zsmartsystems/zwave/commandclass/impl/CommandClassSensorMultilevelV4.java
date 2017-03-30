@@ -115,6 +115,30 @@ public class CommandClassSensorMultilevelV4 {
      * Sensor Multilevel Report
      *
      * @param sensorType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>TEMPERATURE
+     *            <li>GENERAL_PURPOSE_VALUE
+     *            <li>LUMINANCE
+     *            <li>POWER
+     *            <li>RELATIVE_HUMIDITY
+     *            <li>VELOCITY
+     *            <li>DIRECTION
+     *            <li>ATMOSPHERIC_PRESSURE
+     *            <li>BAROMETRIC_PRESSURE
+     *            <li>SOLAR_RADIATION
+     *            <li>DEW_POINT
+     *            <li>RAIN_RATE
+     *            <li>TIDE_LEVEL
+     *            <li>WEIGHT
+     *            <li>VOLTAGE
+     *            <li>CO2_LEVEL
+     *            <li>CURRENT
+     *            <li>TANK_CAPACITY
+     *            <li>AIR_FLOW
+     *            <li>ANGLE_POSITION
+     *            <li>DISTANCE
+     *            </ul>
      * @param scale {@link Integer}
      * @param precision {@link Integer}
      * @param sensorValue {@link byte[]}

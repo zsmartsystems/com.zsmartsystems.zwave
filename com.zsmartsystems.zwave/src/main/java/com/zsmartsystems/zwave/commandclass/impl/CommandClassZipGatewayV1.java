@@ -124,6 +124,11 @@ public class CommandClassZipGatewayV1 {
      * Gateway Mode Set
      *
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>STAND_ALONE
+     *            <li>PORTAL
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getGatewayModeSet(String mode) {
@@ -215,6 +220,11 @@ public class CommandClassZipGatewayV1 {
      * Gateway Mode Report
      *
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>STAND_ALONE
+     *            <li>PORTAL
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getGatewayModeReport(String mode) {

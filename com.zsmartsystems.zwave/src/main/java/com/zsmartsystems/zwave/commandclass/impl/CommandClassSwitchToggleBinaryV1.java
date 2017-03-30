@@ -138,6 +138,11 @@ public class CommandClassSwitchToggleBinaryV1 {
      * Switch Toggle Binary Report
      *
      * @param value {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF
+     *            <li>ON
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSwitchToggleBinaryReport(String value) {

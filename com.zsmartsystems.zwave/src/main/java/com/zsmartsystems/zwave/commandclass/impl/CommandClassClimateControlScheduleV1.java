@@ -381,6 +381,12 @@ public class CommandClassClimateControlScheduleV1 {
      *
      * @param overrideType {@link Integer}
      * @param overrideState {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NO_OVERRIDE
+     *            <li>TEMPORARY_OVERRIDE
+     *            <li>PERMANENT_OVERRIDE
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getScheduleOverrideSet(Integer overrideType, String overrideState) {
@@ -480,6 +486,12 @@ public class CommandClassClimateControlScheduleV1 {
      *
      * @param overrideType {@link Integer}
      * @param overrideState {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NO_OVERRIDE
+     *            <li>TEMPORARY_OVERRIDE
+     *            <li>PERMANENT_OVERRIDE
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getScheduleOverrideReport(Integer overrideType, String overrideState) {

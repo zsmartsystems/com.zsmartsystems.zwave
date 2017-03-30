@@ -159,6 +159,35 @@ public class CommandClassEntryControlV1 {
      * @param sequenceNumber {@link Integer}
      * @param dataType {@link String}
      * @param eventType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>CACHING
+     *            <li>CACHED_KEYS
+     *            <li>ENTER
+     *            <li>DISARM_ALL
+     *            <li>ARM_ALL
+     *            <li>ARM_AWAY
+     *            <li>ARM_HOME
+     *            <li>EXIT_DELAY
+     *            <li>ARM_1
+     *            <li>ARM_2
+     *            <li>ARM_3
+     *            <li>ARM_4
+     *            <li>ARM_5
+     *            <li>ARM_6
+     *            <li>RFID
+     *            <li>BELL
+     *            <li>POLICE
+     *            <li>FIRE
+     *            <li>ALERT_MEDICAL
+     *            <li>ALERT_PANIC
+     *            <li>GATE_CLOSE
+     *            <li>GATE_OPEN
+     *            <li>UNLOCK
+     *            <li>LOCK
+     *            <li>CANCEL
+     *            <li>TEST
+     *            </ul>
      * @param eventDataLength {@link Integer}
      * @param eventData {@link byte[]}
      * @return the {@link byte[]} array with the command to send
@@ -439,7 +468,43 @@ public class CommandClassEntryControlV1 {
      * Entry Control Event Supported Report
      *
      * @param dataTypeSupportedBitMask {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NA
+     *            <li>RAW
+     *            <li>ASCII
+     *            <li>MD5
+     *            </ul>
      * @param eventTypeSupportedBitMask {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>CACHING
+     *            <li>CACHED_KEYS
+     *            <li>ENTER
+     *            <li>DISARM_ALL
+     *            <li>ARM_ALL
+     *            <li>ARM_AWAY
+     *            <li>ARM_HOME
+     *            <li>EXIT_DELAY
+     *            <li>ARM_1
+     *            <li>ARM_2
+     *            <li>ARM_3
+     *            <li>ARM_4
+     *            <li>ARM_5
+     *            <li>ARM_6
+     *            <li>RFID
+     *            <li>BELL
+     *            <li>POLICE
+     *            <li>FIRE
+     *            <li>ALERT_MEDICAL
+     *            <li>ALERT_PANIC
+     *            <li>GATE_CLOSE
+     *            <li>GATE_OPEN
+     *            <li>UNLOCK
+     *            <li>LOCK
+     *            <li>CANCEL
+     *            <li>TEST
+     *            </ul>
      * @param keyCachedSizeSupportedMinimum {@link Integer}
      * @param keyCachedSizeSupportedMaximum {@link Integer}
      * @param keyCachedTimeoutSupportedMinimum {@link Integer}

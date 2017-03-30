@@ -146,6 +146,11 @@ public class CommandClassNetworkManagementProxyV1 {
      *
      * @param seqNo {@link Integer}
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>LATEST
+     *            <li>MAY_NOT_BE_THE_LATEST
+     *            </ul>
      * @param nodeListControllerId {@link Integer}
      * @param nodeListData {@link List<Integer>}
      * @return the {@link byte[]} array with the command to send
@@ -314,6 +319,11 @@ public class CommandClassNetworkManagementProxyV1 {
      * @param seqNo {@link Integer}
      * @param age {@link Integer}
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>LATEST
+     *            <li>MAY_NOT_BE_THE_LATEST
+     *            </ul>
      * @param capability {@link Integer}
      * @param listening {@link Boolean}
      * @param security {@link Integer}

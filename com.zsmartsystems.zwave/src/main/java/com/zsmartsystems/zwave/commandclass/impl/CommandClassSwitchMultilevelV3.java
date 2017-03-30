@@ -98,7 +98,17 @@ public class CommandClassSwitchMultilevelV3 {
      * Switch Multilevel Set
      *
      * @param value {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF_DISABLE
+     *            <li>ON_ENABLE
+     *            </ul>
      * @param dimmingDuration {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>INSTANTLY
+     *            <li>FACTORY_DEFAULT
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSwitchMultilevelSet(String value, String dimmingDuration) {
@@ -207,6 +217,11 @@ public class CommandClassSwitchMultilevelV3 {
      * Switch Multilevel Report
      *
      * @param value {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF_DISABLE
+     *            <li>ON_ENABLE
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSwitchMultilevelReport(String value) {
@@ -268,6 +283,11 @@ public class CommandClassSwitchMultilevelV3 {
      * @param upDown {@link String}
      * @param startLevel {@link Integer}
      * @param dimmingDuration {@link Integer}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>INSTANTLY
+     *            <li>FACTORY_DEFAULT
+     *            </ul>
      * @param stepSize {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */

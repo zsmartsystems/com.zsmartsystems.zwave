@@ -67,6 +67,12 @@ public class CommandClassThermostatSetbackV1 {
      *
      * @param setbackType {@link String}
      * @param setbackState {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>UNUSED_STATE
+     *            <li>ENERGY_SAVING_MODE
+     *            <li>FROST_PROTECTION
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getThermostatSetbackSet(String setbackType, String setbackState) {
@@ -192,6 +198,12 @@ public class CommandClassThermostatSetbackV1 {
      *
      * @param setbackType {@link String}
      * @param setbackState {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>UNUSED_STATE
+     *            <li>ENERGY_SAVING_MODE
+     *            <li>FROST_PROTECTION
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getThermostatSetbackReport(String setbackType, String setbackState) {

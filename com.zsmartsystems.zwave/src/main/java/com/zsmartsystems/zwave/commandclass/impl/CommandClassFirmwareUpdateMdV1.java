@@ -257,6 +257,12 @@ public class CommandClassFirmwareUpdateMdV1 {
      * Firmware Update Md Request Report
      *
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>INVALID_COMBINATION
+     *            <li>VALID_COMBINATION
+     *            <li>REQUIRES_AUTHENTICATION
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getFirmwareUpdateMdRequestReport(String status) {
@@ -469,6 +475,12 @@ public class CommandClassFirmwareUpdateMdV1 {
      * Firmware Update Md Status Report
      *
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>INVALID_COMBINATION
+     *            <li>VALID_COMBINATION
+     *            <li>REQUIRES_AUTHENTICATION
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getFirmwareUpdateMdStatusReport(String status) {

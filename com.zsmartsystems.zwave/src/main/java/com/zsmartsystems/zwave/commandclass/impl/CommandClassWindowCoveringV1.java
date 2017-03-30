@@ -219,6 +219,32 @@ public class CommandClassWindowCoveringV1 {
      * Window Covering Get
      *
      * @param parameterId {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OUT_LEFT_1
+     *            <li>OUT_LEFT_2
+     *            <li>OUT_RIGHT_1
+     *            <li>OUT_RIGHT_2
+     *            <li>IN_LEFT_1
+     *            <li>IN_LEFT_2
+     *            <li>IN_RIGHT_1
+     *            <li>IN_RIGHT_2
+     *            <li>IN_RIGHT_LEFT_1
+     *            <li>IN_RIGHT_LEFT_2
+     *            <li>VERTICAL_SLATS_ANGLE_1
+     *            <li>IN_TOP_1
+     *            <li>OUT_BOTTOM_1
+     *            <li>OUT_BOTTOM_2
+     *            <li>OUT_TOP_1
+     *            <li>OUT_TOP_2
+     *            <li>IN_BOTTOM_2
+     *            <li>IN_BOTTOM_1
+     *            <li>IN_TOP_BOTTOM_1
+     *            <li>IN_TOP_2
+     *            <li>HORIZONTAL_SLATS_ANGLE_1
+     *            <li>IN_TOP_BOTTOM_2
+     *            <li>HORIZONTAL_SLATS_ANGLE_2
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getWindowCoveringGet(String parameterId) {
@@ -276,6 +302,32 @@ public class CommandClassWindowCoveringV1 {
      * Window Covering Report
      *
      * @param parameterId {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OUT_LEFT_1
+     *            <li>OUT_LEFT_2
+     *            <li>OUT_RIGHT_1
+     *            <li>OUT_RIGHT_2
+     *            <li>IN_LEFT_1
+     *            <li>IN_LEFT_2
+     *            <li>IN_RIGHT_1
+     *            <li>IN_RIGHT_2
+     *            <li>IN_RIGHT_LEFT_1
+     *            <li>IN_RIGHT_LEFT_2
+     *            <li>VERTICAL_SLATS_ANGLE_1
+     *            <li>IN_TOP_1
+     *            <li>OUT_BOTTOM_1
+     *            <li>OUT_BOTTOM_2
+     *            <li>OUT_TOP_1
+     *            <li>OUT_TOP_2
+     *            <li>IN_BOTTOM_2
+     *            <li>IN_BOTTOM_1
+     *            <li>IN_TOP_BOTTOM_1
+     *            <li>IN_TOP_2
+     *            <li>HORIZONTAL_SLATS_ANGLE_1
+     *            <li>IN_TOP_BOTTOM_2
+     *            <li>HORIZONTAL_SLATS_ANGLE_2
+     *            </ul>
      * @param currentValue {@link Integer}
      * @param targetValue {@link Integer}
      * @param duration {@link Integer}
@@ -444,6 +496,32 @@ public class CommandClassWindowCoveringV1 {
      * @param upDown {@link Boolean}
      * @param res2 {@link Boolean}
      * @param parameterId {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OUT_LEFT_1
+     *            <li>OUT_LEFT_2
+     *            <li>OUT_RIGHT_1
+     *            <li>OUT_RIGHT_2
+     *            <li>IN_LEFT_1
+     *            <li>IN_LEFT_2
+     *            <li>IN_RIGHT_1
+     *            <li>IN_RIGHT_2
+     *            <li>IN_RIGHT_LEFT_1
+     *            <li>IN_RIGHT_LEFT_2
+     *            <li>VERTICAL_SLATS_ANGLE_1
+     *            <li>IN_TOP_1
+     *            <li>OUT_BOTTOM_1
+     *            <li>OUT_BOTTOM_2
+     *            <li>OUT_TOP_1
+     *            <li>OUT_TOP_2
+     *            <li>IN_BOTTOM_2
+     *            <li>IN_BOTTOM_1
+     *            <li>IN_TOP_BOTTOM_1
+     *            <li>IN_TOP_2
+     *            <li>HORIZONTAL_SLATS_ANGLE_1
+     *            <li>IN_TOP_BOTTOM_2
+     *            <li>HORIZONTAL_SLATS_ANGLE_2
+     *            </ul>
      * @param duration {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */
@@ -525,6 +603,32 @@ public class CommandClassWindowCoveringV1 {
      * Window Covering Stop Level Change
      *
      * @param parameterId {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OUT_LEFT_1
+     *            <li>OUT_LEFT_2
+     *            <li>OUT_RIGHT_1
+     *            <li>OUT_RIGHT_2
+     *            <li>IN_LEFT_1
+     *            <li>IN_LEFT_2
+     *            <li>IN_RIGHT_1
+     *            <li>IN_RIGHT_2
+     *            <li>IN_RIGHT_LEFT_1
+     *            <li>IN_RIGHT_LEFT_2
+     *            <li>VERTICAL_SLATS_ANGLE_1
+     *            <li>IN_TOP_1
+     *            <li>OUT_BOTTOM_1
+     *            <li>OUT_BOTTOM_2
+     *            <li>OUT_TOP_1
+     *            <li>OUT_TOP_2
+     *            <li>IN_BOTTOM_2
+     *            <li>IN_BOTTOM_1
+     *            <li>IN_TOP_BOTTOM_1
+     *            <li>IN_TOP_2
+     *            <li>HORIZONTAL_SLATS_ANGLE_1
+     *            <li>IN_TOP_BOTTOM_2
+     *            <li>HORIZONTAL_SLATS_ANGLE_2
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getWindowCoveringStopLevelChange(String parameterId) {

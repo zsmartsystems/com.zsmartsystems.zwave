@@ -58,6 +58,11 @@ public class CommandClassSceneActivationV1 {
      *
      * @param sceneId {@link Integer}
      * @param dimmingDuration {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>INSTANTLY
+     *            <li>CONFIGURED_DIMMING_DURATION
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSceneActivationSet(Integer sceneId, String dimmingDuration) {

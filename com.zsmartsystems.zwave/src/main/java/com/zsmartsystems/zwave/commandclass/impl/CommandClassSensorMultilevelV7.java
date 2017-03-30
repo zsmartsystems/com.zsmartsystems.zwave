@@ -122,9 +122,9 @@ public class CommandClassSensorMultilevelV7 {
         constantSensorType.put(0x2F, "FAT_MASS");
         constantSensorType.put(0x2C, "HEART_RATE");
         constantSensorType.put(0x2D, "BLOOD_PRESSURE");
-        constantSensorType.put(0x33, "BODY_MASS_INDEX,_BMI");
-        constantSensorType.put(0x32, "BASIC_METABOLIC_RATE,_BMR");
-        constantSensorType.put(0x31, "TOTAL_BODY_WATER,_TBW");
+        constantSensorType.put(0x33, "BODY_MASS_INDEX_BMI");
+        constantSensorType.put(0x32, "BASIC_METABOLIC_RATE_BMR");
+        constantSensorType.put(0x31, "TOTAL_BODY_WATER_TBW");
         constantSensorType.put(0x30, "BONE_MASS");
 
         // Constants for Bit Mask
@@ -175,9 +175,9 @@ public class CommandClassSensorMultilevelV7 {
         constantBitMask.put(0x2F, "FAT_MASS");
         constantBitMask.put(0x2C, "HEART_RATE");
         constantBitMask.put(0x2D, "BLOOD_PRESSURE");
-        constantBitMask.put(0x33, "BODY_MASS_INDEX,_BMI");
-        constantBitMask.put(0x32, "BASIC_METABOLIC_RATE,_BMR");
-        constantBitMask.put(0x31, "TOTAL_BODY_WATER,_TBW");
+        constantBitMask.put(0x33, "BODY_MASS_INDEX_BMI");
+        constantBitMask.put(0x32, "BASIC_METABOLIC_RATE_BMR");
+        constantBitMask.put(0x31, "TOTAL_BODY_WATER_TBW");
         constantBitMask.put(0x30, "BONE_MASS");
     }
 
@@ -221,6 +221,60 @@ public class CommandClassSensorMultilevelV7 {
      * Multilevel Sensor Supported Sensor Report
      *
      * @param bitMask {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>AIR_TEMPERATURE
+     *            <li>GENERAL_PURPOSE_VALUE
+     *            <li>LUMINANCE
+     *            <li>POWER
+     *            <li>HUMIDITY
+     *            <li>VELOCITY
+     *            <li>DIRECTION
+     *            <li>ATMOSPHERIC_PRESSURE
+     *            <li>BAROMETRIC_PRESSURE
+     *            <li>SOLAR_RADIATION
+     *            <li>DEW_POINT
+     *            <li>RAIN_RATE
+     *            <li>TIDE_LEVEL
+     *            <li>WEIGHT
+     *            <li>VOLTAGE
+     *            <li>CO2_LEVEL
+     *            <li>CURRENT
+     *            <li>TANK_CAPACITY
+     *            <li>AIR_FLOW
+     *            <li>ANGLE_POSITION
+     *            <li>DISTANCE
+     *            <li>WATER_TEMPERATURE
+     *            <li>ROTATION
+     *            <li>SEISMIC_INTENSITY
+     *            <li>SOIL_TEMPERATURE
+     *            <li>ULTRAVIOLET
+     *            <li>SEISMIC_MAGNITUDE
+     *            <li>ELECTRICAL_CONDUCTIVITY
+     *            <li>ELECTRICAL_RESISTIVITY
+     *            <li>MOISTURE
+     *            <li>LOUDNESS
+     *            <li>TARGET_TEMPERATURE
+     *            <li>PARTICULATE_MATTER_2_5
+     *            <li>FREQUENCY
+     *            <li>TIME
+     *            <li>METHANE_DENSITY_CH4
+     *            <li>VOLATILE_ORGANIC_COMPOUND
+     *            <li>FORMALDEHYDE_CH2O_LEVEL
+     *            <li>RADON_CONCENTRATION
+     *            <li>SOIL_REACTIVITY
+     *            <li>SOIL_SALINITY
+     *            <li>CARBON_MONOXIDE_CO_LEVEL
+     *            <li>SOIL_HUMIDITY
+     *            <li>MUSCLE_MASS
+     *            <li>FAT_MASS
+     *            <li>HEART_RATE
+     *            <li>BLOOD_PRESSURE
+     *            <li>BODY_MASS_INDEX_BMI
+     *            <li>BASIC_METABOLIC_RATE_BMR
+     *            <li>TOTAL_BODY_WATER_TBW
+     *            <li>BONE_MASS
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSensorMultilevelSupportedSensorReport(List<String> bitMask) {
@@ -292,9 +346,9 @@ public class CommandClassSensorMultilevelV7 {
         outputData.write(valBitMask);
         valBitMask = 0;
         valBitMask |= (bitMask.contains("BONE_MASS") ? 0x01 : 0);
-        valBitMask |= (bitMask.contains("TOTAL_BODY_WATER,_TBW") ? 0x02 : 0);
-        valBitMask |= (bitMask.contains("BASIC_METABOLIC_RATE,_BMR") ? 0x04 : 0);
-        valBitMask |= (bitMask.contains("BODY_MASS_INDEX,_BMI") ? 0x08 : 0);
+        valBitMask |= (bitMask.contains("TOTAL_BODY_WATER_TBW") ? 0x02 : 0);
+        valBitMask |= (bitMask.contains("BASIC_METABOLIC_RATE_BMR") ? 0x04 : 0);
+        valBitMask |= (bitMask.contains("BODY_MASS_INDEX_BMI") ? 0x08 : 0);
         outputData.write(valBitMask);
 
         return outputData.toByteArray();
@@ -339,6 +393,60 @@ public class CommandClassSensorMultilevelV7 {
      * Multilevel Sensor Get Supported Scale
      *
      * @param sensorType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>TEMPERATURE
+     *            <li>GENERAL_PURPOSE_VALUE
+     *            <li>LUMINANCE
+     *            <li>POWER
+     *            <li>RELATIVE_HUMIDITY
+     *            <li>VELOCITY
+     *            <li>DIRECTION
+     *            <li>ATMOSPHERIC_PRESSURE
+     *            <li>BAROMETRIC_PRESSURE
+     *            <li>SOLAR_RADIATION
+     *            <li>DEW_POINT
+     *            <li>RAIN_RATE
+     *            <li>TIDE_LEVEL
+     *            <li>WEIGHT
+     *            <li>VOLTAGE
+     *            <li>CO2_LEVEL
+     *            <li>CURRENT
+     *            <li>TANK_CAPACITY
+     *            <li>AIR_FLOW
+     *            <li>ANGLE_POSITION
+     *            <li>DISTANCE
+     *            <li>WATER_TEMPERATURE
+     *            <li>ROTATION
+     *            <li>SEISMIC_INTENSITY
+     *            <li>SOIL_TEMPERATURE
+     *            <li>ULTRAVIOLET
+     *            <li>SEISMIC_MAGNITUDE
+     *            <li>ELECTRICAL_CONDUCTIVITY
+     *            <li>ELECTRICAL_RESISTIVITY
+     *            <li>MOISTURE
+     *            <li>LOUDNESS
+     *            <li>TARGET_TEMPERATURE
+     *            <li>PARTICULATE_MATTER_2_5
+     *            <li>FREQUENCY
+     *            <li>TIME
+     *            <li>METHANE_DENSITY_CH4
+     *            <li>VOLATILE_ORGANIC_COMPOUND
+     *            <li>FORMALDEHYDE_CH2O_LEVEL
+     *            <li>RADON_CONCENTRATION
+     *            <li>SOIL_REACTIVITY
+     *            <li>SOIL_SALINITY
+     *            <li>CARBON_MONOXIDE_CO_LEVEL
+     *            <li>SOIL_HUMIDITY
+     *            <li>MUSCLE_MASS
+     *            <li>FAT_MASS
+     *            <li>HEART_RATE
+     *            <li>BLOOD_PRESSURE
+     *            <li>BODY_MASS_INDEX_BMI
+     *            <li>BASIC_METABOLIC_RATE_BMR
+     *            <li>TOTAL_BODY_WATER_TBW
+     *            <li>BONE_MASS
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSensorMultilevelSupportedGetScale(String sensorType) {
@@ -396,6 +504,60 @@ public class CommandClassSensorMultilevelV7 {
      * Multilevel Sensor Get
      *
      * @param sensorType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>TEMPERATURE
+     *            <li>GENERAL_PURPOSE_VALUE
+     *            <li>LUMINANCE
+     *            <li>POWER
+     *            <li>RELATIVE_HUMIDITY
+     *            <li>VELOCITY
+     *            <li>DIRECTION
+     *            <li>ATMOSPHERIC_PRESSURE
+     *            <li>BAROMETRIC_PRESSURE
+     *            <li>SOLAR_RADIATION
+     *            <li>DEW_POINT
+     *            <li>RAIN_RATE
+     *            <li>TIDE_LEVEL
+     *            <li>WEIGHT
+     *            <li>VOLTAGE
+     *            <li>CO2_LEVEL
+     *            <li>CURRENT
+     *            <li>TANK_CAPACITY
+     *            <li>AIR_FLOW
+     *            <li>ANGLE_POSITION
+     *            <li>DISTANCE
+     *            <li>WATER_TEMPERATURE
+     *            <li>ROTATION
+     *            <li>SEISMIC_INTENSITY
+     *            <li>SOIL_TEMPERATURE
+     *            <li>ULTRAVIOLET
+     *            <li>SEISMIC_MAGNITUDE
+     *            <li>ELECTRICAL_CONDUCTIVITY
+     *            <li>ELECTRICAL_RESISTIVITY
+     *            <li>MOISTURE
+     *            <li>LOUDNESS
+     *            <li>TARGET_TEMPERATURE
+     *            <li>PARTICULATE_MATTER_2_5
+     *            <li>FREQUENCY
+     *            <li>TIME
+     *            <li>METHANE_DENSITY_CH4
+     *            <li>VOLATILE_ORGANIC_COMPOUND
+     *            <li>FORMALDEHYDE_CH2O_LEVEL
+     *            <li>RADON_CONCENTRATION
+     *            <li>SOIL_REACTIVITY
+     *            <li>SOIL_SALINITY
+     *            <li>CARBON_MONOXIDE_CO_LEVEL
+     *            <li>SOIL_HUMIDITY
+     *            <li>MUSCLE_MASS
+     *            <li>FAT_MASS
+     *            <li>HEART_RATE
+     *            <li>BLOOD_PRESSURE
+     *            <li>BODY_MASS_INDEX_BMI
+     *            <li>BASIC_METABOLIC_RATE_BMR
+     *            <li>TOTAL_BODY_WATER_TBW
+     *            <li>BONE_MASS
+     *            </ul>
      * @param scale {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */
@@ -461,6 +623,60 @@ public class CommandClassSensorMultilevelV7 {
      * Multilevel Sensor Report
      *
      * @param sensorType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>TEMPERATURE
+     *            <li>GENERAL_PURPOSE_VALUE
+     *            <li>LUMINANCE
+     *            <li>POWER
+     *            <li>RELATIVE_HUMIDITY
+     *            <li>VELOCITY
+     *            <li>DIRECTION
+     *            <li>ATMOSPHERIC_PRESSURE
+     *            <li>BAROMETRIC_PRESSURE
+     *            <li>SOLAR_RADIATION
+     *            <li>DEW_POINT
+     *            <li>RAIN_RATE
+     *            <li>TIDE_LEVEL
+     *            <li>WEIGHT
+     *            <li>VOLTAGE
+     *            <li>CO2_LEVEL
+     *            <li>CURRENT
+     *            <li>TANK_CAPACITY
+     *            <li>AIR_FLOW
+     *            <li>ANGLE_POSITION
+     *            <li>DISTANCE
+     *            <li>WATER_TEMPERATURE
+     *            <li>ROTATION
+     *            <li>SEISMIC_INTENSITY
+     *            <li>SOIL_TEMPERATURE
+     *            <li>ULTRAVIOLET
+     *            <li>SEISMIC_MAGNITUDE
+     *            <li>ELECTRICAL_CONDUCTIVITY
+     *            <li>ELECTRICAL_RESISTIVITY
+     *            <li>MOISTURE
+     *            <li>LOUDNESS
+     *            <li>TARGET_TEMPERATURE
+     *            <li>PARTICULATE_MATTER_2_5
+     *            <li>FREQUENCY
+     *            <li>TIME
+     *            <li>METHANE_DENSITY_CH4
+     *            <li>VOLATILE_ORGANIC_COMPOUND
+     *            <li>FORMALDEHYDE_CH2O_LEVEL
+     *            <li>RADON_CONCENTRATION
+     *            <li>SOIL_REACTIVITY
+     *            <li>SOIL_SALINITY
+     *            <li>CARBON_MONOXIDE_CO_LEVEL
+     *            <li>SOIL_HUMIDITY
+     *            <li>MUSCLE_MASS
+     *            <li>FAT_MASS
+     *            <li>HEART_RATE
+     *            <li>BLOOD_PRESSURE
+     *            <li>BODY_MASS_INDEX_BMI
+     *            <li>BASIC_METABOLIC_RATE_BMR
+     *            <li>TOTAL_BODY_WATER_TBW
+     *            <li>BONE_MASS
+     *            </ul>
      * @param scale {@link Integer}
      * @param precision {@link Integer}
      * @param sensorValue {@link byte[]}
@@ -561,6 +777,60 @@ public class CommandClassSensorMultilevelV7 {
      * Multilevel Sensor Supported Scale Report
      *
      * @param sensorType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>TEMPERATURE
+     *            <li>GENERAL_PURPOSE_VALUE
+     *            <li>LUMINANCE
+     *            <li>POWER
+     *            <li>RELATIVE_HUMIDITY
+     *            <li>VELOCITY
+     *            <li>DIRECTION
+     *            <li>ATMOSPHERIC_PRESSURE
+     *            <li>BAROMETRIC_PRESSURE
+     *            <li>SOLAR_RADIATION
+     *            <li>DEW_POINT
+     *            <li>RAIN_RATE
+     *            <li>TIDE_LEVEL
+     *            <li>WEIGHT
+     *            <li>VOLTAGE
+     *            <li>CO2_LEVEL
+     *            <li>CURRENT
+     *            <li>TANK_CAPACITY
+     *            <li>AIR_FLOW
+     *            <li>ANGLE_POSITION
+     *            <li>DISTANCE
+     *            <li>WATER_TEMPERATURE
+     *            <li>ROTATION
+     *            <li>SEISMIC_INTENSITY
+     *            <li>SOIL_TEMPERATURE
+     *            <li>ULTRAVIOLET
+     *            <li>SEISMIC_MAGNITUDE
+     *            <li>ELECTRICAL_CONDUCTIVITY
+     *            <li>ELECTRICAL_RESISTIVITY
+     *            <li>MOISTURE
+     *            <li>LOUDNESS
+     *            <li>TARGET_TEMPERATURE
+     *            <li>PARTICULATE_MATTER_2_5
+     *            <li>FREQUENCY
+     *            <li>TIME
+     *            <li>METHANE_DENSITY_CH4
+     *            <li>VOLATILE_ORGANIC_COMPOUND
+     *            <li>FORMALDEHYDE_CH2O_LEVEL
+     *            <li>RADON_CONCENTRATION
+     *            <li>SOIL_REACTIVITY
+     *            <li>SOIL_SALINITY
+     *            <li>CARBON_MONOXIDE_CO_LEVEL
+     *            <li>SOIL_HUMIDITY
+     *            <li>MUSCLE_MASS
+     *            <li>FAT_MASS
+     *            <li>HEART_RATE
+     *            <li>BLOOD_PRESSURE
+     *            <li>BODY_MASS_INDEX_BMI
+     *            <li>BASIC_METABOLIC_RATE_BMR
+     *            <li>TOTAL_BODY_WATER_TBW
+     *            <li>BONE_MASS
+     *            </ul>
      * @param scaleBitMask {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */

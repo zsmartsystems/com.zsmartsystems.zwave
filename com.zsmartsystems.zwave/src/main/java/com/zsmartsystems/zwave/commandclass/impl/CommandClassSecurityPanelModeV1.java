@@ -64,8 +64,8 @@ public class CommandClassSecurityPanelModeV1 {
 
         // Constants for MODE
         constantMode.put(0x01, "ARM_HOME");
-        constantMode.put(0x02, "ARM_AWAY,_NO_DELAY");
-        constantMode.put(0x03, "ARM_AWAY,_DELAYED");
+        constantMode.put(0x02, "ARM_AWAY_NO_DELAY");
+        constantMode.put(0x03, "ARM_AWAY_DELAYED");
         constantMode.put(0x04, "DISARM");
         constantMode.put(0x05, "ALARM_TRIGGER");
     }
@@ -192,6 +192,14 @@ public class CommandClassSecurityPanelModeV1 {
      * Security Panel Mode Report
      *
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>ARM_HOME
+     *            <li>ARM_AWAY_NO_DELAY
+     *            <li>ARM_AWAY_DELAYED
+     *            <li>DISARM
+     *            <li>ALARM_TRIGGER
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSecurityPanelModeReport(String mode) {
@@ -249,6 +257,14 @@ public class CommandClassSecurityPanelModeV1 {
      * Security Panel Mode Set
      *
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>ARM_HOME
+     *            <li>ARM_AWAY_NO_DELAY
+     *            <li>ARM_AWAY_DELAYED
+     *            <li>DISARM
+     *            <li>ALARM_TRIGGER
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSecurityPanelModeSet(String mode) {

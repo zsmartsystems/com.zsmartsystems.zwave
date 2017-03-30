@@ -98,6 +98,12 @@ public class CommandClassNetworkManagementInstallationMaintenanceV1 {
      * @param repeater3 {@link Integer}
      * @param repeater4 {@link Integer}
      * @param speed {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>9_6_KBIT_SEC
+     *            <li>40_KBIT_SEC
+     *            <li>100_KBIT_SEC
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getLastWorkingRouteSet(Integer nodeid, Integer repeater1, Integer repeater2, Integer repeater3,
@@ -273,6 +279,12 @@ public class CommandClassNetworkManagementInstallationMaintenanceV1 {
      * @param repeater3 {@link Integer}
      * @param repeater4 {@link Integer}
      * @param speed {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>9_6_KBIT_SEC
+     *            <li>40_KBIT_SEC
+     *            <li>100_KBIT_SEC
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getLastWorkingRouteReport(Integer nodeid, Integer repeater1, Integer repeater2,

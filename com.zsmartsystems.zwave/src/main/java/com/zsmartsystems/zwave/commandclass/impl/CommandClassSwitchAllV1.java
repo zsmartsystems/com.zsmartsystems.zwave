@@ -75,6 +75,13 @@ public class CommandClassSwitchAllV1 {
      * Switch All Set
      *
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>EXCLUDED_FROM_THE_ALL_ON_ALL_OFF_FUNCTIONALITY
+     *            <li>INCLUDED_IN_THE_ALL_ON_ALL_OFF_FUNCTIONALITY
+     *            <li>EXCLUDED_FROM_THE_ALL_ON_FUNCTIONALITY_BUT_NOT_ALL_OFF
+     *            <li>EXCLUDED_FROM_THE_ALL_OFF_FUNCTIONALITY_BUT_NOT_ALL_ON
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSwitchAllSet(String mode) {
@@ -166,6 +173,13 @@ public class CommandClassSwitchAllV1 {
      * Switch All Report
      *
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>EXCLUDED_FROM_THE_ALL_ON_ALL_OFF_FUNCTIONALITY
+     *            <li>INCLUDED_IN_THE_ALL_ON_ALL_OFF_FUNCTIONALITY
+     *            <li>EXCLUDED_FROM_THE_ALL_ON_FUNCTIONALITY_BUT_NOT_ALL_OFF
+     *            <li>EXCLUDED_FROM_THE_ALL_OFF_FUNCTIONALITY_BUT_NOT_ALL_ON
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSwitchAllReport(String mode) {

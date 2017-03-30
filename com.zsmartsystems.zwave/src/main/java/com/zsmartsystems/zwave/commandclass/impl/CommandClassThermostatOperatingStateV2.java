@@ -284,6 +284,21 @@ public class CommandClassThermostatOperatingStateV2 {
      * Thermostat Operating State Logging Supported Report
      *
      * @param bitMask {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>IDLE
+     *            <li>HEATING
+     *            <li>COOLING
+     *            <li>FAN_ONLY
+     *            <li>PENDING_HEAT
+     *            <li>PENDING_COOL
+     *            <li>VENT_ECONOMIZER
+     *            <li>AUX_HEATING
+     *            <li>2ND_STAGE_HEATING
+     *            <li>2ND_STAGE_COOLING
+     *            <li>2ND_STAGE_AUX_HEAT
+     *            <li>3RD_STAGE_AUX_HEAT
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getThermostatOperatingLoggingSupportedReport(List<String> bitMask) {
@@ -353,6 +368,21 @@ public class CommandClassThermostatOperatingStateV2 {
      * Thermostat Operating State Logging Get
      *
      * @param bitMask {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>IDLE
+     *            <li>HEATING
+     *            <li>COOLING
+     *            <li>FAN_ONLY
+     *            <li>PENDING_HEAT
+     *            <li>PENDING_COOL
+     *            <li>VENT_ECONOMIZER
+     *            <li>AUX_HEATING
+     *            <li>2ND_STAGE_HEATING
+     *            <li>2ND_STAGE_COOLING
+     *            <li>2ND_STAGE_AUX_HEAT
+     *            <li>3RD_STAGE_AUX_HEAT
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getThermostatOperatingStateLoggingGet(List<String> bitMask) {

@@ -102,6 +102,10 @@ public class CommandClassTimeV1 {
      * Time Report
      *
      * @param hourLocalTime {@link Integer}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>RTC_FAILURE
+     *            </ul>
      * @param rtcFailure {@link Boolean}
      * @param minuteLocalTime {@link Integer}
      * @param secondLocalTime {@link Integer}

@@ -105,7 +105,22 @@ public class CommandClassNetworkManagementPrimaryV1 {
      *
      * @param seqNo {@link Integer}
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>CONTROLLER_CHANGE_START
+     *            <li>CONTROLLER_CHANGE_STOP
+     *            </ul>
      * @param txOptions {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NO_ROUTE
+     *            <li>ACK
+     *            <li>EXPLORE
+     *            <li>LOW_POWER
+     *            <li>NO_RETRANSMISSION
+     *            <li>AUTO_ROUTE
+     *            <li>HIGH_POWER
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getControllerChange(Integer seqNo, String mode, List<String> txOptions) {
@@ -203,6 +218,12 @@ public class CommandClassNetworkManagementPrimaryV1 {
      *
      * @param seqNo {@link Integer}
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NODE_ADD_STATUS_DONE
+     *            <li>NODE_ADD_STATUS_FAILED
+     *            <li>NODE_ADD_STATUS_SECURITY_FAILED
+     *            </ul>
      * @param newNodeId {@link Integer}
      * @param nodeInfoLength {@link Integer}
      * @param capability {@link Integer}

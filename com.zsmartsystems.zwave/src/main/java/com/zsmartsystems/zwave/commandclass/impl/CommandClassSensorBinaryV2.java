@@ -145,6 +145,22 @@ public class CommandClassSensorBinaryV2 {
      * Sensor Binary Get
      *
      * @param sensorType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>GENERAL
+     *            <li>SMOKE
+     *            <li>CO
+     *            <li>CO2
+     *            <li>HEAT
+     *            <li>WATER
+     *            <li>FREEZE
+     *            <li>TAMPER
+     *            <li>AUX
+     *            <li>DOOR_WINDOW
+     *            <li>TILT
+     *            <li>MOTION
+     *            <li>GLASS_BREAK
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSensorBinaryGet(String sensorType) {
@@ -202,7 +218,28 @@ public class CommandClassSensorBinaryV2 {
      * Sensor Binary Report
      *
      * @param sensorValue {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>IDLE
+     *            <li>DETECTED_AN_EVENT
+     *            </ul>
      * @param sensorType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>GENERAL
+     *            <li>SMOKE
+     *            <li>CO
+     *            <li>CO2
+     *            <li>HEAT
+     *            <li>WATER
+     *            <li>FREEZE
+     *            <li>TAMPER
+     *            <li>AUX
+     *            <li>DOOR_WINDOW
+     *            <li>TILT
+     *            <li>MOTION
+     *            <li>GLASS_BREAK
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSensorBinaryReport(String sensorValue, String sensorType) {
@@ -277,6 +314,22 @@ public class CommandClassSensorBinaryV2 {
      * Sensor Binary Supported Sensor Report
      *
      * @param bitMask {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>GENERAL
+     *            <li>SMOKE
+     *            <li>CO
+     *            <li>CO2
+     *            <li>HEAT
+     *            <li>WATER
+     *            <li>FREEZE
+     *            <li>TAMPER
+     *            <li>AUX
+     *            <li>DOOR_WINDOW
+     *            <li>TILT
+     *            <li>MOTION
+     *            <li>GLASS_BREAK
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSensorBinarySupportedSensorReport(List<String> bitMask) {

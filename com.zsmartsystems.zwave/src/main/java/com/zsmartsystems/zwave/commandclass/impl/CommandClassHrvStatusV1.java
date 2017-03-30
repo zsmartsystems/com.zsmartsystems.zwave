@@ -91,6 +91,16 @@ public class CommandClassHrvStatusV1 {
      * Hrv Status Get
      *
      * @param statusParameter {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OUTDOOR_AIR_TEMPERATURE
+     *            <li>SUPPLY_AIR_TEMPERATURE
+     *            <li>EXHAUST_AIR_TEMPERATURE
+     *            <li>DISCHARGE_AIR_TEMPERATURE
+     *            <li>ROOM_TEMPERATURE
+     *            <li>RELATIVE_HUMIDITY_IN_ROOM
+     *            <li>REMAINING_FILTER_LIFE
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getHrvStatusGet(String statusParameter) {
@@ -148,6 +158,16 @@ public class CommandClassHrvStatusV1 {
      * Hrv Status Report
      *
      * @param statusParameter {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OUTDOOR_AIR_TEMPERATURE
+     *            <li>SUPPLY_AIR_TEMPERATURE
+     *            <li>EXHAUST_AIR_TEMPERATURE
+     *            <li>DISCHARGE_AIR_TEMPERATURE
+     *            <li>ROOM_TEMPERATURE
+     *            <li>RELATIVE_HUMIDITY_IN_ROOM
+     *            <li>REMAINING_FILTER_LIFE
+     *            </ul>
      * @param size {@link Integer}
      * @param scale {@link Integer}
      * @param precision {@link Integer}
@@ -281,6 +301,16 @@ public class CommandClassHrvStatusV1 {
      * Hrv Status Supported Report
      *
      * @param bitMask {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OUTDOOR_AIR_TEMPERATURE
+     *            <li>SUPPLY_AIR_TEMPERATURE
+     *            <li>EXHAUST_AIR_TEMPERATURE
+     *            <li>DISCHARGE_AIR_TEMPERATURE
+     *            <li>ROOM_TEMPERATURE
+     *            <li>RELATIVE_HUMIDITY_IN_ROOM
+     *            <li>REMAINING_FILTER_LIFE
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getHrvStatusSupportedReport(List<String> bitMask) {

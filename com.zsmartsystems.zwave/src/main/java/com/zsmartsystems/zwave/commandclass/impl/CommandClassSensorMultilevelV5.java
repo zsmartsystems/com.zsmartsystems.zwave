@@ -181,6 +181,40 @@ public class CommandClassSensorMultilevelV5 {
      * Multilevel Sensor Supported Sensor Report
      *
      * @param bitMask {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>AIR_TEMPERATURE
+     *            <li>GENERAL_PURPOSE_VALUE
+     *            <li>LUMINANCE
+     *            <li>POWER
+     *            <li>HUMIDITY
+     *            <li>VELOCITY
+     *            <li>DIRECTION
+     *            <li>ATMOSPHERIC_PRESSURE
+     *            <li>BAROMETRIC_PRESSURE
+     *            <li>SOLAR_RADIATION
+     *            <li>DEW_POINT
+     *            <li>RAIN_RATE
+     *            <li>TIDE_LEVEL
+     *            <li>WEIGHT
+     *            <li>VOLTAGE
+     *            <li>CO2_LEVEL
+     *            <li>CURRENT
+     *            <li>TANK_CAPACITY
+     *            <li>AIR_FLOW
+     *            <li>ANGLE_POSITION
+     *            <li>DISTANCE
+     *            <li>WATER_TEMPERATURE
+     *            <li>ROTATION
+     *            <li>SEISMIC_INTENSITY
+     *            <li>SOIL_TEMPERATURE
+     *            <li>ULTRAVIOLET
+     *            <li>SEISMIC_MAGNITUDE
+     *            <li>ELECTRICAL_CONDUCTIVITY
+     *            <li>ELECTRICAL_RESISTIVITY
+     *            <li>MOISTURE
+     *            <li>LOUDNESS
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSensorMultilevelSupportedSensorReport(List<String> bitMask) {
@@ -273,6 +307,40 @@ public class CommandClassSensorMultilevelV5 {
      * Multilevel Sensor Get Supported Scale
      *
      * @param sensorType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>TEMPERATURE
+     *            <li>GENERAL_PURPOSE_VALUE
+     *            <li>LUMINANCE
+     *            <li>POWER
+     *            <li>RELATIVE_HUMIDITY
+     *            <li>VELOCITY
+     *            <li>DIRECTION
+     *            <li>ATMOSPHERIC_PRESSURE
+     *            <li>BAROMETRIC_PRESSURE
+     *            <li>SOLAR_RADIATION
+     *            <li>DEW_POINT
+     *            <li>RAIN_RATE
+     *            <li>TIDE_LEVEL
+     *            <li>WEIGHT
+     *            <li>VOLTAGE
+     *            <li>CO2_LEVEL
+     *            <li>CURRENT
+     *            <li>TANK_CAPACITY
+     *            <li>AIR_FLOW
+     *            <li>ANGLE_POSITION
+     *            <li>DISTANCE
+     *            <li>WATER_TEMPERATURE
+     *            <li>ROTATION
+     *            <li>SEISMIC_INTENSITY
+     *            <li>SOIL_TEMPERATURE
+     *            <li>ULTRAVIOLET
+     *            <li>SEISMIC_MAGNITUDE
+     *            <li>ELECTRICAL_CONDUCTIVITY
+     *            <li>ELECTRICAL_RESISTIVITY
+     *            <li>MOISTURE
+     *            <li>LOUDNESS
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSensorMultilevelSupportedGetScale(String sensorType) {
@@ -330,6 +398,40 @@ public class CommandClassSensorMultilevelV5 {
      * Multilevel Sensor Get
      *
      * @param sensorType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>TEMPERATURE
+     *            <li>GENERAL_PURPOSE_VALUE
+     *            <li>LUMINANCE
+     *            <li>POWER
+     *            <li>RELATIVE_HUMIDITY
+     *            <li>VELOCITY
+     *            <li>DIRECTION
+     *            <li>ATMOSPHERIC_PRESSURE
+     *            <li>BAROMETRIC_PRESSURE
+     *            <li>SOLAR_RADIATION
+     *            <li>DEW_POINT
+     *            <li>RAIN_RATE
+     *            <li>TIDE_LEVEL
+     *            <li>WEIGHT
+     *            <li>VOLTAGE
+     *            <li>CO2_LEVEL
+     *            <li>CURRENT
+     *            <li>TANK_CAPACITY
+     *            <li>AIR_FLOW
+     *            <li>ANGLE_POSITION
+     *            <li>DISTANCE
+     *            <li>WATER_TEMPERATURE
+     *            <li>ROTATION
+     *            <li>SEISMIC_INTENSITY
+     *            <li>SOIL_TEMPERATURE
+     *            <li>ULTRAVIOLET
+     *            <li>SEISMIC_MAGNITUDE
+     *            <li>ELECTRICAL_CONDUCTIVITY
+     *            <li>ELECTRICAL_RESISTIVITY
+     *            <li>MOISTURE
+     *            <li>LOUDNESS
+     *            </ul>
      * @param scale {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */
@@ -395,6 +497,40 @@ public class CommandClassSensorMultilevelV5 {
      * Multilevel Sensor Report
      *
      * @param sensorType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>TEMPERATURE
+     *            <li>GENERAL_PURPOSE_VALUE
+     *            <li>LUMINANCE
+     *            <li>POWER
+     *            <li>RELATIVE_HUMIDITY
+     *            <li>VELOCITY
+     *            <li>DIRECTION
+     *            <li>ATMOSPHERIC_PRESSURE
+     *            <li>BAROMETRIC_PRESSURE
+     *            <li>SOLAR_RADIATION
+     *            <li>DEW_POINT
+     *            <li>RAIN_RATE
+     *            <li>TIDE_LEVEL
+     *            <li>WEIGHT
+     *            <li>VOLTAGE
+     *            <li>CO2_LEVEL
+     *            <li>CURRENT
+     *            <li>TANK_CAPACITY
+     *            <li>AIR_FLOW
+     *            <li>ANGLE_POSITION
+     *            <li>DISTANCE
+     *            <li>WATER_TEMPERATURE
+     *            <li>ROTATION
+     *            <li>SEISMIC_INTENSITY
+     *            <li>SOIL_TEMPERATURE
+     *            <li>ULTRAVIOLET
+     *            <li>SEISMIC_MAGNITUDE
+     *            <li>ELECTRICAL_CONDUCTIVITY
+     *            <li>ELECTRICAL_RESISTIVITY
+     *            <li>MOISTURE
+     *            <li>LOUDNESS
+     *            </ul>
      * @param scale {@link Integer}
      * @param precision {@link Integer}
      * @param sensorValue {@link byte[]}
@@ -495,6 +631,40 @@ public class CommandClassSensorMultilevelV5 {
      * Multilevel Sensor Supported Scale Report
      *
      * @param sensorType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>TEMPERATURE
+     *            <li>GENERAL_PURPOSE_VALUE
+     *            <li>LUMINANCE
+     *            <li>POWER
+     *            <li>RELATIVE_HUMIDITY
+     *            <li>VELOCITY
+     *            <li>DIRECTION
+     *            <li>ATMOSPHERIC_PRESSURE
+     *            <li>BAROMETRIC_PRESSURE
+     *            <li>SOLAR_RADIATION
+     *            <li>DEW_POINT
+     *            <li>RAIN_RATE
+     *            <li>TIDE_LEVEL
+     *            <li>WEIGHT
+     *            <li>VOLTAGE
+     *            <li>CO2_LEVEL
+     *            <li>CURRENT
+     *            <li>TANK_CAPACITY
+     *            <li>AIR_FLOW
+     *            <li>ANGLE_POSITION
+     *            <li>DISTANCE
+     *            <li>WATER_TEMPERATURE
+     *            <li>ROTATION
+     *            <li>SEISMIC_INTENSITY
+     *            <li>SOIL_TEMPERATURE
+     *            <li>ULTRAVIOLET
+     *            <li>SEISMIC_MAGNITUDE
+     *            <li>ELECTRICAL_CONDUCTIVITY
+     *            <li>ELECTRICAL_RESISTIVITY
+     *            <li>MOISTURE
+     *            <li>LOUDNESS
+     *            </ul>
      * @param scaleBitMask {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */

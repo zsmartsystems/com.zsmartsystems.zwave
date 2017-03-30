@@ -284,6 +284,11 @@ public class CommandClassProtectionV2 {
      * Protection Supported Report
      *
      * @param timeout {@link Boolean}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NO_TIMER_IS_SET
+     *            <li>NO_TIMEOUT
+     *            </ul>
      * @param exclusiveControl {@link Boolean}
      * @param localProtectionState {@link Integer}
      * @param rfProtectionState {@link Integer}
@@ -494,6 +499,11 @@ public class CommandClassProtectionV2 {
      * Protection Timeout Set
      *
      * @param timeout {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NO_TIMER_IS_SET
+     *            <li>NO_TIMEOUT
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getProtectionTimeoutSet(String timeout) {
@@ -585,6 +595,11 @@ public class CommandClassProtectionV2 {
      * Protection Timeout Report
      *
      * @param timeout {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NO_TIMER_IS_SET
+     *            <li>NO_TIMEOUT
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getProtectionTimeoutReport(String timeout) {

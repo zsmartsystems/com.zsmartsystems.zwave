@@ -94,6 +94,10 @@ public class CommandClassBatteryV1 {
      * Battery Report
      *
      * @param batteryLevel {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>BATTERY_LOW_WARNING
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getBatteryReport(String batteryLevel) {

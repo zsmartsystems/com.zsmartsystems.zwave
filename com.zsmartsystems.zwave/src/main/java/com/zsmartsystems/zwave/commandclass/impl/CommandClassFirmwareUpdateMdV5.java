@@ -382,6 +382,15 @@ public class CommandClassFirmwareUpdateMdV5 {
      * Firmware Update Md Request Report
      *
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>INVALID_COMBINATION
+     *            <li>VALID_COMBINATION
+     *            <li>REQUIRES_AUTHENTICATION
+     *            <li>INVALID_FRAGMENT_SIZE
+     *            <li>NOT_UPGRADABLE
+     *            <li>INVALID_HARDWARE_VERSION
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getFirmwareUpdateMdRequestReport(String status) {
@@ -604,6 +613,15 @@ public class CommandClassFirmwareUpdateMdV5 {
      * Firmware Update Md Status Report
      *
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>INVALID_COMBINATION
+     *            <li>VALID_COMBINATION
+     *            <li>REQUIRES_AUTHENTICATION
+     *            <li>INVALID_FRAGMENT_SIZE
+     *            <li>NOT_UPGRADABLE
+     *            <li>INVALID_HARDWARE_VERSION
+     *            </ul>
      * @param waittime {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */
@@ -757,6 +775,12 @@ public class CommandClassFirmwareUpdateMdV5 {
      * @param checksum {@link Integer}
      * @param firmwareTarget {@link Integer}
      * @param firmwareUpdateStatus {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>INVALID_COMBINATION
+     *            <li>FIRMWARE_UPDATE_COMPLETED_SUCCESSFULLY
+     *            <li>ERROR_ACTIVATING_THE_FIRMWARE
+     *            </ul>
      * @param hardwareVersion {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */
@@ -936,6 +960,15 @@ public class CommandClassFirmwareUpdateMdV5 {
      * Firmware Update MD Prepare Report
      *
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>INVALID_COMBINATION
+     *            <li>VALID_COMBINATION
+     *            <li>REQUIRES_AUTHENTICATION
+     *            <li>INVALID_FRAGMENT_SIZE
+     *            <li>NOT_UPGRADABLE
+     *            <li>INVALID_HARDWARE_VERSION
+     *            </ul>
      * @param firmwareChecksum {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */

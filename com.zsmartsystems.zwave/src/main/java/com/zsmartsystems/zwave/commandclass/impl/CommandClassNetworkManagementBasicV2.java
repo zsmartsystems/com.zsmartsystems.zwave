@@ -119,6 +119,12 @@ public class CommandClassNetworkManagementBasicV2 {
      *
      * @param seqNo {@link Integer}
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>LEARN_MODE_SET_DISABLE
+     *            <li>LEARN_MODE_SET_CLASSIC
+     *            <li>LEARN_MODE_SET_NWI
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getLearnModeSet(Integer seqNo, String mode) {
@@ -185,6 +191,13 @@ public class CommandClassNetworkManagementBasicV2 {
      *
      * @param seqNo {@link Integer}
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>LEARN_MODE_FAILED_TIMEOUT
+     *            <li>LEARN_MODE_DONE
+     *            <li>LEARN_MODE_FAILED
+     *            <li>LEARN_MODE_SECURITY_FAILED
+     *            </ul>
      * @param newNodeId {@link Integer}
      * @param grantedKeys {@link Integer}
      * @param dsk {@link byte[]}
@@ -337,6 +350,13 @@ public class CommandClassNetworkManagementBasicV2 {
      *
      * @param seqNo {@link Integer}
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>LEARN_MODE_FAILED_TIMEOUT
+     *            <li>LEARN_MODE_DONE
+     *            <li>LEARN_MODE_FAILED
+     *            <li>LEARN_MODE_SECURITY_FAILED
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getNetworkUpdateRequestStatus(Integer seqNo, String status) {
@@ -403,6 +423,16 @@ public class CommandClassNetworkManagementBasicV2 {
      * @param seqNo {@link Integer}
      * @param destinationNodeId {@link Integer}
      * @param txOptions {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NO_ROUTE
+     *            <li>ACK
+     *            <li>EXPLORE
+     *            <li>LOW_POWER
+     *            <li>NO_RETRANSMISSION
+     *            <li>AUTO_ROUTE
+     *            <li>HIGH_POWER
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getNodeInformationSend(Integer seqNo, Integer destinationNodeId, List<String> txOptions) {
@@ -542,6 +572,13 @@ public class CommandClassNetworkManagementBasicV2 {
      *
      * @param seqNo {@link Integer}
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>LEARN_MODE_FAILED_TIMEOUT
+     *            <li>LEARN_MODE_DONE
+     *            <li>LEARN_MODE_FAILED
+     *            <li>LEARN_MODE_SECURITY_FAILED
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getDefaultSetComplete(Integer seqNo, String status) {

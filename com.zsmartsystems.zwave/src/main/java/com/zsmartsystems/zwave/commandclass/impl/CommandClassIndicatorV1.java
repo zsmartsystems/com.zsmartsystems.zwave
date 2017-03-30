@@ -65,6 +65,11 @@ public class CommandClassIndicatorV1 {
      * Indicator Set
      *
      * @param value {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF_DISABLE
+     *            <li>ON_ENABLE
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getIndicatorSet(String value) {
@@ -156,6 +161,11 @@ public class CommandClassIndicatorV1 {
      * Indicator Report
      *
      * @param value {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF_DISABLE
+     *            <li>ON_ENABLE
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getIndicatorReport(String value) {

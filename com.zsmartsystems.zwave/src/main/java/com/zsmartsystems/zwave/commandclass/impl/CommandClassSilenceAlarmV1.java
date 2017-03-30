@@ -60,6 +60,13 @@ public class CommandClassSilenceAlarmV1 {
      * Sensor Alarm Set
      *
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>DISABLE_SOUNDING_OF_ALL_SENSOR_ALARMS
+     *            <li>DISABLE_SOUNDING_OF_ALL_SENSOR_ALARMS_INDEPENDENT_OF_BIT_MASK_WHICH_HAVE_RECEIVED_THE_ALARM
+     *            <li>DISABLE_SOUNDING_OF_ALL_SENSOR_ALARMS_ACCORDING_TO_BIT_MASK
+     *            <li>DISABLE_SOUNDING_OF_ALL_SENSOR_ALARMS_ACCORDING_TO_BIT_MASK_WHICH_HAVE_RECEIVED_THE_ALARM
+     *            </ul>
      * @param seconds {@link Integer}
      * @param numberOfBitMasks {@link Integer}
      * @param bitMask {@link byte[]}

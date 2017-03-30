@@ -67,6 +67,11 @@ public class CommandClassSceneControllerConfV1 {
      * @param groupId {@link Integer}
      * @param sceneId {@link Integer}
      * @param dimmingDuration {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>INSTANTLY
+     *            <li>FACTORY_DEFAULT
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSceneControllerConfSet(Integer groupId, Integer sceneId, String dimmingDuration) {
@@ -187,6 +192,11 @@ public class CommandClassSceneControllerConfV1 {
      * @param groupId {@link Integer}
      * @param sceneId {@link Integer}
      * @param dimmingDuration {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>INSTANTLY
+     *            <li>FACTORY_DEFAULT
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSceneControllerConfReport(Integer groupId, Integer sceneId, String dimmingDuration) {

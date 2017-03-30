@@ -231,6 +231,11 @@ public class CommandClassSecurityPanelZoneV1 {
      *
      * @param zoneNumber {@link Integer}
      * @param zoneType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>ALARM_ZONE
+     *            <li>NOTIFICATION_ZONE
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSecurityPanelZoneTypeReport(Integer zoneNumber, String zoneType) {
@@ -343,6 +348,13 @@ public class CommandClassSecurityPanelZoneV1 {
      *
      * @param zoneNumber {@link Integer}
      * @param zoneState {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>FAULTED
+     *            <li>NOT_FAULTED
+     *            <li>BYPASS_FAULTED
+     *            <li>BYPASS_NOT_FAULTED
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSecurityPanelZoneStateReport(Integer zoneNumber, String zoneState) {

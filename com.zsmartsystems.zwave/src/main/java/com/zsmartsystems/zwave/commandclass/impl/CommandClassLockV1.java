@@ -65,6 +65,11 @@ public class CommandClassLockV1 {
      * Lock Set
      *
      * @param lockState {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>UNLOCKED
+     *            <li>LOCKED
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getLockSet(String lockState) {
@@ -156,6 +161,11 @@ public class CommandClassLockV1 {
      * Lock Report
      *
      * @param lockState {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>UNLOCKED
+     *            <li>LOCKED
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getLockReport(String lockState) {

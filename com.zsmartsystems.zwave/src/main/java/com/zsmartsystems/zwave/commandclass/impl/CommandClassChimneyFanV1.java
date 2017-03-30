@@ -303,6 +303,10 @@ public class CommandClassChimneyFanV1 {
      * Chimney Fan State Set
      *
      * @param state {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NEXT_STATE
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getChimneyFanStateSet(String state) {
@@ -394,6 +398,10 @@ public class CommandClassChimneyFanV1 {
      * Chimney Fan State Report
      *
      * @param state {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NEXT_STATE
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getChimneyFanStateReport(String state) {
@@ -451,6 +459,11 @@ public class CommandClassChimneyFanV1 {
      * Chimney Fan Speed Set
      *
      * @param speed {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>SPEED_DOWN
+     *            <li>SPEED_UP
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getChimneyFanSpeedSet(String speed) {
@@ -542,6 +555,11 @@ public class CommandClassChimneyFanV1 {
      * Chimney Fan Speed Report
      *
      * @param speed {@link Integer}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>SPEED_DOWN
+     *            <li>SPEED_UP
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getChimneyFanSpeedReport(Integer speed) {
@@ -1403,6 +1421,11 @@ public class CommandClassChimneyFanV1 {
      * Chimney Fan Mode Set
      *
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF
+     *            <li>ON
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getChimneyFanModeSet(String mode) {
@@ -1494,6 +1517,11 @@ public class CommandClassChimneyFanV1 {
      * Chimney Fan Mode Report
      *
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF
+     *            <li>ON
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getChimneyFanModeReport(String mode) {
@@ -1551,6 +1579,11 @@ public class CommandClassChimneyFanV1 {
      * Chimney Fan Setup Set
      *
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF
+     *            <li>ON
+     *            </ul>
      * @param boostTime {@link Integer}
      * @param stopTime {@link Integer}
      * @param minSpeed {@link Integer}
@@ -1789,6 +1822,11 @@ public class CommandClassChimneyFanV1 {
      * Chimney Fan Setup Report
      *
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF
+     *            <li>ON
+     *            </ul>
      * @param boostTime {@link Integer}
      * @param stopTime {@link Integer}
      * @param minSpeed {@link Integer}
@@ -2027,7 +2065,16 @@ public class CommandClassChimneyFanV1 {
      * Chimney Fan Status Report
      *
      * @param state {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NEXT_STATE
+     *            </ul>
      * @param speed {@link Integer}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>SPEED_DOWN
+     *            <li>SPEED_UP
+     *            </ul>
      * @param service {@link Boolean}
      * @param externalAlarm {@link Boolean}
      * @param sensorError {@link Boolean}
@@ -2168,6 +2215,10 @@ public class CommandClassChimneyFanV1 {
      * Chimney Fan Alarm Log Set
      *
      * @param message {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>RESET_LOG
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getChimneyFanAlarmLogSet(String message) {

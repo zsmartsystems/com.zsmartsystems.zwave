@@ -597,6 +597,14 @@ public class CommandClassHrvControlV1 {
      *
      * @param manualControlSupported {@link String}
      * @param bitMask {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF
+     *            <li>DEMAND_AUTOMATIC
+     *            <li>SCHEDULE
+     *            <li>ENERGY_SAVINGS_MODE
+     *            <li>MANUAL
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getHrvControlModeSupportedReport(String manualControlSupported, List<String> bitMask) {

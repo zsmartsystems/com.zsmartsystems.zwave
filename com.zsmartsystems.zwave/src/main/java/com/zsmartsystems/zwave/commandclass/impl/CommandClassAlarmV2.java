@@ -121,6 +121,20 @@ public class CommandClassAlarmV2 {
      *
      * @param alarmType {@link Integer}
      * @param zwaveAlarmType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>SMOKE
+     *            <li>CO
+     *            <li>CO2
+     *            <li>HEAT
+     *            <li>WATER
+     *            <li>ACCESS_CONTROL
+     *            <li>BURGLAR
+     *            <li>POWER_MANAGEMENT
+     *            <li>SYSTEM
+     *            <li>EMERGENCY
+     *            <li>CLOCK
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getAlarmGet(Integer alarmType, String zwaveAlarmType) {
@@ -188,7 +202,26 @@ public class CommandClassAlarmV2 {
      * @param alarmLevel {@link Integer}
      * @param zensorNetSourceNodeId {@link Integer}
      * @param zwaveAlarmStatus {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF
+     *            <li>ON
+     *            </ul>
      * @param zwaveAlarmType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>SMOKE
+     *            <li>CO
+     *            <li>CO2
+     *            <li>HEAT
+     *            <li>WATER
+     *            <li>ACCESS_CONTROL
+     *            <li>BURGLAR
+     *            <li>POWER_MANAGEMENT
+     *            <li>SYSTEM
+     *            <li>EMERGENCY
+     *            <li>CLOCK
+     *            </ul>
      * @param zwaveAlarmEvent {@link Integer}
      * @param numberOfEventParameters {@link Integer}
      * @param eventParameter {@link byte[]}
@@ -336,7 +369,26 @@ public class CommandClassAlarmV2 {
      * Alarm Set
      *
      * @param zwaveAlarmType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>SMOKE
+     *            <li>CO
+     *            <li>CO2
+     *            <li>HEAT
+     *            <li>WATER
+     *            <li>ACCESS_CONTROL
+     *            <li>BURGLAR
+     *            <li>POWER_MANAGEMENT
+     *            <li>SYSTEM
+     *            <li>EMERGENCY
+     *            <li>CLOCK
+     *            </ul>
      * @param zwaveAlarmStatus {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>OFF
+     *            <li>ON
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getAlarmSet(String zwaveAlarmType, String zwaveAlarmStatus) {
@@ -446,6 +498,20 @@ public class CommandClassAlarmV2 {
      *
      * @param v1Alarm {@link Boolean}
      * @param bitMask {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>SMOKE
+     *            <li>CO
+     *            <li>CO2
+     *            <li>HEAT
+     *            <li>WATER
+     *            <li>ACCESS_CONTROL
+     *            <li>BURGLAR
+     *            <li>POWER_MANAGEMENT
+     *            <li>SYSTEM
+     *            <li>EMERGENCY
+     *            <li>CLOCK
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getAlarmTypeSupportedReport(Boolean v1Alarm, List<String> bitMask) {

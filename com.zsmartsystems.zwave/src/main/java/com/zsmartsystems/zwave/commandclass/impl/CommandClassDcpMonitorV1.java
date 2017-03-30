@@ -460,6 +460,13 @@ public class CommandClassDcpMonitorV1 {
      * @param minuteLocalTime {@link Integer}
      * @param secondLocalTime {@link Integer}
      * @param eventStatus {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>EVENT_STARTED
+     *            <li>EVENT_COMPLETED
+     *            <li>EVENT_REJECTED
+     *            <li>EVENT_NOT_APPLICABLE
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getDcpEventStatusReport(Integer year, Integer month, Integer day, Integer hourLocalTime,

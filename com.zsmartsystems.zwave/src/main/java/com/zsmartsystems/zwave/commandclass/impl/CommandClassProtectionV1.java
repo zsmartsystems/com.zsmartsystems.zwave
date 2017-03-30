@@ -66,6 +66,12 @@ public class CommandClassProtectionV1 {
      * Protection Set
      *
      * @param protectionState {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>UNPROTECTED
+     *            <li>PROTECTION_BY_SEQUENCE
+     *            <li>NO_OPERATION_POSSIBLE
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getProtectionSet(String protectionState) {
@@ -157,6 +163,12 @@ public class CommandClassProtectionV1 {
      * Protection Report
      *
      * @param protectionState {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>UNPROTECTED
+     *            <li>PROTECTION_BY_SEQUENCE
+     *            <li>NO_OPERATION_POSSIBLE
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getProtectionReport(String protectionState) {

@@ -84,6 +84,16 @@ public class CommandClassSensorAlarmV1 {
      * Sensor Alarm Get
      *
      * @param sensorType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>GENERAL_PURPOSE_ALARM
+     *            <li>RETURN_FIRST_ALARM_ON_SUPPORTED_LIST
+     *            <li>SMOKE_ALARM
+     *            <li>CO_ALARM
+     *            <li>CO2_ALARM
+     *            <li>HEAT_ALARM
+     *            <li>WATER_LEAK_ALARM
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getSensorAlarmGet(String sensorType) {
@@ -142,7 +152,22 @@ public class CommandClassSensorAlarmV1 {
      *
      * @param sourceNodeId {@link Integer}
      * @param sensorType {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>GENERAL_PURPOSE_ALARM
+     *            <li>RETURN_FIRST_ALARM_ON_SUPPORTED_LIST
+     *            <li>SMOKE_ALARM
+     *            <li>CO_ALARM
+     *            <li>CO2_ALARM
+     *            <li>HEAT_ALARM
+     *            <li>WATER_LEAK_ALARM
+     *            </ul>
      * @param sensorState {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NO_ALARM
+     *            <li>ALARM
+     *            </ul>
      * @param seconds {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */

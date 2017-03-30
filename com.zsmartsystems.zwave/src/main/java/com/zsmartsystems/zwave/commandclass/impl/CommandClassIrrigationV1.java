@@ -331,10 +331,25 @@ public class CommandClassIrrigationV1 {
      *
      * @param systemVoltage {@link Integer}
      * @param sensorStatus {@link String}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>FLOW_SENSOR_DETECTED
+     *            <li>PRESSURE_SENSOR_DETECTED
+     *            <li>RAIN_SENSOR_DETECTED
+     *            <li>MOISTURE_SENSOR_DETECTED
+     *            </ul>
      * @param flowValue {@link byte[]}
      * @param pressureValue {@link byte[]}
      * @param shutoffDuration {@link Integer}
      * @param systemErrorStatus {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>NOT_PROGRAMMED
+     *            <li>EMERGENCY_SHUTDOWN
+     *            <li>HIGH_THRESHOLD_TRIGGERED
+     *            <li>LOW_THRESHOLD_TRIGGERED
+     *            <li>VALVE_ERRORS
+     *            </ul>
      * @param masterValve {@link Boolean}
      * @param valveId {@link Integer}
      * @return the {@link byte[]} array with the command to send
@@ -523,6 +538,12 @@ public class CommandClassIrrigationV1 {
      * @param highPressureThresholdValue {@link byte[]}
      * @param lowPressureThresholdValue {@link byte[]}
      * @param sensorPolarity {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>RAIN_SENSOR_POLARITY
+     *            <li>MOISTURE_SENSOR_POLARITY
+     *            <li>VALID
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getIrrigationSystemConfigSet(Integer masterValveDelay, byte[] highPressureThresholdValue,
@@ -698,6 +719,12 @@ public class CommandClassIrrigationV1 {
      * @param highPressureThresholdValue {@link byte[]}
      * @param lowPressureThresholdValue {@link byte[]}
      * @param sensorPolarity {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>RAIN_SENSOR_POLARITY
+     *            <li>MOISTURE_SENSOR_POLARITY
+     *            <li>VALID
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getIrrigationSystemConfigReport(Integer masterValveDelay, byte[] highPressureThresholdValue,
@@ -895,6 +922,15 @@ public class CommandClassIrrigationV1 {
      * @param valveId {@link Integer}
      * @param nominalCurrent {@link Integer}
      * @param valveErrorStatus {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>SHORT_CIRCUIT
+     *            <li>CURRENT_HIGH_THRESHOLD
+     *            <li>CURRENT_LOW_THRESHOLD
+     *            <li>MAXIMUM_FLOW
+     *            <li>FLOW_HIGH_THRESHOLD
+     *            <li>FLOW_LOW_THRESHOLD
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getIrrigationValveInfoReport(Boolean master, Boolean connected, Integer valveId,
@@ -991,6 +1027,11 @@ public class CommandClassIrrigationV1 {
      * @param flowHighThresholdValue {@link byte[]}
      * @param flowLowThresholdValue {@link byte[]}
      * @param sensorUsage {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>USE_RAIN_SENSOR
+     *            <li>USE_MOISTURE_SENSOR
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getIrrigationValveConfigSet(Boolean masterValve, Integer valveId,
@@ -1248,6 +1289,11 @@ public class CommandClassIrrigationV1 {
      * @param flowHighThresholdValue {@link byte[]}
      * @param flowLowThresholdValue {@link byte[]}
      * @param sensorUsage {@link List<String>}
+     *            Can be one of the following -:
+     *            <ul>
+     *            <li>USE_RAIN_SENSOR
+     *            <li>USE_MOISTURE_SENSOR
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getIrrigationValveConfigReport(Boolean masterValve, Integer valveId,
