@@ -10,6 +10,7 @@ package com.zsmartsystems.zwave.commandclass.impl;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.lang.IllegalArgumentException;
 import java.util.HashMap;
 import java.util.Map;
 import org.slf4j.Logger;
@@ -110,6 +111,9 @@ public class CommandClassUserCodeV1 {
 
         // Process 'USER_CODE'
         if (userCode != null) {
+            if (userCode.length > 10) {
+                throw new IllegalArgumentException("Length of array userCode exceeds maximum length of 10 bytes
+            }
             try {
                 outputData.write(userCode);
             } catch (IOException e) {
@@ -245,6 +249,9 @@ public class CommandClassUserCodeV1 {
 
         // Process 'USER_CODE'
         if (userCode != null) {
+            if (userCode.length > 10) {
+                throw new IllegalArgumentException("Length of array userCode exceeds maximum length of 10 bytes
+            }
             try {
                 outputData.write(userCode);
             } catch (IOException e) {

@@ -10,6 +10,7 @@ package com.zsmartsystems.zwave.commandclass.impl;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.lang.IllegalArgumentException;
 import java.util.HashMap;
 import java.util.Map;
 import org.slf4j.Logger;
@@ -109,6 +110,9 @@ public class CommandClassZipNdV1 {
 
         // Process 'IPv6 Address'
         if (ipv6Address != null) {
+            if (ipv6Address.length > 16) {
+                throw new IllegalArgumentException("Length of array ipv6Address exceeds maximum length of 16 bytes
+            }
             try {
                 outputData.write(ipv6Address);
             } catch (IOException e) {
@@ -117,6 +121,9 @@ public class CommandClassZipNdV1 {
 
         // Process 'Home ID'
         if (homeId != null) {
+            if (homeId.length > 4) {
+                throw new IllegalArgumentException("Length of array homeId exceeds maximum length of 4 bytes
+            }
             try {
                 outputData.write(homeId);
             } catch (IOException e) {
@@ -213,6 +220,9 @@ public class CommandClassZipNdV1 {
 
         // Process 'IPv6 Address'
         if (ipv6Address != null) {
+            if (ipv6Address.length > 16) {
+                throw new IllegalArgumentException("Length of array ipv6Address exceeds maximum length of 16 bytes
+            }
             try {
                 outputData.write(ipv6Address);
             } catch (IOException e) {
