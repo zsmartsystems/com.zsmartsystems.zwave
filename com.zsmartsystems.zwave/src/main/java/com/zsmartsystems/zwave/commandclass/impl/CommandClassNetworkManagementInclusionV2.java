@@ -10,6 +10,7 @@ package com.zsmartsystems.zwave.commandclass.impl;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.lang.IllegalArgumentException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -1611,6 +1612,9 @@ public class CommandClassNetworkManagementInclusionV2 {
 
         // Process 'DSK'
         if (dsk != null) {
+            if (dsk.length > 16) {
+                throw new IllegalArgumentException("Length of array dsk exceeds maximum length of 16 bytes
+            }
             try {
                 outputData.write(dsk);
             } catch (IOException e) {

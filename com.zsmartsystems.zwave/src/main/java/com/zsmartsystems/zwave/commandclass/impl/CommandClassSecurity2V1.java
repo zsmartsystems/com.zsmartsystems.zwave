@@ -10,6 +10,7 @@ package com.zsmartsystems.zwave.commandclass.impl;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.lang.IllegalArgumentException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -251,6 +252,9 @@ public class CommandClassSecurity2V1 {
 
         // Process 'Receivers Entropy Input'
         if (receiversEntropyInput != null) {
+            if (receiversEntropyInput.length > 16) {
+                throw new IllegalArgumentException("Length of array receiversEntropyInput exceeds maximum length of 16 bytes
+            }
             try {
                 outputData.write(receiversEntropyInput);
             } catch (IOException e) {
@@ -886,6 +890,9 @@ public class CommandClassSecurity2V1 {
 
         // Process 'Network Key'
         if (networkKey != null) {
+            if (networkKey.length > 16) {
+                throw new IllegalArgumentException("Length of array networkKey exceeds maximum length of 16 bytes
+            }
             try {
                 outputData.write(networkKey);
             } catch (IOException e) {

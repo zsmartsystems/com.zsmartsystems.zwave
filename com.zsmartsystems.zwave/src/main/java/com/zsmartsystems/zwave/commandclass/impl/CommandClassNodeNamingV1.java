@@ -10,6 +10,7 @@ package com.zsmartsystems.zwave.commandclass.impl;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.lang.IllegalArgumentException;
 import java.util.HashMap;
 import java.util.Map;
 import org.slf4j.Logger;
@@ -82,6 +83,9 @@ public class CommandClassNodeNamingV1 {
 
         // Process 'Node name char'
         if (nodeNameChar != null) {
+            if (nodeNameChar.length > 16) {
+                throw new IllegalArgumentException("Length of array nodeNameChar exceeds maximum length of 16 bytes
+            }
             try {
                 outputData.write(nodeNameChar);
             } catch (IOException e) {
@@ -180,6 +184,9 @@ public class CommandClassNodeNamingV1 {
 
         // Process 'Node name char'
         if (nodeNameChar != null) {
+            if (nodeNameChar.length > 16) {
+                throw new IllegalArgumentException("Length of array nodeNameChar exceeds maximum length of 16 bytes
+            }
             try {
                 outputData.write(nodeNameChar);
             } catch (IOException e) {
@@ -244,6 +251,9 @@ public class CommandClassNodeNamingV1 {
 
         // Process 'Node location char'
         if (nodeLocationChar != null) {
+            if (nodeLocationChar.length > 16) {
+                throw new IllegalArgumentException("Length of array nodeLocationChar exceeds maximum length of 16 bytes
+            }
             try {
                 outputData.write(nodeLocationChar);
             } catch (IOException e) {
@@ -342,6 +352,9 @@ public class CommandClassNodeNamingV1 {
 
         // Process 'Node location char'
         if (nodeLocationChar != null) {
+            if (nodeLocationChar.length > 16) {
+                throw new IllegalArgumentException("Length of array nodeLocationChar exceeds maximum length of 16 bytes
+            }
             try {
                 outputData.write(nodeLocationChar);
             } catch (IOException e) {

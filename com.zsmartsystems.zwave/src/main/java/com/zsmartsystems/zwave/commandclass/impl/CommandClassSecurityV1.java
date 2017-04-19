@@ -10,6 +10,7 @@ package com.zsmartsystems.zwave.commandclass.impl;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.lang.IllegalArgumentException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -515,6 +516,9 @@ public class CommandClassSecurityV1 {
 
         // Process 'Nonce byte'
         if (nonceByte != null) {
+            if (nonceByte.length > 8) {
+                throw new IllegalArgumentException("Length of array nonceByte exceeds maximum length of 8 bytes
+            }
             try {
                 outputData.write(nonceByte);
             } catch (IOException e) {
@@ -579,6 +583,9 @@ public class CommandClassSecurityV1 {
 
         // Process 'Initialization Vector byte'
         if (initializationVectorByte != null) {
+            if (initializationVectorByte.length > 8) {
+                throw new IllegalArgumentException("Length of array initializationVectorByte exceeds maximum length of 8 bytes
+            }
             try {
                 outputData.write(initializationVectorByte);
             } catch (IOException e) {
@@ -605,6 +612,9 @@ public class CommandClassSecurityV1 {
 
         // Process 'Message Authentication Code byte'
         if (messageAuthenticationCodeByte != null) {
+            if (messageAuthenticationCodeByte.length > 8) {
+                throw new IllegalArgumentException("Length of array messageAuthenticationCodeByte exceeds maximum length of 8 bytes
+            }
             try {
                 outputData.write(messageAuthenticationCodeByte);
             } catch (IOException e) {
@@ -705,6 +715,9 @@ public class CommandClassSecurityV1 {
 
         // Process 'Initialization Vector byte'
         if (initializationVectorByte != null) {
+            if (initializationVectorByte.length > 8) {
+                throw new IllegalArgumentException("Length of array initializationVectorByte exceeds maximum length of 8 bytes
+            }
             try {
                 outputData.write(initializationVectorByte);
             } catch (IOException e) {
@@ -731,6 +744,9 @@ public class CommandClassSecurityV1 {
 
         // Process 'Message Authentication Code byte'
         if (messageAuthenticationCodeByte != null) {
+            if (messageAuthenticationCodeByte.length > 8) {
+                throw new IllegalArgumentException("Length of array messageAuthenticationCodeByte exceeds maximum length of 8 bytes
+            }
             try {
                 outputData.write(messageAuthenticationCodeByte);
             } catch (IOException e) {

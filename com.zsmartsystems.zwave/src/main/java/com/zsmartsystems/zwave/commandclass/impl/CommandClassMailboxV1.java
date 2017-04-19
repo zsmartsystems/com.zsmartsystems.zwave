@@ -10,6 +10,7 @@ package com.zsmartsystems.zwave.commandclass.impl;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.lang.IllegalArgumentException;
 import java.util.HashMap;
 import java.util.Map;
 import org.slf4j.Logger;
@@ -142,6 +143,9 @@ public class CommandClassMailboxV1 {
 
         // Process 'Forwarding Destination IPv6 Address'
         if (forwardingDestinationIpv6Address != null) {
+            if (forwardingDestinationIpv6Address.length > 16) {
+                throw new IllegalArgumentException("Length of array forwardingDestinationIpv6Address exceeds maximum length of 16 bytes
+            }
             try {
                 outputData.write(forwardingDestinationIpv6Address);
             } catch (IOException e) {
@@ -262,6 +266,9 @@ public class CommandClassMailboxV1 {
 
         // Process 'Forwarding Destination IPv6 Address'
         if (forwardingDestinationIpv6Address != null) {
+            if (forwardingDestinationIpv6Address.length > 16) {
+                throw new IllegalArgumentException("Length of array forwardingDestinationIpv6Address exceeds maximum length of 16 bytes
+            }
             try {
                 outputData.write(forwardingDestinationIpv6Address);
             } catch (IOException e) {

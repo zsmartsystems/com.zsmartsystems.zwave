@@ -10,6 +10,7 @@ package com.zsmartsystems.zwave.commandclass.impl;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.lang.IllegalArgumentException;
 import java.util.HashMap;
 import java.util.Map;
 import org.slf4j.Logger;
@@ -77,6 +78,9 @@ public class CommandClassZipPortalV1 {
 
         // Process 'LAN IPv6 Address'
         if (lanIpv6Address != null) {
+            if (lanIpv6Address.length > 16) {
+                throw new IllegalArgumentException("Length of array lanIpv6Address exceeds maximum length of 16 bytes
+            }
             try {
                 outputData.write(lanIpv6Address);
             } catch (IOException e) {
@@ -88,6 +92,9 @@ public class CommandClassZipPortalV1 {
 
         // Process 'Portal IPv6 Prefix'
         if (portalIpv6Prefix != null) {
+            if (portalIpv6Prefix.length > 16) {
+                throw new IllegalArgumentException("Length of array portalIpv6Prefix exceeds maximum length of 16 bytes
+            }
             try {
                 outputData.write(portalIpv6Prefix);
             } catch (IOException e) {
@@ -99,6 +106,9 @@ public class CommandClassZipPortalV1 {
 
         // Process 'Default Gateway IPv6 Address'
         if (defaultGatewayIpv6Address != null) {
+            if (defaultGatewayIpv6Address.length > 16) {
+                throw new IllegalArgumentException("Length of array defaultGatewayIpv6Address exceeds maximum length of 16 bytes
+            }
             try {
                 outputData.write(defaultGatewayIpv6Address);
             } catch (IOException e) {
@@ -107,6 +117,9 @@ public class CommandClassZipPortalV1 {
 
         // Process 'PAN IPv6 Prefix'
         if (panIpv6Prefix != null) {
+            if (panIpv6Prefix.length > 16) {
+                throw new IllegalArgumentException("Length of array panIpv6Prefix exceeds maximum length of 16 bytes
+            }
             try {
                 outputData.write(panIpv6Prefix);
             } catch (IOException e) {
@@ -283,6 +296,9 @@ public class CommandClassZipPortalV1 {
 
         // Process 'LAN IPv6 Address'
         if (lanIpv6Address != null) {
+            if (lanIpv6Address.length > 16) {
+                throw new IllegalArgumentException("Length of array lanIpv6Address exceeds maximum length of 16 bytes
+            }
             try {
                 outputData.write(lanIpv6Address);
             } catch (IOException e) {
@@ -294,6 +310,9 @@ public class CommandClassZipPortalV1 {
 
         // Process 'Portal IPv6 Prefix'
         if (portalIpv6Prefix != null) {
+            if (portalIpv6Prefix.length > 16) {
+                throw new IllegalArgumentException("Length of array portalIpv6Prefix exceeds maximum length of 16 bytes
+            }
             try {
                 outputData.write(portalIpv6Prefix);
             } catch (IOException e) {
@@ -305,6 +324,9 @@ public class CommandClassZipPortalV1 {
 
         // Process 'Default Gateway IPv6 Address'
         if (defaultGatewayIpv6Address != null) {
+            if (defaultGatewayIpv6Address.length > 16) {
+                throw new IllegalArgumentException("Length of array defaultGatewayIpv6Address exceeds maximum length of 16 bytes
+            }
             try {
                 outputData.write(defaultGatewayIpv6Address);
             } catch (IOException e) {
@@ -313,6 +335,9 @@ public class CommandClassZipPortalV1 {
 
         // Process 'PAN IPv6 Prefix'
         if (panIpv6Prefix != null) {
+            if (panIpv6Prefix.length > 16) {
+                throw new IllegalArgumentException("Length of array panIpv6Prefix exceeds maximum length of 16 bytes
+            }
             try {
                 outputData.write(panIpv6Prefix);
             } catch (IOException e) {

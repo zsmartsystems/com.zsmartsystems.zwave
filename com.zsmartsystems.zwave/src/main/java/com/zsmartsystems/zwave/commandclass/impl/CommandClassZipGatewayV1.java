@@ -10,6 +10,7 @@ package com.zsmartsystems.zwave.commandclass.impl;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.lang.IllegalArgumentException;
 import java.util.HashMap;
 import java.util.Map;
 import org.slf4j.Logger;
@@ -299,6 +300,9 @@ public class CommandClassZipGatewayV1 {
 
         // Process 'IPv6 Address'
         if (ipv6Address != null) {
+            if (ipv6Address.length > 16) {
+                throw new IllegalArgumentException("Length of array ipv6Address exceeds maximum length of 16 bytes
+            }
             try {
                 outputData.write(ipv6Address);
             } catch (IOException e) {
@@ -458,6 +462,9 @@ public class CommandClassZipGatewayV1 {
 
         // Process 'IPv6 Address'
         if (ipv6Address != null) {
+            if (ipv6Address.length > 16) {
+                throw new IllegalArgumentException("Length of array ipv6Address exceeds maximum length of 16 bytes
+            }
             try {
                 outputData.write(ipv6Address);
             } catch (IOException e) {
@@ -619,6 +626,9 @@ public class CommandClassZipGatewayV1 {
 
         // Process 'Unsolicited IPv6 Destination'
         if (unsolicitedIpv6Destination != null) {
+            if (unsolicitedIpv6Destination.length > 16) {
+                throw new IllegalArgumentException("Length of array unsolicitedIpv6Destination exceeds maximum length of 16 bytes
+            }
             try {
                 outputData.write(unsolicitedIpv6Destination);
             } catch (IOException e) {
@@ -719,6 +729,9 @@ public class CommandClassZipGatewayV1 {
 
         // Process 'Unsolicited IPv6 Destination'
         if (unsolicitedIpv6Destination != null) {
+            if (unsolicitedIpv6Destination.length > 16) {
+                throw new IllegalArgumentException("Length of array unsolicitedIpv6Destination exceeds maximum length of 16 bytes
+            }
             try {
                 outputData.write(unsolicitedIpv6Destination);
             } catch (IOException e) {
