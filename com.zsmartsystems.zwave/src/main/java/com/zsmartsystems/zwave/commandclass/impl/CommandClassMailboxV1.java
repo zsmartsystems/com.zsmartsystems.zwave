@@ -144,7 +144,7 @@ public class CommandClassMailboxV1 {
         // Process 'Forwarding Destination IPv6 Address'
         if (forwardingDestinationIpv6Address != null) {
             if (forwardingDestinationIpv6Address.length > 16) {
-                throw new IllegalArgumentException("Length of array forwardingDestinationIpv6Address exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array forwardingDestinationIpv6Address exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(forwardingDestinationIpv6Address);
@@ -195,8 +195,9 @@ public class CommandClassMailboxV1 {
         }
 
         // Process 'Forwarding Destination IPv6 Address'
-        byte[] valForwardingDestinationIpv6Address = new byte[16];
-        for (int cntForwardingDestinationIpv6Address = 0; cntForwardingDestinationIpv6Address < 16; cntForwardingDestinationIpv6Address++) {
+        int lenForwardingDestinationIpv6Address = Math.min(16, payload.length - 3);
+        byte[] valForwardingDestinationIpv6Address = new byte[lenForwardingDestinationIpv6Address];
+        for (int cntForwardingDestinationIpv6Address = 0; cntForwardingDestinationIpv6Address < lenForwardingDestinationIpv6Address; cntForwardingDestinationIpv6Address++) {
             valForwardingDestinationIpv6Address[cntForwardingDestinationIpv6Address] = payload[3 + cntForwardingDestinationIpv6Address];
         }
         response.put("FORWARDING_DESTINATION_IPV6_ADDRESS", valForwardingDestinationIpv6Address);
@@ -267,7 +268,7 @@ public class CommandClassMailboxV1 {
         // Process 'Forwarding Destination IPv6 Address'
         if (forwardingDestinationIpv6Address != null) {
             if (forwardingDestinationIpv6Address.length > 16) {
-                throw new IllegalArgumentException("Length of array forwardingDestinationIpv6Address exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array forwardingDestinationIpv6Address exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(forwardingDestinationIpv6Address);
@@ -333,8 +334,9 @@ public class CommandClassMailboxV1 {
         response.put("MAILBOX_CAPACITY", Integer.valueOf(((payload[3] & 0xff) << 8) + (payload[4] & 0xff)));
 
         // Process 'Forwarding Destination IPv6 Address'
-        byte[] valForwardingDestinationIpv6Address = new byte[16];
-        for (int cntForwardingDestinationIpv6Address = 0; cntForwardingDestinationIpv6Address < 16; cntForwardingDestinationIpv6Address++) {
+        int lenForwardingDestinationIpv6Address = Math.min(16, payload.length - 5);
+        byte[] valForwardingDestinationIpv6Address = new byte[lenForwardingDestinationIpv6Address];
+        for (int cntForwardingDestinationIpv6Address = 0; cntForwardingDestinationIpv6Address < lenForwardingDestinationIpv6Address; cntForwardingDestinationIpv6Address++) {
             valForwardingDestinationIpv6Address[cntForwardingDestinationIpv6Address] = payload[5 + cntForwardingDestinationIpv6Address];
         }
         response.put("FORWARDING_DESTINATION_IPV6_ADDRESS", valForwardingDestinationIpv6Address);

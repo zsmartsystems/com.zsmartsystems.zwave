@@ -77,7 +77,7 @@ public class CommandClassIpAssociationV1 {
         // Process 'IPv6 Address'
         if (ipv6Address != null) {
             if (ipv6Address.length > 16) {
-                throw new IllegalArgumentException("Length of array ipv6Address exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array ipv6Address exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(ipv6Address);
@@ -115,8 +115,9 @@ public class CommandClassIpAssociationV1 {
         response.put("GROUPING_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Process 'IPv6 Address'
-        byte[] valIpv6Address = new byte[16];
-        for (int cntIpv6Address = 0; cntIpv6Address < 16; cntIpv6Address++) {
+        int lenIpv6Address = Math.min(16, payload.length - 3);
+        byte[] valIpv6Address = new byte[lenIpv6Address];
+        for (int cntIpv6Address = 0; cntIpv6Address < lenIpv6Address; cntIpv6Address++) {
             valIpv6Address[cntIpv6Address] = payload[3 + cntIpv6Address];
         }
         response.put("IPV6_ADDRESS", valIpv6Address);
@@ -216,7 +217,7 @@ public class CommandClassIpAssociationV1 {
         // Process 'IPv6 Address'
         if (ipv6Address != null) {
             if (ipv6Address.length > 16) {
-                throw new IllegalArgumentException("Length of array ipv6Address exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array ipv6Address exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(ipv6Address);
@@ -262,8 +263,9 @@ public class CommandClassIpAssociationV1 {
         response.put("ACTUAL_NODES", Integer.valueOf(payload[4]));
 
         // Process 'IPv6 Address'
-        byte[] valIpv6Address = new byte[16];
-        for (int cntIpv6Address = 0; cntIpv6Address < 16; cntIpv6Address++) {
+        int lenIpv6Address = Math.min(16, payload.length - 5);
+        byte[] valIpv6Address = new byte[lenIpv6Address];
+        for (int cntIpv6Address = 0; cntIpv6Address < lenIpv6Address; cntIpv6Address++) {
             valIpv6Address[cntIpv6Address] = payload[5 + cntIpv6Address];
         }
         response.put("IPV6_ADDRESS", valIpv6Address);
@@ -299,7 +301,7 @@ public class CommandClassIpAssociationV1 {
         // Process 'IPv6 Address'
         if (ipv6Address != null) {
             if (ipv6Address.length > 16) {
-                throw new IllegalArgumentException("Length of array ipv6Address exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array ipv6Address exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(ipv6Address);
@@ -337,8 +339,9 @@ public class CommandClassIpAssociationV1 {
         response.put("GROUPING_IDENTIFIER", Integer.valueOf(payload[2]));
 
         // Process 'IPv6 Address'
-        byte[] valIpv6Address = new byte[16];
-        for (int cntIpv6Address = 0; cntIpv6Address < 16; cntIpv6Address++) {
+        int lenIpv6Address = Math.min(16, payload.length - 3);
+        byte[] valIpv6Address = new byte[lenIpv6Address];
+        for (int cntIpv6Address = 0; cntIpv6Address < lenIpv6Address; cntIpv6Address++) {
             valIpv6Address[cntIpv6Address] = payload[3 + cntIpv6Address];
         }
         response.put("IPV6_ADDRESS", valIpv6Address);

@@ -517,7 +517,7 @@ public class CommandClassSecurityV1 {
         // Process 'Nonce byte'
         if (nonceByte != null) {
             if (nonceByte.length > 8) {
-                throw new IllegalArgumentException("Length of array nonceByte exceeds maximum length of 8 bytes
+                throw new IllegalArgumentException("Length of array nonceByte exceeds maximum length of 8 bytes");
             }
             try {
                 outputData.write(nonceByte);
@@ -547,8 +547,9 @@ public class CommandClassSecurityV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Nonce byte'
-        byte[] valNonceByte = new byte[8];
-        for (int cntNonceByte = 0; cntNonceByte < 8; cntNonceByte++) {
+        int lenNonceByte = Math.min(8, payload.length - 2);
+        byte[] valNonceByte = new byte[lenNonceByte];
+        for (int cntNonceByte = 0; cntNonceByte < lenNonceByte; cntNonceByte++) {
             valNonceByte[cntNonceByte] = payload[2 + cntNonceByte];
         }
         response.put("NONCE_BYTE", valNonceByte);
@@ -584,7 +585,7 @@ public class CommandClassSecurityV1 {
         // Process 'Initialization Vector byte'
         if (initializationVectorByte != null) {
             if (initializationVectorByte.length > 8) {
-                throw new IllegalArgumentException("Length of array initializationVectorByte exceeds maximum length of 8 bytes
+                throw new IllegalArgumentException("Length of array initializationVectorByte exceeds maximum length of 8 bytes");
             }
             try {
                 outputData.write(initializationVectorByte);
@@ -613,7 +614,7 @@ public class CommandClassSecurityV1 {
         // Process 'Message Authentication Code byte'
         if (messageAuthenticationCodeByte != null) {
             if (messageAuthenticationCodeByte.length > 8) {
-                throw new IllegalArgumentException("Length of array messageAuthenticationCodeByte exceeds maximum length of 8 bytes
+                throw new IllegalArgumentException("Length of array messageAuthenticationCodeByte exceeds maximum length of 8 bytes");
             }
             try {
                 outputData.write(messageAuthenticationCodeByte);
@@ -652,8 +653,9 @@ public class CommandClassSecurityV1 {
         int msgOffset = 2;
 
         // Process 'Initialization Vector byte'
-        byte[] valInitializationVectorByte = new byte[8];
-        for (int cntInitializationVectorByte = 0; cntInitializationVectorByte < 8; cntInitializationVectorByte++) {
+        int lenInitializationVectorByte = Math.min(8, payload.length - msgOffset);
+        byte[] valInitializationVectorByte = new byte[lenInitializationVectorByte];
+        for (int cntInitializationVectorByte = 0; cntInitializationVectorByte < lenInitializationVectorByte; cntInitializationVectorByte++) {
             valInitializationVectorByte[cntInitializationVectorByte] = payload[msgOffset + cntInitializationVectorByte];
         }
         response.put("INITIALIZATION_VECTOR_BYTE", valInitializationVectorByte);
@@ -678,8 +680,9 @@ public class CommandClassSecurityV1 {
         msgOffset += 1;
 
         // Process 'Message Authentication Code byte'
-        byte[] valMessageAuthenticationCodeByte = new byte[8];
-        for (int cntMessageAuthenticationCodeByte = 0; cntMessageAuthenticationCodeByte < 8; cntMessageAuthenticationCodeByte++) {
+        int lenMessageAuthenticationCodeByte = Math.min(8, payload.length - msgOffset);
+        byte[] valMessageAuthenticationCodeByte = new byte[lenMessageAuthenticationCodeByte];
+        for (int cntMessageAuthenticationCodeByte = 0; cntMessageAuthenticationCodeByte < lenMessageAuthenticationCodeByte; cntMessageAuthenticationCodeByte++) {
             valMessageAuthenticationCodeByte[cntMessageAuthenticationCodeByte] = payload[msgOffset + cntMessageAuthenticationCodeByte];
         }
         response.put("MESSAGE_AUTHENTICATION_CODE_BYTE", valMessageAuthenticationCodeByte);
@@ -716,7 +719,7 @@ public class CommandClassSecurityV1 {
         // Process 'Initialization Vector byte'
         if (initializationVectorByte != null) {
             if (initializationVectorByte.length > 8) {
-                throw new IllegalArgumentException("Length of array initializationVectorByte exceeds maximum length of 8 bytes
+                throw new IllegalArgumentException("Length of array initializationVectorByte exceeds maximum length of 8 bytes");
             }
             try {
                 outputData.write(initializationVectorByte);
@@ -745,7 +748,7 @@ public class CommandClassSecurityV1 {
         // Process 'Message Authentication Code byte'
         if (messageAuthenticationCodeByte != null) {
             if (messageAuthenticationCodeByte.length > 8) {
-                throw new IllegalArgumentException("Length of array messageAuthenticationCodeByte exceeds maximum length of 8 bytes
+                throw new IllegalArgumentException("Length of array messageAuthenticationCodeByte exceeds maximum length of 8 bytes");
             }
             try {
                 outputData.write(messageAuthenticationCodeByte);
@@ -784,8 +787,9 @@ public class CommandClassSecurityV1 {
         int msgOffset = 2;
 
         // Process 'Initialization Vector byte'
-        byte[] valInitializationVectorByte = new byte[8];
-        for (int cntInitializationVectorByte = 0; cntInitializationVectorByte < 8; cntInitializationVectorByte++) {
+        int lenInitializationVectorByte = Math.min(8, payload.length - msgOffset);
+        byte[] valInitializationVectorByte = new byte[lenInitializationVectorByte];
+        for (int cntInitializationVectorByte = 0; cntInitializationVectorByte < lenInitializationVectorByte; cntInitializationVectorByte++) {
             valInitializationVectorByte[cntInitializationVectorByte] = payload[msgOffset + cntInitializationVectorByte];
         }
         response.put("INITIALIZATION_VECTOR_BYTE", valInitializationVectorByte);
@@ -810,8 +814,9 @@ public class CommandClassSecurityV1 {
         msgOffset += 1;
 
         // Process 'Message Authentication Code byte'
-        byte[] valMessageAuthenticationCodeByte = new byte[8];
-        for (int cntMessageAuthenticationCodeByte = 0; cntMessageAuthenticationCodeByte < 8; cntMessageAuthenticationCodeByte++) {
+        int lenMessageAuthenticationCodeByte = Math.min(8, payload.length - msgOffset);
+        byte[] valMessageAuthenticationCodeByte = new byte[lenMessageAuthenticationCodeByte];
+        for (int cntMessageAuthenticationCodeByte = 0; cntMessageAuthenticationCodeByte < lenMessageAuthenticationCodeByte; cntMessageAuthenticationCodeByte++) {
             valMessageAuthenticationCodeByte[cntMessageAuthenticationCodeByte] = payload[msgOffset + cntMessageAuthenticationCodeByte];
         }
         response.put("MESSAGE_AUTHENTICATION_CODE_BYTE", valMessageAuthenticationCodeByte);

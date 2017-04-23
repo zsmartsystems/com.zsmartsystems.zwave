@@ -76,7 +76,7 @@ public class CommandClassGroupingNameV1 {
         // Process 'Grouping Name'
         if (groupingName != null) {
             if (groupingName.length > 16) {
-                throw new IllegalArgumentException("Length of array groupingName exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array groupingName exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(groupingName);
@@ -114,8 +114,9 @@ public class CommandClassGroupingNameV1 {
         response.put("CHAR_PRESENTATION", Integer.valueOf(payload[3] & 0x07));
 
         // Process 'Grouping Name'
-        byte[] valGroupingName = new byte[16];
-        for (int cntGroupingName = 0; cntGroupingName < 16; cntGroupingName++) {
+        int lenGroupingName = Math.min(16, payload.length - 4);
+        byte[] valGroupingName = new byte[lenGroupingName];
+        for (int cntGroupingName = 0; cntGroupingName < lenGroupingName; cntGroupingName++) {
             valGroupingName[cntGroupingName] = payload[4 + cntGroupingName];
         }
         response.put("GROUPING_NAME", valGroupingName);
@@ -198,7 +199,7 @@ public class CommandClassGroupingNameV1 {
         // Process 'Grouping Name'
         if (groupingName != null) {
             if (groupingName.length > 16) {
-                throw new IllegalArgumentException("Length of array groupingName exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array groupingName exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(groupingName);
@@ -236,8 +237,9 @@ public class CommandClassGroupingNameV1 {
         response.put("CHAR_PRESENTATION", Integer.valueOf(payload[3] & 0x07));
 
         // Process 'Grouping Name'
-        byte[] valGroupingName = new byte[16];
-        for (int cntGroupingName = 0; cntGroupingName < 16; cntGroupingName++) {
+        int lenGroupingName = Math.min(16, payload.length - 4);
+        byte[] valGroupingName = new byte[lenGroupingName];
+        for (int cntGroupingName = 0; cntGroupingName < lenGroupingName; cntGroupingName++) {
             valGroupingName[cntGroupingName] = payload[4 + cntGroupingName];
         }
         response.put("GROUPING_NAME", valGroupingName);

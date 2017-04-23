@@ -301,7 +301,7 @@ public class CommandClassZipGatewayV1 {
         // Process 'IPv6 Address'
         if (ipv6Address != null) {
             if (ipv6Address.length > 16) {
-                throw new IllegalArgumentException("Length of array ipv6Address exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array ipv6Address exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(ipv6Address);
@@ -358,8 +358,9 @@ public class CommandClassZipGatewayV1 {
         msgOffset += 1;
 
         // Process 'IPv6 Address'
-        byte[] valIpv6Address = new byte[16];
-        for (int cntIpv6Address = 0; cntIpv6Address < 16; cntIpv6Address++) {
+        int lenIpv6Address = Math.min(16, payload.length - msgOffset);
+        byte[] valIpv6Address = new byte[lenIpv6Address];
+        for (int cntIpv6Address = 0; cntIpv6Address < lenIpv6Address; cntIpv6Address++) {
             valIpv6Address[cntIpv6Address] = payload[msgOffset + cntIpv6Address];
         }
         response.put("IPV6_ADDRESS", valIpv6Address);
@@ -463,7 +464,7 @@ public class CommandClassZipGatewayV1 {
         // Process 'IPv6 Address'
         if (ipv6Address != null) {
             if (ipv6Address.length > 16) {
-                throw new IllegalArgumentException("Length of array ipv6Address exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array ipv6Address exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(ipv6Address);
@@ -525,8 +526,9 @@ public class CommandClassZipGatewayV1 {
         msgOffset += 1;
 
         // Process 'IPv6 Address'
-        byte[] valIpv6Address = new byte[16];
-        for (int cntIpv6Address = 0; cntIpv6Address < 16; cntIpv6Address++) {
+        int lenIpv6Address = Math.min(16, payload.length - msgOffset);
+        byte[] valIpv6Address = new byte[lenIpv6Address];
+        for (int cntIpv6Address = 0; cntIpv6Address < lenIpv6Address; cntIpv6Address++) {
             valIpv6Address[cntIpv6Address] = payload[msgOffset + cntIpv6Address];
         }
         response.put("IPV6_ADDRESS", valIpv6Address);
@@ -627,7 +629,7 @@ public class CommandClassZipGatewayV1 {
         // Process 'Unsolicited IPv6 Destination'
         if (unsolicitedIpv6Destination != null) {
             if (unsolicitedIpv6Destination.length > 16) {
-                throw new IllegalArgumentException("Length of array unsolicitedIpv6Destination exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array unsolicitedIpv6Destination exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(unsolicitedIpv6Destination);
@@ -662,8 +664,9 @@ public class CommandClassZipGatewayV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Unsolicited IPv6 Destination'
-        byte[] valUnsolicitedIpv6Destination = new byte[16];
-        for (int cntUnsolicitedIpv6Destination = 0; cntUnsolicitedIpv6Destination < 16; cntUnsolicitedIpv6Destination++) {
+        int lenUnsolicitedIpv6Destination = Math.min(16, payload.length - 2);
+        byte[] valUnsolicitedIpv6Destination = new byte[lenUnsolicitedIpv6Destination];
+        for (int cntUnsolicitedIpv6Destination = 0; cntUnsolicitedIpv6Destination < lenUnsolicitedIpv6Destination; cntUnsolicitedIpv6Destination++) {
             valUnsolicitedIpv6Destination[cntUnsolicitedIpv6Destination] = payload[2 + cntUnsolicitedIpv6Destination];
         }
         response.put("UNSOLICITED_IPV6_DESTINATION", valUnsolicitedIpv6Destination);
@@ -730,7 +733,7 @@ public class CommandClassZipGatewayV1 {
         // Process 'Unsolicited IPv6 Destination'
         if (unsolicitedIpv6Destination != null) {
             if (unsolicitedIpv6Destination.length > 16) {
-                throw new IllegalArgumentException("Length of array unsolicitedIpv6Destination exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array unsolicitedIpv6Destination exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(unsolicitedIpv6Destination);
@@ -765,8 +768,9 @@ public class CommandClassZipGatewayV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Unsolicited IPv6 Destination'
-        byte[] valUnsolicitedIpv6Destination = new byte[16];
-        for (int cntUnsolicitedIpv6Destination = 0; cntUnsolicitedIpv6Destination < 16; cntUnsolicitedIpv6Destination++) {
+        int lenUnsolicitedIpv6Destination = Math.min(16, payload.length - 2);
+        byte[] valUnsolicitedIpv6Destination = new byte[lenUnsolicitedIpv6Destination];
+        for (int cntUnsolicitedIpv6Destination = 0; cntUnsolicitedIpv6Destination < lenUnsolicitedIpv6Destination; cntUnsolicitedIpv6Destination++) {
             valUnsolicitedIpv6Destination[cntUnsolicitedIpv6Destination] = payload[2 + cntUnsolicitedIpv6Destination];
         }
         response.put("UNSOLICITED_IPV6_DESTINATION", valUnsolicitedIpv6Destination);
