@@ -79,7 +79,7 @@ public class CommandClassZipPortalV1 {
         // Process 'LAN IPv6 Address'
         if (lanIpv6Address != null) {
             if (lanIpv6Address.length > 16) {
-                throw new IllegalArgumentException("Length of array lanIpv6Address exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array lanIpv6Address exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(lanIpv6Address);
@@ -93,7 +93,7 @@ public class CommandClassZipPortalV1 {
         // Process 'Portal IPv6 Prefix'
         if (portalIpv6Prefix != null) {
             if (portalIpv6Prefix.length > 16) {
-                throw new IllegalArgumentException("Length of array portalIpv6Prefix exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array portalIpv6Prefix exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(portalIpv6Prefix);
@@ -107,7 +107,7 @@ public class CommandClassZipPortalV1 {
         // Process 'Default Gateway IPv6 Address'
         if (defaultGatewayIpv6Address != null) {
             if (defaultGatewayIpv6Address.length > 16) {
-                throw new IllegalArgumentException("Length of array defaultGatewayIpv6Address exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array defaultGatewayIpv6Address exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(defaultGatewayIpv6Address);
@@ -118,7 +118,7 @@ public class CommandClassZipPortalV1 {
         // Process 'PAN IPv6 Prefix'
         if (panIpv6Prefix != null) {
             if (panIpv6Prefix.length > 16) {
-                throw new IllegalArgumentException("Length of array panIpv6Prefix exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array panIpv6Prefix exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(panIpv6Prefix);
@@ -153,8 +153,9 @@ public class CommandClassZipPortalV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'LAN IPv6 Address'
-        byte[] valLanIpv6Address = new byte[16];
-        for (int cntLanIpv6Address = 0; cntLanIpv6Address < 16; cntLanIpv6Address++) {
+        int lenLanIpv6Address = Math.min(16, payload.length - 2);
+        byte[] valLanIpv6Address = new byte[lenLanIpv6Address];
+        for (int cntLanIpv6Address = 0; cntLanIpv6Address < lenLanIpv6Address; cntLanIpv6Address++) {
             valLanIpv6Address[cntLanIpv6Address] = payload[2 + cntLanIpv6Address];
         }
         response.put("LAN_IPV6_ADDRESS", valLanIpv6Address);
@@ -163,8 +164,9 @@ public class CommandClassZipPortalV1 {
         response.put("LAN_IPV6_PREFIX_LENGTH", Integer.valueOf(payload[18]));
 
         // Process 'Portal IPv6 Prefix'
-        byte[] valPortalIpv6Prefix = new byte[16];
-        for (int cntPortalIpv6Prefix = 0; cntPortalIpv6Prefix < 16; cntPortalIpv6Prefix++) {
+        int lenPortalIpv6Prefix = Math.min(16, payload.length - 19);
+        byte[] valPortalIpv6Prefix = new byte[lenPortalIpv6Prefix];
+        for (int cntPortalIpv6Prefix = 0; cntPortalIpv6Prefix < lenPortalIpv6Prefix; cntPortalIpv6Prefix++) {
             valPortalIpv6Prefix[cntPortalIpv6Prefix] = payload[19 + cntPortalIpv6Prefix];
         }
         response.put("PORTAL_IPV6_PREFIX", valPortalIpv6Prefix);
@@ -173,15 +175,17 @@ public class CommandClassZipPortalV1 {
         response.put("PORTAL_IPV6_PREFIX_LENGTH", Integer.valueOf(payload[35]));
 
         // Process 'Default Gateway IPv6 Address'
-        byte[] valDefaultGatewayIpv6Address = new byte[16];
-        for (int cntDefaultGatewayIpv6Address = 0; cntDefaultGatewayIpv6Address < 16; cntDefaultGatewayIpv6Address++) {
+        int lenDefaultGatewayIpv6Address = Math.min(16, payload.length - 36);
+        byte[] valDefaultGatewayIpv6Address = new byte[lenDefaultGatewayIpv6Address];
+        for (int cntDefaultGatewayIpv6Address = 0; cntDefaultGatewayIpv6Address < lenDefaultGatewayIpv6Address; cntDefaultGatewayIpv6Address++) {
             valDefaultGatewayIpv6Address[cntDefaultGatewayIpv6Address] = payload[36 + cntDefaultGatewayIpv6Address];
         }
         response.put("DEFAULT_GATEWAY_IPV6_ADDRESS", valDefaultGatewayIpv6Address);
 
         // Process 'PAN IPv6 Prefix'
-        byte[] valPanIpv6Prefix = new byte[16];
-        for (int cntPanIpv6Prefix = 0; cntPanIpv6Prefix < 16; cntPanIpv6Prefix++) {
+        int lenPanIpv6Prefix = Math.min(16, payload.length - 52);
+        byte[] valPanIpv6Prefix = new byte[lenPanIpv6Prefix];
+        for (int cntPanIpv6Prefix = 0; cntPanIpv6Prefix < lenPanIpv6Prefix; cntPanIpv6Prefix++) {
             valPanIpv6Prefix[cntPanIpv6Prefix] = payload[52 + cntPanIpv6Prefix];
         }
         response.put("PAN_IPV6_PREFIX", valPanIpv6Prefix);
@@ -297,7 +301,7 @@ public class CommandClassZipPortalV1 {
         // Process 'LAN IPv6 Address'
         if (lanIpv6Address != null) {
             if (lanIpv6Address.length > 16) {
-                throw new IllegalArgumentException("Length of array lanIpv6Address exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array lanIpv6Address exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(lanIpv6Address);
@@ -311,7 +315,7 @@ public class CommandClassZipPortalV1 {
         // Process 'Portal IPv6 Prefix'
         if (portalIpv6Prefix != null) {
             if (portalIpv6Prefix.length > 16) {
-                throw new IllegalArgumentException("Length of array portalIpv6Prefix exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array portalIpv6Prefix exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(portalIpv6Prefix);
@@ -325,7 +329,7 @@ public class CommandClassZipPortalV1 {
         // Process 'Default Gateway IPv6 Address'
         if (defaultGatewayIpv6Address != null) {
             if (defaultGatewayIpv6Address.length > 16) {
-                throw new IllegalArgumentException("Length of array defaultGatewayIpv6Address exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array defaultGatewayIpv6Address exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(defaultGatewayIpv6Address);
@@ -336,7 +340,7 @@ public class CommandClassZipPortalV1 {
         // Process 'PAN IPv6 Prefix'
         if (panIpv6Prefix != null) {
             if (panIpv6Prefix.length > 16) {
-                throw new IllegalArgumentException("Length of array panIpv6Prefix exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array panIpv6Prefix exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(panIpv6Prefix);
@@ -371,8 +375,9 @@ public class CommandClassZipPortalV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'LAN IPv6 Address'
-        byte[] valLanIpv6Address = new byte[16];
-        for (int cntLanIpv6Address = 0; cntLanIpv6Address < 16; cntLanIpv6Address++) {
+        int lenLanIpv6Address = Math.min(16, payload.length - 2);
+        byte[] valLanIpv6Address = new byte[lenLanIpv6Address];
+        for (int cntLanIpv6Address = 0; cntLanIpv6Address < lenLanIpv6Address; cntLanIpv6Address++) {
             valLanIpv6Address[cntLanIpv6Address] = payload[2 + cntLanIpv6Address];
         }
         response.put("LAN_IPV6_ADDRESS", valLanIpv6Address);
@@ -381,8 +386,9 @@ public class CommandClassZipPortalV1 {
         response.put("LAN_IPV6_PREFIX_LENGTH", Integer.valueOf(payload[18]));
 
         // Process 'Portal IPv6 Prefix'
-        byte[] valPortalIpv6Prefix = new byte[16];
-        for (int cntPortalIpv6Prefix = 0; cntPortalIpv6Prefix < 16; cntPortalIpv6Prefix++) {
+        int lenPortalIpv6Prefix = Math.min(16, payload.length - 19);
+        byte[] valPortalIpv6Prefix = new byte[lenPortalIpv6Prefix];
+        for (int cntPortalIpv6Prefix = 0; cntPortalIpv6Prefix < lenPortalIpv6Prefix; cntPortalIpv6Prefix++) {
             valPortalIpv6Prefix[cntPortalIpv6Prefix] = payload[19 + cntPortalIpv6Prefix];
         }
         response.put("PORTAL_IPV6_PREFIX", valPortalIpv6Prefix);
@@ -391,15 +397,17 @@ public class CommandClassZipPortalV1 {
         response.put("PORTAL_IPV6_PREFIX_LENGTH", Integer.valueOf(payload[35]));
 
         // Process 'Default Gateway IPv6 Address'
-        byte[] valDefaultGatewayIpv6Address = new byte[16];
-        for (int cntDefaultGatewayIpv6Address = 0; cntDefaultGatewayIpv6Address < 16; cntDefaultGatewayIpv6Address++) {
+        int lenDefaultGatewayIpv6Address = Math.min(16, payload.length - 36);
+        byte[] valDefaultGatewayIpv6Address = new byte[lenDefaultGatewayIpv6Address];
+        for (int cntDefaultGatewayIpv6Address = 0; cntDefaultGatewayIpv6Address < lenDefaultGatewayIpv6Address; cntDefaultGatewayIpv6Address++) {
             valDefaultGatewayIpv6Address[cntDefaultGatewayIpv6Address] = payload[36 + cntDefaultGatewayIpv6Address];
         }
         response.put("DEFAULT_GATEWAY_IPV6_ADDRESS", valDefaultGatewayIpv6Address);
 
         // Process 'PAN IPv6 Prefix'
-        byte[] valPanIpv6Prefix = new byte[16];
-        for (int cntPanIpv6Prefix = 0; cntPanIpv6Prefix < 16; cntPanIpv6Prefix++) {
+        int lenPanIpv6Prefix = Math.min(16, payload.length - 52);
+        byte[] valPanIpv6Prefix = new byte[lenPanIpv6Prefix];
+        for (int cntPanIpv6Prefix = 0; cntPanIpv6Prefix < lenPanIpv6Prefix; cntPanIpv6Prefix++) {
             valPanIpv6Prefix[cntPanIpv6Prefix] = payload[52 + cntPanIpv6Prefix];
         }
         response.put("PAN_IPV6_PREFIX", valPanIpv6Prefix);

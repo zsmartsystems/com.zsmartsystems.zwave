@@ -1613,7 +1613,7 @@ public class CommandClassNetworkManagementInclusionV2 {
         // Process 'DSK'
         if (dsk != null) {
             if (dsk.length > 16) {
-                throw new IllegalArgumentException("Length of array dsk exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array dsk exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(dsk);
@@ -1651,8 +1651,9 @@ public class CommandClassNetworkManagementInclusionV2 {
         response.put("INPUT_DSK_LENGTH", Integer.valueOf(payload[3] & 0x0F));
 
         // Process 'DSK'
-        byte[] valDsk = new byte[16];
-        for (int cntDsk = 0; cntDsk < 16; cntDsk++) {
+        int lenDsk = Math.min(16, payload.length - 4);
+        byte[] valDsk = new byte[lenDsk];
+        for (int cntDsk = 0; cntDsk < lenDsk; cntDsk++) {
             valDsk[cntDsk] = payload[4 + cntDsk];
         }
         response.put("DSK", valDsk);

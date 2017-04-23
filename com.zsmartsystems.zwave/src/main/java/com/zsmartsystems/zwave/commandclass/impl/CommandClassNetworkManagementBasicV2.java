@@ -243,7 +243,7 @@ public class CommandClassNetworkManagementBasicV2 {
         // Process 'DSK'
         if (dsk != null) {
             if (dsk.length > 16) {
-                throw new IllegalArgumentException("Length of array dsk exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array dsk exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(dsk);
@@ -289,8 +289,9 @@ public class CommandClassNetworkManagementBasicV2 {
         response.put("GRANTED_KEYS", Integer.valueOf(payload[6]));
 
         // Process 'DSK'
-        byte[] valDsk = new byte[16];
-        for (int cntDsk = 0; cntDsk < 16; cntDsk++) {
+        int lenDsk = Math.min(16, payload.length - 7);
+        byte[] valDsk = new byte[lenDsk];
+        for (int cntDsk = 0; cntDsk < lenDsk; cntDsk++) {
             valDsk[cntDsk] = payload[7 + cntDsk];
         }
         response.put("DSK", valDsk);
@@ -710,7 +711,7 @@ public class CommandClassNetworkManagementBasicV2 {
         // Process 'DSK'
         if (dsk != null) {
             if (dsk.length > 16) {
-                throw new IllegalArgumentException("Length of array dsk exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array dsk exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(dsk);
@@ -744,8 +745,9 @@ public class CommandClassNetworkManagementBasicV2 {
         response.put("SEQ_NO", Integer.valueOf(payload[2]));
 
         // Process 'DSK'
-        byte[] valDsk = new byte[16];
-        for (int cntDsk = 0; cntDsk < 16; cntDsk++) {
+        int lenDsk = Math.min(16, payload.length - 3);
+        byte[] valDsk = new byte[lenDsk];
+        for (int cntDsk = 0; cntDsk < lenDsk; cntDsk++) {
             valDsk[cntDsk] = payload[3 + cntDsk];
         }
         response.put("DSK", valDsk);

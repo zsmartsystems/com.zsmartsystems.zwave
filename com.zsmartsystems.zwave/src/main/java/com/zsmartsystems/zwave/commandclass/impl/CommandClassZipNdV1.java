@@ -111,7 +111,7 @@ public class CommandClassZipNdV1 {
         // Process 'IPv6 Address'
         if (ipv6Address != null) {
             if (ipv6Address.length > 16) {
-                throw new IllegalArgumentException("Length of array ipv6Address exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array ipv6Address exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(ipv6Address);
@@ -122,7 +122,7 @@ public class CommandClassZipNdV1 {
         // Process 'Home ID'
         if (homeId != null) {
             if (homeId.length > 4) {
-                throw new IllegalArgumentException("Length of array homeId exceeds maximum length of 4 bytes
+                throw new IllegalArgumentException("Length of array homeId exceeds maximum length of 4 bytes");
             }
             try {
                 outputData.write(homeId);
@@ -175,15 +175,17 @@ public class CommandClassZipNdV1 {
         response.put("NODE_ID", Integer.valueOf(payload[3]));
 
         // Process 'IPv6 Address'
-        byte[] valIpv6Address = new byte[16];
-        for (int cntIpv6Address = 0; cntIpv6Address < 16; cntIpv6Address++) {
+        int lenIpv6Address = Math.min(16, payload.length - 4);
+        byte[] valIpv6Address = new byte[lenIpv6Address];
+        for (int cntIpv6Address = 0; cntIpv6Address < lenIpv6Address; cntIpv6Address++) {
             valIpv6Address[cntIpv6Address] = payload[4 + cntIpv6Address];
         }
         response.put("IPV6_ADDRESS", valIpv6Address);
 
         // Process 'Home ID'
-        byte[] valHomeId = new byte[4];
-        for (int cntHomeId = 0; cntHomeId < 4; cntHomeId++) {
+        int lenHomeId = Math.min(4, payload.length - 20);
+        byte[] valHomeId = new byte[lenHomeId];
+        for (int cntHomeId = 0; cntHomeId < lenHomeId; cntHomeId++) {
             valHomeId[cntHomeId] = payload[20 + cntHomeId];
         }
         response.put("HOME_ID", valHomeId);
@@ -221,7 +223,7 @@ public class CommandClassZipNdV1 {
         // Process 'IPv6 Address'
         if (ipv6Address != null) {
             if (ipv6Address.length > 16) {
-                throw new IllegalArgumentException("Length of array ipv6Address exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array ipv6Address exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(ipv6Address);
@@ -255,8 +257,9 @@ public class CommandClassZipNdV1 {
         response.put("NODE_ID", Integer.valueOf(payload[3]));
 
         // Process 'IPv6 Address'
-        byte[] valIpv6Address = new byte[16];
-        for (int cntIpv6Address = 0; cntIpv6Address < 16; cntIpv6Address++) {
+        int lenIpv6Address = Math.min(16, payload.length - 4);
+        byte[] valIpv6Address = new byte[lenIpv6Address];
+        for (int cntIpv6Address = 0; cntIpv6Address < lenIpv6Address; cntIpv6Address++) {
             valIpv6Address[cntIpv6Address] = payload[4 + cntIpv6Address];
         }
         response.put("IPV6_ADDRESS", valIpv6Address);

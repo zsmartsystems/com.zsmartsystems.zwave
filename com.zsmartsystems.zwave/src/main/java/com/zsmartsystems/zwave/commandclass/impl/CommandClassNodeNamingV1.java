@@ -84,7 +84,7 @@ public class CommandClassNodeNamingV1 {
         // Process 'Node name char'
         if (nodeNameChar != null) {
             if (nodeNameChar.length > 16) {
-                throw new IllegalArgumentException("Length of array nodeNameChar exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array nodeNameChar exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(nodeNameChar);
@@ -118,8 +118,9 @@ public class CommandClassNodeNamingV1 {
         response.put("CHAR_PRESENTATION", Integer.valueOf(payload[2] & 0x07));
 
         // Process 'Node name char'
-        byte[] valNodeNameChar = new byte[16];
-        for (int cntNodeNameChar = 0; cntNodeNameChar < 16; cntNodeNameChar++) {
+        int lenNodeNameChar = Math.min(16, payload.length - 3);
+        byte[] valNodeNameChar = new byte[lenNodeNameChar];
+        for (int cntNodeNameChar = 0; cntNodeNameChar < lenNodeNameChar; cntNodeNameChar++) {
             valNodeNameChar[cntNodeNameChar] = payload[3 + cntNodeNameChar];
         }
         response.put("NODE_NAME_CHAR", valNodeNameChar);
@@ -185,7 +186,7 @@ public class CommandClassNodeNamingV1 {
         // Process 'Node name char'
         if (nodeNameChar != null) {
             if (nodeNameChar.length > 16) {
-                throw new IllegalArgumentException("Length of array nodeNameChar exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array nodeNameChar exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(nodeNameChar);
@@ -219,8 +220,9 @@ public class CommandClassNodeNamingV1 {
         response.put("CHAR_PRESENTATION", Integer.valueOf(payload[2] & 0x07));
 
         // Process 'Node name char'
-        byte[] valNodeNameChar = new byte[16];
-        for (int cntNodeNameChar = 0; cntNodeNameChar < 16; cntNodeNameChar++) {
+        int lenNodeNameChar = Math.min(16, payload.length - 3);
+        byte[] valNodeNameChar = new byte[lenNodeNameChar];
+        for (int cntNodeNameChar = 0; cntNodeNameChar < lenNodeNameChar; cntNodeNameChar++) {
             valNodeNameChar[cntNodeNameChar] = payload[3 + cntNodeNameChar];
         }
         response.put("NODE_NAME_CHAR", valNodeNameChar);
@@ -252,7 +254,7 @@ public class CommandClassNodeNamingV1 {
         // Process 'Node location char'
         if (nodeLocationChar != null) {
             if (nodeLocationChar.length > 16) {
-                throw new IllegalArgumentException("Length of array nodeLocationChar exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array nodeLocationChar exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(nodeLocationChar);
@@ -286,8 +288,9 @@ public class CommandClassNodeNamingV1 {
         response.put("CHAR_PRESENTATION", Integer.valueOf(payload[2] & 0x07));
 
         // Process 'Node location char'
-        byte[] valNodeLocationChar = new byte[16];
-        for (int cntNodeLocationChar = 0; cntNodeLocationChar < 16; cntNodeLocationChar++) {
+        int lenNodeLocationChar = Math.min(16, payload.length - 3);
+        byte[] valNodeLocationChar = new byte[lenNodeLocationChar];
+        for (int cntNodeLocationChar = 0; cntNodeLocationChar < lenNodeLocationChar; cntNodeLocationChar++) {
             valNodeLocationChar[cntNodeLocationChar] = payload[3 + cntNodeLocationChar];
         }
         response.put("NODE_LOCATION_CHAR", valNodeLocationChar);
@@ -353,7 +356,7 @@ public class CommandClassNodeNamingV1 {
         // Process 'Node location char'
         if (nodeLocationChar != null) {
             if (nodeLocationChar.length > 16) {
-                throw new IllegalArgumentException("Length of array nodeLocationChar exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array nodeLocationChar exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(nodeLocationChar);
@@ -387,8 +390,9 @@ public class CommandClassNodeNamingV1 {
         response.put("CHAR_PRESENTATION", Integer.valueOf(payload[2] & 0x07));
 
         // Process 'Node location char'
-        byte[] valNodeLocationChar = new byte[16];
-        for (int cntNodeLocationChar = 0; cntNodeLocationChar < 16; cntNodeLocationChar++) {
+        int lenNodeLocationChar = Math.min(16, payload.length - 3);
+        byte[] valNodeLocationChar = new byte[lenNodeLocationChar];
+        for (int cntNodeLocationChar = 0; cntNodeLocationChar < lenNodeLocationChar; cntNodeLocationChar++) {
             valNodeLocationChar[cntNodeLocationChar] = payload[3 + cntNodeLocationChar];
         }
         response.put("NODE_LOCATION_CHAR", valNodeLocationChar);

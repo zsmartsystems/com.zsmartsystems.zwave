@@ -253,7 +253,7 @@ public class CommandClassSecurity2V1 {
         // Process 'Receivers Entropy Input'
         if (receiversEntropyInput != null) {
             if (receiversEntropyInput.length > 16) {
-                throw new IllegalArgumentException("Length of array receiversEntropyInput exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array receiversEntropyInput exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(receiversEntropyInput);
@@ -293,8 +293,9 @@ public class CommandClassSecurity2V1 {
         response.put("MOS", Boolean.valueOf((payload[3] & 0x02) != 0));
 
         // Process 'Receivers Entropy Input'
-        byte[] valReceiversEntropyInput = new byte[16];
-        for (int cntReceiversEntropyInput = 0; cntReceiversEntropyInput < 16; cntReceiversEntropyInput++) {
+        int lenReceiversEntropyInput = Math.min(16, payload.length - 4);
+        byte[] valReceiversEntropyInput = new byte[lenReceiversEntropyInput];
+        for (int cntReceiversEntropyInput = 0; cntReceiversEntropyInput < lenReceiversEntropyInput; cntReceiversEntropyInput++) {
             valReceiversEntropyInput[cntReceiversEntropyInput] = payload[4 + cntReceiversEntropyInput];
         }
         response.put("RECEIVERS_ENTROPY_INPUT", valReceiversEntropyInput);
@@ -891,7 +892,7 @@ public class CommandClassSecurity2V1 {
         // Process 'Network Key'
         if (networkKey != null) {
             if (networkKey.length > 16) {
-                throw new IllegalArgumentException("Length of array networkKey exceeds maximum length of 16 bytes
+                throw new IllegalArgumentException("Length of array networkKey exceeds maximum length of 16 bytes");
             }
             try {
                 outputData.write(networkKey);
@@ -925,8 +926,9 @@ public class CommandClassSecurity2V1 {
         response.put("GRANTED_KEY", constantGrantedKey.get(payload[2] & 0xff));
 
         // Process 'Network Key'
-        byte[] valNetworkKey = new byte[16];
-        for (int cntNetworkKey = 0; cntNetworkKey < 16; cntNetworkKey++) {
+        int lenNetworkKey = Math.min(16, payload.length - 3);
+        byte[] valNetworkKey = new byte[lenNetworkKey];
+        for (int cntNetworkKey = 0; cntNetworkKey < lenNetworkKey; cntNetworkKey++) {
             valNetworkKey[cntNetworkKey] = payload[3 + cntNetworkKey];
         }
         response.put("NETWORK_KEY", valNetworkKey);
