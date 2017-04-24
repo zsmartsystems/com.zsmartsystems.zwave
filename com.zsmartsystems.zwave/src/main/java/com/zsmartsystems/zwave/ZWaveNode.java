@@ -305,7 +305,7 @@ public class ZWaveNode {
     /**
      * Sets the list of command classes reported in the NIF
      * 
-     * @param nifClasses
+     * @param nifClasses {@link List} of {@link ZWaveCommandClassEnum}
      */
     public void setNifClasses(List<ZWaveCommandClassEnum> nifClasses) {
         synchronized (nodeInformationFrame) {
