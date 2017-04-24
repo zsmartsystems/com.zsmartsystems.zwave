@@ -1,11 +1,15 @@
 package com.zsmartsystems.zwave;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.zsmartsystems.zwave.commandclass.impl.CommandClassNetworkManagementInclusionV1;
 import com.zsmartsystems.zwave.transaction.ZWaveCommandClassTransactionPayload;
 import com.zsmartsystems.zwave.transaction.ZWaveTransactionManager;
 import com.zsmartsystems.zwave.transaction.ZWaveTransactionResponse;
@@ -33,6 +37,11 @@ public class ZWaveNetwork {
      * 
      */
     private final Map<Integer, ZWaveNode> zwaveNodes = new HashMap<Integer, ZWaveNode>();
+
+    /**
+     * Unique sequence number used within the network management command classes
+     */
+    private final static AtomicInteger sequence = new AtomicInteger();
 
     /**
      * Get a {@link ZWaveNode} given the node ID. Returns null if the node can not be found.
@@ -107,6 +116,23 @@ public class ZWaveNetwork {
      */
     public void notifyEventListeners(ZWaveEvent event) {
 
+    }
+
+    private int getSequence() {
+        sequence.compareAndSet(255, 1);
+        return sequence.incrementAndGet();
+    }
+
+    /**
+     * Starts inclusion mode in the network
+     * 
+     * @return
+     */
+    public boolean addNode() {
+        List<String> txOptions = new ArrayList<String>();
+        txOptions.add("TRANSMIT_OPTION_EXPLORE");
+        CommandClassNetworkManagementInclusionV1.getNodeAdd(getSequence(), "NODE_ADD_ANY", txOptions);
+        return false;
     }
 
 }

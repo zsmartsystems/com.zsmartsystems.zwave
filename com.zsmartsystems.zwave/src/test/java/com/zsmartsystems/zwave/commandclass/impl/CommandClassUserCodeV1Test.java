@@ -45,6 +45,12 @@ public class CommandClassUserCodeV1Test extends ZWaveCommandClassTest {
                 expectedResponse));
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void getUsersNumberSetLong() {
+        CommandClassUserCodeV1.getUserCodeSet(3, "OCCUPIED",
+                new byte[] { 0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0x3a });
+    }
+
     @Test
     public void handleUserCodeReport() {
         Map<String, Map<String, Object>> tests = new HashMap<String, Map<String, Object>>();
