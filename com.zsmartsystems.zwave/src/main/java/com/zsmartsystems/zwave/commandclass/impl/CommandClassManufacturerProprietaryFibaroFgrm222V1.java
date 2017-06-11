@@ -89,8 +89,8 @@ public class CommandClassManufacturerProprietaryFibaroFgrm222V1 {
         // Constants for Fgrm222ReportConstant1
 
         // Constants for Fgrm222SetCommand
-        constantFgrm222SetCommand.put(0x01, "SHUTTER");
-        constantFgrm222SetCommand.put(0x02, "LAMELLA");
+        constantFgrm222SetCommand.put(0x01, "LAMELLA_POSITION");
+        constantFgrm222SetCommand.put(0x02, "SHUTTER_POSITION");
 
         // Constants for Fgrm222ReportConstant2
 
@@ -111,8 +111,8 @@ public class CommandClassManufacturerProprietaryFibaroFgrm222V1 {
      * @param command {@link String}
      *            Can be one of the following -:
      *            <ul>
-     *            <li>SHUTTER
-     *            <li>LAMELLA
+     *            <li>LAMELLA_POSITION
+     *            <li>SHUTTER_POSITION
      *            </ul>
      * @param shutterPosition {@link Integer}
      * @param lamellaPosition {@link Integer}
