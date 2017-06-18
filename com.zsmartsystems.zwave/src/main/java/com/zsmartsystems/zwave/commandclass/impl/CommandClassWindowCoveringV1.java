@@ -68,7 +68,6 @@ public class CommandClassWindowCoveringV1 {
      */
     public final static int WINDOW_COVERING_STOP_LEVEL_CHANGE = 0x07;
 
-
     /**
      * Map holding constants for WindowCoveringStopLevelChangeParameterId
      */
@@ -98,8 +97,8 @@ public class CommandClassWindowCoveringV1 {
      * Map holding constants for WindowCoveringGetParameterId
      */
     private static Map<Integer, String> constantWindowCoveringGetParameterId = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for WindowCoveringStopLevelChangeParameterId
         constantWindowCoveringStopLevelChangeParameterId.put(0x00, "OUT_LEFT_1");
         constantWindowCoveringStopLevelChangeParameterId.put(0x01, "OUT_LEFT_2");
@@ -263,7 +262,6 @@ public class CommandClassWindowCoveringV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the WINDOW_COVERING_SUPPORTED_REPORT command.
      * <p>
@@ -334,7 +332,6 @@ public class CommandClassWindowCoveringV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the WINDOW_COVERING_GET command.
      * <p>
@@ -342,6 +339,7 @@ public class CommandClassWindowCoveringV1 {
      *
      * @param parameterId {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OUT_LEFT_1
      *            <li>OUT_LEFT_2
@@ -401,6 +399,33 @@ public class CommandClassWindowCoveringV1 {
      *
      * <ul>
      * <li>PARAMETER_ID {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OUT_LEFT_1
+     * <li>OUT_LEFT_2
+     * <li>OUT_RIGHT_1
+     * <li>OUT_RIGHT_2
+     * <li>IN_LEFT_1
+     * <li>IN_LEFT_2
+     * <li>IN_RIGHT_1
+     * <li>IN_RIGHT_2
+     * <li>IN_RIGHT_LEFT_1
+     * <li>IN_RIGHT_LEFT_2
+     * <li>VERTICAL_SLATS_ANGLE_1
+     * <li>IN_TOP_1
+     * <li>OUT_BOTTOM_1
+     * <li>OUT_BOTTOM_2
+     * <li>OUT_TOP_1
+     * <li>OUT_TOP_2
+     * <li>IN_BOTTOM_2
+     * <li>IN_BOTTOM_1
+     * <li>IN_TOP_BOTTOM_1
+     * <li>IN_TOP_2
+     * <li>HORIZONTAL_SLATS_ANGLE_1
+     * <li>IN_TOP_BOTTOM_2
+     * <li>HORIZONTAL_SLATS_ANGLE_2
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -417,7 +442,6 @@ public class CommandClassWindowCoveringV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the WINDOW_COVERING_REPORT command.
      * <p>
@@ -425,6 +449,7 @@ public class CommandClassWindowCoveringV1 {
      *
      * @param parameterId {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OUT_LEFT_1
      *            <li>OUT_LEFT_2
@@ -497,6 +522,33 @@ public class CommandClassWindowCoveringV1 {
      *
      * <ul>
      * <li>PARAMETER_ID {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OUT_LEFT_1
+     * <li>OUT_LEFT_2
+     * <li>OUT_RIGHT_1
+     * <li>OUT_RIGHT_2
+     * <li>IN_LEFT_1
+     * <li>IN_LEFT_2
+     * <li>IN_RIGHT_1
+     * <li>IN_RIGHT_2
+     * <li>IN_RIGHT_LEFT_1
+     * <li>IN_RIGHT_LEFT_2
+     * <li>VERTICAL_SLATS_ANGLE_1
+     * <li>IN_TOP_1
+     * <li>OUT_BOTTOM_1
+     * <li>OUT_BOTTOM_2
+     * <li>OUT_TOP_1
+     * <li>OUT_TOP_2
+     * <li>IN_BOTTOM_2
+     * <li>IN_BOTTOM_1
+     * <li>IN_TOP_BOTTOM_1
+     * <li>IN_TOP_2
+     * <li>HORIZONTAL_SLATS_ANGLE_1
+     * <li>IN_TOP_BOTTOM_2
+     * <li>HORIZONTAL_SLATS_ANGLE_2
+     * </ul>
      * <li>CURRENT_VALUE {@link Integer}
      * <li>TARGET_VALUE {@link Integer}
      * <li>DURATION {@link Integer}
@@ -524,7 +576,6 @@ public class CommandClassWindowCoveringV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the WINDOW_COVERING_SET command.
@@ -608,7 +659,6 @@ public class CommandClassWindowCoveringV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the WINDOW_COVERING_START_LEVEL_CHANGE command.
      * <p>
@@ -619,6 +669,7 @@ public class CommandClassWindowCoveringV1 {
      * @param res2 {@link Boolean}
      * @param parameterId {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OUT_LEFT_1
      *            <li>OUT_LEFT_2
@@ -693,6 +744,33 @@ public class CommandClassWindowCoveringV1 {
      * <li>UP_DOWN {@link Boolean}
      * <li>RES2 {@link Boolean}
      * <li>PARAMETER_ID {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OUT_LEFT_1
+     * <li>OUT_LEFT_2
+     * <li>OUT_RIGHT_1
+     * <li>OUT_RIGHT_2
+     * <li>IN_LEFT_1
+     * <li>IN_LEFT_2
+     * <li>IN_RIGHT_1
+     * <li>IN_RIGHT_2
+     * <li>IN_RIGHT_LEFT_1
+     * <li>IN_RIGHT_LEFT_2
+     * <li>VERTICAL_SLATS_ANGLE_1
+     * <li>IN_TOP_1
+     * <li>OUT_BOTTOM_1
+     * <li>OUT_BOTTOM_2
+     * <li>OUT_TOP_1
+     * <li>OUT_TOP_2
+     * <li>IN_BOTTOM_2
+     * <li>IN_BOTTOM_1
+     * <li>IN_TOP_BOTTOM_1
+     * <li>IN_TOP_2
+     * <li>HORIZONTAL_SLATS_ANGLE_1
+     * <li>IN_TOP_BOTTOM_2
+     * <li>HORIZONTAL_SLATS_ANGLE_2
+     * </ul>
      * <li>DURATION {@link Integer}
      * </ul>
      *
@@ -718,7 +796,6 @@ public class CommandClassWindowCoveringV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the WINDOW_COVERING_STOP_LEVEL_CHANGE command.
      * <p>
@@ -726,6 +803,7 @@ public class CommandClassWindowCoveringV1 {
      *
      * @param parameterId {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OUT_LEFT_1
      *            <li>OUT_LEFT_2
@@ -785,6 +863,33 @@ public class CommandClassWindowCoveringV1 {
      *
      * <ul>
      * <li>PARAMETER_ID {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OUT_LEFT_1
+     * <li>OUT_LEFT_2
+     * <li>OUT_RIGHT_1
+     * <li>OUT_RIGHT_2
+     * <li>IN_LEFT_1
+     * <li>IN_LEFT_2
+     * <li>IN_RIGHT_1
+     * <li>IN_RIGHT_2
+     * <li>IN_RIGHT_LEFT_1
+     * <li>IN_RIGHT_LEFT_2
+     * <li>VERTICAL_SLATS_ANGLE_1
+     * <li>IN_TOP_1
+     * <li>OUT_BOTTOM_1
+     * <li>OUT_BOTTOM_2
+     * <li>OUT_TOP_1
+     * <li>OUT_TOP_2
+     * <li>IN_BOTTOM_2
+     * <li>IN_BOTTOM_1
+     * <li>IN_TOP_BOTTOM_1
+     * <li>IN_TOP_2
+     * <li>HORIZONTAL_SLATS_ANGLE_1
+     * <li>IN_TOP_BOTTOM_2
+     * <li>HORIZONTAL_SLATS_ANGLE_2
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -800,5 +905,4 @@ public class CommandClassWindowCoveringV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

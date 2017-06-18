@@ -59,7 +59,6 @@ public class CommandClassIndicatorV2 {
      */
     public final static int INDICATOR_SUPPORTED_REPORT = 0x05;
 
-
     /**
      * Map holding constants for IndicatorSetIndicatorId
      */
@@ -114,8 +113,8 @@ public class CommandClassIndicatorV2 {
      * Map holding constants for IndicatorSetIndicator0Value
      */
     private static Map<Integer, String> constantIndicatorSetIndicator0Value = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for IndicatorSetIndicatorId
         constantIndicatorSetIndicatorId.put(0x00, "NA");
         constantIndicatorSetIndicatorId.put(0x44, "BUTTON2_INDICATION");
@@ -363,6 +362,7 @@ public class CommandClassIndicatorV2 {
      *
      * @param indicator0Value {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF_DISABLE
      *            <li>ON_ENABLE
@@ -407,6 +407,12 @@ public class CommandClassIndicatorV2 {
      *
      * <ul>
      * <li>INDICATOR_0_VALUE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF_DISABLE
+     * <li>ON_ENABLE
+     * </ul>
      * <li>INDICATOR_OBJECT_COUNT {@link Integer}
      * </ul>
      *
@@ -456,7 +462,6 @@ public class CommandClassIndicatorV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the INDICATOR_GET command.
      * <p>
@@ -464,6 +469,7 @@ public class CommandClassIndicatorV2 {
      *
      * @param indicatorId {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NA
      *            <li>BUTTON2_INDICATION
@@ -533,6 +539,43 @@ public class CommandClassIndicatorV2 {
      *
      * <ul>
      * <li>INDICATOR_ID {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NA
+     * <li>BUTTON2_INDICATION
+     * <li>ARMED
+     * <li>BUTTON3_INDICATION
+     * <li>NOT_ARMED
+     * <li>BUTTON4_INDICATION
+     * <li>BUTTON5_INDICATION
+     * <li>READY
+     * <li>FAULT
+     * <li>BUTTON_BACKLIGHT_LETTERS
+     * <li>BUSY
+     * <li>BUTTON_BACKLIGHT_DIGITS
+     * <li>ENTER_ID
+     * <li>BUTTON_BACKLIGHT_COMMAND
+     * <li>ENTER_PIN
+     * <li>BUTTON1_INDICATION
+     * <li>BUTTON10_INDICATION
+     * <li>OK
+     * <li>BUTTON11_INDICATION
+     * <li>NOT_OK
+     * <li>BUTTON12_INDICATION
+     * <li>BUTTON6_INDICATION
+     * <li>BUTTON7_INDICATION
+     * <li>BUTTON8_INDICATION
+     * <li>BUTTON9_INDICATION
+     * <li>ZONE3_ARMED
+     * <li>ZONE4_ARMED
+     * <li>ZONE1_ARMED
+     * <li>ZONE2_ARMED
+     * <li>ZONE5_ARMED
+     * <li>ZONE6_ARMED
+     * <li>LCD_BACKLIGHT
+     * <li>BUZZER
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -549,7 +592,6 @@ public class CommandClassIndicatorV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the INDICATOR_REPORT command.
      * <p>
@@ -557,6 +599,7 @@ public class CommandClassIndicatorV2 {
      *
      * @param indicator0Value {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF_DISABLE
      *            <li>ON_ENABLE
@@ -601,6 +644,12 @@ public class CommandClassIndicatorV2 {
      *
      * <ul>
      * <li>INDICATOR_0_VALUE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF_DISABLE
+     * <li>ON_ENABLE
+     * </ul>
      * <li>INDICATOR_OBJECT_COUNT {@link Integer}
      * </ul>
      *
@@ -650,7 +699,6 @@ public class CommandClassIndicatorV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the INDICATOR_SUPPORTED_GET command.
      * <p>
@@ -658,6 +706,7 @@ public class CommandClassIndicatorV2 {
      *
      * @param indicatorId {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NA
      *            <li>BUTTON2_INDICATION
@@ -727,6 +776,43 @@ public class CommandClassIndicatorV2 {
      *
      * <ul>
      * <li>INDICATOR_ID {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NA
+     * <li>BUTTON2_INDICATION
+     * <li>ARMED
+     * <li>BUTTON3_INDICATION
+     * <li>NOT_ARMED
+     * <li>BUTTON4_INDICATION
+     * <li>BUTTON5_INDICATION
+     * <li>READY
+     * <li>FAULT
+     * <li>BUTTON_BACKLIGHT_LETTERS
+     * <li>BUSY
+     * <li>BUTTON_BACKLIGHT_DIGITS
+     * <li>ENTER_ID
+     * <li>BUTTON_BACKLIGHT_COMMAND
+     * <li>ENTER_PIN
+     * <li>BUTTON1_INDICATION
+     * <li>BUTTON10_INDICATION
+     * <li>OK
+     * <li>BUTTON11_INDICATION
+     * <li>NOT_OK
+     * <li>BUTTON12_INDICATION
+     * <li>BUTTON6_INDICATION
+     * <li>BUTTON7_INDICATION
+     * <li>BUTTON8_INDICATION
+     * <li>BUTTON9_INDICATION
+     * <li>ZONE3_ARMED
+     * <li>ZONE4_ARMED
+     * <li>ZONE1_ARMED
+     * <li>ZONE2_ARMED
+     * <li>ZONE5_ARMED
+     * <li>ZONE6_ARMED
+     * <li>LCD_BACKLIGHT
+     * <li>BUZZER
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -743,7 +829,6 @@ public class CommandClassIndicatorV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the INDICATOR_SUPPORTED_REPORT command.
      * <p>
@@ -751,6 +836,7 @@ public class CommandClassIndicatorV2 {
      *
      * @param indicatorId {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NA
      *            <li>BUTTON2_INDICATION
@@ -788,6 +874,7 @@ public class CommandClassIndicatorV2 {
      *            </ul>
      * @param nextIndicatorId {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NA
      *            <li>BUTTON2_INDICATION
@@ -825,6 +912,7 @@ public class CommandClassIndicatorV2 {
      *            </ul>
      * @param propertySupportedBitMask {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>LOW_POWER
      *            <li>MULTILEVEL
@@ -900,8 +988,91 @@ public class CommandClassIndicatorV2 {
      *
      * <ul>
      * <li>INDICATOR_ID {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NA
+     * <li>BUTTON2_INDICATION
+     * <li>ARMED
+     * <li>BUTTON3_INDICATION
+     * <li>NOT_ARMED
+     * <li>BUTTON4_INDICATION
+     * <li>BUTTON5_INDICATION
+     * <li>READY
+     * <li>FAULT
+     * <li>BUTTON_BACKLIGHT_LETTERS
+     * <li>BUSY
+     * <li>BUTTON_BACKLIGHT_DIGITS
+     * <li>ENTER_ID
+     * <li>BUTTON_BACKLIGHT_COMMAND
+     * <li>ENTER_PIN
+     * <li>BUTTON1_INDICATION
+     * <li>BUTTON10_INDICATION
+     * <li>OK
+     * <li>BUTTON11_INDICATION
+     * <li>NOT_OK
+     * <li>BUTTON12_INDICATION
+     * <li>BUTTON6_INDICATION
+     * <li>BUTTON7_INDICATION
+     * <li>BUTTON8_INDICATION
+     * <li>BUTTON9_INDICATION
+     * <li>ZONE3_ARMED
+     * <li>ZONE4_ARMED
+     * <li>ZONE1_ARMED
+     * <li>ZONE2_ARMED
+     * <li>ZONE5_ARMED
+     * <li>ZONE6_ARMED
+     * <li>LCD_BACKLIGHT
+     * <li>BUZZER
+     * </ul>
      * <li>NEXT_INDICATOR_ID {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NA
+     * <li>BUTTON2_INDICATION
+     * <li>ARMED
+     * <li>BUTTON3_INDICATION
+     * <li>NOT_ARMED
+     * <li>BUTTON4_INDICATION
+     * <li>BUTTON5_INDICATION
+     * <li>READY
+     * <li>FAULT
+     * <li>BUTTON_BACKLIGHT_LETTERS
+     * <li>BUSY
+     * <li>BUTTON_BACKLIGHT_DIGITS
+     * <li>ENTER_ID
+     * <li>BUTTON_BACKLIGHT_COMMAND
+     * <li>ENTER_PIN
+     * <li>BUTTON1_INDICATION
+     * <li>BUTTON10_INDICATION
+     * <li>OK
+     * <li>BUTTON11_INDICATION
+     * <li>NOT_OK
+     * <li>BUTTON12_INDICATION
+     * <li>BUTTON6_INDICATION
+     * <li>BUTTON7_INDICATION
+     * <li>BUTTON8_INDICATION
+     * <li>BUTTON9_INDICATION
+     * <li>ZONE3_ARMED
+     * <li>ZONE4_ARMED
+     * <li>ZONE1_ARMED
+     * <li>ZONE2_ARMED
+     * <li>ZONE5_ARMED
+     * <li>ZONE6_ARMED
+     * <li>LCD_BACKLIGHT
+     * <li>BUZZER
+     * </ul>
      * <li>PROPERTY_SUPPORTED_BIT_MASK {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>LOW_POWER
+     * <li>MULTILEVEL
+     * <li>BINARY
+     * <li>ON_OFF_PERIOD
+     * <li>ON_OFF_CYCLES
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -934,5 +1105,4 @@ public class CommandClassIndicatorV2 {
         // Return the map of processed response data;
         return response;
     }
-
 }

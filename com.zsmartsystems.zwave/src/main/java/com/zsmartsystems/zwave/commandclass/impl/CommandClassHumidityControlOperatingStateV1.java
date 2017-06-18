@@ -45,6 +45,17 @@ public class CommandClassHumidityControlOperatingStateV1 {
      */
     public final static int HUMIDITY_CONTROL_OPERATING_STATE_REPORT = 0x02;
 
+    /**
+     * Map holding constants for HumidityControlOperatingStateReportOperatingState
+     */
+    private static Map<Integer, String> constantHumidityControlOperatingStateReportOperatingState = new HashMap<Integer, String>();
+
+    static {
+        // Constants for HumidityControlOperatingStateReportOperatingState
+        constantHumidityControlOperatingStateReportOperatingState.put(0x00, "IDLE");
+        constantHumidityControlOperatingStateReportOperatingState.put(0x01, "HUMIDIFYING");
+        constantHumidityControlOperatingStateReportOperatingState.put(0x02, "DEHUMIDIFYING");
+    }
 
     /**
      * Creates a new message with the HUMIDITY_CONTROL_OPERATING_STATE_GET command.
@@ -79,13 +90,19 @@ public class CommandClassHumidityControlOperatingStateV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the HUMIDITY_CONTROL_OPERATING_STATE_REPORT command.
      * <p>
      * Humidity Control Operating State Report
      *
      * @param operatingState {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>IDLE
+     *            <li>HUMIDIFYING
+     *            <li>DEHUMIDIFYING
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getHumidityControlOperatingStateReport(String operatingState) {
@@ -96,21 +113,17 @@ public class CommandClassHumidityControlOperatingStateV1 {
         outputData.write(HUMIDITY_CONTROL_OPERATING_STATE_REPORT);
 
         // Process 'Properties1'
-        int valoperatingState;
-        switch (operatingState) {
-            case "IDLE":
-                valoperatingState = 0;
+        int varOperatingState = Integer.MAX_VALUE;
+        for (Integer entry : constantHumidityControlOperatingStateReportOperatingState.keySet()) {
+            if (constantHumidityControlOperatingStateReportOperatingState.get(entry).equals(operatingState)) {
+                varOperatingState = entry;
                 break;
-            case "HUMIDIFYING":
-                valoperatingState = 1;
-                break;
-            case "DEHUMIDIFYING":
-                valoperatingState = 2;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for operatingState: " + operatingState);
+            }
         }
-        outputData.write(valoperatingState & 0x0F);
+        if (varOperatingState == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + operatingState + "' for operatingState");
+        }
+        outputData.write(varOperatingState & 0x0F);
 
         return outputData.toByteArray();
     }
@@ -124,6 +137,13 @@ public class CommandClassHumidityControlOperatingStateV1 {
      *
      * <ul>
      * <li>OPERATING_STATE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>IDLE
+     * <li>HUMIDIFYING
+     * <li>DEHUMIDIFYING
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -134,22 +154,9 @@ public class CommandClassHumidityControlOperatingStateV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch (payload[2] & 0x0F) {
-            case 0x00:
-                response.put("OPERATING_STATE", "IDLE");
-                break;
-            case 0x01:
-                response.put("OPERATING_STATE", "HUMIDIFYING");
-                break;
-            case 0x02:
-                response.put("OPERATING_STATE", "DEHUMIDIFYING");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for OPERATING_STATE", String.format("0x%02X", 2));
-        }
+        response.put("OPERATING_STATE", constantHumidityControlOperatingStateReportOperatingState.get(payload[2] & 0x0F));
 
         // Return the map of processed response data;
         return response;
     }
-
 }

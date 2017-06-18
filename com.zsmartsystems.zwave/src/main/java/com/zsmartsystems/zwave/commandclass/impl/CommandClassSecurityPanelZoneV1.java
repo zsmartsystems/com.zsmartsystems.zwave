@@ -61,7 +61,6 @@ public class CommandClassSecurityPanelZoneV1 {
      */
     public final static int SECURITY_PANEL_ZONE_STATE_REPORT = 0x06;
 
-
     /**
      * Map holding constants for SecurityPanelZoneStateReportZoneState
      */
@@ -76,8 +75,8 @@ public class CommandClassSecurityPanelZoneV1 {
      * Map holding constants for SecurityPanelZoneSupportedReportParameters1
      */
     private static Map<Integer, String> constantSecurityPanelZoneSupportedReportParameters1 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SecurityPanelZoneStateReportZoneState
         constantSecurityPanelZoneStateReportZoneState.put(0x00, "FAULTED");
         constantSecurityPanelZoneStateReportZoneState.put(0x01, "NOT_FAULTED");
@@ -124,7 +123,6 @@ public class CommandClassSecurityPanelZoneV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SECURITY_PANEL_ZONE_SUPPORTED_REPORT command.
@@ -178,7 +176,6 @@ public class CommandClassSecurityPanelZoneV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SECURITY_PANEL_ZONE_TYPE_GET command.
      * <p>
@@ -225,7 +222,6 @@ public class CommandClassSecurityPanelZoneV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SECURITY_PANEL_ZONE_TYPE_REPORT command.
      * <p>
@@ -234,6 +230,7 @@ public class CommandClassSecurityPanelZoneV1 {
      * @param zoneNumber {@link Integer}
      * @param zoneType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>ALARM_ZONE
      *            <li>NOTIFICATION_ZONE
@@ -276,6 +273,12 @@ public class CommandClassSecurityPanelZoneV1 {
      * <ul>
      * <li>ZONE_NUMBER {@link Integer}
      * <li>ZONE_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>ALARM_ZONE
+     * <li>NOTIFICATION_ZONE
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -294,7 +297,6 @@ public class CommandClassSecurityPanelZoneV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SECURITY_PANEL_ZONE_STATE_GET command.
@@ -342,7 +344,6 @@ public class CommandClassSecurityPanelZoneV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SECURITY_PANEL_ZONE_STATE_REPORT command.
      * <p>
@@ -351,6 +352,7 @@ public class CommandClassSecurityPanelZoneV1 {
      * @param zoneNumber {@link Integer}
      * @param zoneState {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>FAULTED
      *            <li>NOT_FAULTED
@@ -395,6 +397,14 @@ public class CommandClassSecurityPanelZoneV1 {
      * <ul>
      * <li>ZONE_NUMBER {@link Integer}
      * <li>ZONE_STATE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>FAULTED
+     * <li>NOT_FAULTED
+     * <li>BYPASS_FAULTED
+     * <li>BYPASS_NOT_FAULTED
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -413,5 +423,4 @@ public class CommandClassSecurityPanelZoneV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

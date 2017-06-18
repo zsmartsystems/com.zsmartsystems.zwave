@@ -59,18 +59,39 @@ public class CommandClassThermostatFanModeV1 {
      */
     public final static int THERMOSTAT_FAN_MODE_SUPPORTED_REPORT = 0x05;
 
+    /**
+     * Map holding constants for ThermostatFanModeSetFanMode
+     */
+    private static Map<Integer, String> constantThermostatFanModeSetFanMode = new HashMap<Integer, String>();
 
     /**
      * Map holding constants for ThermostatFanModeSupportedReportBitMask
      */
     private static Map<Integer, String> constantThermostatFanModeSupportedReportBitMask = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for ThermostatFanModeReportFanMode
+     */
+    private static Map<Integer, String> constantThermostatFanModeReportFanMode = new HashMap<Integer, String>();
+
     static {
+        // Constants for ThermostatFanModeSetFanMode
+        constantThermostatFanModeSetFanMode.put(0x00, "AUTO_LOW");
+        constantThermostatFanModeSetFanMode.put(0x01, "LOW");
+        constantThermostatFanModeSetFanMode.put(0x02, "AUTO_HIGH");
+        constantThermostatFanModeSetFanMode.put(0x03, "HIGH");
 
         // Constants for ThermostatFanModeSupportedReportBitMask
         constantThermostatFanModeSupportedReportBitMask.put(0x00, "AUTO");
         constantThermostatFanModeSupportedReportBitMask.put(0x01, "ON");
         constantThermostatFanModeSupportedReportBitMask.put(0x02, "AUTO_HIGH");
         constantThermostatFanModeSupportedReportBitMask.put(0x03, "ON_HIGH");
+
+        // Constants for ThermostatFanModeReportFanMode
+        constantThermostatFanModeReportFanMode.put(0x00, "AUTO_LOW");
+        constantThermostatFanModeReportFanMode.put(0x01, "LOW");
+        constantThermostatFanModeReportFanMode.put(0x02, "AUTO_HIGH");
+        constantThermostatFanModeReportFanMode.put(0x03, "HIGH");
     }
 
     /**
@@ -79,6 +100,14 @@ public class CommandClassThermostatFanModeV1 {
      * Thermostat Fan Mode Set
      *
      * @param fanMode {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>AUTO_LOW
+     *            <li>LOW
+     *            <li>AUTO_HIGH
+     *            <li>HIGH
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getThermostatFanModeSet(String fanMode) {
@@ -89,24 +118,17 @@ public class CommandClassThermostatFanModeV1 {
         outputData.write(THERMOSTAT_FAN_MODE_SET);
 
         // Process 'Level'
-        int valfanMode;
-        switch (fanMode) {
-            case "AUTO_LOW":
-                valfanMode = 0;
+        int varFanMode = Integer.MAX_VALUE;
+        for (Integer entry : constantThermostatFanModeSetFanMode.keySet()) {
+            if (constantThermostatFanModeSetFanMode.get(entry).equals(fanMode)) {
+                varFanMode = entry;
                 break;
-            case "LOW":
-                valfanMode = 1;
-                break;
-            case "AUTO_HIGH":
-                valfanMode = 2;
-                break;
-            case "HIGH":
-                valfanMode = 3;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for fanMode: " + fanMode);
+            }
         }
-        outputData.write(valfanMode & 0x0F);
+        if (varFanMode == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + fanMode + "' for fanMode");
+        }
+        outputData.write(varFanMode & 0x0F);
 
         return outputData.toByteArray();
     }
@@ -120,6 +142,14 @@ public class CommandClassThermostatFanModeV1 {
      *
      * <ul>
      * <li>FAN_MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>AUTO_LOW
+     * <li>LOW
+     * <li>AUTO_HIGH
+     * <li>HIGH
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -130,27 +160,11 @@ public class CommandClassThermostatFanModeV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        switch (payload[2] & 0x0F) {
-            case 0x00:
-                response.put("FAN_MODE", "AUTO_LOW");
-                break;
-            case 0x01:
-                response.put("FAN_MODE", "LOW");
-                break;
-            case 0x02:
-                response.put("FAN_MODE", "AUTO_HIGH");
-                break;
-            case 0x03:
-                response.put("FAN_MODE", "HIGH");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for FAN_MODE", String.format("0x%02X", 2));
-        }
+        response.put("FAN_MODE", constantThermostatFanModeSetFanMode.get(payload[2] & 0x0F));
 
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the THERMOSTAT_FAN_MODE_GET command.
@@ -185,13 +199,20 @@ public class CommandClassThermostatFanModeV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the THERMOSTAT_FAN_MODE_REPORT command.
      * <p>
      * Thermostat Fan Mode Report
      *
      * @param fanMode {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>AUTO_LOW
+     *            <li>LOW
+     *            <li>AUTO_HIGH
+     *            <li>HIGH
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getThermostatFanModeReport(String fanMode) {
@@ -202,24 +223,17 @@ public class CommandClassThermostatFanModeV1 {
         outputData.write(THERMOSTAT_FAN_MODE_REPORT);
 
         // Process 'Level'
-        int valfanMode;
-        switch (fanMode) {
-            case "AUTO_LOW":
-                valfanMode = 0;
+        int varFanMode = Integer.MAX_VALUE;
+        for (Integer entry : constantThermostatFanModeReportFanMode.keySet()) {
+            if (constantThermostatFanModeReportFanMode.get(entry).equals(fanMode)) {
+                varFanMode = entry;
                 break;
-            case "LOW":
-                valfanMode = 1;
-                break;
-            case "AUTO_HIGH":
-                valfanMode = 2;
-                break;
-            case "HIGH":
-                valfanMode = 3;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for fanMode: " + fanMode);
+            }
         }
-        outputData.write(valfanMode & 0x0F);
+        if (varFanMode == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + fanMode + "' for fanMode");
+        }
+        outputData.write(varFanMode & 0x0F);
 
         return outputData.toByteArray();
     }
@@ -233,6 +247,14 @@ public class CommandClassThermostatFanModeV1 {
      *
      * <ul>
      * <li>FAN_MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>AUTO_LOW
+     * <li>LOW
+     * <li>AUTO_HIGH
+     * <li>HIGH
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -243,27 +265,11 @@ public class CommandClassThermostatFanModeV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        switch (payload[2] & 0x0F) {
-            case 0x00:
-                response.put("FAN_MODE", "AUTO_LOW");
-                break;
-            case 0x01:
-                response.put("FAN_MODE", "LOW");
-                break;
-            case 0x02:
-                response.put("FAN_MODE", "AUTO_HIGH");
-                break;
-            case 0x03:
-                response.put("FAN_MODE", "HIGH");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for FAN_MODE", String.format("0x%02X", 2));
-        }
+        response.put("FAN_MODE", constantThermostatFanModeReportFanMode.get(payload[2] & 0x0F));
 
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the THERMOSTAT_FAN_MODE_SUPPORTED_GET command.
@@ -298,7 +304,6 @@ public class CommandClassThermostatFanModeV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the THERMOSTAT_FAN_MODE_SUPPORTED_REPORT command.
      * <p>
@@ -306,6 +311,7 @@ public class CommandClassThermostatFanModeV1 {
      *
      * @param bitMask {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>AUTO
      *            <li>ON
@@ -350,6 +356,14 @@ public class CommandClassThermostatFanModeV1 {
      *
      * <ul>
      * <li>BIT_MASK {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>AUTO
+     * <li>ON
+     * <li>AUTO_HIGH
+     * <li>ON_HIGH
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -372,5 +386,4 @@ public class CommandClassThermostatFanModeV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

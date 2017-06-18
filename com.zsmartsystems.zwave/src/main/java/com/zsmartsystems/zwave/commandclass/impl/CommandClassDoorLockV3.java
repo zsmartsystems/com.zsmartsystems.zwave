@@ -61,7 +61,6 @@ public class CommandClassDoorLockV3 {
      */
     public final static int DOOR_LOCK_CONFIGURATION_REPORT = 0x06;
 
-
     /**
      * Map holding constants for DoorLockOperationReportDuration
      */
@@ -91,8 +90,8 @@ public class CommandClassDoorLockV3 {
      * Map holding constants for DoorLockOperationSetDoorLockMode
      */
     private static Map<Integer, String> constantDoorLockOperationSetDoorLockMode = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for DoorLockOperationReportDuration
         constantDoorLockOperationReportDuration.put(0xFE, "UNKNOWN_DURATION");
         constantDoorLockOperationReportDuration.put(0x00, "ALREADY_AT_THE_TARGET_VALUE");
@@ -143,6 +142,7 @@ public class CommandClassDoorLockV3 {
      *
      * @param doorLockMode {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>DOOR_LOCK_STATE_UNKNOWN
      *            <li>DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES_WITH_TIMEOUT
@@ -187,6 +187,18 @@ public class CommandClassDoorLockV3 {
      *
      * <ul>
      * <li>DOOR_LOCK_MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>DOOR_LOCK_STATE_UNKNOWN
+     * <li>DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES_WITH_TIMEOUT
+     * <li>DOOR_UNSECURED
+     * <li>DOOR_SECURED
+     * <li>DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES
+     * <li>DOOR_UNSECURED_WITH_TIMEOUT
+     * <li>DOOR_UNSECURED_FOR_OUTSIDE_DOOR_HANDLES
+     * <li>DOOR_UNSECURED_FOR_OUTSIDE_DOOR_HANDLES_WITH_TIMEOUT
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -202,7 +214,6 @@ public class CommandClassDoorLockV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the DOOR_LOCK_OPERATION_GET command.
@@ -237,7 +248,6 @@ public class CommandClassDoorLockV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the DOOR_LOCK_OPERATION_REPORT command.
      * <p>
@@ -245,6 +255,7 @@ public class CommandClassDoorLockV3 {
      *
      * @param currentDoorLockMode {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>DOOR_LOCK_STATE_UNKNOWN
      *            <li>DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES_WITH_TIMEOUT
@@ -262,6 +273,7 @@ public class CommandClassDoorLockV3 {
      * @param lockTimeoutSeconds {@link Integer}
      * @param targetDoorLockMode {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>DOOR_LOCK_STATE_UNKNOWN
      *            <li>DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES_WITH_TIMEOUT
@@ -274,6 +286,7 @@ public class CommandClassDoorLockV3 {
      *            </ul>
      * @param duration {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>UNKNOWN_DURATION
      *            <li>ALREADY_AT_THE_TARGET_VALUE
@@ -355,13 +368,43 @@ public class CommandClassDoorLockV3 {
      *
      * <ul>
      * <li>CURRENT_DOOR_LOCK_MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>DOOR_LOCK_STATE_UNKNOWN
+     * <li>DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES_WITH_TIMEOUT
+     * <li>DOOR_UNSECURED
+     * <li>DOOR_SECURED
+     * <li>DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES
+     * <li>DOOR_UNSECURED_WITH_TIMEOUT
+     * <li>DOOR_UNSECURED_FOR_OUTSIDE_DOOR_HANDLES
+     * <li>DOOR_UNSECURED_FOR_OUTSIDE_DOOR_HANDLES_WITH_TIMEOUT
+     * </ul>
      * <li>INSIDE_DOOR_HANDLES_MODE {@link Integer}
      * <li>OUTSIDE_DOOR_HANDLES_MODE {@link Integer}
      * <li>DOOR_CONDITION {@link Integer}
      * <li>LOCK_TIMEOUT_MINUTES {@link Integer}
      * <li>LOCK_TIMEOUT_SECONDS {@link Integer}
      * <li>TARGET_DOOR_LOCK_MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>DOOR_LOCK_STATE_UNKNOWN
+     * <li>DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES_WITH_TIMEOUT
+     * <li>DOOR_UNSECURED
+     * <li>DOOR_SECURED
+     * <li>DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES
+     * <li>DOOR_UNSECURED_WITH_TIMEOUT
+     * <li>DOOR_UNSECURED_FOR_OUTSIDE_DOOR_HANDLES
+     * <li>DOOR_UNSECURED_FOR_OUTSIDE_DOOR_HANDLES_WITH_TIMEOUT
+     * </ul>
      * <li>DURATION {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>UNKNOWN_DURATION
+     * <li>ALREADY_AT_THE_TARGET_VALUE
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -397,7 +440,6 @@ public class CommandClassDoorLockV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the DOOR_LOCK_CONFIGURATION_SET command.
      * <p>
@@ -405,6 +447,7 @@ public class CommandClassDoorLockV3 {
      *
      * @param operationType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>CONSTANT_OPERATION
      *            <li>TIMED_OPERATION
@@ -460,6 +503,12 @@ public class CommandClassDoorLockV3 {
      *
      * <ul>
      * <li>OPERATION_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>CONSTANT_OPERATION
+     * <li>TIMED_OPERATION
+     * </ul>
      * <li>INSIDE_DOOR_HANDLES_STATE {@link Integer}
      * <li>OUTSIDE_DOOR_HANDLES_STATE {@link Integer}
      * <li>LOCK_TIMEOUT_MINUTES {@link Integer}
@@ -489,7 +538,6 @@ public class CommandClassDoorLockV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the DOOR_LOCK_CONFIGURATION_GET command.
@@ -524,7 +572,6 @@ public class CommandClassDoorLockV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the DOOR_LOCK_CONFIGURATION_REPORT command.
      * <p>
@@ -532,6 +579,7 @@ public class CommandClassDoorLockV3 {
      *
      * @param operationType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>CONSTANT_OPERATION
      *            <li>TIMED_OPERATION
@@ -587,6 +635,12 @@ public class CommandClassDoorLockV3 {
      *
      * <ul>
      * <li>OPERATION_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>CONSTANT_OPERATION
+     * <li>TIMED_OPERATION
+     * </ul>
      * <li>INSIDE_DOOR_HANDLES_STATE {@link Integer}
      * <li>OUTSIDE_DOOR_HANDLES_STATE {@link Integer}
      * <li>LOCK_TIMEOUT_MINUTES {@link Integer}
@@ -616,5 +670,4 @@ public class CommandClassDoorLockV3 {
         // Return the map of processed response data;
         return response;
     }
-
 }

@@ -46,13 +46,12 @@ public class CommandClassMeterV1 {
      */
     public final static int METER_REPORT = 0x02;
 
-
     /**
      * Map holding constants for MeterReportMeterType
      */
     private static Map<Integer, String> constantMeterReportMeterType = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for MeterReportMeterType
         constantMeterReportMeterType.put(0x01, "ELECTRIC_METER");
         constantMeterReportMeterType.put(0x02, "GAS_METER");
@@ -92,7 +91,6 @@ public class CommandClassMeterV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the METER_REPORT command.
      * <p>
@@ -100,6 +98,7 @@ public class CommandClassMeterV1 {
      *
      * @param meterType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>ELECTRIC_METER
      *            <li>GAS_METER
@@ -159,6 +158,13 @@ public class CommandClassMeterV1 {
      *
      * <ul>
      * <li>METER_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>ELECTRIC_METER
+     * <li>GAS_METER
+     * <li>WATER_METER
+     * </ul>
      * <li>SCALE {@link Integer}
      * <li>PRECISION {@link Integer}
      * <li>METER_VALUE {@link byte[]}
@@ -196,5 +202,4 @@ public class CommandClassMeterV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

@@ -77,7 +77,6 @@ public class CommandClassNetworkManagementBasicV2 {
      */
     public final static int DSK_REPORT = 0x09;
 
-
     /**
      * Map holding constants for DefaultSetCompleteStatus
      */
@@ -102,8 +101,8 @@ public class CommandClassNetworkManagementBasicV2 {
      * Map holding constants for LearnModeSetMode
      */
     private static Map<Integer, String> constantLearnModeSetMode = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for DefaultSetCompleteStatus
         constantDefaultSetCompleteStatus.put(0x06, "DEFAULT_SET_DONE");
         constantDefaultSetCompleteStatus.put(0x07, "DEFAULT_SET_BUSY");
@@ -144,6 +143,7 @@ public class CommandClassNetworkManagementBasicV2 {
      * @param seqNo {@link Integer}
      * @param mode {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>LEARN_MODE_SET_DISABLE
      *            <li>LEARN_MODE_SET_CLASSIC
@@ -190,6 +190,13 @@ public class CommandClassNetworkManagementBasicV2 {
      * <ul>
      * <li>SEQ_NO {@link Integer}
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>LEARN_MODE_SET_DISABLE
+     * <li>LEARN_MODE_SET_CLASSIC
+     * <li>LEARN_MODE_SET_NWI
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -209,7 +216,6 @@ public class CommandClassNetworkManagementBasicV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the LEARN_MODE_SET_STATUS command.
      * <p>
@@ -218,6 +224,7 @@ public class CommandClassNetworkManagementBasicV2 {
      * @param seqNo {@link Integer}
      * @param status {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>LEARN_MODE_FAILED_TIMEOUT
      *            <li>LEARN_MODE_DONE
@@ -291,6 +298,14 @@ public class CommandClassNetworkManagementBasicV2 {
      * <ul>
      * <li>SEQ_NO {@link Integer}
      * <li>STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>LEARN_MODE_FAILED_TIMEOUT
+     * <li>LEARN_MODE_DONE
+     * <li>LEARN_MODE_FAILED
+     * <li>LEARN_MODE_SECURITY_FAILED
+     * </ul>
      * <li>NEW_NODE_ID {@link Integer}
      * <li>GRANTED_KEYS {@link Integer}
      * <li>DSK {@link byte[]}
@@ -326,7 +341,6 @@ public class CommandClassNetworkManagementBasicV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the NETWORK_UPDATE_REQUEST command.
@@ -374,7 +388,6 @@ public class CommandClassNetworkManagementBasicV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the NETWORK_UPDATE_REQUEST_STATUS command.
      * <p>
@@ -383,6 +396,7 @@ public class CommandClassNetworkManagementBasicV2 {
      * @param seqNo {@link Integer}
      * @param status {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>SUC_UPDATE_DONE
      *            <li>SUC_UPDATE_ABORT
@@ -428,6 +442,15 @@ public class CommandClassNetworkManagementBasicV2 {
      * <ul>
      * <li>SEQ_NO {@link Integer}
      * <li>STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>SUC_UPDATE_DONE
+     * <li>SUC_UPDATE_ABORT
+     * <li>SUC_UPDATE_WAIT
+     * <li>SUC_UPDATE_DISABLED
+     * <li>SUC_UPDATE_OVERFLOW
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -447,7 +470,6 @@ public class CommandClassNetworkManagementBasicV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the NODE_INFORMATION_SEND command.
      * <p>
@@ -457,6 +479,7 @@ public class CommandClassNetworkManagementBasicV2 {
      * @param destinationNodeId {@link Integer}
      * @param txOptions {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NO_ROUTE
      *            <li>ACK
@@ -520,6 +543,17 @@ public class CommandClassNetworkManagementBasicV2 {
      * <li>SEQ_NO {@link Integer}
      * <li>DESTINATION_NODE_ID {@link Integer}
      * <li>TX_OPTIONS {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NO_ROUTE
+     * <li>ACK
+     * <li>EXPLORE
+     * <li>LOW_POWER
+     * <li>NO_RETRANSMISSION
+     * <li>AUTO_ROUTE
+     * <li>HIGH_POWER
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -549,7 +583,6 @@ public class CommandClassNetworkManagementBasicV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the DEFAULT_SET command.
@@ -597,7 +630,6 @@ public class CommandClassNetworkManagementBasicV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the DEFAULT_SET_COMPLETE command.
      * <p>
@@ -606,6 +638,7 @@ public class CommandClassNetworkManagementBasicV2 {
      * @param seqNo {@link Integer}
      * @param status {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>DEFAULT_SET_DONE
      *            <li>DEFAULT_SET_BUSY
@@ -648,6 +681,12 @@ public class CommandClassNetworkManagementBasicV2 {
      * <ul>
      * <li>SEQ_NO {@link Integer}
      * <li>STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>DEFAULT_SET_DONE
+     * <li>DEFAULT_SET_BUSY
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -666,7 +705,6 @@ public class CommandClassNetworkManagementBasicV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the DSK_GET command.
@@ -713,7 +751,6 @@ public class CommandClassNetworkManagementBasicV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the DSK_REPORT command.
@@ -781,5 +818,4 @@ public class CommandClassNetworkManagementBasicV2 {
         // Return the map of processed response data;
         return response;
     }
-
 }

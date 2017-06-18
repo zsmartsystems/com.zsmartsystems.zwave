@@ -55,13 +55,12 @@ public class CommandClassDcpMonitorV1 {
      */
     public final static int DCP_EVENT_STATUS_REPORT = 0x04;
 
-
     /**
      * Map holding constants for DcpEventStatusReportEventStatus
      */
     private static Map<Integer, String> constantDcpEventStatusReportEventStatus = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for DcpEventStatusReportEventStatus
         constantDcpEventStatusReportEventStatus.put(0x01, "EVENT_STARTED");
         constantDcpEventStatusReportEventStatus.put(0x02, "EVENT_COMPLETED");
@@ -101,7 +100,6 @@ public class CommandClassDcpMonitorV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the DCP_LIST_REPORT command.
@@ -360,7 +358,6 @@ public class CommandClassDcpMonitorV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the DCP_EVENT_STATUS_GET command.
      * <p>
@@ -449,7 +446,6 @@ public class CommandClassDcpMonitorV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the DCP_EVENT_STATUS_REPORT command.
      * <p>
@@ -463,6 +459,7 @@ public class CommandClassDcpMonitorV1 {
      * @param secondLocalTime {@link Integer}
      * @param eventStatus {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>EVENT_STARTED
      *            <li>EVENT_COMPLETED
@@ -529,6 +526,14 @@ public class CommandClassDcpMonitorV1 {
      * <li>MINUTE_LOCAL_TIME {@link Integer}
      * <li>SECOND_LOCAL_TIME {@link Integer}
      * <li>EVENT_STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>EVENT_STARTED
+     * <li>EVENT_COMPLETED
+     * <li>EVENT_REJECTED
+     * <li>EVENT_NOT_APPLICABLE
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -562,5 +567,4 @@ public class CommandClassDcpMonitorV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

@@ -117,7 +117,6 @@ public class CommandClassDmxV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the DMX_ADDRESS_GET command.
      * <p>
@@ -150,7 +149,6 @@ public class CommandClassDmxV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the DMX_ADDRESS_REPORT command.
@@ -206,7 +204,6 @@ public class CommandClassDmxV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the DMX_CAPABILITY_GET command.
      * <p>
@@ -252,7 +249,6 @@ public class CommandClassDmxV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the DMX_CAPABILITY_REPORT command.
@@ -325,7 +321,6 @@ public class CommandClassDmxV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the DMX_DATA command.
@@ -409,5 +404,4 @@ public class CommandClassDmxV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

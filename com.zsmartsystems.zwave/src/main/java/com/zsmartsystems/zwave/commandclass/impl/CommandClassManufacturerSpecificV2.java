@@ -54,6 +54,31 @@ public class CommandClassManufacturerSpecificV2 {
      */
     public final static int DEVICE_SPECIFIC_REPORT = 0x07;
 
+    /**
+     * Map holding constants for DeviceSpecificReportDeviceIdDataFormat
+     */
+    private static Map<Integer, String> constantDeviceSpecificReportDeviceIdDataFormat = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for DeviceSpecificGetDeviceIdType
+     */
+    private static Map<Integer, String> constantDeviceSpecificGetDeviceIdType = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for DeviceSpecificReportDeviceIdType
+     */
+    private static Map<Integer, String> constantDeviceSpecificReportDeviceIdType = new HashMap<Integer, String>();
+
+    static {
+        // Constants for DeviceSpecificReportDeviceIdDataFormat
+        constantDeviceSpecificReportDeviceIdDataFormat.put(0x00, "BINARY");
+
+        // Constants for DeviceSpecificGetDeviceIdType
+        constantDeviceSpecificGetDeviceIdType.put(0x00, "SERIAL_NUMBER");
+
+        // Constants for DeviceSpecificReportDeviceIdType
+        constantDeviceSpecificReportDeviceIdType.put(0x00, "SERIAL_NUMBER");
+    }
 
     /**
      * Creates a new message with the MANUFACTURER_SPECIFIC_GET command.
@@ -87,7 +112,6 @@ public class CommandClassManufacturerSpecificV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the MANUFACTURER_SPECIFIC_REPORT command.
@@ -154,13 +178,17 @@ public class CommandClassManufacturerSpecificV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the DEVICE_SPECIFIC_GET command.
      * <p>
      * Device Specific Get
      *
      * @param deviceIdType {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>SERIAL_NUMBER
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getDeviceSpecificGet(String deviceIdType) {
@@ -171,15 +199,17 @@ public class CommandClassManufacturerSpecificV2 {
         outputData.write(DEVICE_SPECIFIC_GET);
 
         // Process 'Properties1'
-        int valdeviceIdType;
-        switch (deviceIdType) {
-            case "SERIAL_NUMBER":
-                valdeviceIdType = 1;
+        int varDeviceIdType = Integer.MAX_VALUE;
+        for (Integer entry : constantDeviceSpecificGetDeviceIdType.keySet()) {
+            if (constantDeviceSpecificGetDeviceIdType.get(entry).equals(deviceIdType)) {
+                varDeviceIdType = entry;
                 break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for deviceIdType: " + deviceIdType);
+            }
         }
-        outputData.write(valdeviceIdType & 0x07);
+        if (varDeviceIdType == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + deviceIdType + "' for deviceIdType");
+        }
+        outputData.write(varDeviceIdType & 0x07);
 
         return outputData.toByteArray();
     }
@@ -193,6 +223,11 @@ public class CommandClassManufacturerSpecificV2 {
      *
      * <ul>
      * <li>DEVICE_ID_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>SERIAL_NUMBER
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -203,18 +238,11 @@ public class CommandClassManufacturerSpecificV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch (payload[2] & 0x07) {
-            case 0x01:
-                response.put("DEVICE_ID_TYPE", "SERIAL_NUMBER");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for DEVICE_ID_TYPE", String.format("0x%02X", 2));
-        }
+        response.put("DEVICE_ID_TYPE", constantDeviceSpecificGetDeviceIdType.get(payload[2] & 0x07));
 
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the DEVICE_SPECIFIC_REPORT command.
@@ -222,7 +250,17 @@ public class CommandClassManufacturerSpecificV2 {
      * Device Specific Report
      *
      * @param deviceIdType {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>SERIAL_NUMBER
+     *            </ul>
      * @param deviceIdDataFormat {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>BINARY
+     *            </ul>
      * @param deviceIdData {@link byte[]}
      * @return the {@link byte[]} array with the command to send
      */
@@ -234,30 +272,34 @@ public class CommandClassManufacturerSpecificV2 {
         outputData.write(DEVICE_SPECIFIC_REPORT);
 
         // Process 'Properties1'
-        int valdeviceIdType;
-        switch (deviceIdType) {
-            case "SERIAL_NUMBER":
-                valdeviceIdType = 1;
+        int varDeviceIdType = Integer.MAX_VALUE;
+        for (Integer entry : constantDeviceSpecificReportDeviceIdType.keySet()) {
+            if (constantDeviceSpecificReportDeviceIdType.get(entry).equals(deviceIdType)) {
+                varDeviceIdType = entry;
                 break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for deviceIdType: " + deviceIdType);
+            }
         }
-        outputData.write(valdeviceIdType & 0x07);
+        if (varDeviceIdType == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + deviceIdType + "' for deviceIdType");
+        }
+        outputData.write(varDeviceIdType & 0x07);
 
         // Process 'Properties2'
         // Device ID Data Length Indicator is used by 'Device ID Data'
         int deviceIdDataLengthIndicator = deviceIdData.length;
         int valProperties2 = 0;
         valProperties2 |= deviceIdDataLengthIndicator & 0x1F;
-        int valdeviceIdDataFormat;
-        switch (deviceIdDataFormat) {
-            case "BINARY":
-                valdeviceIdDataFormat = 1;
+        int varDeviceIdDataFormat = Integer.MAX_VALUE;
+        for (Integer entry : constantDeviceSpecificReportDeviceIdDataFormat.keySet()) {
+            if (constantDeviceSpecificReportDeviceIdDataFormat.get(entry).equals(deviceIdDataFormat)) {
+                varDeviceIdDataFormat = entry;
                 break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for deviceIdDataFormat: " + deviceIdDataFormat);
+            }
         }
-        valProperties2 |= valdeviceIdDataFormat >> 5 & 0xE0;
+        if (varDeviceIdDataFormat == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + deviceIdDataFormat + "' for deviceIdDataFormat");
+        }
+        valProperties2 |= varDeviceIdDataFormat << 5 & 0xE0;
         outputData.write(valProperties2);
 
         // Process 'Device ID Data'
@@ -280,7 +322,17 @@ public class CommandClassManufacturerSpecificV2 {
      *
      * <ul>
      * <li>DEVICE_ID_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>SERIAL_NUMBER
+     * </ul>
      * <li>DEVICE_ID_DATA_FORMAT {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>BINARY
+     * </ul>
      * <li>DEVICE_ID_DATA {@link byte[]}
      * </ul>
      *
@@ -295,25 +347,13 @@ public class CommandClassManufacturerSpecificV2 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        switch (payload[msgOffset] & 0x07) {
-            case 0x01:
-                response.put("DEVICE_ID_TYPE", "SERIAL_NUMBER");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for DEVICE_ID_TYPE", String.format("0x%02X", msgOffset));
-        }
+        response.put("DEVICE_ID_TYPE", constantDeviceSpecificReportDeviceIdType.get(payload[msgOffset] & 0x07));
         msgOffset += 1;
 
         // Process 'Properties2'
         // Device ID Data Length Indicator is used by 'Device ID Data'
         int varDeviceIdDataLengthIndicator = payload[msgOffset] & 0x1F;
-        switch ((payload[msgOffset] & 0xE0) >> 5) {
-            case 0x01:
-                response.put("DEVICE_ID_DATA_FORMAT", "BINARY");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for DEVICE_ID_DATA_FORMAT", String.format("0x%02X", msgOffset));
-        }
+        response.put("DEVICE_ID_DATA_FORMAT", constantDeviceSpecificReportDeviceIdDataFormat.get((payload[msgOffset] & 0xE0) >> 5));
         msgOffset += 1;
 
         // Process 'Device ID Data'
@@ -327,5 +367,4 @@ public class CommandClassManufacturerSpecificV2 {
         // Return the map of processed response data;
         return response;
     }
-
 }

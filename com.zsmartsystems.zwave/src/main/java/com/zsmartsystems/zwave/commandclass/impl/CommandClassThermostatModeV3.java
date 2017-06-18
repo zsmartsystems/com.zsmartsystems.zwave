@@ -60,13 +60,22 @@ public class CommandClassThermostatModeV3 {
      */
     public final static int THERMOSTAT_MODE_SUPPORTED_REPORT = 0x05;
 
-
     /**
      * Map holding constants for ThermostatModeSupportedReportBitMask
      */
     private static Map<Integer, String> constantThermostatModeSupportedReportBitMask = new HashMap<Integer, String>();
-    static {
 
+    /**
+     * Map holding constants for ThermostatModeSetMode
+     */
+    private static Map<Integer, String> constantThermostatModeSetMode = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for ThermostatModeReportMode
+     */
+    private static Map<Integer, String> constantThermostatModeReportMode = new HashMap<Integer, String>();
+
+    static {
         // Constants for ThermostatModeSupportedReportBitMask
         constantThermostatModeSupportedReportBitMask.put(0x00, "OFF");
         constantThermostatModeSupportedReportBitMask.put(0x01, "HEAT");
@@ -84,6 +93,42 @@ public class CommandClassThermostatModeV3 {
         constantThermostatModeSupportedReportBitMask.put(0x0D, "AWAY");
         constantThermostatModeSupportedReportBitMask.put(0x1F, "MANUFACTURER_SPECIFC");
         constantThermostatModeSupportedReportBitMask.put(0x0F, "FULL_POWER");
+
+        // Constants for ThermostatModeSetMode
+        constantThermostatModeSetMode.put(0x00, "OFF");
+        constantThermostatModeSetMode.put(0x01, "HEAT");
+        constantThermostatModeSetMode.put(0x02, "COOL");
+        constantThermostatModeSetMode.put(0x03, "AUTO");
+        constantThermostatModeSetMode.put(0x04, "AUXILIARY_HEAT");
+        constantThermostatModeSetMode.put(0x05, "RESUME");
+        constantThermostatModeSetMode.put(0x06, "FAN_ONLY");
+        constantThermostatModeSetMode.put(0x07, "FURNACE");
+        constantThermostatModeSetMode.put(0x08, "DRY_AIR");
+        constantThermostatModeSetMode.put(0x09, "MOIST_AIR");
+        constantThermostatModeSetMode.put(0x0A, "AUTO_CHANGEOVER");
+        constantThermostatModeSetMode.put(0x0B, "ENERGY_SAVE_HEAT");
+        constantThermostatModeSetMode.put(0x0C, "ENERGY_SAVE_COOL");
+        constantThermostatModeSetMode.put(0x0D, "AWAY");
+        constantThermostatModeSetMode.put(0x0E, "FULL_POWER");
+        constantThermostatModeSetMode.put(0x0F, "MANUFACTURER_SPECIFC");
+
+        // Constants for ThermostatModeReportMode
+        constantThermostatModeReportMode.put(0x00, "OFF");
+        constantThermostatModeReportMode.put(0x01, "HEAT");
+        constantThermostatModeReportMode.put(0x02, "COOL");
+        constantThermostatModeReportMode.put(0x03, "AUTO");
+        constantThermostatModeReportMode.put(0x04, "AUXILIARY_HEAT");
+        constantThermostatModeReportMode.put(0x05, "RESUME");
+        constantThermostatModeReportMode.put(0x06, "FAN_ONLY");
+        constantThermostatModeReportMode.put(0x07, "FURNACE");
+        constantThermostatModeReportMode.put(0x08, "DRY_AIR");
+        constantThermostatModeReportMode.put(0x09, "MOIST_AIR");
+        constantThermostatModeReportMode.put(0x0A, "AUTO_CHANGEOVER");
+        constantThermostatModeReportMode.put(0x0B, "ENERGY_SAVE_HEAT");
+        constantThermostatModeReportMode.put(0x0C, "ENERGY_SAVE_COOL");
+        constantThermostatModeReportMode.put(0x0D, "AWAY");
+        constantThermostatModeReportMode.put(0x0E, "FULL_POWER");
+        constantThermostatModeReportMode.put(0x0F, "MANUFACTURER_SPECIFC");
     }
 
     /**
@@ -92,6 +137,26 @@ public class CommandClassThermostatModeV3 {
      * Thermostat Mode Set
      *
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>OFF
+     *            <li>HEAT
+     *            <li>COOL
+     *            <li>AUTO
+     *            <li>AUXILIARY_HEAT
+     *            <li>RESUME
+     *            <li>FAN_ONLY
+     *            <li>FURNACE
+     *            <li>DRY_AIR
+     *            <li>MOIST_AIR
+     *            <li>AUTO_CHANGEOVER
+     *            <li>ENERGY_SAVE_HEAT
+     *            <li>ENERGY_SAVE_COOL
+     *            <li>AWAY
+     *            <li>FULL_POWER
+     *            <li>MANUFACTURER_SPECIFC
+     *            </ul>
      * @param noOfManufacturerDataFields {@link Integer}
      * @param manufacturerData {@link byte[]}
      * @return the {@link byte[]} array with the command to send
@@ -105,60 +170,17 @@ public class CommandClassThermostatModeV3 {
 
         // Process 'Level'
         int valLevel = 0;
-        int valmode;
-        switch (mode) {
-            case "OFF":
-                valmode = 0;
+        int varMode = Integer.MAX_VALUE;
+        for (Integer entry : constantThermostatModeSetMode.keySet()) {
+            if (constantThermostatModeSetMode.get(entry).equals(mode)) {
+                varMode = entry;
                 break;
-            case "HEAT":
-                valmode = 1;
-                break;
-            case "COOL":
-                valmode = 2;
-                break;
-            case "AUTO":
-                valmode = 3;
-                break;
-            case "AUXILIARY_HEAT":
-                valmode = 4;
-                break;
-            case "RESUME":
-                valmode = 5;
-                break;
-            case "FAN_ONLY":
-                valmode = 6;
-                break;
-            case "FURNACE":
-                valmode = 7;
-                break;
-            case "DRY_AIR":
-                valmode = 8;
-                break;
-            case "MOIST_AIR":
-                valmode = 9;
-                break;
-            case "AUTO_CHANGEOVER":
-                valmode = 10;
-                break;
-            case "ENERGY_SAVE_HEAT":
-                valmode = 11;
-                break;
-            case "ENERGY_SAVE_COOL":
-                valmode = 12;
-                break;
-            case "AWAY":
-                valmode = 13;
-                break;
-            case "FULL_POWER":
-                valmode = 15;
-                break;
-            case "MANUFACTURER_SPECIFC":
-                valmode = 31;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for mode: " + mode);
+            }
         }
-        valLevel |= valmode & 0x1F;
+        if (varMode == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + mode + "' for mode");
+        }
+        valLevel |= varMode & 0x1F;
         valLevel |= ((noOfManufacturerDataFields << 5) & 0xE0);
         outputData.write(valLevel);
 
@@ -182,6 +204,26 @@ public class CommandClassThermostatModeV3 {
      *
      * <ul>
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF
+     * <li>HEAT
+     * <li>COOL
+     * <li>AUTO
+     * <li>AUXILIARY_HEAT
+     * <li>RESUME
+     * <li>FAN_ONLY
+     * <li>FURNACE
+     * <li>DRY_AIR
+     * <li>MOIST_AIR
+     * <li>AUTO_CHANGEOVER
+     * <li>ENERGY_SAVE_HEAT
+     * <li>ENERGY_SAVE_COOL
+     * <li>AWAY
+     * <li>FULL_POWER
+     * <li>MANUFACTURER_SPECIFC
+     * </ul>
      * <li>NO_OF_MANUFACTURER_DATA_FIELDS {@link Integer}
      * <li>MANUFACTURER_DATA {@link byte[]}
      * </ul>
@@ -197,58 +239,7 @@ public class CommandClassThermostatModeV3 {
         int msgOffset = 2;
 
         // Process 'Level'
-        switch (payload[msgOffset] & 0x1F) {
-            case 0x00:
-                response.put("MODE", "OFF");
-                break;
-            case 0x01:
-                response.put("MODE", "HEAT");
-                break;
-            case 0x02:
-                response.put("MODE", "COOL");
-                break;
-            case 0x03:
-                response.put("MODE", "AUTO");
-                break;
-            case 0x04:
-                response.put("MODE", "AUXILIARY_HEAT");
-                break;
-            case 0x05:
-                response.put("MODE", "RESUME");
-                break;
-            case 0x06:
-                response.put("MODE", "FAN_ONLY");
-                break;
-            case 0x07:
-                response.put("MODE", "FURNACE");
-                break;
-            case 0x08:
-                response.put("MODE", "DRY_AIR");
-                break;
-            case 0x09:
-                response.put("MODE", "MOIST_AIR");
-                break;
-            case 0x0A:
-                response.put("MODE", "AUTO_CHANGEOVER");
-                break;
-            case 0x0B:
-                response.put("MODE", "ENERGY_SAVE_HEAT");
-                break;
-            case 0x0C:
-                response.put("MODE", "ENERGY_SAVE_COOL");
-                break;
-            case 0x0D:
-                response.put("MODE", "AWAY");
-                break;
-            case 0x0F:
-                response.put("MODE", "FULL_POWER");
-                break;
-            case 0x1F:
-                response.put("MODE", "MANUFACTURER_SPECIFC");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for MODE", String.format("0x%02X", msgOffset));
-        }
+        response.put("MODE", constantThermostatModeSetMode.get(payload[msgOffset] & 0x1F));
         response.put("NO_OF_MANUFACTURER_DATA_FIELDS", Integer.valueOf(payload[msgOffset] & 0xE0 >> 5));
         msgOffset += 1;
 
@@ -259,7 +250,6 @@ public class CommandClassThermostatModeV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the THERMOSTAT_MODE_GET command.
@@ -294,13 +284,32 @@ public class CommandClassThermostatModeV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the THERMOSTAT_MODE_REPORT command.
      * <p>
      * Thermostat Mode Report
      *
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>OFF
+     *            <li>HEAT
+     *            <li>COOL
+     *            <li>AUTO
+     *            <li>AUXILIARY_HEAT
+     *            <li>RESUME
+     *            <li>FAN_ONLY
+     *            <li>FURNACE
+     *            <li>DRY_AIR
+     *            <li>MOIST_AIR
+     *            <li>AUTO_CHANGEOVER
+     *            <li>ENERGY_SAVE_HEAT
+     *            <li>ENERGY_SAVE_COOL
+     *            <li>AWAY
+     *            <li>FULL_POWER
+     *            <li>MANUFACTURER_SPECIFC
+     *            </ul>
      * @param noOfManufacturerDataFields {@link Integer}
      * @param manufacturerData {@link byte[]}
      * @return the {@link byte[]} array with the command to send
@@ -315,60 +324,17 @@ public class CommandClassThermostatModeV3 {
 
         // Process 'Level'
         int valLevel = 0;
-        int valmode;
-        switch (mode) {
-            case "OFF":
-                valmode = 0;
+        int varMode = Integer.MAX_VALUE;
+        for (Integer entry : constantThermostatModeReportMode.keySet()) {
+            if (constantThermostatModeReportMode.get(entry).equals(mode)) {
+                varMode = entry;
                 break;
-            case "HEAT":
-                valmode = 1;
-                break;
-            case "COOL":
-                valmode = 2;
-                break;
-            case "AUTO":
-                valmode = 3;
-                break;
-            case "AUXILIARY_HEAT":
-                valmode = 4;
-                break;
-            case "RESUME":
-                valmode = 5;
-                break;
-            case "FAN_ONLY":
-                valmode = 6;
-                break;
-            case "FURNACE":
-                valmode = 7;
-                break;
-            case "DRY_AIR":
-                valmode = 8;
-                break;
-            case "MOIST_AIR":
-                valmode = 9;
-                break;
-            case "AUTO_CHANGEOVER":
-                valmode = 10;
-                break;
-            case "ENERGY_SAVE_HEAT":
-                valmode = 11;
-                break;
-            case "ENERGY_SAVE_COOL":
-                valmode = 12;
-                break;
-            case "AWAY":
-                valmode = 13;
-                break;
-            case "FULL_POWER":
-                valmode = 15;
-                break;
-            case "MANUFACTURER_SPECIFC":
-                valmode = 31;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for mode: " + mode);
+            }
         }
-        valLevel |= valmode & 0x1F;
+        if (varMode == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + mode + "' for mode");
+        }
+        valLevel |= varMode & 0x1F;
         valLevel |= ((noOfManufacturerDataFields << 5) & 0xE0);
         outputData.write(valLevel);
 
@@ -392,6 +358,26 @@ public class CommandClassThermostatModeV3 {
      *
      * <ul>
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF
+     * <li>HEAT
+     * <li>COOL
+     * <li>AUTO
+     * <li>AUXILIARY_HEAT
+     * <li>RESUME
+     * <li>FAN_ONLY
+     * <li>FURNACE
+     * <li>DRY_AIR
+     * <li>MOIST_AIR
+     * <li>AUTO_CHANGEOVER
+     * <li>ENERGY_SAVE_HEAT
+     * <li>ENERGY_SAVE_COOL
+     * <li>AWAY
+     * <li>FULL_POWER
+     * <li>MANUFACTURER_SPECIFC
+     * </ul>
      * <li>NO_OF_MANUFACTURER_DATA_FIELDS {@link Integer}
      * <li>MANUFACTURER_DATA {@link byte[]}
      * </ul>
@@ -407,58 +393,7 @@ public class CommandClassThermostatModeV3 {
         int msgOffset = 2;
 
         // Process 'Level'
-        switch (payload[msgOffset] & 0x1F) {
-            case 0x00:
-                response.put("MODE", "OFF");
-                break;
-            case 0x01:
-                response.put("MODE", "HEAT");
-                break;
-            case 0x02:
-                response.put("MODE", "COOL");
-                break;
-            case 0x03:
-                response.put("MODE", "AUTO");
-                break;
-            case 0x04:
-                response.put("MODE", "AUXILIARY_HEAT");
-                break;
-            case 0x05:
-                response.put("MODE", "RESUME");
-                break;
-            case 0x06:
-                response.put("MODE", "FAN_ONLY");
-                break;
-            case 0x07:
-                response.put("MODE", "FURNACE");
-                break;
-            case 0x08:
-                response.put("MODE", "DRY_AIR");
-                break;
-            case 0x09:
-                response.put("MODE", "MOIST_AIR");
-                break;
-            case 0x0A:
-                response.put("MODE", "AUTO_CHANGEOVER");
-                break;
-            case 0x0B:
-                response.put("MODE", "ENERGY_SAVE_HEAT");
-                break;
-            case 0x0C:
-                response.put("MODE", "ENERGY_SAVE_COOL");
-                break;
-            case 0x0D:
-                response.put("MODE", "AWAY");
-                break;
-            case 0x0F:
-                response.put("MODE", "FULL_POWER");
-                break;
-            case 0x1F:
-                response.put("MODE", "MANUFACTURER_SPECIFC");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for MODE", String.format("0x%02X", msgOffset));
-        }
+        response.put("MODE", constantThermostatModeReportMode.get(payload[msgOffset] & 0x1F));
         response.put("NO_OF_MANUFACTURER_DATA_FIELDS", Integer.valueOf(payload[msgOffset] & 0xE0 >> 5));
         msgOffset += 1;
 
@@ -469,7 +404,6 @@ public class CommandClassThermostatModeV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the THERMOSTAT_MODE_SUPPORTED_GET command.
@@ -504,7 +438,6 @@ public class CommandClassThermostatModeV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the THERMOSTAT_MODE_SUPPORTED_REPORT command.
      * <p>
@@ -512,6 +445,7 @@ public class CommandClassThermostatModeV3 {
      *
      * @param bitMask {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF
      *            <li>HEAT
@@ -568,6 +502,26 @@ public class CommandClassThermostatModeV3 {
      *
      * <ul>
      * <li>BIT_MASK {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF
+     * <li>HEAT
+     * <li>COOL
+     * <li>AUTO
+     * <li>AUXILIARY_EMERGENCY_HEAT
+     * <li>RESUME
+     * <li>FAN_ONLY
+     * <li>FURNACE
+     * <li>DRY_AIR
+     * <li>MOIST_AIR
+     * <li>AUTO_CHANGEOVER
+     * <li>ENERGY_SAVE_HEAT
+     * <li>ENERGY_SAVE_COOL
+     * <li>AWAY
+     * <li>MANUFACTURER_SPECIFC
+     * <li>FULL_POWER
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -590,5 +544,4 @@ public class CommandClassThermostatModeV3 {
         // Return the map of processed response data;
         return response;
     }
-
 }

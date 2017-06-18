@@ -83,19 +83,53 @@ public class CommandClassHrvControlV1 {
      */
     public final static int HRV_CONTROL_MODE_SUPPORTED_REPORT = 0x0B;
 
-
     /**
      * Map holding constants for HrvControlModeSupportedReportBitMask
      */
     private static Map<Integer, String> constantHrvControlModeSupportedReportBitMask = new HashMap<Integer, String>();
-    static {
 
+    /**
+     * Map holding constants for HrvControlModeSetMode
+     */
+    private static Map<Integer, String> constantHrvControlModeSetMode = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for HrvControlModeReportMode
+     */
+    private static Map<Integer, String> constantHrvControlModeReportMode = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for HrvControlModeSupportedReportManualControlSupported
+     */
+    private static Map<Integer, String> constantHrvControlModeSupportedReportManualControlSupported = new HashMap<Integer, String>();
+
+    static {
         // Constants for HrvControlModeSupportedReportBitMask
         constantHrvControlModeSupportedReportBitMask.put(0x00, "OFF");
         constantHrvControlModeSupportedReportBitMask.put(0x01, "DEMAND_AUTOMATIC");
         constantHrvControlModeSupportedReportBitMask.put(0x02, "SCHEDULE");
         constantHrvControlModeSupportedReportBitMask.put(0x03, "ENERGY_SAVINGS_MODE");
         constantHrvControlModeSupportedReportBitMask.put(0x04, "MANUAL");
+
+        // Constants for HrvControlModeSetMode
+        constantHrvControlModeSetMode.put(0x00, "OFF");
+        constantHrvControlModeSetMode.put(0x01, "DEMAND_AUTOMATIC");
+        constantHrvControlModeSetMode.put(0x02, "SCHEDULE");
+        constantHrvControlModeSetMode.put(0x03, "ENERGY_SAVINGS_MODE");
+        constantHrvControlModeSetMode.put(0x04, "MANUAL");
+
+        // Constants for HrvControlModeReportMode
+        constantHrvControlModeReportMode.put(0x00, "OFF");
+        constantHrvControlModeReportMode.put(0x01, "DEMAND_AUTOMATIC");
+        constantHrvControlModeReportMode.put(0x02, "SCHEDULE");
+        constantHrvControlModeReportMode.put(0x03, "ENERGY_SAVINGS_MODE");
+        constantHrvControlModeReportMode.put(0x04, "MANUAL");
+
+        // Constants for HrvControlModeSupportedReportManualControlSupported
+        constantHrvControlModeSupportedReportManualControlSupported.put(0x00, "BYPASS_OPEN_CLOSE");
+        constantHrvControlModeSupportedReportManualControlSupported.put(0x01, "BYPASS_AUTO");
+        constantHrvControlModeSupportedReportManualControlSupported.put(0x02, "MODULATED_BYPASS");
+        constantHrvControlModeSupportedReportManualControlSupported.put(0x03, "VENTILATION_RATE");
     }
 
     /**
@@ -104,6 +138,15 @@ public class CommandClassHrvControlV1 {
      * Hrv Control Mode Set
      *
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>OFF
+     *            <li>DEMAND_AUTOMATIC
+     *            <li>SCHEDULE
+     *            <li>ENERGY_SAVINGS_MODE
+     *            <li>MANUAL
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getHrvControlModeSet(String mode) {
@@ -114,27 +157,17 @@ public class CommandClassHrvControlV1 {
         outputData.write(HRV_CONTROL_MODE_SET);
 
         // Process 'Properties1'
-        int valmode;
-        switch (mode) {
-            case "OFF":
-                valmode = 0;
+        int varMode = Integer.MAX_VALUE;
+        for (Integer entry : constantHrvControlModeSetMode.keySet()) {
+            if (constantHrvControlModeSetMode.get(entry).equals(mode)) {
+                varMode = entry;
                 break;
-            case "DEMAND_AUTOMATIC":
-                valmode = 1;
-                break;
-            case "SCHEDULE":
-                valmode = 2;
-                break;
-            case "ENERGY_SAVINGS_MODE":
-                valmode = 3;
-                break;
-            case "MANUAL":
-                valmode = 4;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for mode: " + mode);
+            }
         }
-        outputData.write(valmode & 0x1F);
+        if (varMode == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + mode + "' for mode");
+        }
+        outputData.write(varMode & 0x1F);
 
         return outputData.toByteArray();
     }
@@ -148,6 +181,15 @@ public class CommandClassHrvControlV1 {
      *
      * <ul>
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF
+     * <li>DEMAND_AUTOMATIC
+     * <li>SCHEDULE
+     * <li>ENERGY_SAVINGS_MODE
+     * <li>MANUAL
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -158,30 +200,11 @@ public class CommandClassHrvControlV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch (payload[2] & 0x1F) {
-            case 0x00:
-                response.put("MODE", "OFF");
-                break;
-            case 0x01:
-                response.put("MODE", "DEMAND_AUTOMATIC");
-                break;
-            case 0x02:
-                response.put("MODE", "SCHEDULE");
-                break;
-            case 0x03:
-                response.put("MODE", "ENERGY_SAVINGS_MODE");
-                break;
-            case 0x04:
-                response.put("MODE", "MANUAL");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for MODE", String.format("0x%02X", 2));
-        }
+        response.put("MODE", constantHrvControlModeSetMode.get(payload[2] & 0x1F));
 
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the HRV_CONTROL_MODE_GET command.
@@ -216,13 +239,21 @@ public class CommandClassHrvControlV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the HRV_CONTROL_MODE_REPORT command.
      * <p>
      * Hrv Control Mode Report
      *
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>OFF
+     *            <li>DEMAND_AUTOMATIC
+     *            <li>SCHEDULE
+     *            <li>ENERGY_SAVINGS_MODE
+     *            <li>MANUAL
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getHrvControlModeReport(String mode) {
@@ -233,27 +264,17 @@ public class CommandClassHrvControlV1 {
         outputData.write(HRV_CONTROL_MODE_REPORT);
 
         // Process 'Properties1'
-        int valmode;
-        switch (mode) {
-            case "OFF":
-                valmode = 0;
+        int varMode = Integer.MAX_VALUE;
+        for (Integer entry : constantHrvControlModeReportMode.keySet()) {
+            if (constantHrvControlModeReportMode.get(entry).equals(mode)) {
+                varMode = entry;
                 break;
-            case "DEMAND_AUTOMATIC":
-                valmode = 1;
-                break;
-            case "SCHEDULE":
-                valmode = 2;
-                break;
-            case "ENERGY_SAVINGS_MODE":
-                valmode = 3;
-                break;
-            case "MANUAL":
-                valmode = 4;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for mode: " + mode);
+            }
         }
-        outputData.write(valmode & 0x1F);
+        if (varMode == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + mode + "' for mode");
+        }
+        outputData.write(varMode & 0x1F);
 
         return outputData.toByteArray();
     }
@@ -267,6 +288,15 @@ public class CommandClassHrvControlV1 {
      *
      * <ul>
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF
+     * <li>DEMAND_AUTOMATIC
+     * <li>SCHEDULE
+     * <li>ENERGY_SAVINGS_MODE
+     * <li>MANUAL
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -277,30 +307,11 @@ public class CommandClassHrvControlV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch (payload[2] & 0x1F) {
-            case 0x00:
-                response.put("MODE", "OFF");
-                break;
-            case 0x01:
-                response.put("MODE", "DEMAND_AUTOMATIC");
-                break;
-            case 0x02:
-                response.put("MODE", "SCHEDULE");
-                break;
-            case 0x03:
-                response.put("MODE", "ENERGY_SAVINGS_MODE");
-                break;
-            case 0x04:
-                response.put("MODE", "MANUAL");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for MODE", String.format("0x%02X", 2));
-        }
+        response.put("MODE", constantHrvControlModeReportMode.get(payload[2] & 0x1F));
 
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the HRV_CONTROL_BYPASS_SET command.
@@ -348,7 +359,6 @@ public class CommandClassHrvControlV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the HRV_CONTROL_BYPASS_GET command.
      * <p>
@@ -381,7 +391,6 @@ public class CommandClassHrvControlV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the HRV_CONTROL_BYPASS_REPORT command.
@@ -429,7 +438,6 @@ public class CommandClassHrvControlV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the HRV_CONTROL_VENTILATION_RATE_SET command.
      * <p>
@@ -476,7 +484,6 @@ public class CommandClassHrvControlV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the HRV_CONTROL_VENTILATION_RATE_GET command.
      * <p>
@@ -509,7 +516,6 @@ public class CommandClassHrvControlV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the HRV_CONTROL_VENTILATION_RATE_REPORT command.
@@ -557,7 +563,6 @@ public class CommandClassHrvControlV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the HRV_CONTROL_MODE_SUPPORTED_GET command.
      * <p>
@@ -591,15 +596,23 @@ public class CommandClassHrvControlV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the HRV_CONTROL_MODE_SUPPORTED_REPORT command.
      * <p>
      * Hrv Control Mode Supported Report
      *
      * @param manualControlSupported {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>BYPASS_OPEN_CLOSE
+     *            <li>BYPASS_AUTO
+     *            <li>MODULATED_BYPASS
+     *            <li>VENTILATION_RATE
+     *            </ul>
      * @param bitMask {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF
      *            <li>DEMAND_AUTOMATIC
@@ -617,24 +630,17 @@ public class CommandClassHrvControlV1 {
         outputData.write(HRV_CONTROL_MODE_SUPPORTED_REPORT);
 
         // Process 'Properties1'
-        int valmanualControlSupported;
-        switch (manualControlSupported) {
-            case "BYPASS_OPEN_CLOSE":
-                valmanualControlSupported = 0;
+        int varManualControlSupported = Integer.MAX_VALUE;
+        for (Integer entry : constantHrvControlModeSupportedReportManualControlSupported.keySet()) {
+            if (constantHrvControlModeSupportedReportManualControlSupported.get(entry).equals(manualControlSupported)) {
+                varManualControlSupported = entry;
                 break;
-            case "BYPASS_AUTO":
-                valmanualControlSupported = 1;
-                break;
-            case "MODULATED_BYPASS":
-                valmanualControlSupported = 2;
-                break;
-            case "VENTILATION_RATE":
-                valmanualControlSupported = 3;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for manualControlSupported: " + manualControlSupported);
+            }
         }
-        outputData.write(valmanualControlSupported & 0x0F);
+        if (varManualControlSupported == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + manualControlSupported + "' for manualControlSupported");
+        }
+        outputData.write(varManualControlSupported & 0x0F);
 
         // Process 'Bit Mask'
         int valBitMask = 0;
@@ -665,7 +671,24 @@ public class CommandClassHrvControlV1 {
      *
      * <ul>
      * <li>MANUAL_CONTROL_SUPPORTED {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>BYPASS_OPEN_CLOSE
+     * <li>BYPASS_AUTO
+     * <li>MODULATED_BYPASS
+     * <li>VENTILATION_RATE
+     * </ul>
      * <li>BIT_MASK {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF
+     * <li>DEMAND_AUTOMATIC
+     * <li>SCHEDULE
+     * <li>ENERGY_SAVINGS_MODE
+     * <li>MANUAL
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -676,22 +699,7 @@ public class CommandClassHrvControlV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch (payload[2] & 0x0F) {
-            case 0x00:
-                response.put("MANUAL_CONTROL_SUPPORTED", "BYPASS_OPEN_CLOSE");
-                break;
-            case 0x01:
-                response.put("MANUAL_CONTROL_SUPPORTED", "BYPASS_AUTO");
-                break;
-            case 0x02:
-                response.put("MANUAL_CONTROL_SUPPORTED", "MODULATED_BYPASS");
-                break;
-            case 0x03:
-                response.put("MANUAL_CONTROL_SUPPORTED", "VENTILATION_RATE");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for MANUAL_CONTROL_SUPPORTED", String.format("0x%02X", 2));
-        }
+        response.put("MANUAL_CONTROL_SUPPORTED", constantHrvControlModeSupportedReportManualControlSupported.get(payload[2] & 0x0F));
 
         // Process 'Bit Mask'
         List<String> responseBitMask = new ArrayList<String>();
@@ -706,5 +714,4 @@ public class CommandClassHrvControlV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

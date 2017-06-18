@@ -83,7 +83,6 @@ public class CommandClassCentralSceneV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CENTRAL_SCENE_SUPPORTED_REPORT command.
      * <p>
@@ -129,7 +128,6 @@ public class CommandClassCentralSceneV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CENTRAL_SCENE_NOTIFICATION command.
@@ -192,5 +190,4 @@ public class CommandClassCentralSceneV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

@@ -46,7 +46,6 @@ public class CommandClassSupervisionV1 {
      */
     public final static int SUPERVISION_REPORT = 0x02;
 
-
     /**
      * Map holding constants for SupervisionReportStatus
      */
@@ -61,8 +60,8 @@ public class CommandClassSupervisionV1 {
      * Map holding constants for SupervisionGetProperties1
      */
     private static Map<Integer, String> constantSupervisionGetProperties1 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SupervisionReportStatus
         constantSupervisionReportStatus.put(0x00, "NO_SUPPORT");
         constantSupervisionReportStatus.put(0xFF, "SUCCESS");
@@ -162,7 +161,6 @@ public class CommandClassSupervisionV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SUPERVISION_REPORT command.
      * <p>
@@ -172,6 +170,7 @@ public class CommandClassSupervisionV1 {
      * @param moreStatusUpdates {@link Boolean}
      * @param status {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NO_SUPPORT
      *            <li>SUCCESS
@@ -226,6 +225,15 @@ public class CommandClassSupervisionV1 {
      * <li>SESSION_ID {@link Integer}
      * <li>MORE_STATUS_UPDATES {@link Boolean}
      * <li>STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NO_SUPPORT
+     * <li>SUCCESS
+     * <li>WORKING
+     * <li>FAIL
+     * <li>BUSY
+     * </ul>
      * <li>DURATION {@link Integer}
      * </ul>
      *
@@ -249,5 +257,4 @@ public class CommandClassSupervisionV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

@@ -41,13 +41,12 @@ public class CommandClassApplicationCapabilityV1 {
      */
     public final static int COMMAND_COMMAND_CLASS_NOT_SUPPORTED = 0x01;
 
-
     /**
      * Map holding constants for CommandCommandClassNotSupportedProperties1
      */
     private static Map<Integer, String> constantCommandCommandClassNotSupportedProperties1 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for CommandCommandClassNotSupportedProperties1
         constantCommandCommandClassNotSupportedProperties1.put(0x80, "DYNAMIC");
     }
@@ -114,5 +113,4 @@ public class CommandClassApplicationCapabilityV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

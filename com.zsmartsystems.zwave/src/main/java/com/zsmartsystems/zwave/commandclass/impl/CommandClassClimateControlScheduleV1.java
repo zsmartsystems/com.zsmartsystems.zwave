@@ -69,7 +69,6 @@ public class CommandClassClimateControlScheduleV1 {
      */
     public final static int SCHEDULE_OVERRIDE_REPORT = 0x08;
 
-
     /**
      * Map holding constants for ScheduleOverrideReportOverrideState
      */
@@ -79,8 +78,8 @@ public class CommandClassClimateControlScheduleV1 {
      * Map holding constants for ScheduleOverrideSetOverrideState
      */
     private static Map<Integer, String> constantScheduleOverrideSetOverrideState = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for ScheduleOverrideReportOverrideState
         constantScheduleOverrideReportOverrideState.put(0x00, "NO_OVERRIDE");
         constantScheduleOverrideReportOverrideState.put(0x01, "TEMPORARY_OVERRIDE");
@@ -174,7 +173,6 @@ public class CommandClassClimateControlScheduleV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SCHEDULE_GET command.
      * <p>
@@ -220,7 +218,6 @@ public class CommandClassClimateControlScheduleV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SCHEDULE_REPORT command.
@@ -304,7 +301,6 @@ public class CommandClassClimateControlScheduleV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SCHEDULE_CHANGED_GET command.
      * <p>
@@ -337,7 +333,6 @@ public class CommandClassClimateControlScheduleV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SCHEDULE_CHANGED_REPORT command.
@@ -385,7 +380,6 @@ public class CommandClassClimateControlScheduleV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SCHEDULE_OVERRIDE_SET command.
      * <p>
@@ -394,6 +388,7 @@ public class CommandClassClimateControlScheduleV1 {
      * @param overrideType {@link Integer}
      * @param overrideState {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NO_OVERRIDE
      *            <li>TEMPORARY_OVERRIDE
@@ -437,6 +432,13 @@ public class CommandClassClimateControlScheduleV1 {
      * <ul>
      * <li>OVERRIDE_TYPE {@link Integer}
      * <li>OVERRIDE_STATE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NO_OVERRIDE
+     * <li>TEMPORARY_OVERRIDE
+     * <li>PERMANENT_OVERRIDE
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -455,7 +457,6 @@ public class CommandClassClimateControlScheduleV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SCHEDULE_OVERRIDE_GET command.
@@ -490,7 +491,6 @@ public class CommandClassClimateControlScheduleV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SCHEDULE_OVERRIDE_REPORT command.
      * <p>
@@ -499,6 +499,7 @@ public class CommandClassClimateControlScheduleV1 {
      * @param overrideType {@link Integer}
      * @param overrideState {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NO_OVERRIDE
      *            <li>TEMPORARY_OVERRIDE
@@ -542,6 +543,13 @@ public class CommandClassClimateControlScheduleV1 {
      * <ul>
      * <li>OVERRIDE_TYPE {@link Integer}
      * <li>OVERRIDE_STATE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NO_OVERRIDE
+     * <li>TEMPORARY_OVERRIDE
+     * <li>PERMANENT_OVERRIDE
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -560,5 +568,4 @@ public class CommandClassClimateControlScheduleV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

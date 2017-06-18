@@ -48,15 +48,6 @@ public class CommandClassRateTblConfigV1 {
 
 
     /**
-     * Map holding constants for RateTblSetProperties1
-     */
-    private static Map<Integer, String> constantRateTblSetProperties1 = new HashMap<Integer, String>();
-    static {
-
-        // Constants for RateTblSetProperties1
-    }
-
-    /**
      * Creates a new message with the RATE_TBL_SET command.
      * <p>
      * Rate Tbl Set
@@ -246,7 +237,6 @@ public class CommandClassRateTblConfigV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the RATE_TBL_REMOVE command.
      * <p>
@@ -311,5 +301,4 @@ public class CommandClassRateTblConfigV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

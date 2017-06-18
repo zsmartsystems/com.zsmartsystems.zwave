@@ -107,5 +107,4 @@ public class CommandClassMeterTblConfigV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

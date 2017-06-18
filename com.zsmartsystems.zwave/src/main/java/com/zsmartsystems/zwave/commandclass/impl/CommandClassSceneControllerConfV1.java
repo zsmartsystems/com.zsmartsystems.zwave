@@ -49,7 +49,6 @@ public class CommandClassSceneControllerConfV1 {
      */
     public final static int SCENE_CONTROLLER_CONF_REPORT = 0x03;
 
-
     /**
      * Map holding constants for SceneControllerConfSetDimmingDuration
      */
@@ -59,8 +58,8 @@ public class CommandClassSceneControllerConfV1 {
      * Map holding constants for SceneControllerConfReportDimmingDuration
      */
     private static Map<Integer, String> constantSceneControllerConfReportDimmingDuration = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SceneControllerConfSetDimmingDuration
         constantSceneControllerConfSetDimmingDuration.put(0x00, "INSTANTLY");
         constantSceneControllerConfSetDimmingDuration.put(0xFF, "FACTORY_DEFAULT");
@@ -78,6 +77,7 @@ public class CommandClassSceneControllerConfV1 {
      * @param sceneId {@link Integer}
      * @param dimmingDuration {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>INSTANTLY
      *            <li>FACTORY_DEFAULT
@@ -124,6 +124,12 @@ public class CommandClassSceneControllerConfV1 {
      * <li>GROUP_ID {@link Integer}
      * <li>SCENE_ID {@link Integer}
      * <li>DIMMING_DURATION {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>INSTANTLY
+     * <li>FACTORY_DEFAULT
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -145,7 +151,6 @@ public class CommandClassSceneControllerConfV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SCENE_CONTROLLER_CONF_GET command.
@@ -193,7 +198,6 @@ public class CommandClassSceneControllerConfV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SCENE_CONTROLLER_CONF_REPORT command.
      * <p>
@@ -203,6 +207,7 @@ public class CommandClassSceneControllerConfV1 {
      * @param sceneId {@link Integer}
      * @param dimmingDuration {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>INSTANTLY
      *            </ul>
@@ -248,6 +253,11 @@ public class CommandClassSceneControllerConfV1 {
      * <li>GROUP_ID {@link Integer}
      * <li>SCENE_ID {@link Integer}
      * <li>DIMMING_DURATION {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>INSTANTLY
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -269,5 +279,4 @@ public class CommandClassSceneControllerConfV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

@@ -113,7 +113,6 @@ public class CommandClassWakeUpV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the WAKE_UP_INTERVAL_GET command.
      * <p>
@@ -146,7 +145,6 @@ public class CommandClassWakeUpV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the WAKE_UP_INTERVAL_REPORT command.
@@ -203,7 +201,6 @@ public class CommandClassWakeUpV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the WAKE_UP_NOTIFICATION command.
      * <p>
@@ -237,7 +234,6 @@ public class CommandClassWakeUpV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the WAKE_UP_NO_MORE_INFORMATION command.
      * <p>
@@ -270,5 +266,4 @@ public class CommandClassWakeUpV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

@@ -50,13 +50,12 @@ public class CommandClassConfigurationV1 {
      */
     public final static int CONFIGURATION_REPORT = 0x06;
 
-
     /**
      * Map holding constants for ConfigurationSetLevel
      */
     private static Map<Integer, String> constantConfigurationSetLevel = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for ConfigurationSetLevel
         constantConfigurationSetLevel.put(0x80, "DEFAULT");
     }
@@ -145,7 +144,6 @@ public class CommandClassConfigurationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CONFIGURATION_GET command.
      * <p>
@@ -191,7 +189,6 @@ public class CommandClassConfigurationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CONFIGURATION_REPORT command.
@@ -270,5 +267,4 @@ public class CommandClassConfigurationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

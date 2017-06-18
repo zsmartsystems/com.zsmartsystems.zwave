@@ -58,27 +58,19 @@ public class CommandClassTransportServiceV2 {
      */
     public final static int COMMAND_SEGMENT_WAIT = 0xF0;
 
-
     /**
      * Map holding constants for CommandSubsequentSegmentProperties2
      */
     private static Map<Integer, String> constantCommandSubsequentSegmentProperties2 = new HashMap<Integer, String>();
 
     /**
-     * Map holding constants for CommandSegmentRequestProperties2
-     */
-    private static Map<Integer, String> constantCommandSegmentRequestProperties2 = new HashMap<Integer, String>();
-
-    /**
      * Map holding constants for CommandFirstSegmentProperties2
      */
     private static Map<Integer, String> constantCommandFirstSegmentProperties2 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for CommandSubsequentSegmentProperties2
         constantCommandSubsequentSegmentProperties2.put(0x08, "EXT");
-
-        // Constants for CommandSegmentRequestProperties2
 
         // Constants for CommandFirstSegmentProperties2
         constantCommandFirstSegmentProperties2.put(0x08, "EXT");
@@ -220,7 +212,6 @@ public class CommandClassTransportServiceV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the COMMAND_SEGMENT_REQUEST command.
      * <p>
@@ -284,7 +275,6 @@ public class CommandClassTransportServiceV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the COMMAND_SUBSEQUENT_SEGMENT command.
@@ -435,7 +425,6 @@ public class CommandClassTransportServiceV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the COMMAND_SEGMENT_COMPLETE command.
      * <p>
@@ -486,7 +475,6 @@ public class CommandClassTransportServiceV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the COMMAND_SEGMENT_WAIT command.
      * <p>
@@ -536,5 +524,4 @@ public class CommandClassTransportServiceV2 {
         // Return the map of processed response data;
         return response;
     }
-
 }

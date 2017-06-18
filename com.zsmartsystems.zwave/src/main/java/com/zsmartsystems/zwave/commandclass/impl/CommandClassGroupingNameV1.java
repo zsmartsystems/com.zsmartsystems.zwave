@@ -127,7 +127,6 @@ public class CommandClassGroupingNameV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the GROUPING_NAME_GET command.
      * <p>
@@ -173,7 +172,6 @@ public class CommandClassGroupingNameV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the GROUPING_NAME_REPORT command.
@@ -249,5 +247,4 @@ public class CommandClassGroupingNameV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

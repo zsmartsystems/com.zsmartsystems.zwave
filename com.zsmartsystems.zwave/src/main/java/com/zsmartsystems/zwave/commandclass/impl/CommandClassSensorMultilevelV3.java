@@ -46,13 +46,12 @@ public class CommandClassSensorMultilevelV3 {
      */
     public final static int SENSOR_MULTILEVEL_REPORT = 0x05;
 
-
     /**
      * Map holding constants for SensorMultilevelReportSensorType
      */
     private static Map<Integer, String> constantSensorMultilevelReportSensorType = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SensorMultilevelReportSensorType
         constantSensorMultilevelReportSensorType.put(0x01, "TEMPERATURE");
         constantSensorMultilevelReportSensorType.put(0x02, "GENERAL_PURPOSE_VALUE");
@@ -109,7 +108,6 @@ public class CommandClassSensorMultilevelV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SENSOR_MULTILEVEL_REPORT command.
      * <p>
@@ -117,6 +115,7 @@ public class CommandClassSensorMultilevelV3 {
      *
      * @param sensorType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>TEMPERATURE
      *            <li>GENERAL_PURPOSE_VALUE
@@ -194,6 +193,30 @@ public class CommandClassSensorMultilevelV3 {
      *
      * <ul>
      * <li>SENSOR_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>TEMPERATURE
+     * <li>GENERAL_PURPOSE_VALUE
+     * <li>LUMINANCE
+     * <li>POWER
+     * <li>RELATIVE_HUMIDITY
+     * <li>VELOCITY
+     * <li>DIRECTION
+     * <li>ATMOSPHERIC_PRESSURE
+     * <li>BAROMETRIC_PRESSURE
+     * <li>SOLAR_RADIATION
+     * <li>DEW_POINT
+     * <li>RAIN_RATE
+     * <li>TIDE_LEVEL
+     * <li>WEIGHT
+     * <li>VOLTAGE
+     * <li>CO2_LEVEL
+     * <li>CURRENT
+     * <li>TANK_CAPACITY
+     * <li>AIR_FLOW
+     * <li>DISTANCE
+     * </ul>
      * <li>SCALE {@link Integer}
      * <li>PRECISION {@link Integer}
      * <li>SENSOR_VALUE {@link byte[]}
@@ -231,5 +254,4 @@ public class CommandClassSensorMultilevelV3 {
         // Return the map of processed response data;
         return response;
     }
-
 }

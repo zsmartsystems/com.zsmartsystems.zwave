@@ -81,7 +81,6 @@ public class CommandClassProtectionV2 {
      */
     public final static int PROTECTION_TIMEOUT_REPORT = 0x0B;
 
-
     /**
      * Map holding constants for ProtectionTimeoutSetTimeout
      */
@@ -96,8 +95,8 @@ public class CommandClassProtectionV2 {
      * Map holding constants for ProtectionSupportedReportLevel
      */
     private static Map<Integer, String> constantProtectionSupportedReportLevel = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for ProtectionTimeoutSetTimeout
         constantProtectionTimeoutSetTimeout.put(0x00, "NO_TIMER_IS_SET");
         constantProtectionTimeoutSetTimeout.put(0xFF, "NO_TIMEOUT");
@@ -165,7 +164,6 @@ public class CommandClassProtectionV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the PROTECTION_GET command.
      * <p>
@@ -198,7 +196,6 @@ public class CommandClassProtectionV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the PROTECTION_REPORT command.
@@ -254,7 +251,6 @@ public class CommandClassProtectionV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the PROTECTION_SUPPORTED_GET command.
      * <p>
@@ -287,7 +283,6 @@ public class CommandClassProtectionV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the PROTECTION_SUPPORTED_REPORT command.
@@ -360,7 +355,6 @@ public class CommandClassProtectionV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the PROTECTION_EC_SET command.
      * <p>
@@ -412,7 +406,6 @@ public class CommandClassProtectionV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the PROTECTION_EC_GET command.
      * <p>
@@ -445,7 +438,6 @@ public class CommandClassProtectionV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the PROTECTION_EC_REPORT command.
@@ -498,7 +490,6 @@ public class CommandClassProtectionV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the PROTECTION_TIMEOUT_SET command.
      * <p>
@@ -506,6 +497,7 @@ public class CommandClassProtectionV2 {
      *
      * @param timeout {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NO_TIMER_IS_SET
      *            <li>NO_TIMEOUT
@@ -544,6 +536,12 @@ public class CommandClassProtectionV2 {
      *
      * <ul>
      * <li>TIMEOUT {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NO_TIMER_IS_SET
+     * <li>NO_TIMEOUT
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -559,7 +557,6 @@ public class CommandClassProtectionV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the PROTECTION_TIMEOUT_GET command.
@@ -594,7 +591,6 @@ public class CommandClassProtectionV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the PROTECTION_TIMEOUT_REPORT command.
      * <p>
@@ -602,6 +598,7 @@ public class CommandClassProtectionV2 {
      *
      * @param timeout {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NO_TIMER_IS_SET
      *            <li>NO_TIMEOUT_IS_SET
@@ -640,6 +637,12 @@ public class CommandClassProtectionV2 {
      *
      * <ul>
      * <li>TIMEOUT {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NO_TIMER_IS_SET
+     * <li>NO_TIMEOUT_IS_SET
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -655,5 +658,4 @@ public class CommandClassProtectionV2 {
         // Return the map of processed response data;
         return response;
     }
-
 }

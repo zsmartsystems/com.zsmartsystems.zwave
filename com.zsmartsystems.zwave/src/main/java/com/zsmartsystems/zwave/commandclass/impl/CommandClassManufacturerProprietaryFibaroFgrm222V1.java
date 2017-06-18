@@ -49,58 +49,15 @@ public class CommandClassManufacturerProprietaryFibaroFgrm222V1 {
      */
     public final static int FGRM222_REPORT = 0x03;
 
-
-    /**
-     * Map holding constants for Fgrm222ReportConstant1
-     */
-    private static Map<Integer, String> constantFgrm222ReportConstant1 = new HashMap<Integer, String>();
-
     /**
      * Map holding constants for Fgrm222SetCommand
      */
     private static Map<Integer, String> constantFgrm222SetCommand = new HashMap<Integer, String>();
 
-    /**
-     * Map holding constants for Fgrm222ReportConstant2
-     */
-    private static Map<Integer, String> constantFgrm222ReportConstant2 = new HashMap<Integer, String>();
-
-    /**
-     * Map holding constants for Fgrm222ReportConstant3
-     */
-    private static Map<Integer, String> constantFgrm222ReportConstant3 = new HashMap<Integer, String>();
-
-    /**
-     * Map holding constants for Fgrm222SetConstant1
-     */
-    private static Map<Integer, String> constantFgrm222SetConstant1 = new HashMap<Integer, String>();
-
-    /**
-     * Map holding constants for Fgrm222SetConstant3
-     */
-    private static Map<Integer, String> constantFgrm222SetConstant3 = new HashMap<Integer, String>();
-
-    /**
-     * Map holding constants for Fgrm222SetConstant2
-     */
-    private static Map<Integer, String> constantFgrm222SetConstant2 = new HashMap<Integer, String>();
     static {
-
-        // Constants for Fgrm222ReportConstant1
-
         // Constants for Fgrm222SetCommand
         constantFgrm222SetCommand.put(0x01, "LAMELLA_POSITION");
         constantFgrm222SetCommand.put(0x02, "SHUTTER_POSITION");
-
-        // Constants for Fgrm222ReportConstant2
-
-        // Constants for Fgrm222ReportConstant3
-
-        // Constants for Fgrm222SetConstant1
-
-        // Constants for Fgrm222SetConstant3
-
-        // Constants for Fgrm222SetConstant2
     }
 
     /**
@@ -110,6 +67,7 @@ public class CommandClassManufacturerProprietaryFibaroFgrm222V1 {
      *
      * @param command {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>LAMELLA_POSITION
      *            <li>SHUTTER_POSITION
@@ -165,6 +123,12 @@ public class CommandClassManufacturerProprietaryFibaroFgrm222V1 {
      *
      * <ul>
      * <li>COMMAND {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>LAMELLA_POSITION
+     * <li>SHUTTER_POSITION
+     * </ul>
      * <li>SHUTTER_POSITION {@link Integer}
      * <li>LAMELLA_POSITION {@link Integer}
      * </ul>
@@ -194,7 +158,6 @@ public class CommandClassManufacturerProprietaryFibaroFgrm222V1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the FGRM222_GET command.
@@ -228,7 +191,6 @@ public class CommandClassManufacturerProprietaryFibaroFgrm222V1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the FGRM222_REPORT command.
@@ -301,5 +263,4 @@ public class CommandClassManufacturerProprietaryFibaroFgrm222V1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

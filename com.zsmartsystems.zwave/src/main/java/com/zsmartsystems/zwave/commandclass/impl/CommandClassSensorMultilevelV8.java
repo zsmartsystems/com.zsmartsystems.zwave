@@ -64,7 +64,6 @@ public class CommandClassSensorMultilevelV8 {
      */
     public final static int SENSOR_MULTILEVEL_SUPPORTED_SCALE_REPORT = 0x06;
 
-
     /**
      * Map holding constants for SensorMultilevelReportSensorType
      */
@@ -89,8 +88,8 @@ public class CommandClassSensorMultilevelV8 {
      * Map holding constants for SensorMultilevelSupportedGetScaleSensorType
      */
     private static Map<Integer, String> constantSensorMultilevelSupportedGetScaleSensorType = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SensorMultilevelReportSensorType
         constantSensorMultilevelReportSensorType.put(0x01, "TEMPERATURE");
         constantSensorMultilevelReportSensorType.put(0x02, "GENERAL_PURPOSE_VALUE");
@@ -410,7 +409,6 @@ public class CommandClassSensorMultilevelV8 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SENSOR_MULTILEVEL_SUPPORTED_SENSOR_REPORT command.
      * <p>
@@ -418,6 +416,7 @@ public class CommandClassSensorMultilevelV8 {
      *
      * @param bitMask {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>AIR_TEMPERATURE
      *            <li>GENERAL_PURPOSE_VALUE
@@ -513,6 +512,65 @@ public class CommandClassSensorMultilevelV8 {
      *
      * <ul>
      * <li>BIT_MASK {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>AIR_TEMPERATURE
+     * <li>GENERAL_PURPOSE_VALUE
+     * <li>LUMINANCE
+     * <li>POWER
+     * <li>HUMIDITY
+     * <li>VELOCITY
+     * <li>DIRECTION
+     * <li>ATMOSPHERIC_PRESSURE
+     * <li>BAROMETRIC_PRESSURE
+     * <li>SOLAR_RADIATION
+     * <li>DEW_POINT
+     * <li>RAIN_RATE
+     * <li>TIDE_LEVEL
+     * <li>WEIGHT
+     * <li>VOLTAGE
+     * <li>CO2_LEVEL
+     * <li>CURRENT
+     * <li>TANK_CAPACITY
+     * <li>AIR_FLOW
+     * <li>ANGLE_POSITION
+     * <li>DISTANCE
+     * <li>WATER_TEMPERATURE
+     * <li>ROTATION
+     * <li>SEISMIC_INTENSITY
+     * <li>SOIL_TEMPERATURE
+     * <li>ULTRAVIOLET
+     * <li>SEISMIC_MAGNITUDE
+     * <li>ELECTRICAL_CONDUCTIVITY
+     * <li>ELECTRICAL_RESISTIVITY
+     * <li>MOISTURE
+     * <li>LOUDNESS
+     * <li>TARGET_TEMPERATURE
+     * <li>PARTICULATE_MATTER_2_5
+     * <li>FREQUENCY
+     * <li>TIME
+     * <li>METHANE_DENSITY_CH4
+     * <li>VOLATILE_ORGANIC_COMPOUND
+     * <li>FORMALDEHYDE_CH2O_LEVEL
+     * <li>RADON_CONCENTRATION
+     * <li>SOIL_REACTIVITY
+     * <li>SOIL_SALINITY
+     * <li>CARBON_MONOXIDE_CO_LEVEL
+     * <li>SOIL_HUMIDITY
+     * <li>MUSCLE_MASS
+     * <li>FAT_MASS
+     * <li>HEART_RATE
+     * <li>BLOOD_PRESSURE
+     * <li>BODY_MASS_INDEX_BMI
+     * <li>BASIC_METABOLIC_RATE_BMR
+     * <li>TOTAL_BODY_WATER_TBW
+     * <li>BONE_MASS
+     * <li>SMOKE_DENSITY
+     * <li>ACCELERATION_Z_AXIS
+     * <li>ACCELERATION_Y_AXIS
+     * <li>ACCELERATION_X_AXIS
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -536,7 +594,6 @@ public class CommandClassSensorMultilevelV8 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SENSOR_MULTILEVEL_SUPPORTED_GET_SCALE command.
      * <p>
@@ -544,6 +601,7 @@ public class CommandClassSensorMultilevelV8 {
      *
      * @param sensorType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>TEMPERATURE
      *            <li>GENERAL_PURPOSE_VALUE
@@ -635,6 +693,65 @@ public class CommandClassSensorMultilevelV8 {
      *
      * <ul>
      * <li>SENSOR_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>TEMPERATURE
+     * <li>GENERAL_PURPOSE_VALUE
+     * <li>LUMINANCE
+     * <li>POWER
+     * <li>RELATIVE_HUMIDITY
+     * <li>VELOCITY
+     * <li>DIRECTION
+     * <li>ATMOSPHERIC_PRESSURE
+     * <li>BAROMETRIC_PRESSURE
+     * <li>SOLAR_RADIATION
+     * <li>DEW_POINT
+     * <li>RAIN_RATE
+     * <li>TIDE_LEVEL
+     * <li>WEIGHT
+     * <li>VOLTAGE
+     * <li>CO2_LEVEL
+     * <li>CURRENT
+     * <li>TANK_CAPACITY
+     * <li>AIR_FLOW
+     * <li>ANGLE_POSITION
+     * <li>DISTANCE
+     * <li>WATER_TEMPERATURE
+     * <li>ROTATION
+     * <li>SEISMIC_INTENSITY
+     * <li>SOIL_TEMPERATURE
+     * <li>ULTRAVIOLET
+     * <li>SEISMIC_MAGNITUDE
+     * <li>ELECTRICAL_CONDUCTIVITY
+     * <li>ELECTRICAL_RESISTIVITY
+     * <li>MOISTURE
+     * <li>LOUDNESS
+     * <li>TARGET_TEMPERATURE
+     * <li>PARTICULATE_MATTER_2_5
+     * <li>FREQUENCY
+     * <li>TIME
+     * <li>METHANE_DENSITY_CH4
+     * <li>VOLATILE_ORGANIC_COMPOUND
+     * <li>FORMALDEHYDE_CH2O_LEVEL
+     * <li>RADON_CONCENTRATION
+     * <li>SOIL_REACTIVITY
+     * <li>SOIL_SALINITY
+     * <li>CARBON_MONOXIDE_CO_LEVEL
+     * <li>SOIL_HUMIDITY
+     * <li>MUSCLE_MASS
+     * <li>FAT_MASS
+     * <li>HEART_RATE
+     * <li>BLOOD_PRESSURE
+     * <li>BODY_MASS_INDEX_BMI
+     * <li>BASIC_METABOLIC_RATE_BMR
+     * <li>TOTAL_BODY_WATER_TBW
+     * <li>BONE_MASS
+     * <li>SMOKE_DENSITY
+     * <li>ACCELERATION_Z_AXIS
+     * <li>ACCELERATION_Y_AXIS
+     * <li>ACCELERATION_X_AXIS
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -651,7 +768,6 @@ public class CommandClassSensorMultilevelV8 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SENSOR_MULTILEVEL_GET command.
      * <p>
@@ -659,6 +775,7 @@ public class CommandClassSensorMultilevelV8 {
      *
      * @param sensorType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>TEMPERATURE
      *            <li>GENERAL_PURPOSE_VALUE
@@ -754,6 +871,65 @@ public class CommandClassSensorMultilevelV8 {
      *
      * <ul>
      * <li>SENSOR_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>TEMPERATURE
+     * <li>GENERAL_PURPOSE_VALUE
+     * <li>LUMINANCE
+     * <li>POWER
+     * <li>RELATIVE_HUMIDITY
+     * <li>VELOCITY
+     * <li>DIRECTION
+     * <li>ATMOSPHERIC_PRESSURE
+     * <li>BAROMETRIC_PRESSURE
+     * <li>SOLAR_RADIATION
+     * <li>DEW_POINT
+     * <li>RAIN_RATE
+     * <li>TIDE_LEVEL
+     * <li>WEIGHT
+     * <li>VOLTAGE
+     * <li>CO2_LEVEL
+     * <li>CURRENT
+     * <li>TANK_CAPACITY
+     * <li>AIR_FLOW
+     * <li>ANGLE_POSITION
+     * <li>DISTANCE
+     * <li>WATER_TEMPERATURE
+     * <li>ROTATION
+     * <li>SEISMIC_INTENSITY
+     * <li>SOIL_TEMPERATURE
+     * <li>ULTRAVIOLET
+     * <li>SEISMIC_MAGNITUDE
+     * <li>ELECTRICAL_CONDUCTIVITY
+     * <li>ELECTRICAL_RESISTIVITY
+     * <li>MOISTURE
+     * <li>LOUDNESS
+     * <li>TARGET_TEMPERATURE
+     * <li>PARTICULATE_MATTER_2_5
+     * <li>FREQUENCY
+     * <li>TIME
+     * <li>METHANE_DENSITY_CH4
+     * <li>VOLATILE_ORGANIC_COMPOUND
+     * <li>FORMALDEHYDE_CH2O_LEVEL
+     * <li>RADON_CONCENTRATION
+     * <li>SOIL_REACTIVITY
+     * <li>SOIL_SALINITY
+     * <li>CARBON_MONOXIDE_CO_LEVEL
+     * <li>SOIL_HUMIDITY
+     * <li>MUSCLE_MASS
+     * <li>FAT_MASS
+     * <li>HEART_RATE
+     * <li>BLOOD_PRESSURE
+     * <li>BODY_MASS_INDEX_BMI
+     * <li>BASIC_METABOLIC_RATE_BMR
+     * <li>TOTAL_BODY_WATER_TBW
+     * <li>BONE_MASS
+     * <li>SMOKE_DENSITY
+     * <li>ACCELERATION_Z_AXIS
+     * <li>ACCELERATION_Y_AXIS
+     * <li>ACCELERATION_X_AXIS
+     * </ul>
      * <li>SCALE {@link Integer}
      * </ul>
      *
@@ -774,7 +950,6 @@ public class CommandClassSensorMultilevelV8 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SENSOR_MULTILEVEL_REPORT command.
      * <p>
@@ -782,6 +957,7 @@ public class CommandClassSensorMultilevelV8 {
      *
      * @param sensorType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>TEMPERATURE
      *            <li>GENERAL_PURPOSE_VALUE
@@ -894,6 +1070,65 @@ public class CommandClassSensorMultilevelV8 {
      *
      * <ul>
      * <li>SENSOR_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>TEMPERATURE
+     * <li>GENERAL_PURPOSE_VALUE
+     * <li>LUMINANCE
+     * <li>POWER
+     * <li>RELATIVE_HUMIDITY
+     * <li>VELOCITY
+     * <li>DIRECTION
+     * <li>ATMOSPHERIC_PRESSURE
+     * <li>BAROMETRIC_PRESSURE
+     * <li>SOLAR_RADIATION
+     * <li>DEW_POINT
+     * <li>RAIN_RATE
+     * <li>TIDE_LEVEL
+     * <li>WEIGHT
+     * <li>VOLTAGE
+     * <li>CO2_LEVEL
+     * <li>CURRENT
+     * <li>TANK_CAPACITY
+     * <li>AIR_FLOW
+     * <li>ANGLE_POSITION
+     * <li>DISTANCE
+     * <li>WATER_TEMPERATURE
+     * <li>ROTATION
+     * <li>SEISMIC_INTENSITY
+     * <li>SOIL_TEMPERATURE
+     * <li>ULTRAVIOLET
+     * <li>SEISMIC_MAGNITUDE
+     * <li>ELECTRICAL_CONDUCTIVITY
+     * <li>ELECTRICAL_RESISTIVITY
+     * <li>MOISTURE
+     * <li>LOUDNESS
+     * <li>TARGET_TEMPERATURE
+     * <li>PARTICULATE_MATTER_2_5
+     * <li>FREQUENCY
+     * <li>TIME
+     * <li>METHANE_DENSITY_CH4
+     * <li>VOLATILE_ORGANIC_COMPOUND
+     * <li>FORMALDEHYDE_CH2O_LEVEL
+     * <li>RADON_CONCENTRATION
+     * <li>SOIL_REACTIVITY
+     * <li>SOIL_SALINITY
+     * <li>CARBON_MONOXIDE_CO_LEVEL
+     * <li>SOIL_HUMIDITY
+     * <li>MUSCLE_MASS
+     * <li>FAT_MASS
+     * <li>HEART_RATE
+     * <li>BLOOD_PRESSURE
+     * <li>BODY_MASS_INDEX_BMI
+     * <li>BASIC_METABOLIC_RATE_BMR
+     * <li>TOTAL_BODY_WATER_TBW
+     * <li>BONE_MASS
+     * <li>SMOKE_DENSITY
+     * <li>ACCELERATION_Z_AXIS
+     * <li>ACCELERATION_Y_AXIS
+     * <li>ACCELERATION_X_AXIS
+     * </ul>
      * <li>SCALE {@link Integer}
      * <li>PRECISION {@link Integer}
      * <li>SENSOR_VALUE {@link byte[]}
@@ -932,7 +1167,6 @@ public class CommandClassSensorMultilevelV8 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SENSOR_MULTILEVEL_SUPPORTED_SCALE_REPORT command.
      * <p>
@@ -940,6 +1174,7 @@ public class CommandClassSensorMultilevelV8 {
      *
      * @param sensorType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>TEMPERATURE
      *            <li>GENERAL_PURPOSE_VALUE
@@ -1035,6 +1270,65 @@ public class CommandClassSensorMultilevelV8 {
      *
      * <ul>
      * <li>SENSOR_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>TEMPERATURE
+     * <li>GENERAL_PURPOSE_VALUE
+     * <li>LUMINANCE
+     * <li>POWER
+     * <li>RELATIVE_HUMIDITY
+     * <li>VELOCITY
+     * <li>DIRECTION
+     * <li>ATMOSPHERIC_PRESSURE
+     * <li>BAROMETRIC_PRESSURE
+     * <li>SOLAR_RADIATION
+     * <li>DEW_POINT
+     * <li>RAIN_RATE
+     * <li>TIDE_LEVEL
+     * <li>WEIGHT
+     * <li>VOLTAGE
+     * <li>CO2_LEVEL
+     * <li>CURRENT
+     * <li>TANK_CAPACITY
+     * <li>AIR_FLOW
+     * <li>ANGLE_POSITION
+     * <li>DISTANCE
+     * <li>WATER_TEMPERATURE
+     * <li>ROTATION
+     * <li>SEISMIC_INTENSITY
+     * <li>SOIL_TEMPERATURE
+     * <li>ULTRAVIOLET
+     * <li>SEISMIC_MAGNITUDE
+     * <li>ELECTRICAL_CONDUCTIVITY
+     * <li>ELECTRICAL_RESISTIVITY
+     * <li>MOISTURE
+     * <li>LOUDNESS
+     * <li>TARGET_TEMPERATURE
+     * <li>PARTICULATE_MATTER_2_5
+     * <li>FREQUENCY
+     * <li>TIME
+     * <li>METHANE_DENSITY_CH4
+     * <li>VOLATILE_ORGANIC_COMPOUND
+     * <li>FORMALDEHYDE_CH2O_LEVEL
+     * <li>RADON_CONCENTRATION
+     * <li>SOIL_REACTIVITY
+     * <li>SOIL_SALINITY
+     * <li>CARBON_MONOXIDE_CO_LEVEL
+     * <li>SOIL_HUMIDITY
+     * <li>MUSCLE_MASS
+     * <li>FAT_MASS
+     * <li>HEART_RATE
+     * <li>BLOOD_PRESSURE
+     * <li>BODY_MASS_INDEX_BMI
+     * <li>BASIC_METABOLIC_RATE_BMR
+     * <li>TOTAL_BODY_WATER_TBW
+     * <li>BONE_MASS
+     * <li>SMOKE_DENSITY
+     * <li>ACCELERATION_Z_AXIS
+     * <li>ACCELERATION_Y_AXIS
+     * <li>ACCELERATION_X_AXIS
+     * </ul>
      * <li>SCALE_BIT_MASK {@link Integer}
      * </ul>
      *
@@ -1054,5 +1348,4 @@ public class CommandClassSensorMultilevelV8 {
         // Return the map of processed response data;
         return response;
     }
-
 }

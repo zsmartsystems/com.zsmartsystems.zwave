@@ -209,7 +209,6 @@ public class CommandClassTariffConfigV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the TARIFF_TBL_SET command.
      * <p>
@@ -275,7 +274,6 @@ public class CommandClassTariffConfigV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the TARIFF_TBL_REMOVE command.
      * <p>
@@ -340,5 +338,4 @@ public class CommandClassTariffConfigV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

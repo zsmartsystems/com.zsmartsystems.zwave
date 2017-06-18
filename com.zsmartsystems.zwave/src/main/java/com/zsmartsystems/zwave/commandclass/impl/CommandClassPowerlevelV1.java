@@ -61,7 +61,6 @@ public class CommandClassPowerlevelV1 {
      */
     public final static int POWERLEVEL_TEST_NODE_REPORT = 0x06;
 
-
     /**
      * Map holding constants for PowerlevelTestNodeReportStatusOfOperation
      */
@@ -86,8 +85,8 @@ public class CommandClassPowerlevelV1 {
      * Map holding constants for PowerlevelSetPowerLevel
      */
     private static Map<Integer, String> constantPowerlevelSetPowerLevel = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for PowerlevelTestNodeReportStatusOfOperation
         constantPowerlevelTestNodeReportStatusOfOperation.put(0x00, "ZW_TEST_FAILED");
         constantPowerlevelTestNodeReportStatusOfOperation.put(0x01, "ZW_TEST_SUCCES");
@@ -140,6 +139,7 @@ public class CommandClassPowerlevelV1 {
      *
      * @param powerLevel {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NORMALPOWER
      *            <li>MINUS1DBM
@@ -190,6 +190,20 @@ public class CommandClassPowerlevelV1 {
      *
      * <ul>
      * <li>POWER_LEVEL {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NORMALPOWER
+     * <li>MINUS1DBM
+     * <li>MINUS2DBM
+     * <li>MINUS3DBM
+     * <li>MINUS4DBM
+     * <li>MINUS5DBM
+     * <li>MINUS6DBM
+     * <li>MINUS7DBM
+     * <li>MINUS8DBM
+     * <li>MINUS9DBM
+     * </ul>
      * <li>TIMEOUT {@link Integer}
      * </ul>
      *
@@ -209,7 +223,6 @@ public class CommandClassPowerlevelV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the POWERLEVEL_GET command.
@@ -244,7 +257,6 @@ public class CommandClassPowerlevelV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the POWERLEVEL_REPORT command.
      * <p>
@@ -252,6 +264,7 @@ public class CommandClassPowerlevelV1 {
      *
      * @param powerLevel {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NORMALPOWER
      *            <li>MINUS1DBM
@@ -302,6 +315,20 @@ public class CommandClassPowerlevelV1 {
      *
      * <ul>
      * <li>POWER_LEVEL {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NORMALPOWER
+     * <li>MINUS1DBM
+     * <li>MINUS2DBM
+     * <li>MINUS3DBM
+     * <li>MINUS4DBM
+     * <li>MINUS5DBM
+     * <li>MINUS6DBM
+     * <li>MINUS7DBM
+     * <li>MINUS8DBM
+     * <li>MINUS9DBM
+     * </ul>
      * <li>TIMEOUT {@link Integer}
      * </ul>
      *
@@ -322,7 +349,6 @@ public class CommandClassPowerlevelV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the POWERLEVEL_TEST_NODE_SET command.
      * <p>
@@ -331,6 +357,7 @@ public class CommandClassPowerlevelV1 {
      * @param testNodeid {@link Integer}
      * @param powerLevel {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NORMALPOWER
      *            <li>MINUS1DBM
@@ -391,6 +418,20 @@ public class CommandClassPowerlevelV1 {
      * <ul>
      * <li>TEST_NODEID {@link Integer}
      * <li>POWER_LEVEL {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NORMALPOWER
+     * <li>MINUS1DBM
+     * <li>MINUS2DBM
+     * <li>MINUS3DBM
+     * <li>MINUS4DBM
+     * <li>MINUS5DBM
+     * <li>MINUS6DBM
+     * <li>MINUS7DBM
+     * <li>MINUS8DBM
+     * <li>MINUS9DBM
+     * </ul>
      * <li>TEST_FRAME_COUNT {@link Integer}
      * </ul>
      *
@@ -413,7 +454,6 @@ public class CommandClassPowerlevelV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the POWERLEVEL_TEST_NODE_GET command.
@@ -448,7 +488,6 @@ public class CommandClassPowerlevelV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the POWERLEVEL_TEST_NODE_REPORT command.
      * <p>
@@ -456,11 +495,13 @@ public class CommandClassPowerlevelV1 {
      *
      * @param testNodeid {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>ZW_TEST_NOT_A_NODEID
      *            </ul>
      * @param statusOfOperation {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>ZW_TEST_FAILED
      *            <li>ZW_TEST_SUCCES
@@ -518,7 +559,19 @@ public class CommandClassPowerlevelV1 {
      *
      * <ul>
      * <li>TEST_NODEID {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>ZW_TEST_NOT_A_NODEID
+     * </ul>
      * <li>STATUS_OF_OPERATION {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>ZW_TEST_FAILED
+     * <li>ZW_TEST_SUCCES
+     * <li>ZW_TEST_INPROGRESS
+     * </ul>
      * <li>TEST_FRAME_COUNT {@link Integer}
      * </ul>
      *
@@ -541,5 +594,4 @@ public class CommandClassPowerlevelV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

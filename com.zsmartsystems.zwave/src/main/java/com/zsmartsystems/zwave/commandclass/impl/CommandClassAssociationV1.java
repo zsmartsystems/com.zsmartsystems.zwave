@@ -131,7 +131,6 @@ public class CommandClassAssociationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ASSOCIATION_GET command.
      * <p>
@@ -177,7 +176,6 @@ public class CommandClassAssociationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the ASSOCIATION_REPORT command.
@@ -266,7 +264,6 @@ public class CommandClassAssociationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ASSOCIATION_REMOVE command.
      * <p>
@@ -335,7 +332,6 @@ public class CommandClassAssociationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ASSOCIATION_GROUPINGS_GET command.
      * <p>
@@ -368,7 +364,6 @@ public class CommandClassAssociationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the ASSOCIATION_GROUPINGS_REPORT command.
@@ -415,5 +410,4 @@ public class CommandClassAssociationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

@@ -59,6 +59,10 @@ public class CommandClassThermostatFanModeV4 {
      */
     public final static int THERMOSTAT_FAN_MODE_SUPPORTED_REPORT = 0x05;
 
+    /**
+     * Map holding constants for ThermostatFanModeSetFanMode
+     */
+    private static Map<Integer, String> constantThermostatFanModeSetFanMode = new HashMap<Integer, String>();
 
     /**
      * Map holding constants for ThermostatFanModeReportProperties1
@@ -74,7 +78,25 @@ public class CommandClassThermostatFanModeV4 {
      * Map holding constants for ThermostatFanModeSetProperties1
      */
     private static Map<Integer, String> constantThermostatFanModeSetProperties1 = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for ThermostatFanModeReportFanMode
+     */
+    private static Map<Integer, String> constantThermostatFanModeReportFanMode = new HashMap<Integer, String>();
+
     static {
+        // Constants for ThermostatFanModeSetFanMode
+        constantThermostatFanModeSetFanMode.put(0x00, "AUTO_LOW");
+        constantThermostatFanModeSetFanMode.put(0x01, "LOW");
+        constantThermostatFanModeSetFanMode.put(0x02, "AUTO_HIGH");
+        constantThermostatFanModeSetFanMode.put(0x03, "HIGH");
+        constantThermostatFanModeSetFanMode.put(0x04, "AUTO_MEDIUM");
+        constantThermostatFanModeSetFanMode.put(0x05, "MEDIUM");
+        constantThermostatFanModeSetFanMode.put(0x06, "CIRCULATION");
+        constantThermostatFanModeSetFanMode.put(0x07, "HUMIDITY");
+        constantThermostatFanModeSetFanMode.put(0x08, "LEFT_RIGHT");
+        constantThermostatFanModeSetFanMode.put(0x09, "UP_DOWN");
+        constantThermostatFanModeSetFanMode.put(0x0A, "QUIET");
 
         // Constants for ThermostatFanModeReportProperties1
         constantThermostatFanModeReportProperties1.put(0x80, "OFF");
@@ -94,6 +116,19 @@ public class CommandClassThermostatFanModeV4 {
 
         // Constants for ThermostatFanModeSetProperties1
         constantThermostatFanModeSetProperties1.put(0x80, "OFF");
+
+        // Constants for ThermostatFanModeReportFanMode
+        constantThermostatFanModeReportFanMode.put(0x00, "AUTO_LOW");
+        constantThermostatFanModeReportFanMode.put(0x01, "LOW");
+        constantThermostatFanModeReportFanMode.put(0x02, "AUTO_HIGH");
+        constantThermostatFanModeReportFanMode.put(0x03, "HIGH");
+        constantThermostatFanModeReportFanMode.put(0x04, "AUTO_MEDIUM");
+        constantThermostatFanModeReportFanMode.put(0x05, "MEDIUM");
+        constantThermostatFanModeReportFanMode.put(0x06, "CIRCULATION");
+        constantThermostatFanModeReportFanMode.put(0x07, "HUMIDITY");
+        constantThermostatFanModeReportFanMode.put(0x08, "LEFT_RIGHT");
+        constantThermostatFanModeReportFanMode.put(0x09, "UP_DOWN");
+        constantThermostatFanModeReportFanMode.put(0x0A, "QUIET");
     }
 
     /**
@@ -102,6 +137,21 @@ public class CommandClassThermostatFanModeV4 {
      * Thermostat Fan Mode Set
      *
      * @param fanMode {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>AUTO_LOW
+     *            <li>LOW
+     *            <li>AUTO_HIGH
+     *            <li>HIGH
+     *            <li>AUTO_MEDIUM
+     *            <li>MEDIUM
+     *            <li>CIRCULATION
+     *            <li>HUMIDITY
+     *            <li>LEFT_RIGHT
+     *            <li>UP_DOWN
+     *            <li>QUIET
+     *            </ul>
      * @param off {@link Boolean}
      * @return the {@link byte[]} array with the command to send
      */
@@ -114,45 +164,17 @@ public class CommandClassThermostatFanModeV4 {
 
         // Process 'Properties1'
         int valProperties1 = 0;
-        int valfanMode;
-        switch (fanMode) {
-            case "AUTO_LOW":
-                valfanMode = 0;
+        int varFanMode = Integer.MAX_VALUE;
+        for (Integer entry : constantThermostatFanModeSetFanMode.keySet()) {
+            if (constantThermostatFanModeSetFanMode.get(entry).equals(fanMode)) {
+                varFanMode = entry;
                 break;
-            case "LOW":
-                valfanMode = 1;
-                break;
-            case "AUTO_HIGH":
-                valfanMode = 2;
-                break;
-            case "HIGH":
-                valfanMode = 3;
-                break;
-            case "AUTO_MEDIUM":
-                valfanMode = 4;
-                break;
-            case "MEDIUM":
-                valfanMode = 5;
-                break;
-            case "CIRCULATION":
-                valfanMode = 6;
-                break;
-            case "HUMIDITY":
-                valfanMode = 7;
-                break;
-            case "LEFT_RIGHT":
-                valfanMode = 8;
-                break;
-            case "UP_DOWN":
-                valfanMode = 9;
-                break;
-            case "QUIET":
-                valfanMode = 10;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for fanMode: " + fanMode);
+            }
         }
-        valProperties1 |= valfanMode & 0x0F;
+        if (varFanMode == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + fanMode + "' for fanMode");
+        }
+        valProperties1 |= varFanMode & 0x0F;
         valProperties1 |= off ? 0x80 : 0;
         outputData.write(valProperties1);
 
@@ -168,6 +190,21 @@ public class CommandClassThermostatFanModeV4 {
      *
      * <ul>
      * <li>FAN_MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>AUTO_LOW
+     * <li>LOW
+     * <li>AUTO_HIGH
+     * <li>HIGH
+     * <li>AUTO_MEDIUM
+     * <li>MEDIUM
+     * <li>CIRCULATION
+     * <li>HUMIDITY
+     * <li>LEFT_RIGHT
+     * <li>UP_DOWN
+     * <li>QUIET
+     * </ul>
      * <li>OFF {@link Boolean}
      * </ul>
      *
@@ -179,49 +216,12 @@ public class CommandClassThermostatFanModeV4 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch (payload[2] & 0x0F) {
-            case 0x00:
-                response.put("FAN_MODE", "AUTO_LOW");
-                break;
-            case 0x01:
-                response.put("FAN_MODE", "LOW");
-                break;
-            case 0x02:
-                response.put("FAN_MODE", "AUTO_HIGH");
-                break;
-            case 0x03:
-                response.put("FAN_MODE", "HIGH");
-                break;
-            case 0x04:
-                response.put("FAN_MODE", "AUTO_MEDIUM");
-                break;
-            case 0x05:
-                response.put("FAN_MODE", "MEDIUM");
-                break;
-            case 0x06:
-                response.put("FAN_MODE", "CIRCULATION");
-                break;
-            case 0x07:
-                response.put("FAN_MODE", "HUMIDITY");
-                break;
-            case 0x08:
-                response.put("FAN_MODE", "LEFT_RIGHT");
-                break;
-            case 0x09:
-                response.put("FAN_MODE", "UP_DOWN");
-                break;
-            case 0x0A:
-                response.put("FAN_MODE", "QUIET");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for FAN_MODE", String.format("0x%02X", 2));
-        }
+        response.put("FAN_MODE", constantThermostatFanModeSetFanMode.get(payload[2] & 0x0F));
         response.put("OFF", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the THERMOSTAT_FAN_MODE_GET command.
@@ -256,13 +256,27 @@ public class CommandClassThermostatFanModeV4 {
         return response;
     }
 
-
     /**
      * Creates a new message with the THERMOSTAT_FAN_MODE_REPORT command.
      * <p>
      * Thermostat Fan Mode Report
      *
      * @param fanMode {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>AUTO_LOW
+     *            <li>LOW
+     *            <li>AUTO_HIGH
+     *            <li>HIGH
+     *            <li>AUTO_MEDIUM
+     *            <li>MEDIUM
+     *            <li>CIRCULATION
+     *            <li>HUMIDITY
+     *            <li>LEFT_RIGHT
+     *            <li>UP_DOWN
+     *            <li>QUIET
+     *            </ul>
      * @param off {@link Boolean}
      * @return the {@link byte[]} array with the command to send
      */
@@ -275,45 +289,17 @@ public class CommandClassThermostatFanModeV4 {
 
         // Process 'Properties1'
         int valProperties1 = 0;
-        int valfanMode;
-        switch (fanMode) {
-            case "AUTO_LOW":
-                valfanMode = 0;
+        int varFanMode = Integer.MAX_VALUE;
+        for (Integer entry : constantThermostatFanModeReportFanMode.keySet()) {
+            if (constantThermostatFanModeReportFanMode.get(entry).equals(fanMode)) {
+                varFanMode = entry;
                 break;
-            case "LOW":
-                valfanMode = 1;
-                break;
-            case "AUTO_HIGH":
-                valfanMode = 2;
-                break;
-            case "HIGH":
-                valfanMode = 3;
-                break;
-            case "AUTO_MEDIUM":
-                valfanMode = 4;
-                break;
-            case "MEDIUM":
-                valfanMode = 5;
-                break;
-            case "CIRCULATION":
-                valfanMode = 6;
-                break;
-            case "HUMIDITY":
-                valfanMode = 7;
-                break;
-            case "LEFT_RIGHT":
-                valfanMode = 8;
-                break;
-            case "UP_DOWN":
-                valfanMode = 9;
-                break;
-            case "QUIET":
-                valfanMode = 10;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for fanMode: " + fanMode);
+            }
         }
-        valProperties1 |= valfanMode & 0x0F;
+        if (varFanMode == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + fanMode + "' for fanMode");
+        }
+        valProperties1 |= varFanMode & 0x0F;
         valProperties1 |= off ? 0x80 : 0;
         outputData.write(valProperties1);
 
@@ -329,6 +315,21 @@ public class CommandClassThermostatFanModeV4 {
      *
      * <ul>
      * <li>FAN_MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>AUTO_LOW
+     * <li>LOW
+     * <li>AUTO_HIGH
+     * <li>HIGH
+     * <li>AUTO_MEDIUM
+     * <li>MEDIUM
+     * <li>CIRCULATION
+     * <li>HUMIDITY
+     * <li>LEFT_RIGHT
+     * <li>UP_DOWN
+     * <li>QUIET
+     * </ul>
      * <li>OFF {@link Boolean}
      * </ul>
      *
@@ -340,49 +341,12 @@ public class CommandClassThermostatFanModeV4 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch (payload[2] & 0x0F) {
-            case 0x00:
-                response.put("FAN_MODE", "AUTO_LOW");
-                break;
-            case 0x01:
-                response.put("FAN_MODE", "LOW");
-                break;
-            case 0x02:
-                response.put("FAN_MODE", "AUTO_HIGH");
-                break;
-            case 0x03:
-                response.put("FAN_MODE", "HIGH");
-                break;
-            case 0x04:
-                response.put("FAN_MODE", "AUTO_MEDIUM");
-                break;
-            case 0x05:
-                response.put("FAN_MODE", "MEDIUM");
-                break;
-            case 0x06:
-                response.put("FAN_MODE", "CIRCULATION");
-                break;
-            case 0x07:
-                response.put("FAN_MODE", "HUMIDITY");
-                break;
-            case 0x08:
-                response.put("FAN_MODE", "LEFT_RIGHT");
-                break;
-            case 0x09:
-                response.put("FAN_MODE", "UP_DOWN");
-                break;
-            case 0x0A:
-                response.put("FAN_MODE", "QUIET");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for FAN_MODE", String.format("0x%02X", 2));
-        }
+        response.put("FAN_MODE", constantThermostatFanModeReportFanMode.get(payload[2] & 0x0F));
         response.put("OFF", Boolean.valueOf((payload[2] & 0x80) != 0));
 
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the THERMOSTAT_FAN_MODE_SUPPORTED_GET command.
@@ -417,7 +381,6 @@ public class CommandClassThermostatFanModeV4 {
         return response;
     }
 
-
     /**
      * Creates a new message with the THERMOSTAT_FAN_MODE_SUPPORTED_REPORT command.
      * <p>
@@ -425,6 +388,7 @@ public class CommandClassThermostatFanModeV4 {
      *
      * @param bitMask {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>AUTO
      *            <li>LOW
@@ -476,6 +440,21 @@ public class CommandClassThermostatFanModeV4 {
      *
      * <ul>
      * <li>BIT_MASK {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>AUTO
+     * <li>LOW
+     * <li>AUTO_HIGH
+     * <li>HIGH
+     * <li>AUTO_MEDIUM
+     * <li>MEDIUM
+     * <li>CIRCULATION
+     * <li>HUMIDITY_CIRCULATION
+     * <li>LEFT_RIGHT
+     * <li>UP_DOWN
+     * <li>QUIET
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -498,5 +477,4 @@ public class CommandClassThermostatFanModeV4 {
         // Return the map of processed response data;
         return response;
     }
-
 }

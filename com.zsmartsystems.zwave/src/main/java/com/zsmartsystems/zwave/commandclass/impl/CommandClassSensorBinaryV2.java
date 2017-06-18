@@ -55,7 +55,6 @@ public class CommandClassSensorBinaryV2 {
      */
     public final static int SENSOR_BINARY_SUPPORTED_SENSOR_REPORT = 0x04;
 
-
     /**
      * Map holding constants for SensorBinaryReportSensorType
      */
@@ -75,8 +74,8 @@ public class CommandClassSensorBinaryV2 {
      * Map holding constants for SensorBinarySupportedSensorReportBitMask
      */
     private static Map<Integer, String> constantSensorBinarySupportedSensorReportBitMask = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SensorBinaryReportSensorType
         constantSensorBinaryReportSensorType.put(0x01, "GENERAL");
         constantSensorBinaryReportSensorType.put(0x02, "SMOKE");
@@ -160,7 +159,6 @@ public class CommandClassSensorBinaryV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SENSOR_BINARY_GET command.
      * <p>
@@ -168,6 +166,7 @@ public class CommandClassSensorBinaryV2 {
      *
      * @param sensorType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>GENERAL
      *            <li>SMOKE
@@ -217,6 +216,23 @@ public class CommandClassSensorBinaryV2 {
      *
      * <ul>
      * <li>SENSOR_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>GENERAL
+     * <li>SMOKE
+     * <li>CO
+     * <li>CO2
+     * <li>HEAT
+     * <li>WATER
+     * <li>FREEZE
+     * <li>TAMPER
+     * <li>AUX
+     * <li>DOOR_WINDOW
+     * <li>TILT
+     * <li>MOTION
+     * <li>GLASS_BREAK
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -233,7 +249,6 @@ public class CommandClassSensorBinaryV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SENSOR_BINARY_REPORT command.
      * <p>
@@ -241,12 +256,14 @@ public class CommandClassSensorBinaryV2 {
      *
      * @param sensorValue {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>IDLE
      *            <li>DETECTED_AN_EVENT
      *            </ul>
      * @param sensorType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>GENERAL
      *            <li>SMOKE
@@ -309,7 +326,30 @@ public class CommandClassSensorBinaryV2 {
      *
      * <ul>
      * <li>SENSOR_VALUE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>IDLE
+     * <li>DETECTED_AN_EVENT
+     * </ul>
      * <li>SENSOR_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>GENERAL
+     * <li>SMOKE
+     * <li>CO
+     * <li>CO2
+     * <li>HEAT
+     * <li>WATER
+     * <li>FREEZE
+     * <li>TAMPER
+     * <li>AUX
+     * <li>DOOR_WINDOW
+     * <li>TILT
+     * <li>MOTION
+     * <li>GLASS_BREAK
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -329,7 +369,6 @@ public class CommandClassSensorBinaryV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SENSOR_BINARY_SUPPORTED_SENSOR_REPORT command.
      * <p>
@@ -337,6 +376,7 @@ public class CommandClassSensorBinaryV2 {
      *
      * @param bitMask {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>GENERAL
      *            <li>SMOKE
@@ -390,6 +430,23 @@ public class CommandClassSensorBinaryV2 {
      *
      * <ul>
      * <li>BIT_MASK {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>GENERAL
+     * <li>SMOKE
+     * <li>CO
+     * <li>CO2
+     * <li>HEAT
+     * <li>WATER
+     * <li>FREEZE
+     * <li>TAMPER
+     * <li>AUX
+     * <li>DOOR_WINDOW
+     * <li>TILT
+     * <li>MOTION
+     * <li>GLASS_BREAK
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -412,5 +469,4 @@ public class CommandClassSensorBinaryV2 {
         // Return the map of processed response data;
         return response;
     }
-
 }

@@ -58,11 +58,15 @@ public class CommandClassMeterV4 {
      */
     public final static int METER_RESET = 0x05;
 
-
     /**
      * Map holding constants for MeterSupportedReportProperties1
      */
     private static Map<Integer, String> constantMeterSupportedReportProperties1 = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for MeterSupportedReportRateType
+     */
+    private static Map<Integer, String> constantMeterSupportedReportRateType = new HashMap<Integer, String>();
 
     /**
      * Map holding constants for MeterSupportedReportProperties2
@@ -70,19 +74,64 @@ public class CommandClassMeterV4 {
     private static Map<Integer, String> constantMeterSupportedReportProperties2 = new HashMap<Integer, String>();
 
     /**
+     * Map holding constants for MeterGetRateType
+     */
+    private static Map<Integer, String> constantMeterGetRateType = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for MeterReportRateType
+     */
+    private static Map<Integer, String> constantMeterReportRateType = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for MeterSupportedReportMeterType
+     */
+    private static Map<Integer, String> constantMeterSupportedReportMeterType = new HashMap<Integer, String>();
+
+    /**
      * Map holding constants for MeterReportProperties1
      */
     private static Map<Integer, String> constantMeterReportProperties1 = new HashMap<Integer, String>();
-    static {
 
+    /**
+     * Map holding constants for MeterReportMeterType
+     */
+    private static Map<Integer, String> constantMeterReportMeterType = new HashMap<Integer, String>();
+
+    static {
         // Constants for MeterSupportedReportProperties1
         constantMeterSupportedReportProperties1.put(0x80, "METER_RESET");
+
+        // Constants for MeterSupportedReportRateType
+        constantMeterSupportedReportRateType.put(0x00, "IMPORT_ONLY");
+        constantMeterSupportedReportRateType.put(0x01, "EXPORT_ONLY");
+        constantMeterSupportedReportRateType.put(0x02, "IMPORT_AND_EXPORT");
 
         // Constants for MeterSupportedReportProperties2
         constantMeterSupportedReportProperties2.put(0x80, "M_S_T");
 
+        // Constants for MeterGetRateType
+        constantMeterGetRateType.put(0x00, "IMPORT");
+        constantMeterGetRateType.put(0x01, "EXPORT");
+        constantMeterGetRateType.put(0x02, "NOT_TO_BE_USED");
+
+        // Constants for MeterReportRateType
+        constantMeterReportRateType.put(0x00, "IMPORT");
+        constantMeterReportRateType.put(0x01, "EXPORT");
+        constantMeterReportRateType.put(0x02, "NOT_TO_BE_USED");
+
+        // Constants for MeterSupportedReportMeterType
+        constantMeterSupportedReportMeterType.put(0x00, "ELECTRIC_METER");
+        constantMeterSupportedReportMeterType.put(0x01, "GAS_METER");
+        constantMeterSupportedReportMeterType.put(0x02, "WATER_METER");
+
         // Constants for MeterReportProperties1
         constantMeterReportProperties1.put(0x80, "SCALE_BIT_2");
+
+        // Constants for MeterReportMeterType
+        constantMeterReportMeterType.put(0x00, "ELECTRIC_METER");
+        constantMeterReportMeterType.put(0x01, "GAS_METER");
+        constantMeterReportMeterType.put(0x02, "WATER_METER");
     }
 
     /**
@@ -92,6 +141,13 @@ public class CommandClassMeterV4 {
      *
      * @param scale {@link Integer}
      * @param rateType {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>IMPORT
+     *            <li>EXPORT
+     *            <li>NOT_TO_BE_USED
+     *            </ul>
      * @param scale2 {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */
@@ -105,21 +161,17 @@ public class CommandClassMeterV4 {
         // Process 'Properties1'
         int valProperties1 = 0;
         valProperties1 |= ((scale << 3) & 0x38);
-        int valrateType;
-        switch (rateType) {
-            case "IMPORT":
-                valrateType = 1;
+        int varRateType = Integer.MAX_VALUE;
+        for (Integer entry : constantMeterGetRateType.keySet()) {
+            if (constantMeterGetRateType.get(entry).equals(rateType)) {
+                varRateType = entry;
                 break;
-            case "EXPORT":
-                valrateType = 2;
-                break;
-            case "NOT_TO_BE_USED":
-                valrateType = 3;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for rateType: " + rateType);
+            }
         }
-        valProperties1 |= valrateType >> 6 & 0xC0;
+        if (varRateType == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + rateType + "' for rateType");
+        }
+        valProperties1 |= varRateType << 6 & 0xC0;
         outputData.write(valProperties1);
 
         // Process 'Scale 2'
@@ -138,6 +190,13 @@ public class CommandClassMeterV4 {
      * <ul>
      * <li>SCALE {@link Integer}
      * <li>RATE_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>IMPORT
+     * <li>EXPORT
+     * <li>NOT_TO_BE_USED
+     * </ul>
      * <li>SCALE_2 {@link Integer}
      * </ul>
      *
@@ -150,19 +209,7 @@ public class CommandClassMeterV4 {
 
         // Process 'Properties1'
         response.put("SCALE", Integer.valueOf(payload[2] & 0x38 >> 3));
-        switch ((payload[2] & 0xC0) >> 6) {
-            case 0x01:
-                response.put("RATE_TYPE", "IMPORT");
-                break;
-            case 0x02:
-                response.put("RATE_TYPE", "EXPORT");
-                break;
-            case 0x03:
-                response.put("RATE_TYPE", "NOT_TO_BE_USED");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for RATE_TYPE", String.format("0x%02X", 2));
-        }
+        response.put("RATE_TYPE", constantMeterGetRateType.get((payload[2] & 0xC0) >> 6));
 
         // Process 'Scale 2'
         response.put("SCALE_2", Integer.valueOf(payload[3]));
@@ -171,14 +218,27 @@ public class CommandClassMeterV4 {
         return response;
     }
 
-
     /**
      * Creates a new message with the METER_REPORT command.
      * <p>
      * Meter Report
      *
      * @param meterType {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>ELECTRIC_METER
+     *            <li>GAS_METER
+     *            <li>WATER_METER
+     *            </ul>
      * @param rateType {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>IMPORT
+     *            <li>EXPORT
+     *            <li>NOT_TO_BE_USED
+     *            </ul>
      * @param scaleBit2 {@link Boolean}
      * @param scaleBits10 {@link Integer}
      * @param precision {@link Integer}
@@ -198,36 +258,28 @@ public class CommandClassMeterV4 {
 
         // Process 'Properties1'
         int valProperties1 = 0;
-        int valmeterType;
-        switch (meterType) {
-            case "ELECTRIC_METER":
-                valmeterType = 1;
+        int varMeterType = Integer.MAX_VALUE;
+        for (Integer entry : constantMeterReportMeterType.keySet()) {
+            if (constantMeterReportMeterType.get(entry).equals(meterType)) {
+                varMeterType = entry;
                 break;
-            case "GAS_METER":
-                valmeterType = 2;
-                break;
-            case "WATER_METER":
-                valmeterType = 3;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for meterType: " + meterType);
+            }
         }
-        valProperties1 |= valmeterType & 0x1F;
-        int valrateType;
-        switch (rateType) {
-            case "IMPORT":
-                valrateType = 1;
-                break;
-            case "EXPORT":
-                valrateType = 2;
-                break;
-            case "NOT_TO_BE_USED":
-                valrateType = 3;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for rateType: " + rateType);
+        if (varMeterType == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + meterType + "' for meterType");
         }
-        valProperties1 |= valrateType >> 5 & 0x60;
+        valProperties1 |= varMeterType & 0x1F;
+        int varRateType = Integer.MAX_VALUE;
+        for (Integer entry : constantMeterReportRateType.keySet()) {
+            if (constantMeterReportRateType.get(entry).equals(rateType)) {
+                varRateType = entry;
+                break;
+            }
+        }
+        if (varRateType == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + rateType + "' for rateType");
+        }
+        valProperties1 |= varRateType << 5 & 0x60;
         valProperties1 |= scaleBit2 ? 0x80 : 0;
         outputData.write(valProperties1);
 
@@ -275,7 +327,21 @@ public class CommandClassMeterV4 {
      *
      * <ul>
      * <li>METER_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>ELECTRIC_METER
+     * <li>GAS_METER
+     * <li>WATER_METER
+     * </ul>
      * <li>RATE_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>IMPORT
+     * <li>EXPORT
+     * <li>NOT_TO_BE_USED
+     * </ul>
      * <li>SCALE_BIT_2 {@link Boolean}
      * <li>SCALE_BITS_10 {@link Integer}
      * <li>PRECISION {@link Integer}
@@ -296,32 +362,8 @@ public class CommandClassMeterV4 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        switch (payload[msgOffset] & 0x1F) {
-            case 0x01:
-                response.put("METER_TYPE", "ELECTRIC_METER");
-                break;
-            case 0x02:
-                response.put("METER_TYPE", "GAS_METER");
-                break;
-            case 0x03:
-                response.put("METER_TYPE", "WATER_METER");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for METER_TYPE", String.format("0x%02X", msgOffset));
-        }
-        switch ((payload[msgOffset] & 0x60) >> 5) {
-            case 0x01:
-                response.put("RATE_TYPE", "IMPORT");
-                break;
-            case 0x02:
-                response.put("RATE_TYPE", "EXPORT");
-                break;
-            case 0x03:
-                response.put("RATE_TYPE", "NOT_TO_BE_USED");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for RATE_TYPE", String.format("0x%02X", msgOffset));
-        }
+        response.put("METER_TYPE", constantMeterReportMeterType.get(payload[msgOffset] & 0x1F));
+        response.put("RATE_TYPE", constantMeterReportRateType.get((payload[msgOffset] & 0x60) >> 5));
         response.put("SCALE_BIT_2", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
@@ -362,7 +404,6 @@ public class CommandClassMeterV4 {
         return response;
     }
 
-
     /**
      * Creates a new message with the METER_SUPPORTED_GET command.
      * <p>
@@ -396,14 +437,27 @@ public class CommandClassMeterV4 {
         return response;
     }
 
-
     /**
      * Creates a new message with the METER_SUPPORTED_REPORT command.
      * <p>
      * Meter Supported Report
      *
      * @param meterType {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>ELECTRIC_METER
+     *            <li>GAS_METER
+     *            <li>WATER_METER
+     *            </ul>
      * @param rateType {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>IMPORT_ONLY
+     *            <li>EXPORT_ONLY
+     *            <li>IMPORT_AND_EXPORT
+     *            </ul>
      * @param meterReset {@link Boolean}
      * @param scaleSupported0 {@link Integer}
      * @param mST {@link Boolean}
@@ -421,36 +475,28 @@ public class CommandClassMeterV4 {
 
         // Process 'Properties1'
         int valProperties1 = 0;
-        int valmeterType;
-        switch (meterType) {
-            case "ELECTRIC_METER":
-                valmeterType = 1;
+        int varMeterType = Integer.MAX_VALUE;
+        for (Integer entry : constantMeterSupportedReportMeterType.keySet()) {
+            if (constantMeterSupportedReportMeterType.get(entry).equals(meterType)) {
+                varMeterType = entry;
                 break;
-            case "GAS_METER":
-                valmeterType = 2;
-                break;
-            case "WATER_METER":
-                valmeterType = 3;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for meterType: " + meterType);
+            }
         }
-        valProperties1 |= valmeterType & 0x1F;
-        int valrateType;
-        switch (rateType) {
-            case "IMPORT_ONLY":
-                valrateType = 1;
-                break;
-            case "EXPORT_ONLY":
-                valrateType = 2;
-                break;
-            case "IMPORT_AND_EXPORT":
-                valrateType = 3;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for rateType: " + rateType);
+        if (varMeterType == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + meterType + "' for meterType");
         }
-        valProperties1 |= valrateType >> 5 & 0x60;
+        valProperties1 |= varMeterType & 0x1F;
+        int varRateType = Integer.MAX_VALUE;
+        for (Integer entry : constantMeterSupportedReportRateType.keySet()) {
+            if (constantMeterSupportedReportRateType.get(entry).equals(rateType)) {
+                varRateType = entry;
+                break;
+            }
+        }
+        if (varRateType == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + rateType + "' for rateType");
+        }
+        valProperties1 |= varRateType << 5 & 0x60;
         valProperties1 |= meterReset ? 0x80 : 0;
         outputData.write(valProperties1);
 
@@ -483,7 +529,21 @@ public class CommandClassMeterV4 {
      *
      * <ul>
      * <li>METER_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>ELECTRIC_METER
+     * <li>GAS_METER
+     * <li>WATER_METER
+     * </ul>
      * <li>RATE_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>IMPORT_ONLY
+     * <li>EXPORT_ONLY
+     * <li>IMPORT_AND_EXPORT
+     * </ul>
      * <li>METER_RESET {@link Boolean}
      * <li>SCALE_SUPPORTED_0 {@link Integer}
      * <li>M_S_T {@link Boolean}
@@ -502,32 +562,8 @@ public class CommandClassMeterV4 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        switch (payload[msgOffset] & 0x1F) {
-            case 0x01:
-                response.put("METER_TYPE", "ELECTRIC_METER");
-                break;
-            case 0x02:
-                response.put("METER_TYPE", "GAS_METER");
-                break;
-            case 0x03:
-                response.put("METER_TYPE", "WATER_METER");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for METER_TYPE", String.format("0x%02X", msgOffset));
-        }
-        switch ((payload[msgOffset] & 0x60) >> 5) {
-            case 0x01:
-                response.put("RATE_TYPE", "IMPORT_ONLY");
-                break;
-            case 0x02:
-                response.put("RATE_TYPE", "EXPORT_ONLY");
-                break;
-            case 0x03:
-                response.put("RATE_TYPE", "IMPORT_AND_EXPORT");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for RATE_TYPE", String.format("0x%02X", msgOffset));
-        }
+        response.put("METER_TYPE", constantMeterSupportedReportMeterType.get(payload[msgOffset] & 0x1F));
+        response.put("RATE_TYPE", constantMeterSupportedReportRateType.get((payload[msgOffset] & 0x60) >> 5));
         response.put("METER_RESET", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
@@ -552,7 +588,6 @@ public class CommandClassMeterV4 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the METER_RESET command.
@@ -586,5 +621,4 @@ public class CommandClassMeterV4 {
         // Return the map of processed response data;
         return response;
     }
-
 }

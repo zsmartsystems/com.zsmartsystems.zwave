@@ -91,7 +91,6 @@ public class CommandClassZipGatewayV1 {
      */
     public final static int COMMAND_APPLICATION_NODE_INFO_REPORT = 0x0D;
 
-
     /**
      * Map holding constants for GatewayLockSetProperties1
      */
@@ -116,8 +115,8 @@ public class CommandClassZipGatewayV1 {
      * Map holding constants for CommandApplicationNodeInfoReportSecurityScheme0Mark
      */
     private static Map<Integer, String> constantCommandApplicationNodeInfoReportSecurityScheme0Mark = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for GatewayLockSetProperties1
         constantGatewayLockSetProperties1.put(0x01, "LOCK");
         constantGatewayLockSetProperties1.put(0x02, "SHOW");
@@ -146,6 +145,7 @@ public class CommandClassZipGatewayV1 {
      *
      * @param mode {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>STAND_ALONE
      *            <li>PORTAL
@@ -184,6 +184,12 @@ public class CommandClassZipGatewayV1 {
      *
      * <ul>
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>STAND_ALONE
+     * <li>PORTAL
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -199,7 +205,6 @@ public class CommandClassZipGatewayV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the GATEWAY_MODE_GET command.
@@ -234,7 +239,6 @@ public class CommandClassZipGatewayV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the GATEWAY_MODE_REPORT command.
      * <p>
@@ -242,6 +246,7 @@ public class CommandClassZipGatewayV1 {
      *
      * @param mode {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>STAND_ALONE
      *            <li>PORTAL
@@ -280,6 +285,12 @@ public class CommandClassZipGatewayV1 {
      *
      * <ul>
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>STAND_ALONE
+     * <li>PORTAL
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -295,7 +306,6 @@ public class CommandClassZipGatewayV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the GATEWAY_PEER_SET command.
@@ -407,7 +417,6 @@ public class CommandClassZipGatewayV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the GATEWAY_PEER_GET command.
      * <p>
@@ -453,7 +462,6 @@ public class CommandClassZipGatewayV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the GATEWAY_PEER_REPORT command.
@@ -575,7 +583,6 @@ public class CommandClassZipGatewayV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the GATEWAY_LOCK_SET command.
      * <p>
@@ -627,7 +634,6 @@ public class CommandClassZipGatewayV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the UNSOLICITED_DESTINATION_SET command.
@@ -698,7 +704,6 @@ public class CommandClassZipGatewayV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the UNSOLICITED_DESTINATION_GET command.
      * <p>
@@ -731,7 +736,6 @@ public class CommandClassZipGatewayV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the UNSOLICITED_DESTINATION_REPORT command.
@@ -801,7 +805,6 @@ public class CommandClassZipGatewayV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the COMMAND_APPLICATION_NODE_INFO_SET command.
@@ -892,7 +895,6 @@ public class CommandClassZipGatewayV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the COMMAND_APPLICATION_NODE_INFO_GET command.
      * <p>
@@ -925,7 +927,6 @@ public class CommandClassZipGatewayV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the COMMAND_APPLICATION_NODE_INFO_REPORT command.
@@ -1015,5 +1016,4 @@ public class CommandClassZipGatewayV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

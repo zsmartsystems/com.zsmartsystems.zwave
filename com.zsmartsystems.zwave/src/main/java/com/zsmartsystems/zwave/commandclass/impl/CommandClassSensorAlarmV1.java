@@ -54,7 +54,6 @@ public class CommandClassSensorAlarmV1 {
      */
     public final static int SENSOR_ALARM_SUPPORTED_REPORT = 0x04;
 
-
     /**
      * Map holding constants for SensorAlarmGetSensorType
      */
@@ -69,8 +68,8 @@ public class CommandClassSensorAlarmV1 {
      * Map holding constants for SensorAlarmReportSensorState
      */
     private static Map<Integer, String> constantSensorAlarmReportSensorState = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SensorAlarmGetSensorType
         constantSensorAlarmGetSensorType.put(0x00, "GENERAL_PURPOSE_ALARM");
         constantSensorAlarmGetSensorType.put(0xFF, "RETURN_FIRST_ALARM_ON_SUPPORTED_LIST");
@@ -101,6 +100,7 @@ public class CommandClassSensorAlarmV1 {
      *
      * @param sensorType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>GENERAL_PURPOSE_ALARM
      *            <li>RETURN_FIRST_ALARM_ON_SUPPORTED_LIST
@@ -144,6 +144,17 @@ public class CommandClassSensorAlarmV1 {
      *
      * <ul>
      * <li>SENSOR_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>GENERAL_PURPOSE_ALARM
+     * <li>RETURN_FIRST_ALARM_ON_SUPPORTED_LIST
+     * <li>SMOKE_ALARM
+     * <li>CO_ALARM
+     * <li>CO2_ALARM
+     * <li>HEAT_ALARM
+     * <li>WATER_LEAK_ALARM
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -160,7 +171,6 @@ public class CommandClassSensorAlarmV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SENSOR_ALARM_REPORT command.
      * <p>
@@ -169,6 +179,7 @@ public class CommandClassSensorAlarmV1 {
      * @param sourceNodeId {@link Integer}
      * @param sensorType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>GENERAL_PURPOSE_ALARM
      *            <li>RETURN_FIRST_ALARM_ON_SUPPORTED_LIST
@@ -180,6 +191,7 @@ public class CommandClassSensorAlarmV1 {
      *            </ul>
      * @param sensorState {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NO_ALARM
      *            <li>ALARM
@@ -246,7 +258,24 @@ public class CommandClassSensorAlarmV1 {
      * <ul>
      * <li>SOURCE_NODE_ID {@link Integer}
      * <li>SENSOR_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>GENERAL_PURPOSE_ALARM
+     * <li>RETURN_FIRST_ALARM_ON_SUPPORTED_LIST
+     * <li>SMOKE_ALARM
+     * <li>CO_ALARM
+     * <li>CO2_ALARM
+     * <li>HEAT_ALARM
+     * <li>WATER_LEAK_ALARM
+     * </ul>
      * <li>SENSOR_STATE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NO_ALARM
+     * <li>ALARM
+     * </ul>
      * <li>SECONDS {@link Integer}
      * </ul>
      *
@@ -272,7 +301,6 @@ public class CommandClassSensorAlarmV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SENSOR_ALARM_SUPPORTED_GET command.
@@ -306,7 +334,6 @@ public class CommandClassSensorAlarmV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SENSOR_ALARM_SUPPORTED_REPORT command.
@@ -371,5 +398,4 @@ public class CommandClassSensorAlarmV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

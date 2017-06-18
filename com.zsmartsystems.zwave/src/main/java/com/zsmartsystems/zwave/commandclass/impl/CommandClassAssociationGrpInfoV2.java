@@ -64,8 +64,6 @@ public class CommandClassAssociationGrpInfoV2 {
      */
     public final static int ASSOCIATION_GROUP_COMMAND_LIST_REPORT = 0x06;
 
-
-
     /**
      * Map holding constants for AssociationGroupInfoReportProfile1
      */
@@ -85,8 +83,8 @@ public class CommandClassAssociationGrpInfoV2 {
      * Map holding constants for AssociationGroupInfoGetProperties1
      */
     private static Map<Integer, String> constantAssociationGroupInfoGetProperties1 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for AssociationGroupInfoReportProfile1
         constantAssociationGroupInfoReportProfile1.put(0x00, "PROFILE_GENERAL");
         constantAssociationGroupInfoReportProfile1.put(0x32, "PROFILE_METER");
@@ -151,7 +149,6 @@ public class CommandClassAssociationGrpInfoV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the ASSOCIATION_GROUP_NAME_REPORT command.
@@ -231,7 +228,6 @@ public class CommandClassAssociationGrpInfoV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ASSOCIATION_GROUP_INFO_GET command.
      * <p>
@@ -291,7 +287,6 @@ public class CommandClassAssociationGrpInfoV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the ASSOCIATION_GROUP_INFO_REPORT command.
@@ -385,7 +380,6 @@ public class CommandClassAssociationGrpInfoV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ASSOCIATION_GROUP_COMMAND_LIST_GET command.
      * <p>
@@ -439,7 +433,6 @@ public class CommandClassAssociationGrpInfoV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the ASSOCIATION_GROUP_COMMAND_LIST_REPORT command.
@@ -519,5 +512,4 @@ public class CommandClassAssociationGrpInfoV2 {
         // Return the map of processed response data;
         return response;
     }
-
 }

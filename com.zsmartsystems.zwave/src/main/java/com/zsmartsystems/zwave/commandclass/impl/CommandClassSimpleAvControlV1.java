@@ -144,7 +144,6 @@ public class CommandClassSimpleAvControlV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SIMPLE_AV_CONTROL_GET command.
      * <p>
@@ -177,7 +176,6 @@ public class CommandClassSimpleAvControlV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SIMPLE_AV_CONTROL_REPORT command.
@@ -225,7 +223,6 @@ public class CommandClassSimpleAvControlV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SIMPLE_AV_CONTROL_SUPPORTED_GET command.
      * <p>
@@ -271,7 +268,6 @@ public class CommandClassSimpleAvControlV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SIMPLE_AV_CONTROL_SUPPORTED_REPORT command.
@@ -343,5 +339,4 @@ public class CommandClassSimpleAvControlV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

@@ -110,7 +110,6 @@ public class CommandClassProprietaryV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the PROPRIETARY_GET command.
      * <p>
@@ -170,7 +169,6 @@ public class CommandClassProprietaryV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the PROPRIETARY_REPORT command.
      * <p>
@@ -229,5 +227,4 @@ public class CommandClassProprietaryV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

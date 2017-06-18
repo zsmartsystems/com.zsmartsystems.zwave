@@ -79,7 +79,6 @@ public class CommandClassAvContentSearchMdV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the AV_CONTENT_SEARCH_MD_REPORT command.
      * <p>
@@ -112,5 +111,4 @@ public class CommandClassAvContentSearchMdV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

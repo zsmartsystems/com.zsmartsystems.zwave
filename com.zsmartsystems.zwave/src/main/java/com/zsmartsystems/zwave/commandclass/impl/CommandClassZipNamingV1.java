@@ -122,7 +122,6 @@ public class CommandClassZipNamingV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ZIP_NAMING_NAME_GET command.
      * <p>
@@ -155,7 +154,6 @@ public class CommandClassZipNamingV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the ZIP_NAMING_NAME_REPORT command.
@@ -216,7 +214,6 @@ public class CommandClassZipNamingV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ZIP_NAMING_LOCATION_SET command.
      * <p>
@@ -276,7 +273,6 @@ public class CommandClassZipNamingV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ZIP_NAMING_LOCATION_GET command.
      * <p>
@@ -309,7 +305,6 @@ public class CommandClassZipNamingV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the ZIP_NAMING_LOCATION_REPORT command.
@@ -369,5 +364,4 @@ public class CommandClassZipNamingV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

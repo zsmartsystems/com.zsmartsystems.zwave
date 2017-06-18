@@ -49,7 +49,6 @@ public class CommandClassMeterTblPushV1 {
      */
     public final static int METER_TBL_PUSH_CONFIGURATION_REPORT = 0x03;
 
-
     /**
      * Map holding constants for MeterTblPushConfigurationReportProperties1
      */
@@ -59,8 +58,8 @@ public class CommandClassMeterTblPushV1 {
      * Map holding constants for MeterTblPushConfigurationSetProperties1
      */
     private static Map<Integer, String> constantMeterTblPushConfigurationSetProperties1 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for MeterTblPushConfigurationReportProperties1
         constantMeterTblPushConfigurationReportProperties1.put(0x10, "PS");
 
@@ -171,7 +170,6 @@ public class CommandClassMeterTblPushV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the METER_TBL_PUSH_CONFIGURATION_GET command.
      * <p>
@@ -204,7 +202,6 @@ public class CommandClassMeterTblPushV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the METER_TBL_PUSH_CONFIGURATION_REPORT command.
@@ -308,5 +305,4 @@ public class CommandClassMeterTblPushV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

@@ -194,7 +194,6 @@ public class CommandClassChimneyFanV1 {
      */
     public final static int CHIMNEY_FAN_DEFAULT_SET = 0x28;
 
-
     /**
      * Map holding constants for ChimneyFanStatusReportState
      */
@@ -279,8 +278,8 @@ public class CommandClassChimneyFanV1 {
      * Map holding constants for ChimneyFanSetupReportMode
      */
     private static Map<Integer, String> constantChimneyFanSetupReportMode = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for ChimneyFanStatusReportState
         constantChimneyFanStatusReportState.put(0x00, "OFF");
         constantChimneyFanStatusReportState.put(0x01, "BOOST");
@@ -392,6 +391,7 @@ public class CommandClassChimneyFanV1 {
      *
      * @param state {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NEXT_STATE
      *            </ul>
@@ -429,6 +429,11 @@ public class CommandClassChimneyFanV1 {
      *
      * <ul>
      * <li>STATE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NEXT_STATE
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -444,7 +449,6 @@ public class CommandClassChimneyFanV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CHIMNEY_FAN_STATE_GET command.
@@ -479,7 +483,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_STATE_REPORT command.
      * <p>
@@ -487,6 +490,7 @@ public class CommandClassChimneyFanV1 {
      *
      * @param state {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF
      *            <li>BOOST
@@ -534,6 +538,21 @@ public class CommandClassChimneyFanV1 {
      *
      * <ul>
      * <li>STATE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF
+     * <li>BOOST
+     * <li>EXHAUST
+     * <li>RELOAD
+     * <li>VENTING
+     * <li>STOP
+     * <li>VENTING_EX
+     * <li>SERVICE
+     * <li>SENSOR_FAILURE
+     * <li>CHIMNEY_FIRE
+     * <li>EXTERNAL_ALARM
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -550,7 +569,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_SPEED_SET command.
      * <p>
@@ -558,6 +576,7 @@ public class CommandClassChimneyFanV1 {
      *
      * @param speed {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>SPEED_DOWN
      *            <li>SPEED_UP
@@ -596,6 +615,12 @@ public class CommandClassChimneyFanV1 {
      *
      * <ul>
      * <li>SPEED {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>SPEED_DOWN
+     * <li>SPEED_UP
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -611,7 +636,6 @@ public class CommandClassChimneyFanV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CHIMNEY_FAN_SPEED_GET command.
@@ -645,7 +669,6 @@ public class CommandClassChimneyFanV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CHIMNEY_FAN_SPEED_REPORT command.
@@ -692,7 +715,6 @@ public class CommandClassChimneyFanV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CHIMNEY_FAN_START_TEMP_SET command.
@@ -769,7 +791,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_START_TEMP_GET command.
      * <p>
@@ -802,7 +823,6 @@ public class CommandClassChimneyFanV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CHIMNEY_FAN_START_TEMP_REPORT command.
@@ -879,7 +899,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_STOP_TEMP_SET command.
      * <p>
@@ -955,7 +974,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_STOP_TEMP_GET command.
      * <p>
@@ -988,7 +1006,6 @@ public class CommandClassChimneyFanV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CHIMNEY_FAN_STOP_TEMP_REPORT command.
@@ -1065,7 +1082,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_ALARM_TEMP_SET command.
      * <p>
@@ -1141,7 +1157,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_ALARM_TEMP_GET command.
      * <p>
@@ -1174,7 +1189,6 @@ public class CommandClassChimneyFanV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CHIMNEY_FAN_ALARM_TEMP_REPORT command.
@@ -1251,7 +1265,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_BOOST_TIME_SET command.
      * <p>
@@ -1298,7 +1311,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_BOOST_TIME_GET command.
      * <p>
@@ -1331,7 +1343,6 @@ public class CommandClassChimneyFanV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CHIMNEY_FAN_BOOST_TIME_REPORT command.
@@ -1379,7 +1390,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_STOP_TIME_SET command.
      * <p>
@@ -1426,7 +1436,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_STOP_TIME_GET command.
      * <p>
@@ -1459,7 +1468,6 @@ public class CommandClassChimneyFanV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CHIMNEY_FAN_STOP_TIME_REPORT command.
@@ -1507,7 +1515,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_MODE_SET command.
      * <p>
@@ -1515,6 +1522,7 @@ public class CommandClassChimneyFanV1 {
      *
      * @param mode {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF
      *            <li>ON
@@ -1553,6 +1561,12 @@ public class CommandClassChimneyFanV1 {
      *
      * <ul>
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF
+     * <li>ON
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -1568,7 +1582,6 @@ public class CommandClassChimneyFanV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CHIMNEY_FAN_MODE_GET command.
@@ -1603,7 +1616,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_MODE_REPORT command.
      * <p>
@@ -1611,6 +1623,7 @@ public class CommandClassChimneyFanV1 {
      *
      * @param mode {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF
      *            <li>ON
@@ -1649,6 +1662,12 @@ public class CommandClassChimneyFanV1 {
      *
      * <ul>
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF
+     * <li>ON
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -1665,7 +1684,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_SETUP_SET command.
      * <p>
@@ -1673,6 +1691,7 @@ public class CommandClassChimneyFanV1 {
      *
      * @param mode {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF
      *            <li>ON
@@ -1785,6 +1804,12 @@ public class CommandClassChimneyFanV1 {
      *
      * <ul>
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF
+     * <li>ON
+     * </ul>
      * <li>BOOST_TIME {@link Integer}
      * <li>STOP_TIME {@link Integer}
      * <li>MIN_SPEED {@link Integer}
@@ -1874,7 +1899,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_SETUP_GET command.
      * <p>
@@ -1908,7 +1932,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_SETUP_REPORT command.
      * <p>
@@ -1916,6 +1939,7 @@ public class CommandClassChimneyFanV1 {
      *
      * @param mode {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF
      *            <li>ON
@@ -2028,6 +2052,12 @@ public class CommandClassChimneyFanV1 {
      *
      * <ul>
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF
+     * <li>ON
+     * </ul>
      * <li>BOOST_TIME {@link Integer}
      * <li>STOP_TIME {@link Integer}
      * <li>MIN_SPEED {@link Integer}
@@ -2117,7 +2147,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_STATUS_GET command.
      * <p>
@@ -2151,7 +2180,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_STATUS_REPORT command.
      * <p>
@@ -2159,6 +2187,7 @@ public class CommandClassChimneyFanV1 {
      *
      * @param state {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF
      *            <li>BOOST
@@ -2248,6 +2277,21 @@ public class CommandClassChimneyFanV1 {
      *
      * <ul>
      * <li>STATE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF
+     * <li>BOOST
+     * <li>EXHAUST
+     * <li>RELOAD
+     * <li>VENTING
+     * <li>STOP
+     * <li>VENTING_EX
+     * <li>SERVICE
+     * <li>SENSOR_FAILURE
+     * <li>CHIMNEY_FIRE
+     * <li>EXTERNAL_ALARM
+     * </ul>
      * <li>SPEED {@link Integer}
      * <li>SERVICE {@link Boolean}
      * <li>EXTERNAL_ALARM {@link Boolean}
@@ -2306,7 +2350,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_ALARM_LOG_SET command.
      * <p>
@@ -2314,6 +2357,7 @@ public class CommandClassChimneyFanV1 {
      *
      * @param message {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>RESET_LOG
      *            </ul>
@@ -2351,6 +2395,11 @@ public class CommandClassChimneyFanV1 {
      *
      * <ul>
      * <li>MESSAGE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>RESET_LOG
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -2366,7 +2415,6 @@ public class CommandClassChimneyFanV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CHIMNEY_FAN_ALARM_LOG_GET command.
@@ -2400,7 +2448,6 @@ public class CommandClassChimneyFanV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CHIMNEY_FAN_ALARM_LOG_REPORT command.
@@ -2555,7 +2602,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_ALARM_STATUS_SET command.
      * <p>
@@ -2613,7 +2659,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_ALARM_STATUS_GET command.
      * <p>
@@ -2646,7 +2691,6 @@ public class CommandClassChimneyFanV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CHIMNEY_FAN_ALARM_STATUS_REPORT command.
@@ -2717,7 +2761,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_MIN_SPEED_SET command.
      * <p>
@@ -2764,7 +2807,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_MIN_SPEED_GET command.
      * <p>
@@ -2797,7 +2839,6 @@ public class CommandClassChimneyFanV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CHIMNEY_FAN_MIN_SPEED_REPORT command.
@@ -2845,7 +2886,6 @@ public class CommandClassChimneyFanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CHIMNEY_FAN_DEFAULT_SET command.
      * <p>
@@ -2878,5 +2918,4 @@ public class CommandClassChimneyFanV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

@@ -82,15 +82,6 @@ public class CommandClassRateTblMonitorV1 {
 
 
     /**
-     * Map holding constants for RateTblReportProperties1
-     */
-    private static Map<Integer, String> constantRateTblReportProperties1 = new HashMap<Integer, String>();
-    static {
-
-        // Constants for RateTblReportProperties1
-    }
-
-    /**
      * Creates a new message with the RATE_TBL_SUPPORTED_GET command.
      * <p>
      * Rate Tbl Supported Get
@@ -122,7 +113,6 @@ public class CommandClassRateTblMonitorV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the RATE_TBL_SUPPORTED_REPORT command.
@@ -179,7 +169,6 @@ public class CommandClassRateTblMonitorV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the RATE_TBL_GET command.
      * <p>
@@ -225,7 +214,6 @@ public class CommandClassRateTblMonitorV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the RATE_TBL_REPORT command.
@@ -417,7 +405,6 @@ public class CommandClassRateTblMonitorV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the RATE_TBL_ACTIVE_RATE_GET command.
      * <p>
@@ -450,7 +437,6 @@ public class CommandClassRateTblMonitorV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the RATE_TBL_ACTIVE_RATE_REPORT command.
@@ -497,7 +483,6 @@ public class CommandClassRateTblMonitorV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the RATE_TBL_CURRENT_DATA_GET command.
@@ -548,7 +533,6 @@ public class CommandClassRateTblMonitorV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the RATE_TBL_CURRENT_DATA_REPORT command.
@@ -686,7 +670,6 @@ public class CommandClassRateTblMonitorV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the RATE_TBL_HISTORICAL_DATA_GET command.
@@ -847,7 +830,6 @@ public class CommandClassRateTblMonitorV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the RATE_TBL_HISTORICAL_DATA_REPORT command.
      * <p>
@@ -985,5 +967,4 @@ public class CommandClassRateTblMonitorV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

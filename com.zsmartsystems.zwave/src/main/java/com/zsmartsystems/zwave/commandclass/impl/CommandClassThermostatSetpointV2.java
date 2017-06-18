@@ -60,12 +60,42 @@ public class CommandClassThermostatSetpointV2 {
      */
     public final static int THERMOSTAT_SETPOINT_SUPPORTED_REPORT = 0x05;
 
+    /**
+     * Map holding constants for ThermostatSetpointSetSetpointType
+     */
+    private static Map<Integer, String> constantThermostatSetpointSetSetpointType = new HashMap<Integer, String>();
 
     /**
      * Map holding constants for ThermostatSetpointSupportedReportBitMask
      */
     private static Map<Integer, String> constantThermostatSetpointSupportedReportBitMask = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for ThermostatSetpointReportSetpointType
+     */
+    private static Map<Integer, String> constantThermostatSetpointReportSetpointType = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for ThermostatSetpointGetSetpointType
+     */
+    private static Map<Integer, String> constantThermostatSetpointGetSetpointType = new HashMap<Integer, String>();
+
     static {
+        // Constants for ThermostatSetpointSetSetpointType
+        constantThermostatSetpointSetSetpointType.put(0x00, "NOT_SUPPORTED");
+        constantThermostatSetpointSetSetpointType.put(0x01, "HEATING_1");
+        constantThermostatSetpointSetSetpointType.put(0x02, "COOLING_1");
+        constantThermostatSetpointSetSetpointType.put(0x03, "NOT_SUPPORTED1");
+        constantThermostatSetpointSetSetpointType.put(0x04, "NOT_SUPPORTED2");
+        constantThermostatSetpointSetSetpointType.put(0x05, "NOT_SUPPORTED3");
+        constantThermostatSetpointSetSetpointType.put(0x06, "NOT_SUPPORTED4");
+        constantThermostatSetpointSetSetpointType.put(0x07, "FURNACE");
+        constantThermostatSetpointSetSetpointType.put(0x08, "DRY_AIR");
+        constantThermostatSetpointSetSetpointType.put(0x09, "MOIST_AIR");
+        constantThermostatSetpointSetSetpointType.put(0x0A, "AUTO_CHANGEOVER");
+        constantThermostatSetpointSetSetpointType.put(0x0B, "ENERGY_SAVE_HEATING");
+        constantThermostatSetpointSetSetpointType.put(0x0C, "ENERGY_SAVE_COOLING");
+        constantThermostatSetpointSetSetpointType.put(0x0D, "AWAY_HEATING");
 
         // Constants for ThermostatSetpointSupportedReportBitMask
         constantThermostatSetpointSupportedReportBitMask.put(0x00, "NONE");
@@ -78,6 +108,38 @@ public class CommandClassThermostatSetpointV2 {
         constantThermostatSetpointSupportedReportBitMask.put(0x0B, "ENERGY_SAVE_HEATING");
         constantThermostatSetpointSupportedReportBitMask.put(0x0C, "ENERGY_SAVE_COOLING");
         constantThermostatSetpointSupportedReportBitMask.put(0x0D, "AWAY_HEATING");
+
+        // Constants for ThermostatSetpointReportSetpointType
+        constantThermostatSetpointReportSetpointType.put(0x00, "NOT_SUPPORTED");
+        constantThermostatSetpointReportSetpointType.put(0x01, "HEATING_1");
+        constantThermostatSetpointReportSetpointType.put(0x02, "COOLING_1");
+        constantThermostatSetpointReportSetpointType.put(0x03, "NOT_SUPPORTED1");
+        constantThermostatSetpointReportSetpointType.put(0x04, "NOT_SUPPORTED2");
+        constantThermostatSetpointReportSetpointType.put(0x05, "NOT_SUPPORTED3");
+        constantThermostatSetpointReportSetpointType.put(0x06, "NOT_SUPPORTED4");
+        constantThermostatSetpointReportSetpointType.put(0x07, "FURNACE");
+        constantThermostatSetpointReportSetpointType.put(0x08, "DRY_AIR");
+        constantThermostatSetpointReportSetpointType.put(0x09, "MOIST_AIR");
+        constantThermostatSetpointReportSetpointType.put(0x0A, "AUTO_CHANGEOVER");
+        constantThermostatSetpointReportSetpointType.put(0x0B, "ENERGY_SAVE_HEATING");
+        constantThermostatSetpointReportSetpointType.put(0x0C, "ENERGY_SAVE_COOLING");
+        constantThermostatSetpointReportSetpointType.put(0x0D, "AWAY_HEATING");
+
+        // Constants for ThermostatSetpointGetSetpointType
+        constantThermostatSetpointGetSetpointType.put(0x00, "NOT_SUPPORTED");
+        constantThermostatSetpointGetSetpointType.put(0x01, "HEATING_1");
+        constantThermostatSetpointGetSetpointType.put(0x02, "COOLING_1");
+        constantThermostatSetpointGetSetpointType.put(0x03, "NOT_SUPPORTED1");
+        constantThermostatSetpointGetSetpointType.put(0x04, "NOT_SUPPORTED2");
+        constantThermostatSetpointGetSetpointType.put(0x05, "NOT_SUPPORTED3");
+        constantThermostatSetpointGetSetpointType.put(0x06, "NOT_SUPPORTED4");
+        constantThermostatSetpointGetSetpointType.put(0x07, "FURNACE");
+        constantThermostatSetpointGetSetpointType.put(0x08, "DRY_AIR");
+        constantThermostatSetpointGetSetpointType.put(0x09, "MOIST_AIR");
+        constantThermostatSetpointGetSetpointType.put(0x0A, "AUTO_CHANGEOVER");
+        constantThermostatSetpointGetSetpointType.put(0x0B, "ENERGY_SAVE_HEATING");
+        constantThermostatSetpointGetSetpointType.put(0x0C, "ENERGY_SAVE_COOLING");
+        constantThermostatSetpointGetSetpointType.put(0x0D, "AWAY_HEATING");
     }
 
     /**
@@ -86,6 +148,24 @@ public class CommandClassThermostatSetpointV2 {
      * Thermostat Setpoint Set
      *
      * @param setpointType {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>NOT_SUPPORTED
+     *            <li>HEATING_1
+     *            <li>COOLING_1
+     *            <li>NOT_SUPPORTED1
+     *            <li>NOT_SUPPORTED2
+     *            <li>NOT_SUPPORTED3
+     *            <li>NOT_SUPPORTED4
+     *            <li>FURNACE
+     *            <li>DRY_AIR
+     *            <li>MOIST_AIR
+     *            <li>AUTO_CHANGEOVER
+     *            <li>ENERGY_SAVE_HEATING
+     *            <li>ENERGY_SAVE_COOLING
+     *            <li>AWAY_HEATING
+     *            </ul>
      * @param scale {@link Integer}
      * @param precision {@link Integer}
      * @param value {@link byte[]}
@@ -99,54 +179,17 @@ public class CommandClassThermostatSetpointV2 {
         outputData.write(THERMOSTAT_SETPOINT_SET);
 
         // Process 'Level'
-        int valsetpointType;
-        switch (setpointType) {
-            case "NOT_SUPPORTED":
-                valsetpointType = 0;
+        int varSetpointType = Integer.MAX_VALUE;
+        for (Integer entry : constantThermostatSetpointSetSetpointType.keySet()) {
+            if (constantThermostatSetpointSetSetpointType.get(entry).equals(setpointType)) {
+                varSetpointType = entry;
                 break;
-            case "HEATING_1":
-                valsetpointType = 1;
-                break;
-            case "COOLING_1":
-                valsetpointType = 2;
-                break;
-            case "NOT_SUPPORTED1":
-                valsetpointType = 3;
-                break;
-            case "NOT_SUPPORTED2":
-                valsetpointType = 4;
-                break;
-            case "NOT_SUPPORTED3":
-                valsetpointType = 5;
-                break;
-            case "NOT_SUPPORTED4":
-                valsetpointType = 6;
-                break;
-            case "FURNACE":
-                valsetpointType = 7;
-                break;
-            case "DRY_AIR":
-                valsetpointType = 8;
-                break;
-            case "MOIST_AIR":
-                valsetpointType = 9;
-                break;
-            case "AUTO_CHANGEOVER":
-                valsetpointType = 10;
-                break;
-            case "ENERGY_SAVE_HEATING":
-                valsetpointType = 11;
-                break;
-            case "ENERGY_SAVE_COOLING":
-                valsetpointType = 12;
-                break;
-            case "AWAY_HEATING":
-                valsetpointType = 13;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for setpointType: " + setpointType);
+            }
         }
-        outputData.write(valsetpointType & 0x0F);
+        if (varSetpointType == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + setpointType + "' for setpointType");
+        }
+        outputData.write(varSetpointType & 0x0F);
 
         // Process 'Level2'
         // Size is used by 'Value'
@@ -177,6 +220,24 @@ public class CommandClassThermostatSetpointV2 {
      *
      * <ul>
      * <li>SETPOINT_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NOT_SUPPORTED
+     * <li>HEATING_1
+     * <li>COOLING_1
+     * <li>NOT_SUPPORTED1
+     * <li>NOT_SUPPORTED2
+     * <li>NOT_SUPPORTED3
+     * <li>NOT_SUPPORTED4
+     * <li>FURNACE
+     * <li>DRY_AIR
+     * <li>MOIST_AIR
+     * <li>AUTO_CHANGEOVER
+     * <li>ENERGY_SAVE_HEATING
+     * <li>ENERGY_SAVE_COOLING
+     * <li>AWAY_HEATING
+     * </ul>
      * <li>SCALE {@link Integer}
      * <li>PRECISION {@link Integer}
      * <li>VALUE {@link byte[]}
@@ -193,52 +254,7 @@ public class CommandClassThermostatSetpointV2 {
         int msgOffset = 2;
 
         // Process 'Level'
-        switch (payload[msgOffset] & 0x0F) {
-            case 0x00:
-                response.put("SETPOINT_TYPE", "NOT_SUPPORTED");
-                break;
-            case 0x01:
-                response.put("SETPOINT_TYPE", "HEATING_1");
-                break;
-            case 0x02:
-                response.put("SETPOINT_TYPE", "COOLING_1");
-                break;
-            case 0x03:
-                response.put("SETPOINT_TYPE", "NOT_SUPPORTED1");
-                break;
-            case 0x04:
-                response.put("SETPOINT_TYPE", "NOT_SUPPORTED2");
-                break;
-            case 0x05:
-                response.put("SETPOINT_TYPE", "NOT_SUPPORTED3");
-                break;
-            case 0x06:
-                response.put("SETPOINT_TYPE", "NOT_SUPPORTED4");
-                break;
-            case 0x07:
-                response.put("SETPOINT_TYPE", "FURNACE");
-                break;
-            case 0x08:
-                response.put("SETPOINT_TYPE", "DRY_AIR");
-                break;
-            case 0x09:
-                response.put("SETPOINT_TYPE", "MOIST_AIR");
-                break;
-            case 0x0A:
-                response.put("SETPOINT_TYPE", "AUTO_CHANGEOVER");
-                break;
-            case 0x0B:
-                response.put("SETPOINT_TYPE", "ENERGY_SAVE_HEATING");
-                break;
-            case 0x0C:
-                response.put("SETPOINT_TYPE", "ENERGY_SAVE_COOLING");
-                break;
-            case 0x0D:
-                response.put("SETPOINT_TYPE", "AWAY_HEATING");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for SETPOINT_TYPE", String.format("0x%02X", msgOffset));
-        }
+        response.put("SETPOINT_TYPE", constantThermostatSetpointSetSetpointType.get(payload[msgOffset] & 0x0F));
         msgOffset += 1;
 
         // Process 'Level2'
@@ -260,13 +276,30 @@ public class CommandClassThermostatSetpointV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the THERMOSTAT_SETPOINT_GET command.
      * <p>
      * Thermostat Setpoint Get
      *
      * @param setpointType {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>NOT_SUPPORTED
+     *            <li>HEATING_1
+     *            <li>COOLING_1
+     *            <li>NOT_SUPPORTED1
+     *            <li>NOT_SUPPORTED2
+     *            <li>NOT_SUPPORTED3
+     *            <li>NOT_SUPPORTED4
+     *            <li>FURNACE
+     *            <li>DRY_AIR
+     *            <li>MOIST_AIR
+     *            <li>AUTO_CHANGEOVER
+     *            <li>ENERGY_SAVE_HEATING
+     *            <li>ENERGY_SAVE_COOLING
+     *            <li>AWAY_HEATING
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getThermostatSetpointGet(String setpointType) {
@@ -277,54 +310,17 @@ public class CommandClassThermostatSetpointV2 {
         outputData.write(THERMOSTAT_SETPOINT_GET);
 
         // Process 'Level'
-        int valsetpointType;
-        switch (setpointType) {
-            case "NOT_SUPPORTED":
-                valsetpointType = 0;
+        int varSetpointType = Integer.MAX_VALUE;
+        for (Integer entry : constantThermostatSetpointGetSetpointType.keySet()) {
+            if (constantThermostatSetpointGetSetpointType.get(entry).equals(setpointType)) {
+                varSetpointType = entry;
                 break;
-            case "HEATING_1":
-                valsetpointType = 1;
-                break;
-            case "COOLING_1":
-                valsetpointType = 2;
-                break;
-            case "NOT_SUPPORTED1":
-                valsetpointType = 3;
-                break;
-            case "NOT_SUPPORTED2":
-                valsetpointType = 4;
-                break;
-            case "NOT_SUPPORTED3":
-                valsetpointType = 5;
-                break;
-            case "NOT_SUPPORTED4":
-                valsetpointType = 6;
-                break;
-            case "FURNACE":
-                valsetpointType = 7;
-                break;
-            case "DRY_AIR":
-                valsetpointType = 8;
-                break;
-            case "MOIST_AIR":
-                valsetpointType = 9;
-                break;
-            case "AUTO_CHANGEOVER":
-                valsetpointType = 10;
-                break;
-            case "ENERGY_SAVE_HEATING":
-                valsetpointType = 11;
-                break;
-            case "ENERGY_SAVE_COOLING":
-                valsetpointType = 12;
-                break;
-            case "AWAY_HEATING":
-                valsetpointType = 13;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for setpointType: " + setpointType);
+            }
         }
-        outputData.write(valsetpointType & 0x0F);
+        if (varSetpointType == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + setpointType + "' for setpointType");
+        }
+        outputData.write(varSetpointType & 0x0F);
 
         return outputData.toByteArray();
     }
@@ -338,6 +334,24 @@ public class CommandClassThermostatSetpointV2 {
      *
      * <ul>
      * <li>SETPOINT_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NOT_SUPPORTED
+     * <li>HEATING_1
+     * <li>COOLING_1
+     * <li>NOT_SUPPORTED1
+     * <li>NOT_SUPPORTED2
+     * <li>NOT_SUPPORTED3
+     * <li>NOT_SUPPORTED4
+     * <li>FURNACE
+     * <li>DRY_AIR
+     * <li>MOIST_AIR
+     * <li>AUTO_CHANGEOVER
+     * <li>ENERGY_SAVE_HEATING
+     * <li>ENERGY_SAVE_COOLING
+     * <li>AWAY_HEATING
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -348,57 +362,11 @@ public class CommandClassThermostatSetpointV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        switch (payload[2] & 0x0F) {
-            case 0x00:
-                response.put("SETPOINT_TYPE", "NOT_SUPPORTED");
-                break;
-            case 0x01:
-                response.put("SETPOINT_TYPE", "HEATING_1");
-                break;
-            case 0x02:
-                response.put("SETPOINT_TYPE", "COOLING_1");
-                break;
-            case 0x03:
-                response.put("SETPOINT_TYPE", "NOT_SUPPORTED1");
-                break;
-            case 0x04:
-                response.put("SETPOINT_TYPE", "NOT_SUPPORTED2");
-                break;
-            case 0x05:
-                response.put("SETPOINT_TYPE", "NOT_SUPPORTED3");
-                break;
-            case 0x06:
-                response.put("SETPOINT_TYPE", "NOT_SUPPORTED4");
-                break;
-            case 0x07:
-                response.put("SETPOINT_TYPE", "FURNACE");
-                break;
-            case 0x08:
-                response.put("SETPOINT_TYPE", "DRY_AIR");
-                break;
-            case 0x09:
-                response.put("SETPOINT_TYPE", "MOIST_AIR");
-                break;
-            case 0x0A:
-                response.put("SETPOINT_TYPE", "AUTO_CHANGEOVER");
-                break;
-            case 0x0B:
-                response.put("SETPOINT_TYPE", "ENERGY_SAVE_HEATING");
-                break;
-            case 0x0C:
-                response.put("SETPOINT_TYPE", "ENERGY_SAVE_COOLING");
-                break;
-            case 0x0D:
-                response.put("SETPOINT_TYPE", "AWAY_HEATING");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for SETPOINT_TYPE", String.format("0x%02X", 2));
-        }
+        response.put("SETPOINT_TYPE", constantThermostatSetpointGetSetpointType.get(payload[2] & 0x0F));
 
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the THERMOSTAT_SETPOINT_REPORT command.
@@ -406,6 +374,24 @@ public class CommandClassThermostatSetpointV2 {
      * Thermostat Setpoint Report
      *
      * @param setpointType {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>NOT_SUPPORTED
+     *            <li>HEATING_1
+     *            <li>COOLING_1
+     *            <li>NOT_SUPPORTED1
+     *            <li>NOT_SUPPORTED2
+     *            <li>NOT_SUPPORTED3
+     *            <li>NOT_SUPPORTED4
+     *            <li>FURNACE
+     *            <li>DRY_AIR
+     *            <li>MOIST_AIR
+     *            <li>AUTO_CHANGEOVER
+     *            <li>ENERGY_SAVE_HEATING
+     *            <li>ENERGY_SAVE_COOLING
+     *            <li>AWAY_HEATING
+     *            </ul>
      * @param scale {@link Integer}
      * @param precision {@link Integer}
      * @param value {@link byte[]}
@@ -419,54 +405,17 @@ public class CommandClassThermostatSetpointV2 {
         outputData.write(THERMOSTAT_SETPOINT_REPORT);
 
         // Process 'Level'
-        int valsetpointType;
-        switch (setpointType) {
-            case "NOT_SUPPORTED":
-                valsetpointType = 0;
+        int varSetpointType = Integer.MAX_VALUE;
+        for (Integer entry : constantThermostatSetpointReportSetpointType.keySet()) {
+            if (constantThermostatSetpointReportSetpointType.get(entry).equals(setpointType)) {
+                varSetpointType = entry;
                 break;
-            case "HEATING_1":
-                valsetpointType = 1;
-                break;
-            case "COOLING_1":
-                valsetpointType = 2;
-                break;
-            case "NOT_SUPPORTED1":
-                valsetpointType = 3;
-                break;
-            case "NOT_SUPPORTED2":
-                valsetpointType = 4;
-                break;
-            case "NOT_SUPPORTED3":
-                valsetpointType = 5;
-                break;
-            case "NOT_SUPPORTED4":
-                valsetpointType = 6;
-                break;
-            case "FURNACE":
-                valsetpointType = 7;
-                break;
-            case "DRY_AIR":
-                valsetpointType = 8;
-                break;
-            case "MOIST_AIR":
-                valsetpointType = 9;
-                break;
-            case "AUTO_CHANGEOVER":
-                valsetpointType = 10;
-                break;
-            case "ENERGY_SAVE_HEATING":
-                valsetpointType = 11;
-                break;
-            case "ENERGY_SAVE_COOLING":
-                valsetpointType = 12;
-                break;
-            case "AWAY_HEATING":
-                valsetpointType = 13;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for setpointType: " + setpointType);
+            }
         }
-        outputData.write(valsetpointType & 0x0F);
+        if (varSetpointType == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + setpointType + "' for setpointType");
+        }
+        outputData.write(varSetpointType & 0x0F);
 
         // Process 'Level2'
         // Size is used by 'Value'
@@ -497,6 +446,24 @@ public class CommandClassThermostatSetpointV2 {
      *
      * <ul>
      * <li>SETPOINT_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NOT_SUPPORTED
+     * <li>HEATING_1
+     * <li>COOLING_1
+     * <li>NOT_SUPPORTED1
+     * <li>NOT_SUPPORTED2
+     * <li>NOT_SUPPORTED3
+     * <li>NOT_SUPPORTED4
+     * <li>FURNACE
+     * <li>DRY_AIR
+     * <li>MOIST_AIR
+     * <li>AUTO_CHANGEOVER
+     * <li>ENERGY_SAVE_HEATING
+     * <li>ENERGY_SAVE_COOLING
+     * <li>AWAY_HEATING
+     * </ul>
      * <li>SCALE {@link Integer}
      * <li>PRECISION {@link Integer}
      * <li>VALUE {@link byte[]}
@@ -513,52 +480,7 @@ public class CommandClassThermostatSetpointV2 {
         int msgOffset = 2;
 
         // Process 'Level'
-        switch (payload[msgOffset] & 0x0F) {
-            case 0x00:
-                response.put("SETPOINT_TYPE", "NOT_SUPPORTED");
-                break;
-            case 0x01:
-                response.put("SETPOINT_TYPE", "HEATING_1");
-                break;
-            case 0x02:
-                response.put("SETPOINT_TYPE", "COOLING_1");
-                break;
-            case 0x03:
-                response.put("SETPOINT_TYPE", "NOT_SUPPORTED1");
-                break;
-            case 0x04:
-                response.put("SETPOINT_TYPE", "NOT_SUPPORTED2");
-                break;
-            case 0x05:
-                response.put("SETPOINT_TYPE", "NOT_SUPPORTED3");
-                break;
-            case 0x06:
-                response.put("SETPOINT_TYPE", "NOT_SUPPORTED4");
-                break;
-            case 0x07:
-                response.put("SETPOINT_TYPE", "FURNACE");
-                break;
-            case 0x08:
-                response.put("SETPOINT_TYPE", "DRY_AIR");
-                break;
-            case 0x09:
-                response.put("SETPOINT_TYPE", "MOIST_AIR");
-                break;
-            case 0x0A:
-                response.put("SETPOINT_TYPE", "AUTO_CHANGEOVER");
-                break;
-            case 0x0B:
-                response.put("SETPOINT_TYPE", "ENERGY_SAVE_HEATING");
-                break;
-            case 0x0C:
-                response.put("SETPOINT_TYPE", "ENERGY_SAVE_COOLING");
-                break;
-            case 0x0D:
-                response.put("SETPOINT_TYPE", "AWAY_HEATING");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for SETPOINT_TYPE", String.format("0x%02X", msgOffset));
-        }
+        response.put("SETPOINT_TYPE", constantThermostatSetpointReportSetpointType.get(payload[msgOffset] & 0x0F));
         msgOffset += 1;
 
         // Process 'Level2'
@@ -579,7 +501,6 @@ public class CommandClassThermostatSetpointV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the THERMOSTAT_SETPOINT_SUPPORTED_GET command.
@@ -614,7 +535,6 @@ public class CommandClassThermostatSetpointV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the THERMOSTAT_SETPOINT_SUPPORTED_REPORT command.
      * <p>
@@ -622,6 +542,7 @@ public class CommandClassThermostatSetpointV2 {
      *
      * @param bitMask {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NONE
      *            <li>HEATING
@@ -672,6 +593,20 @@ public class CommandClassThermostatSetpointV2 {
      *
      * <ul>
      * <li>BIT_MASK {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NONE
+     * <li>HEATING
+     * <li>COOLING
+     * <li>FURNACE
+     * <li>DRY_AIR
+     * <li>MOIST_AIR
+     * <li>AUTO_CHANGEOVER
+     * <li>ENERGY_SAVE_HEATING
+     * <li>ENERGY_SAVE_COOLING
+     * <li>AWAY_HEATING
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -694,5 +629,4 @@ public class CommandClassThermostatSetpointV2 {
         // Return the map of processed response data;
         return response;
     }
-
 }

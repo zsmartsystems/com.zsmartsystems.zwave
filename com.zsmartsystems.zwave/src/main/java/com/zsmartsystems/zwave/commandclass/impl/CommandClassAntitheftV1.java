@@ -50,13 +50,12 @@ public class CommandClassAntitheftV1 {
      */
     public final static int ANTITHEFT_REPORT = 0x03;
 
-
     /**
      * Map holding constants for AntitheftSetProperties1
      */
     private static Map<Integer, String> constantAntitheftSetProperties1 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for AntitheftSetProperties1
         constantAntitheftSetProperties1.put(0x80, "ENABLE");
     }
@@ -171,7 +170,6 @@ public class CommandClassAntitheftV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ANTITHEFT_GET command.
      * <p>
@@ -204,7 +202,6 @@ public class CommandClassAntitheftV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the ANTITHEFT_REPORT command.
@@ -294,5 +291,4 @@ public class CommandClassAntitheftV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

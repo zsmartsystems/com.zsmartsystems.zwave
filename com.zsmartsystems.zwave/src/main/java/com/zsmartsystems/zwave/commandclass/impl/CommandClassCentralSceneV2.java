@@ -51,7 +51,6 @@ public class CommandClassCentralSceneV2 {
      */
     public final static int CENTRAL_SCENE_NOTIFICATION = 0x03;
 
-
     /**
      * Map holding constants for CentralSceneSupportedReportSupportedKeyAttributesForScene
      */
@@ -61,8 +60,13 @@ public class CommandClassCentralSceneV2 {
      * Map holding constants for CentralSceneSupportedReportProperties1
      */
     private static Map<Integer, String> constantCentralSceneSupportedReportProperties1 = new HashMap<Integer, String>();
-    static {
 
+    /**
+     * Map holding constants for CentralSceneNotificationKeyAttributes
+     */
+    private static Map<Integer, String> constantCentralSceneNotificationKeyAttributes = new HashMap<Integer, String>();
+
+    static {
         // Constants for CentralSceneSupportedReportSupportedKeyAttributesForScene
         constantCentralSceneSupportedReportSupportedKeyAttributesForScene.put(0x00, "KEY_PRESSED_1_TIME");
         constantCentralSceneSupportedReportSupportedKeyAttributesForScene.put(0x01, "KEY_RELEASED");
@@ -74,6 +78,15 @@ public class CommandClassCentralSceneV2 {
 
         // Constants for CentralSceneSupportedReportProperties1
         constantCentralSceneSupportedReportProperties1.put(0x01, "IDENTICAL");
+
+        // Constants for CentralSceneNotificationKeyAttributes
+        constantCentralSceneNotificationKeyAttributes.put(0x00, "KEY_PRESSED_1_TIME");
+        constantCentralSceneNotificationKeyAttributes.put(0x01, "KEY_RELEASED");
+        constantCentralSceneNotificationKeyAttributes.put(0x02, "KEY_HELD_DOWN");
+        constantCentralSceneNotificationKeyAttributes.put(0x03, "KEY_PRESSED_2_TIMES");
+        constantCentralSceneNotificationKeyAttributes.put(0x04, "KEY_PRESSED_3_TIMES");
+        constantCentralSceneNotificationKeyAttributes.put(0x05, "KEY_PRESSED_4_TIMES");
+        constantCentralSceneNotificationKeyAttributes.put(0x06, "KEY_PRESSED_5_TIMES");
     }
 
     /**
@@ -108,7 +121,6 @@ public class CommandClassCentralSceneV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CENTRAL_SCENE_SUPPORTED_REPORT command.
@@ -204,7 +216,6 @@ public class CommandClassCentralSceneV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CENTRAL_SCENE_NOTIFICATION command.
      * <p>
@@ -212,6 +223,17 @@ public class CommandClassCentralSceneV2 {
      *
      * @param sequenceNumber {@link Integer}
      * @param keyAttributes {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>KEY_PRESSED_1_TIME
+     *            <li>KEY_RELEASED
+     *            <li>KEY_HELD_DOWN
+     *            <li>KEY_PRESSED_2_TIMES
+     *            <li>KEY_PRESSED_3_TIMES
+     *            <li>KEY_PRESSED_4_TIMES
+     *            <li>KEY_PRESSED_5_TIMES
+     *            </ul>
      * @param sceneNumber {@link Integer}
      * @return the {@link byte[]} array with the command to send
      */
@@ -226,33 +248,17 @@ public class CommandClassCentralSceneV2 {
         outputData.write(sequenceNumber);
 
         // Process 'Properties1'
-        int valkeyAttributes;
-        switch (keyAttributes) {
-            case "KEY_PRESSED_1_TIME":
-                valkeyAttributes = 0;
+        int varKeyAttributes = Integer.MAX_VALUE;
+        for (Integer entry : constantCentralSceneNotificationKeyAttributes.keySet()) {
+            if (constantCentralSceneNotificationKeyAttributes.get(entry).equals(keyAttributes)) {
+                varKeyAttributes = entry;
                 break;
-            case "KEY_RELEASED":
-                valkeyAttributes = 1;
-                break;
-            case "KEY_HELD_DOWN":
-                valkeyAttributes = 2;
-                break;
-            case "KEY_PRESSED_2_TIMES":
-                valkeyAttributes = 3;
-                break;
-            case "KEY_PRESSED_3_TIMES":
-                valkeyAttributes = 4;
-                break;
-            case "KEY_PRESSED_4_TIMES":
-                valkeyAttributes = 5;
-                break;
-            case "KEY_PRESSED_5_TIMES":
-                valkeyAttributes = 6;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for keyAttributes: " + keyAttributes);
+            }
         }
-        outputData.write(valkeyAttributes & 0x07);
+        if (varKeyAttributes == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + keyAttributes + "' for keyAttributes");
+        }
+        outputData.write(varKeyAttributes & 0x07);
 
         // Process 'Scene Number'
         outputData.write(sceneNumber);
@@ -270,6 +276,17 @@ public class CommandClassCentralSceneV2 {
      * <ul>
      * <li>SEQUENCE_NUMBER {@link Integer}
      * <li>KEY_ATTRIBUTES {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>KEY_PRESSED_1_TIME
+     * <li>KEY_RELEASED
+     * <li>KEY_HELD_DOWN
+     * <li>KEY_PRESSED_2_TIMES
+     * <li>KEY_PRESSED_3_TIMES
+     * <li>KEY_PRESSED_4_TIMES
+     * <li>KEY_PRESSED_5_TIMES
+     * </ul>
      * <li>SCENE_NUMBER {@link Integer}
      * </ul>
      *
@@ -284,31 +301,7 @@ public class CommandClassCentralSceneV2 {
         response.put("SEQUENCE_NUMBER", Integer.valueOf(payload[2]));
 
         // Process 'Properties1'
-        switch (payload[3] & 0x07) {
-            case 0x00:
-                response.put("KEY_ATTRIBUTES", "KEY_PRESSED_1_TIME");
-                break;
-            case 0x01:
-                response.put("KEY_ATTRIBUTES", "KEY_RELEASED");
-                break;
-            case 0x02:
-                response.put("KEY_ATTRIBUTES", "KEY_HELD_DOWN");
-                break;
-            case 0x03:
-                response.put("KEY_ATTRIBUTES", "KEY_PRESSED_2_TIMES");
-                break;
-            case 0x04:
-                response.put("KEY_ATTRIBUTES", "KEY_PRESSED_3_TIMES");
-                break;
-            case 0x05:
-                response.put("KEY_ATTRIBUTES", "KEY_PRESSED_4_TIMES");
-                break;
-            case 0x06:
-                response.put("KEY_ATTRIBUTES", "KEY_PRESSED_5_TIMES");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for KEY_ATTRIBUTES", String.format("0x%02X", 3));
-        }
+        response.put("KEY_ATTRIBUTES", constantCentralSceneNotificationKeyAttributes.get(payload[3] & 0x07));
 
         // Process 'Scene Number'
         response.put("SCENE_NUMBER", Integer.valueOf(payload[4]));
@@ -316,5 +309,4 @@ public class CommandClassCentralSceneV2 {
         // Return the map of processed response data;
         return response;
     }
-
 }

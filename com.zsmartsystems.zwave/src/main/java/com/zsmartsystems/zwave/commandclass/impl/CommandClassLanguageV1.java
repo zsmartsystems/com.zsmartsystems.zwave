@@ -101,7 +101,6 @@ public class CommandClassLanguageV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the LANGUAGE_GET command.
      * <p>
@@ -134,7 +133,6 @@ public class CommandClassLanguageV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the LANGUAGE_REPORT command.
@@ -186,5 +184,4 @@ public class CommandClassLanguageV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

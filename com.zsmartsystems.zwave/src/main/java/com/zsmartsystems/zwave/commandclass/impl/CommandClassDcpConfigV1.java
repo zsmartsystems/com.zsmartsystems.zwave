@@ -89,7 +89,6 @@ public class CommandClassDcpConfigV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the DCP_LIST_SUPPORTED_REPORT command.
      * <p>
@@ -143,7 +142,6 @@ public class CommandClassDcpConfigV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the DCP_LIST_SET command.
@@ -394,7 +392,6 @@ public class CommandClassDcpConfigV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the DCP_LIST_REMOVE command.
      * <p>
@@ -482,5 +479,4 @@ public class CommandClassDcpConfigV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

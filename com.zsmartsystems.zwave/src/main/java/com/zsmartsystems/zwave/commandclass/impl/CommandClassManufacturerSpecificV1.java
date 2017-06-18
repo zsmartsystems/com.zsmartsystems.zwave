@@ -79,7 +79,6 @@ public class CommandClassManufacturerSpecificV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the MANUFACTURER_SPECIFIC_REPORT command.
      * <p>
@@ -144,5 +143,4 @@ public class CommandClassManufacturerSpecificV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

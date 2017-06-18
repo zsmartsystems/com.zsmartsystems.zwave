@@ -101,5 +101,4 @@ public class CommandClassPrepaymentEncapsulationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

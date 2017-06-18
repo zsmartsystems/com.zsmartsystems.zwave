@@ -58,20 +58,12 @@ public class CommandClassAssociationCommandConfigurationV1 {
      */
     public final static int COMMAND_CONFIGURATION_REPORT = 0x05;
 
-
-    /**
-     * Map holding constants for CommandConfigurationReportProperties1
-     */
-    private static Map<Integer, String> constantCommandConfigurationReportProperties1 = new HashMap<Integer, String>();
-
     /**
      * Map holding constants for CommandRecordsSupportedReportProperties1
      */
     private static Map<Integer, String> constantCommandRecordsSupportedReportProperties1 = new HashMap<Integer, String>();
+
     static {
-
-        // Constants for CommandConfigurationReportProperties1
-
         // Constants for CommandRecordsSupportedReportProperties1
         constantCommandRecordsSupportedReportProperties1.put(0x01, "CONF_CMD");
         constantCommandRecordsSupportedReportProperties1.put(0x02, "V_C");
@@ -109,7 +101,6 @@ public class CommandClassAssociationCommandConfigurationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the COMMAND_RECORDS_SUPPORTED_REPORT command.
@@ -185,7 +176,6 @@ public class CommandClassAssociationCommandConfigurationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the COMMAND_CONFIGURATION_SET command.
@@ -297,7 +287,6 @@ public class CommandClassAssociationCommandConfigurationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the COMMAND_CONFIGURATION_GET command.
      * <p>
@@ -356,7 +345,6 @@ public class CommandClassAssociationCommandConfigurationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the COMMAND_CONFIGURATION_REPORT command.
@@ -477,5 +465,4 @@ public class CommandClassAssociationCommandConfigurationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

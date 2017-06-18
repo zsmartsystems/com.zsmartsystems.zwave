@@ -59,7 +59,6 @@ public class CommandClassUserCodeV1 {
      */
     public final static int USERS_NUMBER_REPORT = 0x05;
 
-
     /**
      * Map holding constants for UserCodeReportUserIdStatus
      */
@@ -69,8 +68,8 @@ public class CommandClassUserCodeV1 {
      * Map holding constants for UserCodeSetUserIdStatus
      */
     private static Map<Integer, String> constantUserCodeSetUserIdStatus = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for UserCodeReportUserIdStatus
         constantUserCodeReportUserIdStatus.put(0xFE, "STATUS_NOT_AVAILABLE");
         constantUserCodeReportUserIdStatus.put(0x00, "AVAILABLE");
@@ -90,6 +89,7 @@ public class CommandClassUserCodeV1 {
      * @param userIdentifier {@link Integer}
      * @param userIdStatus {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>STATUS_NOT_AVAILABLE
      *            <li>AVAILABLE
@@ -145,6 +145,13 @@ public class CommandClassUserCodeV1 {
      * <ul>
      * <li>USER_IDENTIFIER {@link Integer}
      * <li>USER_ID_STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>STATUS_NOT_AVAILABLE
+     * <li>AVAILABLE
+     * <li>OCCUPIED
+     * </ul>
      * <li>USER_CODE {@link byte[]}
      * </ul>
      *
@@ -172,7 +179,6 @@ public class CommandClassUserCodeV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the USER_CODE_GET command.
@@ -220,7 +226,6 @@ public class CommandClassUserCodeV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the USER_CODE_REPORT command.
      * <p>
@@ -229,6 +234,7 @@ public class CommandClassUserCodeV1 {
      * @param userIdentifier {@link Integer}
      * @param userIdStatus {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>STATUS_NOT_AVAILABLE
      *            <li>AVAILABLE
@@ -284,6 +290,13 @@ public class CommandClassUserCodeV1 {
      * <ul>
      * <li>USER_IDENTIFIER {@link Integer}
      * <li>USER_ID_STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>STATUS_NOT_AVAILABLE
+     * <li>AVAILABLE
+     * <li>OCCUPIED
+     * </ul>
      * <li>USER_CODE {@link byte[]}
      * </ul>
      *
@@ -311,7 +324,6 @@ public class CommandClassUserCodeV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the USERS_NUMBER_GET command.
@@ -345,7 +357,6 @@ public class CommandClassUserCodeV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the USERS_NUMBER_REPORT command.
@@ -392,5 +403,4 @@ public class CommandClassUserCodeV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

@@ -59,17 +59,36 @@ public class CommandClassHumidityControlModeV1 {
      */
     public final static int HUMIDITY_CONTROL_MODE_SUPPORTED_REPORT = 0x05;
 
+    /**
+     * Map holding constants for HumidityControlModeSetMode
+     */
+    private static Map<Integer, String> constantHumidityControlModeSetMode = new HashMap<Integer, String>();
 
     /**
      * Map holding constants for HumidityControlModeSupportedReportBitMask
      */
     private static Map<Integer, String> constantHumidityControlModeSupportedReportBitMask = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for HumidityControlModeReportMode
+     */
+    private static Map<Integer, String> constantHumidityControlModeReportMode = new HashMap<Integer, String>();
+
     static {
+        // Constants for HumidityControlModeSetMode
+        constantHumidityControlModeSetMode.put(0x00, "OFF");
+        constantHumidityControlModeSetMode.put(0x01, "HUMIDIFY");
+        constantHumidityControlModeSetMode.put(0x02, "DEHUMIDIFY");
 
         // Constants for HumidityControlModeSupportedReportBitMask
         constantHumidityControlModeSupportedReportBitMask.put(0x00, "OFF");
         constantHumidityControlModeSupportedReportBitMask.put(0x01, "HUMIDIFY");
         constantHumidityControlModeSupportedReportBitMask.put(0x02, "DEHUMIDIFY");
+
+        // Constants for HumidityControlModeReportMode
+        constantHumidityControlModeReportMode.put(0x00, "OFF");
+        constantHumidityControlModeReportMode.put(0x01, "HUMIDIFY");
+        constantHumidityControlModeReportMode.put(0x02, "DEHUMIDIFY");
     }
 
     /**
@@ -78,6 +97,13 @@ public class CommandClassHumidityControlModeV1 {
      * Humidity Control Mode Set
      *
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>OFF
+     *            <li>HUMIDIFY
+     *            <li>DEHUMIDIFY
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getHumidityControlModeSet(String mode) {
@@ -88,21 +114,17 @@ public class CommandClassHumidityControlModeV1 {
         outputData.write(HUMIDITY_CONTROL_MODE_SET);
 
         // Process 'Properties1'
-        int valmode;
-        switch (mode) {
-            case "OFF":
-                valmode = 0;
+        int varMode = Integer.MAX_VALUE;
+        for (Integer entry : constantHumidityControlModeSetMode.keySet()) {
+            if (constantHumidityControlModeSetMode.get(entry).equals(mode)) {
+                varMode = entry;
                 break;
-            case "HUMIDIFY":
-                valmode = 1;
-                break;
-            case "DEHUMIDIFY":
-                valmode = 2;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for mode: " + mode);
+            }
         }
-        outputData.write(valmode & 0x0F);
+        if (varMode == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + mode + "' for mode");
+        }
+        outputData.write(varMode & 0x0F);
 
         return outputData.toByteArray();
     }
@@ -116,6 +138,13 @@ public class CommandClassHumidityControlModeV1 {
      *
      * <ul>
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF
+     * <li>HUMIDIFY
+     * <li>DEHUMIDIFY
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -126,24 +155,11 @@ public class CommandClassHumidityControlModeV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch (payload[2] & 0x0F) {
-            case 0x00:
-                response.put("MODE", "OFF");
-                break;
-            case 0x01:
-                response.put("MODE", "HUMIDIFY");
-                break;
-            case 0x02:
-                response.put("MODE", "DEHUMIDIFY");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for MODE", String.format("0x%02X", 2));
-        }
+        response.put("MODE", constantHumidityControlModeSetMode.get(payload[2] & 0x0F));
 
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the HUMIDITY_CONTROL_MODE_GET command.
@@ -178,13 +194,19 @@ public class CommandClassHumidityControlModeV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the HUMIDITY_CONTROL_MODE_REPORT command.
      * <p>
      * Humidity Control Mode Report
      *
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>OFF
+     *            <li>HUMIDIFY
+     *            <li>DEHUMIDIFY
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getHumidityControlModeReport(String mode) {
@@ -195,21 +217,17 @@ public class CommandClassHumidityControlModeV1 {
         outputData.write(HUMIDITY_CONTROL_MODE_REPORT);
 
         // Process 'Properties1'
-        int valmode;
-        switch (mode) {
-            case "OFF":
-                valmode = 0;
+        int varMode = Integer.MAX_VALUE;
+        for (Integer entry : constantHumidityControlModeReportMode.keySet()) {
+            if (constantHumidityControlModeReportMode.get(entry).equals(mode)) {
+                varMode = entry;
                 break;
-            case "HUMIDIFY":
-                valmode = 1;
-                break;
-            case "DEHUMIDIFY":
-                valmode = 2;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for mode: " + mode);
+            }
         }
-        outputData.write(valmode & 0x0F);
+        if (varMode == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + mode + "' for mode");
+        }
+        outputData.write(varMode & 0x0F);
 
         return outputData.toByteArray();
     }
@@ -223,6 +241,13 @@ public class CommandClassHumidityControlModeV1 {
      *
      * <ul>
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF
+     * <li>HUMIDIFY
+     * <li>DEHUMIDIFY
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -233,24 +258,11 @@ public class CommandClassHumidityControlModeV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch (payload[2] & 0x0F) {
-            case 0x00:
-                response.put("MODE", "OFF");
-                break;
-            case 0x01:
-                response.put("MODE", "HUMIDIFY");
-                break;
-            case 0x02:
-                response.put("MODE", "DEHUMIDIFY");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for MODE", String.format("0x%02X", 2));
-        }
+        response.put("MODE", constantHumidityControlModeReportMode.get(payload[2] & 0x0F));
 
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the HUMIDITY_CONTROL_MODE_SUPPORTED_GET command.
@@ -285,7 +297,6 @@ public class CommandClassHumidityControlModeV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the HUMIDITY_CONTROL_MODE_SUPPORTED_REPORT command.
      * <p>
@@ -293,6 +304,7 @@ public class CommandClassHumidityControlModeV1 {
      *
      * @param bitMask {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF
      *            <li>HUMIDIFY
@@ -336,6 +348,13 @@ public class CommandClassHumidityControlModeV1 {
      *
      * <ul>
      * <li>BIT_MASK {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF
+     * <li>HUMIDIFY
+     * <li>DEHUMIDIFY
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -359,5 +378,4 @@ public class CommandClassHumidityControlModeV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

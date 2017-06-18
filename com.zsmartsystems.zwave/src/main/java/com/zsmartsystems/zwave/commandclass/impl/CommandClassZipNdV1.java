@@ -51,20 +51,29 @@ public class CommandClassZipNdV1 {
      */
     public final static int ZIP_INV_NODE_SOLICITATION = 0x04;
 
-
     /**
      * Map holding constants for ZipInvNodeSolicitationProperties1
      */
     private static Map<Integer, String> constantZipInvNodeSolicitationProperties1 = new HashMap<Integer, String>();
 
     /**
+     * Map holding constants for ZipNodeAdvertisementValidity
+     */
+    private static Map<Integer, String> constantZipNodeAdvertisementValidity = new HashMap<Integer, String>();
+
+    /**
      * Map holding constants for ZipNodeAdvertisementProperties1
      */
     private static Map<Integer, String> constantZipNodeAdvertisementProperties1 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for ZipInvNodeSolicitationProperties1
         constantZipInvNodeSolicitationProperties1.put(0x04, "LOCAL");
+
+        // Constants for ZipNodeAdvertisementValidity
+        constantZipNodeAdvertisementValidity.put(0x00, "INFORMATION_OK");
+        constantZipNodeAdvertisementValidity.put(0x01, "INFORMATION_OBSOLETE");
+        constantZipNodeAdvertisementValidity.put(0x02, "INFORMATION_NOT_FOUND");
 
         // Constants for ZipNodeAdvertisementProperties1
         constantZipNodeAdvertisementProperties1.put(0x04, "LOCAL");
@@ -76,6 +85,13 @@ public class CommandClassZipNdV1 {
      * Zip Node Advertisement
      *
      * @param validity {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>INFORMATION_OK
+     *            <li>INFORMATION_OBSOLETE
+     *            <li>INFORMATION_NOT_FOUND
+     *            </ul>
      * @param local {@link Boolean}
      * @param nodeId {@link Integer}
      * @param ipv6Address {@link byte[]}
@@ -92,21 +108,17 @@ public class CommandClassZipNdV1 {
 
         // Process 'Properties1'
         int valProperties1 = 0;
-        int valvalidity;
-        switch (validity) {
-            case "INFORMATION_OK":
-                valvalidity = 0;
+        int varValidity = Integer.MAX_VALUE;
+        for (Integer entry : constantZipNodeAdvertisementValidity.keySet()) {
+            if (constantZipNodeAdvertisementValidity.get(entry).equals(validity)) {
+                varValidity = entry;
                 break;
-            case "INFORMATION_OBSOLETE":
-                valvalidity = 1;
-                break;
-            case "INFORMATION_NOT_FOUND":
-                valvalidity = 2;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for validity: " + validity);
+            }
         }
-        valProperties1 |= valvalidity & 0x03;
+        if (varValidity == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + validity + "' for validity");
+        }
+        valProperties1 |= varValidity & 0x03;
         valProperties1 |= local ? 0x04 : 0;
         outputData.write(valProperties1);
 
@@ -152,6 +164,13 @@ public class CommandClassZipNdV1 {
      *
      * <ul>
      * <li>VALIDITY {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>INFORMATION_OK
+     * <li>INFORMATION_OBSOLETE
+     * <li>INFORMATION_NOT_FOUND
+     * </ul>
      * <li>LOCAL {@link Boolean}
      * <li>NODE_ID {@link Integer}
      * <li>IPV6_ADDRESS {@link byte[]}
@@ -166,19 +185,7 @@ public class CommandClassZipNdV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch (payload[2] & 0x03) {
-            case 0x00:
-                response.put("VALIDITY", "INFORMATION_OK");
-                break;
-            case 0x01:
-                response.put("VALIDITY", "INFORMATION_OBSOLETE");
-                break;
-            case 0x02:
-                response.put("VALIDITY", "INFORMATION_NOT_FOUND");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for VALIDITY", String.format("0x%02X", 2));
-        }
+        response.put("VALIDITY", constantZipNodeAdvertisementValidity.get(payload[2] & 0x03));
         response.put("LOCAL", Boolean.valueOf((payload[2] & 0x04) != 0));
 
         // Process 'Node ID'
@@ -203,7 +210,6 @@ public class CommandClassZipNdV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the ZIP_NODE_SOLICITATION command.
@@ -280,7 +286,6 @@ public class CommandClassZipNdV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ZIP_INV_NODE_SOLICITATION command.
      * <p>
@@ -339,5 +344,4 @@ public class CommandClassZipNdV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

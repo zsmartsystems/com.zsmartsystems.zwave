@@ -112,7 +112,6 @@ public class CommandClassIrrigationV1 {
      */
     public final static int IRRIGATION_SYSTEM_SHUTOFF = 0x12;
 
-
     /**
      * Map holding constants for IrrigationValveRunProperties1
      */
@@ -187,8 +186,8 @@ public class CommandClassIrrigationV1 {
      * Map holding constants for IrrigationSystemConfigReportSensorPolarity
      */
     private static Map<Integer, String> constantIrrigationSystemConfigReportSensorPolarity = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for IrrigationValveRunProperties1
         constantIrrigationValveRunProperties1.put(0x01, "MASTER_VALVE");
 
@@ -287,7 +286,6 @@ public class CommandClassIrrigationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the IRRIGATION_SYSTEM_INFO_REPORT command.
      * <p>
@@ -359,7 +357,6 @@ public class CommandClassIrrigationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the IRRIGATION_SYSTEM_STATUS_GET command.
      * <p>
@@ -393,7 +390,6 @@ public class CommandClassIrrigationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the IRRIGATION_SYSTEM_STATUS_REPORT command.
      * <p>
@@ -402,6 +398,7 @@ public class CommandClassIrrigationV1 {
      * @param systemVoltage {@link Integer}
      * @param sensorStatus {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>FLOW_SENSOR_DETECTED
      *            <li>PRESSURE_SENSOR_DETECTED
@@ -413,6 +410,7 @@ public class CommandClassIrrigationV1 {
      * @param shutoffDuration {@link Integer}
      * @param systemErrorStatus {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NOT_PROGRAMMED
      *            <li>EMERGENCY_SHUTDOWN
@@ -522,10 +520,27 @@ public class CommandClassIrrigationV1 {
      * <ul>
      * <li>SYSTEM_VOLTAGE {@link Integer}
      * <li>SENSOR_STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>FLOW_SENSOR_DETECTED
+     * <li>PRESSURE_SENSOR_DETECTED
+     * <li>RAIN_SENSOR_DETECTED
+     * <li>MOISTURE_SENSOR_DETECTED
+     * </ul>
      * <li>FLOW_VALUE {@link byte[]}
      * <li>PRESSURE_VALUE {@link byte[]}
      * <li>SHUTOFF_DURATION {@link Integer}
      * <li>SYSTEM_ERROR_STATUS {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NOT_PROGRAMMED
+     * <li>EMERGENCY_SHUTDOWN
+     * <li>HIGH_THRESHOLD_TRIGGERED
+     * <li>LOW_THRESHOLD_TRIGGERED
+     * <li>VALVE_ERRORS
+     * </ul>
      * <li>MASTER_VALVE {@link Boolean}
      * <li>VALVE_ID {@link Integer}
      * </ul>
@@ -606,7 +621,6 @@ public class CommandClassIrrigationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the IRRIGATION_SYSTEM_CONFIG_SET command.
      * <p>
@@ -617,6 +631,7 @@ public class CommandClassIrrigationV1 {
      * @param lowPressureThresholdValue {@link byte[]}
      * @param sensorPolarity {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>RAIN_SENSOR_POLARITY
      *            <li>MOISTURE_SENSOR_POLARITY
@@ -701,6 +716,13 @@ public class CommandClassIrrigationV1 {
      * <li>HIGH_PRESSURE_THRESHOLD_VALUE {@link byte[]}
      * <li>LOW_PRESSURE_THRESHOLD_VALUE {@link byte[]}
      * <li>SENSOR_POLARITY {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>RAIN_SENSOR_POLARITY
+     * <li>MOISTURE_SENSOR_POLARITY
+     * <li>VALID
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -763,7 +785,6 @@ public class CommandClassIrrigationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the IRRIGATION_SYSTEM_CONFIG_GET command.
      * <p>
@@ -797,7 +818,6 @@ public class CommandClassIrrigationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the IRRIGATION_SYSTEM_CONFIG_REPORT command.
      * <p>
@@ -808,6 +828,7 @@ public class CommandClassIrrigationV1 {
      * @param lowPressureThresholdValue {@link byte[]}
      * @param sensorPolarity {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>RAIN_SENSOR_POLARITY
      *            <li>MOISTURE_SENSOR_POLARITY
@@ -892,6 +913,13 @@ public class CommandClassIrrigationV1 {
      * <li>HIGH_PRESSURE_THRESHOLD_VALUE {@link byte[]}
      * <li>LOW_PRESSURE_THRESHOLD_VALUE {@link byte[]}
      * <li>SENSOR_POLARITY {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>RAIN_SENSOR_POLARITY
+     * <li>MOISTURE_SENSOR_POLARITY
+     * <li>VALID
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -954,7 +982,6 @@ public class CommandClassIrrigationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the IRRIGATION_VALVE_INFO_GET command.
      * <p>
@@ -1009,7 +1036,6 @@ public class CommandClassIrrigationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the IRRIGATION_VALVE_INFO_REPORT command.
      * <p>
@@ -1021,6 +1047,7 @@ public class CommandClassIrrigationV1 {
      * @param nominalCurrent {@link Integer}
      * @param valveErrorStatus {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>SHORT_CIRCUIT
      *            <li>CURRENT_HIGH_THRESHOLD
@@ -1084,6 +1111,16 @@ public class CommandClassIrrigationV1 {
      * <li>VALVE_ID {@link Integer}
      * <li>NOMINAL_CURRENT {@link Integer}
      * <li>VALVE_ERROR_STATUS {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>SHORT_CIRCUIT
+     * <li>CURRENT_HIGH_THRESHOLD
+     * <li>CURRENT_LOW_THRESHOLD
+     * <li>MAXIMUM_FLOW
+     * <li>FLOW_HIGH_THRESHOLD
+     * <li>FLOW_LOW_THRESHOLD
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -1118,7 +1155,6 @@ public class CommandClassIrrigationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the IRRIGATION_VALVE_CONFIG_SET command.
      * <p>
@@ -1133,6 +1169,7 @@ public class CommandClassIrrigationV1 {
      * @param flowLowThresholdValue {@link byte[]}
      * @param sensorUsage {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>USE_RAIN_SENSOR
      *            <li>USE_MOISTURE_SENSOR
@@ -1247,6 +1284,12 @@ public class CommandClassIrrigationV1 {
      * <li>FLOW_HIGH_THRESHOLD_VALUE {@link byte[]}
      * <li>FLOW_LOW_THRESHOLD_VALUE {@link byte[]}
      * <li>SENSOR_USAGE {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>USE_RAIN_SENSOR
+     * <li>USE_MOISTURE_SENSOR
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -1336,7 +1379,6 @@ public class CommandClassIrrigationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the IRRIGATION_VALVE_CONFIG_GET command.
      * <p>
@@ -1391,7 +1433,6 @@ public class CommandClassIrrigationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the IRRIGATION_VALVE_CONFIG_REPORT command.
      * <p>
@@ -1406,6 +1447,7 @@ public class CommandClassIrrigationV1 {
      * @param flowLowThresholdValue {@link byte[]}
      * @param sensorUsage {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>USE_RAIN_SENSOR
      *            <li>USE_MOISTURE_SENSOR
@@ -1520,6 +1562,12 @@ public class CommandClassIrrigationV1 {
      * <li>FLOW_HIGH_THRESHOLD_VALUE {@link byte[]}
      * <li>FLOW_LOW_THRESHOLD_VALUE {@link byte[]}
      * <li>SENSOR_USAGE {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>USE_RAIN_SENSOR
+     * <li>USE_MOISTURE_SENSOR
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -1609,7 +1657,6 @@ public class CommandClassIrrigationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the IRRIGATION_VALVE_RUN command.
      * <p>
@@ -1672,7 +1719,6 @@ public class CommandClassIrrigationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the IRRIGATION_VALVE_TABLE_SET command.
@@ -1743,7 +1789,6 @@ public class CommandClassIrrigationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the IRRIGATION_VALVE_TABLE_GET command.
      * <p>
@@ -1789,7 +1834,6 @@ public class CommandClassIrrigationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the IRRIGATION_VALVE_TABLE_REPORT command.
@@ -1860,7 +1904,6 @@ public class CommandClassIrrigationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the IRRIGATION_VALVE_TABLE_RUN command.
      * <p>
@@ -1920,7 +1963,6 @@ public class CommandClassIrrigationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the IRRIGATION_SYSTEM_SHUTOFF command.
      * <p>
@@ -1966,5 +2008,4 @@ public class CommandClassIrrigationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

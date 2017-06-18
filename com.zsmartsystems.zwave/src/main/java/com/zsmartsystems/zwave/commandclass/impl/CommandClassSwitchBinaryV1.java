@@ -49,7 +49,6 @@ public class CommandClassSwitchBinaryV1 {
      */
     public final static int SWITCH_BINARY_REPORT = 0x03;
 
-
     /**
      * Map holding constants for SwitchBinaryReportValue
      */
@@ -59,8 +58,8 @@ public class CommandClassSwitchBinaryV1 {
      * Map holding constants for SwitchBinarySetSwitchValue
      */
     private static Map<Integer, String> constantSwitchBinarySetSwitchValue = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SwitchBinaryReportValue
         constantSwitchBinaryReportValue.put(0x00, "OFF_DISABLE");
         constantSwitchBinaryReportValue.put(0xFF, "ON_ENABLE");
@@ -77,6 +76,7 @@ public class CommandClassSwitchBinaryV1 {
      *
      * @param switchValue {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF_DISABLE
      *            <li>ON_ENABLE
@@ -115,6 +115,12 @@ public class CommandClassSwitchBinaryV1 {
      *
      * <ul>
      * <li>SWITCH_VALUE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF_DISABLE
+     * <li>ON_ENABLE
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -130,7 +136,6 @@ public class CommandClassSwitchBinaryV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SWITCH_BINARY_GET command.
@@ -165,7 +170,6 @@ public class CommandClassSwitchBinaryV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SWITCH_BINARY_REPORT command.
      * <p>
@@ -173,6 +177,7 @@ public class CommandClassSwitchBinaryV1 {
      *
      * @param value {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF_DISABLE
      *            <li>ON_ENABLE
@@ -211,6 +216,12 @@ public class CommandClassSwitchBinaryV1 {
      *
      * <ul>
      * <li>VALUE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF_DISABLE
+     * <li>ON_ENABLE
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -226,5 +237,4 @@ public class CommandClassSwitchBinaryV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

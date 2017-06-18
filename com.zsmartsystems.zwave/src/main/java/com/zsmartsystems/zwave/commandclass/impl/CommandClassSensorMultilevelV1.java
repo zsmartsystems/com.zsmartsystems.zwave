@@ -46,13 +46,12 @@ public class CommandClassSensorMultilevelV1 {
      */
     public final static int SENSOR_MULTILEVEL_REPORT = 0x05;
 
-
     /**
      * Map holding constants for SensorMultilevelReportSensorType
      */
     private static Map<Integer, String> constantSensorMultilevelReportSensorType = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SensorMultilevelReportSensorType
         constantSensorMultilevelReportSensorType.put(0x01, "TEMPERATURE");
         constantSensorMultilevelReportSensorType.put(0x02, "GENERAL_PURPOSE_VALUE");
@@ -92,7 +91,6 @@ public class CommandClassSensorMultilevelV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SENSOR_MULTILEVEL_REPORT command.
      * <p>
@@ -100,6 +98,7 @@ public class CommandClassSensorMultilevelV1 {
      *
      * @param sensorType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>TEMPERATURE
      *            <li>GENERAL_PURPOSE_VALUE
@@ -160,6 +159,13 @@ public class CommandClassSensorMultilevelV1 {
      *
      * <ul>
      * <li>SENSOR_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>TEMPERATURE
+     * <li>GENERAL_PURPOSE_VALUE
+     * <li>LUMINANCE
+     * </ul>
      * <li>SCALE {@link Integer}
      * <li>PRECISION {@link Integer}
      * <li>SENSOR_VALUE {@link byte[]}
@@ -197,5 +203,4 @@ public class CommandClassSensorMultilevelV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

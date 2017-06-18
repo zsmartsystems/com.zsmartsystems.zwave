@@ -45,7 +45,6 @@ public class CommandClassZwaveplusInfoV2 {
      */
     public final static int ZWAVEPLUS_INFO_REPORT = 0x02;
 
-
     /**
      * Map holding constants for ZwaveplusInfoReportRoleType
      */
@@ -55,8 +54,8 @@ public class CommandClassZwaveplusInfoV2 {
      * Map holding constants for ZwaveplusInfoReportNodeType
      */
     private static Map<Integer, String> constantZwaveplusInfoReportNodeType = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for ZwaveplusInfoReportRoleType
         constantZwaveplusInfoReportRoleType.put(0x00, "ROLE_TYPE_CONTROLLER_CENTRAL_STATIC");
         constantZwaveplusInfoReportRoleType.put(0x01, "ROLE_TYPE_CONTROLLER_SUB_STATIC");
@@ -105,7 +104,6 @@ public class CommandClassZwaveplusInfoV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ZWAVEPLUS_INFO_REPORT command.
      * <p>
@@ -114,6 +112,7 @@ public class CommandClassZwaveplusInfoV2 {
      * @param zWavePlusVersion {@link Integer}
      * @param roleType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>ROLE_TYPE_CONTROLLER_CENTRAL_STATIC
      *            <li>ROLE_TYPE_CONTROLLER_SUB_STATIC
@@ -126,6 +125,7 @@ public class CommandClassZwaveplusInfoV2 {
      *            </ul>
      * @param nodeType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NODE_TYPE_ZWAVEPLUS_NODE
      *            <li>NODE_TYPE_ZWAVEPLUS_FOR_IP_GATEWAY
@@ -192,7 +192,25 @@ public class CommandClassZwaveplusInfoV2 {
      * <ul>
      * <li>Z_WAVE_PLUS_VERSION {@link Integer}
      * <li>ROLE_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>ROLE_TYPE_CONTROLLER_CENTRAL_STATIC
+     * <li>ROLE_TYPE_CONTROLLER_SUB_STATIC
+     * <li>ROLE_TYPE_CONTROLLER_PORTABLE
+     * <li>ROLE_TYPE_CONTROLLER_PORTABLE_REPORTING
+     * <li>ROLE_TYPE_SLAVE_PORTABLE
+     * <li>ROLE_TYPE_SLAVE_ALWAYS_ON
+     * <li>ROLE_TYPE_SLAVE_SLEEPING_REPORTING
+     * <li>ROLE_TYPE_SLAVE_SLEEPING_LISTENING
+     * </ul>
      * <li>NODE_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NODE_TYPE_ZWAVEPLUS_NODE
+     * <li>NODE_TYPE_ZWAVEPLUS_FOR_IP_GATEWAY
+     * </ul>
      * <li>INSTALLER_ICON_TYPE {@link Integer}
      * <li>USER_ICON_TYPE {@link Integer}
      * </ul>
@@ -222,5 +240,4 @@ public class CommandClassZwaveplusInfoV2 {
         // Return the map of processed response data;
         return response;
     }
-
 }

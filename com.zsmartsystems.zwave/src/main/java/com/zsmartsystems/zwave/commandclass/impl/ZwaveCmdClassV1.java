@@ -187,6 +187,10 @@ public class ZwaveCmdClassV1 {
      */
     public final static int ASSIGN_SUC_RETURN_ROUTE_PRIORITY = 0x25;
 
+    /**
+     * Map holding constants for NodeInfoMaxBaudRate
+     */
+    private static Map<Integer, String> constantNodeInfoMaxBaudRate = new HashMap<Integer, String>();
 
     /**
      * Map holding constants for NodeInfoCapability
@@ -197,7 +201,21 @@ public class ZwaveCmdClassV1 {
      * Map holding constants for NodeInfoSecurity
      */
     private static Map<Integer, String> constantNodeInfoSecurity = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for NodeInfoProtocolVersion
+     */
+    private static Map<Integer, String> constantNodeInfoProtocolVersion = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for NodeInfoSpeedExtension
+     */
+    private static Map<Integer, String> constantNodeInfoSpeedExtension = new HashMap<Integer, String>();
+
     static {
+        // Constants for NodeInfoMaxBaudRate
+        constantNodeInfoMaxBaudRate.put(0x00, "9_6_KBPS");
+        constantNodeInfoMaxBaudRate.put(0x01, "40_KBPS");
 
         // Constants for NodeInfoCapability
         constantNodeInfoCapability.put(0x40, "ROUTING");
@@ -212,6 +230,15 @@ public class ZwaveCmdClassV1 {
         constantNodeInfoSecurity.put(0x04, "SPECIFIC_DEVICE");
         constantNodeInfoSecurity.put(0x08, "ROUTING_SLAVE");
         constantNodeInfoSecurity.put(0x80, "OPTIONAL_FUNCTIONALITY");
+
+        // Constants for NodeInfoProtocolVersion
+        constantNodeInfoProtocolVersion.put(0x00, "Z_WAVE_VERSION_2_0");
+        constantNodeInfoProtocolVersion.put(0x01, "Z_WAVE_VERSION_ZDK_5_0X_ZDK_4_2X");
+        constantNodeInfoProtocolVersion.put(0x02, "Z_WAVE_VERSION_ZDK_4_5X_AND_ZDK_6_0X");
+
+        // Constants for NodeInfoSpeedExtension
+        constantNodeInfoSpeedExtension.put(0x00, "100_KBPS");
+        constantNodeInfoSpeedExtension.put(0x01, "200_KBPS");
     }
 
     /**
@@ -247,7 +274,6 @@ public class ZwaveCmdClassV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the NODE_INFO command.
      * <p>
@@ -256,11 +282,25 @@ public class ZwaveCmdClassV1 {
      * SDS10264-2
      *
      * @param protocolVersion {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>Z_WAVE_VERSION_2_0
+     *            <li>Z_WAVE_VERSION_ZDK_5_0X_ZDK_4_2X
+     *            <li>Z_WAVE_VERSION_ZDK_4_5X_AND_ZDK_6_0X
+     *            </ul>
      * @param maxBaudRate {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>9_6_KBPS
+     *            <li>40_KBPS
+     *            </ul>
      * @param routing {@link Boolean}
      * @param listening {@link Boolean}
      * @param security {@link Boolean}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>BEAM_CAPABILITY
      *            <li>SECURITY
@@ -279,6 +319,12 @@ public class ZwaveCmdClassV1 {
      * @param sensor1000ms {@link Boolean}
      * @param optionalFunctionality {@link Boolean}
      * @param speedExtension {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>100_KBPS
+     *            <li>200_KBPS
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getNodeInfo(String protocolVersion, String maxBaudRate, Boolean routing, Boolean listening,
@@ -292,33 +338,28 @@ public class ZwaveCmdClassV1 {
 
         // Process 'Capability'
         int valCapability = 0;
-        int valprotocolVersion;
-        switch (protocolVersion) {
-            case "Z_WAVE_VERSION_2_0":
-                valprotocolVersion = 1;
+        int varProtocolVersion = Integer.MAX_VALUE;
+        for (Integer entry : constantNodeInfoProtocolVersion.keySet()) {
+            if (constantNodeInfoProtocolVersion.get(entry).equals(protocolVersion)) {
+                varProtocolVersion = entry;
                 break;
-            case "Z_WAVE_VERSION_ZDK_5_0X_ZDK_4_2X":
-                valprotocolVersion = 2;
-                break;
-            case "Z_WAVE_VERSION_ZDK_4_5X_AND_ZDK_6_0X":
-                valprotocolVersion = 3;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for protocolVersion: " + protocolVersion);
+            }
         }
-        valCapability |= valprotocolVersion & 0x07;
-        int valmaxBaudRate;
-        switch (maxBaudRate) {
-            case "9_6_KBPS":
-                valmaxBaudRate = 1;
-                break;
-            case "40_KBPS":
-                valmaxBaudRate = 2;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for maxBaudRate: " + maxBaudRate);
+        if (varProtocolVersion == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + protocolVersion + "' for protocolVersion");
         }
-        valCapability |= valmaxBaudRate >> 3 & 0x38;
+        valCapability |= varProtocolVersion & 0x07;
+        int varMaxBaudRate = Integer.MAX_VALUE;
+        for (Integer entry : constantNodeInfoMaxBaudRate.keySet()) {
+            if (constantNodeInfoMaxBaudRate.get(entry).equals(maxBaudRate)) {
+                varMaxBaudRate = entry;
+                break;
+            }
+        }
+        if (varMaxBaudRate == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + maxBaudRate + "' for maxBaudRate");
+        }
+        valCapability |= varMaxBaudRate << 3 & 0x38;
         valCapability |= routing ? 0x40 : 0;
         valCapability |= listening ? 0x80 : 0;
         outputData.write(valCapability);
@@ -336,18 +377,17 @@ public class ZwaveCmdClassV1 {
         outputData.write(valSecurity);
 
         // Process 'Properties1'
-        int valspeedExtension;
-        switch (speedExtension) {
-            case "100_KBPS":
-                valspeedExtension = 1;
+        int varSpeedExtension = Integer.MAX_VALUE;
+        for (Integer entry : constantNodeInfoSpeedExtension.keySet()) {
+            if (constantNodeInfoSpeedExtension.get(entry).equals(speedExtension)) {
+                varSpeedExtension = entry;
                 break;
-            case "200_KBPS":
-                valspeedExtension = 2;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for speedExtension: " + speedExtension);
+            }
         }
-        outputData.write(valspeedExtension & 0x07);
+        if (varSpeedExtension == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + speedExtension + "' for speedExtension");
+        }
+        outputData.write(varSpeedExtension & 0x07);
 
         // Process 'Basic Device Class'
 
@@ -371,10 +411,35 @@ public class ZwaveCmdClassV1 {
      *
      * <ul>
      * <li>PROTOCOL_VERSION {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>Z_WAVE_VERSION_2_0
+     * <li>Z_WAVE_VERSION_ZDK_5_0X_ZDK_4_2X
+     * <li>Z_WAVE_VERSION_ZDK_4_5X_AND_ZDK_6_0X
+     * </ul>
      * <li>MAX_BAUD_RATE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>9_6_KBPS
+     * <li>40_KBPS
+     * </ul>
      * <li>ROUTING {@link Boolean}
      * <li>LISTENING {@link Boolean}
      * <li>SECURITY {@link Boolean}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>BEAM_CAPABILITY
+     * <li>SECURITY
+     * <li>SENSOR_250MS
+     * <li>CONTROLLER
+     * <li>SENSOR_1000MS
+     * <li>SPECIFIC_DEVICE
+     * <li>ROUTING_SLAVE
+     * <li>OPTIONAL_FUNCTIONALITY
+     * </ul>
      * <li>CONTROLLER {@link Boolean}
      * <li>SPECIFIC_DEVICE {@link Boolean}
      * <li>ROUTING_SLAVE {@link Boolean}
@@ -383,6 +448,12 @@ public class ZwaveCmdClassV1 {
      * <li>SENSOR_1000MS {@link Boolean}
      * <li>OPTIONAL_FUNCTIONALITY {@link Boolean}
      * <li>SPEED_EXTENSION {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>100_KBPS
+     * <li>200_KBPS
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -393,29 +464,8 @@ public class ZwaveCmdClassV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Capability'
-        switch (payload[2] & 0x07) {
-            case 0x01:
-                response.put("PROTOCOL_VERSION", "Z_WAVE_VERSION_2_0");
-                break;
-            case 0x02:
-                response.put("PROTOCOL_VERSION", "Z_WAVE_VERSION_ZDK_5_0X_ZDK_4_2X");
-                break;
-            case 0x03:
-                response.put("PROTOCOL_VERSION", "Z_WAVE_VERSION_ZDK_4_5X_AND_ZDK_6_0X");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for PROTOCOL_VERSION", String.format("0x%02X", 2));
-        }
-        switch ((payload[2] & 0x38) >> 3) {
-            case 0x01:
-                response.put("MAX_BAUD_RATE", "9_6_KBPS");
-                break;
-            case 0x02:
-                response.put("MAX_BAUD_RATE", "40_KBPS");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for MAX_BAUD_RATE", String.format("0x%02X", 2));
-        }
+        response.put("PROTOCOL_VERSION", constantNodeInfoProtocolVersion.get(payload[2] & 0x07));
+        response.put("MAX_BAUD_RATE", constantNodeInfoMaxBaudRate.get((payload[2] & 0x38) >> 3));
         response.put("ROUTING", Boolean.valueOf((payload[2] & 0x40) != 0));
         response.put("LISTENING", Boolean.valueOf((payload[2] & 0x80) != 0));
 
@@ -430,16 +480,7 @@ public class ZwaveCmdClassV1 {
         response.put("OPTIONAL_FUNCTIONALITY", Boolean.valueOf((payload[3] & 0x80) != 0));
 
         // Process 'Properties1'
-        switch (payload[4] & 0x07) {
-            case 0x01:
-                response.put("SPEED_EXTENSION", "100_KBPS");
-                break;
-            case 0x02:
-                response.put("SPEED_EXTENSION", "200_KBPS");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for SPEED_EXTENSION", String.format("0x%02X", 4));
-        }
+        response.put("SPEED_EXTENSION", constantNodeInfoSpeedExtension.get(payload[4] & 0x07));
 
         // Process 'Basic Device Class' (optional)
         if (true) {
@@ -454,7 +495,6 @@ public class ZwaveCmdClassV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the REQUEST_NODE_INFO command.
@@ -493,7 +533,6 @@ public class ZwaveCmdClassV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ASSIGN_ID command.
      * <p>
@@ -530,7 +569,6 @@ public class ZwaveCmdClassV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the FIND_NODES_IN_RANGE command.
@@ -569,7 +607,6 @@ public class ZwaveCmdClassV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the GET_NODES_IN_RANGE command.
      * <p>
@@ -606,7 +643,6 @@ public class ZwaveCmdClassV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the NODE_RANGE_INFO command.
@@ -645,7 +681,6 @@ public class ZwaveCmdClassV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the COMMAND_COMPLETE command.
      * <p>
@@ -682,7 +717,6 @@ public class ZwaveCmdClassV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the TRANSFER_PRESENTATION command.
@@ -721,7 +755,6 @@ public class ZwaveCmdClassV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the TRANSFER_NODE_INFO command.
      * <p>
@@ -758,7 +791,6 @@ public class ZwaveCmdClassV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the TRANSFER_RANGE_INFO command.
@@ -797,7 +829,6 @@ public class ZwaveCmdClassV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the TRANSFER_END command.
      * <p>
@@ -834,7 +865,6 @@ public class ZwaveCmdClassV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the ASSIGN_RETURN_ROUTE command.
@@ -873,7 +903,6 @@ public class ZwaveCmdClassV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the NEW_NODE_REGISTERED command.
      * <p>
@@ -910,7 +939,6 @@ public class ZwaveCmdClassV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the NEW_RANGE_REGISTERED command.
@@ -949,7 +977,6 @@ public class ZwaveCmdClassV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the TRANSFER_NEW_PRIMARY_COMPLETE command.
      * <p>
@@ -987,7 +1014,6 @@ public class ZwaveCmdClassV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CMD_AUTOMATIC_CONTROLLER_UPDATE_START command.
      * <p>
@@ -1020,7 +1046,6 @@ public class ZwaveCmdClassV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CMD_SUC_NODE_ID command.
@@ -1055,7 +1080,6 @@ public class ZwaveCmdClassV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CMD_SET_SUC command.
      * <p>
@@ -1088,7 +1112,6 @@ public class ZwaveCmdClassV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CMD_SET_SUC_ACK command.
@@ -1123,7 +1146,6 @@ public class ZwaveCmdClassV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CMD_ASSIGN_SUC_RETURN_ROUTE command.
      * <p>
@@ -1157,7 +1179,6 @@ public class ZwaveCmdClassV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CMD_STATIC_ROUTE_REQUEST command.
      * <p>
@@ -1190,7 +1211,6 @@ public class ZwaveCmdClassV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the LOST command.
@@ -1229,7 +1249,6 @@ public class ZwaveCmdClassV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ACCEPT_LOST command.
      * <p>
@@ -1267,7 +1286,6 @@ public class ZwaveCmdClassV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CMD_NOP_POWER command.
      * <p>
@@ -1300,7 +1318,6 @@ public class ZwaveCmdClassV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the ZWAVE_CMD_RESERVE_NODE_IDS command.
@@ -1335,7 +1352,6 @@ public class ZwaveCmdClassV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CMD_RESERVED_IDS command.
      * <p>
@@ -1368,7 +1384,6 @@ public class ZwaveCmdClassV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CMD_NODES_EXIST command.
@@ -1403,7 +1418,6 @@ public class ZwaveCmdClassV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CMD_NODES_EXIST_REPLY command.
      * <p>
@@ -1437,7 +1451,6 @@ public class ZwaveCmdClassV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CMD_SET_NWI_MODE command.
      * <p>
@@ -1470,7 +1483,6 @@ public class ZwaveCmdClassV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the EXCLUDE_REQUEST command.
@@ -1509,7 +1521,6 @@ public class ZwaveCmdClassV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ASSIGN_RETURN_ROUTE_PRIORITY command.
      * <p>
@@ -1543,7 +1554,6 @@ public class ZwaveCmdClassV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ASSIGN_SUC_RETURN_ROUTE_PRIORITY command.
      * <p>
@@ -1576,5 +1586,4 @@ public class ZwaveCmdClassV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

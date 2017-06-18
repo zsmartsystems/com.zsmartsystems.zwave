@@ -58,7 +58,6 @@ public class CommandClassSwitchToggleMultilevelV1 {
      */
     public final static int SWITCH_TOGGLE_MULTILEVEL_STOP_LEVEL_CHANGE = 0x05;
 
-
     /**
      * Map holding constants for SwitchToggleMultilevelStartLevelChangeLevel
      */
@@ -68,8 +67,8 @@ public class CommandClassSwitchToggleMultilevelV1 {
      * Map holding constants for SwitchToggleMultilevelReportValue
      */
     private static Map<Integer, String> constantSwitchToggleMultilevelReportValue = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SwitchToggleMultilevelStartLevelChangeLevel
         constantSwitchToggleMultilevelStartLevelChangeLevel.put(0x20, "IGNORE_START_LEVEL");
         constantSwitchToggleMultilevelStartLevelChangeLevel.put(0x80, "ROLL_OVER");
@@ -116,7 +115,6 @@ public class CommandClassSwitchToggleMultilevelV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SWITCH_TOGGLE_MULTILEVEL_GET command.
      * <p>
@@ -150,7 +148,6 @@ public class CommandClassSwitchToggleMultilevelV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SWITCH_TOGGLE_MULTILEVEL_REPORT command.
      * <p>
@@ -158,6 +155,7 @@ public class CommandClassSwitchToggleMultilevelV1 {
      *
      * @param value {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF_DISABLE
      *            <li>ON_ENABLE
@@ -196,6 +194,12 @@ public class CommandClassSwitchToggleMultilevelV1 {
      *
      * <ul>
      * <li>VALUE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF_DISABLE
+     * <li>ON_ENABLE
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -211,7 +215,6 @@ public class CommandClassSwitchToggleMultilevelV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SWITCH_TOGGLE_MULTILEVEL_START_LEVEL_CHANGE command.
@@ -274,7 +277,6 @@ public class CommandClassSwitchToggleMultilevelV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SWITCH_TOGGLE_MULTILEVEL_STOP_LEVEL_CHANGE command.
      * <p>
@@ -307,5 +309,4 @@ public class CommandClassSwitchToggleMultilevelV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

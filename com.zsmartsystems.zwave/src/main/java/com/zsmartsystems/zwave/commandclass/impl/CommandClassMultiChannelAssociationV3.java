@@ -64,7 +64,6 @@ public class CommandClassMultiChannelAssociationV3 {
      */
     public final static int MULTI_CHANNEL_ASSOCIATION_GROUPINGS_REPORT = 0x06;
 
-
     /**
      * Map holding constants for MultiChannelAssociationRemoveProperties1
      */
@@ -94,8 +93,8 @@ public class CommandClassMultiChannelAssociationV3 {
      * Map holding constants for MultiChannelAssociationSetMarker
      */
     private static Map<Integer, String> constantMultiChannelAssociationSetMarker = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for MultiChannelAssociationRemoveProperties1
         constantMultiChannelAssociationRemoveProperties1.put(0x80, "BIT_ADDRESS");
 
@@ -221,7 +220,6 @@ public class CommandClassMultiChannelAssociationV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the MULTI_CHANNEL_ASSOCIATION_GET command.
      * <p>
@@ -267,7 +265,6 @@ public class CommandClassMultiChannelAssociationV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the MULTI_CHANNEL_ASSOCIATION_REPORT command.
@@ -394,7 +391,6 @@ public class CommandClassMultiChannelAssociationV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the MULTI_CHANNEL_ASSOCIATION_REMOVE command.
      * <p>
@@ -501,7 +497,6 @@ public class CommandClassMultiChannelAssociationV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the MULTI_CHANNEL_ASSOCIATION_GROUPINGS_GET command.
      * <p>
@@ -534,7 +529,6 @@ public class CommandClassMultiChannelAssociationV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the MULTI_CHANNEL_ASSOCIATION_GROUPINGS_REPORT command.
@@ -581,5 +575,4 @@ public class CommandClassMultiChannelAssociationV3 {
         // Return the map of processed response data;
         return response;
     }
-
 }

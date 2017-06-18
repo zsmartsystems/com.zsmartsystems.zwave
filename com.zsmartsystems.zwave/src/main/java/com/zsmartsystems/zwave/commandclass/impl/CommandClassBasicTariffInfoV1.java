@@ -45,13 +45,12 @@ public class CommandClassBasicTariffInfoV1 {
      */
     public final static int BASIC_TARIFF_INFO_REPORT = 0x02;
 
-
     /**
      * Map holding constants for BasicTariffInfoReportProperties1
      */
     private static Map<Integer, String> constantBasicTariffInfoReportProperties1 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for BasicTariffInfoReportProperties1
         constantBasicTariffInfoReportProperties1.put(0x80, "DUAL");
     }
@@ -88,7 +87,6 @@ public class CommandClassBasicTariffInfoV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the BASIC_TARIFF_INFO_REPORT command.
@@ -205,5 +203,4 @@ public class CommandClassBasicTariffInfoV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

@@ -85,7 +85,6 @@ public class CommandClassSecurityV1 {
      */
     public final static int SECURITY_MESSAGE_ENCAPSULATION_NONCE_GET = 0xC1;
 
-
     /**
      * Map holding constants for SecurityMessageEncapsulationNonceGetProperties1
      */
@@ -100,8 +99,8 @@ public class CommandClassSecurityV1 {
      * Map holding constants for SecurityCommandsSupportedReportCommandClassMark
      */
     private static Map<Integer, String> constantSecurityCommandsSupportedReportCommandClassMark = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SecurityMessageEncapsulationNonceGetProperties1
         constantSecurityMessageEncapsulationNonceGetProperties1.put(0x10, "SEQUENCED");
         constantSecurityMessageEncapsulationNonceGetProperties1.put(0x20, "SECOND_FRAME");
@@ -146,7 +145,6 @@ public class CommandClassSecurityV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SECURITY_COMMANDS_SUPPORTED_REPORT command.
@@ -240,7 +238,6 @@ public class CommandClassSecurityV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SECURITY_SCHEME_GET command.
      * <p>
@@ -287,7 +284,6 @@ public class CommandClassSecurityV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SECURITY_SCHEME_REPORT command.
      * <p>
@@ -333,7 +329,6 @@ public class CommandClassSecurityV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the NETWORK_KEY_SET command.
@@ -394,7 +389,6 @@ public class CommandClassSecurityV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the NETWORK_KEY_VERIFY command.
      * <p>
@@ -427,7 +421,6 @@ public class CommandClassSecurityV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SECURITY_SCHEME_INHERIT command.
@@ -475,7 +468,6 @@ public class CommandClassSecurityV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SECURITY_NONCE_GET command.
      * <p>
@@ -508,7 +500,6 @@ public class CommandClassSecurityV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SECURITY_NONCE_REPORT command.
@@ -568,7 +559,6 @@ public class CommandClassSecurityV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SECURITY_MESSAGE_ENCAPSULATION command.
@@ -703,7 +693,6 @@ public class CommandClassSecurityV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SECURITY_MESSAGE_ENCAPSULATION_NONCE_GET command.
      * <p>
@@ -836,5 +825,4 @@ public class CommandClassSecurityV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

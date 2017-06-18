@@ -46,7 +46,6 @@ public class CommandClassEnergyProductionV1 {
      */
     public final static int ENERGY_PRODUCTION_REPORT = 0x03;
 
-
     /**
      * Map holding constants for EnergyProductionGetParameterNumber
      */
@@ -56,8 +55,8 @@ public class CommandClassEnergyProductionV1 {
      * Map holding constants for EnergyProductionReportParameterNumber
      */
     private static Map<Integer, String> constantEnergyProductionReportParameterNumber = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for EnergyProductionGetParameterNumber
         constantEnergyProductionGetParameterNumber.put(0x00, "INSTANT_ENERGY_PRODUCTION");
         constantEnergyProductionGetParameterNumber.put(0x01, "TOTAL_ENERGY_PRODUCTION");
@@ -78,6 +77,7 @@ public class CommandClassEnergyProductionV1 {
      *
      * @param parameterNumber {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>INSTANT_ENERGY_PRODUCTION
      *            <li>TOTAL_ENERGY_PRODUCTION
@@ -118,6 +118,14 @@ public class CommandClassEnergyProductionV1 {
      *
      * <ul>
      * <li>PARAMETER_NUMBER {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>INSTANT_ENERGY_PRODUCTION
+     * <li>TOTAL_ENERGY_PRODUCTION
+     * <li>ENERGY_PRODUCTION_TODAY
+     * <li>TOTAL_PRODUCTION_TIME
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -134,7 +142,6 @@ public class CommandClassEnergyProductionV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ENERGY_PRODUCTION_REPORT command.
      * <p>
@@ -142,6 +149,7 @@ public class CommandClassEnergyProductionV1 {
      *
      * @param parameterNumber {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>INSTANT_ENERGY_PRODUCTION
      *            <li>TOTAL_ENERGY_PRODUCTION
@@ -203,6 +211,14 @@ public class CommandClassEnergyProductionV1 {
      *
      * <ul>
      * <li>PARAMETER_NUMBER {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>INSTANT_ENERGY_PRODUCTION
+     * <li>TOTAL_ENERGY_PRODUCTION
+     * <li>ENERGY_PRODUCTION_TODAY
+     * <li>TOTAL_PRODUCTION_TIME
+     * </ul>
      * <li>SCALE {@link Integer}
      * <li>PRECISION {@link Integer}
      * <li>VALUE {@link byte[]}
@@ -240,5 +256,4 @@ public class CommandClassEnergyProductionV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

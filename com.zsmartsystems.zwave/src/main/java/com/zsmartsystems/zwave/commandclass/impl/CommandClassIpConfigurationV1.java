@@ -57,7 +57,6 @@ public class CommandClassIpConfigurationV1 {
      */
     public final static int IP_CONFIGURATION_RENEW = 0x05;
 
-
     /**
      * Map holding constants for IpConfigurationSetProperties1
      */
@@ -67,8 +66,8 @@ public class CommandClassIpConfigurationV1 {
      * Map holding constants for IpConfigurationReportProperties1
      */
     private static Map<Integer, String> constantIpConfigurationReportProperties1 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for IpConfigurationSetProperties1
         constantIpConfigurationSetProperties1.put(0x01, "AUTO_DNS");
         constantIpConfigurationSetProperties1.put(0x02, "AUTO_IP");
@@ -186,7 +185,6 @@ public class CommandClassIpConfigurationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the IP_CONFIGURATION_GET command.
      * <p>
@@ -219,7 +217,6 @@ public class CommandClassIpConfigurationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the IP_CONFIGURATION_REPORT command.
@@ -340,7 +337,6 @@ public class CommandClassIpConfigurationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the IP_CONFIGURATION_RELEASE command.
      * <p>
@@ -374,7 +370,6 @@ public class CommandClassIpConfigurationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the IP_CONFIGURATION_RENEW command.
      * <p>
@@ -407,5 +402,4 @@ public class CommandClassIpConfigurationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }
