@@ -193,6 +193,11 @@ public class ZwaveCmdClassV1 {
     private static Map<Integer, String> constantNodeInfoMaxBaudRate = new HashMap<Integer, String>();
 
     /**
+     * Map holding constants for NodeInfoCommandClasses
+     */
+    private static Map<Integer, String> constantNodeInfoCommandClasses = new HashMap<Integer, String>();
+
+    /**
      * Map holding constants for NodeInfoCapability
      */
     private static Map<Integer, String> constantNodeInfoCapability = new HashMap<Integer, String>();
@@ -201,6 +206,11 @@ public class ZwaveCmdClassV1 {
      * Map holding constants for NodeInfoSecurity
      */
     private static Map<Integer, String> constantNodeInfoSecurity = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for NodeInfoBasicDeviceClass
+     */
+    private static Map<Integer, String> constantNodeInfoBasicDeviceClass = new HashMap<Integer, String>();
 
     /**
      * Map holding constants for NodeInfoProtocolVersion
@@ -212,10 +222,144 @@ public class ZwaveCmdClassV1 {
      */
     private static Map<Integer, String> constantNodeInfoSpeedExtension = new HashMap<Integer, String>();
 
+    /**
+     * Map holding constants for NodeInfoGenericDeviceClass
+     */
+    private static Map<Integer, String> constantNodeInfoGenericDeviceClass = new HashMap<Integer, String>();
+
     static {
         // Constants for NodeInfoMaxBaudRate
         constantNodeInfoMaxBaudRate.put(0x00, "9_6_KBPS");
         constantNodeInfoMaxBaudRate.put(0x01, "40_KBPS");
+
+        // Constants for NodeInfoCommandClasses
+        constantNodeInfoCommandClasses.put(0x00, "COMMAND_CLASS_NO_OPERATION");
+        constantNodeInfoCommandClasses.put(0x01, "ZWAVE_CMD_CLASS");
+        constantNodeInfoCommandClasses.put(0x02, "COMMAND_CLASS_ZENSOR_NET");
+        constantNodeInfoCommandClasses.put(0x22, "COMMAND_CLASS_APPLICATION_STATUS");
+        constantNodeInfoCommandClasses.put(0x23, "COMMAND_CLASS_ZIP");
+        constantNodeInfoCommandClasses.put(0x20, "COMMAND_CLASS_BASIC");
+        constantNodeInfoCommandClasses.put(0x21, "COMMAND_CLASS_CONTROLLER_REPLICATION");
+        constantNodeInfoCommandClasses.put(0x26, "COMMAND_CLASS_SWITCH_MULTILEVEL");
+        constantNodeInfoCommandClasses.put(0x27, "COMMAND_CLASS_SWITCH_ALL");
+        constantNodeInfoCommandClasses.put(0x24, "COMMAND_CLASS_SECURITY_PANEL_MODE");
+        constantNodeInfoCommandClasses.put(0x25, "COMMAND_CLASS_SWITCH_BINARY");
+        constantNodeInfoCommandClasses.put(0x2A, "COMMAND_CLASS_CHIMNEY_FAN");
+        constantNodeInfoCommandClasses.put(0x2B, "COMMAND_CLASS_SCENE_ACTIVATION");
+        constantNodeInfoCommandClasses.put(0x28, "COMMAND_CLASS_SWITCH_TOGGLE_BINARY");
+        constantNodeInfoCommandClasses.put(0x29, "COMMAND_CLASS_SWITCH_TOGGLE_MULTILEVEL");
+        constantNodeInfoCommandClasses.put(0x2E, "COMMAND_CLASS_SECURITY_PANEL_ZONE");
+        constantNodeInfoCommandClasses.put(0x2F, "COMMAND_CLASS_SECURITY_PANEL_ZONE_SENSOR");
+        constantNodeInfoCommandClasses.put(0x2C, "COMMAND_CLASS_SCENE_ACTUATOR_CONF");
+        constantNodeInfoCommandClasses.put(0x2D, "COMMAND_CLASS_SCENE_CONTROLLER_CONF");
+        constantNodeInfoCommandClasses.put(0x33, "COMMAND_CLASS_SWITCH_COLOR");
+        constantNodeInfoCommandClasses.put(0x32, "COMMAND_CLASS_METER");
+        constantNodeInfoCommandClasses.put(0x31, "COMMAND_CLASS_SENSOR_MULTILEVEL");
+        constantNodeInfoCommandClasses.put(0x30, "COMMAND_CLASS_SENSOR_BINARY");
+        constantNodeInfoCommandClasses.put(0x37, "COMMAND_CLASS_HRV_STATUS");
+        constantNodeInfoCommandClasses.put(0x36, "COMMAND_CLASS_BASIC_TARIFF_INFO");
+        constantNodeInfoCommandClasses.put(0x35, "COMMAND_CLASS_METER_PULSE");
+        constantNodeInfoCommandClasses.put(0x34, "COMMAND_CLASS_NETWORK_MANAGEMENT_INCLUSION");
+        constantNodeInfoCommandClasses.put(0x3B, "COMMAND_CLASS_DCP_MONITOR");
+        constantNodeInfoCommandClasses.put(0x3A, "COMMAND_CLASS_DCP_CONFIG");
+        constantNodeInfoCommandClasses.put(0x39, "COMMAND_CLASS_HRV_CONTROL");
+        constantNodeInfoCommandClasses.put(0x38, "COMMAND_CLASS_THERMOSTAT_HEATING");
+        constantNodeInfoCommandClasses.put(0x3F, "COMMAND_CLASS_PREPAYMENT");
+        constantNodeInfoCommandClasses.put(0x3E, "COMMAND_CLASS_METER_TBL_PUSH");
+        constantNodeInfoCommandClasses.put(0x3D, "COMMAND_CLASS_METER_TBL_MONITOR");
+        constantNodeInfoCommandClasses.put(0x3C, "COMMAND_CLASS_METER_TBL_CONFIG");
+        constantNodeInfoCommandClasses.put(0x44, "COMMAND_CLASS_THERMOSTAT_FAN_MODE");
+        constantNodeInfoCommandClasses.put(0x45, "COMMAND_CLASS_THERMOSTAT_FAN_STATE");
+        constantNodeInfoCommandClasses.put(0x46, "COMMAND_CLASS_CLIMATE_CONTROL_SCHEDULE");
+        constantNodeInfoCommandClasses.put(0x47, "COMMAND_CLASS_THERMOSTAT_SETBACK");
+        constantNodeInfoCommandClasses.put(0x40, "COMMAND_CLASS_THERMOSTAT_MODE");
+        constantNodeInfoCommandClasses.put(0x41, "COMMAND_CLASS_PREPAYMENT_ENCAPSULATION");
+        constantNodeInfoCommandClasses.put(0x42, "COMMAND_CLASS_THERMOSTAT_OPERATING_STATE");
+        constantNodeInfoCommandClasses.put(0x43, "COMMAND_CLASS_THERMOSTAT_SETPOINT");
+        constantNodeInfoCommandClasses.put(0x4C, "COMMAND_CLASS_DOOR_LOCK_LOGGING");
+        constantNodeInfoCommandClasses.put(0x4D, "COMMAND_CLASS_NETWORK_MANAGEMENT_BASIC");
+        constantNodeInfoCommandClasses.put(0x4E, "COMMAND_CLASS_SCHEDULE_ENTRY_LOCK");
+        constantNodeInfoCommandClasses.put(0x4F, "COMMAND_CLASS_ZIP_6LOWPAN");
+        constantNodeInfoCommandClasses.put(0x48, "COMMAND_CLASS_RATE_TBL_CONFIG");
+        constantNodeInfoCommandClasses.put(0x49, "COMMAND_CLASS_RATE_TBL_MONITOR");
+        constantNodeInfoCommandClasses.put(0x4A, "COMMAND_CLASS_TARIFF_CONFIG");
+        constantNodeInfoCommandClasses.put(0x4B, "COMMAND_CLASS_TARIFF_TBL_MONITOR");
+        constantNodeInfoCommandClasses.put(0x55, "COMMAND_CLASS_TRANSPORT_SERVICE");
+        constantNodeInfoCommandClasses.put(0x54, "COMMAND_CLASS_NETWORK_MANAGEMENT_PRIMARY");
+        constantNodeInfoCommandClasses.put(0x57, "COMMAND_CLASS_APPLICATION_CAPABILITY");
+        constantNodeInfoCommandClasses.put(0x56, "COMMAND_CLASS_CRC_16_ENCAP");
+        constantNodeInfoCommandClasses.put(0x51, "COMMAND_CLASS_MTP_WINDOW_COVERING");
+        constantNodeInfoCommandClasses.put(0x50, "COMMAND_CLASS_BASIC_WINDOW_COVERING");
+        constantNodeInfoCommandClasses.put(0x53, "COMMAND_CLASS_SCHEDULE");
+        constantNodeInfoCommandClasses.put(0x52, "COMMAND_CLASS_NETWORK_MANAGEMENT_PROXY");
+        constantNodeInfoCommandClasses.put(0x5D, "COMMAND_CLASS_ANTITHEFT");
+        constantNodeInfoCommandClasses.put(0x5C, "COMMAND_CLASS_IP_ASSOCIATION");
+        constantNodeInfoCommandClasses.put(0x5F, "COMMAND_CLASS_ZIP_GATEWAY");
+        constantNodeInfoCommandClasses.put(0x5E, "COMMAND_CLASS_ZWAVEPLUS_INFO");
+        constantNodeInfoCommandClasses.put(0x59, "COMMAND_CLASS_ASSOCIATION_GRP_INFO");
+        constantNodeInfoCommandClasses.put(0x58, "COMMAND_CLASS_ZIP_ND");
+        constantNodeInfoCommandClasses.put(0x5B, "COMMAND_CLASS_CENTRAL_SCENE");
+        constantNodeInfoCommandClasses.put(0x5A, "COMMAND_CLASS_DEVICE_RESET_LOCALLY");
+        constantNodeInfoCommandClasses.put(0x66, "COMMAND_CLASS_BARRIER_OPERATOR");
+        constantNodeInfoCommandClasses.put(0x67, "COMMAND_CLASS_NETWORK_MANAGEMENT_INSTALLATION_MAINTENANCE");
+        constantNodeInfoCommandClasses.put(0x64, "COMMAND_CLASS_HUMIDITY_CONTROL_SETPOINT");
+        constantNodeInfoCommandClasses.put(0x65, "COMMAND_CLASS_DMX");
+        constantNodeInfoCommandClasses.put(0x62, "COMMAND_CLASS_DOOR_LOCK");
+        constantNodeInfoCommandClasses.put(0x63, "COMMAND_CLASS_USER_CODE");
+        constantNodeInfoCommandClasses.put(0x60, "COMMAND_CLASS_MULTI_CHANNEL");
+        constantNodeInfoCommandClasses.put(0x61, "COMMAND_CLASS_ZIP_PORTAL");
+        constantNodeInfoCommandClasses.put(0x6E, "COMMAND_CLASS_HUMIDITY_CONTROL_OPERATING_STATE");
+        constantNodeInfoCommandClasses.put(0x6F, "COMMAND_CLASS_ENTRY_CONTROL");
+        constantNodeInfoCommandClasses.put(0x6C, "COMMAND_CLASS_SUPERVISION");
+        constantNodeInfoCommandClasses.put(0x6D, "COMMAND_CLASS_HUMIDITY_CONTROL_MODE");
+        constantNodeInfoCommandClasses.put(0x6A, "COMMAND_CLASS_WINDOW_COVERING");
+        constantNodeInfoCommandClasses.put(0x6B, "COMMAND_CLASS_IRRIGATION");
+        constantNodeInfoCommandClasses.put(0x68, "COMMAND_CLASS_ZIP_NAMING");
+        constantNodeInfoCommandClasses.put(0x69, "COMMAND_CLASS_MAILBOX");
+        constantNodeInfoCommandClasses.put(0x77, "COMMAND_CLASS_NODE_NAMING");
+        constantNodeInfoCommandClasses.put(0x76, "COMMAND_CLASS_LOCK");
+        constantNodeInfoCommandClasses.put(0x75, "COMMAND_CLASS_PROTECTION");
+        constantNodeInfoCommandClasses.put(0x74, "COMMAND_CLASS_INCLUSION_CONTROLLER");
+        constantNodeInfoCommandClasses.put(0x73, "COMMAND_CLASS_POWERLEVEL");
+        constantNodeInfoCommandClasses.put(0x72, "COMMAND_CLASS_MANUFACTURER_SPECIFIC");
+        constantNodeInfoCommandClasses.put(0x71, "COMMAND_CLASS_ALARM");
+        constantNodeInfoCommandClasses.put(0x70, "COMMAND_CLASS_CONFIGURATION");
+        constantNodeInfoCommandClasses.put(0x7D, "COMMAND_CLASS_REMOTE_ASSOCIATION");
+        constantNodeInfoCommandClasses.put(0x7C, "COMMAND_CLASS_REMOTE_ASSOCIATION_ACTIVATE");
+        constantNodeInfoCommandClasses.put(0x7B, "COMMAND_CLASS_GROUPING_NAME");
+        constantNodeInfoCommandClasses.put(0x7A, "COMMAND_CLASS_FIRMWARE_UPDATE_MD");
+        constantNodeInfoCommandClasses.put(0x89, "COMMAND_CLASS_LANGUAGE");
+        constantNodeInfoCommandClasses.put(0x88, "COMMAND_CLASS_PROPRIETARY");
+        constantNodeInfoCommandClasses.put(0x8B, "COMMAND_CLASS_TIME_PARAMETERS");
+        constantNodeInfoCommandClasses.put(0x8A, "COMMAND_CLASS_TIME");
+        constantNodeInfoCommandClasses.put(0x8C, "COMMAND_CLASS_GEOGRAPHIC_LOCATION");
+        constantNodeInfoCommandClasses.put(0x8F, "COMMAND_CLASS_MULTI_CMD");
+        constantNodeInfoCommandClasses.put(0x8E, "COMMAND_CLASS_MULTI_CHANNEL_ASSOCIATION");
+        constantNodeInfoCommandClasses.put(0x81, "COMMAND_CLASS_CLOCK");
+        constantNodeInfoCommandClasses.put(0x80, "COMMAND_CLASS_BATTERY");
+        constantNodeInfoCommandClasses.put(0x82, "COMMAND_CLASS_HAIL");
+        constantNodeInfoCommandClasses.put(0x85, "COMMAND_CLASS_ASSOCIATION");
+        constantNodeInfoCommandClasses.put(0x84, "COMMAND_CLASS_WAKE_UP");
+        constantNodeInfoCommandClasses.put(0x87, "COMMAND_CLASS_INDICATOR");
+        constantNodeInfoCommandClasses.put(0x86, "COMMAND_CLASS_VERSION");
+        constantNodeInfoCommandClasses.put(0x98, "COMMAND_CLASS_SECURITY");
+        constantNodeInfoCommandClasses.put(0x99, "COMMAND_CLASS_AV_TAGGING_MD");
+        constantNodeInfoCommandClasses.put(0x9A, "COMMAND_CLASS_IP_CONFIGURATION");
+        constantNodeInfoCommandClasses.put(0x9B, "COMMAND_CLASS_ASSOCIATION_COMMAND_CONFIGURATION");
+        constantNodeInfoCommandClasses.put(0x9C, "COMMAND_CLASS_SENSOR_ALARM");
+        constantNodeInfoCommandClasses.put(0x9D, "COMMAND_CLASS_SILENCE_ALARM");
+        constantNodeInfoCommandClasses.put(0x9E, "COMMAND_CLASS_SENSOR_CONFIGURATION");
+        constantNodeInfoCommandClasses.put(0x9F, "COMMAND_CLASS_SECURITY_2");
+        constantNodeInfoCommandClasses.put(0x90, "COMMAND_CLASS_ENERGY_PRODUCTION");
+        constantNodeInfoCommandClasses.put(0x91, "COMMAND_CLASS_MANUFACTURER_PROPRIETARY");
+        constantNodeInfoCommandClasses.put(0x92, "COMMAND_CLASS_SCREEN_MD");
+        constantNodeInfoCommandClasses.put(0x93, "COMMAND_CLASS_SCREEN_ATTRIBUTES");
+        constantNodeInfoCommandClasses.put(0x94, "COMMAND_CLASS_SIMPLE_AV_CONTROL");
+        constantNodeInfoCommandClasses.put(0x95, "COMMAND_CLASS_AV_CONTENT_DIRECTORY_MD");
+        constantNodeInfoCommandClasses.put(0x96, "COMMAND_CLASS_AV_RENDERER_STATUS");
+        constantNodeInfoCommandClasses.put(0x97, "COMMAND_CLASS_AV_CONTENT_SEARCH_MD");
+        constantNodeInfoCommandClasses.put(0xEF, "COMMAND_CLASS_MARK");
+        constantNodeInfoCommandClasses.put(0xF0, "COMMAND_CLASS_NON_INTEROPERABLE");
 
         // Constants for NodeInfoCapability
         constantNodeInfoCapability.put(0x40, "ROUTING");
@@ -231,6 +375,12 @@ public class ZwaveCmdClassV1 {
         constantNodeInfoSecurity.put(0x08, "ROUTING_SLAVE");
         constantNodeInfoSecurity.put(0x80, "OPTIONAL_FUNCTIONALITY");
 
+        // Constants for NodeInfoBasicDeviceClass
+        constantNodeInfoBasicDeviceClass.put(0x01, "BASIC_TYPE_CONTROLLER");
+        constantNodeInfoBasicDeviceClass.put(0x02, "BASIC_TYPE_STATIC_CONTROLLER");
+        constantNodeInfoBasicDeviceClass.put(0x03, "BASIC_TYPE_SLAVE");
+        constantNodeInfoBasicDeviceClass.put(0x04, "BASIC_TYPE_ROUTING_SLAVE");
+
         // Constants for NodeInfoProtocolVersion
         constantNodeInfoProtocolVersion.put(0x00, "Z_WAVE_VERSION_2_0");
         constantNodeInfoProtocolVersion.put(0x01, "Z_WAVE_VERSION_ZDK_5_0X_ZDK_4_2X");
@@ -239,6 +389,34 @@ public class ZwaveCmdClassV1 {
         // Constants for NodeInfoSpeedExtension
         constantNodeInfoSpeedExtension.put(0x00, "100_KBPS");
         constantNodeInfoSpeedExtension.put(0x01, "200_KBPS");
+
+        // Constants for NodeInfoGenericDeviceClass
+        constantNodeInfoGenericDeviceClass.put(0x01, "GENERIC_TYPE_GENERIC_CONTROLLER");
+        constantNodeInfoGenericDeviceClass.put(0x02, "GENERIC_TYPE_STATIC_CONTROLLER");
+        constantNodeInfoGenericDeviceClass.put(0x20, "GENERIC_TYPE_SENSOR_BINARY");
+        constantNodeInfoGenericDeviceClass.put(0x21, "GENERIC_TYPE_SENSOR_MULTILEVEL");
+        constantNodeInfoGenericDeviceClass.put(0x03, "GENERIC_TYPE_AV_CONTROL_POINT");
+        constantNodeInfoGenericDeviceClass.put(0x04, "GENERIC_TYPE_DISPLAY");
+        constantNodeInfoGenericDeviceClass.put(0x40, "GENERIC_TYPE_ENTRY_CONTROL");
+        constantNodeInfoGenericDeviceClass.put(0x05, "GENERIC_TYPE_NETWORK_EXTENDER");
+        constantNodeInfoGenericDeviceClass.put(0x06, "GENERIC_TYPE_APPLIANCE");
+        constantNodeInfoGenericDeviceClass.put(0x07, "GENERIC_TYPE_SENSOR_NOTIFICATION");
+        constantNodeInfoGenericDeviceClass.put(0x08, "GENERIC_TYPE_THERMOSTAT");
+        constantNodeInfoGenericDeviceClass.put(0x09, "GENERIC_TYPE_WINDOW_COVERING");
+        constantNodeInfoGenericDeviceClass.put(0xA1, "GENERIC_TYPE_SENSOR_ALARM");
+        constantNodeInfoGenericDeviceClass.put(0x0F, "GENERIC_TYPE_REPEATER_SLAVE");
+        constantNodeInfoGenericDeviceClass.put(0x11, "GENERIC_TYPE_SWITCH_MULTILEVEL");
+        constantNodeInfoGenericDeviceClass.put(0x10, "GENERIC_TYPE_SWITCH_BINARY");
+        constantNodeInfoGenericDeviceClass.put(0xFF, "GENERIC_TYPE_NON_INTEROPERABLE");
+        constantNodeInfoGenericDeviceClass.put(0x13, "GENERIC_TYPE_SWITCH_TOGGLE");
+        constantNodeInfoGenericDeviceClass.put(0x31, "GENERIC_TYPE_METER");
+        constantNodeInfoGenericDeviceClass.put(0x12, "GENERIC_TYPE_SWITCH_REMOTE");
+        constantNodeInfoGenericDeviceClass.put(0x30, "GENERIC_TYPE_METER_PULSE");
+        constantNodeInfoGenericDeviceClass.put(0x15, "GENERIC_TYPE_ZIP_NODE");
+        constantNodeInfoGenericDeviceClass.put(0x50, "GENERIC_TYPE_SEMI_INTEROPERABLE");
+        constantNodeInfoGenericDeviceClass.put(0x17, "GENERIC_TYPE_SECURITY_PANEL");
+        constantNodeInfoGenericDeviceClass.put(0x16, "GENERIC_TYPE_VENTILATION");
+        constantNodeInfoGenericDeviceClass.put(0x18, "GENERIC_TYPE_WALL_CONTROLLER");
     }
 
     /**
@@ -484,9 +662,11 @@ public class ZwaveCmdClassV1 {
 
         // Process 'Basic Device Class' (optional)
         if (true) {
+            response.put("BASIC_DEVICE_CLASS", constantNodeInfoBasicDeviceClass.get(payload[5] & 0xff));
         }
 
         // Process 'Generic Device Class'
+        response.put("GENERIC_DEVICE_CLASS", constantNodeInfoGenericDeviceClass.get(payload[6] & 0xff));
 
         // Process 'Specific Device Class'
 
