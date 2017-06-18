@@ -89,7 +89,6 @@ public class CommandClassScheduleEntryLockV2 {
      */
     public final static int SCHEDULE_ENTRY_LOCK_TIME_OFFSET_SET = 0x0D;
 
-
     /**
      * Map holding constants for ScheduleEntryLockTimeOffsetReportLevel2
      */
@@ -129,8 +128,8 @@ public class CommandClassScheduleEntryLockV2 {
      * Map holding constants for ScheduleEntryLockEnableAllSetEnabled
      */
     private static Map<Integer, String> constantScheduleEntryLockEnableAllSetEnabled = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for ScheduleEntryLockTimeOffsetReportLevel2
         constantScheduleEntryLockTimeOffsetReportLevel2.put(0x80, "SIGN_OFFSET_DST");
 
@@ -168,6 +167,7 @@ public class CommandClassScheduleEntryLockV2 {
      * @param userIdentifier {@link Integer}
      * @param enabled {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>DISABLED
      *            <li>ENABLED
@@ -210,6 +210,12 @@ public class CommandClassScheduleEntryLockV2 {
      * <ul>
      * <li>USER_IDENTIFIER {@link Integer}
      * <li>ENABLED {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>DISABLED
+     * <li>ENABLED
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -229,7 +235,6 @@ public class CommandClassScheduleEntryLockV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SCHEDULE_ENTRY_LOCK_ENABLE_ALL_SET command.
      * <p>
@@ -237,6 +242,7 @@ public class CommandClassScheduleEntryLockV2 {
      *
      * @param enabled {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>DISABLED
      *            <li>ENABLED
@@ -275,6 +281,12 @@ public class CommandClassScheduleEntryLockV2 {
      *
      * <ul>
      * <li>ENABLED {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>DISABLED
+     * <li>ENABLED
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -291,7 +303,6 @@ public class CommandClassScheduleEntryLockV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SCHEDULE_ENTRY_LOCK_WEEK_DAY_SET command.
      * <p>
@@ -299,6 +310,7 @@ public class CommandClassScheduleEntryLockV2 {
      *
      * @param setAction {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>ERASE
      *            <li>MODIFY
@@ -366,6 +378,12 @@ public class CommandClassScheduleEntryLockV2 {
      *
      * <ul>
      * <li>SET_ACTION {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>ERASE
+     * <li>MODIFY
+     * </ul>
      * <li>USER_IDENTIFIER {@link Integer}
      * <li>SCHEDULE_SLOT_ID {@link Integer}
      * <li>DAY_OF_WEEK {@link Integer}
@@ -409,7 +427,6 @@ public class CommandClassScheduleEntryLockV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SCHEDULE_ENTRY_LOCK_WEEK_DAY_GET command.
@@ -464,7 +481,6 @@ public class CommandClassScheduleEntryLockV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SCHEDULE_ENTRY_LOCK_WEEK_DAY_REPORT command.
@@ -561,7 +577,6 @@ public class CommandClassScheduleEntryLockV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SCHEDULE_ENTRY_LOCK_YEAR_DAY_SET command.
      * <p>
@@ -569,6 +584,7 @@ public class CommandClassScheduleEntryLockV2 {
      *
      * @param setAction {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>ERASE
      *            <li>MODIFY
@@ -657,6 +673,12 @@ public class CommandClassScheduleEntryLockV2 {
      *
      * <ul>
      * <li>SET_ACTION {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>ERASE
+     * <li>MODIFY
+     * </ul>
      * <li>USER_IDENTIFIER {@link Integer}
      * <li>SCHEDULE_SLOT_ID {@link Integer}
      * <li>START_YEAR {@link Integer}
@@ -721,7 +743,6 @@ public class CommandClassScheduleEntryLockV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SCHEDULE_ENTRY_LOCK_YEAR_DAY_GET command.
      * <p>
@@ -775,7 +796,6 @@ public class CommandClassScheduleEntryLockV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SCHEDULE_ENTRY_LOCK_YEAR_DAY_REPORT command.
@@ -913,7 +933,6 @@ public class CommandClassScheduleEntryLockV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SCHEDULE_ENTRY_TYPE_SUPPORTED_GET command.
      * <p>
@@ -946,7 +965,6 @@ public class CommandClassScheduleEntryLockV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SCHEDULE_ENTRY_TYPE_SUPPORTED_REPORT command.
@@ -1002,7 +1020,6 @@ public class CommandClassScheduleEntryLockV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SCHEDULE_ENTRY_LOCK_TIME_OFFSET_GET command.
      * <p>
@@ -1035,7 +1052,6 @@ public class CommandClassScheduleEntryLockV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SCHEDULE_ENTRY_LOCK_TIME_OFFSET_REPORT command.
@@ -1112,7 +1128,6 @@ public class CommandClassScheduleEntryLockV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SCHEDULE_ENTRY_LOCK_TIME_OFFSET_SET command.
      * <p>
@@ -1187,5 +1202,4 @@ public class CommandClassScheduleEntryLockV2 {
         // Return the map of processed response data;
         return response;
     }
-
 }

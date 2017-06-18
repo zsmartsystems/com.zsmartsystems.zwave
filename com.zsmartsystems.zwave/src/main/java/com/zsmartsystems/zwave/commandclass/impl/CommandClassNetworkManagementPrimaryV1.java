@@ -48,7 +48,6 @@ public class CommandClassNetworkManagementPrimaryV1 {
      */
     public final static int CONTROLLER_CHANGE_STATUS = 0x02;
 
-
     /**
      * Map holding constants for ControllerChangeTxOptions
      */
@@ -73,8 +72,8 @@ public class CommandClassNetworkManagementPrimaryV1 {
      * Map holding constants for ControllerChangeStatusProperties1
      */
     private static Map<Integer, String> constantControllerChangeStatusProperties1 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for ControllerChangeTxOptions
         constantControllerChangeTxOptions.put(0x10, "NO_ROUTE");
         constantControllerChangeTxOptions.put(0x01, "ACK");
@@ -108,12 +107,14 @@ public class CommandClassNetworkManagementPrimaryV1 {
      * @param seqNo {@link Integer}
      * @param mode {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>CONTROLLER_CHANGE_START
      *            <li>CONTROLLER_CHANGE_STOP
      *            </ul>
      * @param txOptions {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NO_ROUTE
      *            <li>ACK
@@ -181,7 +182,24 @@ public class CommandClassNetworkManagementPrimaryV1 {
      * <ul>
      * <li>SEQ_NO {@link Integer}
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>CONTROLLER_CHANGE_START
+     * <li>CONTROLLER_CHANGE_STOP
+     * </ul>
      * <li>TX_OPTIONS {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NO_ROUTE
+     * <li>ACK
+     * <li>EXPLORE
+     * <li>LOW_POWER
+     * <li>NO_RETRANSMISSION
+     * <li>AUTO_ROUTE
+     * <li>HIGH_POWER
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -212,7 +230,6 @@ public class CommandClassNetworkManagementPrimaryV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CONTROLLER_CHANGE_STATUS command.
      * <p>
@@ -221,6 +238,7 @@ public class CommandClassNetworkManagementPrimaryV1 {
      * @param seqNo {@link Integer}
      * @param status {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NODE_ADD_STATUS_DONE
      *            <li>NODE_ADD_STATUS_FAILED
@@ -319,6 +337,13 @@ public class CommandClassNetworkManagementPrimaryV1 {
      * <ul>
      * <li>SEQ_NO {@link Integer}
      * <li>STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NODE_ADD_STATUS_DONE
+     * <li>NODE_ADD_STATUS_FAILED
+     * <li>NODE_ADD_STATUS_SECURITY_FAILED
+     * </ul>
      * <li>NEW_NODE_ID {@link Integer}
      * <li>NODE_INFO_LENGTH {@link Integer}
      * <li>CAPABILITY {@link Integer}
@@ -392,5 +417,4 @@ public class CommandClassNetworkManagementPrimaryV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

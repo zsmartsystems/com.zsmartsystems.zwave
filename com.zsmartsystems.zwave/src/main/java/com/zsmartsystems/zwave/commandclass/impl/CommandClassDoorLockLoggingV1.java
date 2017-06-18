@@ -88,7 +88,6 @@ public class CommandClassDoorLockLoggingV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the DOOR_LOCK_LOGGING_RECORDS_SUPPORTED_REPORT command.
      * <p>
@@ -135,7 +134,6 @@ public class CommandClassDoorLockLoggingV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the RECORD_GET command.
      * <p>
@@ -181,7 +179,6 @@ public class CommandClassDoorLockLoggingV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the RECORD_REPORT command.
@@ -340,5 +337,4 @@ public class CommandClassDoorLockLoggingV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

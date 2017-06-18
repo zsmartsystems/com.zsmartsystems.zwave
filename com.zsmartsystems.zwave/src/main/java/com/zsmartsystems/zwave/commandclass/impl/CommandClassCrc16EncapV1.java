@@ -125,5 +125,4 @@ public class CommandClassCrc16EncapV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

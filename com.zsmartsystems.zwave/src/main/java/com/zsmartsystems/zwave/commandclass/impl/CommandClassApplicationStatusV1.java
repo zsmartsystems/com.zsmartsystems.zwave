@@ -45,13 +45,12 @@ public class CommandClassApplicationStatusV1 {
      */
     public final static int APPLICATION_REJECTED_REQUEST = 0x02;
 
-
     /**
      * Map holding constants for ApplicationBusyStatus
      */
     private static Map<Integer, String> constantApplicationBusyStatus = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for ApplicationBusyStatus
         constantApplicationBusyStatus.put(0x00, "TRY_AGAIN_LATER");
         constantApplicationBusyStatus.put(0x01, "TRY_AGAIN_IN_WAIT_TIME_SECONDS");
@@ -65,6 +64,7 @@ public class CommandClassApplicationStatusV1 {
      *
      * @param status {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>TRY_AGAIN_LATER
      *            <li>TRY_AGAIN_IN_WAIT_TIME_SECONDS
@@ -108,6 +108,13 @@ public class CommandClassApplicationStatusV1 {
      *
      * <ul>
      * <li>STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>TRY_AGAIN_LATER
+     * <li>TRY_AGAIN_IN_WAIT_TIME_SECONDS
+     * <li>REQUEST_QUEUED_EXECUTED_LATER
+     * </ul>
      * <li>WAIT_TIME {@link Integer}
      * </ul>
      *
@@ -127,7 +134,6 @@ public class CommandClassApplicationStatusV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the APPLICATION_REJECTED_REQUEST command.
@@ -174,5 +180,4 @@ public class CommandClassApplicationStatusV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

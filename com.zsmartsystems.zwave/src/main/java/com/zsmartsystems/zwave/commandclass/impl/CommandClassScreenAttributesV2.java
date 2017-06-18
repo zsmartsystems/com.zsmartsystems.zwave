@@ -45,13 +45,12 @@ public class CommandClassScreenAttributesV2 {
      */
     public final static int SCREEN_ATTRIBUTES_REPORT = 0x03;
 
-
     /**
      * Map holding constants for ScreenAttributesReportProperties1
      */
     private static Map<Integer, String> constantScreenAttributesReportProperties1 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for ScreenAttributesReportProperties1
         constantScreenAttributesReportProperties1.put(0x20, "ESCAPE_SEQUENCE");
     }
@@ -88,7 +87,6 @@ public class CommandClassScreenAttributesV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SCREEN_ATTRIBUTES_REPORT command.
@@ -175,5 +173,4 @@ public class CommandClassScreenAttributesV2 {
         // Return the map of processed response data;
         return response;
     }
-
 }

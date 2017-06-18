@@ -75,16 +75,10 @@ public class CommandClassScheduleV2 {
      */
     public final static int SCHEDULE_STATE_REPORT = 0x09;
 
-
     /**
      * Map holding constants for ScheduleStateReportProperties1
      */
     private static Map<Integer, String> constantScheduleStateReportProperties1 = new HashMap<Integer, String>();
-
-    /**
-     * Map holding constants for CommandScheduleSetProperties3
-     */
-    private static Map<Integer, String> constantCommandScheduleSetProperties3 = new HashMap<Integer, String>();
 
     /**
      * Map holding constants for ScheduleSupportedReportProperties1
@@ -92,29 +86,30 @@ public class CommandClassScheduleV2 {
     private static Map<Integer, String> constantScheduleSupportedReportProperties1 = new HashMap<Integer, String>();
 
     /**
-     * Map holding constants for CommandScheduleReportProperties3
-     */
-    private static Map<Integer, String> constantCommandScheduleReportProperties3 = new HashMap<Integer, String>();
-
-    /**
      * Map holding constants for ScheduleSupportedReportProperties3
      */
     private static Map<Integer, String> constantScheduleSupportedReportProperties3 = new HashMap<Integer, String>();
-    static {
 
+    /**
+     * Map holding constants for CommandScheduleReportReserved0
+     */
+    private static Map<Integer, String> constantCommandScheduleReportReserved0 = new HashMap<Integer, String>();
+
+    static {
         // Constants for ScheduleStateReportProperties1
         constantScheduleStateReportProperties1.put(0x01, "OVERRIDE");
-
-        // Constants for CommandScheduleSetProperties3
 
         // Constants for ScheduleSupportedReportProperties1
         constantScheduleSupportedReportProperties1.put(0x40, "FALLBACK_SUPPORT");
         constantScheduleSupportedReportProperties1.put(0x80, "SUPPORT_ENABLE_DISABLE");
 
-        // Constants for CommandScheduleReportProperties3
-
         // Constants for ScheduleSupportedReportProperties3
         constantScheduleSupportedReportProperties3.put(0x80, "OVERRIDE_SUPPORT");
+
+        // Constants for CommandScheduleReportReserved0
+        constantCommandScheduleReportReserved0.put(0x00, "REPEAT_EVERY_N_HOURS");
+        constantCommandScheduleReportReserved0.put(0x01, "REPEAT_EVERY_N_DAYS");
+        constantCommandScheduleReportReserved0.put(0x02, "REPEAT_EVERY_N_WEEKS");
     }
 
     /**
@@ -162,7 +157,6 @@ public class CommandClassScheduleV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SCHEDULE_SUPPORTED_REPORT command.
@@ -296,7 +290,6 @@ public class CommandClassScheduleV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the COMMAND_SCHEDULE_SET command.
@@ -477,7 +470,6 @@ public class CommandClassScheduleV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the COMMAND_SCHEDULE_GET command.
      * <p>
@@ -531,7 +523,6 @@ public class CommandClassScheduleV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the COMMAND_SCHEDULE_REPORT command.
@@ -660,19 +651,7 @@ public class CommandClassScheduleV2 {
 
         // Process 'Properties2'
         response.put("START_DAY_OF_MONTH", Integer.valueOf(payload[msgOffset] & 0x1F));
-        switch ((payload[msgOffset] & 0xE0) >> 5) {
-            case 0x00:
-                response.put("RESERVED0", "REPEAT_EVERY_N_HOURS");
-                break;
-            case 0x01:
-                response.put("RESERVED0", "REPEAT_EVERY_N_DAYS");
-                break;
-            case 0x02:
-                response.put("RESERVED0", "REPEAT_EVERY_N_WEEKS");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for RESERVED0", String.format("0x%02X", msgOffset));
-        }
+        response.put("RESERVED0", constantCommandScheduleReportReserved0.get((payload[msgOffset] & 0xE0) >> 5));
         msgOffset += 1;
 
         // Process 'Properties3'
@@ -732,7 +711,6 @@ public class CommandClassScheduleV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SCHEDULE_REMOVE command.
      * <p>
@@ -786,7 +764,6 @@ public class CommandClassScheduleV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SCHEDULE_STATE_SET command.
@@ -850,7 +827,6 @@ public class CommandClassScheduleV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SCHEDULE_STATE_GET command.
      * <p>
@@ -896,7 +872,6 @@ public class CommandClassScheduleV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SCHEDULE_STATE_REPORT command.
@@ -995,5 +970,4 @@ public class CommandClassScheduleV2 {
         // Return the map of processed response data;
         return response;
     }
-
 }

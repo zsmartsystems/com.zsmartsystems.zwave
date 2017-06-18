@@ -47,7 +47,6 @@ public class CommandClassScreenMdV2 {
      */
     public final static int SCREEN_MD_REPORT = 0x03;
 
-
     /**
      * Map holding constants for ScreenMdReportProperties1
      */
@@ -57,8 +56,8 @@ public class CommandClassScreenMdV2 {
      * Map holding constants for ScreenMdReportProperties2
      */
     private static Map<Integer, String> constantScreenMdReportProperties2 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for ScreenMdReportProperties1
         constantScreenMdReportProperties1.put(0x10, "CLEAR");
 
@@ -124,7 +123,6 @@ public class CommandClassScreenMdV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SCREEN_MD_REPORT command.
@@ -235,5 +233,4 @@ public class CommandClassScreenMdV2 {
         // Return the map of processed response data;
         return response;
     }
-
 }

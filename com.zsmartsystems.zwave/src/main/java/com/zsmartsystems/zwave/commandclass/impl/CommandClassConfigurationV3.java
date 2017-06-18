@@ -88,11 +88,15 @@ public class CommandClassConfigurationV3 {
      */
     public final static int CONFIGURATION_PROPERTIES_REPORT = 0x0F;
 
-
     /**
      * Map holding constants for ConfigurationBulkSetProperties1
      */
     private static Map<Integer, String> constantConfigurationBulkSetProperties1 = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for ConfigurationPropertiesReportFormat
+     */
+    private static Map<Integer, String> constantConfigurationPropertiesReportFormat = new HashMap<Integer, String>();
 
     /**
      * Map holding constants for ConfigurationBulkReportProperties1
@@ -103,11 +107,17 @@ public class CommandClassConfigurationV3 {
      * Map holding constants for ConfigurationSetLevel
      */
     private static Map<Integer, String> constantConfigurationSetLevel = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for ConfigurationBulkSetProperties1
         constantConfigurationBulkSetProperties1.put(0x40, "HANDSHAKE");
         constantConfigurationBulkSetProperties1.put(0x80, "DEFAULT");
+
+        // Constants for ConfigurationPropertiesReportFormat
+        constantConfigurationPropertiesReportFormat.put(0x00, "SIGNED_INTEGER");
+        constantConfigurationPropertiesReportFormat.put(0x01, "UNSIGNED_INTEGER");
+        constantConfigurationPropertiesReportFormat.put(0x02, "ENUMERATED");
+        constantConfigurationPropertiesReportFormat.put(0x03, "BIT_FIELD");
 
         // Constants for ConfigurationBulkReportProperties1
         constantConfigurationBulkReportProperties1.put(0x40, "HANDSHAKE");
@@ -201,7 +211,6 @@ public class CommandClassConfigurationV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CONFIGURATION_GET command.
      * <p>
@@ -247,7 +256,6 @@ public class CommandClassConfigurationV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CONFIGURATION_REPORT command.
@@ -326,7 +334,6 @@ public class CommandClassConfigurationV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CONFIGURATION_BULK_SET command.
@@ -439,7 +446,6 @@ public class CommandClassConfigurationV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CONFIGURATION_BULK_GET command.
      * <p>
@@ -494,7 +500,6 @@ public class CommandClassConfigurationV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CONFIGURATION_BULK_REPORT command.
@@ -616,7 +621,6 @@ public class CommandClassConfigurationV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CONFIGURATION_NAME_GET command.
      * <p>
@@ -663,7 +667,6 @@ public class CommandClassConfigurationV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CONFIGURATION_NAME_REPORT command.
@@ -743,7 +746,6 @@ public class CommandClassConfigurationV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CONFIGURATION_INFO_GET command.
      * <p>
@@ -790,7 +792,6 @@ public class CommandClassConfigurationV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CONFIGURATION_INFO_REPORT command.
@@ -870,7 +871,6 @@ public class CommandClassConfigurationV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CONFIGURATION_PROPERTIES_GET command.
      * <p>
@@ -918,7 +918,6 @@ public class CommandClassConfigurationV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CONFIGURATION_PROPERTIES_REPORT command.
      * <p>
@@ -926,6 +925,14 @@ public class CommandClassConfigurationV3 {
      *
      * @param parameterNumber {@link Integer}
      * @param format {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>SIGNED_INTEGER
+     *            <li>UNSIGNED_INTEGER
+     *            <li>ENUMERATED
+     *            <li>BIT_FIELD
+     *            </ul>
      * @param minValue {@link byte[]}
      * @param maxValue {@link byte[]}
      * @param defaultValue {@link byte[]}
@@ -949,24 +956,17 @@ public class CommandClassConfigurationV3 {
         int size = minValue.length;
         int valProperties1 = 0;
         valProperties1 |= size & 0x07;
-        int valformat;
-        switch (format) {
-            case "SIGNED_INTEGER":
-                valformat = 0;
+        int varFormat = Integer.MAX_VALUE;
+        for (Integer entry : constantConfigurationPropertiesReportFormat.keySet()) {
+            if (constantConfigurationPropertiesReportFormat.get(entry).equals(format)) {
+                varFormat = entry;
                 break;
-            case "UNSIGNED_INTEGER":
-                valformat = 1;
-                break;
-            case "ENUMERATED":
-                valformat = 2;
-                break;
-            case "BIT_FIELD":
-                valformat = 3;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for format: " + format);
+            }
         }
-        valProperties1 |= valformat >> 3 & 0x38;
+        if (varFormat == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + format + "' for format");
+        }
+        valProperties1 |= varFormat << 3 & 0x38;
         outputData.write(valProperties1);
 
         // Process 'Min Value'
@@ -1010,6 +1010,14 @@ public class CommandClassConfigurationV3 {
      * <ul>
      * <li>PARAMETER_NUMBER {@link Integer}
      * <li>FORMAT {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>SIGNED_INTEGER
+     * <li>UNSIGNED_INTEGER
+     * <li>ENUMERATED
+     * <li>BIT_FIELD
+     * </ul>
      * <li>MIN_VALUE {@link byte[]}
      * <li>MAX_VALUE {@link byte[]}
      * <li>DEFAULT_VALUE {@link byte[]}
@@ -1033,22 +1041,7 @@ public class CommandClassConfigurationV3 {
         // Process 'Properties1'
         // Size is used by 'Min Value' and 'Max Value' and 'Default Value'
         int varSize = payload[msgOffset] & 0x07;
-        switch ((payload[msgOffset] & 0x38) >> 3) {
-            case 0x00:
-                response.put("FORMAT", "SIGNED_INTEGER");
-                break;
-            case 0x01:
-                response.put("FORMAT", "UNSIGNED_INTEGER");
-                break;
-            case 0x02:
-                response.put("FORMAT", "ENUMERATED");
-                break;
-            case 0x03:
-                response.put("FORMAT", "BIT_FIELD");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for FORMAT", String.format("0x%02X", msgOffset));
-        }
+        response.put("FORMAT", constantConfigurationPropertiesReportFormat.get((payload[msgOffset] & 0x38) >> 3));
         msgOffset += 1;
 
         // Process 'Min Value'
@@ -1082,5 +1075,4 @@ public class CommandClassConfigurationV3 {
         // Return the map of processed response data;
         return response;
     }
-
 }

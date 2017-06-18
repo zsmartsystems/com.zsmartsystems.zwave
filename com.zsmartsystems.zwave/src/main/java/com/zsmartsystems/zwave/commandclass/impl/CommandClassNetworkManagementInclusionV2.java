@@ -113,7 +113,6 @@ public class CommandClassNetworkManagementInclusionV2 {
      */
     public final static int NODE_ADD_DSK_SET = 0x14;
 
-
     /**
      * Map holding constants for NodeAddStatusProperties1
      */
@@ -198,8 +197,8 @@ public class CommandClassNetworkManagementInclusionV2 {
      * Map holding constants for NodeAddKeysSetProperties1
      */
     private static Map<Integer, String> constantNodeAddKeysSetProperties1 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for NodeAddStatusProperties1
         constantNodeAddStatusProperties1.put(0x80, "LISTENING");
 
@@ -295,6 +294,7 @@ public class CommandClassNetworkManagementInclusionV2 {
      * @param seqNo {@link Integer}
      * @param mode {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NODE_ADD_ANY
      *            <li>NODE_ADD_CONTROLLER
@@ -306,6 +306,7 @@ public class CommandClassNetworkManagementInclusionV2 {
      *            </ul>
      * @param txOptions {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NO_ROUTE
      *            <li>ACK
@@ -373,7 +374,29 @@ public class CommandClassNetworkManagementInclusionV2 {
      * <ul>
      * <li>SEQ_NO {@link Integer}
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NODE_ADD_ANY
+     * <li>NODE_ADD_CONTROLLER
+     * <li>NODE_ADD_SLAVE
+     * <li>NODE_ADD_EXISTING
+     * <li>NODE_ADD_STOP
+     * <li>NODE_ADD_STOP_FAILED
+     * <li>NODE_ADD_ANY_S2
+     * </ul>
      * <li>TX_OPTIONS {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NO_ROUTE
+     * <li>ACK
+     * <li>EXPLORE
+     * <li>LOW_POWER
+     * <li>NO_RETRANSMISSION
+     * <li>AUTO_ROUTE
+     * <li>HIGH_POWER
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -404,7 +427,6 @@ public class CommandClassNetworkManagementInclusionV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the NODE_ADD_STATUS command.
      * <p>
@@ -413,6 +435,7 @@ public class CommandClassNetworkManagementInclusionV2 {
      * @param seqNo {@link Integer}
      * @param status {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NODE_ADD_STATUS_DONE
      *            <li>NODE_ADD_STATUS_FAILED
@@ -532,6 +555,13 @@ public class CommandClassNetworkManagementInclusionV2 {
      * <ul>
      * <li>SEQ_NO {@link Integer}
      * <li>STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NODE_ADD_STATUS_DONE
+     * <li>NODE_ADD_STATUS_FAILED
+     * <li>NODE_ADD_STATUS_SECURITY_FAILED
+     * </ul>
      * <li>NEW_NODE_ID {@link Integer}
      * <li>NODE_INFO_LENGTH {@link Integer}
      * <li>CAPABILITY {@link Integer}
@@ -633,7 +663,6 @@ public class CommandClassNetworkManagementInclusionV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the NODE_REMOVE command.
      * <p>
@@ -642,6 +671,7 @@ public class CommandClassNetworkManagementInclusionV2 {
      * @param seqNo {@link Integer}
      * @param mode {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NODE_REMOVE_ANY
      *            <li>NODE_REMOVE_CONTROLLER
@@ -689,6 +719,14 @@ public class CommandClassNetworkManagementInclusionV2 {
      * <ul>
      * <li>SEQ_NO {@link Integer}
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NODE_REMOVE_ANY
+     * <li>NODE_REMOVE_CONTROLLER
+     * <li>NODE_REMOVE_SLAVE
+     * <li>NODE_REMOVE_STOP
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -708,7 +746,6 @@ public class CommandClassNetworkManagementInclusionV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the NODE_REMOVE_STATUS command.
      * <p>
@@ -717,6 +754,7 @@ public class CommandClassNetworkManagementInclusionV2 {
      * @param seqNo {@link Integer}
      * @param status {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NODE_REMOVE_STATUS_DONE
      *            <li>NODE_REMOVE_STATUS_FAILED
@@ -768,6 +806,12 @@ public class CommandClassNetworkManagementInclusionV2 {
      * <ul>
      * <li>SEQ_NO {@link Integer}
      * <li>STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NODE_REMOVE_STATUS_DONE
+     * <li>NODE_REMOVE_STATUS_FAILED
+     * </ul>
      * <li>NODEID {@link Integer}
      * </ul>
      *
@@ -790,7 +834,6 @@ public class CommandClassNetworkManagementInclusionV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the FAILED_NODE_REMOVE command.
@@ -851,7 +894,6 @@ public class CommandClassNetworkManagementInclusionV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the FAILED_NODE_REMOVE_STATUS command.
      * <p>
@@ -860,6 +902,7 @@ public class CommandClassNetworkManagementInclusionV2 {
      * @param seqNo {@link Integer}
      * @param status {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>FAILED_NODE_NOT_FOUND
      *            <li>DONE
@@ -912,6 +955,13 @@ public class CommandClassNetworkManagementInclusionV2 {
      * <ul>
      * <li>SEQ_NO {@link Integer}
      * <li>STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>FAILED_NODE_NOT_FOUND
+     * <li>DONE
+     * <li>FAILED_NODE_REMOVE_FAIL
+     * </ul>
      * <li>NODE_ID {@link Integer}
      * </ul>
      *
@@ -935,7 +985,6 @@ public class CommandClassNetworkManagementInclusionV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the FAILED_NODE_REPLACE command.
      * <p>
@@ -945,6 +994,7 @@ public class CommandClassNetworkManagementInclusionV2 {
      * @param nodeId {@link Integer}
      * @param txOptions {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NO_ROUTE
      *            <li>ACK
@@ -1009,6 +1059,17 @@ public class CommandClassNetworkManagementInclusionV2 {
      * <li>SEQ_NO {@link Integer}
      * <li>NODE_ID {@link Integer}
      * <li>TX_OPTIONS {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NO_ROUTE
+     * <li>ACK
+     * <li>EXPLORE
+     * <li>LOW_POWER
+     * <li>NO_RETRANSMISSION
+     * <li>AUTO_ROUTE
+     * <li>HIGH_POWER
+     * </ul>
      * <li>MODE {@link Integer}
      * </ul>
      *
@@ -1043,7 +1104,6 @@ public class CommandClassNetworkManagementInclusionV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the FAILED_NODE_REPLACE_STATUS command.
      * <p>
@@ -1052,6 +1112,7 @@ public class CommandClassNetworkManagementInclusionV2 {
      * @param seqNo {@link Integer}
      * @param status {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>DONE
      *            <li>FAILED_NODE_REPLACE_FAIL
@@ -1113,6 +1174,13 @@ public class CommandClassNetworkManagementInclusionV2 {
      * <ul>
      * <li>SEQ_NO {@link Integer}
      * <li>STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>DONE
+     * <li>FAILED_NODE_REPLACE_FAIL
+     * <li>FAILED_NODE_REPLACE_SECURITY_FAILED
+     * </ul>
      * <li>NODE_ID {@link Integer}
      * <li>GRANTED_KEYS {@link Integer}
      * <li>KEX_FAIL_TYPE {@link Integer}
@@ -1143,7 +1211,6 @@ public class CommandClassNetworkManagementInclusionV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the NODE_NEIGHBOR_UPDATE_REQUEST command.
@@ -1204,7 +1271,6 @@ public class CommandClassNetworkManagementInclusionV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the NODE_NEIGHBOR_UPDATE_STATUS command.
      * <p>
@@ -1213,6 +1279,7 @@ public class CommandClassNetworkManagementInclusionV2 {
      * @param seqNo {@link Integer}
      * @param status {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NEIGHBOR_UPDATE_STATUS_DONE
      *            <li>NEIGHBOR_UPDATE_STATUS_FAIL
@@ -1255,6 +1322,12 @@ public class CommandClassNetworkManagementInclusionV2 {
      * <ul>
      * <li>SEQ_NO {@link Integer}
      * <li>STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NEIGHBOR_UPDATE_STATUS_DONE
+     * <li>NEIGHBOR_UPDATE_STATUS_FAIL
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -1273,7 +1346,6 @@ public class CommandClassNetworkManagementInclusionV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the RETURN_ROUTE_ASSIGN command.
@@ -1347,7 +1419,6 @@ public class CommandClassNetworkManagementInclusionV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the RETURN_ROUTE_ASSIGN_COMPLETE command.
      * <p>
@@ -1356,6 +1427,7 @@ public class CommandClassNetworkManagementInclusionV2 {
      * @param seqNo {@link Integer}
      * @param status {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>TRANSMIT_COMPLETE_OK
      *            <li>TRANSMIT_COMPLETE_NO_ACK
@@ -1399,6 +1471,13 @@ public class CommandClassNetworkManagementInclusionV2 {
      * <ul>
      * <li>SEQ_NO {@link Integer}
      * <li>STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>TRANSMIT_COMPLETE_OK
+     * <li>TRANSMIT_COMPLETE_NO_ACK
+     * <li>TRANSMIT_COMPLETE_FAIL
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -1417,7 +1496,6 @@ public class CommandClassNetworkManagementInclusionV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the RETURN_ROUTE_DELETE command.
@@ -1478,7 +1556,6 @@ public class CommandClassNetworkManagementInclusionV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the RETURN_ROUTE_DELETE_COMPLETE command.
      * <p>
@@ -1487,6 +1564,7 @@ public class CommandClassNetworkManagementInclusionV2 {
      * @param seqNo {@link Integer}
      * @param status {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>TRANSMIT_COMPLETE_OK
      *            <li>TRANSMIT_COMPLETE_NO_ACK
@@ -1530,6 +1608,13 @@ public class CommandClassNetworkManagementInclusionV2 {
      * <ul>
      * <li>SEQ_NO {@link Integer}
      * <li>STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>TRANSMIT_COMPLETE_OK
+     * <li>TRANSMIT_COMPLETE_NO_ACK
+     * <li>TRANSMIT_COMPLETE_FAIL
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -1548,7 +1633,6 @@ public class CommandClassNetworkManagementInclusionV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the NODE_ADD_KEYS_REPORT command.
@@ -1612,7 +1696,6 @@ public class CommandClassNetworkManagementInclusionV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the NODE_ADD_KEYS_SET command.
@@ -1682,7 +1765,6 @@ public class CommandClassNetworkManagementInclusionV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the NODE_ADD_DSK_REPORT command.
@@ -1758,7 +1840,6 @@ public class CommandClassNetworkManagementInclusionV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the NODE_ADD_DSK_SET command.
@@ -1843,5 +1924,4 @@ public class CommandClassNetworkManagementInclusionV2 {
         // Return the map of processed response data;
         return response;
     }
-
 }

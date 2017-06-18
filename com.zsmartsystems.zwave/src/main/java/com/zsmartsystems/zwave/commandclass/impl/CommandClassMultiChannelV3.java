@@ -79,7 +79,6 @@ public class CommandClassMultiChannelV3 {
      */
     public final static int MULTI_CHANNEL_CMD_ENCAP = 0x0D;
 
-
     /**
      * Map holding constants for MultiChannelCapabilityReportProperties1
      */
@@ -124,8 +123,8 @@ public class CommandClassMultiChannelV3 {
      * Map holding constants for MultiChannelEndPointReportProperties2
      */
     private static Map<Integer, String> constantMultiChannelEndPointReportProperties2 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for MultiChannelCapabilityReportProperties1
         constantMultiChannelCapabilityReportProperties1.put(0x80, "DYNAMIC");
 
@@ -201,7 +200,6 @@ public class CommandClassMultiChannelV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the MULTI_INSTANCE_REPORT command.
      * <p>
@@ -261,7 +259,6 @@ public class CommandClassMultiChannelV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the MULTI_INSTANCE_CMD_ENCAP command.
@@ -353,7 +350,6 @@ public class CommandClassMultiChannelV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the MULTI_CHANNEL_END_POINT_GET command.
      * <p>
@@ -386,7 +382,6 @@ public class CommandClassMultiChannelV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the MULTI_CHANNEL_END_POINT_REPORT command.
@@ -459,7 +454,6 @@ public class CommandClassMultiChannelV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the MULTI_CHANNEL_CAPABILITY_GET command.
      * <p>
@@ -511,7 +505,6 @@ public class CommandClassMultiChannelV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the MULTI_CHANNEL_CAPABILITY_REPORT command.
@@ -603,7 +596,6 @@ public class CommandClassMultiChannelV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the MULTI_CHANNEL_END_POINT_FIND command.
      * <p>
@@ -657,7 +649,6 @@ public class CommandClassMultiChannelV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the MULTI_CHANNEL_END_POINT_FIND_REPORT command.
@@ -747,7 +738,6 @@ public class CommandClassMultiChannelV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the MULTI_CHANNEL_CMD_ENCAP command.
@@ -853,5 +843,4 @@ public class CommandClassMultiChannelV3 {
         // Return the map of processed response data;
         return response;
     }
-
 }

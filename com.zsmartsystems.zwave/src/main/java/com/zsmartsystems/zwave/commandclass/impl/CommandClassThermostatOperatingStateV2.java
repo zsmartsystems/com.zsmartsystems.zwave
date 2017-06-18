@@ -63,6 +63,10 @@ public class CommandClassThermostatOperatingStateV2 {
      */
     public final static int THERMOSTAT_OPERATING_STATE_LOGGING_REPORT = 0x06;
 
+    /**
+     * Map holding constants for ThermostatOperatingStateReportOperatingState
+     */
+    private static Map<Integer, String> constantThermostatOperatingStateReportOperatingState = new HashMap<Integer, String>();
 
     /**
      * Map holding constants for ThermostatOperatingStateLoggingGetBitMask
@@ -73,7 +77,21 @@ public class CommandClassThermostatOperatingStateV2 {
      * Map holding constants for ThermostatOperatingLoggingSupportedReportBitMask
      */
     private static Map<Integer, String> constantThermostatOperatingLoggingSupportedReportBitMask = new HashMap<Integer, String>();
+
     static {
+        // Constants for ThermostatOperatingStateReportOperatingState
+        constantThermostatOperatingStateReportOperatingState.put(0x00, "IDLE");
+        constantThermostatOperatingStateReportOperatingState.put(0x01, "HEATING");
+        constantThermostatOperatingStateReportOperatingState.put(0x02, "COOLING");
+        constantThermostatOperatingStateReportOperatingState.put(0x03, "FAN_ONLY");
+        constantThermostatOperatingStateReportOperatingState.put(0x04, "PENDING_HEAT");
+        constantThermostatOperatingStateReportOperatingState.put(0x05, "PENDING_COOL");
+        constantThermostatOperatingStateReportOperatingState.put(0x06, "VENT_ECONOMIZER");
+        constantThermostatOperatingStateReportOperatingState.put(0x07, "AUX_HEATING");
+        constantThermostatOperatingStateReportOperatingState.put(0x08, "2ND_STAGE_HEATING");
+        constantThermostatOperatingStateReportOperatingState.put(0x09, "2ND_STAGE_COOLING");
+        constantThermostatOperatingStateReportOperatingState.put(0x0A, "2ND_STAGE_AUX_HEAT");
+        constantThermostatOperatingStateReportOperatingState.put(0x0B, "3RD_STAGE_AUX_HEAT");
 
         // Constants for ThermostatOperatingStateLoggingGetBitMask
         constantThermostatOperatingStateLoggingGetBitMask.put(0x00, "IDLE");
@@ -137,7 +155,6 @@ public class CommandClassThermostatOperatingStateV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the THERMOSTAT_OPERATING_STATE_GET command.
      * <p>
@@ -171,13 +188,28 @@ public class CommandClassThermostatOperatingStateV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the THERMOSTAT_OPERATING_STATE_REPORT command.
      * <p>
      * Thermostat Operating State Report
      *
      * @param operatingState {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>IDLE
+     *            <li>HEATING
+     *            <li>COOLING
+     *            <li>FAN_ONLY
+     *            <li>PENDING_HEAT
+     *            <li>PENDING_COOL
+     *            <li>VENT_ECONOMIZER
+     *            <li>AUX_HEATING
+     *            <li>2ND_STAGE_HEATING
+     *            <li>2ND_STAGE_COOLING
+     *            <li>2ND_STAGE_AUX_HEAT
+     *            <li>3RD_STAGE_AUX_HEAT
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getThermostatOperatingStateReport(String operatingState) {
@@ -188,48 +220,17 @@ public class CommandClassThermostatOperatingStateV2 {
         outputData.write(THERMOSTAT_OPERATING_STATE_REPORT);
 
         // Process 'Properties1'
-        int valoperatingState;
-        switch (operatingState) {
-            case "IDLE":
-                valoperatingState = 0;
+        int varOperatingState = Integer.MAX_VALUE;
+        for (Integer entry : constantThermostatOperatingStateReportOperatingState.keySet()) {
+            if (constantThermostatOperatingStateReportOperatingState.get(entry).equals(operatingState)) {
+                varOperatingState = entry;
                 break;
-            case "HEATING":
-                valoperatingState = 1;
-                break;
-            case "COOLING":
-                valoperatingState = 2;
-                break;
-            case "FAN_ONLY":
-                valoperatingState = 3;
-                break;
-            case "PENDING_HEAT":
-                valoperatingState = 4;
-                break;
-            case "PENDING_COOL":
-                valoperatingState = 5;
-                break;
-            case "VENT_ECONOMIZER":
-                valoperatingState = 6;
-                break;
-            case "AUX_HEATING":
-                valoperatingState = 7;
-                break;
-            case "2ND_STAGE_HEATING":
-                valoperatingState = 8;
-                break;
-            case "2ND_STAGE_COOLING":
-                valoperatingState = 9;
-                break;
-            case "2ND_STAGE_AUX_HEAT":
-                valoperatingState = 10;
-                break;
-            case "3RD_STAGE_AUX_HEAT":
-                valoperatingState = 11;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for operatingState: " + operatingState);
+            }
         }
-        outputData.write(valoperatingState & 0x0F);
+        if (varOperatingState == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + operatingState + "' for operatingState");
+        }
+        outputData.write(varOperatingState & 0x0F);
 
         return outputData.toByteArray();
     }
@@ -243,6 +244,22 @@ public class CommandClassThermostatOperatingStateV2 {
      *
      * <ul>
      * <li>OPERATING_STATE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>IDLE
+     * <li>HEATING
+     * <li>COOLING
+     * <li>FAN_ONLY
+     * <li>PENDING_HEAT
+     * <li>PENDING_COOL
+     * <li>VENT_ECONOMIZER
+     * <li>AUX_HEATING
+     * <li>2ND_STAGE_HEATING
+     * <li>2ND_STAGE_COOLING
+     * <li>2ND_STAGE_AUX_HEAT
+     * <li>3RD_STAGE_AUX_HEAT
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -253,51 +270,11 @@ public class CommandClassThermostatOperatingStateV2 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch (payload[2] & 0x0F) {
-            case 0x00:
-                response.put("OPERATING_STATE", "IDLE");
-                break;
-            case 0x01:
-                response.put("OPERATING_STATE", "HEATING");
-                break;
-            case 0x02:
-                response.put("OPERATING_STATE", "COOLING");
-                break;
-            case 0x03:
-                response.put("OPERATING_STATE", "FAN_ONLY");
-                break;
-            case 0x04:
-                response.put("OPERATING_STATE", "PENDING_HEAT");
-                break;
-            case 0x05:
-                response.put("OPERATING_STATE", "PENDING_COOL");
-                break;
-            case 0x06:
-                response.put("OPERATING_STATE", "VENT_ECONOMIZER");
-                break;
-            case 0x07:
-                response.put("OPERATING_STATE", "AUX_HEATING");
-                break;
-            case 0x08:
-                response.put("OPERATING_STATE", "2ND_STAGE_HEATING");
-                break;
-            case 0x09:
-                response.put("OPERATING_STATE", "2ND_STAGE_COOLING");
-                break;
-            case 0x0A:
-                response.put("OPERATING_STATE", "2ND_STAGE_AUX_HEAT");
-                break;
-            case 0x0B:
-                response.put("OPERATING_STATE", "3RD_STAGE_AUX_HEAT");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for OPERATING_STATE", String.format("0x%02X", 2));
-        }
+        response.put("OPERATING_STATE", constantThermostatOperatingStateReportOperatingState.get(payload[2] & 0x0F));
 
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the THERMOSTAT_OPERATING_LOGGING_SUPPORTED_REPORT command.
@@ -306,6 +283,7 @@ public class CommandClassThermostatOperatingStateV2 {
      *
      * @param bitMask {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>IDLE
      *            <li>HEATING
@@ -358,6 +336,22 @@ public class CommandClassThermostatOperatingStateV2 {
      *
      * <ul>
      * <li>BIT_MASK {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>IDLE
+     * <li>HEATING
+     * <li>COOLING
+     * <li>FAN_ONLY
+     * <li>PENDING_HEAT
+     * <li>PENDING_COOL
+     * <li>VENT_ECONOMIZER
+     * <li>AUX_HEATING
+     * <li>2ND_STAGE_HEATING
+     * <li>2ND_STAGE_COOLING
+     * <li>2ND_STAGE_AUX_HEAT
+     * <li>3RD_STAGE_AUX_HEAT
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -381,7 +375,6 @@ public class CommandClassThermostatOperatingStateV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the THERMOSTAT_OPERATING_STATE_LOGGING_GET command.
      * <p>
@@ -389,6 +382,7 @@ public class CommandClassThermostatOperatingStateV2 {
      *
      * @param bitMask {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>IDLE
      *            <li>HEATING
@@ -441,6 +435,22 @@ public class CommandClassThermostatOperatingStateV2 {
      *
      * <ul>
      * <li>BIT_MASK {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>IDLE
+     * <li>HEATING
+     * <li>COOLING
+     * <li>FAN_ONLY
+     * <li>PENDING_HEAT
+     * <li>PENDING_COOL
+     * <li>VENT_ECONOMIZER
+     * <li>AUX_HEATING
+     * <li>2ND_STAGE_HEATING
+     * <li>2ND_STAGE_COOLING
+     * <li>2ND_STAGE_AUX_HEAT
+     * <li>3RD_STAGE_AUX_HEAT
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -463,7 +473,6 @@ public class CommandClassThermostatOperatingStateV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the THERMOSTAT_OPERATING_STATE_LOGGING_REPORT command.
@@ -547,5 +556,4 @@ public class CommandClassThermostatOperatingStateV2 {
         // Return the map of processed response data;
         return response;
     }
-
 }

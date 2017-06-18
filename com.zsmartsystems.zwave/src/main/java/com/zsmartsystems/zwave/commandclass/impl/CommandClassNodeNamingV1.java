@@ -131,7 +131,6 @@ public class CommandClassNodeNamingV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the NODE_NAMING_NODE_NAME_GET command.
      * <p>
@@ -164,7 +163,6 @@ public class CommandClassNodeNamingV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the NODE_NAMING_NODE_NAME_REPORT command.
@@ -233,7 +231,6 @@ public class CommandClassNodeNamingV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the NODE_NAMING_NODE_LOCATION_SET command.
      * <p>
@@ -301,7 +298,6 @@ public class CommandClassNodeNamingV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the NODE_NAMING_NODE_LOCATION_GET command.
      * <p>
@@ -334,7 +330,6 @@ public class CommandClassNodeNamingV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the NODE_NAMING_NODE_LOCATION_REPORT command.
@@ -402,5 +397,4 @@ public class CommandClassNodeNamingV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

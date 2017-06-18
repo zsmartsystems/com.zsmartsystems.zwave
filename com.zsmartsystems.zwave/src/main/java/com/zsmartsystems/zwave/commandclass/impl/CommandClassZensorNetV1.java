@@ -83,7 +83,6 @@ public class CommandClassZensorNetV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the BIND_ACCEPT command.
      * <p>
@@ -117,7 +116,6 @@ public class CommandClassZensorNetV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the BIND_COMPLETE command.
      * <p>
@@ -150,5 +148,4 @@ public class CommandClassZensorNetV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

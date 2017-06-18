@@ -65,7 +65,6 @@ public class CommandClassSwitchMultilevelV4 {
      */
     public final static int SWITCH_MULTILEVEL_SUPPORTED_REPORT = 0x07;
 
-
     /**
      * Map holding constants for SwitchMultilevelStartLevelChangeProperties1
      */
@@ -75,6 +74,11 @@ public class CommandClassSwitchMultilevelV4 {
      * Map holding constants for SwitchMultilevelSetDimmingDuration
      */
     private static Map<Integer, String> constantSwitchMultilevelSetDimmingDuration = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for SwitchMultilevelStartLevelChangeUpDown
+     */
+    private static Map<Integer, String> constantSwitchMultilevelStartLevelChangeUpDown = new HashMap<Integer, String>();
 
     /**
      * Map holding constants for SwitchMultilevelSetValue
@@ -87,17 +91,27 @@ public class CommandClassSwitchMultilevelV4 {
     private static Map<Integer, String> constantSwitchMultilevelReportDuration = new HashMap<Integer, String>();
 
     /**
+     * Map holding constants for SwitchMultilevelStartLevelChangeIncDec
+     */
+    private static Map<Integer, String> constantSwitchMultilevelStartLevelChangeIncDec = new HashMap<Integer, String>();
+
+    /**
      * Map holding constants for SwitchMultilevelReportCurrentValue
      */
     private static Map<Integer, String> constantSwitchMultilevelReportCurrentValue = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SwitchMultilevelStartLevelChangeProperties1
         constantSwitchMultilevelStartLevelChangeProperties1.put(0x20, "IGNORE_START_LEVEL");
 
         // Constants for SwitchMultilevelSetDimmingDuration
         constantSwitchMultilevelSetDimmingDuration.put(0x00, "INSTANTLY");
         constantSwitchMultilevelSetDimmingDuration.put(0xFF, "DEFAULT");
+
+        // Constants for SwitchMultilevelStartLevelChangeUpDown
+        constantSwitchMultilevelStartLevelChangeUpDown.put(0x00, "UP");
+        constantSwitchMultilevelStartLevelChangeUpDown.put(0x01, "DOWN");
+        constantSwitchMultilevelStartLevelChangeUpDown.put(0x02, "NONE");
 
         // Constants for SwitchMultilevelSetValue
         constantSwitchMultilevelSetValue.put(0x00, "OFF_DISABLE");
@@ -106,6 +120,11 @@ public class CommandClassSwitchMultilevelV4 {
         // Constants for SwitchMultilevelReportDuration
         constantSwitchMultilevelReportDuration.put(0xFE, "UNKNOWN_DURATION");
         constantSwitchMultilevelReportDuration.put(0x00, "ALREADY_AT_THE_TARGET_VALUE");
+
+        // Constants for SwitchMultilevelStartLevelChangeIncDec
+        constantSwitchMultilevelStartLevelChangeIncDec.put(0x00, "INCREMENT");
+        constantSwitchMultilevelStartLevelChangeIncDec.put(0x01, "DECREMENT");
+        constantSwitchMultilevelStartLevelChangeIncDec.put(0x02, "NONE");
 
         // Constants for SwitchMultilevelReportCurrentValue
         constantSwitchMultilevelReportCurrentValue.put(0x00, "OFF_DISABLE");
@@ -119,12 +138,14 @@ public class CommandClassSwitchMultilevelV4 {
      *
      * @param value {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF_DISABLE
      *            <li>ON_ENABLE
      *            </ul>
      * @param dimmingDuration {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>INSTANTLY
      *            <li>DEFAULT
@@ -176,7 +197,19 @@ public class CommandClassSwitchMultilevelV4 {
      *
      * <ul>
      * <li>VALUE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF_DISABLE
+     * <li>ON_ENABLE
+     * </ul>
      * <li>DIMMING_DURATION {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>INSTANTLY
+     * <li>DEFAULT
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -195,7 +228,6 @@ public class CommandClassSwitchMultilevelV4 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SWITCH_MULTILEVEL_GET command.
@@ -230,7 +262,6 @@ public class CommandClassSwitchMultilevelV4 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SWITCH_MULTILEVEL_REPORT command.
      * <p>
@@ -238,6 +269,7 @@ public class CommandClassSwitchMultilevelV4 {
      *
      * @param currentValue {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF_DISABLE
      *            <li>ON_ENABLE
@@ -245,6 +277,7 @@ public class CommandClassSwitchMultilevelV4 {
      * @param targetValue {@link Integer}
      * @param duration {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>UNKNOWN_DURATION
      *            <li>ALREADY_AT_THE_TARGET_VALUE
@@ -299,8 +332,20 @@ public class CommandClassSwitchMultilevelV4 {
      *
      * <ul>
      * <li>CURRENT_VALUE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF_DISABLE
+     * <li>ON_ENABLE
+     * </ul>
      * <li>TARGET_VALUE {@link Integer}
      * <li>DURATION {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>UNKNOWN_DURATION
+     * <li>ALREADY_AT_THE_TARGET_VALUE
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -323,15 +368,28 @@ public class CommandClassSwitchMultilevelV4 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SWITCH_MULTILEVEL_START_LEVEL_CHANGE command.
      * <p>
      * Switch Multilevel Start Level Change
      *
      * @param incDec {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>INCREMENT
+     *            <li>DECREMENT
+     *            <li>NONE
+     *            </ul>
      * @param ignoreStartLevel {@link Boolean}
      * @param upDown {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>UP
+     *            <li>DOWN
+     *            <li>NONE
+     *            </ul>
      * @param startLevel {@link Integer}
      * @param dimmingDuration {@link Integer}
      * @param stepSize {@link Integer}
@@ -347,37 +405,29 @@ public class CommandClassSwitchMultilevelV4 {
 
         // Process 'Properties1'
         int valProperties1 = 0;
-        int valincDec;
-        switch (incDec) {
-            case "INCREMENT":
-                valincDec = 0;
+        int varIncDec = Integer.MAX_VALUE;
+        for (Integer entry : constantSwitchMultilevelStartLevelChangeIncDec.keySet()) {
+            if (constantSwitchMultilevelStartLevelChangeIncDec.get(entry).equals(incDec)) {
+                varIncDec = entry;
                 break;
-            case "DECREMENT":
-                valincDec = 1;
-                break;
-            case "NONE":
-                valincDec = 3;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for incDec: " + incDec);
+            }
         }
-        valProperties1 |= valincDec >> 3 & 0x18;
+        if (varIncDec == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + incDec + "' for incDec");
+        }
+        valProperties1 |= varIncDec << 3 & 0x18;
         valProperties1 |= ignoreStartLevel ? 0x20 : 0;
-        int valupDown;
-        switch (upDown) {
-            case "UP":
-                valupDown = 0;
+        int varUpDown = Integer.MAX_VALUE;
+        for (Integer entry : constantSwitchMultilevelStartLevelChangeUpDown.keySet()) {
+            if (constantSwitchMultilevelStartLevelChangeUpDown.get(entry).equals(upDown)) {
+                varUpDown = entry;
                 break;
-            case "DOWN":
-                valupDown = 1;
-                break;
-            case "NONE":
-                valupDown = 3;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for upDown: " + upDown);
+            }
         }
-        valProperties1 |= valupDown >> 6 & 0xC0;
+        if (varUpDown == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + upDown + "' for upDown");
+        }
+        valProperties1 |= varUpDown << 6 & 0xC0;
         outputData.write(valProperties1);
 
         // Process 'Start Level'
@@ -401,8 +451,22 @@ public class CommandClassSwitchMultilevelV4 {
      *
      * <ul>
      * <li>INC_DEC {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>INCREMENT
+     * <li>DECREMENT
+     * <li>NONE
+     * </ul>
      * <li>IGNORE_START_LEVEL {@link Boolean}
      * <li>UP_DOWN {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>UP
+     * <li>DOWN
+     * <li>NONE
+     * </ul>
      * <li>START_LEVEL {@link Integer}
      * <li>DIMMING_DURATION {@link Integer}
      * <li>STEP_SIZE {@link Integer}
@@ -416,33 +480,9 @@ public class CommandClassSwitchMultilevelV4 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch ((payload[2] & 0x18) >> 3) {
-            case 0x00:
-                response.put("INC_DEC", "INCREMENT");
-                break;
-            case 0x01:
-                response.put("INC_DEC", "DECREMENT");
-                break;
-            case 0x03:
-                response.put("INC_DEC", "NONE");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for INC_DEC", String.format("0x%02X", 2));
-        }
+        response.put("INC_DEC", constantSwitchMultilevelStartLevelChangeIncDec.get((payload[2] & 0x18) >> 3));
         response.put("IGNORE_START_LEVEL", Boolean.valueOf((payload[2] & 0x20) != 0));
-        switch ((payload[2] & 0xC0) >> 6) {
-            case 0x00:
-                response.put("UP_DOWN", "UP");
-                break;
-            case 0x01:
-                response.put("UP_DOWN", "DOWN");
-                break;
-            case 0x03:
-                response.put("UP_DOWN", "NONE");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for UP_DOWN", String.format("0x%02X", 2));
-        }
+        response.put("UP_DOWN", constantSwitchMultilevelStartLevelChangeUpDown.get((payload[2] & 0xC0) >> 6));
 
         // Process 'Start Level'
         response.put("START_LEVEL", Integer.valueOf(payload[3]));
@@ -456,7 +496,6 @@ public class CommandClassSwitchMultilevelV4 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SWITCH_MULTILEVEL_STOP_LEVEL_CHANGE command.
@@ -491,7 +530,6 @@ public class CommandClassSwitchMultilevelV4 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SWITCH_MULTILEVEL_SUPPORTED_GET command.
      * <p>
@@ -524,7 +562,6 @@ public class CommandClassSwitchMultilevelV4 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SWITCH_MULTILEVEL_SUPPORTED_REPORT command.
@@ -579,5 +616,4 @@ public class CommandClassSwitchMultilevelV4 {
         // Return the map of processed response data;
         return response;
     }
-
 }

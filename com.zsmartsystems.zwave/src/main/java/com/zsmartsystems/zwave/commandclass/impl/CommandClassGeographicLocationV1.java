@@ -49,7 +49,6 @@ public class CommandClassGeographicLocationV1 {
      */
     public final static int GEOGRAPHIC_LOCATION_REPORT = 0x03;
 
-
     /**
      * Map holding constants for GeographicLocationReportLevel2
      */
@@ -69,8 +68,8 @@ public class CommandClassGeographicLocationV1 {
      * Map holding constants for GeographicLocationReportLevel
      */
     private static Map<Integer, String> constantGeographicLocationReportLevel = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for GeographicLocationReportLevel2
         constantGeographicLocationReportLevel2.put(0x80, "LAT_SIGN");
 
@@ -167,7 +166,6 @@ public class CommandClassGeographicLocationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the GEOGRAPHIC_LOCATION_GET command.
      * <p>
@@ -200,7 +198,6 @@ public class CommandClassGeographicLocationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the GEOGRAPHIC_LOCATION_REPORT command.
@@ -284,5 +281,4 @@ public class CommandClassGeographicLocationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

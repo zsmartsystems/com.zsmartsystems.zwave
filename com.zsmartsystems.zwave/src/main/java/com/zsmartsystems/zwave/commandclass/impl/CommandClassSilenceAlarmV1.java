@@ -42,13 +42,12 @@ public class CommandClassSilenceAlarmV1 {
      */
     public final static int SENSOR_ALARM_SET = 0x01;
 
-
     /**
      * Map holding constants for SensorAlarmSetMode
      */
     private static Map<Integer, String> constantSensorAlarmSetMode = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SensorAlarmSetMode
         constantSensorAlarmSetMode.put(0x00, "DISABLE_SOUNDING_OF_ALL_SENSOR_ALARMS");
         constantSensorAlarmSetMode.put(0x01, "DISABLE_SOUNDING_OF_ALL_SENSOR_ALARMS_INDEPENDENT_OF_BIT_MASK_WHICH_HAVE_RECEIVED_THE_ALARM");
@@ -63,6 +62,7 @@ public class CommandClassSilenceAlarmV1 {
      *
      * @param mode {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>DISABLE_SOUNDING_OF_ALL_SENSOR_ALARMS
      *            <li>DISABLE_SOUNDING_OF_ALL_SENSOR_ALARMS_INDEPENDENT_OF_BIT_MASK_WHICH_HAVE_RECEIVED_THE_ALARM
@@ -121,6 +121,14 @@ public class CommandClassSilenceAlarmV1 {
      *
      * <ul>
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>DISABLE_SOUNDING_OF_ALL_SENSOR_ALARMS
+     * <li>DISABLE_SOUNDING_OF_ALL_SENSOR_ALARMS_INDEPENDENT_OF_BIT_MASK_WHICH_HAVE_RECEIVED_THE_ALARM
+     * <li>DISABLE_SOUNDING_OF_ALL_SENSOR_ALARMS_ACCORDING_TO_BIT_MASK
+     * <li>DISABLE_SOUNDING_OF_ALL_SENSOR_ALARMS_ACCORDING_TO_BIT_MASK_WHICH_HAVE_RECEIVED_THE_ALARM
+     * </ul>
      * <li>SECONDS {@link Integer}
      * <li>NUMBER_OF_BIT_MASKS {@link Integer}
      * <li>BIT_MASK {@link byte[]}
@@ -160,5 +168,4 @@ public class CommandClassSilenceAlarmV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

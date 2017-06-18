@@ -45,7 +45,6 @@ public class CommandClassInclusionControllerV1 {
      */
     public final static int COMPLETE = 0x02;
 
-
     /**
      * Map holding constants for CompleteStatus
      */
@@ -60,8 +59,8 @@ public class CommandClassInclusionControllerV1 {
      * Map holding constants for CompleteStepId
      */
     private static Map<Integer, String> constantCompleteStepId = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for CompleteStatus
         constantCompleteStatus.put(0x01, "STEP_OK");
         constantCompleteStatus.put(0x02, "STEP_USER_REJECTED");
@@ -85,6 +84,7 @@ public class CommandClassInclusionControllerV1 {
      * @param nodeId {@link Integer}
      * @param stepId {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>PROXY_INCLUSION
      *            <li>S0_INCLUSION
@@ -132,6 +132,12 @@ public class CommandClassInclusionControllerV1 {
      * <ul>
      * <li>NODE_ID {@link Integer}
      * <li>STEP_ID {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>PROXY_INCLUSION
+     * <li>S0_INCLUSION
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -151,7 +157,6 @@ public class CommandClassInclusionControllerV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the COMPLETE command.
      * <p>
@@ -159,12 +164,14 @@ public class CommandClassInclusionControllerV1 {
      *
      * @param stepId {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>PROXY_INCLUSION
      *            <li>S0_INCLUSION
      *            </ul>
      * @param status {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>STEP_OK
      *            <li>STEP_USER_REJECTED
@@ -218,7 +225,21 @@ public class CommandClassInclusionControllerV1 {
      *
      * <ul>
      * <li>STEP_ID {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>PROXY_INCLUSION
+     * <li>S0_INCLUSION
+     * </ul>
      * <li>STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>STEP_OK
+     * <li>STEP_USER_REJECTED
+     * <li>STEP_FAILED
+     * <li>STEP_NOT_SUPPORTED
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -237,5 +258,4 @@ public class CommandClassInclusionControllerV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

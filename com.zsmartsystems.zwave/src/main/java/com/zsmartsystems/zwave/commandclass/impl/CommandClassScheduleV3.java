@@ -75,7 +75,6 @@ public class CommandClassScheduleV3 {
      */
     public final static int SCHEDULE_STATE_REPORT = 0x09;
 
-
     /**
      * Map holding constants for CommandScheduleSetProperties5
      */
@@ -87,9 +86,14 @@ public class CommandClassScheduleV3 {
     private static Map<Integer, String> constantScheduleStateReportProperties1 = new HashMap<Integer, String>();
 
     /**
-     * Map holding constants for CommandScheduleSetProperties3
+     * Map holding constants for CommandScheduleSetRecurrenceMode
      */
-    private static Map<Integer, String> constantCommandScheduleSetProperties3 = new HashMap<Integer, String>();
+    private static Map<Integer, String> constantCommandScheduleSetRecurrenceMode = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for CommandScheduleReportRecurrenceMode
+     */
+    private static Map<Integer, String> constantCommandScheduleReportRecurrenceMode = new HashMap<Integer, String>();
 
     /**
      * Map holding constants for CommandScheduleGetProperties1
@@ -107,11 +111,6 @@ public class CommandClassScheduleV3 {
     private static Map<Integer, String> constantCommandScheduleReportProperties5 = new HashMap<Integer, String>();
 
     /**
-     * Map holding constants for CommandScheduleReportProperties3
-     */
-    private static Map<Integer, String> constantCommandScheduleReportProperties3 = new HashMap<Integer, String>();
-
-    /**
      * Map holding constants for ScheduleSupportedReportProperties3
      */
     private static Map<Integer, String> constantScheduleSupportedReportProperties3 = new HashMap<Integer, String>();
@@ -121,19 +120,22 @@ public class CommandClassScheduleV3 {
      */
     private static Map<Integer, String> constantCommandScheduleReportProperties2 = new HashMap<Integer, String>();
 
-    /**
-     * Map holding constants for CommandScheduleSetProperties2
-     */
-    private static Map<Integer, String> constantCommandScheduleSetProperties2 = new HashMap<Integer, String>();
     static {
-
         // Constants for CommandScheduleSetProperties5
         constantCommandScheduleSetProperties5.put(0x40, "RELATIVE");
 
         // Constants for ScheduleStateReportProperties1
         constantScheduleStateReportProperties1.put(0x01, "OVERRIDE");
 
-        // Constants for CommandScheduleSetProperties3
+        // Constants for CommandScheduleSetRecurrenceMode
+        constantCommandScheduleSetRecurrenceMode.put(0x00, "REPEAT_EVERY_N_HOURS");
+        constantCommandScheduleSetRecurrenceMode.put(0x01, "REPEAT_EVERY_N_DAYS");
+        constantCommandScheduleSetRecurrenceMode.put(0x02, "REPEAT_EVERY_N_WEEKS");
+
+        // Constants for CommandScheduleReportRecurrenceMode
+        constantCommandScheduleReportRecurrenceMode.put(0x00, "REPEAT_EVERY_N_HOURS");
+        constantCommandScheduleReportRecurrenceMode.put(0x01, "REPEAT_EVERY_N_DAYS");
+        constantCommandScheduleReportRecurrenceMode.put(0x02, "REPEAT_EVERY_N_WEEKS");
 
         // Constants for CommandScheduleGetProperties1
         constantCommandScheduleGetProperties1.put(0x80, "AID_RO_CTL");
@@ -145,15 +147,11 @@ public class CommandClassScheduleV3 {
         // Constants for CommandScheduleReportProperties5
         constantCommandScheduleReportProperties5.put(0x40, "RELATIVE");
 
-        // Constants for CommandScheduleReportProperties3
-
         // Constants for ScheduleSupportedReportProperties3
         constantScheduleSupportedReportProperties3.put(0x80, "OVERRIDE_SUPPORT");
 
         // Constants for CommandScheduleReportProperties2
         constantCommandScheduleReportProperties2.put(0x80, "AID_RO_CTL");
-
-        // Constants for CommandScheduleSetProperties2
     }
 
     /**
@@ -201,7 +199,6 @@ public class CommandClassScheduleV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SCHEDULE_SUPPORTED_REPORT command.
@@ -336,7 +333,6 @@ public class CommandClassScheduleV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the COMMAND_SCHEDULE_SET command.
      * <p>
@@ -349,6 +345,13 @@ public class CommandClassScheduleV3 {
      * @param recurrenceOffset {@link Integer}
      * @param startDayOfMonth {@link Integer}
      * @param recurrenceMode {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>REPEAT_EVERY_N_HOURS
+     *            <li>REPEAT_EVERY_N_DAYS
+     *            <li>REPEAT_EVERY_N_WEEKS
+     *            </ul>
      * @param startWeekday {@link Integer}
      * @param startHour {@link Integer}
      * @param durationType {@link Integer}
@@ -387,21 +390,17 @@ public class CommandClassScheduleV3 {
         // Process 'Properties2'
         int valProperties2 = 0;
         valProperties2 |= startDayOfMonth & 0x1F;
-        int valrecurrenceMode;
-        switch (recurrenceMode) {
-            case "REPEAT_EVERY_N_HOURS":
-                valrecurrenceMode = 0;
+        int varRecurrenceMode = Integer.MAX_VALUE;
+        for (Integer entry : constantCommandScheduleSetRecurrenceMode.keySet()) {
+            if (constantCommandScheduleSetRecurrenceMode.get(entry).equals(recurrenceMode)) {
+                varRecurrenceMode = entry;
                 break;
-            case "REPEAT_EVERY_N_DAYS":
-                valrecurrenceMode = 1;
-                break;
-            case "REPEAT_EVERY_N_WEEKS":
-                valrecurrenceMode = 2;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for recurrenceMode: " + recurrenceMode);
+            }
         }
-        valProperties2 |= valrecurrenceMode >> 5 & 0x60;
+        if (varRecurrenceMode == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + recurrenceMode + "' for recurrenceMode");
+        }
+        valProperties2 |= varRecurrenceMode << 5 & 0x60;
         outputData.write(valProperties2);
 
         // Process 'Properties3'
@@ -449,6 +448,13 @@ public class CommandClassScheduleV3 {
      * <li>RECURRENCE_OFFSET {@link Integer}
      * <li>START_DAY_OF_MONTH {@link Integer}
      * <li>RECURRENCE_MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>REPEAT_EVERY_N_HOURS
+     * <li>REPEAT_EVERY_N_DAYS
+     * <li>REPEAT_EVERY_N_WEEKS
+     * </ul>
      * <li>START_WEEKDAY {@link Integer}
      * <li>START_HOUR {@link Integer}
      * <li>DURATION_TYPE {@link Integer}
@@ -488,19 +494,7 @@ public class CommandClassScheduleV3 {
 
         // Process 'Properties2'
         response.put("START_DAY_OF_MONTH", Integer.valueOf(payload[msgOffset] & 0x1F));
-        switch ((payload[msgOffset] & 0x60) >> 5) {
-            case 0x00:
-                response.put("RECURRENCE_MODE", "REPEAT_EVERY_N_HOURS");
-                break;
-            case 0x01:
-                response.put("RECURRENCE_MODE", "REPEAT_EVERY_N_DAYS");
-                break;
-            case 0x02:
-                response.put("RECURRENCE_MODE", "REPEAT_EVERY_N_WEEKS");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for RECURRENCE_MODE", String.format("0x%02X", msgOffset));
-        }
+        response.put("RECURRENCE_MODE", constantCommandScheduleSetRecurrenceMode.get((payload[msgOffset] & 0x60) >> 5));
         msgOffset += 1;
 
         // Process 'Properties3'
@@ -560,7 +554,6 @@ public class CommandClassScheduleV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the COMMAND_SCHEDULE_GET command.
@@ -624,7 +617,6 @@ public class CommandClassScheduleV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the COMMAND_SCHEDULE_REPORT command.
      * <p>
@@ -637,6 +629,13 @@ public class CommandClassScheduleV3 {
      * @param aidRo {@link Integer}
      * @param startDayOfMonth {@link Integer}
      * @param recurrenceMode {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>REPEAT_EVERY_N_HOURS
+     *            <li>REPEAT_EVERY_N_DAYS
+     *            <li>REPEAT_EVERY_N_WEEKS
+     *            </ul>
      * @param aidRoCtl {@link Boolean}
      * @param startWeekday {@link Integer}
      * @param startHour {@link Integer}
@@ -676,21 +675,17 @@ public class CommandClassScheduleV3 {
         // Process 'Properties2'
         int valProperties2 = 0;
         valProperties2 |= startDayOfMonth & 0x1F;
-        int valrecurrenceMode;
-        switch (recurrenceMode) {
-            case "REPEAT_EVERY_N_HOURS":
-                valrecurrenceMode = 0;
+        int varRecurrenceMode = Integer.MAX_VALUE;
+        for (Integer entry : constantCommandScheduleReportRecurrenceMode.keySet()) {
+            if (constantCommandScheduleReportRecurrenceMode.get(entry).equals(recurrenceMode)) {
+                varRecurrenceMode = entry;
                 break;
-            case "REPEAT_EVERY_N_DAYS":
-                valrecurrenceMode = 1;
-                break;
-            case "REPEAT_EVERY_N_WEEKS":
-                valrecurrenceMode = 2;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for recurrenceMode: " + recurrenceMode);
+            }
         }
-        valProperties2 |= valrecurrenceMode >> 5 & 0x60;
+        if (varRecurrenceMode == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + recurrenceMode + "' for recurrenceMode");
+        }
+        valProperties2 |= varRecurrenceMode << 5 & 0x60;
         valProperties2 |= aidRoCtl ? 0x80 : 0;
         outputData.write(valProperties2);
 
@@ -739,6 +734,13 @@ public class CommandClassScheduleV3 {
      * <li>AID_RO {@link Integer}
      * <li>START_DAY_OF_MONTH {@link Integer}
      * <li>RECURRENCE_MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>REPEAT_EVERY_N_HOURS
+     * <li>REPEAT_EVERY_N_DAYS
+     * <li>REPEAT_EVERY_N_WEEKS
+     * </ul>
      * <li>AID_RO_CTL {@link Boolean}
      * <li>START_WEEKDAY {@link Integer}
      * <li>START_HOUR {@link Integer}
@@ -779,19 +781,7 @@ public class CommandClassScheduleV3 {
 
         // Process 'Properties2'
         response.put("START_DAY_OF_MONTH", Integer.valueOf(payload[msgOffset] & 0x1F));
-        switch ((payload[msgOffset] & 0x60) >> 5) {
-            case 0x00:
-                response.put("RECURRENCE_MODE", "REPEAT_EVERY_N_HOURS");
-                break;
-            case 0x01:
-                response.put("RECURRENCE_MODE", "REPEAT_EVERY_N_DAYS");
-                break;
-            case 0x02:
-                response.put("RECURRENCE_MODE", "REPEAT_EVERY_N_WEEKS");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for RECURRENCE_MODE", String.format("0x%02X", msgOffset));
-        }
+        response.put("RECURRENCE_MODE", constantCommandScheduleReportRecurrenceMode.get((payload[msgOffset] & 0x60) >> 5));
         response.put("AID_RO_CTL", Boolean.valueOf((payload[msgOffset] & 0x80) != 0));
         msgOffset += 1;
 
@@ -853,7 +843,6 @@ public class CommandClassScheduleV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SCHEDULE_REMOVE command.
      * <p>
@@ -907,7 +896,6 @@ public class CommandClassScheduleV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SCHEDULE_STATE_SET command.
@@ -971,7 +959,6 @@ public class CommandClassScheduleV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SCHEDULE_STATE_GET command.
      * <p>
@@ -1017,7 +1004,6 @@ public class CommandClassScheduleV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SCHEDULE_STATE_REPORT command.
@@ -1116,5 +1102,4 @@ public class CommandClassScheduleV3 {
         // Return the map of processed response data;
         return response;
     }
-
 }

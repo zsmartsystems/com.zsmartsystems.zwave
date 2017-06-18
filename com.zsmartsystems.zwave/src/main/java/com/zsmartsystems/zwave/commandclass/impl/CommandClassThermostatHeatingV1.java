@@ -86,7 +86,6 @@ public class CommandClassThermostatHeatingV1 {
      */
     public final static int THERMOSTAT_HEATING_TIMED_OFF_SET = 0x11;
 
-
     /**
      * Map holding constants for ThermostatHeatingStatusReportStatus
      */
@@ -111,8 +110,8 @@ public class CommandClassThermostatHeatingV1 {
      * Map holding constants for ThermostatHeatingStatusSetStatus
      */
     private static Map<Integer, String> constantThermostatHeatingStatusSetStatus = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for ThermostatHeatingStatusReportStatus
         constantThermostatHeatingStatusReportStatus.put(0x00, "HEATING");
         constantThermostatHeatingStatusReportStatus.put(0x01, "COOLING");
@@ -153,6 +152,7 @@ public class CommandClassThermostatHeatingV1 {
      *
      * @param mode {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF
      *            <li>OFF_TIMED
@@ -197,6 +197,18 @@ public class CommandClassThermostatHeatingV1 {
      *
      * <ul>
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF
+     * <li>OFF_TIMED
+     * <li>OFF_3_HOURS
+     * <li>ANTI_FREEZE
+     * <li>MANUAL
+     * <li>TEMPORARY_MANUAL
+     * <li>AUTOMATIC
+     * <li>MANUAL_TIMED
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -212,7 +224,6 @@ public class CommandClassThermostatHeatingV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the THERMOSTAT_HEATING_MODE_GET command.
@@ -247,7 +258,6 @@ public class CommandClassThermostatHeatingV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the THERMOSTAT_HEATING_MODE_REPORT command.
      * <p>
@@ -255,6 +265,7 @@ public class CommandClassThermostatHeatingV1 {
      *
      * @param mode {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF
      *            <li>OFF_TIMED
@@ -299,6 +310,18 @@ public class CommandClassThermostatHeatingV1 {
      *
      * <ul>
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF
+     * <li>OFF_TIMED
+     * <li>OFF_3_HOURS
+     * <li>ANTI_FREEZE
+     * <li>MANUAL
+     * <li>TEMPORARY_MANUAL
+     * <li>AUTOMATIC
+     * <li>MANUAL_TIMED
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -314,7 +337,6 @@ public class CommandClassThermostatHeatingV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the THERMOSTAT_HEATING_SETPOINT_SET command.
@@ -405,7 +427,6 @@ public class CommandClassThermostatHeatingV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the THERMOSTAT_HEATING_SETPOINT_GET command.
      * <p>
@@ -451,7 +472,6 @@ public class CommandClassThermostatHeatingV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the THERMOSTAT_HEATING_SETPOINT_REPORT command.
@@ -542,7 +562,6 @@ public class CommandClassThermostatHeatingV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the THERMOSTAT_HEATING_RELAY_STATUS_GET command.
      * <p>
@@ -576,7 +595,6 @@ public class CommandClassThermostatHeatingV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the THERMOSTAT_HEATING_RELAY_STATUS_REPORT command.
      * <p>
@@ -584,6 +602,7 @@ public class CommandClassThermostatHeatingV1 {
      *
      * @param relayStatus {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF
      *            <li>ON
@@ -622,6 +641,12 @@ public class CommandClassThermostatHeatingV1 {
      *
      * <ul>
      * <li>RELAY_STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF
+     * <li>ON
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -638,7 +663,6 @@ public class CommandClassThermostatHeatingV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the THERMOSTAT_HEATING_STATUS_SET command.
      * <p>
@@ -646,6 +670,7 @@ public class CommandClassThermostatHeatingV1 {
      *
      * @param status {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>HEATING
      *            <li>COOLING
@@ -684,6 +709,12 @@ public class CommandClassThermostatHeatingV1 {
      *
      * <ul>
      * <li>STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>HEATING
+     * <li>COOLING
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -699,7 +730,6 @@ public class CommandClassThermostatHeatingV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the THERMOSTAT_HEATING_STATUS_GET command.
@@ -734,7 +764,6 @@ public class CommandClassThermostatHeatingV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the THERMOSTAT_HEATING_STATUS_REPORT command.
      * <p>
@@ -742,6 +771,7 @@ public class CommandClassThermostatHeatingV1 {
      *
      * @param status {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>HEATING
      *            <li>COOLING
@@ -780,6 +810,12 @@ public class CommandClassThermostatHeatingV1 {
      *
      * <ul>
      * <li>STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>HEATING
+     * <li>COOLING
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -795,7 +831,6 @@ public class CommandClassThermostatHeatingV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the THERMOSTAT_HEATING_TIMED_OFF_SET command.
@@ -850,5 +885,4 @@ public class CommandClassThermostatHeatingV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

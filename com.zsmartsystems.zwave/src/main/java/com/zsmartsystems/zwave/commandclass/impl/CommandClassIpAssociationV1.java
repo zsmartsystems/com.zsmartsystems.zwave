@@ -131,7 +131,6 @@ public class CommandClassIpAssociationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the IP_ASSOCIATION_GET command.
      * <p>
@@ -185,7 +184,6 @@ public class CommandClassIpAssociationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the IP_ASSOCIATION_REPORT command.
@@ -279,7 +277,6 @@ public class CommandClassIpAssociationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the IP_ASSOCIATION_REMOVE command.
      * <p>
@@ -354,5 +351,4 @@ public class CommandClassIpAssociationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

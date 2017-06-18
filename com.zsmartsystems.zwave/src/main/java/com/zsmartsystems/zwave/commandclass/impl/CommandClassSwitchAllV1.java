@@ -57,7 +57,6 @@ public class CommandClassSwitchAllV1 {
      */
     public final static int SWITCH_ALL_OFF = 0x05;
 
-
     /**
      * Map holding constants for SwitchAllReportMode
      */
@@ -67,8 +66,8 @@ public class CommandClassSwitchAllV1 {
      * Map holding constants for SwitchAllSetMode
      */
     private static Map<Integer, String> constantSwitchAllSetMode = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SwitchAllReportMode
         constantSwitchAllReportMode.put(0x00, "EXCLUDED_FROM_THE_ALL_ON_ALL_OFF_FUNCTIONALITY");
         constantSwitchAllReportMode.put(0xFF, "INCLUDED_IN_THE_ALL_ON_ALL_OFF_FUNCTIONALITY");
@@ -89,6 +88,7 @@ public class CommandClassSwitchAllV1 {
      *
      * @param mode {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>EXCLUDED_FROM_THE_ALL_ON_ALL_OFF_FUNCTIONALITY
      *            <li>INCLUDED_IN_THE_ALL_ON_ALL_OFF_FUNCTIONALITY
@@ -129,6 +129,14 @@ public class CommandClassSwitchAllV1 {
      *
      * <ul>
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>EXCLUDED_FROM_THE_ALL_ON_ALL_OFF_FUNCTIONALITY
+     * <li>INCLUDED_IN_THE_ALL_ON_ALL_OFF_FUNCTIONALITY
+     * <li>EXCLUDED_FROM_THE_ALL_ON_FUNCTIONALITY_BUT_NOT_ALL_OFF
+     * <li>EXCLUDED_FROM_THE_ALL_OFF_FUNCTIONALITY_BUT_NOT_ALL_ON
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -144,7 +152,6 @@ public class CommandClassSwitchAllV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SWITCH_ALL_GET command.
@@ -179,7 +186,6 @@ public class CommandClassSwitchAllV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SWITCH_ALL_REPORT command.
      * <p>
@@ -187,6 +193,7 @@ public class CommandClassSwitchAllV1 {
      *
      * @param mode {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>EXCLUDED_FROM_THE_ALL_ON_ALL_OFF_FUNCTIONALITY
      *            <li>INCLUDED_IN_THE_ALL_ON_ALL_OFF_FUNCTIONALITY
@@ -227,6 +234,14 @@ public class CommandClassSwitchAllV1 {
      *
      * <ul>
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>EXCLUDED_FROM_THE_ALL_ON_ALL_OFF_FUNCTIONALITY
+     * <li>INCLUDED_IN_THE_ALL_ON_ALL_OFF_FUNCTIONALITY
+     * <li>EXCLUDED_FROM_THE_ALL_ON_FUNCTIONALITY_BUT_NOT_ALL_OFF
+     * <li>EXCLUDED_FROM_THE_ALL_OFF_FUNCTIONALITY_BUT_NOT_ALL_ON
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -242,7 +257,6 @@ public class CommandClassSwitchAllV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SWITCH_ALL_ON command.
@@ -277,7 +291,6 @@ public class CommandClassSwitchAllV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SWITCH_ALL_OFF command.
      * <p>
@@ -310,5 +323,4 @@ public class CommandClassSwitchAllV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

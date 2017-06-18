@@ -96,7 +96,6 @@ public class CommandClassMultiInstanceV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the MULTI_INSTANCE_REPORT command.
      * <p>
@@ -150,7 +149,6 @@ public class CommandClassMultiInstanceV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the MULTI_INSTANCE_CMD_ENCAP command.
@@ -235,5 +233,4 @@ public class CommandClassMultiInstanceV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

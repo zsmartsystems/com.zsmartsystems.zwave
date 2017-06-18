@@ -103,7 +103,6 @@ public class CommandClassAvContentDirectoryMdV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the AV_CONTENT_BROWSE_MD_REPORT command.
      * <p>
@@ -136,7 +135,6 @@ public class CommandClassAvContentDirectoryMdV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the AV_CONTENT_BROWSE_MD_BY_LETTER_GET command.
@@ -171,7 +169,6 @@ public class CommandClassAvContentDirectoryMdV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the AV_CONTENT_BROWSE_MD_BY_LETTER_REPORT command.
      * <p>
@@ -204,7 +201,6 @@ public class CommandClassAvContentDirectoryMdV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the AV_CONTENT_BROWSE_MD_CHILD_COUNT_GET command.
@@ -239,7 +235,6 @@ public class CommandClassAvContentDirectoryMdV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the AV_CONTENT_BROWSE_MD_CHILD_COUNT_REPORT command.
      * <p>
@@ -272,7 +267,6 @@ public class CommandClassAvContentDirectoryMdV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the AV_MATCH_ITEM_TO_RENDERER_MD_GET command.
@@ -307,7 +301,6 @@ public class CommandClassAvContentDirectoryMdV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the AV_MATCH_ITEM_TO_RENDERER_MD_REPORT command.
      * <p>
@@ -340,5 +333,4 @@ public class CommandClassAvContentDirectoryMdV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

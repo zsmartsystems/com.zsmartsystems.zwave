@@ -49,7 +49,6 @@ public class CommandClassRemoteAssociationV1 {
      */
     public final static int REMOTE_ASSOCIATION_CONFIGURATION_REPORT = 0x03;
 
-
     /**
      * Map holding constants for RemoteAssociationConfigurationSetRemoteNodeid
      */
@@ -69,8 +68,8 @@ public class CommandClassRemoteAssociationV1 {
      * Map holding constants for RemoteAssociationConfigurationSetLocalGroupingIdentifier
      */
     private static Map<Integer, String> constantRemoteAssociationConfigurationSetLocalGroupingIdentifier = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for RemoteAssociationConfigurationSetRemoteNodeid
         constantRemoteAssociationConfigurationSetRemoteNodeid.put(0x00, "REMOVE_A_LINK");
 
@@ -91,11 +90,13 @@ public class CommandClassRemoteAssociationV1 {
      *
      * @param localGroupingIdentifier {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>ERASE_ALL_LIN
      *            </ul>
      * @param remoteNodeid {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>REMOVE_A_LINK
      *            </ul>
@@ -151,7 +152,17 @@ public class CommandClassRemoteAssociationV1 {
      *
      * <ul>
      * <li>LOCAL_GROUPING_IDENTIFIER {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>ERASE_ALL_LIN
+     * </ul>
      * <li>REMOTE_NODEID {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>REMOVE_A_LINK
+     * </ul>
      * <li>REMOTE_GROUPING_IDENTIFIER {@link Integer}
      * </ul>
      *
@@ -174,7 +185,6 @@ public class CommandClassRemoteAssociationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the REMOTE_ASSOCIATION_CONFIGURATION_GET command.
@@ -222,7 +232,6 @@ public class CommandClassRemoteAssociationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the REMOTE_ASSOCIATION_CONFIGURATION_REPORT command.
      * <p>
@@ -230,11 +239,13 @@ public class CommandClassRemoteAssociationV1 {
      *
      * @param localGroupingIdentifier {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>ERASE_ALL_LIN
      *            </ul>
      * @param remoteNodeid {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>REMOVE_A_LINK
      *            </ul>
@@ -290,7 +301,17 @@ public class CommandClassRemoteAssociationV1 {
      *
      * <ul>
      * <li>LOCAL_GROUPING_IDENTIFIER {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>ERASE_ALL_LIN
+     * </ul>
      * <li>REMOTE_NODEID {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>REMOVE_A_LINK
+     * </ul>
      * <li>REMOTE_GROUPING_IDENTIFIER {@link Integer}
      * </ul>
      *
@@ -313,5 +334,4 @@ public class CommandClassRemoteAssociationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

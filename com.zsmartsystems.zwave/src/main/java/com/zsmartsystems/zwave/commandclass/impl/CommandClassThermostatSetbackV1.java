@@ -49,6 +49,10 @@ public class CommandClassThermostatSetbackV1 {
      */
     public final static int THERMOSTAT_SETBACK_REPORT = 0x03;
 
+    /**
+     * Map holding constants for ThermostatSetbackReportSetbackType
+     */
+    private static Map<Integer, String> constantThermostatSetbackReportSetbackType = new HashMap<Integer, String>();
 
     /**
      * Map holding constants for ThermostatSetbackSetSetbackState
@@ -59,7 +63,17 @@ public class CommandClassThermostatSetbackV1 {
      * Map holding constants for ThermostatSetbackReportSetbackState
      */
     private static Map<Integer, String> constantThermostatSetbackReportSetbackState = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for ThermostatSetbackSetSetbackType
+     */
+    private static Map<Integer, String> constantThermostatSetbackSetSetbackType = new HashMap<Integer, String>();
+
     static {
+        // Constants for ThermostatSetbackReportSetbackType
+        constantThermostatSetbackReportSetbackType.put(0x00, "NO_OVERRIDE");
+        constantThermostatSetbackReportSetbackType.put(0x01, "TEMPORARY_OVERRIDE");
+        constantThermostatSetbackReportSetbackType.put(0x02, "PERMANENT_OVERRIDE");
 
         // Constants for ThermostatSetbackSetSetbackState
         constantThermostatSetbackSetSetbackState.put(0x7F, "UNUSED_STATE");
@@ -70,6 +84,11 @@ public class CommandClassThermostatSetbackV1 {
         constantThermostatSetbackReportSetbackState.put(0x7F, "UNUSED_STATE");
         constantThermostatSetbackReportSetbackState.put(0x7A, "ENERGY_SAVING_MODE");
         constantThermostatSetbackReportSetbackState.put(0x79, "FROST_PROTECTION");
+
+        // Constants for ThermostatSetbackSetSetbackType
+        constantThermostatSetbackSetSetbackType.put(0x00, "NO_OVERRIDE");
+        constantThermostatSetbackSetSetbackType.put(0x01, "TEMPORARY_OVERRIDE");
+        constantThermostatSetbackSetSetbackType.put(0x02, "PERMANENT_OVERRIDE");
     }
 
     /**
@@ -78,8 +97,16 @@ public class CommandClassThermostatSetbackV1 {
      * Thermostat Setback Set
      *
      * @param setbackType {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>NO_OVERRIDE
+     *            <li>TEMPORARY_OVERRIDE
+     *            <li>PERMANENT_OVERRIDE
+     *            </ul>
      * @param setbackState {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>UNUSED_STATE
      *            <li>ENERGY_SAVING_MODE
@@ -95,21 +122,17 @@ public class CommandClassThermostatSetbackV1 {
         outputData.write(THERMOSTAT_SETBACK_SET);
 
         // Process 'Properties1'
-        int valsetbackType;
-        switch (setbackType) {
-            case "NO_OVERRIDE":
-                valsetbackType = 0;
+        int varSetbackType = Integer.MAX_VALUE;
+        for (Integer entry : constantThermostatSetbackSetSetbackType.keySet()) {
+            if (constantThermostatSetbackSetSetbackType.get(entry).equals(setbackType)) {
+                varSetbackType = entry;
                 break;
-            case "TEMPORARY_OVERRIDE":
-                valsetbackType = 1;
-                break;
-            case "PERMANENT_OVERRIDE":
-                valsetbackType = 2;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for setbackType: " + setbackType);
+            }
         }
-        outputData.write(valsetbackType & 0x03);
+        if (varSetbackType == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + setbackType + "' for setbackType");
+        }
+        outputData.write(varSetbackType & 0x03);
 
         // Process 'Setback State'
         boolean foundSetbackState = false;
@@ -136,7 +159,21 @@ public class CommandClassThermostatSetbackV1 {
      *
      * <ul>
      * <li>SETBACK_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NO_OVERRIDE
+     * <li>TEMPORARY_OVERRIDE
+     * <li>PERMANENT_OVERRIDE
+     * </ul>
      * <li>SETBACK_STATE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>UNUSED_STATE
+     * <li>ENERGY_SAVING_MODE
+     * <li>FROST_PROTECTION
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -147,19 +184,7 @@ public class CommandClassThermostatSetbackV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch (payload[2] & 0x03) {
-            case 0x00:
-                response.put("SETBACK_TYPE", "NO_OVERRIDE");
-                break;
-            case 0x01:
-                response.put("SETBACK_TYPE", "TEMPORARY_OVERRIDE");
-                break;
-            case 0x02:
-                response.put("SETBACK_TYPE", "PERMANENT_OVERRIDE");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for SETBACK_TYPE", String.format("0x%02X", 2));
-        }
+        response.put("SETBACK_TYPE", constantThermostatSetbackSetSetbackType.get(payload[2] & 0x03));
 
         // Process 'Setback State'
         response.put("SETBACK_STATE", constantThermostatSetbackSetSetbackState.get(payload[3] & 0xff));
@@ -167,7 +192,6 @@ public class CommandClassThermostatSetbackV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the THERMOSTAT_SETBACK_GET command.
@@ -202,15 +226,22 @@ public class CommandClassThermostatSetbackV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the THERMOSTAT_SETBACK_REPORT command.
      * <p>
      * Thermostat Setback Report
      *
      * @param setbackType {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>NO_OVERRIDE
+     *            <li>TEMPORARY_OVERRIDE
+     *            <li>PERMANENT_OVERRIDE
+     *            </ul>
      * @param setbackState {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>UNUSED_STATE
      *            <li>ENERGY_SAVING_MODE
@@ -226,21 +257,17 @@ public class CommandClassThermostatSetbackV1 {
         outputData.write(THERMOSTAT_SETBACK_REPORT);
 
         // Process 'Properties1'
-        int valsetbackType;
-        switch (setbackType) {
-            case "NO_OVERRIDE":
-                valsetbackType = 0;
+        int varSetbackType = Integer.MAX_VALUE;
+        for (Integer entry : constantThermostatSetbackReportSetbackType.keySet()) {
+            if (constantThermostatSetbackReportSetbackType.get(entry).equals(setbackType)) {
+                varSetbackType = entry;
                 break;
-            case "TEMPORARY_OVERRIDE":
-                valsetbackType = 1;
-                break;
-            case "PERMANENT_OVERRIDE":
-                valsetbackType = 2;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for setbackType: " + setbackType);
+            }
         }
-        outputData.write(valsetbackType & 0x03);
+        if (varSetbackType == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + setbackType + "' for setbackType");
+        }
+        outputData.write(varSetbackType & 0x03);
 
         // Process 'Setback State'
         boolean foundSetbackState = false;
@@ -267,7 +294,21 @@ public class CommandClassThermostatSetbackV1 {
      *
      * <ul>
      * <li>SETBACK_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NO_OVERRIDE
+     * <li>TEMPORARY_OVERRIDE
+     * <li>PERMANENT_OVERRIDE
+     * </ul>
      * <li>SETBACK_STATE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>UNUSED_STATE
+     * <li>ENERGY_SAVING_MODE
+     * <li>FROST_PROTECTION
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -278,19 +319,7 @@ public class CommandClassThermostatSetbackV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch (payload[2] & 0x03) {
-            case 0x00:
-                response.put("SETBACK_TYPE", "NO_OVERRIDE");
-                break;
-            case 0x01:
-                response.put("SETBACK_TYPE", "TEMPORARY_OVERRIDE");
-                break;
-            case 0x02:
-                response.put("SETBACK_TYPE", "PERMANENT_OVERRIDE");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for SETBACK_TYPE", String.format("0x%02X", 2));
-        }
+        response.put("SETBACK_TYPE", constantThermostatSetbackReportSetbackType.get(payload[2] & 0x03));
 
         // Process 'Setback State'
         response.put("SETBACK_STATE", constantThermostatSetbackReportSetbackState.get(payload[3] & 0xff));
@@ -298,5 +327,4 @@ public class CommandClassThermostatSetbackV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

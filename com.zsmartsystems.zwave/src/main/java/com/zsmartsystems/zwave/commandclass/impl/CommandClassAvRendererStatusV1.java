@@ -79,7 +79,6 @@ public class CommandClassAvRendererStatusV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the AV_RENDERER_STATUS_REPORT command.
      * <p>
@@ -112,5 +111,4 @@ public class CommandClassAvRendererStatusV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

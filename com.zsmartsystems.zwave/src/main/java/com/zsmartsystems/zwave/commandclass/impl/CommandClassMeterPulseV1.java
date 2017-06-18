@@ -79,7 +79,6 @@ public class CommandClassMeterPulseV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the METER_PULSE_REPORT command.
      * <p>
@@ -128,5 +127,4 @@ public class CommandClassMeterPulseV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

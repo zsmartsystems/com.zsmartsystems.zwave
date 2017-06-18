@@ -67,7 +67,6 @@ public class CommandClassSwitchColorV3 {
      */
     public final static int SWITCH_COLOR_STOP_LEVEL_CHANGE = 0x07;
 
-
     /**
      * Map holding constants for SwitchColorSetDuration
      */
@@ -87,8 +86,8 @@ public class CommandClassSwitchColorV3 {
      * Map holding constants for SwitchColorReportDuration
      */
     private static Map<Integer, String> constantSwitchColorReportDuration = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SwitchColorSetDuration
         constantSwitchColorSetDuration.put(0x00, "INSTANTLY");
         constantSwitchColorSetDuration.put(0xFF, "DEFAULT");
@@ -140,7 +139,6 @@ public class CommandClassSwitchColorV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SWITCH_COLOR_SUPPORTED_REPORT command.
      * <p>
@@ -188,7 +186,6 @@ public class CommandClassSwitchColorV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SWITCH_COLOR_GET command.
      * <p>
@@ -235,7 +232,6 @@ public class CommandClassSwitchColorV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SWITCH_COLOR_REPORT command.
      * <p>
@@ -246,6 +242,7 @@ public class CommandClassSwitchColorV3 {
      * @param targetValue {@link Integer}
      * @param duration {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>UNKNOWN_DURATION
      *            <li>ALREADY_AT_THE_TARGET_VALUE
@@ -297,6 +294,12 @@ public class CommandClassSwitchColorV3 {
      * <li>CURRENT_VALUE {@link Integer}
      * <li>TARGET_VALUE {@link Integer}
      * <li>DURATION {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>UNKNOWN_DURATION
+     * <li>ALREADY_AT_THE_TARGET_VALUE
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -322,7 +325,6 @@ public class CommandClassSwitchColorV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SWITCH_COLOR_SET command.
      * <p>
@@ -331,6 +333,7 @@ public class CommandClassSwitchColorV3 {
      * @param colorComponentCount {@link Integer}
      * @param duration {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>INSTANTLY
      *            <li>DEFAULT
@@ -375,6 +378,12 @@ public class CommandClassSwitchColorV3 {
      * <ul>
      * <li>COLOR_COMPONENT_COUNT {@link Integer}
      * <li>DURATION {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>INSTANTLY
+     * <li>DEFAULT
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -420,7 +429,6 @@ public class CommandClassSwitchColorV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SWITCH_COLOR_START_LEVEL_CHANGE command.
      * <p>
@@ -434,6 +442,7 @@ public class CommandClassSwitchColorV3 {
      * @param startLevel {@link Integer}
      * @param duration {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>INSTANTLY
      *            <li>DEFAULT
@@ -493,6 +502,12 @@ public class CommandClassSwitchColorV3 {
      * <li>COLOR_COMPONENT_ID {@link Integer}
      * <li>START_LEVEL {@link Integer}
      * <li>DURATION {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>INSTANTLY
+     * <li>DEFAULT
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -520,7 +535,6 @@ public class CommandClassSwitchColorV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SWITCH_COLOR_STOP_LEVEL_CHANGE command.
@@ -567,5 +581,4 @@ public class CommandClassSwitchColorV3 {
         // Return the map of processed response data;
         return response;
     }
-
 }

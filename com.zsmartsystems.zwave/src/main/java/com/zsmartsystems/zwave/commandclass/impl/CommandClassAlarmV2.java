@@ -60,7 +60,6 @@ public class CommandClassAlarmV2 {
      */
     public final static int ALARM_TYPE_SUPPORTED_REPORT = 0x08;
 
-
     /**
      * Map holding constants for AlarmSetZwaveAlarmType
      */
@@ -95,8 +94,8 @@ public class CommandClassAlarmV2 {
      * Map holding constants for AlarmSetZwaveAlarmStatus
      */
     private static Map<Integer, String> constantAlarmSetZwaveAlarmStatus = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for AlarmSetZwaveAlarmType
         constantAlarmSetZwaveAlarmType.put(0x01, "SMOKE");
         constantAlarmSetZwaveAlarmType.put(0x02, "CO");
@@ -169,6 +168,7 @@ public class CommandClassAlarmV2 {
      * @param alarmType {@link Integer}
      * @param zwaveAlarmType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>SMOKE
      *            <li>CO
@@ -220,6 +220,21 @@ public class CommandClassAlarmV2 {
      * <ul>
      * <li>ALARM_TYPE {@link Integer}
      * <li>ZWAVE_ALARM_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>SMOKE
+     * <li>CO
+     * <li>CO2
+     * <li>HEAT
+     * <li>WATER
+     * <li>ACCESS_CONTROL
+     * <li>BURGLAR
+     * <li>POWER_MANAGEMENT
+     * <li>SYSTEM
+     * <li>EMERGENCY
+     * <li>CLOCK
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -239,7 +254,6 @@ public class CommandClassAlarmV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ALARM_REPORT command.
      * <p>
@@ -250,12 +264,14 @@ public class CommandClassAlarmV2 {
      * @param zensorNetSourceNodeId {@link Integer}
      * @param zwaveAlarmStatus {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF
      *            <li>ON
      *            </ul>
      * @param zwaveAlarmType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>SMOKE
      *            <li>CO
@@ -352,7 +368,28 @@ public class CommandClassAlarmV2 {
      * <li>ALARM_LEVEL {@link Integer}
      * <li>ZENSOR_NET_SOURCE_NODE_ID {@link Integer}
      * <li>ZWAVE_ALARM_STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF
+     * <li>ON
+     * </ul>
      * <li>ZWAVE_ALARM_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>SMOKE
+     * <li>CO
+     * <li>CO2
+     * <li>HEAT
+     * <li>WATER
+     * <li>ACCESS_CONTROL
+     * <li>BURGLAR
+     * <li>POWER_MANAGEMENT
+     * <li>SYSTEM
+     * <li>EMERGENCY
+     * <li>CLOCK
+     * </ul>
      * <li>ZWAVE_ALARM_EVENT {@link Integer}
      * <li>NUMBER_OF_EVENT_PARAMETERS {@link Integer}
      * <li>EVENT_PARAMETER {@link byte[]}
@@ -409,7 +446,6 @@ public class CommandClassAlarmV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ALARM_SET command.
      * <p>
@@ -417,6 +453,7 @@ public class CommandClassAlarmV2 {
      *
      * @param zwaveAlarmType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>SMOKE
      *            <li>CO
@@ -432,6 +469,7 @@ public class CommandClassAlarmV2 {
      *            </ul>
      * @param zwaveAlarmStatus {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF
      *            <li>ON
@@ -483,7 +521,28 @@ public class CommandClassAlarmV2 {
      *
      * <ul>
      * <li>ZWAVE_ALARM_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>SMOKE
+     * <li>CO
+     * <li>CO2
+     * <li>HEAT
+     * <li>WATER
+     * <li>ACCESS_CONTROL
+     * <li>BURGLAR
+     * <li>POWER_MANAGEMENT
+     * <li>SYSTEM
+     * <li>EMERGENCY
+     * <li>CLOCK
+     * </ul>
      * <li>ZWAVE_ALARM_STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF
+     * <li>ON
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -502,7 +561,6 @@ public class CommandClassAlarmV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the ALARM_TYPE_SUPPORTED_GET command.
@@ -537,7 +595,6 @@ public class CommandClassAlarmV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ALARM_TYPE_SUPPORTED_REPORT command.
      * <p>
@@ -546,6 +603,7 @@ public class CommandClassAlarmV2 {
      * @param v1Alarm {@link Boolean}
      * @param bitMask {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>SMOKE
      *            <li>CO
@@ -604,6 +662,21 @@ public class CommandClassAlarmV2 {
      * <ul>
      * <li>V1_ALARM {@link Boolean}
      * <li>BIT_MASK {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>SMOKE
+     * <li>CO
+     * <li>CO2
+     * <li>HEAT
+     * <li>WATER
+     * <li>ACCESS_CONTROL
+     * <li>BURGLAR
+     * <li>POWER_MANAGEMENT
+     * <li>SYSTEM
+     * <li>EMERGENCY
+     * <li>CLOCK
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -631,5 +704,4 @@ public class CommandClassAlarmV2 {
         // Return the map of processed response data;
         return response;
     }
-
 }

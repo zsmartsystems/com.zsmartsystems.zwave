@@ -58,7 +58,6 @@ public class CommandClassMeterV3 {
      */
     public final static int METER_RESET = 0x05;
 
-
     /**
      * Map holding constants for MeterSupportedReportProperties1
      */
@@ -68,8 +67,8 @@ public class CommandClassMeterV3 {
      * Map holding constants for MeterReportProperties1
      */
     private static Map<Integer, String> constantMeterReportProperties1 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for MeterSupportedReportProperties1
         constantMeterSupportedReportProperties1.put(0x80, "METER_RESET");
 
@@ -122,7 +121,6 @@ public class CommandClassMeterV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the METER_REPORT command.
@@ -253,7 +251,6 @@ public class CommandClassMeterV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the METER_SUPPORTED_GET command.
      * <p>
@@ -286,7 +283,6 @@ public class CommandClassMeterV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the METER_SUPPORTED_REPORT command.
@@ -348,7 +344,6 @@ public class CommandClassMeterV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the METER_RESET command.
      * <p>
@@ -381,5 +376,4 @@ public class CommandClassMeterV3 {
         // Return the map of processed response data;
         return response;
     }
-
 }

@@ -49,7 +49,6 @@ public class CommandClassSwitchBinaryV2 {
      */
     public final static int SWITCH_BINARY_REPORT = 0x03;
 
-
     /**
      * Map holding constants for SwitchBinaryReportDuration
      */
@@ -74,8 +73,8 @@ public class CommandClassSwitchBinaryV2 {
      * Map holding constants for SwitchBinaryReportCurrentValue
      */
     private static Map<Integer, String> constantSwitchBinaryReportCurrentValue = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SwitchBinaryReportDuration
         constantSwitchBinaryReportDuration.put(0xFE, "UNKNOWN_DURATION");
         constantSwitchBinaryReportDuration.put(0x00, "ALREADY_AT_THE_TARGET_VALUE");
@@ -104,12 +103,14 @@ public class CommandClassSwitchBinaryV2 {
      *
      * @param targetValue {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF_DISABLE
      *            <li>ON_ENABLE
      *            </ul>
      * @param duration {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>INSTANTLY
      *            <li>DEFAULT
@@ -161,7 +162,19 @@ public class CommandClassSwitchBinaryV2 {
      *
      * <ul>
      * <li>TARGET_VALUE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF_DISABLE
+     * <li>ON_ENABLE
+     * </ul>
      * <li>DURATION {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>INSTANTLY
+     * <li>DEFAULT
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -180,7 +193,6 @@ public class CommandClassSwitchBinaryV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SWITCH_BINARY_GET command.
@@ -215,7 +227,6 @@ public class CommandClassSwitchBinaryV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SWITCH_BINARY_REPORT command.
      * <p>
@@ -223,18 +234,21 @@ public class CommandClassSwitchBinaryV2 {
      *
      * @param currentValue {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF_DISABLE
      *            <li>ON_ENABLE
      *            </ul>
      * @param targetValue {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF_DISABLE
      *            <li>ON_ENABLE
      *            </ul>
      * @param duration {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>UNKNOWN_DURATION
      *            <li>ALREADY_AT_THE_TARGET_VALUE
@@ -299,8 +313,26 @@ public class CommandClassSwitchBinaryV2 {
      *
      * <ul>
      * <li>CURRENT_VALUE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF_DISABLE
+     * <li>ON_ENABLE
+     * </ul>
      * <li>TARGET_VALUE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF_DISABLE
+     * <li>ON_ENABLE
+     * </ul>
      * <li>DURATION {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>UNKNOWN_DURATION
+     * <li>ALREADY_AT_THE_TARGET_VALUE
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -322,5 +354,4 @@ public class CommandClassSwitchBinaryV2 {
         // Return the map of processed response data;
         return response;
     }
-
 }

@@ -196,7 +196,6 @@ public class CommandClassZipPortalV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the GATEWAY_CONFIGURATION_STATUS command.
      * <p>
@@ -243,7 +242,6 @@ public class CommandClassZipPortalV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the GATEWAY_CONFIGURATION_GET command.
      * <p>
@@ -276,7 +274,6 @@ public class CommandClassZipPortalV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the GATEWAY_CONFIGURATION_REPORT command.
@@ -417,5 +414,4 @@ public class CommandClassZipPortalV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

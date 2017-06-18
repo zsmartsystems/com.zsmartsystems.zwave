@@ -42,7 +42,6 @@ public class CommandClassZipV2 {
      */
     public final static int COMMAND_ZIP_PACKET = 0x02;
 
-
     /**
      * Map holding constants for CommandZipPacketProperties1
      */
@@ -54,16 +53,11 @@ public class CommandClassZipV2 {
     private static Map<Integer, String> constantCommandZipPacketProperties2 = new HashMap<Integer, String>();
 
     /**
-     * Map holding constants for CommandZipPacketProperties3
-     */
-    private static Map<Integer, String> constantCommandZipPacketProperties3 = new HashMap<Integer, String>();
-
-    /**
      * Map holding constants for CommandZipPacketProperties4
      */
     private static Map<Integer, String> constantCommandZipPacketProperties4 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for CommandZipPacketProperties1
         constantCommandZipPacketProperties1.put(0x10, "NACK_WAITING");
         constantCommandZipPacketProperties1.put(0x20, "NACK_RESPONSE");
@@ -77,8 +71,6 @@ public class CommandClassZipV2 {
         constantCommandZipPacketProperties2.put(0x20, "MORE_INFORMATION");
         constantCommandZipPacketProperties2.put(0x40, "Z_WAVE_CMD_INCLUDED");
         constantCommandZipPacketProperties2.put(0x80, "HEADER_EXT_INCLUDED");
-
-        // Constants for CommandZipPacketProperties3
 
         // Constants for CommandZipPacketProperties4
         constantCommandZipPacketProperties4.put(0x80, "BIT_ADDRESS");
@@ -267,5 +259,4 @@ public class CommandClassZipV2 {
         // Return the map of processed response data;
         return response;
     }
-
 }

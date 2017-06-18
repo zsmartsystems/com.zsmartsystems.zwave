@@ -105,7 +105,6 @@ public class CommandClassSecurity2V1 {
      */
     public final static int SECURITY_2_CAPABILITIES_REPORT = 0x10;
 
-
     /**
      * Map holding constants for Security2TransferEndProperties1
      */
@@ -160,8 +159,8 @@ public class CommandClassSecurity2V1 {
      * Map holding constants for Security2NonceReportProperties1
      */
     private static Map<Integer, String> constantSecurity2NonceReportProperties1 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for Security2TransferEndProperties1
         constantSecurity2TransferEndProperties1.put(0x01, "KEY_REQUEST_COMPLETE");
         constantSecurity2TransferEndProperties1.put(0x02, "KEY_VERIFIED");
@@ -267,7 +266,6 @@ public class CommandClassSecurity2V1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SECURITY_2_NONCE_REPORT command.
      * <p>
@@ -349,7 +347,6 @@ public class CommandClassSecurity2V1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SECURITY_2_MESSAGE_ENCAPSULATION command.
@@ -466,7 +463,6 @@ public class CommandClassSecurity2V1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the KEX_GET command.
      * <p>
@@ -500,7 +496,6 @@ public class CommandClassSecurity2V1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the KEX_REPORT command.
      * <p>
@@ -512,6 +507,7 @@ public class CommandClassSecurity2V1 {
      * @param supportedEcdhProfiles {@link Integer}
      * @param requestedKeys {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>UNAUTHENTICATED
      *            <li>AUTHENTICATED
@@ -573,6 +569,14 @@ public class CommandClassSecurity2V1 {
      * <li>SUPPORTED_KEX_SCHEMES {@link Integer}
      * <li>SUPPORTED_ECDH_PROFILES {@link Integer}
      * <li>REQUESTED_KEYS {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>UNAUTHENTICATED
+     * <li>AUTHENTICATED
+     * <li>ACCESS
+     * <li>S0
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -607,7 +611,6 @@ public class CommandClassSecurity2V1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the KEX_SET command.
      * <p>
@@ -619,6 +622,7 @@ public class CommandClassSecurity2V1 {
      * @param selectedEcdhProfile {@link Integer}
      * @param grantedKeys {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>UNAUTHENTICATED
      *            <li>AUTHENTICATED
@@ -680,6 +684,14 @@ public class CommandClassSecurity2V1 {
      * <li>SELECTED_KEX_SCHEME {@link Integer}
      * <li>SELECTED_ECDH_PROFILE {@link Integer}
      * <li>GRANTED_KEYS {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>UNAUTHENTICATED
+     * <li>AUTHENTICATED
+     * <li>ACCESS
+     * <li>S0
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -714,7 +726,6 @@ public class CommandClassSecurity2V1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the KEX_FAIL command.
      * <p>
@@ -722,6 +733,7 @@ public class CommandClassSecurity2V1 {
      *
      * @param kexFailType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>KEX_KEY
      *            <li>KEX_SCHEME
@@ -767,6 +779,19 @@ public class CommandClassSecurity2V1 {
      *
      * <ul>
      * <li>KEX_FAIL_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>KEX_KEY
+     * <li>KEX_SCHEME
+     * <li>KEX_CURVES
+     * <li>DECRYPT
+     * <li>CANCEL
+     * <li>AUTH
+     * <li>KEY_GET
+     * <li>KEY_VERIFY
+     * <li>KEY_REPORT
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -782,7 +807,6 @@ public class CommandClassSecurity2V1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the PUBLIC_KEY_REPORT command.
@@ -852,7 +876,6 @@ public class CommandClassSecurity2V1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SECURITY_2_NETWORK_KEY_GET command.
      * <p>
@@ -860,6 +883,7 @@ public class CommandClassSecurity2V1 {
      *
      * @param requestedKey {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>UNAUTHENTICATED
      *            <li>AUTHENTICATED
@@ -900,6 +924,14 @@ public class CommandClassSecurity2V1 {
      *
      * <ul>
      * <li>REQUESTED_KEY {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>UNAUTHENTICATED
+     * <li>AUTHENTICATED
+     * <li>ACCESS
+     * <li>S0
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -916,7 +948,6 @@ public class CommandClassSecurity2V1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SECURITY_2_NETWORK_KEY_REPORT command.
      * <p>
@@ -924,6 +955,7 @@ public class CommandClassSecurity2V1 {
      *
      * @param grantedKey {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>UNAUTHENTICATED
      *            <li>AUTHENTICATED
@@ -976,6 +1008,14 @@ public class CommandClassSecurity2V1 {
      *
      * <ul>
      * <li>GRANTED_KEY {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>UNAUTHENTICATED
+     * <li>AUTHENTICATED
+     * <li>ACCESS
+     * <li>S0
+     * </ul>
      * <li>NETWORK_KEY {@link byte[]}
      * </ul>
      *
@@ -1000,7 +1040,6 @@ public class CommandClassSecurity2V1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SECURITY_2_NETWORK_KEY_VERIFY command.
@@ -1034,7 +1073,6 @@ public class CommandClassSecurity2V1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SECURITY_2_TRANSFER_END command.
@@ -1088,7 +1126,6 @@ public class CommandClassSecurity2V1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SECURITY_2_COMMANDS_SUPPORTED_GET command.
      * <p>
@@ -1121,7 +1158,6 @@ public class CommandClassSecurity2V1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SECURITY_2_COMMANDS_SUPPORTED_REPORT command.
@@ -1179,7 +1215,6 @@ public class CommandClassSecurity2V1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SECURITY_2_CAPABILITIES_GET command.
      * <p>
@@ -1212,7 +1247,6 @@ public class CommandClassSecurity2V1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SECURITY_2_CAPABILITIES_REPORT command.
@@ -1267,5 +1301,4 @@ public class CommandClassSecurity2V1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

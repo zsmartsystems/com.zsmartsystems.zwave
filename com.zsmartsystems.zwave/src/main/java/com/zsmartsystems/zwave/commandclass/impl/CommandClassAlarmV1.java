@@ -92,7 +92,6 @@ public class CommandClassAlarmV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ALARM_REPORT command.
      * <p>
@@ -146,5 +145,4 @@ public class CommandClassAlarmV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

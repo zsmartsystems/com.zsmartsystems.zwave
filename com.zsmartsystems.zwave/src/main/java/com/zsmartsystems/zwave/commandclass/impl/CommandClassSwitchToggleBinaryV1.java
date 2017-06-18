@@ -50,13 +50,12 @@ public class CommandClassSwitchToggleBinaryV1 {
      */
     public final static int SWITCH_TOGGLE_BINARY_REPORT = 0x03;
 
-
     /**
      * Map holding constants for SwitchToggleBinaryReportValue
      */
     private static Map<Integer, String> constantSwitchToggleBinaryReportValue = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SwitchToggleBinaryReportValue
         constantSwitchToggleBinaryReportValue.put(0x00, "OFF");
         constantSwitchToggleBinaryReportValue.put(0xFF, "ON");
@@ -99,7 +98,6 @@ public class CommandClassSwitchToggleBinaryV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SWITCH_TOGGLE_BINARY_GET command.
      * <p>
@@ -133,7 +131,6 @@ public class CommandClassSwitchToggleBinaryV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SWITCH_TOGGLE_BINARY_REPORT command.
      * <p>
@@ -141,6 +138,7 @@ public class CommandClassSwitchToggleBinaryV1 {
      *
      * @param value {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF
      *            <li>ON
@@ -179,6 +177,12 @@ public class CommandClassSwitchToggleBinaryV1 {
      *
      * <ul>
      * <li>VALUE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF
+     * <li>ON
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -194,5 +198,4 @@ public class CommandClassSwitchToggleBinaryV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

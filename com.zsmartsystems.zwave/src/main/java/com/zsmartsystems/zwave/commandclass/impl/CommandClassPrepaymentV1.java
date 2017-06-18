@@ -53,6 +53,16 @@ public class CommandClassPrepaymentV1 {
      */
     public final static int PREPAYMENT_SUPPORTED_REPORT = 0x04;
 
+    /**
+     * Map holding constants for PrepaymentBalanceGetBalanceType
+     */
+    private static Map<Integer, String> constantPrepaymentBalanceGetBalanceType = new HashMap<Integer, String>();
+
+    static {
+        // Constants for PrepaymentBalanceGetBalanceType
+        constantPrepaymentBalanceGetBalanceType.put(0x00, "UTILITY");
+        constantPrepaymentBalanceGetBalanceType.put(0x01, "MONETARY");
+    }
 
     /**
      * Creates a new message with the PREPAYMENT_BALANCE_GET command.
@@ -60,6 +70,12 @@ public class CommandClassPrepaymentV1 {
      * Prepayment Balance Get
      *
      * @param balanceType {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>UTILITY
+     *            <li>MONETARY
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getPrepaymentBalanceGet(String balanceType) {
@@ -70,18 +86,17 @@ public class CommandClassPrepaymentV1 {
         outputData.write(PREPAYMENT_BALANCE_GET);
 
         // Process 'Properties1'
-        int valbalanceType;
-        switch (balanceType) {
-            case "UTILITY":
-                valbalanceType = 0;
+        int varBalanceType = Integer.MAX_VALUE;
+        for (Integer entry : constantPrepaymentBalanceGetBalanceType.keySet()) {
+            if (constantPrepaymentBalanceGetBalanceType.get(entry).equals(balanceType)) {
+                varBalanceType = entry;
                 break;
-            case "MONETARY":
-                valbalanceType = 1;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for balanceType: " + balanceType);
+            }
         }
-        outputData.write(valbalanceType >> 6 & 0xC0);
+        if (varBalanceType == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + balanceType + "' for balanceType");
+        }
+        outputData.write(varBalanceType << 6 & 0xC0);
 
         return outputData.toByteArray();
     }
@@ -95,6 +110,12 @@ public class CommandClassPrepaymentV1 {
      *
      * <ul>
      * <li>BALANCE_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>UTILITY
+     * <li>MONETARY
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -105,21 +126,11 @@ public class CommandClassPrepaymentV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch ((payload[2] & 0xC0) >> 6) {
-            case 0x00:
-                response.put("BALANCE_TYPE", "UTILITY");
-                break;
-            case 0x01:
-                response.put("BALANCE_TYPE", "MONETARY");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for BALANCE_TYPE", String.format("0x%02X", 2));
-        }
+        response.put("BALANCE_TYPE", constantPrepaymentBalanceGetBalanceType.get((payload[2] & 0xC0) >> 6));
 
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the PREPAYMENT_BALANCE_REPORT command.
@@ -250,7 +261,6 @@ public class CommandClassPrepaymentV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the PREPAYMENT_SUPPORTED_GET command.
      * <p>
@@ -283,7 +293,6 @@ public class CommandClassPrepaymentV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the PREPAYMENT_SUPPORTED_REPORT command.
@@ -330,5 +339,4 @@ public class CommandClassPrepaymentV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

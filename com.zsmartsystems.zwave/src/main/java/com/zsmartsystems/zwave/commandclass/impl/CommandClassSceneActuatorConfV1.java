@@ -49,7 +49,6 @@ public class CommandClassSceneActuatorConfV1 {
      */
     public final static int SCENE_ACTUATOR_CONF_REPORT = 0x03;
 
-
     /**
      * Map holding constants for SceneActuatorConfReportDimmingDuration
      */
@@ -64,8 +63,8 @@ public class CommandClassSceneActuatorConfV1 {
      * Map holding constants for SceneActuatorConfSetLevel2
      */
     private static Map<Integer, String> constantSceneActuatorConfSetLevel2 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SceneActuatorConfReportDimmingDuration
         constantSceneActuatorConfReportDimmingDuration.put(0x00, "INSTANTLY");
 
@@ -85,6 +84,7 @@ public class CommandClassSceneActuatorConfV1 {
      * @param sceneId {@link Integer}
      * @param dimmingDuration {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>SPECIFY_INSTANTLY
      *            <li>FACTORY_DEFAULT
@@ -136,6 +136,12 @@ public class CommandClassSceneActuatorConfV1 {
      * <ul>
      * <li>SCENE_ID {@link Integer}
      * <li>DIMMING_DURATION {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>SPECIFY_INSTANTLY
+     * <li>FACTORY_DEFAULT
+     * </ul>
      * <li>OVERRIDE {@link Boolean}
      * <li>LEVEL {@link Integer}
      * </ul>
@@ -162,7 +168,6 @@ public class CommandClassSceneActuatorConfV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SCENE_ACTUATOR_CONF_GET command.
@@ -210,7 +215,6 @@ public class CommandClassSceneActuatorConfV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SCENE_ACTUATOR_CONF_REPORT command.
      * <p>
@@ -220,6 +224,7 @@ public class CommandClassSceneActuatorConfV1 {
      * @param level {@link Integer}
      * @param dimmingDuration {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>INSTANTLY
      *            </ul>
@@ -265,6 +270,11 @@ public class CommandClassSceneActuatorConfV1 {
      * <li>SCENE_ID {@link Integer}
      * <li>LEVEL {@link Integer}
      * <li>DIMMING_DURATION {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>INSTANTLY
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -286,5 +296,4 @@ public class CommandClassSceneActuatorConfV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

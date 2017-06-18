@@ -69,7 +69,6 @@ public class CommandClassNotificationV6 {
      */
     public final static int NOTIFICATION_SUPPORTED_REPORT = 0x08;
 
-
     /**
      * Map holding constants for NotificationReportNotificationType
      */
@@ -119,8 +118,8 @@ public class CommandClassNotificationV6 {
      * Map holding constants for EventSupportedReportNotificationType
      */
     private static Map<Integer, String> constantEventSupportedReportNotificationType = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for NotificationReportNotificationType
         constantNotificationReportNotificationType.put(0x01, "SMOKE");
         constantNotificationReportNotificationType.put(0x02, "CO");
@@ -241,6 +240,7 @@ public class CommandClassNotificationV6 {
      *
      * @param notificationType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>SMOKE
      *            <li>CO
@@ -291,6 +291,24 @@ public class CommandClassNotificationV6 {
      *
      * <ul>
      * <li>NOTIFICATION_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>SMOKE
+     * <li>CO
+     * <li>CO2
+     * <li>HEAT
+     * <li>WATER
+     * <li>ACCESS_CONTROL
+     * <li>HOME_SECURITY
+     * <li>POWER_MANAGEMENT
+     * <li>SYSTEM
+     * <li>EMERGENCY
+     * <li>CLOCK
+     * <li>APPLIANCE
+     * <li>HOME_HEALTH
+     * <li>SIREN
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -307,7 +325,6 @@ public class CommandClassNotificationV6 {
         return response;
     }
 
-
     /**
      * Creates a new message with the EVENT_SUPPORTED_REPORT command.
      * <p>
@@ -315,6 +332,7 @@ public class CommandClassNotificationV6 {
      *
      * @param notificationType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>SMOKE
      *            <li>CO
@@ -382,6 +400,24 @@ public class CommandClassNotificationV6 {
      *
      * <ul>
      * <li>NOTIFICATION_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>SMOKE
+     * <li>CO
+     * <li>CO2
+     * <li>HEAT
+     * <li>WATER
+     * <li>ACCESS_CONTROL
+     * <li>HOME_SECURITY
+     * <li>POWER_MANAGEMENT
+     * <li>SYSTEM
+     * <li>EMERGENCY
+     * <li>CLOCK
+     * <li>APPLIANCE
+     * <li>HOME_HEALTH
+     * <li>SIREN
+     * </ul>
      * <li>BIT_MASK {@link List}<{@link Integer}>
      * </ul>
      *
@@ -413,7 +449,6 @@ public class CommandClassNotificationV6 {
         return response;
     }
 
-
     /**
      * Creates a new message with the NOTIFICATION_GET command.
      * <p>
@@ -422,6 +457,7 @@ public class CommandClassNotificationV6 {
      * @param v1AlarmType {@link Integer}
      * @param notificationType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>SMOKE
      *            <li>CO
@@ -480,6 +516,24 @@ public class CommandClassNotificationV6 {
      * <ul>
      * <li>V1_ALARM_TYPE {@link Integer}
      * <li>NOTIFICATION_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>SMOKE
+     * <li>CO
+     * <li>CO2
+     * <li>HEAT
+     * <li>WATER
+     * <li>ACCESS_CONTROL
+     * <li>HOME_SECURITY
+     * <li>POWER_MANAGEMENT
+     * <li>SYSTEM
+     * <li>EMERGENCY
+     * <li>CLOCK
+     * <li>APPLIANCE
+     * <li>HOME_HEALTH
+     * <li>SIREN
+     * </ul>
      * <li>EVENT {@link Integer}
      * </ul>
      *
@@ -503,7 +557,6 @@ public class CommandClassNotificationV6 {
         return response;
     }
 
-
     /**
      * Creates a new message with the NOTIFICATION_REPORT command.
      * <p>
@@ -513,6 +566,7 @@ public class CommandClassNotificationV6 {
      * @param v1AlarmLevel {@link Integer}
      * @param notificationStatus {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NO_PENDING_NOTIFICATIONS
      *            <li>OFF
@@ -520,6 +574,7 @@ public class CommandClassNotificationV6 {
      *            </ul>
      * @param notificationType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>SMOKE
      *            <li>CO
@@ -621,7 +676,32 @@ public class CommandClassNotificationV6 {
      * <li>V1_ALARM_TYPE {@link Integer}
      * <li>V1_ALARM_LEVEL {@link Integer}
      * <li>NOTIFICATION_STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NO_PENDING_NOTIFICATIONS
+     * <li>OFF
+     * <li>ON
+     * </ul>
      * <li>NOTIFICATION_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>SMOKE
+     * <li>CO
+     * <li>CO2
+     * <li>HEAT
+     * <li>WATER
+     * <li>ACCESS_CONTROL
+     * <li>HOME_SECURITY
+     * <li>POWER_MANAGEMENT
+     * <li>SYSTEM
+     * <li>EMERGENCY
+     * <li>CLOCK
+     * <li>APPLIANCE
+     * <li>HOME_HEALTH
+     * <li>SIREN
+     * </ul>
      * <li>EVENT {@link Integer}
      * <li>SEQUENCE {@link Boolean}
      * <li>EVENT_PARAMETER {@link byte[]}
@@ -682,7 +762,6 @@ public class CommandClassNotificationV6 {
         return response;
     }
 
-
     /**
      * Creates a new message with the NOTIFICATION_SET command.
      * <p>
@@ -690,6 +769,7 @@ public class CommandClassNotificationV6 {
      *
      * @param notificationType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>SMOKE
      *            <li>CO
@@ -708,6 +788,7 @@ public class CommandClassNotificationV6 {
      *            </ul>
      * @param notificationStatus {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NO_PENDING_NOTIFICATIONS
      *            <li>OFF
@@ -760,7 +841,32 @@ public class CommandClassNotificationV6 {
      *
      * <ul>
      * <li>NOTIFICATION_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>SMOKE
+     * <li>CO
+     * <li>CO2
+     * <li>HEAT
+     * <li>WATER
+     * <li>ACCESS_CONTROL
+     * <li>HOME_SECURITY
+     * <li>POWER_MANAGEMENT
+     * <li>SYSTEM
+     * <li>EMERGENCY
+     * <li>CLOCK
+     * <li>APPLIANCE
+     * <li>HOME_HEALTH
+     * <li>SIREN
+     * </ul>
      * <li>NOTIFICATION_STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NO_PENDING_NOTIFICATIONS
+     * <li>OFF
+     * <li>ON
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -779,7 +885,6 @@ public class CommandClassNotificationV6 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the NOTIFICATION_SUPPORTED_GET command.
@@ -814,7 +919,6 @@ public class CommandClassNotificationV6 {
         return response;
     }
 
-
     /**
      * Creates a new message with the NOTIFICATION_SUPPORTED_REPORT command.
      * <p>
@@ -823,6 +927,7 @@ public class CommandClassNotificationV6 {
      * @param v1Alarm {@link Boolean}
      * @param bitMask {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>SMOKE
      *            <li>CO
@@ -884,6 +989,24 @@ public class CommandClassNotificationV6 {
      * <ul>
      * <li>V1_ALARM {@link Boolean}
      * <li>BIT_MASK {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>SMOKE
+     * <li>CO
+     * <li>CO2
+     * <li>HEAT
+     * <li>WATER
+     * <li>ACCESS_CONTROL
+     * <li>HOME_SECURITY
+     * <li>POWER_MANAGEMENT
+     * <li>SYSTEM
+     * <li>EMERGENCY
+     * <li>CLOCK
+     * <li>APPLIANCE
+     * <li>HOME_HEALTH
+     * <li>SIREN
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -911,5 +1034,4 @@ public class CommandClassNotificationV6 {
         // Return the map of processed response data;
         return response;
     }
-
 }

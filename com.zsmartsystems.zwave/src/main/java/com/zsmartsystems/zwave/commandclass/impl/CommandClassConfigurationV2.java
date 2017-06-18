@@ -64,7 +64,6 @@ public class CommandClassConfigurationV2 {
      */
     public final static int CONFIGURATION_BULK_REPORT = 0x09;
 
-
     /**
      * Map holding constants for ConfigurationBulkSetProperties1
      */
@@ -79,8 +78,8 @@ public class CommandClassConfigurationV2 {
      * Map holding constants for ConfigurationSetLevel
      */
     private static Map<Integer, String> constantConfigurationSetLevel = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for ConfigurationBulkSetProperties1
         constantConfigurationBulkSetProperties1.put(0x40, "HANDSHAKE");
         constantConfigurationBulkSetProperties1.put(0x80, "DEFAULT");
@@ -177,7 +176,6 @@ public class CommandClassConfigurationV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CONFIGURATION_GET command.
      * <p>
@@ -223,7 +221,6 @@ public class CommandClassConfigurationV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CONFIGURATION_REPORT command.
@@ -302,7 +299,6 @@ public class CommandClassConfigurationV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CONFIGURATION_BULK_SET command.
@@ -415,7 +411,6 @@ public class CommandClassConfigurationV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CONFIGURATION_BULK_GET command.
      * <p>
@@ -470,7 +465,6 @@ public class CommandClassConfigurationV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CONFIGURATION_BULK_REPORT command.
@@ -591,5 +585,4 @@ public class CommandClassConfigurationV2 {
         // Return the map of processed response data;
         return response;
     }
-
 }

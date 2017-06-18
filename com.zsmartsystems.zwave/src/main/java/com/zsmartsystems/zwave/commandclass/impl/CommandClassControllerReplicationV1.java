@@ -122,7 +122,6 @@ public class CommandClassControllerReplicationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CTRL_REPLICATION_TRANSFER_GROUP_NAME command.
      * <p>
@@ -200,7 +199,6 @@ public class CommandClassControllerReplicationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CTRL_REPLICATION_TRANSFER_SCENE command.
      * <p>
@@ -276,7 +274,6 @@ public class CommandClassControllerReplicationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CTRL_REPLICATION_TRANSFER_SCENE_NAME command.
@@ -354,5 +351,4 @@ public class CommandClassControllerReplicationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

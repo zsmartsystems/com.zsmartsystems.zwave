@@ -64,7 +64,6 @@ public class CommandClassSensorMultilevelV5 {
      */
     public final static int SENSOR_MULTILEVEL_SUPPORTED_SCALE_REPORT = 0x06;
 
-
     /**
      * Map holding constants for SensorMultilevelReportSensorType
      */
@@ -89,8 +88,8 @@ public class CommandClassSensorMultilevelV5 {
      * Map holding constants for SensorMultilevelSupportedGetScaleSensorType
      */
     private static Map<Integer, String> constantSensorMultilevelSupportedGetScaleSensorType = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SensorMultilevelReportSensorType
         constantSensorMultilevelReportSensorType.put(0x01, "TEMPERATURE");
         constantSensorMultilevelReportSensorType.put(0x02, "GENERAL_PURPOSE_VALUE");
@@ -290,7 +289,6 @@ public class CommandClassSensorMultilevelV5 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SENSOR_MULTILEVEL_SUPPORTED_SENSOR_REPORT command.
      * <p>
@@ -298,6 +296,7 @@ public class CommandClassSensorMultilevelV5 {
      *
      * @param bitMask {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>AIR_TEMPERATURE
      *            <li>GENERAL_PURPOSE_VALUE
@@ -369,6 +368,41 @@ public class CommandClassSensorMultilevelV5 {
      *
      * <ul>
      * <li>BIT_MASK {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>AIR_TEMPERATURE
+     * <li>GENERAL_PURPOSE_VALUE
+     * <li>LUMINANCE
+     * <li>POWER
+     * <li>HUMIDITY
+     * <li>VELOCITY
+     * <li>DIRECTION
+     * <li>ATMOSPHERIC_PRESSURE
+     * <li>BAROMETRIC_PRESSURE
+     * <li>SOLAR_RADIATION
+     * <li>DEW_POINT
+     * <li>RAIN_RATE
+     * <li>TIDE_LEVEL
+     * <li>WEIGHT
+     * <li>VOLTAGE
+     * <li>CO2_LEVEL
+     * <li>CURRENT
+     * <li>TANK_CAPACITY
+     * <li>AIR_FLOW
+     * <li>ANGLE_POSITION
+     * <li>DISTANCE
+     * <li>WATER_TEMPERATURE
+     * <li>ROTATION
+     * <li>SEISMIC_INTENSITY
+     * <li>SOIL_TEMPERATURE
+     * <li>ULTRAVIOLET
+     * <li>SEISMIC_MAGNITUDE
+     * <li>ELECTRICAL_CONDUCTIVITY
+     * <li>ELECTRICAL_RESISTIVITY
+     * <li>MOISTURE
+     * <li>LOUDNESS
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -392,7 +426,6 @@ public class CommandClassSensorMultilevelV5 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SENSOR_MULTILEVEL_SUPPORTED_GET_SCALE command.
      * <p>
@@ -400,6 +433,7 @@ public class CommandClassSensorMultilevelV5 {
      *
      * @param sensorType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>TEMPERATURE
      *            <li>GENERAL_PURPOSE_VALUE
@@ -467,6 +501,41 @@ public class CommandClassSensorMultilevelV5 {
      *
      * <ul>
      * <li>SENSOR_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>TEMPERATURE
+     * <li>GENERAL_PURPOSE_VALUE
+     * <li>LUMINANCE
+     * <li>POWER
+     * <li>RELATIVE_HUMIDITY
+     * <li>VELOCITY
+     * <li>DIRECTION
+     * <li>ATMOSPHERIC_PRESSURE
+     * <li>BAROMETRIC_PRESSURE
+     * <li>SOLAR_RADIATION
+     * <li>DEW_POINT
+     * <li>RAIN_RATE
+     * <li>TIDE_LEVEL
+     * <li>WEIGHT
+     * <li>VOLTAGE
+     * <li>CO2_LEVEL
+     * <li>CURRENT
+     * <li>TANK_CAPACITY
+     * <li>AIR_FLOW
+     * <li>ANGLE_POSITION
+     * <li>DISTANCE
+     * <li>WATER_TEMPERATURE
+     * <li>ROTATION
+     * <li>SEISMIC_INTENSITY
+     * <li>SOIL_TEMPERATURE
+     * <li>ULTRAVIOLET
+     * <li>SEISMIC_MAGNITUDE
+     * <li>ELECTRICAL_CONDUCTIVITY
+     * <li>ELECTRICAL_RESISTIVITY
+     * <li>MOISTURE
+     * <li>LOUDNESS
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -483,7 +552,6 @@ public class CommandClassSensorMultilevelV5 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SENSOR_MULTILEVEL_GET command.
      * <p>
@@ -491,6 +559,7 @@ public class CommandClassSensorMultilevelV5 {
      *
      * @param sensorType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>TEMPERATURE
      *            <li>GENERAL_PURPOSE_VALUE
@@ -562,6 +631,41 @@ public class CommandClassSensorMultilevelV5 {
      *
      * <ul>
      * <li>SENSOR_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>TEMPERATURE
+     * <li>GENERAL_PURPOSE_VALUE
+     * <li>LUMINANCE
+     * <li>POWER
+     * <li>RELATIVE_HUMIDITY
+     * <li>VELOCITY
+     * <li>DIRECTION
+     * <li>ATMOSPHERIC_PRESSURE
+     * <li>BAROMETRIC_PRESSURE
+     * <li>SOLAR_RADIATION
+     * <li>DEW_POINT
+     * <li>RAIN_RATE
+     * <li>TIDE_LEVEL
+     * <li>WEIGHT
+     * <li>VOLTAGE
+     * <li>CO2_LEVEL
+     * <li>CURRENT
+     * <li>TANK_CAPACITY
+     * <li>AIR_FLOW
+     * <li>ANGLE_POSITION
+     * <li>DISTANCE
+     * <li>WATER_TEMPERATURE
+     * <li>ROTATION
+     * <li>SEISMIC_INTENSITY
+     * <li>SOIL_TEMPERATURE
+     * <li>ULTRAVIOLET
+     * <li>SEISMIC_MAGNITUDE
+     * <li>ELECTRICAL_CONDUCTIVITY
+     * <li>ELECTRICAL_RESISTIVITY
+     * <li>MOISTURE
+     * <li>LOUDNESS
+     * </ul>
      * <li>SCALE {@link Integer}
      * </ul>
      *
@@ -582,7 +686,6 @@ public class CommandClassSensorMultilevelV5 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SENSOR_MULTILEVEL_REPORT command.
      * <p>
@@ -590,6 +693,7 @@ public class CommandClassSensorMultilevelV5 {
      *
      * @param sensorType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>TEMPERATURE
      *            <li>GENERAL_PURPOSE_VALUE
@@ -678,6 +782,41 @@ public class CommandClassSensorMultilevelV5 {
      *
      * <ul>
      * <li>SENSOR_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>TEMPERATURE
+     * <li>GENERAL_PURPOSE_VALUE
+     * <li>LUMINANCE
+     * <li>POWER
+     * <li>RELATIVE_HUMIDITY
+     * <li>VELOCITY
+     * <li>DIRECTION
+     * <li>ATMOSPHERIC_PRESSURE
+     * <li>BAROMETRIC_PRESSURE
+     * <li>SOLAR_RADIATION
+     * <li>DEW_POINT
+     * <li>RAIN_RATE
+     * <li>TIDE_LEVEL
+     * <li>WEIGHT
+     * <li>VOLTAGE
+     * <li>CO2_LEVEL
+     * <li>CURRENT
+     * <li>TANK_CAPACITY
+     * <li>AIR_FLOW
+     * <li>ANGLE_POSITION
+     * <li>DISTANCE
+     * <li>WATER_TEMPERATURE
+     * <li>ROTATION
+     * <li>SEISMIC_INTENSITY
+     * <li>SOIL_TEMPERATURE
+     * <li>ULTRAVIOLET
+     * <li>SEISMIC_MAGNITUDE
+     * <li>ELECTRICAL_CONDUCTIVITY
+     * <li>ELECTRICAL_RESISTIVITY
+     * <li>MOISTURE
+     * <li>LOUDNESS
+     * </ul>
      * <li>SCALE {@link Integer}
      * <li>PRECISION {@link Integer}
      * <li>SENSOR_VALUE {@link byte[]}
@@ -716,7 +855,6 @@ public class CommandClassSensorMultilevelV5 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SENSOR_MULTILEVEL_SUPPORTED_SCALE_REPORT command.
      * <p>
@@ -724,6 +862,7 @@ public class CommandClassSensorMultilevelV5 {
      *
      * @param sensorType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>TEMPERATURE
      *            <li>GENERAL_PURPOSE_VALUE
@@ -795,6 +934,41 @@ public class CommandClassSensorMultilevelV5 {
      *
      * <ul>
      * <li>SENSOR_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>TEMPERATURE
+     * <li>GENERAL_PURPOSE_VALUE
+     * <li>LUMINANCE
+     * <li>POWER
+     * <li>RELATIVE_HUMIDITY
+     * <li>VELOCITY
+     * <li>DIRECTION
+     * <li>ATMOSPHERIC_PRESSURE
+     * <li>BAROMETRIC_PRESSURE
+     * <li>SOLAR_RADIATION
+     * <li>DEW_POINT
+     * <li>RAIN_RATE
+     * <li>TIDE_LEVEL
+     * <li>WEIGHT
+     * <li>VOLTAGE
+     * <li>CO2_LEVEL
+     * <li>CURRENT
+     * <li>TANK_CAPACITY
+     * <li>AIR_FLOW
+     * <li>ANGLE_POSITION
+     * <li>DISTANCE
+     * <li>WATER_TEMPERATURE
+     * <li>ROTATION
+     * <li>SEISMIC_INTENSITY
+     * <li>SOIL_TEMPERATURE
+     * <li>ULTRAVIOLET
+     * <li>SEISMIC_MAGNITUDE
+     * <li>ELECTRICAL_CONDUCTIVITY
+     * <li>ELECTRICAL_RESISTIVITY
+     * <li>MOISTURE
+     * <li>LOUDNESS
+     * </ul>
      * <li>SCALE_BIT_MASK {@link Integer}
      * </ul>
      *
@@ -814,5 +988,4 @@ public class CommandClassSensorMultilevelV5 {
         // Return the map of processed response data;
         return response;
     }
-
 }

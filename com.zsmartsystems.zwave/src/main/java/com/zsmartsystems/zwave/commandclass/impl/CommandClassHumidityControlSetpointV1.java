@@ -76,16 +76,114 @@ public class CommandClassHumidityControlSetpointV1 {
      */
     public final static int HUMIDITY_CONTROL_SETPOINT_CAPABILITIES_REPORT = 0x09;
 
+    /**
+     * Map holding constants for HumidityControlSetpointGetSetpointType
+     */
+    private static Map<Integer, String> constantHumidityControlSetpointGetSetpointType = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for HumidityControlSetpointCapabilitiesGetSetpointType
+     */
+    private static Map<Integer, String> constantHumidityControlSetpointCapabilitiesGetSetpointType = new HashMap<Integer, String>();
 
     /**
      * Map holding constants for HumidityControlSetpointSupportedReportBitMask
      */
     private static Map<Integer, String> constantHumidityControlSetpointSupportedReportBitMask = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for HumidityControlSetpointScaleSupportedGetSetpointType
+     */
+    private static Map<Integer, String> constantHumidityControlSetpointScaleSupportedGetSetpointType = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for HumidityControlSetpointSetSetpointType
+     */
+    private static Map<Integer, String> constantHumidityControlSetpointSetSetpointType = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for HumidityControlSetpointReportScale
+     */
+    private static Map<Integer, String> constantHumidityControlSetpointReportScale = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for HumidityControlSetpointCapabilitiesReportSetpointType
+     */
+    private static Map<Integer, String> constantHumidityControlSetpointCapabilitiesReportSetpointType = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for HumidityControlSetpointReportSetpointType
+     */
+    private static Map<Integer, String> constantHumidityControlSetpointReportSetpointType = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for HumidityControlSetpointCapabilitiesReportScale2
+     */
+    private static Map<Integer, String> constantHumidityControlSetpointCapabilitiesReportScale2 = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for HumidityControlSetpointCapabilitiesReportScale1
+     */
+    private static Map<Integer, String> constantHumidityControlSetpointCapabilitiesReportScale1 = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for HumidityControlSetpointScaleSupportedReportScaleBitMask
+     */
+    private static Map<Integer, String> constantHumidityControlSetpointScaleSupportedReportScaleBitMask = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for HumidityControlSetpointSetScale
+     */
+    private static Map<Integer, String> constantHumidityControlSetpointSetScale = new HashMap<Integer, String>();
+
     static {
+        // Constants for HumidityControlSetpointGetSetpointType
+        constantHumidityControlSetpointGetSetpointType.put(0x00, "HUMIDIFIER");
+        constantHumidityControlSetpointGetSetpointType.put(0x01, "DEHUMIDIFIER");
+
+        // Constants for HumidityControlSetpointCapabilitiesGetSetpointType
+        constantHumidityControlSetpointCapabilitiesGetSetpointType.put(0x00, "HUMIDIFIER");
+        constantHumidityControlSetpointCapabilitiesGetSetpointType.put(0x01, "DEHUMIDIFIER");
 
         // Constants for HumidityControlSetpointSupportedReportBitMask
         constantHumidityControlSetpointSupportedReportBitMask.put(0x01, "HUMIDIFIER");
         constantHumidityControlSetpointSupportedReportBitMask.put(0x02, "DEHUMIDIFIER");
+
+        // Constants for HumidityControlSetpointScaleSupportedGetSetpointType
+        constantHumidityControlSetpointScaleSupportedGetSetpointType.put(0x00, "HUMIDIFIER");
+        constantHumidityControlSetpointScaleSupportedGetSetpointType.put(0x01, "DEHUMIDIFIER");
+
+        // Constants for HumidityControlSetpointSetSetpointType
+        constantHumidityControlSetpointSetSetpointType.put(0x00, "HUMIDIFIER");
+        constantHumidityControlSetpointSetSetpointType.put(0x01, "DEHUMIDIFIER");
+
+        // Constants for HumidityControlSetpointReportScale
+        constantHumidityControlSetpointReportScale.put(0x00, "PERCENTAGE");
+        constantHumidityControlSetpointReportScale.put(0x01, "ABSOLUTE");
+
+        // Constants for HumidityControlSetpointCapabilitiesReportSetpointType
+        constantHumidityControlSetpointCapabilitiesReportSetpointType.put(0x00, "HUMIDIFIER");
+        constantHumidityControlSetpointCapabilitiesReportSetpointType.put(0x01, "DEHUMIDIFIER");
+
+        // Constants for HumidityControlSetpointReportSetpointType
+        constantHumidityControlSetpointReportSetpointType.put(0x00, "HUMIDIFIER");
+        constantHumidityControlSetpointReportSetpointType.put(0x01, "DEHUMIDIFIER");
+
+        // Constants for HumidityControlSetpointCapabilitiesReportScale2
+        constantHumidityControlSetpointCapabilitiesReportScale2.put(0x00, "PERCENTAGE");
+        constantHumidityControlSetpointCapabilitiesReportScale2.put(0x01, "ABSOLUTE");
+
+        // Constants for HumidityControlSetpointCapabilitiesReportScale1
+        constantHumidityControlSetpointCapabilitiesReportScale1.put(0x00, "PERCENTAGE");
+        constantHumidityControlSetpointCapabilitiesReportScale1.put(0x01, "ABSOLUTE");
+
+        // Constants for HumidityControlSetpointScaleSupportedReportScaleBitMask
+        constantHumidityControlSetpointScaleSupportedReportScaleBitMask.put(0x00, "PERCENTAGE");
+        constantHumidityControlSetpointScaleSupportedReportScaleBitMask.put(0x01, "ABSOLUTE");
+
+        // Constants for HumidityControlSetpointSetScale
+        constantHumidityControlSetpointSetScale.put(0x00, "PERCENTAGE");
+        constantHumidityControlSetpointSetScale.put(0x01, "ABSOLUTE");
     }
 
     /**
@@ -94,7 +192,19 @@ public class CommandClassHumidityControlSetpointV1 {
      * Humidity Control Setpoint Set
      *
      * @param setpointType {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>HUMIDIFIER
+     *            <li>DEHUMIDIFIER
+     *            </ul>
      * @param scale {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>PERCENTAGE
+     *            <li>ABSOLUTE
+     *            </ul>
      * @param precision {@link Integer}
      * @param value {@link byte[]}
      * @return the {@link byte[]} array with the command to send
@@ -108,36 +218,34 @@ public class CommandClassHumidityControlSetpointV1 {
         outputData.write(HUMIDITY_CONTROL_SETPOINT_SET);
 
         // Process 'Properties1'
-        int valsetpointType;
-        switch (setpointType) {
-            case "HUMIDIFIER":
-                valsetpointType = 0;
+        int varSetpointType = Integer.MAX_VALUE;
+        for (Integer entry : constantHumidityControlSetpointSetSetpointType.keySet()) {
+            if (constantHumidityControlSetpointSetSetpointType.get(entry).equals(setpointType)) {
+                varSetpointType = entry;
                 break;
-            case "DEHUMIDIFIER":
-                valsetpointType = 1;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for setpointType: " + setpointType);
+            }
         }
-        outputData.write(valsetpointType & 0x0F);
+        if (varSetpointType == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + setpointType + "' for setpointType");
+        }
+        outputData.write(varSetpointType & 0x0F);
 
         // Process 'Properties2'
         // Size is used by 'Value'
         int size = value.length;
         int valProperties2 = 0;
         valProperties2 |= size & 0x07;
-        int valscale;
-        switch (scale) {
-            case "PERCENTAGE":
-                valscale = 0;
+        int varScale = Integer.MAX_VALUE;
+        for (Integer entry : constantHumidityControlSetpointSetScale.keySet()) {
+            if (constantHumidityControlSetpointSetScale.get(entry).equals(scale)) {
+                varScale = entry;
                 break;
-            case "ABSOLUTE":
-                valscale = 1;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for scale: " + scale);
+            }
         }
-        valProperties2 |= valscale >> 3 & 0x18;
+        if (varScale == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + scale + "' for scale");
+        }
+        valProperties2 |= varScale << 3 & 0x18;
         valProperties2 |= ((precision << 5) & 0xE0);
         outputData.write(valProperties2);
 
@@ -161,7 +269,19 @@ public class CommandClassHumidityControlSetpointV1 {
      *
      * <ul>
      * <li>SETPOINT_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>HUMIDIFIER
+     * <li>DEHUMIDIFIER
+     * </ul>
      * <li>SCALE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>PERCENTAGE
+     * <li>ABSOLUTE
+     * </ul>
      * <li>PRECISION {@link Integer}
      * <li>VALUE {@link byte[]}
      * </ul>
@@ -177,31 +297,13 @@ public class CommandClassHumidityControlSetpointV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        switch (payload[msgOffset] & 0x0F) {
-            case 0x00:
-                response.put("SETPOINT_TYPE", "HUMIDIFIER");
-                break;
-            case 0x01:
-                response.put("SETPOINT_TYPE", "DEHUMIDIFIER");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for SETPOINT_TYPE", String.format("0x%02X", msgOffset));
-        }
+        response.put("SETPOINT_TYPE", constantHumidityControlSetpointSetSetpointType.get(payload[msgOffset] & 0x0F));
         msgOffset += 1;
 
         // Process 'Properties2'
         // Size is used by 'Value'
         int varSize = payload[msgOffset] & 0x07;
-        switch ((payload[msgOffset] & 0x18) >> 3) {
-            case 0x00:
-                response.put("SCALE", "PERCENTAGE");
-                break;
-            case 0x01:
-                response.put("SCALE", "ABSOLUTE");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for SCALE", String.format("0x%02X", msgOffset));
-        }
+        response.put("SCALE", constantHumidityControlSetpointSetScale.get((payload[msgOffset] & 0x18) >> 3));
         response.put("PRECISION", Integer.valueOf(payload[msgOffset] & 0xE0 >> 5));
         msgOffset += 1;
 
@@ -217,13 +319,18 @@ public class CommandClassHumidityControlSetpointV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the HUMIDITY_CONTROL_SETPOINT_GET command.
      * <p>
      * Humidity Control Setpoint Get
      *
      * @param setpointType {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>HUMIDIFIER
+     *            <li>DEHUMIDIFIER
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getHumidityControlSetpointGet(String setpointType) {
@@ -234,18 +341,17 @@ public class CommandClassHumidityControlSetpointV1 {
         outputData.write(HUMIDITY_CONTROL_SETPOINT_GET);
 
         // Process 'Properties1'
-        int valsetpointType;
-        switch (setpointType) {
-            case "HUMIDIFIER":
-                valsetpointType = 0;
+        int varSetpointType = Integer.MAX_VALUE;
+        for (Integer entry : constantHumidityControlSetpointGetSetpointType.keySet()) {
+            if (constantHumidityControlSetpointGetSetpointType.get(entry).equals(setpointType)) {
+                varSetpointType = entry;
                 break;
-            case "DEHUMIDIFIER":
-                valsetpointType = 1;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for setpointType: " + setpointType);
+            }
         }
-        outputData.write(valsetpointType & 0x0F);
+        if (varSetpointType == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + setpointType + "' for setpointType");
+        }
+        outputData.write(varSetpointType & 0x0F);
 
         return outputData.toByteArray();
     }
@@ -259,6 +365,12 @@ public class CommandClassHumidityControlSetpointV1 {
      *
      * <ul>
      * <li>SETPOINT_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>HUMIDIFIER
+     * <li>DEHUMIDIFIER
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -269,21 +381,11 @@ public class CommandClassHumidityControlSetpointV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch (payload[2] & 0x0F) {
-            case 0x00:
-                response.put("SETPOINT_TYPE", "HUMIDIFIER");
-                break;
-            case 0x01:
-                response.put("SETPOINT_TYPE", "DEHUMIDIFIER");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for SETPOINT_TYPE", String.format("0x%02X", 2));
-        }
+        response.put("SETPOINT_TYPE", constantHumidityControlSetpointGetSetpointType.get(payload[2] & 0x0F));
 
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the HUMIDITY_CONTROL_SETPOINT_REPORT command.
@@ -291,7 +393,19 @@ public class CommandClassHumidityControlSetpointV1 {
      * Humidity Control Setpoint Report
      *
      * @param setpointType {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>HUMIDIFIER
+     *            <li>DEHUMIDIFIER
+     *            </ul>
      * @param scale {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>PERCENTAGE
+     *            <li>ABSOLUTE
+     *            </ul>
      * @param precision {@link Integer}
      * @param value {@link byte[]}
      * @return the {@link byte[]} array with the command to send
@@ -305,36 +419,34 @@ public class CommandClassHumidityControlSetpointV1 {
         outputData.write(HUMIDITY_CONTROL_SETPOINT_REPORT);
 
         // Process 'Properties1'
-        int valsetpointType;
-        switch (setpointType) {
-            case "HUMIDIFIER":
-                valsetpointType = 0;
+        int varSetpointType = Integer.MAX_VALUE;
+        for (Integer entry : constantHumidityControlSetpointReportSetpointType.keySet()) {
+            if (constantHumidityControlSetpointReportSetpointType.get(entry).equals(setpointType)) {
+                varSetpointType = entry;
                 break;
-            case "DEHUMIDIFIER":
-                valsetpointType = 1;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for setpointType: " + setpointType);
+            }
         }
-        outputData.write(valsetpointType & 0x0F);
+        if (varSetpointType == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + setpointType + "' for setpointType");
+        }
+        outputData.write(varSetpointType & 0x0F);
 
         // Process 'Properties2'
         // Size is used by 'Value'
         int size = value.length;
         int valProperties2 = 0;
         valProperties2 |= size & 0x07;
-        int valscale;
-        switch (scale) {
-            case "PERCENTAGE":
-                valscale = 0;
+        int varScale = Integer.MAX_VALUE;
+        for (Integer entry : constantHumidityControlSetpointReportScale.keySet()) {
+            if (constantHumidityControlSetpointReportScale.get(entry).equals(scale)) {
+                varScale = entry;
                 break;
-            case "ABSOLUTE":
-                valscale = 1;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for scale: " + scale);
+            }
         }
-        valProperties2 |= valscale >> 3 & 0x18;
+        if (varScale == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + scale + "' for scale");
+        }
+        valProperties2 |= varScale << 3 & 0x18;
         valProperties2 |= ((precision << 5) & 0xE0);
         outputData.write(valProperties2);
 
@@ -358,7 +470,19 @@ public class CommandClassHumidityControlSetpointV1 {
      *
      * <ul>
      * <li>SETPOINT_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>HUMIDIFIER
+     * <li>DEHUMIDIFIER
+     * </ul>
      * <li>SCALE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>PERCENTAGE
+     * <li>ABSOLUTE
+     * </ul>
      * <li>PRECISION {@link Integer}
      * <li>VALUE {@link byte[]}
      * </ul>
@@ -374,31 +498,13 @@ public class CommandClassHumidityControlSetpointV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        switch (payload[msgOffset] & 0x0F) {
-            case 0x00:
-                response.put("SETPOINT_TYPE", "HUMIDIFIER");
-                break;
-            case 0x01:
-                response.put("SETPOINT_TYPE", "DEHUMIDIFIER");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for SETPOINT_TYPE", String.format("0x%02X", msgOffset));
-        }
+        response.put("SETPOINT_TYPE", constantHumidityControlSetpointReportSetpointType.get(payload[msgOffset] & 0x0F));
         msgOffset += 1;
 
         // Process 'Properties2'
         // Size is used by 'Value'
         int varSize = payload[msgOffset] & 0x07;
-        switch ((payload[msgOffset] & 0x18) >> 3) {
-            case 0x00:
-                response.put("SCALE", "PERCENTAGE");
-                break;
-            case 0x01:
-                response.put("SCALE", "ABSOLUTE");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for SCALE", String.format("0x%02X", msgOffset));
-        }
+        response.put("SCALE", constantHumidityControlSetpointReportScale.get((payload[msgOffset] & 0x18) >> 3));
         response.put("PRECISION", Integer.valueOf(payload[msgOffset] & 0xE0 >> 5));
         msgOffset += 1;
 
@@ -413,7 +519,6 @@ public class CommandClassHumidityControlSetpointV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the HUMIDITY_CONTROL_SETPOINT_SUPPORTED_GET command.
@@ -448,7 +553,6 @@ public class CommandClassHumidityControlSetpointV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the HUMIDITY_CONTROL_SETPOINT_SUPPORTED_REPORT command.
      * <p>
@@ -456,6 +560,7 @@ public class CommandClassHumidityControlSetpointV1 {
      *
      * @param bitMask {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>HUMIDIFIER
      *            <li>DEHUMIDIFIER
@@ -498,6 +603,12 @@ public class CommandClassHumidityControlSetpointV1 {
      *
      * <ul>
      * <li>BIT_MASK {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>HUMIDIFIER
+     * <li>DEHUMIDIFIER
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -522,13 +633,18 @@ public class CommandClassHumidityControlSetpointV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the HUMIDITY_CONTROL_SETPOINT_SCALE_SUPPORTED_GET command.
      * <p>
      * Humidity Control Setpoint Scale Supported Get
      *
      * @param setpointType {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>HUMIDIFIER
+     *            <li>DEHUMIDIFIER
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getHumidityControlSetpointScaleSupportedGet(String setpointType) {
@@ -539,18 +655,17 @@ public class CommandClassHumidityControlSetpointV1 {
         outputData.write(HUMIDITY_CONTROL_SETPOINT_SCALE_SUPPORTED_GET);
 
         // Process 'Properties1'
-        int valsetpointType;
-        switch (setpointType) {
-            case "HUMIDIFIER":
-                valsetpointType = 0;
+        int varSetpointType = Integer.MAX_VALUE;
+        for (Integer entry : constantHumidityControlSetpointScaleSupportedGetSetpointType.keySet()) {
+            if (constantHumidityControlSetpointScaleSupportedGetSetpointType.get(entry).equals(setpointType)) {
+                varSetpointType = entry;
                 break;
-            case "DEHUMIDIFIER":
-                valsetpointType = 1;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for setpointType: " + setpointType);
+            }
         }
-        outputData.write(valsetpointType & 0x0F);
+        if (varSetpointType == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + setpointType + "' for setpointType");
+        }
+        outputData.write(varSetpointType & 0x0F);
 
         return outputData.toByteArray();
     }
@@ -564,6 +679,12 @@ public class CommandClassHumidityControlSetpointV1 {
      *
      * <ul>
      * <li>SETPOINT_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>HUMIDIFIER
+     * <li>DEHUMIDIFIER
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -574,21 +695,11 @@ public class CommandClassHumidityControlSetpointV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch (payload[2] & 0x0F) {
-            case 0x00:
-                response.put("SETPOINT_TYPE", "HUMIDIFIER");
-                break;
-            case 0x01:
-                response.put("SETPOINT_TYPE", "DEHUMIDIFIER");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for SETPOINT_TYPE", String.format("0x%02X", 2));
-        }
+        response.put("SETPOINT_TYPE", constantHumidityControlSetpointScaleSupportedGetSetpointType.get(payload[2] & 0x0F));
 
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the HUMIDITY_CONTROL_SETPOINT_SCALE_SUPPORTED_REPORT command.
@@ -596,6 +707,12 @@ public class CommandClassHumidityControlSetpointV1 {
      * Humidity Control Setpoint Scale Supported Report
      *
      * @param scaleBitMask {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>PERCENTAGE
+     *            <li>ABSOLUTE
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getHumidityControlSetpointScaleSupportedReport(String scaleBitMask) {
@@ -606,18 +723,17 @@ public class CommandClassHumidityControlSetpointV1 {
         outputData.write(HUMIDITY_CONTROL_SETPOINT_SCALE_SUPPORTED_REPORT);
 
         // Process 'Properties1'
-        int valscaleBitMask;
-        switch (scaleBitMask) {
-            case "PERCENTAGE":
-                valscaleBitMask = 0;
+        int varScaleBitMask = Integer.MAX_VALUE;
+        for (Integer entry : constantHumidityControlSetpointScaleSupportedReportScaleBitMask.keySet()) {
+            if (constantHumidityControlSetpointScaleSupportedReportScaleBitMask.get(entry).equals(scaleBitMask)) {
+                varScaleBitMask = entry;
                 break;
-            case "ABSOLUTE":
-                valscaleBitMask = 1;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for scaleBitMask: " + scaleBitMask);
+            }
         }
-        outputData.write(valscaleBitMask & 0x0F);
+        if (varScaleBitMask == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + scaleBitMask + "' for scaleBitMask");
+        }
+        outputData.write(varScaleBitMask & 0x0F);
 
         return outputData.toByteArray();
     }
@@ -631,6 +747,12 @@ public class CommandClassHumidityControlSetpointV1 {
      *
      * <ul>
      * <li>SCALE_BIT_MASK {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>PERCENTAGE
+     * <li>ABSOLUTE
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -641,21 +763,11 @@ public class CommandClassHumidityControlSetpointV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch (payload[2] & 0x0F) {
-            case 0x00:
-                response.put("SCALE_BIT_MASK", "PERCENTAGE");
-                break;
-            case 0x01:
-                response.put("SCALE_BIT_MASK", "ABSOLUTE");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for SCALE_BIT_MASK", String.format("0x%02X", 2));
-        }
+        response.put("SCALE_BIT_MASK", constantHumidityControlSetpointScaleSupportedReportScaleBitMask.get(payload[2] & 0x0F));
 
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the HUMIDITY_CONTROL_SETPOINT_CAPABILITIES_GET command.
@@ -663,6 +775,12 @@ public class CommandClassHumidityControlSetpointV1 {
      * Humidity Control Setpoint Capabilities Get
      *
      * @param setpointType {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>HUMIDIFIER
+     *            <li>DEHUMIDIFIER
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getHumidityControlSetpointCapabilitiesGet(String setpointType) {
@@ -673,18 +791,17 @@ public class CommandClassHumidityControlSetpointV1 {
         outputData.write(HUMIDITY_CONTROL_SETPOINT_CAPABILITIES_GET);
 
         // Process 'Properties1'
-        int valsetpointType;
-        switch (setpointType) {
-            case "HUMIDIFIER":
-                valsetpointType = 0;
+        int varSetpointType = Integer.MAX_VALUE;
+        for (Integer entry : constantHumidityControlSetpointCapabilitiesGetSetpointType.keySet()) {
+            if (constantHumidityControlSetpointCapabilitiesGetSetpointType.get(entry).equals(setpointType)) {
+                varSetpointType = entry;
                 break;
-            case "DEHUMIDIFIER":
-                valsetpointType = 1;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for setpointType: " + setpointType);
+            }
         }
-        outputData.write(valsetpointType & 0x0F);
+        if (varSetpointType == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + setpointType + "' for setpointType");
+        }
+        outputData.write(varSetpointType & 0x0F);
 
         return outputData.toByteArray();
     }
@@ -698,6 +815,12 @@ public class CommandClassHumidityControlSetpointV1 {
      *
      * <ul>
      * <li>SETPOINT_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>HUMIDIFIER
+     * <li>DEHUMIDIFIER
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -708,21 +831,11 @@ public class CommandClassHumidityControlSetpointV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch (payload[2] & 0x0F) {
-            case 0x00:
-                response.put("SETPOINT_TYPE", "HUMIDIFIER");
-                break;
-            case 0x01:
-                response.put("SETPOINT_TYPE", "DEHUMIDIFIER");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for SETPOINT_TYPE", String.format("0x%02X", 2));
-        }
+        response.put("SETPOINT_TYPE", constantHumidityControlSetpointCapabilitiesGetSetpointType.get(payload[2] & 0x0F));
 
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the HUMIDITY_CONTROL_SETPOINT_CAPABILITIES_REPORT command.
@@ -730,10 +843,28 @@ public class CommandClassHumidityControlSetpointV1 {
      * Humidity Control Setpoint Capabilities Report
      *
      * @param setpointType {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>HUMIDIFIER
+     *            <li>DEHUMIDIFIER
+     *            </ul>
      * @param scale1 {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>PERCENTAGE
+     *            <li>ABSOLUTE
+     *            </ul>
      * @param precision1 {@link Integer}
      * @param minimumValue {@link byte[]}
      * @param scale2 {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>PERCENTAGE
+     *            <li>ABSOLUTE
+     *            </ul>
      * @param precision2 {@link Integer}
      * @param maximumValue {@link byte[]}
      * @return the {@link byte[]} array with the command to send
@@ -747,36 +878,34 @@ public class CommandClassHumidityControlSetpointV1 {
         outputData.write(HUMIDITY_CONTROL_SETPOINT_CAPABILITIES_REPORT);
 
         // Process 'Properties1'
-        int valsetpointType;
-        switch (setpointType) {
-            case "HUMIDIFIER":
-                valsetpointType = 0;
+        int varSetpointType = Integer.MAX_VALUE;
+        for (Integer entry : constantHumidityControlSetpointCapabilitiesReportSetpointType.keySet()) {
+            if (constantHumidityControlSetpointCapabilitiesReportSetpointType.get(entry).equals(setpointType)) {
+                varSetpointType = entry;
                 break;
-            case "DEHUMIDIFIER":
-                valsetpointType = 1;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for setpointType: " + setpointType);
+            }
         }
-        outputData.write(valsetpointType & 0x0F);
+        if (varSetpointType == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + setpointType + "' for setpointType");
+        }
+        outputData.write(varSetpointType & 0x0F);
 
         // Process 'Properties2'
         // Size1 is used by 'Minimum Value'
         int size1 = minimumValue.length;
         int valProperties2 = 0;
         valProperties2 |= size1 & 0x07;
-        int valscale1;
-        switch (scale1) {
-            case "PERCENTAGE":
-                valscale1 = 0;
+        int varScale1 = Integer.MAX_VALUE;
+        for (Integer entry : constantHumidityControlSetpointCapabilitiesReportScale1.keySet()) {
+            if (constantHumidityControlSetpointCapabilitiesReportScale1.get(entry).equals(scale1)) {
+                varScale1 = entry;
                 break;
-            case "ABSOLUTE":
-                valscale1 = 1;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for scale1: " + scale1);
+            }
         }
-        valProperties2 |= valscale1 >> 3 & 0x18;
+        if (varScale1 == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + scale1 + "' for scale1");
+        }
+        valProperties2 |= varScale1 << 3 & 0x18;
         valProperties2 |= ((precision1 << 5) & 0xE0);
         outputData.write(valProperties2);
 
@@ -793,18 +922,17 @@ public class CommandClassHumidityControlSetpointV1 {
         int size2 = maximumValue.length;
         int valProperties3 = 0;
         valProperties3 |= size2 & 0x07;
-        int valscale2;
-        switch (scale2) {
-            case "PERCENTAGE":
-                valscale2 = 0;
+        int varScale2 = Integer.MAX_VALUE;
+        for (Integer entry : constantHumidityControlSetpointCapabilitiesReportScale2.keySet()) {
+            if (constantHumidityControlSetpointCapabilitiesReportScale2.get(entry).equals(scale2)) {
+                varScale2 = entry;
                 break;
-            case "ABSOLUTE":
-                valscale2 = 1;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for scale2: " + scale2);
+            }
         }
-        valProperties3 |= valscale2 >> 3 & 0x18;
+        if (varScale2 == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + scale2 + "' for scale2");
+        }
+        valProperties3 |= varScale2 << 3 & 0x18;
         valProperties3 |= ((precision2 << 5) & 0xE0);
         outputData.write(valProperties3);
 
@@ -828,10 +956,28 @@ public class CommandClassHumidityControlSetpointV1 {
      *
      * <ul>
      * <li>SETPOINT_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>HUMIDIFIER
+     * <li>DEHUMIDIFIER
+     * </ul>
      * <li>SCALE1 {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>PERCENTAGE
+     * <li>ABSOLUTE
+     * </ul>
      * <li>PRECISION1 {@link Integer}
      * <li>MINIMUM_VALUE {@link byte[]}
      * <li>SCALE2 {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>PERCENTAGE
+     * <li>ABSOLUTE
+     * </ul>
      * <li>PRECISION2 {@link Integer}
      * <li>MAXIMUM_VALUE {@link byte[]}
      * </ul>
@@ -847,31 +993,13 @@ public class CommandClassHumidityControlSetpointV1 {
         int msgOffset = 2;
 
         // Process 'Properties1'
-        switch (payload[msgOffset] & 0x0F) {
-            case 0x00:
-                response.put("SETPOINT_TYPE", "HUMIDIFIER");
-                break;
-            case 0x01:
-                response.put("SETPOINT_TYPE", "DEHUMIDIFIER");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for SETPOINT_TYPE", String.format("0x%02X", msgOffset));
-        }
+        response.put("SETPOINT_TYPE", constantHumidityControlSetpointCapabilitiesReportSetpointType.get(payload[msgOffset] & 0x0F));
         msgOffset += 1;
 
         // Process 'Properties2'
         // Size1 is used by 'Minimum Value'
         int varSize1 = payload[msgOffset] & 0x07;
-        switch ((payload[msgOffset] & 0x18) >> 3) {
-            case 0x00:
-                response.put("SCALE1", "PERCENTAGE");
-                break;
-            case 0x01:
-                response.put("SCALE1", "ABSOLUTE");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for SCALE1", String.format("0x%02X", msgOffset));
-        }
+        response.put("SCALE1", constantHumidityControlSetpointCapabilitiesReportScale1.get((payload[msgOffset] & 0x18) >> 3));
         response.put("PRECISION1", Integer.valueOf(payload[msgOffset] & 0xE0 >> 5));
         msgOffset += 1;
 
@@ -886,16 +1014,7 @@ public class CommandClassHumidityControlSetpointV1 {
         // Process 'Properties3'
         // Size2 is used by 'Maximum Value'
         int varSize2 = payload[msgOffset] & 0x07;
-        switch ((payload[msgOffset] & 0x18) >> 3) {
-            case 0x00:
-                response.put("SCALE2", "PERCENTAGE");
-                break;
-            case 0x01:
-                response.put("SCALE2", "ABSOLUTE");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for SCALE2", String.format("0x%02X", msgOffset));
-        }
+        response.put("SCALE2", constantHumidityControlSetpointCapabilitiesReportScale2.get((payload[msgOffset] & 0x18) >> 3));
         response.put("PRECISION2", Integer.valueOf(payload[msgOffset] & 0xE0 >> 5));
         msgOffset += 1;
 
@@ -910,5 +1029,4 @@ public class CommandClassHumidityControlSetpointV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

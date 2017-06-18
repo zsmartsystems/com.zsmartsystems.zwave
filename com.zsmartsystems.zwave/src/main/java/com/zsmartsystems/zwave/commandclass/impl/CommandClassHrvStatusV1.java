@@ -56,7 +56,6 @@ public class CommandClassHrvStatusV1 {
      */
     public final static int HRV_STATUS_SUPPORTED_REPORT = 0x04;
 
-
     /**
      * Map holding constants for HrvStatusGetStatusParameter
      */
@@ -71,8 +70,8 @@ public class CommandClassHrvStatusV1 {
      * Map holding constants for HrvStatusReportStatusParameter
      */
     private static Map<Integer, String> constantHrvStatusReportStatusParameter = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for HrvStatusGetStatusParameter
         constantHrvStatusGetStatusParameter.put(0x00, "OUTDOOR_AIR_TEMPERATURE");
         constantHrvStatusGetStatusParameter.put(0x01, "SUPPLY_AIR_TEMPERATURE");
@@ -108,6 +107,7 @@ public class CommandClassHrvStatusV1 {
      *
      * @param statusParameter {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OUTDOOR_AIR_TEMPERATURE
      *            <li>SUPPLY_AIR_TEMPERATURE
@@ -151,6 +151,17 @@ public class CommandClassHrvStatusV1 {
      *
      * <ul>
      * <li>STATUS_PARAMETER {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OUTDOOR_AIR_TEMPERATURE
+     * <li>SUPPLY_AIR_TEMPERATURE
+     * <li>EXHAUST_AIR_TEMPERATURE
+     * <li>DISCHARGE_AIR_TEMPERATURE
+     * <li>ROOM_TEMPERATURE
+     * <li>RELATIVE_HUMIDITY_IN_ROOM
+     * <li>REMAINING_FILTER_LIFE
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -167,7 +178,6 @@ public class CommandClassHrvStatusV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the HRV_STATUS_REPORT command.
      * <p>
@@ -175,6 +185,7 @@ public class CommandClassHrvStatusV1 {
      *
      * @param statusParameter {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OUTDOOR_AIR_TEMPERATURE
      *            <li>SUPPLY_AIR_TEMPERATURE
@@ -238,6 +249,17 @@ public class CommandClassHrvStatusV1 {
      *
      * <ul>
      * <li>STATUS_PARAMETER {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OUTDOOR_AIR_TEMPERATURE
+     * <li>SUPPLY_AIR_TEMPERATURE
+     * <li>EXHAUST_AIR_TEMPERATURE
+     * <li>DISCHARGE_AIR_TEMPERATURE
+     * <li>ROOM_TEMPERATURE
+     * <li>RELATIVE_HUMIDITY_IN_ROOM
+     * <li>REMAINING_FILTER_LIFE
+     * </ul>
      * <li>SIZE {@link Integer}
      * <li>SCALE {@link Integer}
      * <li>PRECISION {@link Integer}
@@ -276,7 +298,6 @@ public class CommandClassHrvStatusV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the HRV_STATUS_SUPPORTED_GET command.
      * <p>
@@ -310,7 +331,6 @@ public class CommandClassHrvStatusV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the HRV_STATUS_SUPPORTED_REPORT command.
      * <p>
@@ -318,6 +338,7 @@ public class CommandClassHrvStatusV1 {
      *
      * @param bitMask {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OUTDOOR_AIR_TEMPERATURE
      *            <li>SUPPLY_AIR_TEMPERATURE
@@ -365,6 +386,17 @@ public class CommandClassHrvStatusV1 {
      *
      * <ul>
      * <li>BIT_MASK {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OUTDOOR_AIR_TEMPERATURE
+     * <li>SUPPLY_AIR_TEMPERATURE
+     * <li>EXHAUST_AIR_TEMPERATURE
+     * <li>DISCHARGE_AIR_TEMPERATURE
+     * <li>ROOM_TEMPERATURE
+     * <li>RELATIVE_HUMIDITY_IN_ROOM
+     * <li>REMAINING_FILTER_LIFE
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -387,5 +419,4 @@ public class CommandClassHrvStatusV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

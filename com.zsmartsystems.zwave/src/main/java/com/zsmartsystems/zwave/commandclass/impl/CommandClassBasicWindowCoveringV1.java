@@ -45,13 +45,12 @@ public class CommandClassBasicWindowCoveringV1 {
      */
     public final static int BASIC_WINDOW_COVERING_STOP_LEVEL_CHANGE = 0x02;
 
-
     /**
      * Map holding constants for BasicWindowCoveringStartLevelChangeLevel
      */
     private static Map<Integer, String> constantBasicWindowCoveringStartLevelChangeLevel = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for BasicWindowCoveringStartLevelChangeLevel
         constantBasicWindowCoveringStartLevelChangeLevel.put(0x40, "OPEN_CLOSE");
     }
@@ -102,7 +101,6 @@ public class CommandClassBasicWindowCoveringV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the BASIC_WINDOW_COVERING_STOP_LEVEL_CHANGE command.
      * <p>
@@ -135,5 +133,4 @@ public class CommandClassBasicWindowCoveringV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

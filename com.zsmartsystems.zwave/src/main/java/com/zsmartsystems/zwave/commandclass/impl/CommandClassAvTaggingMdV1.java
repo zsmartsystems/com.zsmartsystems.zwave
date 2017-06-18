@@ -79,7 +79,6 @@ public class CommandClassAvTaggingMdV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the AV_TAGGING_MD_REPORT command.
      * <p>
@@ -112,5 +111,4 @@ public class CommandClassAvTaggingMdV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

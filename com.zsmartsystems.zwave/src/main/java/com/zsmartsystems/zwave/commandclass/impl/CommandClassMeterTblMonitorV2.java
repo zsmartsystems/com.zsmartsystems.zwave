@@ -100,7 +100,6 @@ public class CommandClassMeterTblMonitorV2 {
      */
     public final static int METER_TBL_HISTORICAL_DATA_REPORT = 0x0F;
 
-
     /**
      * Map holding constants for MeterTblStatusReportProperties1
      */
@@ -115,8 +114,13 @@ public class CommandClassMeterTblMonitorV2 {
      * Map holding constants for MeterTblCurrentDataReportProperties1
      */
     private static Map<Integer, String> constantMeterTblCurrentDataReportProperties1 = new HashMap<Integer, String>();
-    static {
 
+    /**
+     * Map holding constants for MeterTblReportPayMeter
+     */
+    private static Map<Integer, String> constantMeterTblReportPayMeter = new HashMap<Integer, String>();
+
+    static {
         // Constants for MeterTblStatusReportProperties1
         constantMeterTblStatusReportProperties1.put(0x80, "TYPE");
 
@@ -125,6 +129,11 @@ public class CommandClassMeterTblMonitorV2 {
 
         // Constants for MeterTblCurrentDataReportProperties1
         constantMeterTblCurrentDataReportProperties1.put(0x80, "OPERATING_STATUS_INDICATION");
+
+        // Constants for MeterTblReportPayMeter
+        constantMeterTblReportPayMeter.put(0x00, "CREDITMETER");
+        constantMeterTblReportPayMeter.put(0x01, "PREPAYMENT_METER");
+        constantMeterTblReportPayMeter.put(0x02, "PREPAYMENT_METER_DEBT");
     }
 
     /**
@@ -159,7 +168,6 @@ public class CommandClassMeterTblMonitorV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the METER_TBL_TABLE_POINT_ADM_NO_REPORT command.
@@ -226,7 +234,6 @@ public class CommandClassMeterTblMonitorV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the METER_TBL_TABLE_ID_GET command.
      * <p>
@@ -259,7 +266,6 @@ public class CommandClassMeterTblMonitorV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the METER_TBL_TABLE_ID_REPORT command.
@@ -326,7 +332,6 @@ public class CommandClassMeterTblMonitorV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the METER_TBL_TABLE_CAPABILITY_GET command.
      * <p>
@@ -360,7 +365,6 @@ public class CommandClassMeterTblMonitorV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the METER_TBL_REPORT command.
      * <p>
@@ -369,6 +373,13 @@ public class CommandClassMeterTblMonitorV2 {
      * @param meterType {@link Integer}
      * @param rateType {@link Integer}
      * @param payMeter {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>CREDITMETER
+     *            <li>PREPAYMENT_METER
+     *            <li>PREPAYMENT_METER_DEBT
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getMeterTblReport(Integer meterType, Integer rateType, String payMeter) {
@@ -385,21 +396,17 @@ public class CommandClassMeterTblMonitorV2 {
         outputData.write(valProperties1);
 
         // Process 'Properties2'
-        int valpayMeter;
-        switch (payMeter) {
-            case "CREDITMETER":
-                valpayMeter = 1;
+        int varPayMeter = Integer.MAX_VALUE;
+        for (Integer entry : constantMeterTblReportPayMeter.keySet()) {
+            if (constantMeterTblReportPayMeter.get(entry).equals(payMeter)) {
+                varPayMeter = entry;
                 break;
-            case "PREPAYMENT_METER":
-                valpayMeter = 2;
-                break;
-            case "PREPAYMENT_METER_DEBT":
-                valpayMeter = 3;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for payMeter: " + payMeter);
+            }
         }
-        outputData.write(valpayMeter & 0x0F);
+        if (varPayMeter == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + payMeter + "' for payMeter");
+        }
+        outputData.write(varPayMeter & 0x0F);
 
         // Process 'Dataset Supported'
 
@@ -421,6 +428,13 @@ public class CommandClassMeterTblMonitorV2 {
      * <li>METER_TYPE {@link Integer}
      * <li>RATE_TYPE {@link Integer}
      * <li>PAY_METER {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>CREDITMETER
+     * <li>PREPAYMENT_METER
+     * <li>PREPAYMENT_METER_DEBT
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -435,19 +449,7 @@ public class CommandClassMeterTblMonitorV2 {
         response.put("RATE_TYPE", Integer.valueOf(payload[2] & 0xC0 >> 6));
 
         // Process 'Properties2'
-        switch (payload[3] & 0x0F) {
-            case 0x01:
-                response.put("PAY_METER", "CREDITMETER");
-                break;
-            case 0x02:
-                response.put("PAY_METER", "PREPAYMENT_METER");
-                break;
-            case 0x03:
-                response.put("PAY_METER", "PREPAYMENT_METER_DEBT");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for PAY_METER", String.format("0x%02X", 3));
-        }
+        response.put("PAY_METER", constantMeterTblReportPayMeter.get(payload[3] & 0x0F));
 
         // Process 'Dataset Supported'
 
@@ -458,7 +460,6 @@ public class CommandClassMeterTblMonitorV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the METER_TBL_STATUS_SUPPORTED_GET command.
@@ -492,7 +493,6 @@ public class CommandClassMeterTblMonitorV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the METER_TBL_STATUS_SUPPORTED_REPORT command.
@@ -544,7 +544,6 @@ public class CommandClassMeterTblMonitorV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the METER_TBL_STATUS_DEPTH_GET command.
      * <p>
@@ -590,7 +589,6 @@ public class CommandClassMeterTblMonitorV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the METER_TBL_STATUS_DATE_GET command.
@@ -739,7 +737,6 @@ public class CommandClassMeterTblMonitorV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the METER_TBL_STATUS_REPORT command.
      * <p>
@@ -834,7 +831,6 @@ public class CommandClassMeterTblMonitorV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the METER_TBL_CURRENT_DATA_GET command.
      * <p>
@@ -871,7 +867,6 @@ public class CommandClassMeterTblMonitorV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the METER_TBL_CURRENT_DATA_REPORT command.
@@ -1016,7 +1011,6 @@ public class CommandClassMeterTblMonitorV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the METER_TBL_HISTORICAL_DATA_GET command.
@@ -1169,7 +1163,6 @@ public class CommandClassMeterTblMonitorV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the METER_TBL_HISTORICAL_DATA_REPORT command.
      * <p>
@@ -1313,5 +1306,4 @@ public class CommandClassMeterTblMonitorV2 {
         // Return the map of processed response data;
         return response;
     }
-
 }

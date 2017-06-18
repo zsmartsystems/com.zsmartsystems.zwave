@@ -45,13 +45,12 @@ public class CommandClassSensorBinaryV1 {
      */
     public final static int SENSOR_BINARY_REPORT = 0x03;
 
-
     /**
      * Map holding constants for SensorBinaryReportSensorValue
      */
     private static Map<Integer, String> constantSensorBinaryReportSensorValue = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SensorBinaryReportSensorValue
         constantSensorBinaryReportSensorValue.put(0x00, "IDLE");
         constantSensorBinaryReportSensorValue.put(0xFF, "DETECTED_AN_EVENT");
@@ -90,7 +89,6 @@ public class CommandClassSensorBinaryV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SENSOR_BINARY_REPORT command.
      * <p>
@@ -98,6 +96,7 @@ public class CommandClassSensorBinaryV1 {
      *
      * @param sensorValue {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>IDLE
      *            <li>DETECTED_AN_EVENT
@@ -136,6 +135,12 @@ public class CommandClassSensorBinaryV1 {
      *
      * <ul>
      * <li>SENSOR_VALUE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>IDLE
+     * <li>DETECTED_AN_EVENT
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -151,5 +156,4 @@ public class CommandClassSensorBinaryV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

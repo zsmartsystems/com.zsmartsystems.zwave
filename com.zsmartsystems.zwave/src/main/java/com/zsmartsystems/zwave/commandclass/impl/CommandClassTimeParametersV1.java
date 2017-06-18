@@ -138,7 +138,6 @@ public class CommandClassTimeParametersV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the TIME_PARAMETERS_GET command.
      * <p>
@@ -171,7 +170,6 @@ public class CommandClassTimeParametersV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the TIME_PARAMETERS_REPORT command.
@@ -260,5 +258,4 @@ public class CommandClassTimeParametersV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

@@ -84,7 +84,6 @@ public class CommandClassFirmwareUpdateMdV5 {
      */
     public final static int FIRMWARE_UPDATE_MD_PREPARE_REPORT = 0x0B;
 
-
     /**
      * Map holding constants for FirmwareUpdateMdStatusReportStatus
      */
@@ -119,8 +118,8 @@ public class CommandClassFirmwareUpdateMdV5 {
      * Map holding constants for FirmwareUpdateMdGetProperties1
      */
     private static Map<Integer, String> constantFirmwareUpdateMdGetProperties1 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for FirmwareUpdateMdStatusReportStatus
         constantFirmwareUpdateMdStatusReportStatus.put(0xFE, "SUCCESSFULLY_STORED");
         constantFirmwareUpdateMdStatusReportStatus.put(0x00, "UNABLE_TO_RECEIVE_WITHOUT_CHECKSUM_ERROR");
@@ -198,7 +197,6 @@ public class CommandClassFirmwareUpdateMdV5 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the FIRMWARE_MD_REPORT command.
@@ -325,7 +323,6 @@ public class CommandClassFirmwareUpdateMdV5 {
         return response;
     }
 
-
     /**
      * Creates a new message with the FIRMWARE_UPDATE_MD_REQUEST_GET command.
      * <p>
@@ -425,7 +422,6 @@ public class CommandClassFirmwareUpdateMdV5 {
         return response;
     }
 
-
     /**
      * Creates a new message with the FIRMWARE_UPDATE_MD_REQUEST_REPORT command.
      * <p>
@@ -433,6 +429,7 @@ public class CommandClassFirmwareUpdateMdV5 {
      *
      * @param status {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>INVALID_COMBINATION
      *            <li>VALID_COMBINATION
@@ -475,6 +472,16 @@ public class CommandClassFirmwareUpdateMdV5 {
      *
      * <ul>
      * <li>STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>INVALID_COMBINATION
+     * <li>VALID_COMBINATION
+     * <li>REQUIRES_AUTHENTICATION
+     * <li>INVALID_FRAGMENT_SIZE
+     * <li>NOT_UPGRADABLE
+     * <li>INVALID_HARDWARE_VERSION
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -490,7 +497,6 @@ public class CommandClassFirmwareUpdateMdV5 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the FIRMWARE_UPDATE_MD_GET command.
@@ -560,7 +566,6 @@ public class CommandClassFirmwareUpdateMdV5 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the FIRMWARE_UPDATE_MD_REPORT command.
@@ -656,7 +661,6 @@ public class CommandClassFirmwareUpdateMdV5 {
         return response;
     }
 
-
     /**
      * Creates a new message with the FIRMWARE_UPDATE_MD_STATUS_REPORT command.
      * <p>
@@ -664,6 +668,7 @@ public class CommandClassFirmwareUpdateMdV5 {
      *
      * @param status {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>SUCCESSFULLY_STORED
      *            <li>UNABLE_TO_RECEIVE_WITHOUT_CHECKSUM_ERROR
@@ -717,6 +722,22 @@ public class CommandClassFirmwareUpdateMdV5 {
      *
      * <ul>
      * <li>STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>SUCCESSFULLY_STORED
+     * <li>UNABLE_TO_RECEIVE_WITHOUT_CHECKSUM_ERROR
+     * <li>SUCCESSFULLY
+     * <li>UNABLE_TO_RECEIVE
+     * <li>DOES_NOT_MATCH_THE_MANUFACTURER_ID
+     * <li>SUCCESSFULLY_WAITING_FOR_ACTIVATION
+     * <li>DOES_NOT_MATCH_THE_FIRMWARE_ID
+     * <li>DOES_NOT_MATCH_THE_FIRMWARE_TARGET
+     * <li>INVALID_FILE_HEADER_INFORMATION
+     * <li>INVALID_FILE_HEADER_FORMAT
+     * <li>INSUFFICIENT_MEMORY
+     * <li>DOES_NOT_MATCH_THE_HARDWARE_VERSION
+     * </ul>
      * <li>WAITTIME {@link Integer}
      * </ul>
      *
@@ -736,7 +757,6 @@ public class CommandClassFirmwareUpdateMdV5 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the FIRMWARE_UPDATE_ACTIVATION_SET command.
@@ -820,7 +840,6 @@ public class CommandClassFirmwareUpdateMdV5 {
         return response;
     }
 
-
     /**
      * Creates a new message with the FIRMWARE_UPDATE_ACTIVATION_STATUS_REPORT command.
      * <p>
@@ -832,6 +851,7 @@ public class CommandClassFirmwareUpdateMdV5 {
      * @param firmwareTarget {@link Integer}
      * @param firmwareUpdateStatus {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>INVALID_COMBINATION
      *            <li>FIRMWARE_UPDATE_COMPLETED_SUCCESSFULLY
@@ -894,6 +914,13 @@ public class CommandClassFirmwareUpdateMdV5 {
      * <li>CHECKSUM {@link Integer}
      * <li>FIRMWARE_TARGET {@link Integer}
      * <li>FIRMWARE_UPDATE_STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>INVALID_COMBINATION
+     * <li>FIRMWARE_UPDATE_COMPLETED_SUCCESSFULLY
+     * <li>ERROR_ACTIVATING_THE_FIRMWARE
+     * </ul>
      * <li>HARDWARE_VERSION {@link Integer}
      * </ul>
      *
@@ -925,7 +952,6 @@ public class CommandClassFirmwareUpdateMdV5 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the FIRMWARE_UPDATE_MD_PREPARE_GET command.
@@ -1009,7 +1035,6 @@ public class CommandClassFirmwareUpdateMdV5 {
         return response;
     }
 
-
     /**
      * Creates a new message with the FIRMWARE_UPDATE_MD_PREPARE_REPORT command.
      * <p>
@@ -1017,6 +1042,7 @@ public class CommandClassFirmwareUpdateMdV5 {
      *
      * @param status {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>INVALID_COMBINATION
      *            <li>VALID_COMBINATION
@@ -1064,6 +1090,16 @@ public class CommandClassFirmwareUpdateMdV5 {
      *
      * <ul>
      * <li>STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>INVALID_COMBINATION
+     * <li>VALID_COMBINATION
+     * <li>REQUIRES_AUTHENTICATION
+     * <li>INVALID_FRAGMENT_SIZE
+     * <li>NOT_UPGRADABLE
+     * <li>INVALID_HARDWARE_VERSION
+     * </ul>
      * <li>FIRMWARE_CHECKSUM {@link Integer}
      * </ul>
      *
@@ -1083,5 +1119,4 @@ public class CommandClassFirmwareUpdateMdV5 {
         // Return the map of processed response data;
         return response;
     }
-
 }

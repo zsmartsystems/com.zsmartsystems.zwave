@@ -57,6 +57,10 @@ public class CommandClassNetworkManagementProxyV1 {
      */
     public final static int NODE_INFO_CACHED_REPORT = 0x04;
 
+    /**
+     * Map holding constants for NodeInfoCachedReportStatus
+     */
+    private static Map<Integer, String> constantNodeInfoCachedReportStatus = new HashMap<Integer, String>();
 
     /**
      * Map holding constants for NodeInfoCachedReportSecurityScheme0Mark
@@ -77,7 +81,12 @@ public class CommandClassNetworkManagementProxyV1 {
      * Map holding constants for NodeInfoCachedReportProperties2
      */
     private static Map<Integer, String> constantNodeInfoCachedReportProperties2 = new HashMap<Integer, String>();
+
     static {
+        // Constants for NodeInfoCachedReportStatus
+        constantNodeInfoCachedReportStatus.put(0x00, "STATUS_OK");
+        constantNodeInfoCachedReportStatus.put(0x01, "STATUS_NOT_RESPONDING");
+        constantNodeInfoCachedReportStatus.put(0x02, "STATUS_UNKNOWN");
 
         // Constants for NodeInfoCachedReportSecurityScheme0Mark
         constantNodeInfoCachedReportSecurityScheme0Mark.put(0x00, "SECURITY_SCHEME_0_MARK");
@@ -140,7 +149,6 @@ public class CommandClassNetworkManagementProxyV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the NODE_LIST_REPORT command.
      * <p>
@@ -149,6 +157,7 @@ public class CommandClassNetworkManagementProxyV1 {
      * @param seqNo {@link Integer}
      * @param status {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>LATEST
      *            <li>MAY_NOT_BE_THE_LATEST
@@ -210,6 +219,12 @@ public class CommandClassNetworkManagementProxyV1 {
      * <ul>
      * <li>SEQ_NO {@link Integer}
      * <li>STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>LATEST
+     * <li>MAY_NOT_BE_THE_LATEST
+     * </ul>
      * <li>NODE_LIST_CONTROLLER_ID {@link Integer}
      * <li>NODE_LIST_DATA {@link List}<{@link Integer}>
      * </ul>
@@ -243,7 +258,6 @@ public class CommandClassNetworkManagementProxyV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the NODE_INFO_CACHED_GET command.
@@ -312,7 +326,6 @@ public class CommandClassNetworkManagementProxyV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the NODE_INFO_CACHED_REPORT command.
      * <p>
@@ -321,6 +334,13 @@ public class CommandClassNetworkManagementProxyV1 {
      * @param seqNo {@link Integer}
      * @param age {@link Integer}
      * @param status {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>STATUS_OK
+     *            <li>STATUS_NOT_RESPONDING
+     *            <li>STATUS_UNKNOWN
+     *            </ul>
      * @param capability {@link Integer}
      * @param listening {@link Boolean}
      * @param security {@link Integer}
@@ -349,21 +369,17 @@ public class CommandClassNetworkManagementProxyV1 {
         // Process 'Properties1'
         int valProperties1 = 0;
         valProperties1 |= age & 0x0F;
-        int valstatus;
-        switch (status) {
-            case "STATUS_OK":
-                valstatus = 0;
+        int varStatus = Integer.MAX_VALUE;
+        for (Integer entry : constantNodeInfoCachedReportStatus.keySet()) {
+            if (constantNodeInfoCachedReportStatus.get(entry).equals(status)) {
+                varStatus = entry;
                 break;
-            case "STATUS_NOT_RESPONDING":
-                valstatus = 1;
-                break;
-            case "STATUS_UNKNOWN":
-                valstatus = 2;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for status: " + status);
+            }
         }
-        valProperties1 |= valstatus >> 4 & 0xF0;
+        if (varStatus == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + status + "' for status");
+        }
+        valProperties1 |= varStatus << 4 & 0xF0;
         outputData.write(valProperties1);
 
         // Process 'Properties2'
@@ -424,6 +440,13 @@ public class CommandClassNetworkManagementProxyV1 {
      * <li>SEQ_NO {@link Integer}
      * <li>AGE {@link Integer}
      * <li>STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>STATUS_OK
+     * <li>STATUS_NOT_RESPONDING
+     * <li>STATUS_UNKNOWN
+     * </ul>
      * <li>CAPABILITY {@link Integer}
      * <li>LISTENING {@link Boolean}
      * <li>SECURITY {@link Integer}
@@ -452,19 +475,7 @@ public class CommandClassNetworkManagementProxyV1 {
 
         // Process 'Properties1'
         response.put("AGE", Integer.valueOf(payload[msgOffset] & 0x0F));
-        switch ((payload[msgOffset] & 0xF0) >> 4) {
-            case 0x00:
-                response.put("STATUS", "STATUS_OK");
-                break;
-            case 0x01:
-                response.put("STATUS", "STATUS_NOT_RESPONDING");
-                break;
-            case 0x02:
-                response.put("STATUS", "STATUS_UNKNOWN");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for STATUS", String.format("0x%02X", msgOffset));
-        }
+        response.put("STATUS", constantNodeInfoCachedReportStatus.get((payload[msgOffset] & 0xF0) >> 4));
         msgOffset += 1;
 
         // Process 'Properties2'
@@ -519,5 +530,4 @@ public class CommandClassNetworkManagementProxyV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

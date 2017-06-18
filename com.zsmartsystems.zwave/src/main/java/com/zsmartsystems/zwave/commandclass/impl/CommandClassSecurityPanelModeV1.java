@@ -57,7 +57,6 @@ public class CommandClassSecurityPanelModeV1 {
      */
     public final static int SECURITY_PANEL_MODE_SET = 0x05;
 
-
     /**
      * Map holding constants for SecurityPanelModeSetMode
      */
@@ -67,8 +66,8 @@ public class CommandClassSecurityPanelModeV1 {
      * Map holding constants for SecurityPanelModeReportMode
      */
     private static Map<Integer, String> constantSecurityPanelModeReportMode = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SecurityPanelModeSetMode
         constantSecurityPanelModeSetMode.put(0x01, "ARM_HOME");
         constantSecurityPanelModeSetMode.put(0x02, "ARM_AWAY_NO_DELAY");
@@ -117,7 +116,6 @@ public class CommandClassSecurityPanelModeV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SECURITY_PANEL_MODE_SUPPORTED_REPORT command.
      * <p>
@@ -165,7 +163,6 @@ public class CommandClassSecurityPanelModeV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SECURITY_PANEL_MODE_GET command.
      * <p>
@@ -199,7 +196,6 @@ public class CommandClassSecurityPanelModeV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SECURITY_PANEL_MODE_REPORT command.
      * <p>
@@ -207,6 +203,7 @@ public class CommandClassSecurityPanelModeV1 {
      *
      * @param mode {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>ARM_HOME
      *            <li>ARM_AWAY_NO_DELAY
@@ -248,6 +245,15 @@ public class CommandClassSecurityPanelModeV1 {
      *
      * <ul>
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>ARM_HOME
+     * <li>ARM_AWAY_NO_DELAY
+     * <li>ARM_AWAY_DELAYED
+     * <li>DISARM
+     * <li>ALARM_TRIGGER
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -264,7 +270,6 @@ public class CommandClassSecurityPanelModeV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SECURITY_PANEL_MODE_SET command.
      * <p>
@@ -272,6 +277,7 @@ public class CommandClassSecurityPanelModeV1 {
      *
      * @param mode {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>ARM_HOME
      *            <li>ARM_AWAY_NO_DELAY
@@ -313,6 +319,15 @@ public class CommandClassSecurityPanelModeV1 {
      *
      * <ul>
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>ARM_HOME
+     * <li>ARM_AWAY_NO_DELAY
+     * <li>ARM_AWAY_DELAYED
+     * <li>DISARM
+     * <li>ALARM_TRIGGER
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -328,5 +343,4 @@ public class CommandClassSecurityPanelModeV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

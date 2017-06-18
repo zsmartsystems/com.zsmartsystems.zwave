@@ -50,7 +50,6 @@ public class CommandClassSensorConfigurationV1 {
      */
     public final static int SENSOR_TRIGGER_LEVEL_REPORT = 0x03;
 
-
     /**
      * Map holding constants for SensorTriggerLevelSetSensorType
      */
@@ -65,8 +64,8 @@ public class CommandClassSensorConfigurationV1 {
      * Map holding constants for SensorTriggerLevelSetProperties1
      */
     private static Map<Integer, String> constantSensorTriggerLevelSetProperties1 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SensorTriggerLevelSetSensorType
         constantSensorTriggerLevelSetSensorType.put(0x01, "TEMPERATURE");
         constantSensorTriggerLevelSetSensorType.put(0x02, "GENERAL_PURPOSE_VALUE");
@@ -111,6 +110,7 @@ public class CommandClassSensorConfigurationV1 {
      * @param defaultValue {@link Boolean}
      * @param sensorType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>TEMPERATURE
      *            <li>GENERAL_PURPOSE_VALUE
@@ -189,6 +189,23 @@ public class CommandClassSensorConfigurationV1 {
      * <li>CURRENT {@link Boolean}
      * <li>DEFAULT {@link Boolean}
      * <li>SENSOR_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>TEMPERATURE
+     * <li>GENERAL_PURPOSE_VALUE
+     * <li>LUMINANCE
+     * <li>POWER
+     * <li>RELATIVE_HUMIDITY
+     * <li>VELOCITY
+     * <li>DIRECTION
+     * <li>ATMOSPHERIC_PRESSURE
+     * <li>BAROMETRIC_PRESSURE
+     * <li>SOLAR_RADIATION
+     * <li>DEW_POINT
+     * <li>RAIN_RATE
+     * <li>TIDE_LEVEL
+     * </ul>
      * <li>SCALE {@link Integer}
      * <li>PRECISION {@link Integer}
      * <li>TRIGGER_VALUE {@link byte[]}
@@ -232,7 +249,6 @@ public class CommandClassSensorConfigurationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SENSOR_TRIGGER_LEVEL_GET command.
      * <p>
@@ -266,7 +282,6 @@ public class CommandClassSensorConfigurationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SENSOR_TRIGGER_LEVEL_REPORT command.
      * <p>
@@ -274,6 +289,7 @@ public class CommandClassSensorConfigurationV1 {
      *
      * @param sensorType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>TEMPERATURE
      *            <li>GENERAL_PURPOSE_VALUE
@@ -344,6 +360,23 @@ public class CommandClassSensorConfigurationV1 {
      *
      * <ul>
      * <li>SENSOR_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>TEMPERATURE
+     * <li>GENERAL_PURPOSE_VALUE
+     * <li>LUMINANCE
+     * <li>POWER
+     * <li>RELATIVE_HUMIDITY
+     * <li>VELOCITY
+     * <li>DIRECTION
+     * <li>ATMOSPHERIC_PRESSURE
+     * <li>BAROMETRIC_PRESSURE
+     * <li>SOLAR_RADIATION
+     * <li>DEW_POINT
+     * <li>RAIN_RATE
+     * <li>TIDE_LEVEL
+     * </ul>
      * <li>SCALE {@link Integer}
      * <li>PRECISION {@link Integer}
      * <li>TRIGGER_VALUE {@link byte[]}
@@ -381,5 +414,4 @@ public class CommandClassSensorConfigurationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

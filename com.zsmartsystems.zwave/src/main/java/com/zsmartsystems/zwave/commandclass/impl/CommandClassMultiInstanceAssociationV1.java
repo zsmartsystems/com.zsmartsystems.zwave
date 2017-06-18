@@ -64,7 +64,6 @@ public class CommandClassMultiInstanceAssociationV1 {
      */
     public final static int MULTI_INSTANCE_ASSOCIATION_GROUPINGS_REPORT = 0x06;
 
-
     /**
      * Map holding constants for MultiInstanceAssociationReportMarker
      */
@@ -79,8 +78,8 @@ public class CommandClassMultiInstanceAssociationV1 {
      * Map holding constants for MultiInstanceAssociationSetMarker
      */
     private static Map<Integer, String> constantMultiInstanceAssociationSetMarker = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for MultiInstanceAssociationReportMarker
         constantMultiInstanceAssociationReportMarker.put(0x00, "MARKER");
 
@@ -201,7 +200,6 @@ public class CommandClassMultiInstanceAssociationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the MULTI_INSTANCE_ASSOCIATION_GET command.
      * <p>
@@ -247,7 +245,6 @@ public class CommandClassMultiInstanceAssociationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the MULTI_INSTANCE_ASSOCIATION_REPORT command.
@@ -378,7 +375,6 @@ public class CommandClassMultiInstanceAssociationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the MULTI_INSTANCE_ASSOCIATION_REMOVE command.
      * <p>
@@ -489,7 +485,6 @@ public class CommandClassMultiInstanceAssociationV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the MULTI_INSTANCE_ASSOCIATION_GROUPINGS_GET command.
      * <p>
@@ -522,7 +517,6 @@ public class CommandClassMultiInstanceAssociationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the MULTI_INSTANCE_ASSOCIATION_GROUPINGS_REPORT command.
@@ -569,5 +563,4 @@ public class CommandClassMultiInstanceAssociationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

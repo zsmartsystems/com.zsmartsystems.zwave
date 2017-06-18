@@ -96,7 +96,6 @@ public class CommandClassBasicV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the BASIC_GET command.
      * <p>
@@ -129,7 +128,6 @@ public class CommandClassBasicV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the BASIC_REPORT command.
@@ -176,5 +174,4 @@ public class CommandClassBasicV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

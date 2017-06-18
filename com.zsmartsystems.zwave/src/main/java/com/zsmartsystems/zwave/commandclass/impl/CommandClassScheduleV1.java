@@ -75,7 +75,6 @@ public class CommandClassScheduleV1 {
      */
     public final static int SCHEDULE_STATE_REPORT = 0x09;
 
-
     /**
      * Map holding constants for ScheduleStateReportProperties1
      */
@@ -100,8 +99,8 @@ public class CommandClassScheduleV1 {
      * Map holding constants for ScheduleSupportedReportProperties3
      */
     private static Map<Integer, String> constantScheduleSupportedReportProperties3 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for ScheduleStateReportProperties1
         constantScheduleStateReportProperties1.put(0x01, "OVERRIDE");
 
@@ -151,7 +150,6 @@ public class CommandClassScheduleV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SCHEDULE_SUPPORTED_REPORT command.
@@ -268,7 +266,6 @@ public class CommandClassScheduleV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the COMMAND_SCHEDULE_SET command.
@@ -456,7 +453,6 @@ public class CommandClassScheduleV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the COMMAND_SCHEDULE_GET command.
      * <p>
@@ -502,7 +498,6 @@ public class CommandClassScheduleV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the COMMAND_SCHEDULE_REPORT command.
@@ -696,7 +691,6 @@ public class CommandClassScheduleV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SCHEDULE_REMOVE command.
      * <p>
@@ -742,7 +736,6 @@ public class CommandClassScheduleV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SCHEDULE_STATE_SET command.
@@ -798,7 +791,6 @@ public class CommandClassScheduleV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SCHEDULE_STATE_GET command.
      * <p>
@@ -831,7 +823,6 @@ public class CommandClassScheduleV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SCHEDULE_STATE_REPORT command.
@@ -921,5 +912,4 @@ public class CommandClassScheduleV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

@@ -57,7 +57,6 @@ public class CommandClassSwitchMultilevelV1 {
      */
     public final static int SWITCH_MULTILEVEL_STOP_LEVEL_CHANGE = 0x05;
 
-
     /**
      * Map holding constants for SwitchMultilevelStartLevelChangeLevel
      */
@@ -72,8 +71,8 @@ public class CommandClassSwitchMultilevelV1 {
      * Map holding constants for SwitchMultilevelReportValue
      */
     private static Map<Integer, String> constantSwitchMultilevelReportValue = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SwitchMultilevelStartLevelChangeLevel
         constantSwitchMultilevelStartLevelChangeLevel.put(0x20, "IGNORE_START_LEVEL");
         constantSwitchMultilevelStartLevelChangeLevel.put(0x40, "UP_DOWN");
@@ -94,6 +93,7 @@ public class CommandClassSwitchMultilevelV1 {
      *
      * @param value {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF_DISABLE
      *            <li>ON_ENABLE
@@ -132,6 +132,12 @@ public class CommandClassSwitchMultilevelV1 {
      *
      * <ul>
      * <li>VALUE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF_DISABLE
+     * <li>ON_ENABLE
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -147,7 +153,6 @@ public class CommandClassSwitchMultilevelV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SWITCH_MULTILEVEL_GET command.
@@ -182,7 +187,6 @@ public class CommandClassSwitchMultilevelV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SWITCH_MULTILEVEL_REPORT command.
      * <p>
@@ -190,6 +194,7 @@ public class CommandClassSwitchMultilevelV1 {
      *
      * @param value {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF_DISABLE
      *            <li>ON_ENABLE
@@ -228,6 +233,12 @@ public class CommandClassSwitchMultilevelV1 {
      *
      * <ul>
      * <li>VALUE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF_DISABLE
+     * <li>ON_ENABLE
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -243,7 +254,6 @@ public class CommandClassSwitchMultilevelV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SWITCH_MULTILEVEL_START_LEVEL_CHANGE command.
@@ -306,7 +316,6 @@ public class CommandClassSwitchMultilevelV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SWITCH_MULTILEVEL_STOP_LEVEL_CHANGE command.
      * <p>
@@ -339,5 +348,4 @@ public class CommandClassSwitchMultilevelV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

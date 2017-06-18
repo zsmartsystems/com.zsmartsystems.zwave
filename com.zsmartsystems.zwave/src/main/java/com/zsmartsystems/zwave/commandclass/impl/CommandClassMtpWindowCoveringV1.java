@@ -49,7 +49,6 @@ public class CommandClassMtpWindowCoveringV1 {
      */
     public final static int MOVE_TO_POSITION_REPORT = 0x03;
 
-
     /**
      * Map holding constants for MoveToPositionSetValue
      */
@@ -59,8 +58,8 @@ public class CommandClassMtpWindowCoveringV1 {
      * Map holding constants for MoveToPositionReportValue
      */
     private static Map<Integer, String> constantMoveToPositionReportValue = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for MoveToPositionSetValue
         constantMoveToPositionSetValue.put(0x00, "CLOSE");
         constantMoveToPositionSetValue.put(0xFF, "OPEN");
@@ -77,6 +76,7 @@ public class CommandClassMtpWindowCoveringV1 {
      *
      * @param value {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>CLOSE
      *            <li>OPEN
@@ -115,6 +115,12 @@ public class CommandClassMtpWindowCoveringV1 {
      *
      * <ul>
      * <li>VALUE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>CLOSE
+     * <li>OPEN
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -130,7 +136,6 @@ public class CommandClassMtpWindowCoveringV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the MOVE_TO_POSITION_GET command.
@@ -165,7 +170,6 @@ public class CommandClassMtpWindowCoveringV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the MOVE_TO_POSITION_REPORT command.
      * <p>
@@ -173,6 +177,7 @@ public class CommandClassMtpWindowCoveringV1 {
      *
      * @param value {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>CLOSE
      *            <li>OPEN
@@ -211,6 +216,12 @@ public class CommandClassMtpWindowCoveringV1 {
      *
      * <ul>
      * <li>VALUE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>CLOSE
+     * <li>OPEN
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -226,5 +237,4 @@ public class CommandClassMtpWindowCoveringV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

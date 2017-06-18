@@ -71,7 +71,6 @@ public class CommandClassBarrierOperatorV1 {
      */
     public final static int BARRIER_OPERATOR_SIGNAL_REPORT = 0x08;
 
-
     /**
      * Map holding constants for BarrierOperatorSignalSetSubsystemState
      */
@@ -111,8 +110,8 @@ public class CommandClassBarrierOperatorV1 {
      * Map holding constants for BarrierOperatorSignalSetSubsystemType
      */
     private static Map<Integer, String> constantBarrierOperatorSignalSetSubsystemType = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for BarrierOperatorSignalSetSubsystemState
         constantBarrierOperatorSignalSetSubsystemState.put(0x00, "OFF");
         constantBarrierOperatorSignalSetSubsystemState.put(0xFF, "ON");
@@ -160,6 +159,7 @@ public class CommandClassBarrierOperatorV1 {
      *
      * @param targetValue {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>CLOSE
      *            <li>OPEN
@@ -198,6 +198,12 @@ public class CommandClassBarrierOperatorV1 {
      *
      * <ul>
      * <li>TARGET_VALUE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>CLOSE
+     * <li>OPEN
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -213,7 +219,6 @@ public class CommandClassBarrierOperatorV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the BARRIER_OPERATOR_GET command.
@@ -248,7 +253,6 @@ public class CommandClassBarrierOperatorV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the BARRIER_OPERATOR_REPORT command.
      * <p>
@@ -256,6 +260,7 @@ public class CommandClassBarrierOperatorV1 {
      *
      * @param state {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OPENING
      *            <li>CLOSED
@@ -297,6 +302,15 @@ public class CommandClassBarrierOperatorV1 {
      *
      * <ul>
      * <li>STATE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OPENING
+     * <li>CLOSED
+     * <li>OPEN
+     * <li>CLOSING
+     * <li>STOPPED
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -312,7 +326,6 @@ public class CommandClassBarrierOperatorV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the BARRIER_OPERATOR_SIGNAL_SUPPORTED_GET command.
@@ -347,7 +360,6 @@ public class CommandClassBarrierOperatorV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the BARRIER_OPERATOR_SIGNAL_SUPPORTED_REPORT command.
      * <p>
@@ -355,6 +367,7 @@ public class CommandClassBarrierOperatorV1 {
      *
      * @param bitMask {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NOT_SUPPORTED
      *            <li>AUDIBLE_NOTIFICATION
@@ -398,6 +411,13 @@ public class CommandClassBarrierOperatorV1 {
      *
      * <ul>
      * <li>BIT_MASK {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NOT_SUPPORTED
+     * <li>AUDIBLE_NOTIFICATION
+     * <li>VISUAL_NOTIFICATION
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -421,7 +441,6 @@ public class CommandClassBarrierOperatorV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the BARRIER_OPERATOR_SIGNAL_SET command.
      * <p>
@@ -429,6 +448,7 @@ public class CommandClassBarrierOperatorV1 {
      *
      * @param subsystemType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NOT_SUPPORTED
      *            <li>AUDIBLE_NOTIFICATION
@@ -436,6 +456,7 @@ public class CommandClassBarrierOperatorV1 {
      *            </ul>
      * @param subsystemState {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF
      *            <li>ON
@@ -487,7 +508,20 @@ public class CommandClassBarrierOperatorV1 {
      *
      * <ul>
      * <li>SUBSYSTEM_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NOT_SUPPORTED
+     * <li>AUDIBLE_NOTIFICATION
+     * <li>VISUAL_NOTIFICATION
+     * </ul>
      * <li>SUBSYSTEM_STATE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF
+     * <li>ON
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -507,7 +541,6 @@ public class CommandClassBarrierOperatorV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the BARRIER_OPERATOR_SIGNAL_GET command.
      * <p>
@@ -515,6 +548,7 @@ public class CommandClassBarrierOperatorV1 {
      *
      * @param subsystemType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NOT_SUPPORTED
      *            <li>AUDIBLE_NOTIFICATION
@@ -554,6 +588,13 @@ public class CommandClassBarrierOperatorV1 {
      *
      * <ul>
      * <li>SUBSYSTEM_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NOT_SUPPORTED
+     * <li>AUDIBLE_NOTIFICATION
+     * <li>VISUAL_NOTIFICATION
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -570,7 +611,6 @@ public class CommandClassBarrierOperatorV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the BARRIER_OPERATOR_SIGNAL_REPORT command.
      * <p>
@@ -578,6 +618,7 @@ public class CommandClassBarrierOperatorV1 {
      *
      * @param subsystemType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NOT_SUPPORTED
      *            <li>AUDIBLE_NOTIFICATION
@@ -585,6 +626,7 @@ public class CommandClassBarrierOperatorV1 {
      *            </ul>
      * @param subsystemState {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>OFF
      *            <li>ON
@@ -636,7 +678,20 @@ public class CommandClassBarrierOperatorV1 {
      *
      * <ul>
      * <li>SUBSYSTEM_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NOT_SUPPORTED
+     * <li>AUDIBLE_NOTIFICATION
+     * <li>VISUAL_NOTIFICATION
+     * </ul>
      * <li>SUBSYSTEM_STATE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>OFF
+     * <li>ON
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -655,5 +710,4 @@ public class CommandClassBarrierOperatorV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

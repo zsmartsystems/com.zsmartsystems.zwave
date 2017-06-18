@@ -67,13 +67,12 @@ public class CommandClassSwitchColorV2 {
      */
     public final static int SWITCH_COLOR_STOP_LEVEL_CHANGE = 0x07;
 
-
     /**
      * Map holding constants for SwitchColorStartLevelChangeProperties1
      */
     private static Map<Integer, String> constantSwitchColorStartLevelChangeProperties1 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SwitchColorStartLevelChangeProperties1
         constantSwitchColorStartLevelChangeProperties1.put(0x20, "IGNORE_START_STATE");
         constantSwitchColorStartLevelChangeProperties1.put(0x40, "UP_DOWN");
@@ -112,7 +111,6 @@ public class CommandClassSwitchColorV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SWITCH_COLOR_SUPPORTED_REPORT command.
@@ -161,7 +159,6 @@ public class CommandClassSwitchColorV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SWITCH_COLOR_GET command.
      * <p>
@@ -207,7 +204,6 @@ public class CommandClassSwitchColorV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SWITCH_COLOR_REPORT command.
@@ -262,7 +258,6 @@ public class CommandClassSwitchColorV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SWITCH_COLOR_SET command.
@@ -346,7 +341,6 @@ public class CommandClassSwitchColorV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SWITCH_COLOR_START_LEVEL_CHANGE command.
      * <p>
@@ -424,7 +418,6 @@ public class CommandClassSwitchColorV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SWITCH_COLOR_STOP_LEVEL_CHANGE command.
      * <p>
@@ -470,5 +463,4 @@ public class CommandClassSwitchColorV2 {
         // Return the map of processed response data;
         return response;
     }
-
 }

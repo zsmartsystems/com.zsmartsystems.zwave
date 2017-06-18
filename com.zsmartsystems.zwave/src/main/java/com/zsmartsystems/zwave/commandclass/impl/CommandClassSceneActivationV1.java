@@ -41,13 +41,12 @@ public class CommandClassSceneActivationV1 {
      */
     public final static int SCENE_ACTIVATION_SET = 0x01;
 
-
     /**
      * Map holding constants for SceneActivationSetDimmingDuration
      */
     private static Map<Integer, String> constantSceneActivationSetDimmingDuration = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for SceneActivationSetDimmingDuration
         constantSceneActivationSetDimmingDuration.put(0x00, "INSTANTLY");
         constantSceneActivationSetDimmingDuration.put(0xFF, "CONFIGURED_DIMMING_DURATION");
@@ -61,6 +60,7 @@ public class CommandClassSceneActivationV1 {
      * @param sceneId {@link Integer}
      * @param dimmingDuration {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>INSTANTLY
      *            <li>CONFIGURED_DIMMING_DURATION
@@ -103,6 +103,12 @@ public class CommandClassSceneActivationV1 {
      * <ul>
      * <li>SCENE_ID {@link Integer}
      * <li>DIMMING_DURATION {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>INSTANTLY
+     * <li>CONFIGURED_DIMMING_DURATION
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -121,5 +127,4 @@ public class CommandClassSceneActivationV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

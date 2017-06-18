@@ -63,7 +63,6 @@ public class CommandClassNetworkManagementInstallationMaintenanceV1 {
      */
     public final static int STATISTICS_CLEAR = 0x06;
 
-
     /**
      * Map holding constants for LastWorkingRouteSetSpeed
      */
@@ -78,8 +77,8 @@ public class CommandClassNetworkManagementInstallationMaintenanceV1 {
      * Map holding constants for LastWorkingRouteReportSpeed
      */
     private static Map<Integer, String> constantLastWorkingRouteReportSpeed = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for LastWorkingRouteSetSpeed
         constantLastWorkingRouteSetSpeed.put(0x01, "9_6_KBIT_SEC");
         constantLastWorkingRouteSetSpeed.put(0x02, "40_KBIT_SEC");
@@ -111,6 +110,7 @@ public class CommandClassNetworkManagementInstallationMaintenanceV1 {
      * @param repeater4 {@link Integer}
      * @param speed {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>9_6_KBIT_SEC
      *            <li>40_KBIT_SEC
@@ -196,6 +196,13 @@ public class CommandClassNetworkManagementInstallationMaintenanceV1 {
      * <li>REPEATER_3 {@link Integer}
      * <li>REPEATER_4 {@link Integer}
      * <li>SPEED {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>9_6_KBIT_SEC
+     * <li>40_KBIT_SEC
+     * <li>100_KBIT_SEC
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -226,7 +233,6 @@ public class CommandClassNetworkManagementInstallationMaintenanceV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the LAST_WORKING_ROUTE_GET command.
@@ -279,7 +285,6 @@ public class CommandClassNetworkManagementInstallationMaintenanceV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the LAST_WORKING_ROUTE_REPORT command.
      * <p>
@@ -292,6 +297,7 @@ public class CommandClassNetworkManagementInstallationMaintenanceV1 {
      * @param repeater4 {@link Integer}
      * @param speed {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>9_6_KBIT_SEC
      *            <li>40_KBIT_SEC
@@ -377,6 +383,13 @@ public class CommandClassNetworkManagementInstallationMaintenanceV1 {
      * <li>REPEATER_3 {@link Integer}
      * <li>REPEATER_4 {@link Integer}
      * <li>SPEED {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>9_6_KBIT_SEC
+     * <li>40_KBIT_SEC
+     * <li>100_KBIT_SEC
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -407,7 +420,6 @@ public class CommandClassNetworkManagementInstallationMaintenanceV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the STATISTICS_GET command.
@@ -459,7 +471,6 @@ public class CommandClassNetworkManagementInstallationMaintenanceV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the STATISTICS_REPORT command.
@@ -550,7 +561,6 @@ public class CommandClassNetworkManagementInstallationMaintenanceV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the STATISTICS_CLEAR command.
      * <p>
@@ -583,5 +593,4 @@ public class CommandClassNetworkManagementInstallationMaintenanceV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

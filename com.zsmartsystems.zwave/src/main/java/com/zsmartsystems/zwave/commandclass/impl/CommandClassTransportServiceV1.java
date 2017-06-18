@@ -48,15 +48,6 @@ public class CommandClassTransportServiceV1 {
 
 
     /**
-     * Map holding constants for CommandSubsequentFragmentProperties2
-     */
-    private static Map<Integer, String> constantCommandSubsequentFragmentProperties2 = new HashMap<Integer, String>();
-    static {
-
-        // Constants for CommandSubsequentFragmentProperties2
-    }
-
-    /**
      * Creates a new message with the COMMAND_FIRST_FRAGMENT command.
      * <p>
      * First Fragment
@@ -152,7 +143,6 @@ public class CommandClassTransportServiceV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the COMMAND_SUBSEQUENT_FRAGMENT command.
@@ -265,5 +255,4 @@ public class CommandClassTransportServiceV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

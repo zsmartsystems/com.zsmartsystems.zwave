@@ -134,7 +134,6 @@ public class CommandClassZip6lowpanV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the LOWPAN_SUBSEQUENT_FRAGMENT command.
      * <p>
@@ -230,5 +229,4 @@ public class CommandClassZip6lowpanV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

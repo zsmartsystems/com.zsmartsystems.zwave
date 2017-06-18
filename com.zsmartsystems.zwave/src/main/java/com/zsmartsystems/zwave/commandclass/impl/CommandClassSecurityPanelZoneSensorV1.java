@@ -108,7 +108,6 @@ public class CommandClassSecurityPanelZoneSensorV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the COMMAND_CLASS_SECURITY_PANEL_ZONE_SENSOR_INSTALLED_REPORT command.
      * <p>
@@ -164,7 +163,6 @@ public class CommandClassSecurityPanelZoneSensorV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SECURITY_PANEL_ZONE_SENSOR_TYPE_GET command.
      * <p>
@@ -218,7 +216,6 @@ public class CommandClassSecurityPanelZoneSensorV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SECURITY_PANEL_ZONE_SENSOR_TYPE_REPORT command.
@@ -283,7 +280,6 @@ public class CommandClassSecurityPanelZoneSensorV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SECURITY_PANEL_ZONE_SENSOR_STATE_GET command.
      * <p>
@@ -337,7 +333,6 @@ public class CommandClassSecurityPanelZoneSensorV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the SECURITY_PANEL_ZONE_SENSOR_STATE_REPORT command.
@@ -417,5 +412,4 @@ public class CommandClassSecurityPanelZoneSensorV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

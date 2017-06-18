@@ -79,7 +79,6 @@ public class CommandClassScreenAttributesV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the SCREEN_ATTRIBUTES_REPORT command.
      * <p>
@@ -150,5 +149,4 @@ public class CommandClassScreenAttributesV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

@@ -73,7 +73,6 @@ public class CommandClassEntryControlV1 {
      */
     public final static int ENTRY_CONTROL_CONFIGURATION_REPORT = 0x08;
 
-
     /**
      * Map holding constants for EntryControlNotificationEventType
      */
@@ -88,8 +87,13 @@ public class CommandClassEntryControlV1 {
      * Map holding constants for EntryControlEventSupportedReportEventTypeSupportedBitMask
      */
     private static Map<Integer, String> constantEntryControlEventSupportedReportEventTypeSupportedBitMask = new HashMap<Integer, String>();
-    static {
 
+    /**
+     * Map holding constants for EntryControlNotificationDataType
+     */
+    private static Map<Integer, String> constantEntryControlNotificationDataType = new HashMap<Integer, String>();
+
+    static {
         // Constants for EntryControlNotificationEventType
         constantEntryControlNotificationEventType.put(0x00, "CACHING");
         constantEntryControlNotificationEventType.put(0x01, "CACHED_KEYS");
@@ -151,6 +155,12 @@ public class CommandClassEntryControlV1 {
         constantEntryControlEventSupportedReportEventTypeSupportedBitMask.put(0x16, "LOCK");
         constantEntryControlEventSupportedReportEventTypeSupportedBitMask.put(0x19, "CANCEL");
         constantEntryControlEventSupportedReportEventTypeSupportedBitMask.put(0x18, "TEST");
+
+        // Constants for EntryControlNotificationDataType
+        constantEntryControlNotificationDataType.put(0x00, "NA");
+        constantEntryControlNotificationDataType.put(0x01, "RAW");
+        constantEntryControlNotificationDataType.put(0x02, "ASCII");
+        constantEntryControlNotificationDataType.put(0x03, "MD5");
     }
 
     /**
@@ -160,8 +170,17 @@ public class CommandClassEntryControlV1 {
      *
      * @param sequenceNumber {@link Integer}
      * @param dataType {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>NA
+     *            <li>RAW
+     *            <li>ASCII
+     *            <li>MD5
+     *            </ul>
      * @param eventType {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>CACHING
      *            <li>CACHED_KEYS
@@ -206,24 +225,17 @@ public class CommandClassEntryControlV1 {
         outputData.write(sequenceNumber);
 
         // Process 'Properties1'
-        int valdataType;
-        switch (dataType) {
-            case "NA":
-                valdataType = 0;
+        int varDataType = Integer.MAX_VALUE;
+        for (Integer entry : constantEntryControlNotificationDataType.keySet()) {
+            if (constantEntryControlNotificationDataType.get(entry).equals(dataType)) {
+                varDataType = entry;
                 break;
-            case "RAW":
-                valdataType = 1;
-                break;
-            case "ASCII":
-                valdataType = 2;
-                break;
-            case "MD5":
-                valdataType = 3;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for dataType: " + dataType);
+            }
         }
-        outputData.write(valdataType & 0x03);
+        if (varDataType == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + dataType + "' for dataType");
+        }
+        outputData.write(varDataType & 0x03);
 
         // Process 'Event Type'
         boolean foundEventType = false;
@@ -262,7 +274,45 @@ public class CommandClassEntryControlV1 {
      * <ul>
      * <li>SEQUENCE_NUMBER {@link Integer}
      * <li>DATA_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NA
+     * <li>RAW
+     * <li>ASCII
+     * <li>MD5
+     * </ul>
      * <li>EVENT_TYPE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>CACHING
+     * <li>CACHED_KEYS
+     * <li>ENTER
+     * <li>DISARM_ALL
+     * <li>ARM_ALL
+     * <li>ARM_AWAY
+     * <li>ARM_HOME
+     * <li>EXIT_DELAY
+     * <li>ARM_1
+     * <li>ARM_2
+     * <li>ARM_3
+     * <li>ARM_4
+     * <li>ARM_5
+     * <li>ARM_6
+     * <li>RFID
+     * <li>BELL
+     * <li>POLICE
+     * <li>FIRE
+     * <li>ALERT_MEDICAL
+     * <li>ALERT_PANIC
+     * <li>GATE_CLOSE
+     * <li>GATE_OPEN
+     * <li>UNLOCK
+     * <li>LOCK
+     * <li>CANCEL
+     * <li>TEST
+     * </ul>
      * <li>EVENT_DATA_LENGTH {@link Integer}
      * <li>EVENT_DATA {@link byte[]}
      * </ul>
@@ -282,22 +332,7 @@ public class CommandClassEntryControlV1 {
         msgOffset += 1;
 
         // Process 'Properties1'
-        switch (payload[msgOffset] & 0x03) {
-            case 0x00:
-                response.put("DATA_TYPE", "NA");
-                break;
-            case 0x01:
-                response.put("DATA_TYPE", "RAW");
-                break;
-            case 0x02:
-                response.put("DATA_TYPE", "ASCII");
-                break;
-            case 0x03:
-                response.put("DATA_TYPE", "MD5");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for DATA_TYPE", String.format("0x%02X", msgOffset));
-        }
+        response.put("DATA_TYPE", constantEntryControlNotificationDataType.get(payload[msgOffset] & 0x03));
         msgOffset += 1;
 
         // Process 'Event Type'
@@ -320,7 +355,6 @@ public class CommandClassEntryControlV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the ENTRY_CONTROL_KEY_SUPPORTED_GET command.
@@ -354,7 +388,6 @@ public class CommandClassEntryControlV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the ENTRY_CONTROL_KEY_SUPPORTED_REPORT command.
@@ -429,7 +462,6 @@ public class CommandClassEntryControlV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ENTRY_CONTROL_EVENT_SUPPORTED_GET command.
      * <p>
@@ -463,7 +495,6 @@ public class CommandClassEntryControlV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ENTRY_CONTROL_EVENT_SUPPORTED_REPORT command.
      * <p>
@@ -471,6 +502,7 @@ public class CommandClassEntryControlV1 {
      *
      * @param dataTypeSupportedBitMask {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>NA
      *            <li>RAW
@@ -479,6 +511,7 @@ public class CommandClassEntryControlV1 {
      *            </ul>
      * @param eventTypeSupportedBitMask {@link List<String>}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>CACHING
      *            <li>CACHED_KEYS
@@ -587,7 +620,45 @@ public class CommandClassEntryControlV1 {
      *
      * <ul>
      * <li>DATA_TYPE_SUPPORTED_BIT_MASK {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>NA
+     * <li>RAW
+     * <li>ASCII
+     * <li>MD5
+     * </ul>
      * <li>EVENT_TYPE_SUPPORTED_BIT_MASK {@link List}<{@link String}>
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>CACHING
+     * <li>CACHED_KEYS
+     * <li>ENTER
+     * <li>DISARM_ALL
+     * <li>ARM_ALL
+     * <li>ARM_AWAY
+     * <li>ARM_HOME
+     * <li>EXIT_DELAY
+     * <li>ARM_1
+     * <li>ARM_2
+     * <li>ARM_3
+     * <li>ARM_4
+     * <li>ARM_5
+     * <li>ARM_6
+     * <li>RFID
+     * <li>BELL
+     * <li>POLICE
+     * <li>FIRE
+     * <li>ALERT_MEDICAL
+     * <li>ALERT_PANIC
+     * <li>GATE_CLOSE
+     * <li>GATE_OPEN
+     * <li>UNLOCK
+     * <li>LOCK
+     * <li>CANCEL
+     * <li>TEST
+     * </ul>
      * <li>KEY_CACHED_SIZE_SUPPORTED_MINIMUM {@link Integer}
      * <li>KEY_CACHED_SIZE_SUPPORTED_MAXIMUM {@link Integer}
      * <li>KEY_CACHED_TIMEOUT_SUPPORTED_MINIMUM {@link Integer}
@@ -645,7 +716,6 @@ public class CommandClassEntryControlV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ENTRY_CONTROL_CONFIGURATION_SET command.
      * <p>
@@ -700,7 +770,6 @@ public class CommandClassEntryControlV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the ENTRY_CONTROL_CONFIGURATION_GET command.
      * <p>
@@ -733,7 +802,6 @@ public class CommandClassEntryControlV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the ENTRY_CONTROL_CONFIGURATION_REPORT command.
@@ -788,5 +856,4 @@ public class CommandClassEntryControlV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

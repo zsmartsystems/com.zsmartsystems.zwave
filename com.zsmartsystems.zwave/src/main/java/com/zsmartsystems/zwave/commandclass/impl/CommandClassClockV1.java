@@ -110,7 +110,6 @@ public class CommandClassClockV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the CLOCK_GET command.
      * <p>
@@ -143,7 +142,6 @@ public class CommandClassClockV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the CLOCK_REPORT command.
@@ -204,5 +202,4 @@ public class CommandClassClockV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

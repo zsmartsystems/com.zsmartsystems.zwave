@@ -49,7 +49,6 @@ public class CommandClassLockV1 {
      */
     public final static int LOCK_REPORT = 0x03;
 
-
     /**
      * Map holding constants for LockReportLockState
      */
@@ -59,8 +58,8 @@ public class CommandClassLockV1 {
      * Map holding constants for LockSetLockState
      */
     private static Map<Integer, String> constantLockSetLockState = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for LockReportLockState
         constantLockReportLockState.put(0x00, "UNLOCKED");
         constantLockReportLockState.put(0x01, "LOCKED");
@@ -77,6 +76,7 @@ public class CommandClassLockV1 {
      *
      * @param lockState {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>UNLOCKED
      *            <li>LOCKED
@@ -115,6 +115,12 @@ public class CommandClassLockV1 {
      *
      * <ul>
      * <li>LOCK_STATE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>UNLOCKED
+     * <li>LOCKED
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -130,7 +136,6 @@ public class CommandClassLockV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the LOCK_GET command.
@@ -165,7 +170,6 @@ public class CommandClassLockV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the LOCK_REPORT command.
      * <p>
@@ -173,6 +177,7 @@ public class CommandClassLockV1 {
      *
      * @param lockState {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>UNLOCKED
      *            <li>LOCKED
@@ -211,6 +216,12 @@ public class CommandClassLockV1 {
      *
      * <ul>
      * <li>LOCK_STATE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>UNLOCKED
+     * <li>LOCKED
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -226,5 +237,4 @@ public class CommandClassLockV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

@@ -87,7 +87,6 @@ public class CommandClassVersionV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the VERSION_REPORT command.
      * <p>
@@ -167,7 +166,6 @@ public class CommandClassVersionV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the VERSION_COMMAND_CLASS_GET command.
      * <p>
@@ -213,7 +211,6 @@ public class CommandClassVersionV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the VERSION_COMMAND_CLASS_REPORT command.
@@ -268,5 +265,4 @@ public class CommandClassVersionV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

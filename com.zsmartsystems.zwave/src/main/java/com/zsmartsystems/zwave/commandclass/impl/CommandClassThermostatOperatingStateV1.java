@@ -45,6 +45,21 @@ public class CommandClassThermostatOperatingStateV1 {
      */
     public final static int THERMOSTAT_OPERATING_STATE_REPORT = 0x03;
 
+    /**
+     * Map holding constants for ThermostatOperatingStateReportOperatingState
+     */
+    private static Map<Integer, String> constantThermostatOperatingStateReportOperatingState = new HashMap<Integer, String>();
+
+    static {
+        // Constants for ThermostatOperatingStateReportOperatingState
+        constantThermostatOperatingStateReportOperatingState.put(0x00, "IDLE");
+        constantThermostatOperatingStateReportOperatingState.put(0x01, "HEATING");
+        constantThermostatOperatingStateReportOperatingState.put(0x02, "COOLING");
+        constantThermostatOperatingStateReportOperatingState.put(0x03, "FAN_ONLY");
+        constantThermostatOperatingStateReportOperatingState.put(0x04, "PENDING_HEAT");
+        constantThermostatOperatingStateReportOperatingState.put(0x05, "PENDING_COOL");
+        constantThermostatOperatingStateReportOperatingState.put(0x06, "VENT_ECONOMIZER");
+    }
 
     /**
      * Creates a new message with the THERMOSTAT_OPERATING_STATE_GET command.
@@ -79,13 +94,23 @@ public class CommandClassThermostatOperatingStateV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the THERMOSTAT_OPERATING_STATE_REPORT command.
      * <p>
      * Thermostat Operating State Report
      *
      * @param operatingState {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>IDLE
+     *            <li>HEATING
+     *            <li>COOLING
+     *            <li>FAN_ONLY
+     *            <li>PENDING_HEAT
+     *            <li>PENDING_COOL
+     *            <li>VENT_ECONOMIZER
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getThermostatOperatingStateReport(String operatingState) {
@@ -96,33 +121,17 @@ public class CommandClassThermostatOperatingStateV1 {
         outputData.write(THERMOSTAT_OPERATING_STATE_REPORT);
 
         // Process 'Level'
-        int valoperatingState;
-        switch (operatingState) {
-            case "IDLE":
-                valoperatingState = 0;
+        int varOperatingState = Integer.MAX_VALUE;
+        for (Integer entry : constantThermostatOperatingStateReportOperatingState.keySet()) {
+            if (constantThermostatOperatingStateReportOperatingState.get(entry).equals(operatingState)) {
+                varOperatingState = entry;
                 break;
-            case "HEATING":
-                valoperatingState = 1;
-                break;
-            case "COOLING":
-                valoperatingState = 2;
-                break;
-            case "FAN_ONLY":
-                valoperatingState = 3;
-                break;
-            case "PENDING_HEAT":
-                valoperatingState = 4;
-                break;
-            case "PENDING_COOL":
-                valoperatingState = 5;
-                break;
-            case "VENT_ECONOMIZER":
-                valoperatingState = 6;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for operatingState: " + operatingState);
+            }
         }
-        outputData.write(valoperatingState & 0x0F);
+        if (varOperatingState == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + operatingState + "' for operatingState");
+        }
+        outputData.write(varOperatingState & 0x0F);
 
         return outputData.toByteArray();
     }
@@ -136,6 +145,17 @@ public class CommandClassThermostatOperatingStateV1 {
      *
      * <ul>
      * <li>OPERATING_STATE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>IDLE
+     * <li>HEATING
+     * <li>COOLING
+     * <li>FAN_ONLY
+     * <li>PENDING_HEAT
+     * <li>PENDING_COOL
+     * <li>VENT_ECONOMIZER
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -146,34 +166,9 @@ public class CommandClassThermostatOperatingStateV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        switch (payload[2] & 0x0F) {
-            case 0x00:
-                response.put("OPERATING_STATE", "IDLE");
-                break;
-            case 0x01:
-                response.put("OPERATING_STATE", "HEATING");
-                break;
-            case 0x02:
-                response.put("OPERATING_STATE", "COOLING");
-                break;
-            case 0x03:
-                response.put("OPERATING_STATE", "FAN_ONLY");
-                break;
-            case 0x04:
-                response.put("OPERATING_STATE", "PENDING_HEAT");
-                break;
-            case 0x05:
-                response.put("OPERATING_STATE", "PENDING_COOL");
-                break;
-            case 0x06:
-                response.put("OPERATING_STATE", "VENT_ECONOMIZER");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for OPERATING_STATE", String.format("0x%02X", 2));
-        }
+        response.put("OPERATING_STATE", constantThermostatOperatingStateReportOperatingState.get(payload[2] & 0x0F));
 
         // Return the map of processed response data;
         return response;
     }
-
 }

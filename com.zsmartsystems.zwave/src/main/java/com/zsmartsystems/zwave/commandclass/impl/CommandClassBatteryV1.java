@@ -45,13 +45,12 @@ public class CommandClassBatteryV1 {
      */
     public final static int BATTERY_REPORT = 0x03;
 
-
     /**
      * Map holding constants for BatteryReportBatteryLevel
      */
     private static Map<Integer, String> constantBatteryReportBatteryLevel = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for BatteryReportBatteryLevel
         constantBatteryReportBatteryLevel.put(0xFF, "BATTERY_LOW_WARNING");
     }
@@ -89,7 +88,6 @@ public class CommandClassBatteryV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the BATTERY_REPORT command.
      * <p>
@@ -97,6 +95,7 @@ public class CommandClassBatteryV1 {
      *
      * @param batteryLevel {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>BATTERY_LOW_WARNING
      *            </ul>
@@ -134,6 +133,11 @@ public class CommandClassBatteryV1 {
      *
      * <ul>
      * <li>BATTERY_LEVEL {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>BATTERY_LOW_WARNING
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -149,5 +153,4 @@ public class CommandClassBatteryV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

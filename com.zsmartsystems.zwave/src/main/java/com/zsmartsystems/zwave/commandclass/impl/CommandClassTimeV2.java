@@ -65,7 +65,6 @@ public class CommandClassTimeV2 {
      */
     public final static int TIME_OFFSET_REPORT = 0x07;
 
-
     /**
      * Map holding constants for TimeOffsetSetLevel
      */
@@ -90,8 +89,8 @@ public class CommandClassTimeV2 {
      * Map holding constants for TimeReportHourLocalTime
      */
     private static Map<Integer, String> constantTimeReportHourLocalTime = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for TimeOffsetSetLevel
         constantTimeOffsetSetLevel.put(0x80, "SIGN_TZO");
 
@@ -141,7 +140,6 @@ public class CommandClassTimeV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the TIME_REPORT command.
      * <p>
@@ -149,6 +147,7 @@ public class CommandClassTimeV2 {
      *
      * @param hourLocalTime {@link Integer}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>RTC_FAILURE
      *            </ul>
@@ -189,6 +188,11 @@ public class CommandClassTimeV2 {
      *
      * <ul>
      * <li>HOUR_LOCAL_TIME {@link Integer}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>RTC_FAILURE
+     * </ul>
      * <li>RTC_FAILURE {@link Boolean}
      * <li>MINUTE_LOCAL_TIME {@link Integer}
      * <li>SECOND_LOCAL_TIME {@link Integer}
@@ -214,7 +218,6 @@ public class CommandClassTimeV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the DATE_GET command.
@@ -248,7 +251,6 @@ public class CommandClassTimeV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the DATE_REPORT command.
@@ -312,7 +314,6 @@ public class CommandClassTimeV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the TIME_OFFSET_SET command.
@@ -438,7 +439,6 @@ public class CommandClassTimeV2 {
         return response;
     }
 
-
     /**
      * Creates a new message with the TIME_OFFSET_GET command.
      * <p>
@@ -471,7 +471,6 @@ public class CommandClassTimeV2 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the TIME_OFFSET_REPORT command.
@@ -596,5 +595,4 @@ public class CommandClassTimeV2 {
         // Return the map of processed response data;
         return response;
     }
-
 }

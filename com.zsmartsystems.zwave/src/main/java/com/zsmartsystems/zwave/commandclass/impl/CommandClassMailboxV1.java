@@ -63,15 +63,57 @@ public class CommandClassMailboxV1 {
      */
     public final static int MAILBOX_NODE_FAILING = 0x06;
 
+    /**
+     * Map holding constants for MailboxQueueMode
+     */
+    private static Map<Integer, String> constantMailboxQueueMode = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for MailboxConfigurationReportMode
+     */
+    private static Map<Integer, String> constantMailboxConfigurationReportMode = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for MailboxConfigurationReportSupportedModes
+     */
+    private static Map<Integer, String> constantMailboxConfigurationReportSupportedModes = new HashMap<Integer, String>();
 
     /**
      * Map holding constants for MailboxQueueProperties1
      */
     private static Map<Integer, String> constantMailboxQueueProperties1 = new HashMap<Integer, String>();
+
+    /**
+     * Map holding constants for MailboxConfigurationSetMode
+     */
+    private static Map<Integer, String> constantMailboxConfigurationSetMode = new HashMap<Integer, String>();
+
     static {
+        // Constants for MailboxQueueMode
+        constantMailboxQueueMode.put(0x00, "PUSH");
+        constantMailboxQueueMode.put(0x01, "POP");
+        constantMailboxQueueMode.put(0x02, "WAITING");
+        constantMailboxQueueMode.put(0x03, "PING");
+        constantMailboxQueueMode.put(0x04, "ACK");
+        constantMailboxQueueMode.put(0x05, "NACK");
+        constantMailboxQueueMode.put(0x06, "QUEUE_FULL");
+
+        // Constants for MailboxConfigurationReportMode
+        constantMailboxConfigurationReportMode.put(0x00, "DISABLE");
+        constantMailboxConfigurationReportMode.put(0x01, "ENABLE_MAILBOX_SERVICE");
+        constantMailboxConfigurationReportMode.put(0x02, "ENABLE_MAILBOX_PROXY");
+
+        // Constants for MailboxConfigurationReportSupportedModes
+        constantMailboxConfigurationReportSupportedModes.put(0x00, "MAILBOX_SERVICE_SUPPORTED");
+        constantMailboxConfigurationReportSupportedModes.put(0x01, "MAILBOX_PROXY_SUPPORTED");
 
         // Constants for MailboxQueueProperties1
         constantMailboxQueueProperties1.put(0x04, "LAST");
+
+        // Constants for MailboxConfigurationSetMode
+        constantMailboxConfigurationSetMode.put(0x00, "DISABLE");
+        constantMailboxConfigurationSetMode.put(0x01, "ENABLE_MAILBOX_SERVICE");
+        constantMailboxConfigurationSetMode.put(0x02, "ENABLE_MAILBOX_PROXY");
     }
 
     /**
@@ -107,13 +149,19 @@ public class CommandClassMailboxV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the MAILBOX_CONFIGURATION_SET command.
      * <p>
      * Mailbox Configuration Set
      *
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>DISABLE
+     *            <li>ENABLE_MAILBOX_SERVICE
+     *            <li>ENABLE_MAILBOX_PROXY
+     *            </ul>
      * @param forwardingDestinationIpv6Address {@link byte[]}
      * @param udpPortNumber {@link Integer}
      * @return the {@link byte[]} array with the command to send
@@ -127,21 +175,17 @@ public class CommandClassMailboxV1 {
         outputData.write(MAILBOX_CONFIGURATION_SET);
 
         // Process 'Properties1'
-        int valmode;
-        switch (mode) {
-            case "DISABLE":
-                valmode = 0;
+        int varMode = Integer.MAX_VALUE;
+        for (Integer entry : constantMailboxConfigurationSetMode.keySet()) {
+            if (constantMailboxConfigurationSetMode.get(entry).equals(mode)) {
+                varMode = entry;
                 break;
-            case "ENABLE_MAILBOX_SERVICE":
-                valmode = 1;
-                break;
-            case "ENABLE_MAILBOX_PROXY":
-                valmode = 2;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for mode: " + mode);
+            }
         }
-        outputData.write(valmode & 0x07);
+        if (varMode == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + mode + "' for mode");
+        }
+        outputData.write(varMode & 0x07);
 
         // Process 'Forwarding Destination IPv6 Address'
         if (forwardingDestinationIpv6Address != null) {
@@ -170,6 +214,13 @@ public class CommandClassMailboxV1 {
      *
      * <ul>
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>DISABLE
+     * <li>ENABLE_MAILBOX_SERVICE
+     * <li>ENABLE_MAILBOX_PROXY
+     * </ul>
      * <li>FORWARDING_DESTINATION_IPV6_ADDRESS {@link byte[]}
      * <li>UDP_PORT_NUMBER {@link Integer}
      * </ul>
@@ -182,19 +233,7 @@ public class CommandClassMailboxV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch (payload[2] & 0x07) {
-            case 0x00:
-                response.put("MODE", "DISABLE");
-                break;
-            case 0x01:
-                response.put("MODE", "ENABLE_MAILBOX_SERVICE");
-                break;
-            case 0x02:
-                response.put("MODE", "ENABLE_MAILBOX_PROXY");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for MODE", String.format("0x%02X", 2));
-        }
+        response.put("MODE", constantMailboxConfigurationSetMode.get(payload[2] & 0x07));
 
         // Process 'Forwarding Destination IPv6 Address'
         int lenForwardingDestinationIpv6Address = Math.min(16, payload.length - 3);
@@ -211,14 +250,26 @@ public class CommandClassMailboxV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the MAILBOX_CONFIGURATION_REPORT command.
      * <p>
      * Mailbox Configuration Report
      *
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>DISABLE
+     *            <li>ENABLE_MAILBOX_SERVICE
+     *            <li>ENABLE_MAILBOX_PROXY
+     *            </ul>
      * @param supportedModes {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>MAILBOX_SERVICE_SUPPORTED
+     *            <li>MAILBOX_PROXY_SUPPORTED
+     *            </ul>
      * @param mailboxCapacity {@link Integer}
      * @param forwardingDestinationIpv6Address {@link byte[]}
      * @param udpPortNumber {@link Integer}
@@ -234,33 +285,28 @@ public class CommandClassMailboxV1 {
 
         // Process 'Properties1'
         int valProperties1 = 0;
-        int valmode;
-        switch (mode) {
-            case "DISABLE":
-                valmode = 0;
+        int varMode = Integer.MAX_VALUE;
+        for (Integer entry : constantMailboxConfigurationReportMode.keySet()) {
+            if (constantMailboxConfigurationReportMode.get(entry).equals(mode)) {
+                varMode = entry;
                 break;
-            case "ENABLE_MAILBOX_SERVICE":
-                valmode = 1;
-                break;
-            case "ENABLE_MAILBOX_PROXY":
-                valmode = 2;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for mode: " + mode);
+            }
         }
-        valProperties1 |= valmode & 0x07;
-        int valsupportedModes;
-        switch (supportedModes) {
-            case "MAILBOX_SERVICE_SUPPORTED":
-                valsupportedModes = 0;
-                break;
-            case "MAILBOX_PROXY_SUPPORTED":
-                valsupportedModes = 1;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for supportedModes: " + supportedModes);
+        if (varMode == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + mode + "' for mode");
         }
-        valProperties1 |= valsupportedModes >> 3 & 0x18;
+        valProperties1 |= varMode & 0x07;
+        int varSupportedModes = Integer.MAX_VALUE;
+        for (Integer entry : constantMailboxConfigurationReportSupportedModes.keySet()) {
+            if (constantMailboxConfigurationReportSupportedModes.get(entry).equals(supportedModes)) {
+                varSupportedModes = entry;
+                break;
+            }
+        }
+        if (varSupportedModes == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + supportedModes + "' for supportedModes");
+        }
+        valProperties1 |= varSupportedModes << 3 & 0x18;
         outputData.write(valProperties1);
 
         // Process 'Mailbox Capacity'
@@ -294,7 +340,20 @@ public class CommandClassMailboxV1 {
      *
      * <ul>
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>DISABLE
+     * <li>ENABLE_MAILBOX_SERVICE
+     * <li>ENABLE_MAILBOX_PROXY
+     * </ul>
      * <li>SUPPORTED_MODES {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>MAILBOX_SERVICE_SUPPORTED
+     * <li>MAILBOX_PROXY_SUPPORTED
+     * </ul>
      * <li>MAILBOX_CAPACITY {@link Integer}
      * <li>FORWARDING_DESTINATION_IPV6_ADDRESS {@link byte[]}
      * <li>UDP_PORT_NUMBER {@link Integer}
@@ -308,29 +367,8 @@ public class CommandClassMailboxV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Properties1'
-        switch (payload[2] & 0x07) {
-            case 0x00:
-                response.put("MODE", "DISABLE");
-                break;
-            case 0x01:
-                response.put("MODE", "ENABLE_MAILBOX_SERVICE");
-                break;
-            case 0x02:
-                response.put("MODE", "ENABLE_MAILBOX_PROXY");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for MODE", String.format("0x%02X", 2));
-        }
-        switch ((payload[2] & 0x18) >> 3) {
-            case 0x00:
-                response.put("SUPPORTED_MODES", "MAILBOX_SERVICE_SUPPORTED");
-                break;
-            case 0x01:
-                response.put("SUPPORTED_MODES", "MAILBOX_PROXY_SUPPORTED");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for SUPPORTED_MODES", String.format("0x%02X", 2));
-        }
+        response.put("MODE", constantMailboxConfigurationReportMode.get(payload[2] & 0x07));
+        response.put("SUPPORTED_MODES", constantMailboxConfigurationReportSupportedModes.get((payload[2] & 0x18) >> 3));
 
         // Process 'Mailbox Capacity'
         response.put("MAILBOX_CAPACITY", Integer.valueOf(((payload[3] & 0xff) << 8) + (payload[4] & 0xff)));
@@ -350,7 +388,6 @@ public class CommandClassMailboxV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the MAILBOX_QUEUE command.
      * <p>
@@ -358,6 +395,17 @@ public class CommandClassMailboxV1 {
      *
      * @param sequenceNumber {@link Integer}
      * @param mode {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>PUSH
+     *            <li>POP
+     *            <li>WAITING
+     *            <li>PING
+     *            <li>ACK
+     *            <li>NACK
+     *            <li>QUEUE_FULL
+     *            </ul>
      * @param last {@link Boolean}
      * @param queueHandle {@link Integer}
      * @param mailboxEntry {@link byte[]}
@@ -376,33 +424,17 @@ public class CommandClassMailboxV1 {
 
         // Process 'Properties1'
         int valProperties1 = 0;
-        int valmode;
-        switch (mode) {
-            case "PUSH":
-                valmode = 0;
+        int varMode = Integer.MAX_VALUE;
+        for (Integer entry : constantMailboxQueueMode.keySet()) {
+            if (constantMailboxQueueMode.get(entry).equals(mode)) {
+                varMode = entry;
                 break;
-            case "POP":
-                valmode = 1;
-                break;
-            case "WAITING":
-                valmode = 2;
-                break;
-            case "PING":
-                valmode = 3;
-                break;
-            case "ACK":
-                valmode = 4;
-                break;
-            case "NACK":
-                valmode = 5;
-                break;
-            case "QUEUE_FULL":
-                valmode = 6;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for mode: " + mode);
+            }
         }
-        valProperties1 |= valmode & 0x03;
+        if (varMode == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + mode + "' for mode");
+        }
+        valProperties1 |= varMode & 0x03;
         valProperties1 |= last ? 0x04 : 0;
         outputData.write(valProperties1);
 
@@ -430,6 +462,17 @@ public class CommandClassMailboxV1 {
      * <ul>
      * <li>SEQUENCE_NUMBER {@link Integer}
      * <li>MODE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>PUSH
+     * <li>POP
+     * <li>WAITING
+     * <li>PING
+     * <li>ACK
+     * <li>NACK
+     * <li>QUEUE_FULL
+     * </ul>
      * <li>LAST {@link Boolean}
      * <li>QUEUE_HANDLE {@link Integer}
      * <li>MAILBOX_ENTRY {@link byte[]}
@@ -450,31 +493,7 @@ public class CommandClassMailboxV1 {
         msgOffset += 1;
 
         // Process 'Properties1'
-        switch (payload[msgOffset] & 0x03) {
-            case 0x00:
-                response.put("MODE", "PUSH");
-                break;
-            case 0x01:
-                response.put("MODE", "POP");
-                break;
-            case 0x02:
-                response.put("MODE", "WAITING");
-                break;
-            case 0x03:
-                response.put("MODE", "PING");
-                break;
-            case 0x04:
-                response.put("MODE", "ACK");
-                break;
-            case 0x05:
-                response.put("MODE", "NACK");
-                break;
-            case 0x06:
-                response.put("MODE", "QUEUE_FULL");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for MODE", String.format("0x%02X", msgOffset));
-        }
+        response.put("MODE", constantMailboxQueueMode.get(payload[msgOffset] & 0x03));
         response.put("LAST", Boolean.valueOf((payload[msgOffset] & 0x04) != 0));
         msgOffset += 1;
 
@@ -493,7 +512,6 @@ public class CommandClassMailboxV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the MAILBOX_WAKEUP_NOTIFICATION command.
@@ -541,7 +559,6 @@ public class CommandClassMailboxV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the MAILBOX_NODE_FAILING command.
      * <p>
@@ -587,5 +604,4 @@ public class CommandClassMailboxV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

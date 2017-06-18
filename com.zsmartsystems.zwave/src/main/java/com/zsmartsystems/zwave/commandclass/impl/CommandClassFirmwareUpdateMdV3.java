@@ -68,7 +68,6 @@ public class CommandClassFirmwareUpdateMdV3 {
      */
     public final static int FIRMWARE_UPDATE_MD_STATUS_REPORT = 0x07;
 
-
     /**
      * Map holding constants for FirmwareUpdateMdStatusReportStatus
      */
@@ -88,8 +87,8 @@ public class CommandClassFirmwareUpdateMdV3 {
      * Map holding constants for FirmwareUpdateMdGetProperties1
      */
     private static Map<Integer, String> constantFirmwareUpdateMdGetProperties1 = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for FirmwareUpdateMdStatusReportStatus
         constantFirmwareUpdateMdStatusReportStatus.put(0xFE, "SUCCESSFULLY_STORED");
         constantFirmwareUpdateMdStatusReportStatus.put(0x00, "UNABLE_TO_RECEIVE_WITHOUT_CHECKSUM_ERROR");
@@ -142,7 +141,6 @@ public class CommandClassFirmwareUpdateMdV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the FIRMWARE_MD_REPORT command.
@@ -260,7 +258,6 @@ public class CommandClassFirmwareUpdateMdV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the FIRMWARE_UPDATE_MD_REQUEST_GET command.
      * <p>
@@ -344,7 +341,6 @@ public class CommandClassFirmwareUpdateMdV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the FIRMWARE_UPDATE_MD_REQUEST_REPORT command.
      * <p>
@@ -352,6 +348,7 @@ public class CommandClassFirmwareUpdateMdV3 {
      *
      * @param status {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>INVALID_COMBINATION
      *            <li>VALID_COMBINATION
@@ -393,6 +390,15 @@ public class CommandClassFirmwareUpdateMdV3 {
      *
      * <ul>
      * <li>STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>INVALID_COMBINATION
+     * <li>VALID_COMBINATION
+     * <li>REQUIRES_AUTHENTICATION
+     * <li>INVALID_FRAGMENT_SIZE
+     * <li>NOT_UPGRADABLE
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -408,7 +414,6 @@ public class CommandClassFirmwareUpdateMdV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the FIRMWARE_UPDATE_MD_GET command.
@@ -478,7 +483,6 @@ public class CommandClassFirmwareUpdateMdV3 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the FIRMWARE_UPDATE_MD_REPORT command.
@@ -574,7 +578,6 @@ public class CommandClassFirmwareUpdateMdV3 {
         return response;
     }
 
-
     /**
      * Creates a new message with the FIRMWARE_UPDATE_MD_STATUS_REPORT command.
      * <p>
@@ -582,6 +585,7 @@ public class CommandClassFirmwareUpdateMdV3 {
      *
      * @param status {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>SUCCESSFULLY_STORED
      *            <li>UNABLE_TO_RECEIVE_WITHOUT_CHECKSUM_ERROR
@@ -627,6 +631,14 @@ public class CommandClassFirmwareUpdateMdV3 {
      *
      * <ul>
      * <li>STATUS {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>SUCCESSFULLY_STORED
+     * <li>UNABLE_TO_RECEIVE_WITHOUT_CHECKSUM_ERROR
+     * <li>SUCCESSFULLY
+     * <li>UNABLE_TO_RECEIVE
+     * </ul>
      * <li>WAITTIME {@link Integer}
      * </ul>
      *
@@ -646,5 +658,4 @@ public class CommandClassFirmwareUpdateMdV3 {
         // Return the map of processed response data;
         return response;
     }
-
 }

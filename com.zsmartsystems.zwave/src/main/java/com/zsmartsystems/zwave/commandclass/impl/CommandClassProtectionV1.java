@@ -49,7 +49,6 @@ public class CommandClassProtectionV1 {
      */
     public final static int PROTECTION_REPORT = 0x03;
 
-
     /**
      * Map holding constants for ProtectionReportProtectionState
      */
@@ -59,8 +58,8 @@ public class CommandClassProtectionV1 {
      * Map holding constants for ProtectionSetProtectionState
      */
     private static Map<Integer, String> constantProtectionSetProtectionState = new HashMap<Integer, String>();
-    static {
 
+    static {
         // Constants for ProtectionReportProtectionState
         constantProtectionReportProtectionState.put(0x00, "UNPROTECTED");
         constantProtectionReportProtectionState.put(0x01, "PROTECTION_BY_SEQUENCE");
@@ -79,6 +78,7 @@ public class CommandClassProtectionV1 {
      *
      * @param protectionState {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>UNPROTECTED
      *            <li>PROTECTION_BY_SEQUENCE
@@ -118,6 +118,13 @@ public class CommandClassProtectionV1 {
      *
      * <ul>
      * <li>PROTECTION_STATE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>UNPROTECTED
+     * <li>PROTECTION_BY_SEQUENCE
+     * <li>NO_OPERATION_POSSIBLE
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -133,7 +140,6 @@ public class CommandClassProtectionV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the PROTECTION_GET command.
@@ -168,7 +174,6 @@ public class CommandClassProtectionV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the PROTECTION_REPORT command.
      * <p>
@@ -176,6 +181,7 @@ public class CommandClassProtectionV1 {
      *
      * @param protectionState {@link String}
      *            Can be one of the following -:
+     *            <p>
      *            <ul>
      *            <li>UNPROTECTED
      *            <li>PROTECTION_BY_SEQUENCE
@@ -215,6 +221,13 @@ public class CommandClassProtectionV1 {
      *
      * <ul>
      * <li>PROTECTION_STATE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>UNPROTECTED
+     * <li>PROTECTION_BY_SEQUENCE
+     * <li>NO_OPERATION_POSSIBLE
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -230,5 +243,4 @@ public class CommandClassProtectionV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }

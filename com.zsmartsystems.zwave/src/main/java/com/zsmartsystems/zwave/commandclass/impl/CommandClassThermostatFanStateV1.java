@@ -45,6 +45,16 @@ public class CommandClassThermostatFanStateV1 {
      */
     public final static int THERMOSTAT_FAN_STATE_REPORT = 0x03;
 
+    /**
+     * Map holding constants for ThermostatFanStateReportFanOperatingState
+     */
+    private static Map<Integer, String> constantThermostatFanStateReportFanOperatingState = new HashMap<Integer, String>();
+
+    static {
+        // Constants for ThermostatFanStateReportFanOperatingState
+        constantThermostatFanStateReportFanOperatingState.put(0x00, "IDLE");
+        constantThermostatFanStateReportFanOperatingState.put(0x01, "RUNNING");
+    }
 
     /**
      * Creates a new message with the THERMOSTAT_FAN_STATE_GET command.
@@ -79,13 +89,18 @@ public class CommandClassThermostatFanStateV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the THERMOSTAT_FAN_STATE_REPORT command.
      * <p>
      * Thermostat Fan State Report
      *
      * @param fanOperatingState {@link String}
+     *            Can be one of the following -:
+     *            <p>
+     *            <ul>
+     *            <li>IDLE
+     *            <li>RUNNING
+     *            </ul>
      * @return the {@link byte[]} array with the command to send
      */
     static public byte[] getThermostatFanStateReport(String fanOperatingState) {
@@ -96,18 +111,17 @@ public class CommandClassThermostatFanStateV1 {
         outputData.write(THERMOSTAT_FAN_STATE_REPORT);
 
         // Process 'Level'
-        int valfanOperatingState;
-        switch (fanOperatingState) {
-            case "IDLE":
-                valfanOperatingState = 0;
+        int varFanOperatingState = Integer.MAX_VALUE;
+        for (Integer entry : constantThermostatFanStateReportFanOperatingState.keySet()) {
+            if (constantThermostatFanStateReportFanOperatingState.get(entry).equals(fanOperatingState)) {
+                varFanOperatingState = entry;
                 break;
-            case "RUNNING":
-                valfanOperatingState = 1;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value for fanOperatingState: " + fanOperatingState);
+            }
         }
-        outputData.write(valfanOperatingState & 0x0F);
+        if (varFanOperatingState == Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Unknown constant value '" + fanOperatingState + "' for fanOperatingState");
+        }
+        outputData.write(varFanOperatingState & 0x0F);
 
         return outputData.toByteArray();
     }
@@ -121,6 +135,12 @@ public class CommandClassThermostatFanStateV1 {
      *
      * <ul>
      * <li>FAN_OPERATING_STATE {@link String}
+     * Can be one of the following -:
+     * <p>
+     * <ul>
+     * <li>IDLE
+     * <li>RUNNING
+     * </ul>
      * </ul>
      *
      * @param payload the {@link byte[]} payload data to process
@@ -131,19 +151,9 @@ public class CommandClassThermostatFanStateV1 {
         Map<String, Object> response = new HashMap<String, Object>();
 
         // Process 'Level'
-        switch (payload[2] & 0x0F) {
-            case 0x00:
-                response.put("FAN_OPERATING_STATE", "IDLE");
-                break;
-            case 0x01:
-                response.put("FAN_OPERATING_STATE", "RUNNING");
-                break;
-            default:
-                logger.debug("Unknown enum value {} for FAN_OPERATING_STATE", String.format("0x%02X", 2));
-        }
+        response.put("FAN_OPERATING_STATE", constantThermostatFanStateReportFanOperatingState.get(payload[2] & 0x0F));
 
         // Return the map of processed response data;
         return response;
     }
-
 }

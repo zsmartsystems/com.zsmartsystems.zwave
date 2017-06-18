@@ -96,7 +96,6 @@ public class CommandClassTariffTblMonitorV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the TARIFF_TBL_SUPPLIER_REPORT command.
      * <p>
@@ -255,7 +254,6 @@ public class CommandClassTariffTblMonitorV1 {
         return response;
     }
 
-
     /**
      * Creates a new message with the TARIFF_TBL_GET command.
      * <p>
@@ -301,7 +299,6 @@ public class CommandClassTariffTblMonitorV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the TARIFF_TBL_REPORT command.
@@ -367,7 +364,6 @@ public class CommandClassTariffTblMonitorV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the TARIFF_TBL_COST_GET command.
@@ -498,7 +494,6 @@ public class CommandClassTariffTblMonitorV1 {
         // Return the map of processed response data;
         return response;
     }
-
 
     /**
      * Creates a new message with the TARIFF_TBL_COST_REPORT command.
@@ -661,5 +656,4 @@ public class CommandClassTariffTblMonitorV1 {
         // Return the map of processed response data;
         return response;
     }
-
 }
