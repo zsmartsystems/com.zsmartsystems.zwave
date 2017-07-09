@@ -722,6 +722,35 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [1D] ELECTRICAL_CONDUCTIVITY | 5-10 |
 |  |  |  | [1E] LOUDNESS | 5-10 |
 |  |  |  | [1F] MOISTURE | 5-10 |
+|  |  |  | [20] FREQUENCY | 6-10 |
+|  |  |  | [21] TIME | 6-10 |
+|  |  |  | [22] TARGET_TEMPERATURE | 6-10 |
+|  |  |  | [23] PARTICULATE_MATTER_2_5 | 7-10 |
+|  |  |  | [24] FORMALDEHYDE_CH2O_LEVEL | 7-10 |
+|  |  |  | [25] RADON_CONCENTRATION | 7-10 |
+|  |  |  | [26] METHANE_DENSITY_CH4 | 7-10 |
+|  |  |  | [27] VOLATILE_ORGANIC_COMPOUND | 7-10 |
+|  |  |  | [28] CARBON_MONOXIDE_CO_LEVEL | 7-10 |
+|  |  |  | [29] SOIL_HUMIDITY | 7-10 |
+|  |  |  | [2A] SOIL_REACTIVITY | 7-10 |
+|  |  |  | [2B] SOIL_SALINITY | 7-10 |
+|  |  |  | [2C] HEART_RATE | 7-10 |
+|  |  |  | [2D] BLOOD_PRESSURE | 7-10 |
+|  |  |  | [2E] MUSCLE_MASS | 7-10 |
+|  |  |  | [2F] FAT_MASS | 7-10 |
+|  |  |  | [30] BONE_MASS | 7-10 |
+|  |  |  | [31] TOTAL_BODY_WATER_TBW | 7-10 |
+|  |  |  | [32] BASIC_METABOLIC_RATE_BMR | 7-10 |
+|  |  |  | [33] BODY_MASS_INDEX_BMI | 7-10 |
+|  |  |  | [34] ACCELERATION_X_AXIS | 8-10 |
+|  |  |  | [35] ACCELERATION_Y_AXIS | 8-10 |
+|  |  |  | [36] ACCELERATION_Z_AXIS | 8-10 |
+|  |  |  | [37] SMOKE_DENSITY | 8-10 |
+|  |  |  | [38] WATER_FLOW | 9-10 |
+|  |  |  | [39] WATER_PRESSURE | 9-10 |
+|  |  |  | [3A] RF_SIGNAL_STRENGTH | 9-10 |
+|  |  |  | [3B] PARTICULATE_MATTER | 10 |
+|  |  |  | [3C] RESPIRATORY_RATE | 10 |
 |  | [03] SENSOR_MULTILEVEL_SUPPORTED_GET_SCALE |  |  | 5-10 |
 |  |  | SENSOR_TYPE |  | 5-10 |
 |  |  |  | [01] TEMPERATURE | 5-10 |
@@ -755,6 +784,35 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [1D] ELECTRICAL_CONDUCTIVITY | 5-10 |
 |  |  |  | [1E] LOUDNESS | 5-10 |
 |  |  |  | [1F] MOISTURE | 5-10 |
+|  |  |  | [20] FREQUENCY | 6-10 |
+|  |  |  | [21] TIME | 6-10 |
+|  |  |  | [22] TARGET_TEMPERATURE | 6-10 |
+|  |  |  | [23] PARTICULATE_MATTER_2_5 | 7-10 |
+|  |  |  | [24] FORMALDEHYDE_CH2O_LEVEL | 7-10 |
+|  |  |  | [25] RADON_CONCENTRATION | 7-10 |
+|  |  |  | [26] METHANE_DENSITY_CH4 | 7-10 |
+|  |  |  | [27] VOLATILE_ORGANIC_COMPOUND | 7-10 |
+|  |  |  | [28] CARBON_MONOXIDE_CO_LEVEL | 7-10 |
+|  |  |  | [29] SOIL_HUMIDITY | 7-10 |
+|  |  |  | [2A] SOIL_REACTIVITY | 7-10 |
+|  |  |  | [2B] SOIL_SALINITY | 7-10 |
+|  |  |  | [2C] HEART_RATE | 7-10 |
+|  |  |  | [2D] BLOOD_PRESSURE | 7-10 |
+|  |  |  | [2E] MUSCLE_MASS | 7-10 |
+|  |  |  | [2F] FAT_MASS | 7-10 |
+|  |  |  | [30] BONE_MASS | 7-10 |
+|  |  |  | [31] TOTAL_BODY_WATER_TBW | 7-10 |
+|  |  |  | [32] BASIC_METABOLIC_RATE_BMR | 7-10 |
+|  |  |  | [33] BODY_MASS_INDEX_BMI | 7-10 |
+|  |  |  | [34] ACCELERATION_X_AXIS | 8-10 |
+|  |  |  | [35] ACCELERATION_Y_AXIS | 8-10 |
+|  |  |  | [36] ACCELERATION_Z_AXIS | 8-10 |
+|  |  |  | [37] SMOKE_DENSITY | 8-10 |
+|  |  |  | [38] WATER_FLOW | 9-10 |
+|  |  |  | [39] WATER_PRESSURE | 9-10 |
+|  |  |  | [3A] RF_SIGNAL_STRENGTH | 9-10 |
+|  |  |  | [3B] PARTICULATE_MATTER | 10 |
+|  |  |  | [3C] RESPIRATORY_RATE | 10 |
 |  | [04] SENSOR_MULTILEVEL_GET |  |  | 1-10 |
 |  |  | SENSOR_TYPE |  | 5-10 |
 |  |  |  | [01] TEMPERATURE | 5-10 |
@@ -788,11 +846,97 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [1D] ELECTRICAL_CONDUCTIVITY | 5-10 |
 |  |  |  | [1E] LOUDNESS | 5-10 |
 |  |  |  | [1F] MOISTURE | 5-10 |
+|  |  |  | [20] FREQUENCY | 6-10 |
+|  |  |  | [21] TIME | 6-10 |
+|  |  |  | [22] TARGET_TEMPERATURE | 6-10 |
+|  |  |  | [23] PARTICULATE_MATTER_2_5 | 7-10 |
+|  |  |  | [24] FORMALDEHYDE_CH2O_LEVEL | 7-10 |
+|  |  |  | [25] RADON_CONCENTRATION | 7-10 |
+|  |  |  | [26] METHANE_DENSITY_CH4 | 7-10 |
+|  |  |  | [27] VOLATILE_ORGANIC_COMPOUND | 7-10 |
+|  |  |  | [28] CARBON_MONOXIDE_CO_LEVEL | 7-10 |
+|  |  |  | [29] SOIL_HUMIDITY | 7-10 |
+|  |  |  | [2A] SOIL_REACTIVITY | 7-10 |
+|  |  |  | [2B] SOIL_SALINITY | 7-10 |
+|  |  |  | [2C] HEART_RATE | 7-10 |
+|  |  |  | [2D] BLOOD_PRESSURE | 7-10 |
+|  |  |  | [2E] MUSCLE_MASS | 7-10 |
+|  |  |  | [2F] FAT_MASS | 7-10 |
+|  |  |  | [30] BONE_MASS | 7-10 |
+|  |  |  | [31] TOTAL_BODY_WATER_TBW | 7-10 |
+|  |  |  | [32] BASIC_METABOLIC_RATE_BMR | 7-10 |
+|  |  |  | [33] BODY_MASS_INDEX_BMI | 7-10 |
+|  |  |  | [34] ACCELERATION_X_AXIS | 8-10 |
+|  |  |  | [35] ACCELERATION_Y_AXIS | 8-10 |
+|  |  |  | [36] ACCELERATION_Z_AXIS | 8-10 |
+|  |  |  | [37] SMOKE_DENSITY | 8-10 |
+|  |  |  | [38] WATER_FLOW | 9-10 |
+|  |  |  | [39] WATER_PRESSURE | 9-10 |
+|  |  |  | [3A] RF_SIGNAL_STRENGTH | 9-10 |
+|  |  |  | [3B] PARTICULATE_MATTER | 10 |
+|  |  |  | [3C] RESPIRATORY_RATE | 10 |
 |  | [05] SENSOR_MULTILEVEL_REPORT |  |  | 1-10 |
 |  |  | SENSOR_TYPE |  | 1-10 |
 |  |  |  | [01] TEMPERATURE | 1-10 |
 |  |  |  | [02] GENERAL_PURPOSE_VALUE | 1-10 |
 |  |  |  | [03] LUMINANCE | 1-10 |
+|  |  |  | [04] POWER | 2-10 |
+|  |  |  | [05] RELATIVE_HUMIDITY | 2-10 |
+|  |  |  | [06] VELOCITY | 2-10 |
+|  |  |  | [07] DIRECTION | 2-10 |
+|  |  |  | [08] ATMOSPHERIC_PRESSURE | 2-10 |
+|  |  |  | [09] BAROMETRIC_PRESSURE | 2-10 |
+|  |  |  | [0A] SOLAR_RADIATION | 2-10 |
+|  |  |  | [0B] DEW_POINT | 2-10 |
+|  |  |  | [0C] RAIN_RATE | 2-10 |
+|  |  |  | [0D] TIDE_LEVEL | 2-10 |
+|  |  |  | [0E] WEIGHT | 3-10 |
+|  |  |  | [0F] VOLTAGE | 3-10 |
+|  |  |  | [10] CURRENT | 3-10 |
+|  |  |  | [11] CO2_LEVEL | 3-10 |
+|  |  |  | [12] AIR_FLOW | 3-10 |
+|  |  |  | [13] TANK_CAPACITY | 3-10 |
+|  |  |  | [14] DISTANCE | 3-10 |
+|  |  |  | [15] ANGLE_POSITION | 4-10 |
+|  |  |  | [16] ROTATION | 5-10 |
+|  |  |  | [17] WATER_TEMPERATURE | 5-10 |
+|  |  |  | [18] SOIL_TEMPERATURE | 5-10 |
+|  |  |  | [19] SEISMIC_INTENSITY | 5-10 |
+|  |  |  | [1A] SEISMIC_MAGNITUDE | 5-10 |
+|  |  |  | [1B] ULTRAVIOLET | 5-10 |
+|  |  |  | [1C] ELECTRICAL_RESISTIVITY | 5-10 |
+|  |  |  | [1D] ELECTRICAL_CONDUCTIVITY | 5-10 |
+|  |  |  | [1E] LOUDNESS | 5-10 |
+|  |  |  | [1F] MOISTURE | 5-10 |
+|  |  |  | [20] FREQUENCY | 6-10 |
+|  |  |  | [21] TIME | 6-10 |
+|  |  |  | [22] TARGET_TEMPERATURE | 6-10 |
+|  |  |  | [23] PARTICULATE_MATTER_2_5 | 7-10 |
+|  |  |  | [24] FORMALDEHYDE_CH2O_LEVEL | 7-10 |
+|  |  |  | [25] RADON_CONCENTRATION | 7-10 |
+|  |  |  | [26] METHANE_DENSITY_CH4 | 7-10 |
+|  |  |  | [27] VOLATILE_ORGANIC_COMPOUND | 7-10 |
+|  |  |  | [28] CARBON_MONOXIDE_CO_LEVEL | 7-10 |
+|  |  |  | [29] SOIL_HUMIDITY | 7-10 |
+|  |  |  | [2A] SOIL_REACTIVITY | 7-10 |
+|  |  |  | [2B] SOIL_SALINITY | 7-10 |
+|  |  |  | [2C] HEART_RATE | 7-10 |
+|  |  |  | [2D] BLOOD_PRESSURE | 7-10 |
+|  |  |  | [2E] MUSCLE_MASS | 7-10 |
+|  |  |  | [2F] FAT_MASS | 7-10 |
+|  |  |  | [30] BONE_MASS | 7-10 |
+|  |  |  | [31] TOTAL_BODY_WATER_TBW | 7-10 |
+|  |  |  | [32] BASIC_METABOLIC_RATE_BMR | 7-10 |
+|  |  |  | [33] BODY_MASS_INDEX_BMI | 7-10 |
+|  |  |  | [34] ACCELERATION_X_AXIS | 8-10 |
+|  |  |  | [35] ACCELERATION_Y_AXIS | 8-10 |
+|  |  |  | [36] ACCELERATION_Z_AXIS | 8-10 |
+|  |  |  | [37] SMOKE_DENSITY | 8-10 |
+|  |  |  | [38] WATER_FLOW | 9-10 |
+|  |  |  | [39] WATER_PRESSURE | 9-10 |
+|  |  |  | [3A] RF_SIGNAL_STRENGTH | 9-10 |
+|  |  |  | [3B] PARTICULATE_MATTER | 10 |
+|  |  |  | [3C] RESPIRATORY_RATE | 10 |
 |  |  | SENSOR_VALUE |  | 1-10 |
 |  | [06] SENSOR_MULTILEVEL_SUPPORTED_SCALE_REPORT |  |  | 5-10 |
 |  |  | SENSOR_TYPE |  | 5-10 |
@@ -827,6 +971,35 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [1D] ELECTRICAL_CONDUCTIVITY | 5-10 |
 |  |  |  | [1E] LOUDNESS | 5-10 |
 |  |  |  | [1F] MOISTURE | 5-10 |
+|  |  |  | [20] FREQUENCY | 6-10 |
+|  |  |  | [21] TIME | 6-10 |
+|  |  |  | [22] TARGET_TEMPERATURE | 6-10 |
+|  |  |  | [23] PARTICULATE_MATTER_2_5 | 7-10 |
+|  |  |  | [24] FORMALDEHYDE_CH2O_LEVEL | 7-10 |
+|  |  |  | [25] RADON_CONCENTRATION | 7-10 |
+|  |  |  | [26] METHANE_DENSITY_CH4 | 7-10 |
+|  |  |  | [27] VOLATILE_ORGANIC_COMPOUND | 7-10 |
+|  |  |  | [28] CARBON_MONOXIDE_CO_LEVEL | 7-10 |
+|  |  |  | [29] SOIL_HUMIDITY | 7-10 |
+|  |  |  | [2A] SOIL_REACTIVITY | 7-10 |
+|  |  |  | [2B] SOIL_SALINITY | 7-10 |
+|  |  |  | [2C] HEART_RATE | 7-10 |
+|  |  |  | [2D] BLOOD_PRESSURE | 7-10 |
+|  |  |  | [2E] MUSCLE_MASS | 7-10 |
+|  |  |  | [2F] FAT_MASS | 7-10 |
+|  |  |  | [30] BONE_MASS | 7-10 |
+|  |  |  | [31] TOTAL_BODY_WATER_TBW | 7-10 |
+|  |  |  | [32] BASIC_METABOLIC_RATE_BMR | 7-10 |
+|  |  |  | [33] BODY_MASS_INDEX_BMI | 7-10 |
+|  |  |  | [34] ACCELERATION_X_AXIS | 8-10 |
+|  |  |  | [35] ACCELERATION_Y_AXIS | 8-10 |
+|  |  |  | [36] ACCELERATION_Z_AXIS | 8-10 |
+|  |  |  | [37] SMOKE_DENSITY | 8-10 |
+|  |  |  | [38] WATER_FLOW | 9-10 |
+|  |  |  | [39] WATER_PRESSURE | 9-10 |
+|  |  |  | [3A] RF_SIGNAL_STRENGTH | 9-10 |
+|  |  |  | [3B] PARTICULATE_MATTER | 10 |
+|  |  |  | [3C] RESPIRATORY_RATE | 10 |
 | [32] COMMAND_CLASS_METER |  |  |  | 4 |
 |  | [01] METER_GET |  |  | 1-4 |
 |  |  | SCALE_2 |  | 4 |
@@ -861,6 +1034,8 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [05] SWITCH_COLOR_SET |  |  | 1-3 |
 |  |  | COLOR_VALUE |  | 1-3 |
 |  |  | DURATION |  | 2-3 |
+|  |  |  | [00] INSTANTLY | 3 |
+|  |  |  | [FF] DEFAULT | 3 |
 |  | [06] SWITCH_COLOR_START_LEVEL_CHANGE |  |  | 1-3 |
 |  |  | COLOR_COMPONENT_ID |  | 1-3 |
 |  |  | START_LEVEL |  | 1-3 |
@@ -879,6 +1054,7 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [04] NODE_ADD_EXISTING | 1-2 |
 |  |  |  | [05] NODE_ADD_STOP | 1-2 |
 |  |  |  | [06] NODE_ADD_STOP_FAILED | 1-2 |
+|  |  |  | [07] NODE_ADD_ANY_S2 | 2 |
 |  |  | TX_OPTIONS |  | 1-2 |
 |  |  |  | [01] ACK | 1-2 |
 |  |  |  | [02] LOW_POWER | 1-2 |
@@ -1301,6 +1477,11 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [08] DRY_AIR | 1-3 |
 |  |  |  | [09] MOIST_AIR | 1-3 |
 |  |  |  | [0A] AUTO_CHANGEOVER | 1-3 |
+|  |  |  | [0B] ENERGY_SAVE_HEAT | 2-3 |
+|  |  |  | [0C] ENERGY_SAVE_COOL | 2-3 |
+|  |  |  | [0D] AWAY | 2-3 |
+|  |  |  | [0F] FULL_POWER | 3 |
+|  |  |  | [1F] MANUFACTURER_SPECIFC | 3 |
 | [41] COMMAND_CLASS_PREPAYMENT_ENCAPSULATION |  |  |  | 1 |
 |  | [01] CMD_ENCAPSULATION |  |  | 1 |
 |  |  | DATA |  | 1 |
@@ -1355,6 +1536,11 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [08] DRY_AIR | 1-3 |
 |  |  |  | [09] MOIST_AIR | 1-3 |
 |  |  |  | [0A] AUTO_CHANGEOVER | 1-3 |
+|  |  |  | [0B] ENERGY_SAVE_HEATING | 2-3 |
+|  |  |  | [0C] ENERGY_SAVE_COOLING | 2-3 |
+|  |  |  | [0D] AWAY_HEATING | 2-3 |
+|  |  |  | [0E] AWAY_COOLING | 3 |
+|  |  |  | [0F] FULL_POWER | 3 |
 |  | [09] THERMOSTAT_SETPOINT_CAPABILITIES_GET |  |  | 3 |
 |  | [0A] THERMOSTAT_SETPOINT_CAPABILITIES_REPORT |  |  | 3 |
 |  |  | MIN_VALUE |  | 3 |
@@ -1370,6 +1556,13 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [01] ON | 1-4 |
 |  |  |  | [02] AUTO_HIGH | 1-4 |
 |  |  |  | [03] ON_HIGH | 1-4 |
+|  |  |  | [04] AUTO_MEDIUM | 2-4 |
+|  |  |  | [05] MEDIUM | 2-4 |
+|  |  |  | [06] CIRCULATION | 3-4 |
+|  |  |  | [07] HUMIDITY_CIRCULATION | 3-4 |
+|  |  |  | [08] LEFT_RIGHT | 4 |
+|  |  |  | [09] UP_DOWN | 4 |
+|  |  |  | [0A] QUIET | 4 |
 | [45] COMMAND_CLASS_THERMOSTAT_FAN_STATE |  |  |  | 2 |
 |  | [02] THERMOSTAT_FAN_STATE_GET |  |  | 1-2 |
 |  | [03] THERMOSTAT_FAN_STATE_REPORT |  |  | 1-2 |
@@ -2055,6 +2248,7 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [11] DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES_WITH_TIMEOUT | 1-3 |
 |  |  |  | [20] DOOR_UNSECURED_FOR_OUTSIDE_DOOR_HANDLES | 1-3 |
 |  |  |  | [21] DOOR_UNSECURED_FOR_OUTSIDE_DOOR_HANDLES_WITH_TIMEOUT | 1-3 |
+|  |  |  | [FE] DOOR_LOCK_STATE_UNKNOWN | 2-3 |
 |  |  |  | [FF] DOOR_SECURED | 1-3 |
 |  | [02] DOOR_LOCK_OPERATION_GET |  |  | 1-3 |
 |  | [03] DOOR_LOCK_OPERATION_REPORT |  |  | 1-3 |
@@ -2065,6 +2259,7 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [11] DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES_WITH_TIMEOUT | 1-3 |
 |  |  |  | [20] DOOR_UNSECURED_FOR_OUTSIDE_DOOR_HANDLES | 1-3 |
 |  |  |  | [21] DOOR_UNSECURED_FOR_OUTSIDE_DOOR_HANDLES_WITH_TIMEOUT | 1-3 |
+|  |  |  | [FE] DOOR_LOCK_STATE_UNKNOWN | 2-3 |
 |  |  |  | [FF] DOOR_SECURED | 1-3 |
 |  |  | DOOR_CONDITION |  | 1-3 |
 |  |  | LOCK_TIMEOUT_MINUTES |  | 1-3 |
@@ -2605,6 +2800,13 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [09] SYSTEM | 3-8 |
 |  |  |  | [0A] EMERGENCY | 3-8 |
 |  |  |  | [0B] CLOCK | 3-8 |
+|  |  |  | [0C] APPLIANCE | 4-8 |
+|  |  |  | [0D] HOME_HEALTH | 4-8 |
+|  |  |  | [0E] SIREN | 6-8 |
+|  |  |  | [0F] WATER_VALVE | 7-8 |
+|  |  |  | [10] WEATHER_ALARM | 7-8 |
+|  |  |  | [11] IRRIGATION | 7-8 |
+|  |  |  | [12] GAS_ALARM | 7-8 |
 |  | [02] EVENT_SUPPORTED_REPORT |  |  | 3-8 |
 |  |  | NOTIFICATION_TYPE |  | 3-8 |
 |  |  |  | [01] SMOKE | 3-8 |
@@ -2618,6 +2820,13 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [09] SYSTEM | 3-8 |
 |  |  |  | [0A] EMERGENCY | 3-8 |
 |  |  |  | [0B] CLOCK | 3-8 |
+|  |  |  | [0C] APPLIANCE | 4-8 |
+|  |  |  | [0D] HOME_HEALTH | 4-8 |
+|  |  |  | [0E] SIREN | 6-8 |
+|  |  |  | [0F] WATER_VALVE | 7-8 |
+|  |  |  | [10] WEATHER_ALARM | 7-8 |
+|  |  |  | [11] IRRIGATION | 7-8 |
+|  |  |  | [12] GAS_ALARM | 7-8 |
 |  |  | BIT_MASK |  | 3-8 |
 |  | [04] ALARM_GET |  |  | 1-8 |
 |  |  | V1_ALARM_TYPE |  | 1-8 |
@@ -2633,6 +2842,13 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [09] SYSTEM | 2-8 |
 |  |  |  | [0A] EMERGENCY | 2-8 |
 |  |  |  | [0B] CLOCK | 2-8 |
+|  |  |  | [0C] APPLIANCE | 4-8 |
+|  |  |  | [0D] HOME_HEALTH | 4-8 |
+|  |  |  | [0E] SIREN | 6-8 |
+|  |  |  | [0F] WATER_VALVE | 7-8 |
+|  |  |  | [10] WEATHER_ALARM | 7-8 |
+|  |  |  | [11] IRRIGATION | 7-8 |
+|  |  |  | [12] GAS_ALARM | 7-8 |
 |  |  | EVENT |  | 3-8 |
 |  | [05] ALARM_REPORT |  |  | 1-8 |
 |  |  | V1_ALARM_TYPE |  | 1-8 |
@@ -2640,6 +2856,7 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | ZENSOR_NET_SOURCE_NODE_ID |  | 2 |
 |  |  | ZWAVE_ALARM_STATUS |  | 2-8 |
 |  |  |  | [00] OFF | 2-8 |
+|  |  |  | [FE] NO_PENDING_NOTIFICATIONS | 4-8 |
 |  |  |  | [FF] ON | 2-8 |
 |  |  | ZWAVE_ALARM_TYPE |  | 2-8 |
 |  |  |  | [01] SMOKE | 2-8 |
@@ -2653,6 +2870,13 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [09] SYSTEM | 2-8 |
 |  |  |  | [0A] EMERGENCY | 2-8 |
 |  |  |  | [0B] CLOCK | 2-8 |
+|  |  |  | [0C] APPLIANCE | 4-8 |
+|  |  |  | [0D] HOME_HEALTH | 4-8 |
+|  |  |  | [0E] SIREN | 6-8 |
+|  |  |  | [0F] WATER_VALVE | 7-8 |
+|  |  |  | [10] WEATHER_ALARM | 7-8 |
+|  |  |  | [11] IRRIGATION | 7-8 |
+|  |  |  | [12] GAS_ALARM | 7-8 |
 |  |  | ZWAVE_ALARM_EVENT |  | 2-8 |
 |  |  | NUMBER_OF_EVENT_PARAMETERS |  | 2 |
 |  |  | EVENT_PARAMETER |  | 2-8 |
@@ -2670,8 +2894,16 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [09] SYSTEM | 2-8 |
 |  |  |  | [0A] EMERGENCY | 2-8 |
 |  |  |  | [0B] CLOCK | 2-8 |
+|  |  |  | [0C] APPLIANCE | 4-8 |
+|  |  |  | [0D] HOME_HEALTH | 4-8 |
+|  |  |  | [0E] SIREN | 6-8 |
+|  |  |  | [0F] WATER_VALVE | 7-8 |
+|  |  |  | [10] WEATHER_ALARM | 7-8 |
+|  |  |  | [11] IRRIGATION | 7-8 |
+|  |  |  | [12] GAS_ALARM | 7-8 |
 |  |  | ZWAVE_ALARM_STATUS |  | 2-8 |
 |  |  |  | [00] OFF | 2-8 |
+|  |  |  | [FE] NO_PENDING_NOTIFICATIONS | 4-8 |
 |  |  |  | [FF] ON | 2-8 |
 |  | [07] ALARM_TYPE_SUPPORTED_GET |  |  | 2-8 |
 |  | [08] ALARM_TYPE_SUPPORTED_REPORT |  |  | 2-8 |
@@ -2687,6 +2919,13 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [09] SYSTEM | 2-8 |
 |  |  |  | [0A] EMERGENCY | 2-8 |
 |  |  |  | [0B] CLOCK | 2-8 |
+|  |  |  | [0C] APPLIANCE | 4-8 |
+|  |  |  | [0D] HOME_HEALTH | 4-8 |
+|  |  |  | [0E] SIREN | 6-8 |
+|  |  |  | [0F] WATER_VALVE | 7-8 |
+|  |  |  | [10] WEATHER_ALARM | 7-8 |
+|  |  |  | [11] IRRIGATION | 7-8 |
+|  |  |  | [12] GAS_ALARM | 7-8 |
 | [72] COMMAND_CLASS_MANUFACTURER_SPECIFIC |  |  |  | 2 |
 |  | [04] MANUFACTURER_SPECIFIC_GET |  |  | 1-2 |
 |  | [05] MANUFACTURER_SPECIFIC_REPORT |  |  | 1-2 |
@@ -2835,6 +3074,9 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | STATUS |  | 1-5 |
 |  |  |  | [00] INVALID_COMBINATION | 1-5 |
 |  |  |  | [01] REQUIRES_AUTHENTICATION | 1-5 |
+|  |  |  | [02] INVALID_FRAGMENT_SIZE | 3-5 |
+|  |  |  | [03] NOT_UPGRADABLE | 3-5 |
+|  |  |  | [04] INVALID_HARDWARE_VERSION | 5 |
 |  |  |  | [FF] VALID_COMBINATION | 1-5 |
 |  | [05] FIRMWARE_UPDATE_MD_GET |  |  | 1-5 |
 |  |  | NUMBER_OF_REPORTS |  | 1-5 |
@@ -2847,6 +3089,15 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | STATUS |  | 1-5 |
 |  |  |  | [00] UNABLE_TO_RECEIVE_WITHOUT_CHECKSUM_ERROR | 1-5 |
 |  |  |  | [01] UNABLE_TO_RECEIVE | 1-5 |
+|  |  |  | [02] DOES_NOT_MATCH_THE_MANUFACTURER_ID | 4-5 |
+|  |  |  | [03] DOES_NOT_MATCH_THE_FIRMWARE_ID | 4-5 |
+|  |  |  | [04] DOES_NOT_MATCH_THE_FIRMWARE_TARGET | 4-5 |
+|  |  |  | [05] INVALID_FILE_HEADER_INFORMATION | 4-5 |
+|  |  |  | [06] INVALID_FILE_HEADER_FORMAT | 4-5 |
+|  |  |  | [07] INSUFFICIENT_MEMORY | 4-5 |
+|  |  |  | [08] DOES_NOT_MATCH_THE_HARDWARE_VERSION | 5 |
+|  |  |  | [FD] SUCCESSFULLY_WAITING_FOR_ACTIVATION | 4-5 |
+|  |  |  | [FE] SUCCESSFULLY_STORED | 3-5 |
 |  |  |  | [FF] SUCCESSFULLY | 1-5 |
 |  |  | WAITTIME |  | 3-5 |
 |  | [08] FIRMWARE_UPDATE_ACTIVATION_SET |  |  | 4-5 |
