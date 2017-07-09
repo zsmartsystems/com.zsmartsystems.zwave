@@ -3,6 +3,10 @@
 This file provides a summary of the Z-Wave command class version, summarising the commands, parameters
 and constants. The applicable versions of the command class for command/parameter/constant is provided. 
 
+The report consolidates versions based on parameter names. This may not be 100% correct, and does not
+mean that the same parameter in different command class versions is exactly the same. It may have a
+different size or mask for example.  If you find error, please report them.
+
 | Command Class | Command | Parameter | Constant| Version |
 |---------------|---------|-----------|---------|---------|
 | [00] COMMAND_CLASS_NO_OPERATION |  |  |  | 1 |
@@ -10,18 +14,12 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [00] ZWAVE_CMD_NOP |  |  | 1 |
 |  | [01] NODE_INFO |  |  | 1 |
 |  |  | PROTOCOL_VERSION |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  |  | [02]  | 1 |
-|  |  |  | [03]  | 1 |
-|  |  |  | [04]  | 1 |
-|  |  |  | [05]  | 1 |
-|  |  |  | [06]  | 1 |
-|  |  |  | [07]  | 1 |
+|  |  |  | [01] Z_WAVE_VERSION_2_0 | 1 |
+|  |  |  | [02] Z_WAVE_VERSION_ZDK_5_0X_ZDK_4_2X | 1 |
+|  |  |  | [03] Z_WAVE_VERSION_ZDK_4_5X_AND_ZDK_6_0X | 1 |
 |  |  | MAX_BAUD_RATE |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  |  | [02]  | 1 |
+|  |  |  | [01] 9_6_KBPS | 1 |
+|  |  |  | [02] 40_KBPS | 1 |
 |  |  | ROUTING |  | 1 |
 |  |  | LISTENING |  | 1 |
 |  |  | SECURITY |  | 1 |
@@ -33,10 +31,8 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | SENSOR_1000MS |  | 1 |
 |  |  | OPTIONAL_FUNCTIONALITY |  | 1 |
 |  |  | SPEED_EXTENSION |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  |  | [02]  | 1 |
-|  |  | RESERVED2 |  | 1 |
+|  |  |  | [01] 100_KBPS | 1 |
+|  |  |  | [02] 200_KBPS | 1 |
 |  |  | BASIC_DEVICE_CLASS |  | 1 |
 |  |  |  | [01] BASIC_TYPE_CONTROLLER | 1 |
 |  |  |  | [02] BASIC_TYPE_STATIC_CONTROLLER | 1 |
@@ -381,29 +377,23 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | STATUS |  | 1 |
 | [23] COMMAND_CLASS_ZIP |  |  |  | 3 |
 |  | [02] COMMAND_ZIP_PACKET |  |  | 1-3 |
-|  |  | RESERVED1 |  | 1-3 |
 |  |  | NACK_OPTION_ERROR |  | 1-3 |
 |  |  | NACK_QUEUE_FULL |  | 1-3 |
 |  |  | NACK_WAITING |  | 1-3 |
 |  |  | NACK_RESPONSE |  | 1-3 |
 |  |  | ACK_RESPONSE |  | 1-3 |
 |  |  | ACK_REQUEST |  | 1-3 |
-|  |  | RESERVED2 |  | 2-3 |
 |  |  | SECURE_ORIGIN |  | 2-3 |
-|  |  | RESERVED2 |  | 1 |
 |  |  | MORE_INFORMATION |  | 1-3 |
 |  |  | Z_WAVE_CMD_INCLUDED |  | 1-3 |
 |  |  | HEADER_EXT_INCLUDED |  | 1-3 |
 |  |  | SEQ_NO |  | 1-3 |
 |  |  | SOURCE_END_POINT |  | 1-3 |
-|  |  | RESERVED3 |  | 1-3 |
 |  |  | DESTINATION_END_POINT |  | 1-3 |
 |  |  | BIT_ADDRESS |  | 1-3 |
-|  |  | HEADER_EXTENSION |  | 1 |
 |  |  | HEADER_LENGTH |  | 2-3 |
-|  |  | Z_WAVE_COMMAND |  | 1 |
-|  |  | HEADER_EXTENSION |  | 2-3 |
-|  |  | Z_WAVE_COMMAND |  | 2-3 |
+|  |  | HEADER_EXTENSION |  | 1-3 |
+|  |  | Z_WAVE_COMMAND |  | 1-3 |
 | [24] COMMAND_CLASS_SECURITY_PANEL_MODE |  |  |  | 1 |
 |  | [01] SECURITY_PANEL_MODE_SUPPORTED_GET |  |  | 1 |
 |  | [02] SECURITY_PANEL_MODE_SUPPORTED_REPORT |  |  | 1 |
@@ -463,21 +453,16 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [00] ALREADY_AT_THE_TARGET_VALUE | 4 |
 |  |  |  | [FE] UNKNOWN_DURATION | 4 |
 |  | [04] SWITCH_MULTILEVEL_START_LEVEL_CHANGE |  |  | 1-4 |
-|  |  | RESERVED |  | 3-4 |
 |  |  | INC_DEC |  | 3-4 |
-|  |  |  | [00]  | 3-4 |
-|  |  |  | [01]  | 3-4 |
-|  |  |  | [02]  | 3-4 |
-|  |  |  | [03]  | 3-4 |
-|  |  | RESERVED1 |  | 1-2 |
+|  |  |  | [00] INCREMENT | 3-4 |
+|  |  |  | [01] DECREMENT | 3-4 |
+|  |  |  | [03] NONE | 3-4 |
 |  |  | IGNORE_START_LEVEL |  | 1-4 |
 |  |  | UP_DOWN_FLAG |  | 1-2 |
-|  |  | RESERVED2 |  | 1-2 |
 |  |  | UP_DOWN |  | 3-4 |
-|  |  |  | [00]  | 3-4 |
-|  |  |  | [01]  | 3-4 |
-|  |  |  | [02]  | 3-4 |
-|  |  |  | [03]  | 3-4 |
+|  |  |  | [00] UP | 3-4 |
+|  |  |  | [01] DOWN | 3-4 |
+|  |  |  | [03] NONE | 3-4 |
 |  |  | START_LEVEL |  | 1-4 |
 |  |  | DIMMING_DURATION |  | 2-4 |
 |  |  | STEP_SIZE |  | 3-4 |
@@ -485,9 +470,7 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [06] SWITCH_MULTILEVEL_SUPPORTED_GET |  |  | 3-4 |
 |  | [07] SWITCH_MULTILEVEL_SUPPORTED_REPORT |  |  | 3-4 |
 |  |  | PRIMARY_SWITCH_TYPE |  | 3-4 |
-|  |  | RESERVED1 |  | 3-4 |
 |  |  | SECONDARY_SWITCH_TYPE |  | 3-4 |
-|  |  | RESERVED2 |  | 3-4 |
 | [27] COMMAND_CLASS_SWITCH_ALL |  |  |  | 1 |
 |  | [01] SWITCH_ALL_SET |  |  | 1 |
 |  |  | MODE |  | 1 |
@@ -519,9 +502,7 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [00] OFF_DISABLE | 1 |
 |  |  |  | [FF] ON_ENABLE | 1 |
 |  | [04] SWITCH_TOGGLE_MULTILEVEL_START_LEVEL_CHANGE |  |  | 1 |
-|  |  | RESERVED1 |  | 1 |
 |  |  | IGNORE_START_LEVEL |  | 1 |
-|  |  | RESERVED2 |  | 1 |
 |  |  | ROLL_OVER |  | 1 |
 |  |  | START_LEVEL |  | 1 |
 |  | [05] SWITCH_TOGGLE_MULTILEVEL_STOP_LEVEL_CHANGE |  |  | 1 |
@@ -660,7 +641,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | EXTERNAL_ALARM |  | 1 |
 |  |  | SENSOR_ERROR |  | 1 |
 |  |  | ALARM_TEMPERATURE_EXCEEDED |  | 1 |
-|  |  | NOT_USED |  | 1 |
 |  |  | SPEED_CHANGE_ENABLE |  | 1 |
 |  |  | START_TEMPERATURE_EXCEEDED |  | 1 |
 |  |  | SIZE |  | 1 |
@@ -672,49 +652,36 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [08] RESET_LOG | 1 |
 |  | [20] CHIMNEY_FAN_ALARM_LOG_GET |  |  | 1 |
 |  | [21] CHIMNEY_FAN_ALARM_LOG_REPORT |  |  | 1 |
-|  |  | RESERVED11 |  | 1 |
 |  |  | EXTERNAL_ALARM_1 |  | 1 |
 |  |  | SENSOR_ERROR_1 |  | 1 |
 |  |  | ALARM_TEMPERATURE_EXCEEDED_1 |  | 1 |
-|  |  | RESERVED12 |  | 1 |
 |  |  | ALARM_STILL_ACTIVE_1 |  | 1 |
-|  |  | RESERVED21 |  | 1 |
 |  |  | EXTERNAL_ALARM_2 |  | 1 |
 |  |  | SENSOR_ERROR_2 |  | 1 |
 |  |  | ALARM_TEMPERATURE_EXCEEDED_2 |  | 1 |
-|  |  | RESERVED22 |  | 1 |
 |  |  | ALARM_STILL_ACTIVE_2 |  | 1 |
-|  |  | RESERVED31 |  | 1 |
 |  |  | EXTERNAL_ALARM_3 |  | 1 |
 |  |  | SENSOR_ERROR_3 |  | 1 |
 |  |  | ALARM_TEMPERATURE_EXCEEDED_3 |  | 1 |
-|  |  | RESERVED32 |  | 1 |
 |  |  | ALARM_STILL_ACTIVE_3 |  | 1 |
-|  |  | RESERVED41 |  | 1 |
 |  |  | EXTERNAL_ALARM_4 |  | 1 |
 |  |  | SENSOR_ERROR_4 |  | 1 |
 |  |  | ALARM_TEMPERATURE_EXCEEDED_4 |  | 1 |
-|  |  | RESERVED42 |  | 1 |
 |  |  | ALARM_STILL_ACTIVE_4 |  | 1 |
-|  |  | RESERVED51 |  | 1 |
 |  |  | EXTERNAL_ALARM_5 |  | 1 |
 |  |  | SENSOR_ERROR_5 |  | 1 |
 |  |  | ALARM_TEMPERATURE_EXCEEDED_5 |  | 1 |
-|  |  | RESERVED52 |  | 1 |
 |  |  | ALARM_STILL_ACTIVE_5 |  | 1 |
 |  | [22] CHIMNEY_FAN_ALARM_STATUS_SET |  |  | 1 |
-|  |  | NOT_USED1 |  | 1 |
 |  |  | ACKNOWLEDGE_EXTERNAL_ALARM |  | 1 |
 |  |  | ACKNOWLEDGE_SENSOR_ERROR |  | 1 |
 |  |  | ACKNOWLEDGE_ALARM_TEMPERATURE_EXCEEDED |  | 1 |
-|  |  | NOT_USED2 |  | 1 |
 |  | [23] CHIMNEY_FAN_ALARM_STATUS_GET |  |  | 1 |
 |  | [24] CHIMNEY_FAN_ALARM_STATUS_REPORT |  |  | 1 |
 |  |  | SERVICE |  | 1 |
 |  |  | EXTERNAL_ALARM |  | 1 |
 |  |  | SENSOR_ERROR |  | 1 |
 |  |  | ALARM_TEMPERATURE_EXCEEDED |  | 1 |
-|  |  | NOT_USED |  | 1 |
 |  |  | SPEED_CHANGE_ENABLE |  | 1 |
 |  |  | START_TEMPERATURE_EXCEEDED |  | 1 |
 |  | [25] CHIMNEY_FAN_MIN_SPEED_SET |  |  | 1 |
@@ -735,7 +702,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | DIMMING_DURATION |  | 1 |
 |  |  |  | [00] SPECIFY_INSTANTLY | 1 |
 |  |  |  | [FF] FACTORY_DEFAULT | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | OVERRIDE |  | 1 |
 |  |  | LEVEL |  | 1 |
 |  | [02] SCENE_ACTUATOR_CONF_GET |  |  | 1 |
@@ -1040,9 +1006,7 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [3A] RF_SIGNAL_STRENGTH | 9-10 |
 |  |  |  | [3B] PARTICULATE_MATTER | 10 |
 |  |  |  | [3C] RESPIRATORY_RATE | 10 |
-|  |  | RESERVED1 |  | 5-10 |
 |  |  | SCALE |  | 5-10 |
-|  |  | RESERVED2 |  | 5-10 |
 |  | [05] SENSOR_MULTILEVEL_REPORT |  |  | 1-10 |
 |  |  | SENSOR_TYPE |  | 1-10 |
 |  |  |  | [01] TEMPERATURE | 1-10 |
@@ -1172,37 +1136,24 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [3B] PARTICULATE_MATTER | 10 |
 |  |  |  | [3C] RESPIRATORY_RATE | 10 |
 |  |  | SCALE_BIT_MASK |  | 5-10 |
-|  |  | RESERVED |  | 5-10 |
 | [32] COMMAND_CLASS_METER |  |  |  | 4 |
 |  | [01] METER_GET |  |  | 1-4 |
-|  |  | RESERVED |  | 2-4 |
-|  |  | SCALE |  | 2 |
-|  |  | SCALE |  | 3-4 |
-|  |  | RESERVED2 |  | 3 |
+|  |  | SCALE |  | 2-4 |
 |  |  | RATE_TYPE |  | 4 |
-|  |  |  | [00]  | 4 |
-|  |  |  | [01]  | 4 |
-|  |  |  | [02]  | 4 |
-|  |  |  | [03]  | 4 |
-|  |  | RESERVED2 |  | 2 |
+|  |  |  | [01] IMPORT | 4 |
+|  |  |  | [02] EXPORT | 4 |
+|  |  |  | [03] NOT_TO_BE_USED | 4 |
 |  |  | SCALE_2 |  | 4 |
 |  | [02] METER_REPORT |  |  | 1-4 |
-|  |  | METER_TYPE |  | 2-4 |
-|  |  |  | [00]  | 4 |
-|  |  |  | [01]  | 4 |
-|  |  |  | [02]  | 4 |
-|  |  |  | [03]  | 4 |
 |  |  | RATE_TYPE |  | 2-4 |
-|  |  |  | [00]  | 4 |
-|  |  |  | [01]  | 4 |
-|  |  |  | [02]  | 4 |
-|  |  |  | [03]  | 4 |
-|  |  | RESERVED |  | 2 |
+|  |  |  | [01] IMPORT | 4 |
+|  |  |  | [02] EXPORT | 4 |
+|  |  |  | [03] NOT_TO_BE_USED | 4 |
 |  |  | SCALE_BIT_2 |  | 3-4 |
-|  |  | METER_TYPE |  | 1 |
-|  |  |  | [01] ELECTRIC_METER | 1 |
-|  |  |  | [02] GAS_METER | 1 |
-|  |  |  | [03] WATER_METER | 1 |
+|  |  | METER_TYPE |  | 1-4 |
+|  |  |  | [01] ELECTRIC_METER | 1-1, 4-4 |
+|  |  |  | [02] GAS_METER | 1-1, 4-4 |
+|  |  |  | [03] WATER_METER | 1-1, 4-4 |
 |  |  | SIZE |  | 1-4 |
 |  |  | SCALE |  | 1-2 |
 |  |  | SCALE_BITS_10 |  | 3-4 |
@@ -1214,23 +1165,16 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [03] METER_SUPPORTED_GET |  |  | 2-4 |
 |  | [04] METER_SUPPORTED_REPORT |  |  | 2-4 |
 |  |  | METER_TYPE |  | 2-4 |
-|  |  |  | [00]  | 4 |
-|  |  |  | [01]  | 4 |
-|  |  |  | [02]  | 4 |
-|  |  |  | [03]  | 4 |
-|  |  | RESERVED1 |  | 2 |
-|  |  | RESERVED |  | 3 |
+|  |  |  | [01] ELECTRIC_METER | 4 |
+|  |  |  | [02] GAS_METER | 4 |
+|  |  |  | [03] WATER_METER | 4 |
 |  |  | RATE_TYPE |  | 4 |
-|  |  |  | [00]  | 4 |
-|  |  |  | [01]  | 4 |
-|  |  |  | [02]  | 4 |
-|  |  |  | [03]  | 4 |
+|  |  |  | [01] IMPORT_ONLY | 4 |
+|  |  |  | [02] EXPORT_ONLY | 4 |
+|  |  |  | [03] IMPORT_AND_EXPORT | 4 |
 |  |  | METER_RESET |  | 2-4 |
-|  |  | SCALE_SUPPORTED |  | 2 |
-|  |  | SCALE_SUPPORTED |  | 4 |
+|  |  | SCALE_SUPPORTED |  | 2-4 |
 |  |  | MORE_SCALE_TYPES |  | 4 |
-|  |  | RESERVED2 |  | 2 |
-|  |  | SCALE_SUPPORTED |  | 3 |
 |  |  | NUMBER_OF_SCALE_SUPPORTED_BYTES_TO_FOLLOW |  | 4 |
 |  |  | SCALE_SUPPORTED_LIST |  | 4 |
 |  | [05] METER_RESET |  |  | 2-4 |
@@ -1249,7 +1193,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [FE] UNKNOWN_DURATION | 3 |
 |  | [05] SWITCH_COLOR_SET |  |  | 1-3 |
 |  |  | COLOR_COMPONENT_COUNT |  | 1-3 |
-|  |  | RESERVED |  | 1-3 |
 |  |  | COLOR_VALUE |  | 1-3 |
 |  |  | DURATION |  | 2-3 |
 |  |  |  | [00] INSTANTLY | 3 |
@@ -1382,23 +1325,19 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [11] NODE_ADD_KEYS_REPORT |  |  | 2 |
 |  |  | SEQ_NO |  | 2 |
 |  |  | REQUEST_CLIENT_SIDE_AUTHENTICATION |  | 2 |
-|  |  | RESERVED |  | 2 |
 |  |  | REQUESTED_KEYS |  | 2 |
 |  | [12] NODE_ADD_KEYS_SET |  |  | 2 |
 |  |  | SEQ_NO |  | 2 |
 |  |  | ACCEPT |  | 2 |
 |  |  | GRANT_CLIENT_SIDE_AUTHENTICATION |  | 2 |
-|  |  | RESERVED |  | 2 |
 |  |  | GRANTED_KEYS |  | 2 |
 |  | [13] NODE_ADD_DSK_REPORT |  |  | 2 |
 |  |  | SEQ_NO |  | 2 |
 |  |  | INPUT_DSK_LENGTH |  | 2 |
-|  |  | RESERVED |  | 2 |
 |  |  | DSK |  | 2 |
 |  | [14] NODE_ADD_DSK_SET |  |  | 2 |
 |  |  | SEQ_NO |  | 2 |
 |  |  | INPUT_DSK_LENGTH |  | 2 |
-|  |  | RESERVED |  | 2 |
 |  |  | ACCEPT |  | 2 |
 |  |  | INPUT_DSK |  | 2 |
 | [35] COMMAND_CLASS_METER_PULSE |  |  |  | 1 |
@@ -1409,16 +1348,13 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [01] BASIC_TARIFF_INFO_GET |  |  | 1 |
 |  | [02] BASIC_TARIFF_INFO_REPORT |  |  | 1 |
 |  |  | TOTAL_NO_IMPORT_RATES |  | 1 |
-|  |  | RESERVED1 |  | 1 |
 |  |  | DUAL |  | 1 |
 |  |  | E1_CURRENT_RATE_IN_USE |  | 1 |
-|  |  | RESERVED2 |  | 1 |
 |  |  | E1_RATE_CONSUMPTION_REGISTER |  | 1 |
 |  |  | E1_TIME_FOR_NEXT_RATE_HOURS |  | 1 |
 |  |  | E1_TIME_FOR_NEXT_RATE_MINUTES |  | 1 |
 |  |  | E1_TIME_FOR_NEXT_RATE_SECONDS |  | 1 |
 |  |  | E2_CURRENT_RATE_IN_USE |  | 1 |
-|  |  | RESERVED3 |  | 1 |
 |  |  | E2_RATE_CONSUMPTION_REGISTER |  | 1 |
 | [37] COMMAND_CLASS_HRV_STATUS |  |  |  | 1 |
 |  | [01] HRV_STATUS_GET |  |  | 1 |
@@ -1509,21 +1445,19 @@ and constants. The applicable versions of the command class for command/paramete
 | [39] COMMAND_CLASS_HRV_CONTROL |  |  |  | 1 |
 |  | [01] HRV_CONTROL_MODE_SET |  |  | 1 |
 |  |  | MODE |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  |  | [02]  | 1 |
-|  |  |  | [03]  | 1 |
-|  |  |  | [04]  | 1 |
-|  |  | RESERVED |  | 1 |
+|  |  |  | [00] OFF | 1 |
+|  |  |  | [01] DEMAND_AUTOMATIC | 1 |
+|  |  |  | [02] SCHEDULE | 1 |
+|  |  |  | [03] ENERGY_SAVINGS_MODE | 1 |
+|  |  |  | [04] MANUAL | 1 |
 |  | [02] HRV_CONTROL_MODE_GET |  |  | 1 |
 |  | [03] HRV_CONTROL_MODE_REPORT |  |  | 1 |
 |  |  | MODE |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  |  | [02]  | 1 |
-|  |  |  | [03]  | 1 |
-|  |  |  | [04]  | 1 |
-|  |  | RESERVED |  | 1 |
+|  |  |  | [00] OFF | 1 |
+|  |  |  | [01] DEMAND_AUTOMATIC | 1 |
+|  |  |  | [02] SCHEDULE | 1 |
+|  |  |  | [03] ENERGY_SAVINGS_MODE | 1 |
+|  |  |  | [04] MANUAL | 1 |
 |  | [04] HRV_CONTROL_BYPASS_SET |  |  | 1 |
 |  |  | BYPASS |  | 1 |
 |  | [05] HRV_CONTROL_BYPASS_GET |  |  | 1 |
@@ -1537,11 +1471,10 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [0A] HRV_CONTROL_MODE_SUPPORTED_GET |  |  | 1 |
 |  | [0B] HRV_CONTROL_MODE_SUPPORTED_REPORT |  |  | 1 |
 |  |  | MANUAL_CONTROL_SUPPORTED |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  |  | [02]  | 1 |
-|  |  |  | [03]  | 1 |
-|  |  | RESERVED |  | 1 |
+|  |  |  | [00] BYPASS_OPEN_CLOSE | 1 |
+|  |  |  | [01] BYPASS_AUTO | 1 |
+|  |  |  | [02] MODULATED_BYPASS | 1 |
+|  |  |  | [03] VENTILATION_RATE | 1 |
 |  |  | BIT_MASK |  | 1 |
 |  |  |  | [00] OFF | 1 |
 |  |  |  | [01] DEMAND_AUTOMATIC | 1 |
@@ -1562,7 +1495,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | SECOND_LOCAL_TIME |  | 1 |
 |  |  | DCP_RATE_ID |  | 1 |
 |  |  | NUMBER_OF_DC |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | DEVICE_CLASS |  | 1 |
 |  |  | START_YEAR |  | 1 |
 |  |  | START_MONTH |  | 1 |
@@ -1597,7 +1529,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | SECOND_LOCAL_TIME |  | 1 |
 |  |  | DCP_ID |  | 1 |
 |  |  | NUMBER_OF_DC |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | DEVICE_CLASS |  | 1 |
 |  |  | START_YEAR |  | 1 |
 |  |  | START_MONTH |  | 1 |
@@ -1635,29 +1566,24 @@ and constants. The applicable versions of the command class for command/paramete
 | [3C] COMMAND_CLASS_METER_TBL_CONFIG |  |  |  | 1 |
 |  | [01] METER_TBL_TABLE_POINT_ADM_NO_SET |  |  | 1 |
 |  |  | NUMBER_OF_CHARACTERS |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | METER_POINT_ADM_NUMBER_CHARACTER |  | 1 |
 | [3D] COMMAND_CLASS_METER_TBL_MONITOR |  |  |  | 2 |
 |  | [01] METER_TBL_TABLE_POINT_ADM_NO_GET |  |  | 1-2 |
 |  | [02] METER_TBL_TABLE_POINT_ADM_NO_REPORT |  |  | 1-2 |
 |  |  | NUMBER_OF_CHARACTERS |  | 1-2 |
-|  |  | RESERVED |  | 1-2 |
 |  |  | METER_POINT_ADM_NUMBER_CHARACTER |  | 1-2 |
 |  | [03] METER_TBL_TABLE_ID_GET |  |  | 1-2 |
 |  | [04] METER_TBL_TABLE_ID_REPORT |  |  | 1-2 |
 |  |  | NUMBER_OF_CHARACTERS |  | 1-2 |
-|  |  | RESERVED |  | 1-2 |
 |  |  | METER_ID_CHARACTER |  | 1-2 |
 |  | [05] METER_TBL_TABLE_CAPABILITY_GET |  |  | 1-2 |
 |  | [06] METER_TBL_REPORT |  |  | 1-2 |
 |  |  | METER_TYPE |  | 1-2 |
 |  |  | RATE_TYPE |  | 1-2 |
 |  |  | PAY_METER |  | 1-2 |
-|  |  |  | [00]  | 1-2 |
-|  |  |  | [01]  | 1-2 |
-|  |  |  | [02]  | 1-2 |
-|  |  |  | [03]  | 1-2 |
-|  |  | RESERVED |  | 1-2 |
+|  |  |  | [01] CREDITMETER | 1-2 |
+|  |  |  | [02] PREPAYMENT_METER | 1-2 |
+|  |  |  | [03] PREPAYMENT_METER_DEBT | 1-2 |
 |  |  | DATASET_SUPPORTED |  | 1-2 |
 |  |  | DATASET_HISTORY_SUPPORTED |  | 1-2 |
 |  |  | DATA_HISTORY_SUPPORTED |  | 1-2 |
@@ -1690,9 +1616,7 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [0D] METER_TBL_CURRENT_DATA_REPORT |  |  | 1-2 |
 |  |  | REPORTS_TO_FOLLOW |  | 1-2 |
 |  |  | RATE_TYPE |  | 1-2 |
-|  |  | RESERVED |  | 2 |
 |  |  | OPERATING_STATUS_INDICATION |  | 2 |
-|  |  | RESERVED |  | 1 |
 |  |  | DATASET |  | 1-2 |
 |  |  | YEAR |  | 1-2 |
 |  |  | MONTH |  | 1-2 |
@@ -1719,9 +1643,7 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [0F] METER_TBL_HISTORICAL_DATA_REPORT |  |  | 1-2 |
 |  |  | REPORTS_TO_FOLLOW |  | 1-2 |
 |  |  | RATE_TYPE |  | 1-2 |
-|  |  | RESERVED |  | 2 |
 |  |  | OPERATING_STATUS_INDICATION |  | 2 |
-|  |  | RESERVED |  | 1 |
 |  |  | DATASET |  | 1-2 |
 |  |  | YEAR |  | 1-2 |
 |  |  | MONTH |  | 1-2 |
@@ -1734,7 +1656,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [01] METER_TBL_PUSH_CONFIGURATION_SET |  |  | 1 |
 |  |  | OPERATING_STATUS_PUSH_MODE |  | 1 |
 |  |  | PS |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | PUSH_DATASET |  | 1 |
 |  |  | INTERVAL_MONTHS |  | 1 |
 |  |  | INTERVAL_DAYS |  | 1 |
@@ -1745,7 +1666,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [03] METER_TBL_PUSH_CONFIGURATION_REPORT |  |  | 1 |
 |  |  | OPERATING_STATUS_PUSH_MODE |  | 1 |
 |  |  | PS |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | PUSH_DATASET |  | 1 |
 |  |  | INTERVAL_MONTHS |  | 1 |
 |  |  | INTERVAL_DAYS |  | 1 |
@@ -1754,20 +1674,17 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | PUSH_NODE_ID |  | 1 |
 | [3F] COMMAND_CLASS_PREPAYMENT |  |  |  | 1 |
 |  | [01] PREPAYMENT_BALANCE_GET |  |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | BALANCE_TYPE |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
+|  |  |  | [00] UTILITY | 1 |
+|  |  |  | [01] MONETARY | 1 |
 |  | [02] PREPAYMENT_BALANCE_REPORT |  |  | 1 |
 |  |  | METER_TYPE |  | 1 |
 |  |  | BALANCE_TYPE |  | 1 |
 |  |  | SCALE |  | 1 |
 |  |  | BALANCE_PRECISION |  | 1 |
 |  |  | BALANCE_VALUE |  | 1 |
-|  |  | RESERVED1 |  | 1 |
 |  |  | DEBT_PRECISION |  | 1 |
 |  |  | DEBT |  | 1 |
-|  |  | RESERVED2 |  | 1 |
 |  |  | EMER_CREDIT_PRECISION |  | 1 |
 |  |  | EMER_CREDIT |  | 1 |
 |  |  | CURRENCY |  | 1 |
@@ -1775,81 +1692,46 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [03] PREPAYMENT_SUPPORTED_GET |  |  | 1 |
 |  | [04] PREPAYMENT_SUPPORTED_REPORT |  |  | 1 |
 |  |  | TYPES_SUPPORTED |  | 1 |
-|  |  | RESERVED |  | 1 |
 | [40] COMMAND_CLASS_THERMOSTAT_MODE |  |  |  | 3 |
 |  | [01] THERMOSTAT_MODE_SET |  |  | 1-3 |
 |  |  | MODE |  | 1-3 |
-|  |  |  | [00]  | 1-3 |
-|  |  |  | [01]  | 1-3 |
-|  |  |  | [02]  | 1-3 |
-|  |  |  | [03]  | 1-3 |
-|  |  |  | [04]  | 1-3 |
-|  |  |  | [05]  | 1-3 |
-|  |  |  | [06]  | 1-3 |
-|  |  |  | [07]  | 1-3 |
-|  |  |  | [08]  | 1-3 |
-|  |  |  | [09]  | 1-3 |
-|  |  |  | [0A]  | 1-3 |
-|  |  |  | [0B]  | 2-3 |
-|  |  |  | [0C]  | 2-3 |
-|  |  |  | [0D]  | 2-3 |
-|  |  |  | [0E]  | 3 |
-|  |  |  | [0F]  | 3 |
-|  |  |  | [10]  | 3 |
-|  |  |  | [11]  | 3 |
-|  |  |  | [12]  | 3 |
-|  |  |  | [13]  | 3 |
-|  |  |  | [14]  | 3 |
-|  |  |  | [15]  | 3 |
-|  |  |  | [16]  | 3 |
-|  |  |  | [17]  | 3 |
-|  |  |  | [18]  | 3 |
-|  |  |  | [19]  | 3 |
-|  |  |  | [1A]  | 3 |
-|  |  |  | [1B]  | 3 |
-|  |  |  | [1C]  | 3 |
-|  |  |  | [1D]  | 3 |
-|  |  |  | [1E]  | 3 |
-|  |  |  | [1F]  | 3 |
-|  |  | RESERVED |  | 1-2 |
+|  |  |  | [00] OFF | 1-3 |
+|  |  |  | [01] HEAT | 1-3 |
+|  |  |  | [02] COOL | 1-3 |
+|  |  |  | [03] AUTO | 1-3 |
+|  |  |  | [04] AUXILIARY_HEAT | 1-3 |
+|  |  |  | [05] RESUME | 1-3 |
+|  |  |  | [06] FAN_ONLY | 1-3 |
+|  |  |  | [07] FURNACE | 1-3 |
+|  |  |  | [08] DRY_AIR | 1-3 |
+|  |  |  | [09] MOIST_AIR | 1-3 |
+|  |  |  | [0A] AUTO_CHANGEOVER | 1-3 |
+|  |  |  | [0B] ENERGY_SAVE_HEAT | 2-3 |
+|  |  |  | [0C] ENERGY_SAVE_COOL | 2-3 |
+|  |  |  | [0D] AWAY | 2-3 |
+|  |  |  | [0F] FULL_POWER | 3 |
+|  |  |  | [1F] MANUFACTURER_SPECIFC | 3 |
 |  |  | NO_OF_MANUFACTURER_DATA_FIELDS |  | 3 |
 |  |  | MANUFACTURER_DATA |  | 3 |
 |  | [02] THERMOSTAT_MODE_GET |  |  | 1-3 |
 |  | [03] THERMOSTAT_MODE_REPORT |  |  | 1-3 |
 |  |  | MODE |  | 1-3 |
-|  |  |  | [00]  | 1-3 |
-|  |  |  | [01]  | 1-3 |
-|  |  |  | [02]  | 1-3 |
-|  |  |  | [03]  | 1-3 |
-|  |  |  | [04]  | 1-3 |
-|  |  |  | [05]  | 1-3 |
-|  |  |  | [06]  | 1-3 |
-|  |  |  | [07]  | 1-3 |
-|  |  |  | [08]  | 1-3 |
-|  |  |  | [09]  | 1-3 |
-|  |  |  | [0A]  | 1-3 |
-|  |  |  | [0B]  | 2-3 |
-|  |  |  | [0C]  | 2-3 |
-|  |  |  | [0D]  | 2-3 |
-|  |  |  | [0E]  | 3 |
-|  |  |  | [0F]  | 3 |
-|  |  |  | [10]  | 3 |
-|  |  |  | [11]  | 3 |
-|  |  |  | [12]  | 3 |
-|  |  |  | [13]  | 3 |
-|  |  |  | [14]  | 3 |
-|  |  |  | [15]  | 3 |
-|  |  |  | [16]  | 3 |
-|  |  |  | [17]  | 3 |
-|  |  |  | [18]  | 3 |
-|  |  |  | [19]  | 3 |
-|  |  |  | [1A]  | 3 |
-|  |  |  | [1B]  | 3 |
-|  |  |  | [1C]  | 3 |
-|  |  |  | [1D]  | 3 |
-|  |  |  | [1E]  | 3 |
-|  |  |  | [1F]  | 3 |
-|  |  | RESERVED |  | 1-2 |
+|  |  |  | [00] OFF | 1-3 |
+|  |  |  | [01] HEAT | 1-3 |
+|  |  |  | [02] COOL | 1-3 |
+|  |  |  | [03] AUTO | 1-3 |
+|  |  |  | [04] AUXILIARY_HEAT | 1-3 |
+|  |  |  | [05] RESUME | 1-3 |
+|  |  |  | [06] FAN_ONLY | 1-3 |
+|  |  |  | [07] FURNACE | 1-3 |
+|  |  |  | [08] DRY_AIR | 1-3 |
+|  |  |  | [09] MOIST_AIR | 1-3 |
+|  |  |  | [0A] AUTO_CHANGEOVER | 1-3 |
+|  |  |  | [0B] ENERGY_SAVE_HEAT | 2-3 |
+|  |  |  | [0C] ENERGY_SAVE_COOL | 2-3 |
+|  |  |  | [0D] AWAY | 2-3 |
+|  |  |  | [0F] FULL_POWER | 3 |
+|  |  |  | [1F] MANUFACTURER_SPECIFC | 3 |
 |  |  | NO_OF_MANUFACTURER_DATA_FIELDS |  | 3 |
 |  |  | MANUFACTURER_DATA |  | 3 |
 |  | [04] THERMOSTAT_MODE_SUPPORTED_GET |  |  | 1-3 |
@@ -1879,19 +1761,18 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [02] THERMOSTAT_OPERATING_STATE_GET |  |  | 1-2 |
 |  | [03] THERMOSTAT_OPERATING_STATE_REPORT |  |  | 1-2 |
 |  |  | OPERATING_STATE |  | 1-2 |
-|  |  |  | [00]  | 1-2 |
-|  |  |  | [01]  | 1-2 |
-|  |  |  | [02]  | 1-2 |
-|  |  |  | [03]  | 1-2 |
-|  |  |  | [04]  | 1-2 |
-|  |  |  | [05]  | 1-2 |
-|  |  |  | [06]  | 1-2 |
-|  |  |  | [07]  | 2 |
-|  |  |  | [08]  | 2 |
-|  |  |  | [09]  | 2 |
-|  |  |  | [0A]  | 2 |
-|  |  |  | [0B]  | 2 |
-|  |  | RESERVED |  | 1-2 |
+|  |  |  | [00] IDLE | 1-2 |
+|  |  |  | [01] HEATING | 1-2 |
+|  |  |  | [02] COOLING | 1-2 |
+|  |  |  | [03] FAN_ONLY | 1-2 |
+|  |  |  | [04] PENDING_HEAT | 1-2 |
+|  |  |  | [05] PENDING_COOL | 1-2 |
+|  |  |  | [06] VENT_ECONOMIZER | 1-2 |
+|  |  |  | [07] AUX_HEATING | 2 |
+|  |  |  | [08] 2ND_STAGE_HEATING | 2 |
+|  |  |  | [09] 2ND_STAGE_COOLING | 2 |
+|  |  |  | [0A] 2ND_STAGE_AUX_HEAT | 2 |
+|  |  |  | [0B] 3RD_STAGE_AUX_HEAT | 2 |
 |  | [04] THERMOSTAT_OPERATING_LOGGING_SUPPORTED_REPORT |  |  | 2 |
 |  |  | BIT_MASK |  | 2 |
 |  |  |  | [00] IDLE | 2 |
@@ -1926,65 +1807,62 @@ and constants. The applicable versions of the command class for command/paramete
 | [43] COMMAND_CLASS_THERMOSTAT_SETPOINT |  |  |  | 3 |
 |  | [01] THERMOSTAT_SETPOINT_SET |  |  | 1-3 |
 |  |  | SETPOINT_TYPE |  | 1-3 |
-|  |  |  | [00]  | 1-3 |
-|  |  |  | [01]  | 1-3 |
-|  |  |  | [02]  | 1-3 |
-|  |  |  | [03]  | 1-3 |
-|  |  |  | [04]  | 1-3 |
-|  |  |  | [05]  | 1-3 |
-|  |  |  | [06]  | 1-3 |
-|  |  |  | [07]  | 1-3 |
-|  |  |  | [08]  | 1-3 |
-|  |  |  | [09]  | 1-3 |
-|  |  |  | [0A]  | 1-3 |
-|  |  |  | [0B]  | 2-3 |
-|  |  |  | [0C]  | 2-3 |
-|  |  |  | [0D]  | 2-3 |
-|  |  |  | [0E]  | 3 |
-|  |  |  | [0F]  | 3 |
-|  |  | RESERVED |  | 1-3 |
+|  |  |  | [00] NOT_SUPPORTED | 1-3 |
+|  |  |  | [01] HEATING_1 | 1-3 |
+|  |  |  | [02] COOLING_1 | 1-3 |
+|  |  |  | [03] NOT_SUPPORTED1 | 1-3 |
+|  |  |  | [04] NOT_SUPPORTED2 | 1-3 |
+|  |  |  | [05] NOT_SUPPORTED3 | 1-3 |
+|  |  |  | [06] NOT_SUPPORTED4 | 1-3 |
+|  |  |  | [07] FURNACE | 1-3 |
+|  |  |  | [08] DRY_AIR | 1-3 |
+|  |  |  | [09] MOIST_AIR | 1-3 |
+|  |  |  | [0A] AUTO_CHANGEOVER | 1-3 |
+|  |  |  | [0B] ENERGY_SAVE_HEATING | 2-3 |
+|  |  |  | [0C] ENERGY_SAVE_COOLING | 2-3 |
+|  |  |  | [0D] AWAY_HEATING | 2-3 |
+|  |  |  | [0E] AWAY_COOLING | 3 |
+|  |  |  | [0F] FULL_POWER | 3 |
 |  |  | SIZE |  | 1-3 |
 |  |  | SCALE |  | 1-3 |
 |  |  | PRECISION |  | 1-3 |
 |  |  | VALUE |  | 1-3 |
 |  | [02] THERMOSTAT_SETPOINT_GET |  |  | 1-3 |
 |  |  | SETPOINT_TYPE |  | 1-3 |
-|  |  |  | [00]  | 1-3 |
-|  |  |  | [01]  | 1-3 |
-|  |  |  | [02]  | 1-3 |
-|  |  |  | [03]  | 1-3 |
-|  |  |  | [04]  | 1-3 |
-|  |  |  | [05]  | 1-3 |
-|  |  |  | [06]  | 1-3 |
-|  |  |  | [07]  | 1-3 |
-|  |  |  | [08]  | 1-3 |
-|  |  |  | [09]  | 1-3 |
-|  |  |  | [0A]  | 1-3 |
-|  |  |  | [0B]  | 2-3 |
-|  |  |  | [0C]  | 2-3 |
-|  |  |  | [0D]  | 2-3 |
-|  |  |  | [0E]  | 3 |
-|  |  |  | [0F]  | 3 |
-|  |  | RESERVED |  | 1-3 |
+|  |  |  | [00] NOT_SUPPORTED | 1-3 |
+|  |  |  | [01] HEATING_1 | 1-3 |
+|  |  |  | [02] COOLING_1 | 1-3 |
+|  |  |  | [03] NOT_SUPPORTED1 | 1-3 |
+|  |  |  | [04] NOT_SUPPORTED2 | 1-3 |
+|  |  |  | [05] NOT_SUPPORTED3 | 1-3 |
+|  |  |  | [06] NOT_SUPPORTED4 | 1-3 |
+|  |  |  | [07] FURNACE | 1-3 |
+|  |  |  | [08] DRY_AIR | 1-3 |
+|  |  |  | [09] MOIST_AIR | 1-3 |
+|  |  |  | [0A] AUTO_CHANGEOVER | 1-3 |
+|  |  |  | [0B] ENERGY_SAVE_HEATING | 2-3 |
+|  |  |  | [0C] ENERGY_SAVE_COOLING | 2-3 |
+|  |  |  | [0D] AWAY_HEATING | 2-3 |
+|  |  |  | [0E] AWAY_COOLING | 3 |
+|  |  |  | [0F] FULL_POWER | 3 |
 |  | [03] THERMOSTAT_SETPOINT_REPORT |  |  | 1-3 |
 |  |  | SETPOINT_TYPE |  | 1-3 |
-|  |  |  | [00]  | 1-3 |
-|  |  |  | [01]  | 1-3 |
-|  |  |  | [02]  | 1-3 |
-|  |  |  | [03]  | 1-3 |
-|  |  |  | [04]  | 1-3 |
-|  |  |  | [05]  | 1-3 |
-|  |  |  | [06]  | 1-3 |
-|  |  |  | [07]  | 1-3 |
-|  |  |  | [08]  | 1-3 |
-|  |  |  | [09]  | 1-3 |
-|  |  |  | [0A]  | 1-3 |
-|  |  |  | [0B]  | 2-3 |
-|  |  |  | [0C]  | 2-3 |
-|  |  |  | [0D]  | 2-3 |
-|  |  |  | [0E]  | 3 |
-|  |  |  | [0F]  | 3 |
-|  |  | RESERVED |  | 1-3 |
+|  |  |  | [00] NOT_SUPPORTED | 1-3 |
+|  |  |  | [01] HEATING_1 | 1-3 |
+|  |  |  | [02] COOLING_1 | 1-3 |
+|  |  |  | [03] NOT_SUPPORTED1 | 1-3 |
+|  |  |  | [04] NOT_SUPPORTED2 | 1-3 |
+|  |  |  | [05] NOT_SUPPORTED3 | 1-3 |
+|  |  |  | [06] NOT_SUPPORTED4 | 1-3 |
+|  |  |  | [07] FURNACE | 1-3 |
+|  |  |  | [08] DRY_AIR | 1-3 |
+|  |  |  | [09] MOIST_AIR | 1-3 |
+|  |  |  | [0A] AUTO_CHANGEOVER | 1-3 |
+|  |  |  | [0B] ENERGY_SAVE_HEATING | 2-3 |
+|  |  |  | [0C] ENERGY_SAVE_COOLING | 2-3 |
+|  |  |  | [0D] AWAY_HEATING | 2-3 |
+|  |  |  | [0E] AWAY_COOLING | 3 |
+|  |  |  | [0F] FULL_POWER | 3 |
 |  |  | SIZE |  | 1-3 |
 |  |  | SCALE |  | 1-3 |
 |  |  | PRECISION |  | 1-3 |
@@ -2006,42 +1884,40 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [0F] FULL_POWER | 3 |
 |  | [09] THERMOSTAT_SETPOINT_CAPABILITIES_GET |  |  | 3 |
 |  |  | SETPOINT_TYPE |  | 3 |
-|  |  |  | [00]  | 3 |
-|  |  |  | [01]  | 3 |
-|  |  |  | [02]  | 3 |
-|  |  |  | [03]  | 3 |
-|  |  |  | [04]  | 3 |
-|  |  |  | [05]  | 3 |
-|  |  |  | [06]  | 3 |
-|  |  |  | [07]  | 3 |
-|  |  |  | [08]  | 3 |
-|  |  |  | [09]  | 3 |
-|  |  |  | [0A]  | 3 |
-|  |  |  | [0B]  | 3 |
-|  |  |  | [0C]  | 3 |
-|  |  |  | [0D]  | 3 |
-|  |  |  | [0E]  | 3 |
-|  |  |  | [0F]  | 3 |
-|  |  | RESERVED |  | 3 |
+|  |  |  | [00] NOT_SUPPORTED | 3 |
+|  |  |  | [01] HEATING_1 | 3 |
+|  |  |  | [02] COOLING_1 | 3 |
+|  |  |  | [03] NOT_SUPPORTED1 | 3 |
+|  |  |  | [04] NOT_SUPPORTED2 | 3 |
+|  |  |  | [05] NOT_SUPPORTED3 | 3 |
+|  |  |  | [06] NOT_SUPPORTED4 | 3 |
+|  |  |  | [07] FURNACE | 3 |
+|  |  |  | [08] DRY_AIR | 3 |
+|  |  |  | [09] MOIST_AIR | 3 |
+|  |  |  | [0A] AUTO_CHANGEOVER | 3 |
+|  |  |  | [0B] ENERGY_SAVE_HEATING | 3 |
+|  |  |  | [0C] ENERGY_SAVE_COOLING | 3 |
+|  |  |  | [0D] AWAY_HEATING | 3 |
+|  |  |  | [0E] AWAY_COOLING | 3 |
+|  |  |  | [0F] FULL_POWER | 3 |
 |  | [0A] THERMOSTAT_SETPOINT_CAPABILITIES_REPORT |  |  | 3 |
 |  |  | SETPOINT_TYPE |  | 3 |
-|  |  |  | [00]  | 3 |
-|  |  |  | [01]  | 3 |
-|  |  |  | [02]  | 3 |
-|  |  |  | [03]  | 3 |
-|  |  |  | [04]  | 3 |
-|  |  |  | [05]  | 3 |
-|  |  |  | [06]  | 3 |
-|  |  |  | [07]  | 3 |
-|  |  |  | [08]  | 3 |
-|  |  |  | [09]  | 3 |
-|  |  |  | [0A]  | 3 |
-|  |  |  | [0B]  | 3 |
-|  |  |  | [0C]  | 3 |
-|  |  |  | [0D]  | 3 |
-|  |  |  | [0E]  | 3 |
-|  |  |  | [0F]  | 3 |
-|  |  | RESERVED |  | 3 |
+|  |  |  | [00] NOT_SUPPORTED | 3 |
+|  |  |  | [01] HEATING_1 | 3 |
+|  |  |  | [02] COOLING_1 | 3 |
+|  |  |  | [03] NOT_SUPPORTED1 | 3 |
+|  |  |  | [04] NOT_SUPPORTED2 | 3 |
+|  |  |  | [05] NOT_SUPPORTED3 | 3 |
+|  |  |  | [06] NOT_SUPPORTED4 | 3 |
+|  |  |  | [07] FURNACE | 3 |
+|  |  |  | [08] DRY_AIR | 3 |
+|  |  |  | [09] MOIST_AIR | 3 |
+|  |  |  | [0A] AUTO_CHANGEOVER | 3 |
+|  |  |  | [0B] ENERGY_SAVE_HEATING | 3 |
+|  |  |  | [0C] ENERGY_SAVE_COOLING | 3 |
+|  |  |  | [0D] AWAY_HEATING | 3 |
+|  |  |  | [0E] AWAY_COOLING | 3 |
+|  |  |  | [0F] FULL_POWER | 3 |
 |  |  | SIZE1 |  | 3 |
 |  |  | SCALE1 |  | 3 |
 |  |  | PRECISION1 |  | 3 |
@@ -2053,47 +1929,33 @@ and constants. The applicable versions of the command class for command/paramete
 | [44] COMMAND_CLASS_THERMOSTAT_FAN_MODE |  |  |  | 4 |
 |  | [01] THERMOSTAT_FAN_MODE_SET |  |  | 1-4 |
 |  |  | FAN_MODE |  | 1-4 |
-|  |  |  | [00]  | 1-4 |
-|  |  |  | [01]  | 1-4 |
-|  |  |  | [02]  | 1-4 |
-|  |  |  | [03]  | 1-4 |
-|  |  |  | [04]  | 2-4 |
-|  |  |  | [05]  | 2-4 |
-|  |  |  | [06]  | 3-4 |
-|  |  |  | [07]  | 3-4 |
-|  |  |  | [08]  | 4 |
-|  |  |  | [09]  | 4 |
-|  |  |  | [0A]  | 4 |
-|  |  |  | [0B]  | 4 |
-|  |  |  | [0C]  | 4 |
-|  |  |  | [0D]  | 4 |
-|  |  |  | [0E]  | 4 |
-|  |  |  | [0F]  | 4 |
-|  |  | RESERVED |  | 2-4 |
+|  |  |  | [00] AUTO_LOW | 1-4 |
+|  |  |  | [01] LOW | 1-4 |
+|  |  |  | [02] AUTO_HIGH | 1-4 |
+|  |  |  | [03] HIGH | 1-4 |
+|  |  |  | [04] AUTO_MEDIUM | 2-4 |
+|  |  |  | [05] MEDIUM | 2-4 |
+|  |  |  | [06] CIRCULATION | 3-4 |
+|  |  |  | [07] HUMIDITY | 3-4 |
+|  |  |  | [08] LEFT_RIGHT | 4 |
+|  |  |  | [09] UP_DOWN | 4 |
+|  |  |  | [0A] QUIET | 4 |
 |  |  | OFF |  | 2-4 |
-|  |  | RESERVED |  | 1 |
 |  | [02] THERMOSTAT_FAN_MODE_GET |  |  | 1-4 |
 |  | [03] THERMOSTAT_FAN_MODE_REPORT |  |  | 1-4 |
 |  |  | FAN_MODE |  | 1-4 |
-|  |  |  | [00]  | 1-4 |
-|  |  |  | [01]  | 1-4 |
-|  |  |  | [02]  | 1-4 |
-|  |  |  | [03]  | 1-4 |
-|  |  |  | [04]  | 2-4 |
-|  |  |  | [05]  | 2-4 |
-|  |  |  | [06]  | 3-4 |
-|  |  |  | [07]  | 3-4 |
-|  |  |  | [08]  | 4 |
-|  |  |  | [09]  | 4 |
-|  |  |  | [0A]  | 4 |
-|  |  |  | [0B]  | 4 |
-|  |  |  | [0C]  | 4 |
-|  |  |  | [0D]  | 4 |
-|  |  |  | [0E]  | 4 |
-|  |  |  | [0F]  | 4 |
-|  |  | RESERVED |  | 3-4 |
+|  |  |  | [00] AUTO_LOW | 1-4 |
+|  |  |  | [01] LOW | 1-4 |
+|  |  |  | [02] AUTO_HIGH | 1-4 |
+|  |  |  | [03] HIGH | 1-4 |
+|  |  |  | [04] AUTO_MEDIUM | 2-4 |
+|  |  |  | [05] MEDIUM | 2-4 |
+|  |  |  | [06] CIRCULATION | 3-4 |
+|  |  |  | [07] HUMIDITY | 3-4 |
+|  |  |  | [08] LEFT_RIGHT | 4 |
+|  |  |  | [09] UP_DOWN | 4 |
+|  |  |  | [0A] QUIET | 4 |
 |  |  | OFF |  | 3-4 |
-|  |  | RESERVED |  | 1-2 |
 |  | [04] THERMOSTAT_FAN_MODE_SUPPORTED_GET |  |  | 1-4 |
 |  | [05] THERMOSTAT_FAN_MODE_SUPPORTED_REPORT |  |  | 1-4 |
 |  |  | BIT_MASK |  | 1-4 |
@@ -2112,20 +1974,18 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [02] THERMOSTAT_FAN_STATE_GET |  |  | 1-2 |
 |  | [03] THERMOSTAT_FAN_STATE_REPORT |  |  | 1-2 |
 |  |  | FAN_OPERATING_STATE |  | 1-2 |
-|  |  |  | [00]  | 1-2 |
-|  |  |  | [01]  | 1-2 |
-|  |  |  | [02]  | 2 |
-|  |  |  | [03]  | 2 |
-|  |  |  | [04]  | 2 |
-|  |  |  | [05]  | 2 |
-|  |  |  | [06]  | 2 |
-|  |  |  | [07]  | 2 |
-|  |  |  | [08]  | 2 |
-|  |  | RESERVED |  | 1-2 |
+|  |  |  | [00] IDLE | 1-2 |
+|  |  |  | [01] RUNNING | 1-2 |
+|  |  |  | [02] RUNNING_HIGH | 2 |
+|  |  |  | [03] RUNNING_MEDIUM | 2 |
+|  |  |  | [04] CIRCULATION | 2 |
+|  |  |  | [05] HUMIDITY_CIRCULATION | 2 |
+|  |  |  | [06] RIGHT_LEFT_CIRCULATION | 2 |
+|  |  |  | [07] UP_DOWN_CIRCULATION | 2 |
+|  |  |  | [08] QUIET_CIRCULATION | 2 |
 | [46] COMMAND_CLASS_CLIMATE_CONTROL_SCHEDULE |  |  |  | 1 |
 |  | [01] SCHEDULE_SET |  |  | 1 |
 |  |  | WEEKDAY |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | SWITCHPOINT_0 |  | 1 |
 |  |  | SWITCHPOINT_1 |  | 1 |
 |  |  | SWITCHPOINT_2 |  | 1 |
@@ -2137,10 +1997,8 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | SWITCHPOINT_8 |  | 1 |
 |  | [02] SCHEDULE_GET |  |  | 1 |
 |  |  | WEEKDAY |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  | [03] SCHEDULE_REPORT |  |  | 1 |
 |  |  | WEEKDAY |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | SWITCHPOINT_0 |  | 1 |
 |  |  | SWITCHPOINT_1 |  | 1 |
 |  |  | SWITCHPOINT_2 |  | 1 |
@@ -2155,7 +2013,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | CHANGECOUNTER |  | 1 |
 |  | [06] SCHEDULE_OVERRIDE_SET |  |  | 1 |
 |  |  | OVERRIDE_TYPE |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | OVERRIDE_STATE |  | 1 |
 |  |  |  | [00] NO_OVERRIDE | 1 |
 |  |  |  | [01] TEMPORARY_OVERRIDE | 1 |
@@ -2163,7 +2020,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [07] SCHEDULE_OVERRIDE_GET |  |  | 1 |
 |  | [08] SCHEDULE_OVERRIDE_REPORT |  |  | 1 |
 |  |  | OVERRIDE_TYPE |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | OVERRIDE_STATE |  | 1 |
 |  |  |  | [00] NO_OVERRIDE | 1 |
 |  |  |  | [01] TEMPORARY_OVERRIDE | 1 |
@@ -2171,11 +2027,9 @@ and constants. The applicable versions of the command class for command/paramete
 | [47] COMMAND_CLASS_THERMOSTAT_SETBACK |  |  |  | 1 |
 |  | [01] THERMOSTAT_SETBACK_SET |  |  | 1 |
 |  |  | SETBACK_TYPE |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  |  | [02]  | 1 |
-|  |  |  | [03]  | 1 |
-|  |  | RESERVED |  | 1 |
+|  |  |  | [00] NO_OVERRIDE | 1 |
+|  |  |  | [01] TEMPORARY_OVERRIDE | 1 |
+|  |  |  | [02] PERMANENT_OVERRIDE | 1 |
 |  |  | SETBACK_STATE |  | 1 |
 |  |  |  | [79] FROST_PROTECTION | 1 |
 |  |  |  | [7A] ENERGY_SAVING_MODE | 1 |
@@ -2183,11 +2037,9 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [02] THERMOSTAT_SETBACK_GET |  |  | 1 |
 |  | [03] THERMOSTAT_SETBACK_REPORT |  |  | 1 |
 |  |  | SETBACK_TYPE |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  |  | [02]  | 1 |
-|  |  |  | [03]  | 1 |
-|  |  | RESERVED |  | 1 |
+|  |  |  | [00] NO_OVERRIDE | 1 |
+|  |  |  | [01] TEMPORARY_OVERRIDE | 1 |
+|  |  |  | [02] PERMANENT_OVERRIDE | 1 |
 |  |  | SETBACK_STATE |  | 1 |
 |  |  |  | [79] FROST_PROTECTION | 1 |
 |  |  |  | [7A] ENERGY_SAVING_MODE | 1 |
@@ -2197,7 +2049,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | RATE_PARAMETER_SET_ID |  | 1 |
 |  |  | NUMBER_OF_RATE_CHAR |  | 1 |
 |  |  | RATE_TYPE |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | RATE_CHARACTER |  | 1 |
 |  |  | START_HOUR_LOCAL_TIME |  | 1 |
 |  |  | START_MINUTE_LOCAL_TIME |  | 1 |
@@ -2212,7 +2063,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | DCP_RATE_ID |  | 1 |
 |  | [02] RATE_TBL_REMOVE |  |  | 1 |
 |  |  | RATE_PARAMETER_SET_IDS |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | RATE_PARAMETER_SET_ID |  | 1 |
 | [49] COMMAND_CLASS_RATE_TBL_MONITOR |  |  |  | 1 |
 |  | [01] RATE_TBL_SUPPORTED_GET |  |  | 1 |
@@ -2225,7 +2075,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | RATE_PARAMETER_SET_ID |  | 1 |
 |  |  | NUMBER_OF_RATE_CHAR |  | 1 |
 |  |  | RATE_TYPE |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | RATE_CHARACTER |  | 1 |
 |  |  | START_HOUR_LOCAL_TIME |  | 1 |
 |  |  | START_MINUTE_LOCAL_TIME |  | 1 |
@@ -2295,16 +2144,13 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | STANDING_CHARGE_PRECISION |  | 1 |
 |  |  | STANDING_CHARGE_VALUE |  | 1 |
 |  |  | NUMBER_OF_SUPPLIER_CHARACTERS |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | SUPPLIER_CHARACTER |  | 1 |
 |  | [02] TARIFF_TBL_SET |  |  | 1 |
 |  |  | RATE_PARAMETER_SET_ID |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | TARIFF_PRECISION |  | 1 |
 |  |  | TARIFF_VALUE |  | 1 |
 |  | [03] TARIFF_TBL_REMOVE |  |  | 1 |
 |  |  | RATE_PARAMETER_SET_IDS |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | RATE_PARAMETER_SET_ID |  | 1 |
 | [4B] COMMAND_CLASS_TARIFF_TBL_MONITOR |  |  |  | 1 |
 |  | [01] TARIFF_TBL_SUPPLIER_GET |  |  | 1 |
@@ -2320,13 +2166,11 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | STANDING_CHARGE_PRECISION |  | 1 |
 |  |  | STANDING_CHARGE_VALUE |  | 1 |
 |  |  | NUMBER_OF_SUPPLIER_CHARACTERS |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | SUPPLIER_CHARACTER |  | 1 |
 |  | [03] TARIFF_TBL_GET |  |  | 1 |
 |  |  | RATE_PARAMETER_SET_ID |  | 1 |
 |  | [04] TARIFF_TBL_REPORT |  |  | 1 |
 |  |  | RATE_PARAMETER_SET_ID |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | TARIFF_PRECISION |  | 1 |
 |  |  | TARIFF_VALUE |  | 1 |
 |  | [05] TARIFF_TBL_COST_GET |  |  | 1 |
@@ -2344,7 +2188,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [06] TARIFF_TBL_COST_REPORT |  |  | 1 |
 |  |  | RATE_PARAMETER_SET_ID |  | 1 |
 |  |  | RATE_TYPE |  | 1 |
-|  |  | RESERVED1 |  | 1 |
 |  |  | START_YEAR |  | 1 |
 |  |  | START_MONTH |  | 1 |
 |  |  | START_DAY |  | 1 |
@@ -2356,7 +2199,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | STOP_HOUR_LOCAL_TIME |  | 1 |
 |  |  | STOP_MINUTE_LOCAL_TIME |  | 1 |
 |  |  | CURRENCY |  | 1 |
-|  |  | RESERVED2 |  | 1 |
 |  |  | COST_PRECISION |  | 1 |
 |  |  | COST_VALUE |  | 1 |
 | [4C] COMMAND_CLASS_DOOR_LOCK_LOGGING |  |  |  | 1 |
@@ -2546,9 +2388,7 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | PAYLOAD |  | 1 |
 | [50] COMMAND_CLASS_BASIC_WINDOW_COVERING |  |  |  | 1 |
 |  | [01] BASIC_WINDOW_COVERING_START_LEVEL_CHANGE |  |  | 1 |
-|  |  | RESERVED1 |  | 1 |
 |  |  | OPEN_CLOSE |  | 1 |
-|  |  | RESERVED2 |  | 1 |
 |  | [02] BASIC_WINDOW_COVERING_STOP_LEVEL_CHANGE |  |  | 1 |
 | [51] COMMAND_CLASS_MTP_WINDOW_COVERING |  |  |  | 1 |
 |  | [01] MOVE_TO_POSITION_SET |  |  | 1 |
@@ -2573,15 +2413,14 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [03] NODE_INFO_CACHED_GET |  |  | 1-2 |
 |  |  | SEQ_NO |  | 1-2 |
 |  |  | MAX_AGE |  | 1-2 |
-|  |  | RESERVED |  | 1-2 |
 |  |  | NODE_ID |  | 1-2 |
 |  | [04] NODE_INFO_CACHED_REPORT |  |  | 1-2 |
 |  |  | SEQ_NO |  | 1-2 |
 |  |  | AGE |  | 1-2 |
 |  |  | STATUS |  | 1-2 |
-|  |  |  | [00]  | 1-2 |
-|  |  |  | [01]  | 1-2 |
-|  |  |  | [02]  | 1-2 |
+|  |  |  | [00] STATUS_OK | 1-2 |
+|  |  |  | [01] STATUS_NOT_RESPONDING | 1-2 |
+|  |  |  | [02] STATUS_UNKNOWN | 1-2 |
 |  |  | CAPABILITY |  | 1-2 |
 |  |  | LISTENING |  | 1-2 |
 |  |  | SECURITY |  | 1-2 |
@@ -2620,26 +2459,18 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | SCHEDULE_ID_BLOCK |  | 2-3 |
 |  |  | START_YEAR |  | 1-3 |
 |  |  | START_MONTH |  | 1-3 |
-|  |  | RESERVED1 |  | 1 |
-|  |  | RESERVED0 |  | 2 |
 |  |  | RECURRENCE_OFFSET |  | 3 |
 |  |  | START_DAY_OF_MONTH |  | 1-3 |
 |  |  | RECURRENCE_MODE |  | 3 |
-|  |  |  | [00]  | 3 |
-|  |  |  | [01]  | 3 |
-|  |  |  | [02]  | 3 |
-|  |  | RESERVED1 |  | 3 |
-|  |  | RESERVED2 |  | 1 |
-|  |  | RESERVED1 |  | 2 |
+|  |  |  | [00] REPEAT_EVERY_N_HOURS | 3 |
+|  |  |  | [01] REPEAT_EVERY_N_DAYS | 3 |
+|  |  |  | [02] REPEAT_EVERY_N_WEEKS | 3 |
 |  |  | START_WEEKDAY |  | 1-3 |
 |  |  | RES_ |  | 1 |
-|  |  | RESERVED2 |  | 2-3 |
 |  |  | START_HOUR |  | 1-3 |
 |  |  | DURATION_TYPE |  | 1-3 |
 |  |  | START_MINUTE |  | 1-3 |
 |  |  | RELATIVE |  | 3 |
-|  |  | RESERVED3 |  | 3 |
-|  |  | RESERVED3 |  | 1-2 |
 |  |  | DURATION_BYTE |  | 1-3 |
 |  |  | REPORTS_TO_FOLLOW |  | 1-3 |
 |  |  | NUMBER_OF_CMD_TO_FOLLOW |  | 1-3 |
@@ -2647,7 +2478,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [04] COMMAND_SCHEDULE_GET |  |  | 1-3 |
 |  |  | SCHEDULE_ID |  | 1-3 |
 |  |  | SCHEDULE_ID_BLOCK |  | 2-3 |
-|  |  | RESERVED |  | 3 |
 |  |  | AID_RO_CTL |  | 3 |
 |  | [05] COMMAND_SCHEDULE_REPORT |  |  | 1-3 |
 |  |  | SCHEDULE_ID |  | 1-3 |
@@ -2658,26 +2488,17 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | ACTIVE_ID |  | 1-2 |
 |  |  | AID_RO |  | 3 |
 |  |  | START_DAY_OF_MONTH |  | 1-3 |
-|  |  | RECURRENCE_MODE |  | 3 |
-|  |  |  | [00]  | 3 |
-|  |  |  | [01]  | 3 |
-|  |  |  | [02]  | 3 |
 |  |  | AID_RO_CTL |  | 3 |
-|  |  | RESERVED2 |  | 1 |
-|  |  | RECURRENCE_MODE |  | 2 |
-|  |  |  | [00]  | 2 |
-|  |  |  | [01]  | 2 |
-|  |  |  | [02]  | 2 |
+|  |  | RECURRENCE_MODE |  | 2-3 |
+|  |  |  | [00] REPEAT_EVERY_N_HOURS | 2-3 |
+|  |  |  | [01] REPEAT_EVERY_N_DAYS | 2-3 |
+|  |  |  | [02] REPEAT_EVERY_N_WEEKS | 2-3 |
 |  |  | START_WEEKDAY |  | 1-3 |
 |  |  | RES_ |  | 1 |
-|  |  | RESERVED1 |  | 2-3 |
 |  |  | START_HOUR |  | 1-3 |
 |  |  | DURATION_TYPE |  | 1-3 |
 |  |  | START_MINUTE |  | 1-3 |
 |  |  | RELATIVE |  | 3 |
-|  |  | RESERVED2 |  | 3 |
-|  |  | RESERVED3 |  | 1 |
-|  |  | RESERVED2 |  | 2 |
 |  |  | DURATION_BYTE |  | 1-3 |
 |  |  | REPORTS_TO_FOLLOW |  | 1-3 |
 |  |  | NUMBER_OF_CMD_TO_FOLLOW |  | 1-3 |
@@ -2734,21 +2555,16 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [C0] COMMAND_FIRST_FRAGMENT |  |  | 1-2 |
 |  |  | DATAGRAM_SIZE_1 |  | 1-2 |
 |  |  | DATAGRAM_SIZE_2 |  | 1-2 |
-|  |  | RESERVED |  | 2 |
 |  |  | EXT |  | 2 |
 |  |  | SEQUENCE_NO |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | SESSION_ID |  | 2 |
-|  |  | PAYLOAD |  | 1 |
 |  |  | HEADER_EXTENSION_LENGTH |  | 2 |
+|  |  | PAYLOAD |  | 1-2 |
 |  |  | CHECKSUM |  | 1 |
 |  |  | HEADER_EXTENSION |  | 2 |
-|  |  | PAYLOAD |  | 2 |
 |  |  | FRAME_CHECK_SEQUENCE |  | 2 |
 |  | [C8] COMMAND_SEGMENT_REQUEST |  |  | 2 |
-|  |  | RESERVED |  | 2 |
 |  |  | DATAGRAM_OFFSET_1 |  | 2 |
-|  |  | RESERVED2 |  | 2 |
 |  |  | SESSION_ID |  | 2 |
 |  |  | DATAGRAM_OFFSET_2 |  | 2 |
 |  | [E0] COMMAND_SUBSEQUENT_FRAGMENT |  |  | 1-2 |
@@ -2757,21 +2573,16 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | DATAGRAM_OFFSET_1 |  | 1-2 |
 |  |  | EXT |  | 2 |
 |  |  | SEQUENCE_NO |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | SESSION_ID |  | 2 |
 |  |  | DATAGRAM_OFFSET_2 |  | 1-2 |
-|  |  | PAYLOAD |  | 1 |
 |  |  | HEADER_EXTENSION_LENGTH |  | 2 |
+|  |  | PAYLOAD |  | 1-2 |
 |  |  | CHECKSUM |  | 1 |
 |  |  | HEADER_EXTENSION |  | 2 |
-|  |  | PAYLOAD |  | 2 |
 |  |  | FRAME_CHECK_SEQUENCE |  | 2 |
 |  | [E8] COMMAND_SEGMENT_COMPLETE |  |  | 2 |
-|  |  | RESERVED |  | 2 |
-|  |  | RESERVED2 |  | 2 |
 |  |  | SESSION_ID |  | 2 |
 |  | [F0] COMMAND_SEGMENT_WAIT |  |  | 2 |
-|  |  | RESERVED |  | 2 |
 |  |  | PENDING_FRAGMENTS |  | 2 |
 | [56] COMMAND_CLASS_CRC_16_ENCAP |  |  |  | 1 |
 |  | [01] CRC_16_ENCAP |  |  | 1 |
@@ -2781,18 +2592,16 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | CHECKSUM |  | 1 |
 | [57] COMMAND_CLASS_APPLICATION_CAPABILITY |  |  |  | 1 |
 |  | [01] COMMAND_COMMAND_CLASS_NOT_SUPPORTED |  |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | DYNAMIC |  | 1 |
 |  |  | OFFENDING_COMMAND_CLASS |  | 1 |
 |  |  | OFFENDING_COMMAND |  | 1 |
 | [58] COMMAND_CLASS_ZIP_ND |  |  |  | 1 |
 |  | [01] ZIP_NODE_ADVERTISEMENT |  |  | 1 |
 |  |  | VALIDITY |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  |  | [02]  | 1 |
+|  |  |  | [00] INFORMATION_OK | 1 |
+|  |  |  | [01] INFORMATION_OBSOLETE | 1 |
+|  |  |  | [02] INFORMATION_NOT_FOUND | 1 |
 |  |  | LOCAL |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | NODE_ID |  | 1 |
 |  |  | IPV6_ADDRESS |  | 1 |
 |  |  | HOME_ID |  | 1 |
@@ -2800,9 +2609,7 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | NODE_ID |  | 1 |
 |  |  | IPV6_ADDRESS |  | 1 |
 |  | [04] ZIP_INV_NODE_SOLICITATION |  |  | 1 |
-|  |  | RESERVED1 |  | 1 |
 |  |  | LOCAL |  | 1 |
-|  |  | RESERVED2 |  | 1 |
 |  |  | NODE_ID |  | 1 |
 | [59] COMMAND_CLASS_ASSOCIATION_GRP_INFO |  |  |  | 3 |
 |  | [01] ASSOCIATION_GROUP_NAME_GET |  |  | 1-3 |
@@ -2812,7 +2619,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | LENGTH_OF_NAME |  | 1-3 |
 |  |  | NAME |  | 1-3 |
 |  | [03] ASSOCIATION_GROUP_INFO_GET |  |  | 1-3 |
-|  |  | RESERVED |  | 1-3 |
 |  |  | LIST_MODE |  | 1-3 |
 |  |  | REFRESH_CACHE |  | 1-3 |
 |  |  | GROUPING_IDENTIFIER |  | 1-3 |
@@ -2822,7 +2628,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | LIST_MODE |  | 1-3 |
 |  |  | ASSOCIATION_GROUP_INFO |  | 1-3 |
 |  | [05] ASSOCIATION_GROUP_COMMAND_LIST_GET |  |  | 1-3 |
-|  |  | RESERVED |  | 1-3 |
 |  |  | ALLOW_CACHE |  | 1-3 |
 |  |  | GROUPING_IDENTIFIER |  | 1-3 |
 |  | [06] ASSOCIATION_GROUP_COMMAND_LIST_REPORT |  |  | 1-3 |
@@ -2837,30 +2642,24 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | SUPPORTED_SCENES |  | 1-3 |
 |  |  | IDENTICAL |  | 2-3 |
 |  |  | NUMBER_OF_BIT_MASK_BYTES |  | 2-3 |
-|  |  | RESERVED |  | 3 |
 |  |  | SLOW_REFRESH_SUPPORT |  | 3 |
-|  |  | RESERVED |  | 2 |
 |  |  | SCENE_INFORMATION |  | 2-3 |
 |  | [03] CENTRAL_SCENE_NOTIFICATION |  |  | 1-3 |
 |  |  | SEQUENCE_NUMBER |  | 1-3 |
 |  |  | KEY_ATTRIBUTES |  | 1-3 |
-|  |  |  | [00]  | 1-3 |
-|  |  |  | [01]  | 1-3 |
-|  |  |  | [02]  | 1-3 |
-|  |  |  | [03]  | 1-3 |
-|  |  |  | [04]  | 1-3 |
-|  |  |  | [05]  | 1-3 |
-|  |  |  | [06]  | 1-3 |
-|  |  | RESERVED |  | 3 |
+|  |  |  | [00] KEY_PRESSED_1_TIME | 1-3 |
+|  |  |  | [01] KEY_RELEASED | 1-3 |
+|  |  |  | [02] KEY_HELD_DOWN | 1-3 |
+|  |  |  | [03] KEY_PRESSED_2_TIMES | 1-3 |
+|  |  |  | [04] KEY_PRESSED_3_TIMES | 1-3 |
+|  |  |  | [05] KEY_PRESSED_4_TIMES | 1-3 |
+|  |  |  | [06] KEY_PRESSED_5_TIMES | 1-3 |
 |  |  | SLOW_REFRESH |  | 3 |
-|  |  | RESERVED |  | 1-2 |
 |  |  | SCENE_NUMBER |  | 1-3 |
 |  | [04] CENTRAL_SCENE_CONFIGURATION_SET |  |  | 3 |
-|  |  | RESERVED |  | 3 |
 |  |  | SLOW_REFRESH |  | 3 |
 |  | [05] CENTRAL_SCENE_CONFIGURATION_GET |  |  | 3 |
 |  | [06] CENTRAL_SCENE_CONFIGURATION_REPORT |  |  | 3 |
-|  |  | RESERVED |  | 3 |
 |  |  | SLOW_REFRESH |  | 3 |
 | [5C] COMMAND_CLASS_IP_ASSOCIATION |  |  |  | 1 |
 |  | [01] IP_ASSOCIATION_SET |  |  | 1 |
@@ -2930,7 +2729,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | IPV6_ADDRESS |  | 1 |
 |  |  | PORT |  | 1 |
 |  |  | PEER_NAME_LENGTH |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | PEER_NAME |  | 1 |
 |  | [05] GATEWAY_PEER_GET |  |  | 1 |
 |  |  | PEER_PROFILE |  | 1 |
@@ -2940,12 +2738,10 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | IPV6_ADDRESS |  | 1 |
 |  |  | PORT |  | 1 |
 |  |  | PEER_NAME_LENGTH |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | PEER_NAME |  | 1 |
 |  | [07] GATEWAY_LOCK_SET |  |  | 1 |
 |  |  | LOCK |  | 1 |
 |  |  | SHOW |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  | [08] UNSOLICITED_DESTINATION_SET |  |  | 1 |
 |  |  | UNSOLICITED_IPV6_DESTINATION |  | 1 |
 |  |  | UNSOLICITED_DESTINATION_PORT |  | 1 |
@@ -2971,13 +2767,11 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | COMMAND_CLASS |  | 1-4 |
 |  | [05] MULTI_INSTANCE_REPORT |  |  | 1-4 |
 |  |  | COMMAND_CLASS |  | 1-4 |
-|  |  | INSTANCES |  | 2-4 |
 |  |  | RES |  | 2-4 |
-|  |  | INSTANCES |  | 1 |
+|  |  | INSTANCES |  | 1-4 |
 |  | [06] MULTI_INSTANCE_CMD_ENCAP |  |  | 1-4 |
-|  |  | INSTANCE |  | 2-4 |
 |  |  | RES |  | 2-4 |
-|  |  | INSTANCE |  | 1 |
+|  |  | INSTANCE |  | 1-4 |
 |  |  | COMMAND_CLASS |  | 1-4 |
 |  |  | COMMAND |  | 1-4 |
 |  |  | PARAMETER |  | 1-4 |
@@ -3121,29 +2915,26 @@ and constants. The applicable versions of the command class for command/paramete
 | [64] COMMAND_CLASS_HUMIDITY_CONTROL_SETPOINT |  |  |  | 1 |
 |  | [01] HUMIDITY_CONTROL_SETPOINT_SET |  |  | 1 |
 |  |  | SETPOINT_TYPE |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  | RESERVED |  | 1 |
+|  |  |  | [00] HUMIDIFIER | 1 |
+|  |  |  | [01] DEHUMIDIFIER | 1 |
 |  |  | SIZE |  | 1 |
 |  |  | SCALE |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
+|  |  |  | [00] PERCENTAGE | 1 |
+|  |  |  | [01] ABSOLUTE | 1 |
 |  |  | PRECISION |  | 1 |
 |  |  | VALUE |  | 1 |
 |  | [02] HUMIDITY_CONTROL_SETPOINT_GET |  |  | 1 |
 |  |  | SETPOINT_TYPE |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  | RESERVED |  | 1 |
+|  |  |  | [00] HUMIDIFIER | 1 |
+|  |  |  | [01] DEHUMIDIFIER | 1 |
 |  | [03] HUMIDITY_CONTROL_SETPOINT_REPORT |  |  | 1 |
 |  |  | SETPOINT_TYPE |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  | RESERVED |  | 1 |
+|  |  |  | [00] HUMIDIFIER | 1 |
+|  |  |  | [01] DEHUMIDIFIER | 1 |
 |  |  | SIZE |  | 1 |
 |  |  | SCALE |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
+|  |  |  | [00] PERCENTAGE | 1 |
+|  |  |  | [01] ABSOLUTE | 1 |
 |  |  | PRECISION |  | 1 |
 |  |  | VALUE |  | 1 |
 |  | [04] HUMIDITY_CONTROL_SETPOINT_SUPPORTED_GET |  |  | 1 |
@@ -3153,45 +2944,39 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [02] DEHUMIDIFIER | 1 |
 |  | [06] HUMIDITY_CONTROL_SETPOINT_SCALE_SUPPORTED_GET |  |  | 1 |
 |  |  | SETPOINT_TYPE |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  | RESERVED |  | 1 |
+|  |  |  | [00] HUMIDIFIER | 1 |
+|  |  |  | [01] DEHUMIDIFIER | 1 |
 |  | [07] HUMIDITY_CONTROL_SETPOINT_SCALE_SUPPORTED_REPORT |  |  | 1 |
 |  |  | SCALE_BIT_MASK |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  | RESERVED |  | 1 |
+|  |  |  | [00] PERCENTAGE | 1 |
+|  |  |  | [01] ABSOLUTE | 1 |
 |  | [08] HUMIDITY_CONTROL_SETPOINT_CAPABILITIES_GET |  |  | 1 |
 |  |  | SETPOINT_TYPE |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  | RESERVED |  | 1 |
+|  |  |  | [00] HUMIDIFIER | 1 |
+|  |  |  | [01] DEHUMIDIFIER | 1 |
 |  | [09] HUMIDITY_CONTROL_SETPOINT_CAPABILITIES_REPORT |  |  | 1 |
 |  |  | SETPOINT_TYPE |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  | RESERVED |  | 1 |
+|  |  |  | [00] HUMIDIFIER | 1 |
+|  |  |  | [01] DEHUMIDIFIER | 1 |
 |  |  | SIZE1 |  | 1 |
 |  |  | SCALE1 |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
+|  |  |  | [00] PERCENTAGE | 1 |
+|  |  |  | [01] ABSOLUTE | 1 |
 |  |  | PRECISION1 |  | 1 |
 |  |  | MINIMUM_VALUE |  | 1 |
 |  |  | SIZE2 |  | 1 |
 |  |  | SCALE2 |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
+|  |  |  | [00] PERCENTAGE | 1 |
+|  |  |  | [01] ABSOLUTE | 1 |
 |  |  | PRECISION2 |  | 1 |
 |  |  | MAXIMUM_VALUE |  | 1 |
 | [65] COMMAND_CLASS_DMX |  |  |  | 1 |
 |  | [01] DMX_ADDRESS_SET |  |  | 1 |
 |  |  | PAGE_ID |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | CHANNEL_ID |  | 1 |
 |  | [02] DMX_ADDRESS_GET |  |  | 1 |
 |  | [03] DMX_ADDRESS_REPORT |  |  | 1 |
 |  |  | PAGE_ID |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | CHANNEL_ID |  | 1 |
 |  | [04] DMX_CAPABILITY_GET |  |  | 1 |
 |  |  | CHANNEL_ID |  | 1 |
@@ -3204,7 +2989,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | SOURCE |  | 1 |
 |  |  | PAGE |  | 1 |
 |  |  | SEQUENCE_NO |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | DMX_CHANNEL |  | 1 |
 | [66] COMMAND_CLASS_BARRIER_OPERATOR |  |  |  | 1 |
 |  | [01] BARRIER_OPERATOR_SET |  |  | 1 |
@@ -3290,36 +3074,33 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [01] MAILBOX_CONFIGURATION_GET |  |  | 1 |
 |  | [02] MAILBOX_CONFIGURATION_SET |  |  | 1 |
 |  |  | MODE |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  |  | [02]  | 1 |
-|  |  | RESERVED |  | 1 |
+|  |  |  | [00] DISABLE | 1 |
+|  |  |  | [01] ENABLE_MAILBOX_SERVICE | 1 |
+|  |  |  | [02] ENABLE_MAILBOX_PROXY | 1 |
 |  |  | FORWARDING_DESTINATION_IPV6_ADDRESS |  | 1 |
 |  |  | UDP_PORT_NUMBER |  | 1 |
 |  | [03] MAILBOX_CONFIGURATION_REPORT |  |  | 1 |
 |  |  | MODE |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  |  | [02]  | 1 |
+|  |  |  | [00] DISABLE | 1 |
+|  |  |  | [01] ENABLE_MAILBOX_SERVICE | 1 |
+|  |  |  | [02] ENABLE_MAILBOX_PROXY | 1 |
 |  |  | SUPPORTED_MODES |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  | RESERVED |  | 1 |
+|  |  |  | [00] MAILBOX_SERVICE_SUPPORTED | 1 |
+|  |  |  | [01] MAILBOX_PROXY_SUPPORTED | 1 |
 |  |  | MAILBOX_CAPACITY |  | 1 |
 |  |  | FORWARDING_DESTINATION_IPV6_ADDRESS |  | 1 |
 |  |  | UDP_PORT_NUMBER |  | 1 |
 |  | [04] MAILBOX_QUEUE |  |  | 1 |
 |  |  | SEQUENCE_NUMBER |  | 1 |
 |  |  | MODE |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  |  | [02]  | 1 |
-|  |  |  | [03]  | 1 |
-|  |  |  | [04]  | 1 |
-|  |  |  | [05]  | 1 |
-|  |  |  | [06]  | 1 |
+|  |  |  | [00] PUSH | 1 |
+|  |  |  | [01] POP | 1 |
+|  |  |  | [02] WAITING | 1 |
+|  |  |  | [03] PING | 1 |
+|  |  |  | [04] ACK | 1 |
+|  |  |  | [05] NACK | 1 |
+|  |  |  | [06] QUEUE_FULL | 1 |
 |  |  | LAST |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | QUEUE_HANDLE |  | 1 |
 |  |  | MAILBOX_ENTRY |  | 1 |
 |  | [05] MAILBOX_WAKEUP_NOTIFICATION |  |  | 1 |
@@ -3330,7 +3111,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [01] WINDOW_COVERING_SUPPORTED_GET |  |  | 1 |
 |  | [02] WINDOW_COVERING_SUPPORTED_REPORT |  |  | 1 |
 |  |  | NUMBER_OF_PARAMETER_MASK_BYTES |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | PARAMETER_MASK |  | 1 |
 |  | [03] WINDOW_COVERING_GET |  |  | 1 |
 |  |  | PARAMETER_ID |  | 1 |
@@ -3387,7 +3167,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | DURATION |  | 1 |
 |  | [05] WINDOW_COVERING_SET |  |  | 1 |
 |  |  | PARAMETER_COUNT |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | WINDOW_COVERING |  | 1 |
 |  |  | DURATION |  | 1 |
 |  | [06] WINDOW_COVERING_START_LEVEL_CHANGE |  |  | 1 |
@@ -3448,13 +3227,9 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [01] IRRIGATION_SYSTEM_INFO_GET |  |  | 1 |
 |  | [02] IRRIGATION_SYSTEM_INFO_REPORT |  |  | 1 |
 |  |  | MASTER_VALVE |  | 1 |
-|  |  | RESERVED1 |  | 1 |
-|  |  | RESERVED2 |  | 1 |
-|  |  | RESERVED3 |  | 1 |
 |  |  | TOTAL_NUMBER_OF_VALVES |  | 1 |
 |  |  | TOTAL_NUMBER_OF_VALVE_TABLES |  | 1 |
 |  |  | VALVE_TABLE_MAX_SIZE |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  | [03] IRRIGATION_SYSTEM_STATUS_GET |  |  | 1 |
 |  | [04] IRRIGATION_SYSTEM_STATUS_REPORT |  |  | 1 |
 |  |  | SYSTEM_VOLTAGE |  | 1 |
@@ -3479,7 +3254,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [03] LOW_THRESHOLD_TRIGGERED | 1 |
 |  |  |  | [04] VALVE_ERRORS | 1 |
 |  |  | MASTER_VALVE |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | VALVE_ID |  | 1 |
 |  | [05] IRRIGATION_SYSTEM_CONFIG_SET |  |  | 1 |
 |  |  | MASTER_VALVE_DELAY |  | 1 |
@@ -3512,12 +3286,10 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [07] VALID | 1 |
 |  | [08] IRRIGATION_VALVE_INFO_GET |  |  | 1 |
 |  |  | MASTER_VALVE |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | VALVE_ID |  | 1 |
 |  | [09] IRRIGATION_VALVE_INFO_REPORT |  |  | 1 |
 |  |  | MASTER |  | 1 |
 |  |  | CONNECTED |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | VALVE_ID |  | 1 |
 |  |  | NOMINAL_CURRENT |  | 1 |
 |  |  | VALVE_ERROR_STATUS |  | 1 |
@@ -3529,7 +3301,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [05] FLOW_LOW_THRESHOLD | 1 |
 |  | [0A] IRRIGATION_VALVE_CONFIG_SET |  |  | 1 |
 |  |  | MASTER_VALVE |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | VALVE_ID |  | 1 |
 |  |  | NOMINAL_CURRENT_HIGH_THRESHOLD |  | 1 |
 |  |  | NOMINAL_CURRENT_LOW_THRESHOLD |  | 1 |
@@ -3550,11 +3321,9 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [01] USE_MOISTURE_SENSOR | 1 |
 |  | [0B] IRRIGATION_VALVE_CONFIG_GET |  |  | 1 |
 |  |  | MASTER_VALVE |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | VALVE_ID |  | 1 |
 |  | [0C] IRRIGATION_VALVE_CONFIG_REPORT |  |  | 1 |
 |  |  | MASTER_VALVE |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | VALVE_ID |  | 1 |
 |  |  | NOMINAL_CURRENT_HIGH_THRESHOLD |  | 1 |
 |  |  | NOMINAL_CURRENT_LOW_THRESHOLD |  | 1 |
@@ -3575,7 +3344,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [01] USE_MOISTURE_SENSOR | 1 |
 |  | [0D] IRRIGATION_VALVE_RUN |  |  | 1 |
 |  |  | MASTER_VALVE |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | VALVE_ID |  | 1 |
 |  |  | DURATION |  | 1 |
 |  | [0E] IRRIGATION_VALVE_TABLE_SET |  |  | 1 |
@@ -3593,13 +3361,11 @@ and constants. The applicable versions of the command class for command/paramete
 | [6C] COMMAND_CLASS_SUPERVISION |  |  |  | 1 |
 |  | [01] SUPERVISION_GET |  |  | 1 |
 |  |  | SESSION_ID |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | STATUS_UPDATES |  | 1 |
 |  |  | ENCAPSULATED_COMMAND_LENGTH |  | 1 |
 |  |  | ENCAPSULATED_COMMAND |  | 1 |
 |  | [02] SUPERVISION_REPORT |  |  | 1 |
 |  |  | SESSION_ID |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | MORE_STATUS_UPDATES |  | 1 |
 |  |  | STATUS |  | 1 |
 |  |  |  | [00] NO_SUPPORT | 1 |
@@ -3611,17 +3377,15 @@ and constants. The applicable versions of the command class for command/paramete
 | [6D] COMMAND_CLASS_HUMIDITY_CONTROL_MODE |  |  |  | 1 |
 |  | [01] HUMIDITY_CONTROL_MODE_SET |  |  | 1 |
 |  |  | MODE |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  |  | [02]  | 1 |
-|  |  | RESERVED |  | 1 |
+|  |  |  | [00] OFF | 1 |
+|  |  |  | [01] HUMIDIFY | 1 |
+|  |  |  | [02] DEHUMIDIFY | 1 |
 |  | [02] HUMIDITY_CONTROL_MODE_GET |  |  | 1 |
 |  | [03] HUMIDITY_CONTROL_MODE_REPORT |  |  | 1 |
 |  |  | MODE |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  |  | [02]  | 1 |
-|  |  | RESERVED |  | 1 |
+|  |  |  | [00] OFF | 1 |
+|  |  |  | [01] HUMIDIFY | 1 |
+|  |  |  | [02] DEHUMIDIFY | 1 |
 |  | [04] HUMIDITY_CONTROL_MODE_SUPPORTED_GET |  |  | 1 |
 |  | [05] HUMIDITY_CONTROL_MODE_SUPPORTED_REPORT |  |  | 1 |
 |  |  | BIT_MASK |  | 1 |
@@ -3632,19 +3396,17 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [01] HUMIDITY_CONTROL_OPERATING_STATE_GET |  |  | 1 |
 |  | [02] HUMIDITY_CONTROL_OPERATING_STATE_REPORT |  |  | 1 |
 |  |  | OPERATING_STATE |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  |  | [02]  | 1 |
-|  |  | RESERVED |  | 1 |
+|  |  |  | [00] IDLE | 1 |
+|  |  |  | [01] HUMIDIFYING | 1 |
+|  |  |  | [02] DEHUMIDIFYING | 1 |
 | [6F] COMMAND_CLASS_ENTRY_CONTROL |  |  |  | 1 |
 |  | [01] ENTRY_CONTROL_NOTIFICATION |  |  | 1 |
 |  |  | SEQUENCE_NUMBER |  | 1 |
 |  |  | DATA_TYPE |  | 1 |
-|  |  |  | [00]  | 1 |
-|  |  |  | [01]  | 1 |
-|  |  |  | [02]  | 1 |
-|  |  |  | [03]  | 1 |
-|  |  | RESERVED |  | 1 |
+|  |  |  | [00] NA | 1 |
+|  |  |  | [01] RAW | 1 |
+|  |  |  | [02] ASCII | 1 |
+|  |  |  | [03] MD5 | 1 |
 |  |  | EVENT_TYPE |  | 1 |
 |  |  |  | [00] CACHING | 1 |
 |  |  |  | [01] CACHED_KEYS | 1 |
@@ -3681,14 +3443,12 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [04] ENTRY_CONTROL_EVENT_SUPPORTED_GET |  |  | 1 |
 |  | [05] ENTRY_CONTROL_EVENT_SUPPORTED_REPORT |  |  | 1 |
 |  |  | DATA_TYPE_SUPPORTED_BIT_MASK_LENGTH |  | 1 |
-|  |  | RESERVED1 |  | 1 |
 |  |  | DATA_TYPE_SUPPORTED_BIT_MASK |  | 1 |
 |  |  |  | [00] NA | 1 |
 |  |  |  | [01] RAW | 1 |
 |  |  |  | [02] ASCII | 1 |
 |  |  |  | [03] MD5 | 1 |
 |  |  | EVENT_SUPPORTED_BIT_MASK_LENGTH |  | 1 |
-|  |  | RESERVED2 |  | 1 |
 |  |  | EVENT_TYPE_SUPPORTED_BIT_MASK |  | 1 |
 |  |  |  | [00] CACHING | 1 |
 |  |  |  | [01] CACHED_KEYS | 1 |
@@ -3732,7 +3492,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [04] CONFIGURATION_SET |  |  | 1-4 |
 |  |  | PARAMETER_NUMBER |  | 1-4 |
 |  |  | SIZE |  | 1-4 |
-|  |  | RESERVED |  | 1-4 |
 |  |  | DEFAULT |  | 1-4 |
 |  |  | CONFIGURATION_VALUE |  | 1-4 |
 |  | [05] CONFIGURATION_GET |  |  | 1-4 |
@@ -3740,13 +3499,11 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [06] CONFIGURATION_REPORT |  |  | 1-4 |
 |  |  | PARAMETER_NUMBER |  | 1-4 |
 |  |  | SIZE |  | 1-4 |
-|  |  | RESERVED |  | 1-4 |
 |  |  | CONFIGURATION_VALUE |  | 1-4 |
 |  | [07] CONFIGURATION_BULK_SET |  |  | 2-4 |
 |  |  | PARAMETER_OFFSET |  | 2-4 |
 |  |  | NUMBER_OF_PARAMETERS |  | 2-4 |
 |  |  | SIZE |  | 2-4 |
-|  |  | RESERVED |  | 2-4 |
 |  |  | HANDSHAKE |  | 2-4 |
 |  |  | DEFAULT |  | 2-4 |
 |  |  | CONFIGURATION_PARAMETER |  | 2-4 |
@@ -3758,7 +3515,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | NUMBER_OF_PARAMETERS |  | 2-4 |
 |  |  | REPORTS_TO_FOLLOW |  | 2-4 |
 |  |  | SIZE |  | 2-4 |
-|  |  | RESERVED |  | 2-4 |
 |  |  | HANDSHAKE |  | 2-4 |
 |  |  | DEFAULT |  | 2-4 |
 |  |  | CONFIGURATION_PARAMETER |  | 2-4 |
@@ -3780,20 +3536,18 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | PARAMETER_NUMBER |  | 3-4 |
 |  |  | SIZE |  | 3-4 |
 |  |  | FORMAT |  | 3-4 |
-|  |  |  | [00]  | 3-4 |
-|  |  |  | [01]  | 3-4 |
-|  |  |  | [02]  | 3-4 |
-|  |  |  | [03]  | 3-4 |
+|  |  |  | [00] SIGNED_INTEGER | 3-4 |
+|  |  |  | [01] UNSIGNED_INTEGER | 3-4 |
+|  |  |  | [02] ENUMERATED | 3-4 |
+|  |  |  | [03] BIT_FIELD | 3-4 |
 |  |  | READONLY |  | 4 |
 |  |  | RE_INCLUSION_REQUIRED |  | 4 |
-|  |  | RESERVED |  | 3 |
 |  |  | MIN_VALUE |  | 3-4 |
 |  |  | MAX_VALUE |  | 3-4 |
 |  |  | DEFAULT_VALUE |  | 3-4 |
 |  |  | NEXT_PARAMETER_NUMBER |  | 3-4 |
 |  |  | ADVANCED |  | 4 |
 |  |  | NO_BULK_SUPPORT |  | 4 |
-|  |  | RESERVED1 |  | 4 |
 | [71] COMMAND_CLASS_ALARM |  |  |  | 8 |
 |  | [01] EVENT_SUPPORTED_GET |  |  | 3-8 |
 |  |  | NOTIFICATION_TYPE |  | 3-8 |
@@ -3836,7 +3590,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [11] IRRIGATION | 7-8 |
 |  |  |  | [12] GAS_ALARM | 7-8 |
 |  |  | NUMBER_OF_BIT_MASKS |  | 3-8 |
-|  |  | RESERVED |  | 3-8 |
 |  |  | BIT_MASK |  | 3-8 |
 |  | [04] ALARM_GET |  |  | 1-8 |
 |  |  | V1_ALARM_TYPE |  | 1-8 |
@@ -3917,7 +3670,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | ZWAVE_ALARM_EVENT |  | 2 |
 |  |  | EVENT |  | 3-8 |
 |  |  | EVENT_PARAMETERS_LENGTH |  | 3-8 |
-|  |  | RESERVED2 |  | 3-8 |
 |  |  | SEQUENCE |  | 3-8 |
 |  |  | NUMBER_OF_EVENT_PARAMETERS |  | 2 |
 |  |  | EVENT_PARAMETER |  | 2-8 |
@@ -3964,7 +3716,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [07] ALARM_TYPE_SUPPORTED_GET |  |  | 2-8 |
 |  | [08] ALARM_TYPE_SUPPORTED_REPORT |  |  | 2-8 |
 |  |  | NUMBER_OF_BIT_MASKS |  | 2-8 |
-|  |  | RESERVED |  | 2-8 |
 |  |  | V1_ALARM |  | 2-8 |
 |  |  | BIT_MASK |  | 2-8 |
 |  |  |  | [01] SMOKE | 2-8 |
@@ -3993,18 +3744,13 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | PRODUCT_ID |  | 1-2 |
 |  | [06] DEVICE_SPECIFIC_GET |  |  | 2 |
 |  |  | DEVICE_ID_TYPE |  | 2 |
-|  |  |  | [00]  | 2 |
-|  |  |  | [01]  | 2 |
-|  |  | RESERVED |  | 2 |
+|  |  |  | [01] SERIAL_NUMBER | 2 |
 |  | [07] DEVICE_SPECIFIC_REPORT |  |  | 2 |
 |  |  | DEVICE_ID_TYPE |  | 2 |
-|  |  |  | [00]  | 2 |
-|  |  |  | [01]  | 2 |
-|  |  | RESERVED |  | 2 |
+|  |  |  | [01] SERIAL_NUMBER | 2 |
 |  |  | DEVICE_ID_DATA_LENGTH_INDICATOR |  | 2 |
 |  |  | DEVICE_ID_DATA_FORMAT |  | 2 |
-|  |  |  | [00]  | 2 |
-|  |  |  | [01]  | 2 |
+|  |  |  | [01] BINARY | 2 |
 |  |  | DEVICE_ID_DATA |  | 2 |
 | [73] COMMAND_CLASS_POWERLEVEL |  |  |  | 1 |
 |  | [01] POWERLEVEL_SET |  |  | 1 |
@@ -4074,41 +3820,28 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [04] STEP_NOT_SUPPORTED | 1 |
 | [75] COMMAND_CLASS_PROTECTION |  |  |  | 2 |
 |  | [01] PROTECTION_SET |  |  | 1-2 |
-|  |  | LOCAL_PROTECTION_STATE |  | 2 |
-|  |  |  | [00]  | 2 |
-|  |  |  | [01]  | 2 |
-|  |  |  | [02]  | 2 |
-|  |  | RESERVED1 |  | 2 |
-|  |  | LOCAL_PROTECTION_STATE |  | 1 |
-|  |  |  | [00] UNPROTECTED | 1 |
-|  |  |  | [01] PROTECTION_BY_SEQUENCE | 1 |
-|  |  |  | [02] NO_OPERATION_POSSIBLE | 1 |
+|  |  | LOCAL_PROTECTION_STATE |  | 1-2 |
+|  |  |  | [00] UNPROTECTED | 1-2 |
+|  |  |  | [01] PROTECTION_BY_SEQUENCE | 1-2 |
+|  |  |  | [02] NO_OPERATION_POSSIBLE | 1-2 |
 |  |  | RF_PROTECTION_STATE |  | 2 |
-|  |  |  | [00]  | 2 |
-|  |  |  | [01]  | 2 |
-|  |  |  | [02]  | 2 |
-|  |  | RESERVED2 |  | 2 |
+|  |  |  | [00] UNPROTECTED | 2 |
+|  |  |  | [01] PROTECTION_BY_SEQUENCE | 2 |
+|  |  |  | [02] NO_OPERATION_POSSIBLE | 2 |
 |  | [02] PROTECTION_GET |  |  | 1-2 |
 |  | [03] PROTECTION_REPORT |  |  | 1-2 |
-|  |  | LOCAL_PROTECTION_STATE |  | 2 |
-|  |  |  | [00]  | 2 |
-|  |  |  | [01]  | 2 |
-|  |  |  | [02]  | 2 |
-|  |  | RESERVED1 |  | 2 |
-|  |  | LOCAL_PROTECTION_STATE |  | 1 |
-|  |  |  | [00] UNPROTECTED | 1 |
-|  |  |  | [01] PROTECTION_BY_SEQUENCE | 1 |
-|  |  |  | [02] NO_OPERATION_POSSIBLE | 1 |
+|  |  | LOCAL_PROTECTION_STATE |  | 1-2 |
+|  |  |  | [00] UNPROTECTED | 1-2 |
+|  |  |  | [01] PROTECTION_BY_SEQUENCE | 1-2 |
+|  |  |  | [02] NO_OPERATION_POSSIBLE | 1-2 |
 |  |  | RF_PROTECTION_STATE |  | 2 |
-|  |  |  | [00]  | 2 |
-|  |  |  | [01]  | 2 |
-|  |  |  | [02]  | 2 |
-|  |  | RESERVED2 |  | 2 |
+|  |  |  | [00] UNPROTECTED | 2 |
+|  |  |  | [01] PROTECTION_BY_SEQUENCE | 2 |
+|  |  |  | [02] NO_OPERATION_POSSIBLE | 2 |
 |  | [04] PROTECTION_SUPPORTED_GET |  |  | 2 |
 |  | [05] PROTECTION_SUPPORTED_REPORT |  |  | 2 |
 |  |  | TIMEOUT |  | 2 |
 |  |  | EXCLUSIVE_CONTROL |  | 2 |
-|  |  | RESERVED |  | 2 |
 |  |  | LOCAL_PROTECTION_STATE |  | 2 |
 |  |  | RF_PROTECTION_STATE |  | 2 |
 |  | [06] PROTECTION_EC_SET |  |  | 2 |
@@ -4138,21 +3871,17 @@ and constants. The applicable versions of the command class for command/paramete
 | [77] COMMAND_CLASS_NODE_NAMING |  |  |  | 1 |
 |  | [01] NODE_NAMING_NODE_NAME_SET |  |  | 1 |
 |  |  | CHAR_PRESENTATION |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | NODE_NAME_CHAR |  | 1 |
 |  | [02] NODE_NAMING_NODE_NAME_GET |  |  | 1 |
 |  | [03] NODE_NAMING_NODE_NAME_REPORT |  |  | 1 |
 |  |  | CHAR_PRESENTATION |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | NODE_NAME_CHAR |  | 1 |
 |  | [04] NODE_NAMING_NODE_LOCATION_SET |  |  | 1 |
 |  |  | CHAR_PRESENTATION |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | NODE_LOCATION_CHAR |  | 1 |
 |  | [05] NODE_NAMING_NODE_LOCATION_GET |  |  | 1 |
 |  | [06] NODE_NAMING_NODE_LOCATION_REPORT |  |  | 1 |
 |  |  | CHAR_PRESENTATION |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | NODE_LOCATION_CHAR |  | 1 |
 | [7A] COMMAND_CLASS_FIRMWARE_UPDATE_MD |  |  |  | 5 |
 |  | [01] FIRMWARE_MD_GET |  |  | 1-5 |
@@ -4172,7 +3901,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | FIRMWARE_TARGET |  | 3-5 |
 |  |  | FRAGMENT_SIZE |  | 3-5 |
 |  |  | ACTIVATION |  | 4-5 |
-|  |  | RESERVED |  | 4-5 |
 |  |  | HARDWARE_VERSION |  | 5 |
 |  | [04] FIRMWARE_UPDATE_MD_REQUEST_REPORT |  |  | 1-5 |
 |  |  | STATUS |  | 1-5 |
@@ -4243,14 +3971,12 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [01] GROUPING_NAME_SET |  |  | 1 |
 |  |  | GROUPING_IDENTIFIER |  | 1 |
 |  |  | CHAR_PRESENTATION |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | GROUPING_NAME |  | 1 |
 |  | [02] GROUPING_NAME_GET |  |  | 1 |
 |  |  | GROUPING_IDENTIFIER |  | 1 |
 |  | [03] GROUPING_NAME_REPORT |  |  | 1 |
 |  |  | GROUPING_IDENTIFIER |  | 1 |
 |  |  | CHAR_PRESENTATION |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | GROUPING_NAME |  | 1 |
 | [7C] COMMAND_CLASS_REMOTE_ASSOCIATION_ACTIVATE |  |  |  | 1 |
 |  | [01] REMOTE_ASSOCIATION_ACTIVATE |  |  | 1 |
@@ -4345,7 +4071,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [00] OFF_DISABLE | 1-2 |
 |  |  |  | [FF] ON_ENABLE | 1-2 |
 |  |  | INDICATOR_OBJECT_COUNT |  | 2 |
-|  |  | RESERVED |  | 2 |
 |  |  | INDICATOR_INFORMATION |  | 2 |
 |  | [02] INDICATOR_GET |  |  | 1-2 |
 |  |  | INDICATOR_ID |  | 2 |
@@ -4387,7 +4112,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [00] OFF_DISABLE | 1-2 |
 |  |  |  | [FF] ON_ENABLE | 1-2 |
 |  |  | INDICATOR_OBJECT_COUNT |  | 2 |
-|  |  | RESERVED |  | 2 |
 |  |  | INDICATOR_INFORMATION |  | 2 |
 |  | [04] INDICATOR_SUPPORTED_GET |  |  | 2 |
 |  |  | INDICATOR_ID |  | 2 |
@@ -4494,7 +4218,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [4E] BUTTON12_INDICATION | 2 |
 |  |  |  | [F0] BUZZER | 2 |
 |  |  | PROPERTY_SUPPORTED_BIT_MASK_LENGTH |  | 2 |
-|  |  | RESERVED |  | 2 |
 |  |  | PROPERTY_SUPPORTED_BIT_MASK |  | 2 |
 |  |  |  | [01] MULTILEVEL | 2 |
 |  |  |  | [02] BINARY | 2 |
@@ -4520,7 +4243,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [01] TIME_GET |  |  | 1-2 |
 |  | [02] TIME_REPORT |  |  | 1-2 |
 |  |  | HOUR_LOCAL_TIME |  | 1-2 |
-|  |  | RESERVED |  | 1-2 |
 |  |  | RTC_FAILURE |  | 1-2 |
 |  |  | MINUTE_LOCAL_TIME |  | 1-2 |
 |  |  | SECOND_LOCAL_TIME |  | 1-2 |
@@ -4644,24 +4366,19 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [02] SCREEN_MD_REPORT |  |  | 1 |
 |  |  | CHAR_PRESENTATION |  | 1 |
 |  |  | SCREEN_SETTINGS |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | MORE_DATA |  | 1 |
 |  |  | SCREEN_MD_STRING |  | 1 |
 |  | [03] SCREEN_MD_REPORT |  |  | 2 |
 |  |  | CHAR_PRESENTATION |  | 2 |
 |  |  | SCREEN_SETTINGS |  | 2 |
-|  |  | RESERVED1 |  | 2 |
 |  |  | MORE_DATA |  | 2 |
 |  |  | SCREEN_MD_STRING |  | 2 |
 |  |  | SCREEN_TIMEOUT |  | 2 |
-|  |  | RESERVED2 |  | 2 |
 | [93] COMMAND_CLASS_SCREEN_ATTRIBUTES |  |  |  | 2 |
 |  | [01] SCREEN_ATTRIBUTES_GET |  |  | 1-2 |
 |  | [02] SCREEN_ATTRIBUTES_REPORT |  |  | 1-2 |
 |  |  | NUMBER_OF_LINES |  | 1-2 |
 |  |  | ESCAPE_SEQUENCE |  | 2 |
-|  |  | RESERVED |  | 2 |
-|  |  | RESERVED |  | 1 |
 |  |  | NUMBER_OF_CHARACTERS_PER_LINE |  | 1-2 |
 |  |  | SIZE_OF_LINE_BUFFER |  | 1-2 |
 |  |  | NUMERICAL_PRESENTATION_OF_A_CHARACTER |  | 1-2 |
@@ -4670,7 +4387,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [01] SIMPLE_AV_CONTROL_SET |  |  | 1 |
 |  |  | SEQUENCE_NUMBER |  | 1 |
 |  |  | KEY_ATTRIBUTES |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | ITEM_ID |  | 1 |
 |  |  | AV_COMMAND |  | 1 |
 |  | [02] SIMPLE_AV_CONTROL_GET |  |  | 1 |
@@ -4721,7 +4437,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | SEQUENCE_COUNTER |  | 1 |
 |  |  | SEQUENCED |  | 1 |
 |  |  | SECOND_FRAME |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | COMMAND_BYTE |  | 1 |
 |  |  | RECEIVERS_NONCE_IDENTIFIER |  | 1 |
 |  |  | MESSAGE_AUTHENTICATION_CODE_BYTE |  | 1 |
@@ -4730,7 +4445,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | SEQUENCE_COUNTER |  | 1 |
 |  |  | SEQUENCED |  | 1 |
 |  |  | SECOND_FRAME |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | COMMAND_BYTE |  | 1 |
 |  |  | RECEIVERS_NONCE_IDENTIFIER |  | 1 |
 |  |  | MESSAGE_AUTHENTICATION_CODE_BYTE |  | 1 |
@@ -4741,7 +4455,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [01] IP_CONFIGURATION_SET |  |  | 1 |
 |  |  | AUTO_DNS |  | 1 |
 |  |  | AUTO_IP |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | IP_ADDRESS |  | 1 |
 |  |  | SUBNET_MASK |  | 1 |
 |  |  | GATEWAY |  | 1 |
@@ -4751,7 +4464,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [03] IP_CONFIGURATION_REPORT |  |  | 1 |
 |  |  | AUTO_DNS |  | 1 |
 |  |  | AUTO_IP |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | IP_ADDRESS |  | 1 |
 |  |  | SUBNET_MASK |  | 1 |
 |  |  | GATEWAY |  | 1 |
@@ -4782,8 +4494,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | GROUPING_IDENTIFIER |  | 1 |
 |  |  | NODE_ID |  | 1 |
 |  |  | REPORTS_TO_FOLLOW |  | 1 |
-|  |  | RESERVED |  | 1 |
-|  |  | FIRST |  | 1 |
 |  |  | COMMAND_LENGTH |  | 1 |
 |  |  | COMMAND_CLASS_IDENTIFIER |  | 1 |
 |  |  | COMMAND_IDENTIFIER |  | 1 |
@@ -4828,7 +4538,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | BIT_MASK |  | 1 |
 | [9E] COMMAND_CLASS_SENSOR_CONFIGURATION |  |  |  | 1 |
 |  | [01] SENSOR_TRIGGER_LEVEL_SET |  |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | CURRENT |  | 1 |
 |  |  | DEFAULT |  | 1 |
 |  |  | SENSOR_TYPE |  | 1 |
@@ -4876,20 +4585,17 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  | SEQUENCE_NUMBER |  | 1 |
 |  |  | SOS |  | 1 |
 |  |  | MOS |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | RECEIVERS_ENTROPY_INPUT |  | 1 |
 |  | [03] SECURITY_2_MESSAGE_ENCAPSULATION |  |  | 1 |
 |  |  | SEQUENCE_NUMBER |  | 1 |
 |  |  | EXTENSION |  | 1 |
 |  |  | ENCRYPTED_EXTENSION |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | SECURITY_HEADER |  | 1 |
 |  |  | CCM_CIPHERTEXT_OBJECT |  | 1 |
 |  | [04] KEX_GET |  |  | 1 |
 |  | [05] KEX_REPORT |  |  | 1 |
 |  |  | ECHO |  | 1 |
 |  |  | REQUEST_CSA |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | SUPPORTED_KEX_SCHEMES |  | 1 |
 |  |  | SUPPORTED_ECDH_PROFILES |  | 1 |
 |  |  | REQUESTED_KEYS |  | 1 |
@@ -4900,7 +4606,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [06] KEX_SET |  |  | 1 |
 |  |  | ECHO |  | 1 |
 |  |  | REQUEST_CSA |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | SELECTED_KEX_SCHEME |  | 1 |
 |  |  | SELECTED_ECDH_PROFILE |  | 1 |
 |  |  | GRANTED_KEYS |  | 1 |
@@ -4921,7 +4626,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  |  |  | [0A] KEY_REPORT | 1 |
 |  | [08] PUBLIC_KEY_REPORT |  |  | 1 |
 |  |  | INCLUDING_NODE |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  |  | ECDH_PUBLIC_KEY |  | 1 |
 |  | [09] SECURITY_2_NETWORK_KEY_GET |  |  | 1 |
 |  |  | REQUESTED_KEY |  | 1 |
@@ -4940,7 +4644,6 @@ and constants. The applicable versions of the command class for command/paramete
 |  | [0C] SECURITY_2_TRANSFER_END |  |  | 1 |
 |  |  | KEY_REQUEST_COMPLETE |  | 1 |
 |  |  | KEY_VERIFIED |  | 1 |
-|  |  | RESERVED |  | 1 |
 |  | [0D] SECURITY_2_COMMANDS_SUPPORTED_GET |  |  | 1 |
 |  | [0E] SECURITY_2_COMMANDS_SUPPORTED_REPORT |  |  | 1 |
 |  |  | COMMAND_CLASS |  | 1 |
