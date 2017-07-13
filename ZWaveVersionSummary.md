@@ -13,32 +13,32 @@ different size or mask for example.  If you find error, please report them.
 | [01] ZWAVE_CMD_CLASS |  |  |  | 1 |
 |  | [00] ZWAVE_CMD_NOP |  |  | 1 |
 |  | [01] NODE_INFO |  |  | 1 |
-|  |  | PROTOCOL_VERSION |  | 1 |
+|  |  | Protocol Version |  | 1 |
 |  |  |  | [01] Z_WAVE_VERSION_2_0 | 1 |
 |  |  |  | [02] Z_WAVE_VERSION_ZDK_5_0X_ZDK_4_2X | 1 |
 |  |  |  | [03] Z_WAVE_VERSION_ZDK_4_5X_AND_ZDK_6_0X | 1 |
-|  |  | MAX_BAUD_RATE |  | 1 |
+|  |  | Max baud rate |  | 1 |
 |  |  |  | [01] 9_6_KBPS | 1 |
 |  |  |  | [02] 40_KBPS | 1 |
-|  |  | ROUTING |  | 1 |
-|  |  | LISTENING |  | 1 |
-|  |  | SECURITY |  | 1 |
-|  |  | CONTROLLER |  | 1 |
-|  |  | SPECIFIC_DEVICE |  | 1 |
-|  |  | ROUTING_SLAVE |  | 1 |
-|  |  | BEAM_CAPABILITY |  | 1 |
-|  |  | SENSOR_250MS |  | 1 |
-|  |  | SENSOR_1000MS |  | 1 |
-|  |  | OPTIONAL_FUNCTIONALITY |  | 1 |
-|  |  | SPEED_EXTENSION |  | 1 |
+|  |  | Routing |  | 1 |
+|  |  | Listening |  | 1 |
+|  |  | Security |  | 1 |
+|  |  | Controller |  | 1 |
+|  |  | Specific Device |  | 1 |
+|  |  | Routing Slave |  | 1 |
+|  |  | Beam capability |  | 1 |
+|  |  | Sensor 250ms |  | 1 |
+|  |  | Sensor 1000ms |  | 1 |
+|  |  | Optional Functionality |  | 1 |
+|  |  | Speed Extension |  | 1 |
 |  |  |  | [01] 100_KBPS | 1 |
 |  |  |  | [02] 200_KBPS | 1 |
-|  |  | BASIC_DEVICE_CLASS |  | 1 |
+|  |  | Basic Device Class |  | 1 |
 |  |  |  | [01] BASIC_TYPE_CONTROLLER | 1 |
 |  |  |  | [02] BASIC_TYPE_STATIC_CONTROLLER | 1 |
 |  |  |  | [03] BASIC_TYPE_SLAVE | 1 |
 |  |  |  | [04] BASIC_TYPE_ROUTING_SLAVE | 1 |
-|  |  | GENERIC_DEVICE_CLASS |  | 1 |
+|  |  | Generic Device Class |  | 1 |
 |  |  |  | [01] GENERIC_TYPE_GENERIC_CONTROLLER | 1 |
 |  |  |  | [02] GENERIC_TYPE_STATIC_CONTROLLER | 1 |
 |  |  |  | [03] GENERIC_TYPE_AV_CONTROL_POINT | 1 |
@@ -65,7 +65,7 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [50] GENERIC_TYPE_SEMI_INTEROPERABLE | 1 |
 |  |  |  | [A1] GENERIC_TYPE_SENSOR_ALARM | 1 |
 |  |  |  | [FF] GENERIC_TYPE_NON_INTEROPERABLE | 1 |
-|  |  | SPECIFIC_DEVICE_CLASS |  | 1 |
+|  |  | Specific Device Class |  | 1 |
 |  |  |  | [0000] SPECIFIC_TYPE_NOT_USED | 1 |
 |  |  |  | [0200] SPECIFIC_TYPE_NOT_USED | 1 |
 |  |  |  | [0201] SPECIFIC_TYPE_PORTABLE_REMOTE_CONTROLLER | 1 |
@@ -177,7 +177,7 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [A209] SPECIFIC_TYPE_ZENSOR_NET_SMOKE_SENSOR | 1 |
 |  |  |  | [A20A] SPECIFIC_TYPE_ADV_ZENSOR_NET_SMOKE_SENSOR | 1 |
 |  |  |  | [A20B] SPECIFIC_TYPE_ALARM_SENSOR | 1 |
-|  |  | COMMAND_CLASSES |  | 1 |
+|  |  | Command Classes |  | 1 |
 |  |  |  | [00] COMMAND_CLASS_NO_OPERATION | 1 |
 |  |  |  | [01] ZWAVE_CMD_CLASS | 1 |
 |  |  |  | [02] COMMAND_CLASS_ZENSOR_NET | 1 |
@@ -342,62 +342,62 @@ different size or mask for example.  If you find error, please report them.
 |  | [03] BIND_COMPLETE |  |  | 1 |
 | [20] COMMAND_CLASS_BASIC |  |  |  | 2 |
 |  | [01] BASIC_SET |  |  | 1-2 |
-|  |  | VALUE |  | 1-2 |
+|  |  | Value |  | 1-2 |
 |  | [02] BASIC_GET |  |  | 1-2 |
 |  | [03] BASIC_REPORT |  |  | 1-2 |
-|  |  | VALUE |  | 1-2 |
-|  |  | TARGET_VALUE |  | 2 |
-|  |  | DURATION |  | 2 |
+|  |  | Value |  | 1-2 |
+|  |  | Target Value |  | 2 |
+|  |  | Duration |  | 2 |
 | [21] COMMAND_CLASS_CONTROLLER_REPLICATION |  |  |  | 1 |
 |  | [31] CTRL_REPLICATION_TRANSFER_GROUP |  |  | 1 |
-|  |  | SEQUENCE_NUMBER |  | 1 |
-|  |  | GROUP_ID |  | 1 |
-|  |  | NODE_ID |  | 1 |
+|  |  | Sequence Number |  | 1 |
+|  |  | Group ID |  | 1 |
+|  |  | Node ID |  | 1 |
 |  | [32] CTRL_REPLICATION_TRANSFER_GROUP_NAME |  |  | 1 |
-|  |  | SEQUENCE_NUMBER |  | 1 |
-|  |  | GROUP_ID |  | 1 |
-|  |  | GROUP_NAME |  | 1 |
+|  |  | Sequence Number |  | 1 |
+|  |  | Group ID |  | 1 |
+|  |  | Group Name |  | 1 |
 |  | [33] CTRL_REPLICATION_TRANSFER_SCENE |  |  | 1 |
-|  |  | SEQUENCE_NUMBER |  | 1 |
-|  |  | SCENE_ID |  | 1 |
-|  |  | NODE_ID |  | 1 |
-|  |  | LEVEL |  | 1 |
+|  |  | Sequence Number |  | 1 |
+|  |  | Scene ID |  | 1 |
+|  |  | Node ID |  | 1 |
+|  |  | Level |  | 1 |
 |  | [34] CTRL_REPLICATION_TRANSFER_SCENE_NAME |  |  | 1 |
-|  |  | SEQUENCE_NUMBER |  | 1 |
-|  |  | SCENE_ID |  | 1 |
-|  |  | SCENE_NAME |  | 1 |
+|  |  | Sequence Number |  | 1 |
+|  |  | Scene ID |  | 1 |
+|  |  | Scene Name |  | 1 |
 | [22] COMMAND_CLASS_APPLICATION_STATUS |  |  |  | 1 |
 |  | [01] APPLICATION_BUSY |  |  | 1 |
-|  |  | STATUS |  | 1 |
+|  |  | Status |  | 1 |
 |  |  |  | [00] TRY_AGAIN_LATER | 1 |
 |  |  |  | [01] TRY_AGAIN_IN_WAIT_TIME_SECONDS | 1 |
 |  |  |  | [02] REQUEST_QUEUED_EXECUTED_LATER | 1 |
-|  |  | WAIT_TIME |  | 1 |
+|  |  | Wait Time |  | 1 |
 |  | [02] APPLICATION_REJECTED_REQUEST |  |  | 1 |
-|  |  | STATUS |  | 1 |
+|  |  | Status |  | 1 |
 | [23] COMMAND_CLASS_ZIP |  |  |  | 3 |
 |  | [02] COMMAND_ZIP_PACKET |  |  | 1-3 |
-|  |  | NACK_OPTION_ERROR |  | 1-3 |
-|  |  | NACK_QUEUE_FULL |  | 1-3 |
-|  |  | NACK_WAITING |  | 1-3 |
-|  |  | NACK_RESPONSE |  | 1-3 |
-|  |  | ACK_RESPONSE |  | 1-3 |
-|  |  | ACK_REQUEST |  | 1-3 |
-|  |  | SECURE_ORIGIN |  | 2-3 |
-|  |  | MORE_INFORMATION |  | 1-3 |
-|  |  | Z_WAVE_CMD_INCLUDED |  | 1-3 |
-|  |  | HEADER_EXT_INCLUDED |  | 1-3 |
-|  |  | SEQ_NO |  | 1-3 |
-|  |  | SOURCE_END_POINT |  | 1-3 |
-|  |  | DESTINATION_END_POINT |  | 1-3 |
-|  |  | BIT_ADDRESS |  | 1-3 |
-|  |  | HEADER_LENGTH |  | 2-3 |
-|  |  | HEADER_EXTENSION |  | 1-3 |
-|  |  | Z_WAVE_COMMAND |  | 1-3 |
+|  |  | NAck - Option Error |  | 1-3 |
+|  |  | NAck - Queue Full |  | 1-3 |
+|  |  | NAck - Waiting |  | 1-3 |
+|  |  | NAck Response |  | 1-3 |
+|  |  | Ack Response |  | 1-3 |
+|  |  | Ack Request |  | 1-3 |
+|  |  | Secure Origin |  | 2-3 |
+|  |  | More Information |  | 1-3 |
+|  |  | Z-Wave Cmd Included |  | 1-3 |
+|  |  | Header ext. included |  | 1-3 |
+|  |  | Seq No |  | 1-3 |
+|  |  | Source End Point |  | 1-3 |
+|  |  | Destination End Point |  | 1-3 |
+|  |  | Bit Address |  | 1-3 |
+|  |  | Header Length |  | 2-3 |
+|  |  | Header extension |  | 1-3 |
+|  |  | Z-Wave command |  | 1-3 |
 | [24] COMMAND_CLASS_SECURITY_PANEL_MODE |  |  |  | 1 |
 |  | [01] SECURITY_PANEL_MODE_SUPPORTED_GET |  |  | 1 |
 |  | [02] SECURITY_PANEL_MODE_SUPPORTED_REPORT |  |  | 1 |
-|  |  | SUPPORTED_MODE_BIT_MASK |  | 1 |
+|  |  | Supported Mode Bit Mask |  | 1 |
 |  | [03] SECURITY_PANEL_MODE_GET |  |  | 1 |
 |  | [04] SECURITY_PANEL_MODE_REPORT |  |  | 1 |
 |  |  | MODE |  | 1 |
@@ -415,72 +415,72 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [05] ALARM_TRIGGER | 1 |
 | [25] COMMAND_CLASS_SWITCH_BINARY |  |  |  | 2 |
 |  | [01] SWITCH_BINARY_SET |  |  | 1-2 |
-|  |  | TARGET_VALUE |  | 1-2 |
+|  |  | Target Value |  | 1-2 |
 |  |  |  | [00] OFF_DISABLE | 1-2 |
 |  |  |  | [FF] ON_ENABLE | 1-2 |
-|  |  | DURATION |  | 2 |
+|  |  | Duration |  | 2 |
 |  |  |  | [00] INSTANTLY | 2 |
 |  |  |  | [FF] DEFAULT | 2 |
 |  | [02] SWITCH_BINARY_GET |  |  | 1-2 |
 |  | [03] SWITCH_BINARY_REPORT |  |  | 1-2 |
-|  |  | CURRENT_VALUE |  | 1-2 |
+|  |  | Current Value |  | 1-2 |
 |  |  |  | [00] OFF_DISABLE | 1-2 |
 |  |  |  | [FF] ON_ENABLE | 1-2 |
-|  |  | TARGET_VALUE |  | 2 |
+|  |  | Target Value |  | 2 |
 |  |  |  | [00] OFF_DISABLE | 2 |
 |  |  |  | [FF] ON_ENABLE | 2 |
-|  |  | DURATION |  | 2 |
+|  |  | Duration |  | 2 |
 |  |  |  | [00] ALREADY_AT_THE_TARGET_VALUE | 2 |
 |  |  |  | [FE] UNKNOWN_DURATION | 2 |
 | [26] COMMAND_CLASS_SWITCH_MULTILEVEL |  |  |  | 4 |
 |  | [01] SWITCH_MULTILEVEL_SET |  |  | 1-4 |
-|  |  | VALUE |  | 1-4 |
+|  |  | Value |  | 1-4 |
 |  |  |  | [00] OFF_DISABLE | 1-4 |
 |  |  |  | [FF] ON_ENABLE | 1-4 |
-|  |  | DIMMING_DURATION |  | 2-4 |
+|  |  | Dimming Duration |  | 2-4 |
 |  |  |  | [00] INSTANTLY | 2-4 |
 |  |  |  | [FF] FACTORY_DEFAULT | 2-4 |
 |  | [02] SWITCH_MULTILEVEL_GET |  |  | 1-4 |
 |  | [03] SWITCH_MULTILEVEL_REPORT |  |  | 1-4 |
-|  |  | VALUE |  | 1-3 |
+|  |  | Value |  | 1-3 |
 |  |  |  | [00] OFF_DISABLE | 1-3 |
 |  |  |  | [FF] ON_ENABLE | 1-3 |
-|  |  | CURRENT_VALUE |  | 4 |
+|  |  | Current Value |  | 4 |
 |  |  |  | [00] OFF_DISABLE | 4 |
 |  |  |  | [FF] ON_ENABLE | 4 |
-|  |  | TARGET_VALUE |  | 4 |
-|  |  | DURATION |  | 4 |
+|  |  | Target Value |  | 4 |
+|  |  | Duration |  | 4 |
 |  |  |  | [00] ALREADY_AT_THE_TARGET_VALUE | 4 |
 |  |  |  | [FE] UNKNOWN_DURATION | 4 |
 |  | [04] SWITCH_MULTILEVEL_START_LEVEL_CHANGE |  |  | 1-4 |
-|  |  | INC_DEC |  | 3-4 |
+|  |  | Inc Dec |  | 3-4 |
 |  |  |  | [00] INCREMENT | 3-4 |
 |  |  |  | [01] DECREMENT | 3-4 |
 |  |  |  | [03] NONE | 3-4 |
-|  |  | IGNORE_START_LEVEL |  | 1-4 |
-|  |  | UP_DOWN_FLAG |  | 1-2 |
-|  |  | UP_DOWN |  | 3-4 |
+|  |  | Ignore Start Level |  | 1-4 |
+|  |  | Up / Down Flag |  | 1-2 |
+|  |  | Up Down |  | 3-4 |
 |  |  |  | [00] UP | 3-4 |
 |  |  |  | [01] DOWN | 3-4 |
 |  |  |  | [03] NONE | 3-4 |
-|  |  | START_LEVEL |  | 1-4 |
-|  |  | DIMMING_DURATION |  | 2-4 |
-|  |  | STEP_SIZE |  | 3-4 |
+|  |  | Start Level |  | 1-4 |
+|  |  | Dimming Duration |  | 2-4 |
+|  |  | Step Size |  | 3-4 |
 |  | [05] SWITCH_MULTILEVEL_STOP_LEVEL_CHANGE |  |  | 1-4 |
 |  | [06] SWITCH_MULTILEVEL_SUPPORTED_GET |  |  | 3-4 |
 |  | [07] SWITCH_MULTILEVEL_SUPPORTED_REPORT |  |  | 3-4 |
-|  |  | PRIMARY_SWITCH_TYPE |  | 3-4 |
-|  |  | SECONDARY_SWITCH_TYPE |  | 3-4 |
+|  |  | Primary Switch Type |  | 3-4 |
+|  |  | Secondary Switch Type |  | 3-4 |
 | [27] COMMAND_CLASS_SWITCH_ALL |  |  |  | 1 |
 |  | [01] SWITCH_ALL_SET |  |  | 1 |
-|  |  | MODE |  | 1 |
+|  |  | Mode |  | 1 |
 |  |  |  | [00] EXCLUDED_FROM_THE_ALL_ON_ALL_OFF_FUNCTIONALITY | 1 |
 |  |  |  | [01] EXCLUDED_FROM_THE_ALL_ON_FUNCTIONALITY_BUT_NOT_ALL_OFF | 1 |
 |  |  |  | [02] EXCLUDED_FROM_THE_ALL_OFF_FUNCTIONALITY_BUT_NOT_ALL_ON | 1 |
 |  |  |  | [FF] INCLUDED_IN_THE_ALL_ON_ALL_OFF_FUNCTIONALITY | 1 |
 |  | [02] SWITCH_ALL_GET |  |  | 1 |
 |  | [03] SWITCH_ALL_REPORT |  |  | 1 |
-|  |  | MODE |  | 1 |
+|  |  | Mode |  | 1 |
 |  |  |  | [00] EXCLUDED_FROM_THE_ALL_ON_ALL_OFF_FUNCTIONALITY | 1 |
 |  |  |  | [01] EXCLUDED_FROM_THE_ALL_ON_FUNCTIONALITY_BUT_NOT_ALL_OFF | 1 |
 |  |  |  | [02] EXCLUDED_FROM_THE_ALL_OFF_FUNCTIONALITY_BUT_NOT_ALL_ON | 1 |
@@ -491,28 +491,28 @@ different size or mask for example.  If you find error, please report them.
 |  | [01] SWITCH_TOGGLE_BINARY_SET |  |  | 1 |
 |  | [02] SWITCH_TOGGLE_BINARY_GET |  |  | 1 |
 |  | [03] SWITCH_TOGGLE_BINARY_REPORT |  |  | 1 |
-|  |  | VALUE |  | 1 |
+|  |  | Value |  | 1 |
 |  |  |  | [00] OFF | 1 |
 |  |  |  | [FF] ON | 1 |
 | [29] COMMAND_CLASS_SWITCH_TOGGLE_MULTILEVEL |  |  |  | 1 |
 |  | [01] SWITCH_TOGGLE_MULTILEVEL_SET |  |  | 1 |
 |  | [02] SWITCH_TOGGLE_MULTILEVEL_GET |  |  | 1 |
 |  | [03] SWITCH_TOGGLE_MULTILEVEL_REPORT |  |  | 1 |
-|  |  | VALUE |  | 1 |
+|  |  | Value |  | 1 |
 |  |  |  | [00] OFF_DISABLE | 1 |
 |  |  |  | [FF] ON_ENABLE | 1 |
 |  | [04] SWITCH_TOGGLE_MULTILEVEL_START_LEVEL_CHANGE |  |  | 1 |
-|  |  | IGNORE_START_LEVEL |  | 1 |
-|  |  | ROLL_OVER |  | 1 |
-|  |  | START_LEVEL |  | 1 |
+|  |  | Ignore Start Level |  | 1 |
+|  |  | Roll Over |  | 1 |
+|  |  | Start Level |  | 1 |
 |  | [05] SWITCH_TOGGLE_MULTILEVEL_STOP_LEVEL_CHANGE |  |  | 1 |
 | [2A] COMMAND_CLASS_CHIMNEY_FAN |  |  |  | 1 |
 |  | [01] CHIMNEY_FAN_STATE_SET |  |  | 1 |
-|  |  | STATE |  | 1 |
+|  |  | State |  | 1 |
 |  |  |  | [01] NEXT_STATE | 1 |
 |  | [02] CHIMNEY_FAN_STATE_GET |  |  | 1 |
 |  | [03] CHIMNEY_FAN_STATE_REPORT |  |  | 1 |
-|  |  | STATE |  | 1 |
+|  |  | State |  | 1 |
 |  |  |  | [00] OFF | 1 |
 |  |  |  | [01] BOOST | 1 |
 |  |  |  | [02] EXHAUST | 1 |
@@ -525,106 +525,106 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [09] CHIMNEY_FIRE | 1 |
 |  |  |  | [0A] EXTERNAL_ALARM | 1 |
 |  | [04] CHIMNEY_FAN_SPEED_SET |  |  | 1 |
-|  |  | SPEED |  | 1 |
+|  |  | Speed |  | 1 |
 |  |  |  | [65] SPEED_DOWN | 1 |
 |  |  |  | [C8] SPEED_UP | 1 |
 |  | [05] CHIMNEY_FAN_SPEED_GET |  |  | 1 |
 |  | [06] CHIMNEY_FAN_SPEED_REPORT |  |  | 1 |
-|  |  | SPEED |  | 1 |
+|  |  | Speed |  | 1 |
 |  | [07] CHIMNEY_FAN_START_TEMP_SET |  |  | 1 |
-|  |  | SIZE |  | 1 |
-|  |  | SCALE |  | 1 |
-|  |  | PRECISION |  | 1 |
-|  |  | VALUE |  | 1 |
+|  |  | Size |  | 1 |
+|  |  | Scale |  | 1 |
+|  |  | Precision |  | 1 |
+|  |  | Value |  | 1 |
 |  | [08] CHIMNEY_FAN_START_TEMP_GET |  |  | 1 |
 |  | [09] CHIMNEY_FAN_START_TEMP_REPORT |  |  | 1 |
-|  |  | SIZE |  | 1 |
-|  |  | SCALE |  | 1 |
-|  |  | PRECISION |  | 1 |
-|  |  | VALUE |  | 1 |
+|  |  | Size |  | 1 |
+|  |  | Scale |  | 1 |
+|  |  | Precision |  | 1 |
+|  |  | Value |  | 1 |
 |  | [0A] CHIMNEY_FAN_STOP_TEMP_SET |  |  | 1 |
-|  |  | SIZE |  | 1 |
-|  |  | SCALE |  | 1 |
-|  |  | PRECISION |  | 1 |
-|  |  | VALUE |  | 1 |
+|  |  | Size |  | 1 |
+|  |  | Scale |  | 1 |
+|  |  | Precision |  | 1 |
+|  |  | Value |  | 1 |
 |  | [0B] CHIMNEY_FAN_STOP_TEMP_GET |  |  | 1 |
 |  | [0C] CHIMNEY_FAN_STOP_TEMP_REPORT |  |  | 1 |
-|  |  | SIZE |  | 1 |
-|  |  | SCALE |  | 1 |
-|  |  | PRECISION |  | 1 |
-|  |  | VALUE |  | 1 |
+|  |  | Size |  | 1 |
+|  |  | Scale |  | 1 |
+|  |  | Precision |  | 1 |
+|  |  | Value |  | 1 |
 |  | [0D] CHIMNEY_FAN_ALARM_TEMP_SET |  |  | 1 |
-|  |  | SIZE |  | 1 |
-|  |  | SCALE |  | 1 |
-|  |  | PRECISION |  | 1 |
-|  |  | VALUE |  | 1 |
+|  |  | Size |  | 1 |
+|  |  | Scale |  | 1 |
+|  |  | Precision |  | 1 |
+|  |  | Value |  | 1 |
 |  | [0E] CHIMNEY_FAN_ALARM_TEMP_GET |  |  | 1 |
 |  | [0F] CHIMNEY_FAN_ALARM_TEMP_REPORT |  |  | 1 |
-|  |  | SIZE |  | 1 |
-|  |  | SCALE |  | 1 |
-|  |  | PRECISION |  | 1 |
-|  |  | VALUE |  | 1 |
+|  |  | Size |  | 1 |
+|  |  | Scale |  | 1 |
+|  |  | Precision |  | 1 |
+|  |  | Value |  | 1 |
 |  | [10] CHIMNEY_FAN_BOOST_TIME_SET |  |  | 1 |
-|  |  | TIME |  | 1 |
+|  |  | Time |  | 1 |
 |  | [11] CHIMNEY_FAN_BOOST_TIME_GET |  |  | 1 |
 |  | [12] CHIMNEY_FAN_BOOST_TIME_REPORT |  |  | 1 |
-|  |  | TIME |  | 1 |
+|  |  | Time |  | 1 |
 |  | [13] CHIMNEY_FAN_STOP_TIME_SET |  |  | 1 |
-|  |  | TIME |  | 1 |
+|  |  | Time |  | 1 |
 |  | [14] CHIMNEY_FAN_STOP_TIME_GET |  |  | 1 |
 |  | [15] CHIMNEY_FAN_STOP_TIME_REPORT |  |  | 1 |
-|  |  | TIME |  | 1 |
+|  |  | Time |  | 1 |
 |  | [16] CHIMNEY_FAN_MODE_SET |  |  | 1 |
-|  |  | MODE |  | 1 |
+|  |  | Mode |  | 1 |
 |  |  |  | [00] OFF | 1 |
 |  |  |  | [FF] ON | 1 |
 |  | [17] CHIMNEY_FAN_MODE_GET |  |  | 1 |
 |  | [18] CHIMNEY_FAN_MODE_REPORT |  |  | 1 |
-|  |  | MODE |  | 1 |
+|  |  | Mode |  | 1 |
 |  |  |  | [00] OFF | 1 |
 |  |  |  | [FF] ON | 1 |
 |  | [19] CHIMNEY_FAN_SETUP_SET |  |  | 1 |
-|  |  | MODE |  | 1 |
+|  |  | Mode |  | 1 |
 |  |  |  | [00] OFF | 1 |
 |  |  |  | [FF] ON | 1 |
-|  |  | BOOST_TIME |  | 1 |
-|  |  | STOP_TIME |  | 1 |
-|  |  | MIN_SPEED |  | 1 |
-|  |  | SIZE_1 |  | 1 |
-|  |  | SCALE_1 |  | 1 |
-|  |  | PRECISION_1 |  | 1 |
-|  |  | START_TEMPERATURE |  | 1 |
-|  |  | SIZE_2 |  | 1 |
-|  |  | SCALE_2 |  | 1 |
-|  |  | PRECISION_2 |  | 1 |
-|  |  | STOP_TEMPERATURE |  | 1 |
-|  |  | SIZE_3 |  | 1 |
-|  |  | SCALE_3 |  | 1 |
-|  |  | PRECISION_3 |  | 1 |
-|  |  | ALARM_TEMPERATURE_VALUE |  | 1 |
+|  |  | Boost Time |  | 1 |
+|  |  | Stop Time |  | 1 |
+|  |  | Min. Speed |  | 1 |
+|  |  | Size 1 |  | 1 |
+|  |  | Scale 1 |  | 1 |
+|  |  | Precision 1 |  | 1 |
+|  |  | Start Temperature |  | 1 |
+|  |  | Size 2 |  | 1 |
+|  |  | Scale 2 |  | 1 |
+|  |  | Precision 2 |  | 1 |
+|  |  | Stop Temperature |  | 1 |
+|  |  | Size 3 |  | 1 |
+|  |  | Scale 3 |  | 1 |
+|  |  | Precision 3 |  | 1 |
+|  |  | Alarm Temperature Value |  | 1 |
 |  | [1A] CHIMNEY_FAN_SETUP_GET |  |  | 1 |
 |  | [1B] CHIMNEY_FAN_SETUP_REPORT |  |  | 1 |
-|  |  | MODE |  | 1 |
+|  |  | Mode |  | 1 |
 |  |  |  | [00] OFF | 1 |
 |  |  |  | [FF] ON | 1 |
-|  |  | BOOST_TIME |  | 1 |
-|  |  | STOP_TIME |  | 1 |
-|  |  | MIN_SPEED |  | 1 |
-|  |  | SIZE_1 |  | 1 |
-|  |  | SCALE_1 |  | 1 |
-|  |  | PRECISION_1 |  | 1 |
-|  |  | START_TEMPERATURE |  | 1 |
-|  |  | SIZE_2 |  | 1 |
-|  |  | SCALE_2 |  | 1 |
-|  |  | PRECISION_2 |  | 1 |
-|  |  | STOP_TEMPERATURE |  | 1 |
-|  |  | SIZE_3 |  | 1 |
-|  |  | SCALE_3 |  | 1 |
-|  |  | PRECISION_3 |  | 1 |
-|  |  | ALARM_TEMPERATURE_VALUE |  | 1 |
+|  |  | Boost Time |  | 1 |
+|  |  | Stop Time |  | 1 |
+|  |  | Min. Speed |  | 1 |
+|  |  | Size 1 |  | 1 |
+|  |  | Scale 1 |  | 1 |
+|  |  | Precision 1 |  | 1 |
+|  |  | Start Temperature |  | 1 |
+|  |  | Size 2 |  | 1 |
+|  |  | Scale 2 |  | 1 |
+|  |  | Precision 2 |  | 1 |
+|  |  | Stop Temperature |  | 1 |
+|  |  | Size 3 |  | 1 |
+|  |  | Scale 3 |  | 1 |
+|  |  | Precision 3 |  | 1 |
+|  |  | Alarm Temperature Value |  | 1 |
 |  | [1D] CHIMNEY_FAN_STATUS_GET |  |  | 1 |
 |  | [1E] CHIMNEY_FAN_STATUS_REPORT |  |  | 1 |
-|  |  | STATE |  | 1 |
+|  |  | State |  | 1 |
 |  |  |  | [00] OFF | 1 |
 |  |  |  | [01] BOOST | 1 |
 |  |  |  | [02] EXHAUST | 1 |
@@ -636,142 +636,142 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [08] SENSOR_FAILURE | 1 |
 |  |  |  | [09] CHIMNEY_FIRE | 1 |
 |  |  |  | [0A] EXTERNAL_ALARM | 1 |
-|  |  | SPEED |  | 1 |
-|  |  | SERVICE |  | 1 |
-|  |  | EXTERNAL_ALARM |  | 1 |
-|  |  | SENSOR_ERROR |  | 1 |
-|  |  | ALARM_TEMPERATURE_EXCEEDED |  | 1 |
-|  |  | SPEED_CHANGE_ENABLE |  | 1 |
-|  |  | START_TEMPERATURE_EXCEEDED |  | 1 |
-|  |  | SIZE |  | 1 |
-|  |  | SCALE |  | 1 |
-|  |  | PRECISION |  | 1 |
-|  |  | VALUE |  | 1 |
+|  |  | Speed |  | 1 |
+|  |  | Service |  | 1 |
+|  |  | External Alarm |  | 1 |
+|  |  | Sensor Error |  | 1 |
+|  |  | Alarm Temperature Exceeded |  | 1 |
+|  |  | Speed change Enable |  | 1 |
+|  |  | Start Temperature Exceeded |  | 1 |
+|  |  | Size |  | 1 |
+|  |  | Scale |  | 1 |
+|  |  | Precision |  | 1 |
+|  |  | Value |  | 1 |
 |  | [1F] CHIMNEY_FAN_ALARM_LOG_SET |  |  | 1 |
-|  |  | MESSAGE |  | 1 |
+|  |  | Message |  | 1 |
 |  |  |  | [08] RESET_LOG | 1 |
 |  | [20] CHIMNEY_FAN_ALARM_LOG_GET |  |  | 1 |
 |  | [21] CHIMNEY_FAN_ALARM_LOG_REPORT |  |  | 1 |
-|  |  | EXTERNAL_ALARM_1 |  | 1 |
-|  |  | SENSOR_ERROR_1 |  | 1 |
-|  |  | ALARM_TEMPERATURE_EXCEEDED_1 |  | 1 |
-|  |  | ALARM_STILL_ACTIVE_1 |  | 1 |
-|  |  | EXTERNAL_ALARM_2 |  | 1 |
-|  |  | SENSOR_ERROR_2 |  | 1 |
-|  |  | ALARM_TEMPERATURE_EXCEEDED_2 |  | 1 |
-|  |  | ALARM_STILL_ACTIVE_2 |  | 1 |
-|  |  | EXTERNAL_ALARM_3 |  | 1 |
-|  |  | SENSOR_ERROR_3 |  | 1 |
-|  |  | ALARM_TEMPERATURE_EXCEEDED_3 |  | 1 |
-|  |  | ALARM_STILL_ACTIVE_3 |  | 1 |
-|  |  | EXTERNAL_ALARM_4 |  | 1 |
-|  |  | SENSOR_ERROR_4 |  | 1 |
-|  |  | ALARM_TEMPERATURE_EXCEEDED_4 |  | 1 |
-|  |  | ALARM_STILL_ACTIVE_4 |  | 1 |
-|  |  | EXTERNAL_ALARM_5 |  | 1 |
-|  |  | SENSOR_ERROR_5 |  | 1 |
-|  |  | ALARM_TEMPERATURE_EXCEEDED_5 |  | 1 |
-|  |  | ALARM_STILL_ACTIVE_5 |  | 1 |
+|  |  | External Alarm 1 |  | 1 |
+|  |  | Sensor Error 1 |  | 1 |
+|  |  | Alarm Temperature Exceeded 1 |  | 1 |
+|  |  | Alarm still active 1 |  | 1 |
+|  |  | External Alarm 2 |  | 1 |
+|  |  | Sensor Error 2 |  | 1 |
+|  |  | Alarm Temperature Exceeded 2 |  | 1 |
+|  |  | Alarm still active 2 |  | 1 |
+|  |  | External Alarm 3 |  | 1 |
+|  |  | Sensor Error 3 |  | 1 |
+|  |  | Alarm Temperature Exceeded 3 |  | 1 |
+|  |  | Alarm still active 3 |  | 1 |
+|  |  | External Alarm 4 |  | 1 |
+|  |  | Sensor Error 4 |  | 1 |
+|  |  | Alarm Temperature Exceeded 4 |  | 1 |
+|  |  | Alarm still active 4 |  | 1 |
+|  |  | External Alarm 5 |  | 1 |
+|  |  | Sensor Error 5 |  | 1 |
+|  |  | Alarm Temperature Exceeded 5 |  | 1 |
+|  |  | Alarm still active 5 |  | 1 |
 |  | [22] CHIMNEY_FAN_ALARM_STATUS_SET |  |  | 1 |
-|  |  | ACKNOWLEDGE_EXTERNAL_ALARM |  | 1 |
-|  |  | ACKNOWLEDGE_SENSOR_ERROR |  | 1 |
-|  |  | ACKNOWLEDGE_ALARM_TEMPERATURE_EXCEEDED |  | 1 |
+|  |  | Acknowledge External Alarm |  | 1 |
+|  |  | Acknowledge Sensor Error |  | 1 |
+|  |  | Acknowledge Alarm Temperature Exceeded |  | 1 |
 |  | [23] CHIMNEY_FAN_ALARM_STATUS_GET |  |  | 1 |
 |  | [24] CHIMNEY_FAN_ALARM_STATUS_REPORT |  |  | 1 |
-|  |  | SERVICE |  | 1 |
-|  |  | EXTERNAL_ALARM |  | 1 |
-|  |  | SENSOR_ERROR |  | 1 |
-|  |  | ALARM_TEMPERATURE_EXCEEDED |  | 1 |
-|  |  | SPEED_CHANGE_ENABLE |  | 1 |
-|  |  | START_TEMPERATURE_EXCEEDED |  | 1 |
+|  |  | Service |  | 1 |
+|  |  | External Alarm |  | 1 |
+|  |  | Sensor Error |  | 1 |
+|  |  | Alarm Temperature Exceeded |  | 1 |
+|  |  | Speed change Enable |  | 1 |
+|  |  | Start Temperature Exceeded |  | 1 |
 |  | [25] CHIMNEY_FAN_MIN_SPEED_SET |  |  | 1 |
-|  |  | MIN_SPEED |  | 1 |
+|  |  | Min Speed |  | 1 |
 |  | [26] CHIMNEY_FAN_MIN_SPEED_GET |  |  | 1 |
 |  | [27] CHIMNEY_FAN_MIN_SPEED_REPORT |  |  | 1 |
-|  |  | MIN_SPEED |  | 1 |
+|  |  | Min Speed |  | 1 |
 |  | [28] CHIMNEY_FAN_DEFAULT_SET |  |  | 1 |
 | [2B] COMMAND_CLASS_SCENE_ACTIVATION |  |  |  | 1 |
 |  | [01] SCENE_ACTIVATION_SET |  |  | 1 |
-|  |  | SCENE_ID |  | 1 |
-|  |  | DIMMING_DURATION |  | 1 |
+|  |  | Scene ID |  | 1 |
+|  |  | Dimming Duration |  | 1 |
 |  |  |  | [00] INSTANTLY | 1 |
 |  |  |  | [FF] CONFIGURED_DIMMING_DURATION | 1 |
 | [2C] COMMAND_CLASS_SCENE_ACTUATOR_CONF |  |  |  | 1 |
 |  | [01] SCENE_ACTUATOR_CONF_SET |  |  | 1 |
-|  |  | SCENE_ID |  | 1 |
-|  |  | DIMMING_DURATION |  | 1 |
+|  |  | Scene ID |  | 1 |
+|  |  | Dimming Duration |  | 1 |
 |  |  |  | [00] SPECIFY_INSTANTLY | 1 |
 |  |  |  | [FF] FACTORY_DEFAULT | 1 |
-|  |  | OVERRIDE |  | 1 |
-|  |  | LEVEL |  | 1 |
+|  |  | Override |  | 1 |
+|  |  | Level |  | 1 |
 |  | [02] SCENE_ACTUATOR_CONF_GET |  |  | 1 |
-|  |  | SCENE_ID |  | 1 |
+|  |  | Scene ID |  | 1 |
 |  | [03] SCENE_ACTUATOR_CONF_REPORT |  |  | 1 |
-|  |  | SCENE_ID |  | 1 |
-|  |  | LEVEL |  | 1 |
-|  |  | DIMMING_DURATION |  | 1 |
+|  |  | Scene ID |  | 1 |
+|  |  | Level |  | 1 |
+|  |  | Dimming Duration |  | 1 |
 |  |  |  | [00] INSTANTLY | 1 |
 | [2D] COMMAND_CLASS_SCENE_CONTROLLER_CONF |  |  |  | 1 |
 |  | [01] SCENE_CONTROLLER_CONF_SET |  |  | 1 |
-|  |  | GROUP_ID |  | 1 |
-|  |  | SCENE_ID |  | 1 |
-|  |  | DIMMING_DURATION |  | 1 |
+|  |  | Group ID |  | 1 |
+|  |  | Scene ID |  | 1 |
+|  |  | Dimming Duration |  | 1 |
 |  |  |  | [00] INSTANTLY | 1 |
 |  |  |  | [FF] FACTORY_DEFAULT | 1 |
 |  | [02] SCENE_CONTROLLER_CONF_GET |  |  | 1 |
-|  |  | GROUP_ID |  | 1 |
+|  |  | Group ID |  | 1 |
 |  | [03] SCENE_CONTROLLER_CONF_REPORT |  |  | 1 |
-|  |  | GROUP_ID |  | 1 |
-|  |  | SCENE_ID |  | 1 |
-|  |  | DIMMING_DURATION |  | 1 |
+|  |  | Group ID |  | 1 |
+|  |  | Scene ID |  | 1 |
+|  |  | Dimming Duration |  | 1 |
 |  |  |  | [00] INSTANTLY | 1 |
 | [2E] COMMAND_CLASS_SECURITY_PANEL_ZONE |  |  |  | 1 |
 |  | [01] SECURITY_PANEL_ZONE_NUMBER_SUPPORTED_GET |  |  | 1 |
 |  | [02] SECURITY_PANEL_ZONE_SUPPORTED_REPORT |  |  | 1 |
-|  |  | ZONES_SUPPORTED |  | 1 |
+|  |  | Zones Supported |  | 1 |
 |  |  | ZM |  | 1 |
 |  | [03] SECURITY_PANEL_ZONE_TYPE_GET |  |  | 1 |
-|  |  | ZONE_NUMBER |  | 1 |
+|  |  | Zone Number |  | 1 |
 |  | [04] SECURITY_PANEL_ZONE_TYPE_REPORT |  |  | 1 |
-|  |  | ZONE_NUMBER |  | 1 |
-|  |  | ZONE_TYPE |  | 1 |
+|  |  | Zone Number |  | 1 |
+|  |  | Zone Type |  | 1 |
 |  |  |  | [01] ALARM_ZONE | 1 |
 |  |  |  | [02] NOTIFICATION_ZONE | 1 |
 |  | [05] SECURITY_PANEL_ZONE_STATE_GET |  |  | 1 |
-|  |  | ZONE_NUMBER |  | 1 |
+|  |  | Zone Number |  | 1 |
 |  | [06] SECURITY_PANEL_ZONE_STATE_REPORT |  |  | 1 |
-|  |  | ZONE_NUMBER |  | 1 |
-|  |  | ZONE_STATE |  | 1 |
+|  |  | Zone number |  | 1 |
+|  |  | Zone State |  | 1 |
 |  |  |  | [00] FAULTED | 1 |
 |  |  |  | [01] NOT_FAULTED | 1 |
 |  |  |  | [02] BYPASS_FAULTED | 1 |
 |  |  |  | [03] BYPASS_NOT_FAULTED | 1 |
 | [2F] COMMAND_CLASS_SECURITY_PANEL_ZONE_SENSOR |  |  |  | 1 |
 |  | [01] SECURITY_PANEL_ZONE_SENSOR_INSTALLED_GET |  |  | 1 |
-|  |  | ZONE_NUMBER |  | 1 |
+|  |  | Zone number |  | 1 |
 |  | [02] COMMAND_CLASS_SECURITY_PANEL_ZONE_SENSOR_INSTALLED_REPORT |  |  | 1 |
-|  |  | ZONE_NUMBER |  | 1 |
-|  |  | NUMBER_OF_SENSORS |  | 1 |
+|  |  | Zone number |  | 1 |
+|  |  | Number of Sensors |  | 1 |
 |  | [03] SECURITY_PANEL_ZONE_SENSOR_TYPE_GET |  |  | 1 |
-|  |  | ZONE_NUMBER |  | 1 |
-|  |  | SENSOR_NUMBER |  | 1 |
+|  |  | Zone Number |  | 1 |
+|  |  | Sensor Number |  | 1 |
 |  | [04] SECURITY_PANEL_ZONE_SENSOR_TYPE_REPORT |  |  | 1 |
-|  |  | ZONE_NUMBER |  | 1 |
-|  |  | SENSOR_NUMBER |  | 1 |
-|  |  | ZWAVE_ALARM_TYPE |  | 1 |
+|  |  | Zone Number |  | 1 |
+|  |  | Sensor Number |  | 1 |
+|  |  | ZWave Alarm Type |  | 1 |
 |  | [05] SECURITY_PANEL_ZONE_SENSOR_STATE_GET |  |  | 1 |
-|  |  | ZONE_NUMBER |  | 1 |
-|  |  | SENSOR_NUMBER |  | 1 |
+|  |  | Zone Number |  | 1 |
+|  |  | Sensor Number |  | 1 |
 |  | [06] SECURITY_PANEL_ZONE_SENSOR_STATE_REPORT |  |  | 1 |
-|  |  | ZONE_NUMBER |  | 1 |
-|  |  | SENSOR_NUMBER |  | 1 |
-|  |  | ZWAVE_ALARM_TYPE |  | 1 |
-|  |  | ZWAVE_ALARM_EVENT |  | 1 |
-|  |  | EVENT_PARAMETERS |  | 1 |
+|  |  | Zone Number |  | 1 |
+|  |  | Sensor Number |  | 1 |
+|  |  | ZWave Alarm Type |  | 1 |
+|  |  | ZWave Alarm Event |  | 1 |
+|  |  | Event Parameters |  | 1 |
 | [30] COMMAND_CLASS_SENSOR_BINARY |  |  |  | 2 |
 |  | [01] SENSOR_BINARY_SUPPORTED_GET_SENSOR |  |  | 2 |
 |  | [02] SENSOR_BINARY_GET |  |  | 1-2 |
-|  |  | SENSOR_TYPE |  | 2 |
+|  |  | Sensor Type |  | 2 |
 |  |  |  | [01] GENERAL | 2 |
 |  |  |  | [02] SMOKE | 2 |
 |  |  |  | [03] CO | 2 |
@@ -786,10 +786,10 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [0C] MOTION | 2 |
 |  |  |  | [0D] GLASS_BREAK | 2 |
 |  | [03] SENSOR_BINARY_REPORT |  |  | 1-2 |
-|  |  | SENSOR_VALUE |  | 1-2 |
+|  |  | Sensor Value |  | 1-2 |
 |  |  |  | [00] IDLE | 1-2 |
 |  |  |  | [FF] DETECTED_AN_EVENT | 1-2 |
-|  |  | SENSOR_TYPE |  | 2 |
+|  |  | Sensor Type |  | 2 |
 |  |  |  | [01] GENERAL | 2 |
 |  |  |  | [02] SMOKE | 2 |
 |  |  |  | [03] CO | 2 |
@@ -804,7 +804,7 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [0C] MOTION | 2 |
 |  |  |  | [0D] GLASS_BREAK | 2 |
 |  | [04] SENSOR_BINARY_SUPPORTED_SENSOR_REPORT |  |  | 2 |
-|  |  | BIT_MASK |  | 2 |
+|  |  | Bit Mask |  | 2 |
 |  |  |  | [01] GENERAL | 2 |
 |  |  |  | [02] SMOKE | 2 |
 |  |  |  | [03] CO | 2 |
@@ -821,7 +821,7 @@ different size or mask for example.  If you find error, please report them.
 | [31] COMMAND_CLASS_SENSOR_MULTILEVEL |  |  |  | 10 |
 |  | [01] SENSOR_MULTILEVEL_SUPPORTED_GET_SENSOR |  |  | 5-10 |
 |  | [02] SENSOR_MULTILEVEL_SUPPORTED_SENSOR_REPORT |  |  | 5-10 |
-|  |  | BIT_MASK |  | 5-10 |
+|  |  | Bit Mask |  | 5-10 |
 |  |  |  | [01] AIR_TEMPERATURE | 5-10 |
 |  |  |  | [02] GENERAL_PURPOSE_VALUE | 5-10 |
 |  |  |  | [03] LUMINANCE | 5-10 |
@@ -883,7 +883,7 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [3B] PARTICULATE_MATTER | 10 |
 |  |  |  | [3C] RESPIRATORY_RATE | 10 |
 |  | [03] SENSOR_MULTILEVEL_SUPPORTED_GET_SCALE |  |  | 5-10 |
-|  |  | SENSOR_TYPE |  | 5-10 |
+|  |  | Sensor Type |  | 5-10 |
 |  |  |  | [01] TEMPERATURE | 5-10 |
 |  |  |  | [02] GENERAL_PURPOSE_VALUE | 5-10 |
 |  |  |  | [03] LUMINANCE | 5-10 |
@@ -945,7 +945,7 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [3B] PARTICULATE_MATTER | 10 |
 |  |  |  | [3C] RESPIRATORY_RATE | 10 |
 |  | [04] SENSOR_MULTILEVEL_GET |  |  | 1-10 |
-|  |  | SENSOR_TYPE |  | 5-10 |
+|  |  | Sensor Type |  | 5-10 |
 |  |  |  | [01] TEMPERATURE | 5-10 |
 |  |  |  | [02] GENERAL_PURPOSE_VALUE | 5-10 |
 |  |  |  | [03] LUMINANCE | 5-10 |
@@ -1006,9 +1006,9 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [3A] RF_SIGNAL_STRENGTH | 9-10 |
 |  |  |  | [3B] PARTICULATE_MATTER | 10 |
 |  |  |  | [3C] RESPIRATORY_RATE | 10 |
-|  |  | SCALE |  | 5-10 |
+|  |  | Scale |  | 5-10 |
 |  | [05] SENSOR_MULTILEVEL_REPORT |  |  | 1-10 |
-|  |  | SENSOR_TYPE |  | 1-10 |
+|  |  | Sensor Type |  | 1-10 |
 |  |  |  | [01] TEMPERATURE | 1-10 |
 |  |  |  | [02] GENERAL_PURPOSE_VALUE | 1-10 |
 |  |  |  | [03] LUMINANCE | 1-10 |
@@ -1069,12 +1069,12 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [3A] RF_SIGNAL_STRENGTH | 9-10 |
 |  |  |  | [3B] PARTICULATE_MATTER | 10 |
 |  |  |  | [3C] RESPIRATORY_RATE | 10 |
-|  |  | SIZE |  | 1-10 |
-|  |  | SCALE |  | 1-10 |
-|  |  | PRECISION |  | 1-10 |
-|  |  | SENSOR_VALUE |  | 1-10 |
+|  |  | Size |  | 1-10 |
+|  |  | Scale |  | 1-10 |
+|  |  | Precision |  | 1-10 |
+|  |  | Sensor Value |  | 1-10 |
 |  | [06] SENSOR_MULTILEVEL_SUPPORTED_SCALE_REPORT |  |  | 5-10 |
-|  |  | SENSOR_TYPE |  | 5-10 |
+|  |  | Sensor Type |  | 5-10 |
 |  |  |  | [01] TEMPERATURE | 5-10 |
 |  |  |  | [02] GENERAL_PURPOSE_VALUE | 5-10 |
 |  |  |  | [03] LUMINANCE | 5-10 |
@@ -1135,84 +1135,84 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [3A] RF_SIGNAL_STRENGTH | 9-10 |
 |  |  |  | [3B] PARTICULATE_MATTER | 10 |
 |  |  |  | [3C] RESPIRATORY_RATE | 10 |
-|  |  | SCALE_BIT_MASK |  | 5-10 |
+|  |  | Scale Bit Mask |  | 5-10 |
 | [32] COMMAND_CLASS_METER |  |  |  | 4 |
 |  | [01] METER_GET |  |  | 1-4 |
-|  |  | SCALE |  | 2-4 |
-|  |  | RATE_TYPE |  | 4 |
+|  |  | Scale |  | 2-4 |
+|  |  | Rate Type |  | 4 |
 |  |  |  | [01] IMPORT | 4 |
 |  |  |  | [02] EXPORT | 4 |
 |  |  |  | [03] NOT_TO_BE_USED | 4 |
-|  |  | SCALE_2 |  | 4 |
+|  |  | Scale 2 |  | 4 |
 |  | [02] METER_REPORT |  |  | 1-4 |
-|  |  | RATE_TYPE |  | 2-4 |
+|  |  | Rate Type |  | 2-4 |
 |  |  |  | [01] IMPORT | 4 |
 |  |  |  | [02] EXPORT | 4 |
 |  |  |  | [03] NOT_TO_BE_USED | 4 |
-|  |  | SCALE_BIT_2 |  | 3-4 |
-|  |  | METER_TYPE |  | 1-4 |
+|  |  | Scale bit 2 |  | 3-4 |
+|  |  | Meter Type |  | 1-4 |
 |  |  |  | [01] ELECTRIC_METER | 1-1, 4-4 |
 |  |  |  | [02] GAS_METER | 1-1, 4-4 |
 |  |  |  | [03] WATER_METER | 1-1, 4-4 |
-|  |  | SIZE |  | 1-4 |
-|  |  | SCALE |  | 1-2 |
-|  |  | SCALE_BITS_10 |  | 3-4 |
-|  |  | PRECISION |  | 1-4 |
-|  |  | METER_VALUE |  | 1-4 |
-|  |  | DELTA_TIME |  | 2-4 |
-|  |  | PREVIOUS_METER_VALUE |  | 2-4 |
-|  |  | SCALE_2 |  | 4 |
+|  |  | Size |  | 1-4 |
+|  |  | Scale |  | 1-2 |
+|  |  | Scale bits 10 |  | 3-4 |
+|  |  | Precision |  | 1-4 |
+|  |  | Meter Value |  | 1-4 |
+|  |  | Delta Time |  | 2-4 |
+|  |  | Previous Meter Value |  | 2-4 |
+|  |  | Scale 2 |  | 4 |
 |  | [03] METER_SUPPORTED_GET |  |  | 2-4 |
 |  | [04] METER_SUPPORTED_REPORT |  |  | 2-4 |
-|  |  | METER_TYPE |  | 2-4 |
+|  |  | Meter Type |  | 2-4 |
 |  |  |  | [01] ELECTRIC_METER | 4 |
 |  |  |  | [02] GAS_METER | 4 |
 |  |  |  | [03] WATER_METER | 4 |
-|  |  | RATE_TYPE |  | 4 |
+|  |  | Rate Type |  | 4 |
 |  |  |  | [01] IMPORT_ONLY | 4 |
 |  |  |  | [02] EXPORT_ONLY | 4 |
 |  |  |  | [03] IMPORT_AND_EXPORT | 4 |
-|  |  | METER_RESET |  | 2-4 |
-|  |  | SCALE_SUPPORTED |  | 2-4 |
-|  |  | MORE_SCALE_TYPES |  | 4 |
-|  |  | NUMBER_OF_SCALE_SUPPORTED_BYTES_TO_FOLLOW |  | 4 |
-|  |  | SCALE_SUPPORTED_LIST |  | 4 |
+|  |  | Meter Reset |  | 2-4 |
+|  |  | Scale Supported |  | 2-4 |
+|  |  | More Scale Types |  | 4 |
+|  |  | Number of Scale Supported Bytes to Follow |  | 4 |
+|  |  | Scale Supported List |  | 4 |
 |  | [05] METER_RESET |  |  | 2-4 |
 | [33] COMMAND_CLASS_SWITCH_COLOR |  |  |  | 3 |
 |  | [01] SWITCH_COLOR_SUPPORTED_GET |  |  | 1-3 |
 |  | [02] SWITCH_COLOR_SUPPORTED_REPORT |  |  | 1-3 |
-|  |  | COLOR_COMPONENT_MASK |  | 1-3 |
+|  |  | Color Component mask |  | 1-3 |
 |  | [03] SWITCH_COLOR_GET |  |  | 1-3 |
-|  |  | COLOR_COMPONENT_ID |  | 1-3 |
+|  |  | Color Component ID |  | 1-3 |
 |  | [04] SWITCH_COLOR_REPORT |  |  | 1-3 |
-|  |  | COLOR_COMPONENT_ID |  | 1-3 |
-|  |  | CURRENT_VALUE |  | 1-3 |
-|  |  | TARGET_VALUE |  | 3 |
-|  |  | DURATION |  | 3 |
+|  |  | Color Component ID |  | 1-3 |
+|  |  | Current Value |  | 1-3 |
+|  |  | Target Value |  | 3 |
+|  |  | Duration |  | 3 |
 |  |  |  | [00] ALREADY_AT_THE_TARGET_VALUE | 3 |
 |  |  |  | [FE] UNKNOWN_DURATION | 3 |
 |  | [05] SWITCH_COLOR_SET |  |  | 1-3 |
-|  |  | COLOR_COMPONENT_COUNT |  | 1-3 |
-|  |  | COLOR_VALUE |  | 1-3 |
-|  |  | DURATION |  | 2-3 |
+|  |  | Color Component Count |  | 1-3 |
+|  |  | Color Value |  | 1-3 |
+|  |  | Duration |  | 2-3 |
 |  |  |  | [00] INSTANTLY | 3 |
 |  |  |  | [FF] DEFAULT | 3 |
 |  | [06] SWITCH_COLOR_START_LEVEL_CHANGE |  |  | 1-3 |
-|  |  | RES1 |  | 1-3 |
-|  |  | IGNORE_START_STATE |  | 1-3 |
-|  |  | UP_DOWN |  | 1-3 |
-|  |  | RES2 |  | 1-3 |
-|  |  | COLOR_COMPONENT_ID |  | 1-3 |
-|  |  | START_LEVEL |  | 1-3 |
-|  |  | DURATION |  | 3 |
+|  |  | Res1 |  | 1-3 |
+|  |  | Ignore Start State |  | 1-3 |
+|  |  | Up/Down |  | 1-3 |
+|  |  | Res2 |  | 1-3 |
+|  |  | Color Component ID |  | 1-3 |
+|  |  | Start Level |  | 1-3 |
+|  |  | Duration |  | 3 |
 |  |  |  | [00] INSTANTLY | 3 |
 |  |  |  | [FF] DEFAULT | 3 |
 |  | [07] SWITCH_COLOR_STOP_LEVEL_CHANGE |  |  | 1-3 |
-|  |  | COLOR_COMPONENT_ID |  | 1-3 |
+|  |  | Color Component ID |  | 1-3 |
 | [34] COMMAND_CLASS_NETWORK_MANAGEMENT_INCLUSION |  |  |  | 2 |
 |  | [01] NODE_ADD |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
-|  |  | MODE |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
+|  |  | Mode |  | 1-2 |
 |  |  |  | [01] NODE_ADD_ANY | 1-2 |
 |  |  |  | [02] NODE_ADD_CONTROLLER | 1-2 |
 |  |  |  | [03] NODE_ADD_SLAVE | 1-2 |
@@ -1220,7 +1220,7 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [05] NODE_ADD_STOP | 1-2 |
 |  |  |  | [06] NODE_ADD_STOP_FAILED | 1-2 |
 |  |  |  | [07] NODE_ADD_ANY_S2 | 2 |
-|  |  | TX_OPTIONS |  | 1-2 |
+|  |  | tx Options |  | 1-2 |
 |  |  |  | [01] ACK | 1-2 |
 |  |  |  | [02] LOW_POWER | 1-2 |
 |  |  |  | [04] AUTO_ROUTE | 1-2 |
@@ -1229,55 +1229,52 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [40] NO_RETRANSMISSION | 1-2 |
 |  |  |  | [80] HIGH_POWER | 1-2 |
 |  | [02] NODE_ADD_STATUS |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
-|  |  | STATUS |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
+|  |  | Status |  | 1-2 |
 |  |  |  | [06] NODE_ADD_STATUS_DONE | 1-2 |
 |  |  |  | [07] NODE_ADD_STATUS_FAILED | 1-2 |
 |  |  |  | [09] NODE_ADD_STATUS_SECURITY_FAILED | 1-2 |
-|  |  | NEW_NODE_ID |  | 1-2 |
-|  |  | NODE_INFO_LENGTH |  | 1-2 |
-|  |  | CAPABILITY |  | 1-2 |
-|  |  | LISTENING |  | 1-2 |
-|  |  | SECURITY |  | 1-2 |
-|  |  | OPT |  | 1-2 |
-|  |  | BASIC_DEVICE_CLASS |  | 1-2 |
-|  |  | GENERIC_DEVICE_CLASS |  | 1-2 |
-|  |  | SPECIFIC_DEVICE_CLASS |  | 1-2 |
-|  |  | COMMAND_CLASS |  | 1 |
-|  |  | NON_SECURE_COMMAND_CLASS |  | 2 |
-|  |  | SECURITY_MARK |  | 2 |
-|  |  |  | [00] SECURITY_MARK | 2 |
-|  |  |  | [F1] SECURITY_MARK | 2 |
-|  |  | SECURE_COMMAND_CLASS |  | 2 |
-|  |  | GRANTED_KEYS |  | 2 |
-|  |  | KEX_FAIL_TYPE |  | 2 |
+|  |  | New Node ID |  | 1-2 |
+|  |  | Node Info Length |  | 1-2 |
+|  |  | Capability |  | 1-2 |
+|  |  | Listening |  | 1-2 |
+|  |  | Security |  | 1-2 |
+|  |  | Opt |  | 1-2 |
+|  |  | Basic Device Class |  | 1-2 |
+|  |  | Generic Device Class |  | 1-2 |
+|  |  | Specific Device Class |  | 1-2 |
+|  |  | Command Class |  | 1 |
+|  |  | Non-Secure Command Class |  | 2 |
+|  |  | Secure Command Class |  | 2 |
+|  |  | Granted Keys |  | 2 |
+|  |  | KEX Fail Type |  | 2 |
 |  | [03] NODE_REMOVE |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
-|  |  | MODE |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
+|  |  | Mode |  | 1-2 |
 |  |  |  | [01] NODE_REMOVE_ANY | 1-2 |
 |  |  |  | [02] NODE_REMOVE_CONTROLLER | 1-2 |
 |  |  |  | [03] NODE_REMOVE_SLAVE | 1-2 |
 |  |  |  | [05] NODE_REMOVE_STOP | 1-2 |
 |  | [04] NODE_REMOVE_STATUS |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
-|  |  | STATUS |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
+|  |  | Status |  | 1-2 |
 |  |  |  | [06] NODE_REMOVE_STATUS_DONE | 1-2 |
 |  |  |  | [07] NODE_REMOVE_STATUS_FAILED | 1-2 |
-|  |  | NODEID |  | 1-2 |
+|  |  | NodeID |  | 1-2 |
 |  | [07] FAILED_NODE_REMOVE |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
-|  |  | NODE_ID |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
+|  |  | Node ID |  | 1-2 |
 |  | [08] FAILED_NODE_REMOVE_STATUS |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
-|  |  | NODE_ID |  | 1-2 |
-|  |  | STATUS |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
+|  |  | Node ID |  | 1-2 |
+|  |  | Status |  | 1-2 |
 |  |  |  | [00] FAILED_NODE_NOT_FOUND | 1-2 |
 |  |  |  | [01] DONE | 1-2 |
 |  |  |  | [02] FAILED_NODE_REMOVE_FAIL | 1-2 |
 |  | [09] FAILED_NODE_REPLACE |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
-|  |  | NODE_ID |  | 1-2 |
-|  |  | TX_OPTIONS |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
+|  |  | Node ID |  | 1-2 |
+|  |  | tx Options |  | 1-2 |
 |  |  |  | [01] ACK | 1-2 |
 |  |  |  | [02] LOW_POWER | 1-2 |
 |  |  |  | [04] AUTO_ROUTE | 1-2 |
@@ -1285,80 +1282,80 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [20] EXPLORE | 1-2 |
 |  |  |  | [40] NO_RETRANSMISSION | 1-2 |
 |  |  |  | [80] HIGH_POWER | 1-2 |
-|  |  | MODE |  | 1-2 |
+|  |  | Mode |  | 1-2 |
 |  | [0A] FAILED_NODE_REPLACE_STATUS |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
-|  |  | STATUS |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
+|  |  | Status |  | 1-2 |
 |  |  |  | [04] DONE | 1-2 |
 |  |  |  | [05] FAILED_NODE_REPLACE_FAIL | 1-2 |
 |  |  |  | [09] FAILED_NODE_REPLACE_SECURITY_FAILED | 1-2 |
-|  |  | NODE_ID |  | 1-2 |
-|  |  | GRANTED_KEYS |  | 2 |
-|  |  | KEX_FAIL_TYPE |  | 2 |
+|  |  | Node ID |  | 1-2 |
+|  |  | Granted Keys |  | 2 |
+|  |  | KEX Fail Type |  | 2 |
 |  | [0B] NODE_NEIGHBOR_UPDATE_REQUEST |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
-|  |  | NODE_ID |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
+|  |  | Node ID |  | 1-2 |
 |  | [0C] NODE_NEIGHBOR_UPDATE_STATUS |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
-|  |  | STATUS |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
+|  |  | Status |  | 1-2 |
 |  |  |  | [22] NEIGHBOR_UPDATE_STATUS_DONE | 1-2 |
 |  |  |  | [23] NEIGHBOR_UPDATE_STATUS_FAIL | 1-2 |
 |  | [0D] RETURN_ROUTE_ASSIGN |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
-|  |  | SOURCE_NODE_ID |  | 1-2 |
-|  |  | DESTINATION_NODE_ID |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
+|  |  | Source Node ID |  | 1-2 |
+|  |  | Destination Node ID |  | 1-2 |
 |  | [0E] RETURN_ROUTE_ASSIGN_COMPLETE |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
-|  |  | STATUS |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
+|  |  | Status |  | 1-2 |
 |  |  |  | [00] TRANSMIT_COMPLETE_OK | 1-2 |
 |  |  |  | [01] TRANSMIT_COMPLETE_NO_ACK | 1-2 |
 |  |  |  | [02] TRANSMIT_COMPLETE_FAIL | 1-2 |
 |  | [0F] RETURN_ROUTE_DELETE |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
-|  |  | NODE_ID |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
+|  |  | Node ID |  | 1-2 |
 |  | [10] RETURN_ROUTE_DELETE_COMPLETE |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
-|  |  | STATUS |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
+|  |  | Status |  | 1-2 |
 |  |  |  | [00] TRANSMIT_COMPLETE_OK | 1-2 |
 |  |  |  | [01] TRANSMIT_COMPLETE_NO_ACK | 1-2 |
 |  |  |  | [02] TRANSMIT_COMPLETE_FAIL | 1-2 |
 |  | [11] NODE_ADD_KEYS_REPORT |  |  | 2 |
-|  |  | SEQ_NO |  | 2 |
-|  |  | REQUEST_CLIENT_SIDE_AUTHENTICATION |  | 2 |
-|  |  | REQUESTED_KEYS |  | 2 |
+|  |  | Seq No |  | 2 |
+|  |  | Request Client-Side Authentication |  | 2 |
+|  |  | Requested Keys |  | 2 |
 |  | [12] NODE_ADD_KEYS_SET |  |  | 2 |
-|  |  | SEQ_NO |  | 2 |
-|  |  | ACCEPT |  | 2 |
-|  |  | GRANT_CLIENT_SIDE_AUTHENTICATION |  | 2 |
-|  |  | GRANTED_KEYS |  | 2 |
+|  |  | Seq No |  | 2 |
+|  |  | Accept |  | 2 |
+|  |  | Grant Client-Side Authentication |  | 2 |
+|  |  | Granted Keys |  | 2 |
 |  | [13] NODE_ADD_DSK_REPORT |  |  | 2 |
-|  |  | SEQ_NO |  | 2 |
-|  |  | INPUT_DSK_LENGTH |  | 2 |
+|  |  | Seq No |  | 2 |
+|  |  | Input DSK Length |  | 2 |
 |  |  | DSK |  | 2 |
 |  | [14] NODE_ADD_DSK_SET |  |  | 2 |
-|  |  | SEQ_NO |  | 2 |
-|  |  | INPUT_DSK_LENGTH |  | 2 |
-|  |  | ACCEPT |  | 2 |
-|  |  | INPUT_DSK |  | 2 |
+|  |  | Seq No |  | 2 |
+|  |  | Input DSK Length |  | 2 |
+|  |  | Accept |  | 2 |
+|  |  | Input DSK |  | 2 |
 | [35] COMMAND_CLASS_METER_PULSE |  |  |  | 1 |
 |  | [04] METER_PULSE_GET |  |  | 1 |
 |  | [05] METER_PULSE_REPORT |  |  | 1 |
-|  |  | PULSE_COUNT |  | 1 |
+|  |  | Pulse Count |  | 1 |
 | [36] COMMAND_CLASS_BASIC_TARIFF_INFO |  |  |  | 1 |
 |  | [01] BASIC_TARIFF_INFO_GET |  |  | 1 |
 |  | [02] BASIC_TARIFF_INFO_REPORT |  |  | 1 |
-|  |  | TOTAL_NO_IMPORT_RATES |  | 1 |
-|  |  | DUAL |  | 1 |
-|  |  | E1_CURRENT_RATE_IN_USE |  | 1 |
-|  |  | E1_RATE_CONSUMPTION_REGISTER |  | 1 |
-|  |  | E1_TIME_FOR_NEXT_RATE_HOURS |  | 1 |
-|  |  | E1_TIME_FOR_NEXT_RATE_MINUTES |  | 1 |
-|  |  | E1_TIME_FOR_NEXT_RATE_SECONDS |  | 1 |
-|  |  | E2_CURRENT_RATE_IN_USE |  | 1 |
-|  |  | E2_RATE_CONSUMPTION_REGISTER |  | 1 |
+|  |  | Total No. Import Rates |  | 1 |
+|  |  | Dual |  | 1 |
+|  |  | E1 Current Rate in Use |  | 1 |
+|  |  | E1 Rate Consumption Register |  | 1 |
+|  |  | E1 Time for Next Rate Hours |  | 1 |
+|  |  | E1 Time for Next Rate Minutes |  | 1 |
+|  |  | E1 Time for Next Rate Seconds |  | 1 |
+|  |  | E2 Current Rate in Use |  | 1 |
+|  |  | E2 Rate Consumption Register |  | 1 |
 | [37] COMMAND_CLASS_HRV_STATUS |  |  |  | 1 |
 |  | [01] HRV_STATUS_GET |  |  | 1 |
-|  |  | STATUS_PARAMETER |  | 1 |
+|  |  | Status Parameter |  | 1 |
 |  |  |  | [00] OUTDOOR_AIR_TEMPERATURE | 1 |
 |  |  |  | [01] SUPPLY_AIR_TEMPERATURE | 1 |
 |  |  |  | [02] EXHAUST_AIR_TEMPERATURE | 1 |
@@ -1367,7 +1364,7 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [05] RELATIVE_HUMIDITY_IN_ROOM | 1 |
 |  |  |  | [06] REMAINING_FILTER_LIFE | 1 |
 |  | [02] HRV_STATUS_REPORT |  |  | 1 |
-|  |  | STATUS_PARAMETER |  | 1 |
+|  |  | Status Parameter |  | 1 |
 |  |  |  | [00] OUTDOOR_AIR_TEMPERATURE | 1 |
 |  |  |  | [01] SUPPLY_AIR_TEMPERATURE | 1 |
 |  |  |  | [02] EXHAUST_AIR_TEMPERATURE | 1 |
@@ -1375,13 +1372,13 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [04] ROOM_TEMPERATURE | 1 |
 |  |  |  | [05] RELATIVE_HUMIDITY_IN_ROOM | 1 |
 |  |  |  | [06] REMAINING_FILTER_LIFE | 1 |
-|  |  | SIZE |  | 1 |
-|  |  | SCALE |  | 1 |
-|  |  | PRECISION |  | 1 |
-|  |  | VALUE |  | 1 |
+|  |  | Size |  | 1 |
+|  |  | Scale |  | 1 |
+|  |  | Precision |  | 1 |
+|  |  | Value |  | 1 |
 |  | [03] HRV_STATUS_SUPPORTED_GET |  |  | 1 |
 |  | [04] HRV_STATUS_SUPPORTED_REPORT |  |  | 1 |
-|  |  | BIT_MASK |  | 1 |
+|  |  | Bit Mask |  | 1 |
 |  |  |  | [00] OUTDOOR_AIR_TEMPERATURE | 1 |
 |  |  |  | [01] SUPPLY_AIR_TEMPERATURE | 1 |
 |  |  |  | [02] EXHAUST_AIR_TEMPERATURE | 1 |
@@ -1391,7 +1388,7 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [06] REMAINING_FILTER_LIFE | 1 |
 | [38] COMMAND_CLASS_THERMOSTAT_HEATING |  |  |  | 1 |
 |  | [01] THERMOSTAT_HEATING_MODE_SET |  |  | 1 |
-|  |  | MODE |  | 1 |
+|  |  | Mode |  | 1 |
 |  |  |  | [00] OFF | 1 |
 |  |  |  | [01] OFF_TIMED | 1 |
 |  |  |  | [02] OFF_3_HOURS | 1 |
@@ -1402,7 +1399,7 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [07] MANUAL_TIMED | 1 |
 |  | [02] THERMOSTAT_HEATING_MODE_GET |  |  | 1 |
 |  | [03] THERMOSTAT_HEATING_MODE_REPORT |  |  | 1 |
-|  |  | MODE |  | 1 |
+|  |  | Mode |  | 1 |
 |  |  |  | [00] OFF | 1 |
 |  |  |  | [01] OFF_TIMED | 1 |
 |  |  |  | [02] OFF_3_HOURS | 1 |
@@ -1412,39 +1409,39 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [06] AUTOMATIC | 1 |
 |  |  |  | [07] MANUAL_TIMED | 1 |
 |  | [04] THERMOSTAT_HEATING_SETPOINT_SET |  |  | 1 |
-|  |  | SETPOINT_NR |  | 1 |
-|  |  | SIZE |  | 1 |
-|  |  | SCALE |  | 1 |
-|  |  | PRECISION |  | 1 |
-|  |  | VALUE |  | 1 |
+|  |  | Setpoint Nr |  | 1 |
+|  |  | Size |  | 1 |
+|  |  | Scale |  | 1 |
+|  |  | Precision |  | 1 |
+|  |  | Value |  | 1 |
 |  | [05] THERMOSTAT_HEATING_SETPOINT_GET |  |  | 1 |
-|  |  | SETPOINT_NR |  | 1 |
+|  |  | Setpoint Nr |  | 1 |
 |  | [06] THERMOSTAT_HEATING_SETPOINT_REPORT |  |  | 1 |
-|  |  | SETPOINT_NR |  | 1 |
-|  |  | SIZE |  | 1 |
-|  |  | SCALE |  | 1 |
-|  |  | PRECISION |  | 1 |
-|  |  | VALUE |  | 1 |
+|  |  | Setpoint Nr |  | 1 |
+|  |  | Size |  | 1 |
+|  |  | Scale |  | 1 |
+|  |  | Precision |  | 1 |
+|  |  | Value |  | 1 |
 |  | [09] THERMOSTAT_HEATING_RELAY_STATUS_GET |  |  | 1 |
 |  | [0A] THERMOSTAT_HEATING_RELAY_STATUS_REPORT |  |  | 1 |
-|  |  | RELAY_STATUS |  | 1 |
+|  |  | Relay Status |  | 1 |
 |  |  |  | [00] OFF | 1 |
 |  |  |  | [01] ON | 1 |
 |  | [0B] THERMOSTAT_HEATING_STATUS_SET |  |  | 1 |
-|  |  | STATUS |  | 1 |
+|  |  | Status |  | 1 |
 |  |  |  | [00] HEATING | 1 |
 |  |  |  | [01] COOLING | 1 |
 |  | [0C] THERMOSTAT_HEATING_STATUS_GET |  |  | 1 |
 |  | [0D] THERMOSTAT_HEATING_STATUS_REPORT |  |  | 1 |
-|  |  | STATUS |  | 1 |
+|  |  | Status |  | 1 |
 |  |  |  | [00] HEATING | 1 |
 |  |  |  | [01] COOLING | 1 |
 |  | [11] THERMOSTAT_HEATING_TIMED_OFF_SET |  |  | 1 |
-|  |  | MINUTES |  | 1 |
-|  |  | HOURS |  | 1 |
+|  |  | Minutes |  | 1 |
+|  |  | Hours |  | 1 |
 | [39] COMMAND_CLASS_HRV_CONTROL |  |  |  | 1 |
 |  | [01] HRV_CONTROL_MODE_SET |  |  | 1 |
-|  |  | MODE |  | 1 |
+|  |  | Mode |  | 1 |
 |  |  |  | [00] OFF | 1 |
 |  |  |  | [01] DEMAND_AUTOMATIC | 1 |
 |  |  |  | [02] SCHEDULE | 1 |
@@ -1452,30 +1449,30 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [04] MANUAL | 1 |
 |  | [02] HRV_CONTROL_MODE_GET |  |  | 1 |
 |  | [03] HRV_CONTROL_MODE_REPORT |  |  | 1 |
-|  |  | MODE |  | 1 |
+|  |  | Mode |  | 1 |
 |  |  |  | [00] OFF | 1 |
 |  |  |  | [01] DEMAND_AUTOMATIC | 1 |
 |  |  |  | [02] SCHEDULE | 1 |
 |  |  |  | [03] ENERGY_SAVINGS_MODE | 1 |
 |  |  |  | [04] MANUAL | 1 |
 |  | [04] HRV_CONTROL_BYPASS_SET |  |  | 1 |
-|  |  | BYPASS |  | 1 |
+|  |  | Bypass |  | 1 |
 |  | [05] HRV_CONTROL_BYPASS_GET |  |  | 1 |
 |  | [06] HRV_CONTROL_BYPASS_REPORT |  |  | 1 |
-|  |  | BYPASS |  | 1 |
+|  |  | Bypass |  | 1 |
 |  | [07] HRV_CONTROL_VENTILATION_RATE_SET |  |  | 1 |
-|  |  | VENTILATION_RATE |  | 1 |
+|  |  | Ventilation Rate |  | 1 |
 |  | [08] HRV_CONTROL_VENTILATION_RATE_GET |  |  | 1 |
 |  | [09] HRV_CONTROL_VENTILATION_RATE_REPORT |  |  | 1 |
-|  |  | VENTILATION_RATE |  | 1 |
+|  |  | Ventilation Rate |  | 1 |
 |  | [0A] HRV_CONTROL_MODE_SUPPORTED_GET |  |  | 1 |
 |  | [0B] HRV_CONTROL_MODE_SUPPORTED_REPORT |  |  | 1 |
-|  |  | MANUAL_CONTROL_SUPPORTED |  | 1 |
+|  |  | Manual Control Supported |  | 1 |
 |  |  |  | [00] BYPASS_OPEN_CLOSE | 1 |
 |  |  |  | [01] BYPASS_AUTO | 1 |
 |  |  |  | [02] MODULATED_BYPASS | 1 |
 |  |  |  | [03] VENTILATION_RATE | 1 |
-|  |  | BIT_MASK |  | 1 |
+|  |  | Bit Mask |  | 1 |
 |  |  |  | [00] OFF | 1 |
 |  |  |  | [01] DEMAND_AUTOMATIC | 1 |
 |  |  |  | [02] SCHEDULE | 1 |
@@ -1484,217 +1481,217 @@ different size or mask for example.  If you find error, please report them.
 | [3A] COMMAND_CLASS_DCP_CONFIG |  |  |  | 1 |
 |  | [01] DCP_LIST_SUPPORTED_GET |  |  | 1 |
 |  | [02] DCP_LIST_SUPPORTED_REPORT |  |  | 1 |
-|  |  | DCP_LIST_SIZE |  | 1 |
-|  |  | FREE_DCP_LIST_ENTRIES |  | 1 |
+|  |  | DCP List Size |  | 1 |
+|  |  | Free DCP List entries |  | 1 |
 |  | [03] DCP_LIST_SET |  |  | 1 |
-|  |  | YEAR |  | 1 |
-|  |  | MONTH |  | 1 |
-|  |  | DAY |  | 1 |
-|  |  | HOUR_LOCAL_TIME |  | 1 |
-|  |  | MINUTE_LOCAL_TIME |  | 1 |
-|  |  | SECOND_LOCAL_TIME |  | 1 |
-|  |  | DCP_RATE_ID |  | 1 |
-|  |  | NUMBER_OF_DC |  | 1 |
-|  |  | DEVICE_CLASS |  | 1 |
-|  |  | START_YEAR |  | 1 |
-|  |  | START_MONTH |  | 1 |
-|  |  | START_DAY |  | 1 |
-|  |  | START_HOUR_LOCAL_TIME |  | 1 |
-|  |  | START_MINUTE_LOCAL_TIME |  | 1 |
-|  |  | START_SECOND_LOCAL_TIME |  | 1 |
-|  |  | DURATION_HOUR_TIME |  | 1 |
-|  |  | DURATION_MINUTE_TIME |  | 1 |
-|  |  | DURATION_SECOND_TIME |  | 1 |
-|  |  | EVENT_PRIORITY |  | 1 |
-|  |  | LOAD_SHEDDING |  | 1 |
-|  |  | START_ASSOCIATION_GROUP |  | 1 |
-|  |  | STOP_ASSOCIATION_GROUP |  | 1 |
-|  |  | RANDOMIZATION_INTERVAL |  | 1 |
+|  |  | Year |  | 1 |
+|  |  | Month |  | 1 |
+|  |  | Day |  | 1 |
+|  |  | Hour Local Time |  | 1 |
+|  |  | Minute Local Time |  | 1 |
+|  |  | Second Local Time |  | 1 |
+|  |  | DCP Rate ID |  | 1 |
+|  |  | Number of DC |  | 1 |
+|  |  | Device Class |  | 1 |
+|  |  | Start Year |  | 1 |
+|  |  | Start Month |  | 1 |
+|  |  | Start Day |  | 1 |
+|  |  | Start Hour Local Time |  | 1 |
+|  |  | Start Minute Local Time |  | 1 |
+|  |  | Start Second Local Time |  | 1 |
+|  |  | Duration Hour Time |  | 1 |
+|  |  | Duration Minute Time |  | 1 |
+|  |  | Duration Second Time |  | 1 |
+|  |  | Event Priority |  | 1 |
+|  |  | Load shedding |  | 1 |
+|  |  | Start Association Group |  | 1 |
+|  |  | Stop Association Group |  | 1 |
+|  |  | Randomization interval |  | 1 |
 |  | [04] DCP_LIST_REMOVE |  |  | 1 |
-|  |  | YEAR |  | 1 |
-|  |  | MONTH |  | 1 |
-|  |  | DAY |  | 1 |
-|  |  | HOUR_LOCAL_TIME |  | 1 |
-|  |  | MINUTE_LOCAL_TIME |  | 1 |
-|  |  | SECOND_LOCAL_TIME |  | 1 |
+|  |  | Year |  | 1 |
+|  |  | Month |  | 1 |
+|  |  | Day |  | 1 |
+|  |  | Hour Local Time |  | 1 |
+|  |  | Minute Local Time |  | 1 |
+|  |  | Second Local Time |  | 1 |
 | [3B] COMMAND_CLASS_DCP_MONITOR |  |  |  | 1 |
 |  | [01] DCP_LIST_GET |  |  | 1 |
 |  | [02] DCP_LIST_REPORT |  |  | 1 |
-|  |  | REPORTS_TO_FOLLOW |  | 1 |
-|  |  | YEAR |  | 1 |
-|  |  | MONTH |  | 1 |
-|  |  | DAY |  | 1 |
-|  |  | HOUR_LOCAL_TIME |  | 1 |
-|  |  | MINUTE_LOCAL_TIME |  | 1 |
-|  |  | SECOND_LOCAL_TIME |  | 1 |
-|  |  | DCP_ID |  | 1 |
-|  |  | NUMBER_OF_DC |  | 1 |
-|  |  | DEVICE_CLASS |  | 1 |
-|  |  | START_YEAR |  | 1 |
-|  |  | START_MONTH |  | 1 |
-|  |  | START_DAY |  | 1 |
-|  |  | START_HOUR_LOCAL_TIME |  | 1 |
-|  |  | START_MINUTE_LOCAL_TIME |  | 1 |
-|  |  | START_SECOND_LOCAL_TIME |  | 1 |
-|  |  | DURATION_HOUR_TIME |  | 1 |
-|  |  | DURATION_MINUTE_TIME |  | 1 |
-|  |  | DURATION_SECOND_TIME |  | 1 |
-|  |  | EVENT_PRIORITY |  | 1 |
-|  |  | LOAD_SHEDDING |  | 1 |
-|  |  | START_ASSOCIATION_GROUP |  | 1 |
-|  |  | STOP_ASSOCIATION_GROUP |  | 1 |
-|  |  | RANDOMIZATION_INTERVAL |  | 1 |
+|  |  | Reports to Follow |  | 1 |
+|  |  | Year |  | 1 |
+|  |  | Month |  | 1 |
+|  |  | Day |  | 1 |
+|  |  | Hour Local Time |  | 1 |
+|  |  | Minute Local Time |  | 1 |
+|  |  | Second Local Time |  | 1 |
+|  |  | DCP ID |  | 1 |
+|  |  | Number of DC |  | 1 |
+|  |  | Device Class |  | 1 |
+|  |  | Start Year |  | 1 |
+|  |  | Start Month |  | 1 |
+|  |  | Start Day |  | 1 |
+|  |  | Start Hour Local Time |  | 1 |
+|  |  | Start Minute Local Time |  | 1 |
+|  |  | Start Second Local Time |  | 1 |
+|  |  | Duration Hour Time |  | 1 |
+|  |  | Duration Minute Time |  | 1 |
+|  |  | Duration Second Time |  | 1 |
+|  |  | Event Priority |  | 1 |
+|  |  | Load shedding |  | 1 |
+|  |  | Start Association Group |  | 1 |
+|  |  | Stop Association Group |  | 1 |
+|  |  | Randomization interval |  | 1 |
 |  | [03] DCP_EVENT_STATUS_GET |  |  | 1 |
-|  |  | YEAR |  | 1 |
-|  |  | MONTH |  | 1 |
-|  |  | DAY |  | 1 |
-|  |  | HOUR_LOCAL_TIME |  | 1 |
-|  |  | MINUTE_LOCAL_TIME |  | 1 |
-|  |  | SECOND_LOCAL_TIME |  | 1 |
+|  |  | Year |  | 1 |
+|  |  | Month |  | 1 |
+|  |  | Day |  | 1 |
+|  |  | Hour Local Time |  | 1 |
+|  |  | Minute Local Time |  | 1 |
+|  |  | Second Local Time |  | 1 |
 |  | [04] DCP_EVENT_STATUS_REPORT |  |  | 1 |
-|  |  | YEAR |  | 1 |
-|  |  | MONTH |  | 1 |
-|  |  | DAY |  | 1 |
-|  |  | HOUR_LOCAL_TIME |  | 1 |
-|  |  | MINUTE_LOCAL_TIME |  | 1 |
-|  |  | SECOND_LOCAL_TIME |  | 1 |
-|  |  | EVENT_STATUS |  | 1 |
+|  |  | Year |  | 1 |
+|  |  | Month |  | 1 |
+|  |  | Day |  | 1 |
+|  |  | Hour Local Time |  | 1 |
+|  |  | Minute Local Time |  | 1 |
+|  |  | Second Local Time |  | 1 |
+|  |  | Event status |  | 1 |
 |  |  |  | [01] EVENT_STARTED | 1 |
 |  |  |  | [02] EVENT_COMPLETED | 1 |
 |  |  |  | [03] EVENT_REJECTED | 1 |
 |  |  |  | [04] EVENT_NOT_APPLICABLE | 1 |
 | [3C] COMMAND_CLASS_METER_TBL_CONFIG |  |  |  | 1 |
 |  | [01] METER_TBL_TABLE_POINT_ADM_NO_SET |  |  | 1 |
-|  |  | NUMBER_OF_CHARACTERS |  | 1 |
-|  |  | METER_POINT_ADM_NUMBER_CHARACTER |  | 1 |
+|  |  | Number of Characters |  | 1 |
+|  |  | Meter Point Adm Number Character |  | 1 |
 | [3D] COMMAND_CLASS_METER_TBL_MONITOR |  |  |  | 2 |
 |  | [01] METER_TBL_TABLE_POINT_ADM_NO_GET |  |  | 1-2 |
 |  | [02] METER_TBL_TABLE_POINT_ADM_NO_REPORT |  |  | 1-2 |
-|  |  | NUMBER_OF_CHARACTERS |  | 1-2 |
-|  |  | METER_POINT_ADM_NUMBER_CHARACTER |  | 1-2 |
+|  |  | Number of Characters |  | 1-2 |
+|  |  | Meter Point Adm Number Character |  | 1-2 |
 |  | [03] METER_TBL_TABLE_ID_GET |  |  | 1-2 |
 |  | [04] METER_TBL_TABLE_ID_REPORT |  |  | 1-2 |
-|  |  | NUMBER_OF_CHARACTERS |  | 1-2 |
-|  |  | METER_ID_CHARACTER |  | 1-2 |
+|  |  | Number of Characters |  | 1-2 |
+|  |  | Meter ID Character |  | 1-2 |
 |  | [05] METER_TBL_TABLE_CAPABILITY_GET |  |  | 1-2 |
 |  | [06] METER_TBL_REPORT |  |  | 1-2 |
-|  |  | METER_TYPE |  | 1-2 |
-|  |  | RATE_TYPE |  | 1-2 |
-|  |  | PAY_METER |  | 1-2 |
+|  |  | Meter Type |  | 1-2 |
+|  |  | Rate Type |  | 1-2 |
+|  |  | Pay Meter |  | 1-2 |
 |  |  |  | [01] CREDITMETER | 1-2 |
 |  |  |  | [02] PREPAYMENT_METER | 1-2 |
 |  |  |  | [03] PREPAYMENT_METER_DEBT | 1-2 |
-|  |  | DATASET_SUPPORTED |  | 1-2 |
-|  |  | DATASET_HISTORY_SUPPORTED |  | 1-2 |
-|  |  | DATA_HISTORY_SUPPORTED |  | 1-2 |
+|  |  | Dataset Supported |  | 1-2 |
+|  |  | Dataset History Supported |  | 1-2 |
+|  |  | Data History Supported |  | 1-2 |
 |  | [07] METER_TBL_STATUS_SUPPORTED_GET |  |  | 1-2 |
 |  | [08] METER_TBL_STATUS_SUPPORTED_REPORT |  |  | 1-2 |
-|  |  | SUPPORTED_OPERATING_STATUS |  | 1-2 |
-|  |  | STATUS_EVENT_LOG_DEPTH |  | 1-2 |
+|  |  | Supported Operating Status |  | 1-2 |
+|  |  | Status Event Log Depth |  | 1-2 |
 |  | [09] METER_TBL_STATUS_DEPTH_GET |  |  | 1-2 |
-|  |  | STATUS_EVENT_LOG_DEPTH |  | 1-2 |
+|  |  | Status Event Log Depth |  | 1-2 |
 |  | [0A] METER_TBL_STATUS_DATE_GET |  |  | 1-2 |
-|  |  | MAXIMUM_REPORTS |  | 1-2 |
-|  |  | START_YEAR |  | 1-2 |
-|  |  | START_MONTH |  | 1-2 |
-|  |  | START_DAY |  | 1-2 |
-|  |  | START_HOUR_LOCAL_TIME |  | 1-2 |
-|  |  | START_MINUTE_LOCAL_TIME |  | 1-2 |
-|  |  | START_SECOND_LOCAL_TIME |  | 1-2 |
-|  |  | STOP_YEAR |  | 1-2 |
-|  |  | STOP_MONTH |  | 1-2 |
-|  |  | STOP_DAY |  | 1-2 |
-|  |  | STOP_HOUR_LOCAL_TIME |  | 1-2 |
-|  |  | STOP_MINUTE_LOCAL_TIME |  | 1-2 |
-|  |  | STOP_SECOND_LOCAL_TIME |  | 1-2 |
+|  |  | Maximum Reports |  | 1-2 |
+|  |  | Start Year |  | 1-2 |
+|  |  | Start Month |  | 1-2 |
+|  |  | Start Day |  | 1-2 |
+|  |  | Start Hour Local Time |  | 1-2 |
+|  |  | Start Minute Local Time |  | 1-2 |
+|  |  | Start Second Local Time |  | 1-2 |
+|  |  | Stop Year |  | 1-2 |
+|  |  | Stop Month |  | 1-2 |
+|  |  | Stop Day |  | 1-2 |
+|  |  | Stop Hour Local Time |  | 1-2 |
+|  |  | Stop Minute Local Time |  | 1-2 |
+|  |  | Stop Second Local Time |  | 1-2 |
 |  | [0B] METER_TBL_STATUS_REPORT |  |  | 1-2 |
-|  |  | REPORTS_TO_FOLLOW |  | 1-2 |
-|  |  | CURRENT_OPERATING_STATUS |  | 1-2 |
-|  |  | METER_TABLE_STATUS |  | 1-2 |
+|  |  | Reports to follow |  | 1-2 |
+|  |  | Current Operating Status |  | 1-2 |
+|  |  | Meter Table Status |  | 1-2 |
 |  | [0C] METER_TBL_CURRENT_DATA_GET |  |  | 1-2 |
-|  |  | DATASET_REQUESTED |  | 1-2 |
+|  |  | Dataset Requested |  | 1-2 |
 |  | [0D] METER_TBL_CURRENT_DATA_REPORT |  |  | 1-2 |
-|  |  | REPORTS_TO_FOLLOW |  | 1-2 |
-|  |  | RATE_TYPE |  | 1-2 |
-|  |  | OPERATING_STATUS_INDICATION |  | 2 |
-|  |  | DATASET |  | 1-2 |
-|  |  | YEAR |  | 1-2 |
-|  |  | MONTH |  | 1-2 |
-|  |  | DAY |  | 1-2 |
-|  |  | HOUR_LOCAL_TIME |  | 1-2 |
-|  |  | MINUTE_LOCAL_TIME |  | 1-2 |
-|  |  | SECOND_LOCAL_TIME |  | 1-2 |
-|  |  | METER_TABLE_VALUE |  | 1-2 |
+|  |  | Reports to Follow |  | 1-2 |
+|  |  | Rate Type |  | 1-2 |
+|  |  | Operating Status Indication |  | 2 |
+|  |  | Dataset |  | 1-2 |
+|  |  | Year |  | 1-2 |
+|  |  | Month |  | 1-2 |
+|  |  | Day |  | 1-2 |
+|  |  | Hour Local Time |  | 1-2 |
+|  |  | Minute Local Time |  | 1-2 |
+|  |  | Second Local Time |  | 1-2 |
+|  |  | Meter Table Value |  | 1-2 |
 |  | [0E] METER_TBL_HISTORICAL_DATA_GET |  |  | 1-2 |
-|  |  | MAXIMUM_REPORTS |  | 1-2 |
-|  |  | HISTORICAL_DATASET_REQUESTED |  | 1-2 |
-|  |  | START_YEAR |  | 1-2 |
-|  |  | START_MONTH |  | 1-2 |
-|  |  | START_DAY |  | 1-2 |
-|  |  | START_HOUR_LOCAL_TIME |  | 1-2 |
-|  |  | START_MINUTE_LOCAL_TIME |  | 1-2 |
-|  |  | START_SECOND_LOCAL_TIME |  | 1-2 |
-|  |  | STOP_YEAR |  | 1-2 |
-|  |  | STOP_MONTH |  | 1-2 |
-|  |  | STOP_DAY |  | 1-2 |
-|  |  | STOP_HOUR_LOCAL_TIME |  | 1-2 |
-|  |  | STOP_MINUTE_LOCAL_TIME |  | 1-2 |
-|  |  | STOP_SECOND_LOCAL_TIME |  | 1-2 |
+|  |  | Maximum Reports |  | 1-2 |
+|  |  | Historical Dataset Requested |  | 1-2 |
+|  |  | Start Year |  | 1-2 |
+|  |  | Start Month |  | 1-2 |
+|  |  | Start Day |  | 1-2 |
+|  |  | Start Hour Local Time |  | 1-2 |
+|  |  | Start Minute Local Time |  | 1-2 |
+|  |  | Start Second Local Time |  | 1-2 |
+|  |  | Stop Year |  | 1-2 |
+|  |  | Stop Month |  | 1-2 |
+|  |  | Stop Day |  | 1-2 |
+|  |  | Stop Hour Local Time |  | 1-2 |
+|  |  | Stop Minute Local Time |  | 1-2 |
+|  |  | Stop Second Local Time |  | 1-2 |
 |  | [0F] METER_TBL_HISTORICAL_DATA_REPORT |  |  | 1-2 |
-|  |  | REPORTS_TO_FOLLOW |  | 1-2 |
-|  |  | RATE_TYPE |  | 1-2 |
-|  |  | OPERATING_STATUS_INDICATION |  | 2 |
-|  |  | DATASET |  | 1-2 |
-|  |  | YEAR |  | 1-2 |
-|  |  | MONTH |  | 1-2 |
-|  |  | DAY |  | 1-2 |
-|  |  | HOUR_LOCAL_TIME |  | 1-2 |
-|  |  | MINUTE_LOCAL_TIME |  | 1-2 |
-|  |  | SECOND_LOCAL_TIME |  | 1-2 |
-|  |  | METER_TABLE_VALUE |  | 1-2 |
+|  |  | Reports to Follow |  | 1-2 |
+|  |  | Rate Type |  | 1-2 |
+|  |  | Operating Status Indication |  | 2 |
+|  |  | Dataset |  | 1-2 |
+|  |  | Year |  | 1-2 |
+|  |  | Month |  | 1-2 |
+|  |  | Day |  | 1-2 |
+|  |  | Hour Local Time |  | 1-2 |
+|  |  | Minute Local Time |  | 1-2 |
+|  |  | Second Local Time |  | 1-2 |
+|  |  | Meter Table Value |  | 1-2 |
 | [3E] COMMAND_CLASS_METER_TBL_PUSH |  |  |  | 1 |
 |  | [01] METER_TBL_PUSH_CONFIGURATION_SET |  |  | 1 |
-|  |  | OPERATING_STATUS_PUSH_MODE |  | 1 |
+|  |  | Operating Status Push Mode |  | 1 |
 |  |  | PS |  | 1 |
-|  |  | PUSH_DATASET |  | 1 |
-|  |  | INTERVAL_MONTHS |  | 1 |
-|  |  | INTERVAL_DAYS |  | 1 |
-|  |  | INTERVAL_HOURS |  | 1 |
-|  |  | INTERVAL_MINUTES |  | 1 |
-|  |  | PUSH_NODE_ID |  | 1 |
+|  |  | Push Dataset |  | 1 |
+|  |  | Interval Months |  | 1 |
+|  |  | Interval Days |  | 1 |
+|  |  | Interval Hours |  | 1 |
+|  |  | Interval Minutes |  | 1 |
+|  |  | Push Node ID |  | 1 |
 |  | [02] METER_TBL_PUSH_CONFIGURATION_GET |  |  | 1 |
 |  | [03] METER_TBL_PUSH_CONFIGURATION_REPORT |  |  | 1 |
-|  |  | OPERATING_STATUS_PUSH_MODE |  | 1 |
+|  |  | Operating Status Push Mode |  | 1 |
 |  |  | PS |  | 1 |
-|  |  | PUSH_DATASET |  | 1 |
-|  |  | INTERVAL_MONTHS |  | 1 |
-|  |  | INTERVAL_DAYS |  | 1 |
-|  |  | INTERVAL_HOURS |  | 1 |
-|  |  | INTERVAL_MINUTES |  | 1 |
-|  |  | PUSH_NODE_ID |  | 1 |
+|  |  | Push Dataset |  | 1 |
+|  |  | Interval Months |  | 1 |
+|  |  | Interval Days |  | 1 |
+|  |  | Interval Hours |  | 1 |
+|  |  | Interval Minutes |  | 1 |
+|  |  | Push Node ID |  | 1 |
 | [3F] COMMAND_CLASS_PREPAYMENT |  |  |  | 1 |
 |  | [01] PREPAYMENT_BALANCE_GET |  |  | 1 |
-|  |  | BALANCE_TYPE |  | 1 |
+|  |  | Balance Type |  | 1 |
 |  |  |  | [00] UTILITY | 1 |
 |  |  |  | [01] MONETARY | 1 |
 |  | [02] PREPAYMENT_BALANCE_REPORT |  |  | 1 |
-|  |  | METER_TYPE |  | 1 |
-|  |  | BALANCE_TYPE |  | 1 |
-|  |  | SCALE |  | 1 |
-|  |  | BALANCE_PRECISION |  | 1 |
-|  |  | BALANCE_VALUE |  | 1 |
-|  |  | DEBT_PRECISION |  | 1 |
-|  |  | DEBT |  | 1 |
-|  |  | EMER_CREDIT_PRECISION |  | 1 |
-|  |  | EMER_CREDIT |  | 1 |
-|  |  | CURRENCY |  | 1 |
-|  |  | DEBT_RECOVERY_PERCENTAGE |  | 1 |
+|  |  | Meter type |  | 1 |
+|  |  | Balance Type |  | 1 |
+|  |  | Scale |  | 1 |
+|  |  | Balance Precision |  | 1 |
+|  |  | Balance Value |  | 1 |
+|  |  | Debt Precision |  | 1 |
+|  |  | Debt |  | 1 |
+|  |  | Emer Credit Precision |  | 1 |
+|  |  | Emer Credit |  | 1 |
+|  |  | Currency |  | 1 |
+|  |  | Debt Recovery Percentage |  | 1 |
 |  | [03] PREPAYMENT_SUPPORTED_GET |  |  | 1 |
 |  | [04] PREPAYMENT_SUPPORTED_REPORT |  |  | 1 |
-|  |  | TYPES_SUPPORTED |  | 1 |
+|  |  | Types Supported |  | 1 |
 | [40] COMMAND_CLASS_THERMOSTAT_MODE |  |  |  | 3 |
 |  | [01] THERMOSTAT_MODE_SET |  |  | 1-3 |
-|  |  | MODE |  | 1-3 |
+|  |  | Mode |  | 1-3 |
 |  |  |  | [00] OFF | 1-3 |
 |  |  |  | [01] HEAT | 1-3 |
 |  |  |  | [02] COOL | 1-3 |
@@ -1711,11 +1708,11 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [0D] AWAY | 2-3 |
 |  |  |  | [0F] FULL_POWER | 3 |
 |  |  |  | [1F] MANUFACTURER_SPECIFC | 3 |
-|  |  | NO_OF_MANUFACTURER_DATA_FIELDS |  | 3 |
-|  |  | MANUFACTURER_DATA |  | 3 |
+|  |  | No of Manufacturer Data fields |  | 3 |
+|  |  | Manufacturer Data |  | 3 |
 |  | [02] THERMOSTAT_MODE_GET |  |  | 1-3 |
 |  | [03] THERMOSTAT_MODE_REPORT |  |  | 1-3 |
-|  |  | MODE |  | 1-3 |
+|  |  | Mode |  | 1-3 |
 |  |  |  | [00] OFF | 1-3 |
 |  |  |  | [01] HEAT | 1-3 |
 |  |  |  | [02] COOL | 1-3 |
@@ -1732,11 +1729,11 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [0D] AWAY | 2-3 |
 |  |  |  | [0F] FULL_POWER | 3 |
 |  |  |  | [1F] MANUFACTURER_SPECIFC | 3 |
-|  |  | NO_OF_MANUFACTURER_DATA_FIELDS |  | 3 |
-|  |  | MANUFACTURER_DATA |  | 3 |
+|  |  | No of Manufacturer Data fields |  | 3 |
+|  |  | Manufacturer Data |  | 3 |
 |  | [04] THERMOSTAT_MODE_SUPPORTED_GET |  |  | 1-3 |
 |  | [05] THERMOSTAT_MODE_SUPPORTED_REPORT |  |  | 1-3 |
-|  |  | BIT_MASK |  | 1-3 |
+|  |  | Bit Mask |  | 1-3 |
 |  |  |  | [00] OFF | 1-3 |
 |  |  |  | [01] HEAT | 1-3 |
 |  |  |  | [02] COOL | 1-3 |
@@ -1755,12 +1752,12 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [1F] MANUFACTURER_SPECIFC | 3 |
 | [41] COMMAND_CLASS_PREPAYMENT_ENCAPSULATION |  |  |  | 1 |
 |  | [01] CMD_ENCAPSULATION |  |  | 1 |
-|  |  | DATA |  | 1 |
+|  |  | Data |  | 1 |
 | [42] COMMAND_CLASS_THERMOSTAT_OPERATING_STATE |  |  |  | 2 |
 |  | [01] THERMOSTAT_OPERATING_STATE_LOGGING_SUPPORTED_GET |  |  | 2 |
 |  | [02] THERMOSTAT_OPERATING_STATE_GET |  |  | 1-2 |
 |  | [03] THERMOSTAT_OPERATING_STATE_REPORT |  |  | 1-2 |
-|  |  | OPERATING_STATE |  | 1-2 |
+|  |  | Operating State |  | 1-2 |
 |  |  |  | [00] IDLE | 1-2 |
 |  |  |  | [01] HEATING | 1-2 |
 |  |  |  | [02] COOLING | 1-2 |
@@ -1774,7 +1771,7 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [0A] 2ND_STAGE_AUX_HEAT | 2 |
 |  |  |  | [0B] 3RD_STAGE_AUX_HEAT | 2 |
 |  | [04] THERMOSTAT_OPERATING_LOGGING_SUPPORTED_REPORT |  |  | 2 |
-|  |  | BIT_MASK |  | 2 |
+|  |  | Bit Mask |  | 2 |
 |  |  |  | [00] IDLE | 2 |
 |  |  |  | [01] HEATING | 2 |
 |  |  |  | [02] COOLING | 2 |
@@ -1788,7 +1785,7 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [0A] 2ND_STAGE_AUX_HEAT | 2 |
 |  |  |  | [0B] 3RD_STAGE_AUX_HEAT | 2 |
 |  | [05] THERMOSTAT_OPERATING_STATE_LOGGING_GET |  |  | 2 |
-|  |  | BIT_MASK |  | 2 |
+|  |  | Bit Mask |  | 2 |
 |  |  |  | [00] IDLE | 2 |
 |  |  |  | [01] HEATING | 2 |
 |  |  |  | [02] COOLING | 2 |
@@ -1802,11 +1799,11 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [0A] 2ND_STAGE_AUX_HEAT | 2 |
 |  |  |  | [0B] 3RD_STAGE_AUX_HEAT | 2 |
 |  | [06] THERMOSTAT_OPERATING_STATE_LOGGING_REPORT |  |  | 2 |
-|  |  | REPORTS_TO_FOLLOW |  | 2 |
-|  |  | THERMOSTAT_LOG_REPORT |  | 2 |
+|  |  | Reports to Follow |  | 2 |
+|  |  | Thermostat Log Report |  | 2 |
 | [43] COMMAND_CLASS_THERMOSTAT_SETPOINT |  |  |  | 3 |
 |  | [01] THERMOSTAT_SETPOINT_SET |  |  | 1-3 |
-|  |  | SETPOINT_TYPE |  | 1-3 |
+|  |  | Setpoint Type |  | 1-3 |
 |  |  |  | [00] NOT_SUPPORTED | 1-3 |
 |  |  |  | [01] HEATING_1 | 1-3 |
 |  |  |  | [02] COOLING_1 | 1-3 |
@@ -1823,12 +1820,12 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [0D] AWAY_HEATING | 2-3 |
 |  |  |  | [0E] AWAY_COOLING | 3 |
 |  |  |  | [0F] FULL_POWER | 3 |
-|  |  | SIZE |  | 1-3 |
-|  |  | SCALE |  | 1-3 |
-|  |  | PRECISION |  | 1-3 |
-|  |  | VALUE |  | 1-3 |
+|  |  | Size |  | 1-3 |
+|  |  | Scale |  | 1-3 |
+|  |  | Precision |  | 1-3 |
+|  |  | Value |  | 1-3 |
 |  | [02] THERMOSTAT_SETPOINT_GET |  |  | 1-3 |
-|  |  | SETPOINT_TYPE |  | 1-3 |
+|  |  | Setpoint Type |  | 1-3 |
 |  |  |  | [00] NOT_SUPPORTED | 1-3 |
 |  |  |  | [01] HEATING_1 | 1-3 |
 |  |  |  | [02] COOLING_1 | 1-3 |
@@ -1846,7 +1843,7 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [0E] AWAY_COOLING | 3 |
 |  |  |  | [0F] FULL_POWER | 3 |
 |  | [03] THERMOSTAT_SETPOINT_REPORT |  |  | 1-3 |
-|  |  | SETPOINT_TYPE |  | 1-3 |
+|  |  | Setpoint Type |  | 1-3 |
 |  |  |  | [00] NOT_SUPPORTED | 1-3 |
 |  |  |  | [01] HEATING_1 | 1-3 |
 |  |  |  | [02] COOLING_1 | 1-3 |
@@ -1863,13 +1860,13 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [0D] AWAY_HEATING | 2-3 |
 |  |  |  | [0E] AWAY_COOLING | 3 |
 |  |  |  | [0F] FULL_POWER | 3 |
-|  |  | SIZE |  | 1-3 |
-|  |  | SCALE |  | 1-3 |
-|  |  | PRECISION |  | 1-3 |
-|  |  | VALUE |  | 1-3 |
+|  |  | Size |  | 1-3 |
+|  |  | Scale |  | 1-3 |
+|  |  | Precision |  | 1-3 |
+|  |  | Value |  | 1-3 |
 |  | [04] THERMOSTAT_SETPOINT_SUPPORTED_GET |  |  | 1-3 |
 |  | [05] THERMOSTAT_SETPOINT_SUPPORTED_REPORT |  |  | 1-3 |
-|  |  | BIT_MASK |  | 1-3 |
+|  |  | Bit Mask |  | 1-3 |
 |  |  |  | [00] NONE | 1-3 |
 |  |  |  | [01] HEATING | 1-3 |
 |  |  |  | [02] COOLING | 1-3 |
@@ -1883,7 +1880,7 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [0E] AWAY_COOLING | 3 |
 |  |  |  | [0F] FULL_POWER | 3 |
 |  | [09] THERMOSTAT_SETPOINT_CAPABILITIES_GET |  |  | 3 |
-|  |  | SETPOINT_TYPE |  | 3 |
+|  |  | Setpoint Type |  | 3 |
 |  |  |  | [00] NOT_SUPPORTED | 3 |
 |  |  |  | [01] HEATING_1 | 3 |
 |  |  |  | [02] COOLING_1 | 3 |
@@ -1901,7 +1898,7 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [0E] AWAY_COOLING | 3 |
 |  |  |  | [0F] FULL_POWER | 3 |
 |  | [0A] THERMOSTAT_SETPOINT_CAPABILITIES_REPORT |  |  | 3 |
-|  |  | SETPOINT_TYPE |  | 3 |
+|  |  | Setpoint Type |  | 3 |
 |  |  |  | [00] NOT_SUPPORTED | 3 |
 |  |  |  | [01] HEATING_1 | 3 |
 |  |  |  | [02] COOLING_1 | 3 |
@@ -1918,17 +1915,17 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [0D] AWAY_HEATING | 3 |
 |  |  |  | [0E] AWAY_COOLING | 3 |
 |  |  |  | [0F] FULL_POWER | 3 |
-|  |  | SIZE1 |  | 3 |
-|  |  | SCALE1 |  | 3 |
-|  |  | PRECISION1 |  | 3 |
-|  |  | MIN_VALUE |  | 3 |
-|  |  | SIZE2 |  | 3 |
-|  |  | SCALE2 |  | 3 |
-|  |  | PRECISION2 |  | 3 |
-|  |  | MAXVALUE |  | 3 |
+|  |  | Size1 |  | 3 |
+|  |  | Scale1 |  | 3 |
+|  |  | Precision1 |  | 3 |
+|  |  | Min Value |  | 3 |
+|  |  | Size2 |  | 3 |
+|  |  | Scale2 |  | 3 |
+|  |  | Precision2 |  | 3 |
+|  |  | MaxValue |  | 3 |
 | [44] COMMAND_CLASS_THERMOSTAT_FAN_MODE |  |  |  | 4 |
 |  | [01] THERMOSTAT_FAN_MODE_SET |  |  | 1-4 |
-|  |  | FAN_MODE |  | 1-4 |
+|  |  | Fan Mode |  | 1-4 |
 |  |  |  | [00] AUTO_LOW | 1-4 |
 |  |  |  | [01] LOW | 1-4 |
 |  |  |  | [02] AUTO_HIGH | 1-4 |
@@ -1940,10 +1937,10 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [08] LEFT_RIGHT | 4 |
 |  |  |  | [09] UP_DOWN | 4 |
 |  |  |  | [0A] QUIET | 4 |
-|  |  | OFF |  | 2-4 |
+|  |  | Off |  | 2-4 |
 |  | [02] THERMOSTAT_FAN_MODE_GET |  |  | 1-4 |
 |  | [03] THERMOSTAT_FAN_MODE_REPORT |  |  | 1-4 |
-|  |  | FAN_MODE |  | 1-4 |
+|  |  | Fan Mode |  | 1-4 |
 |  |  |  | [00] AUTO_LOW | 1-4 |
 |  |  |  | [01] LOW | 1-4 |
 |  |  |  | [02] AUTO_HIGH | 1-4 |
@@ -1955,10 +1952,10 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [08] LEFT_RIGHT | 4 |
 |  |  |  | [09] UP_DOWN | 4 |
 |  |  |  | [0A] QUIET | 4 |
-|  |  | OFF |  | 3-4 |
+|  |  | Off |  | 3-4 |
 |  | [04] THERMOSTAT_FAN_MODE_SUPPORTED_GET |  |  | 1-4 |
 |  | [05] THERMOSTAT_FAN_MODE_SUPPORTED_REPORT |  |  | 1-4 |
-|  |  | BIT_MASK |  | 1-4 |
+|  |  | Bit Mask |  | 1-4 |
 |  |  |  | [00] AUTO | 1-4 |
 |  |  |  | [01] ON | 1-4 |
 |  |  |  | [02] AUTO_HIGH | 1-4 |
@@ -1973,7 +1970,7 @@ different size or mask for example.  If you find error, please report them.
 | [45] COMMAND_CLASS_THERMOSTAT_FAN_STATE |  |  |  | 2 |
 |  | [02] THERMOSTAT_FAN_STATE_GET |  |  | 1-2 |
 |  | [03] THERMOSTAT_FAN_STATE_REPORT |  |  | 1-2 |
-|  |  | FAN_OPERATING_STATE |  | 1-2 |
+|  |  | Fan Operating State |  | 1-2 |
 |  |  |  | [00] IDLE | 1-2 |
 |  |  |  | [01] RUNNING | 1-2 |
 |  |  |  | [02] RUNNING_HIGH | 2 |
@@ -1985,272 +1982,272 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [08] QUIET_CIRCULATION | 2 |
 | [46] COMMAND_CLASS_CLIMATE_CONTROL_SCHEDULE |  |  |  | 1 |
 |  | [01] SCHEDULE_SET |  |  | 1 |
-|  |  | WEEKDAY |  | 1 |
-|  |  | SWITCHPOINT_0 |  | 1 |
-|  |  | SWITCHPOINT_1 |  | 1 |
-|  |  | SWITCHPOINT_2 |  | 1 |
-|  |  | SWITCHPOINT_3 |  | 1 |
-|  |  | SWITCHPOINT_4 |  | 1 |
-|  |  | SWITCHPOINT_5 |  | 1 |
-|  |  | SWITCHPOINT_6 |  | 1 |
-|  |  | SWITCHPOINT_7 |  | 1 |
-|  |  | SWITCHPOINT_8 |  | 1 |
+|  |  | Weekday |  | 1 |
+|  |  | Switchpoint 0 |  | 1 |
+|  |  | Switchpoint 1 |  | 1 |
+|  |  | Switchpoint 2 |  | 1 |
+|  |  | Switchpoint 3 |  | 1 |
+|  |  | Switchpoint 4 |  | 1 |
+|  |  | Switchpoint 5 |  | 1 |
+|  |  | Switchpoint 6 |  | 1 |
+|  |  | Switchpoint 7 |  | 1 |
+|  |  | Switchpoint 8 |  | 1 |
 |  | [02] SCHEDULE_GET |  |  | 1 |
-|  |  | WEEKDAY |  | 1 |
+|  |  | Weekday |  | 1 |
 |  | [03] SCHEDULE_REPORT |  |  | 1 |
-|  |  | WEEKDAY |  | 1 |
-|  |  | SWITCHPOINT_0 |  | 1 |
-|  |  | SWITCHPOINT_1 |  | 1 |
-|  |  | SWITCHPOINT_2 |  | 1 |
-|  |  | SWITCHPOINT_3 |  | 1 |
-|  |  | SWITCHPOINT_4 |  | 1 |
-|  |  | SWITCHPOINT_5 |  | 1 |
-|  |  | SWITCHPOINT_6 |  | 1 |
-|  |  | SWITCHPOINT_7 |  | 1 |
-|  |  | SWITCHPOINT_8 |  | 1 |
+|  |  | Weekday |  | 1 |
+|  |  | Switchpoint 0 |  | 1 |
+|  |  | Switchpoint 1 |  | 1 |
+|  |  | Switchpoint 2 |  | 1 |
+|  |  | Switchpoint 3 |  | 1 |
+|  |  | Switchpoint 4 |  | 1 |
+|  |  | Switchpoint 5 |  | 1 |
+|  |  | Switchpoint 6 |  | 1 |
+|  |  | Switchpoint 7 |  | 1 |
+|  |  | Switchpoint 8 |  | 1 |
 |  | [04] SCHEDULE_CHANGED_GET |  |  | 1 |
 |  | [05] SCHEDULE_CHANGED_REPORT |  |  | 1 |
-|  |  | CHANGECOUNTER |  | 1 |
+|  |  | ChangeCounter |  | 1 |
 |  | [06] SCHEDULE_OVERRIDE_SET |  |  | 1 |
-|  |  | OVERRIDE_TYPE |  | 1 |
-|  |  | OVERRIDE_STATE |  | 1 |
+|  |  | Override Type |  | 1 |
+|  |  | Override State |  | 1 |
 |  |  |  | [00] NO_OVERRIDE | 1 |
 |  |  |  | [01] TEMPORARY_OVERRIDE | 1 |
 |  |  |  | [02] PERMANENT_OVERRIDE | 1 |
 |  | [07] SCHEDULE_OVERRIDE_GET |  |  | 1 |
 |  | [08] SCHEDULE_OVERRIDE_REPORT |  |  | 1 |
-|  |  | OVERRIDE_TYPE |  | 1 |
-|  |  | OVERRIDE_STATE |  | 1 |
+|  |  | Override Type |  | 1 |
+|  |  | Override State |  | 1 |
 |  |  |  | [00] NO_OVERRIDE | 1 |
 |  |  |  | [01] TEMPORARY_OVERRIDE | 1 |
 |  |  |  | [02] PERMANENT_OVERRIDE | 1 |
 | [47] COMMAND_CLASS_THERMOSTAT_SETBACK |  |  |  | 1 |
 |  | [01] THERMOSTAT_SETBACK_SET |  |  | 1 |
-|  |  | SETBACK_TYPE |  | 1 |
+|  |  | Setback Type |  | 1 |
 |  |  |  | [00] NO_OVERRIDE | 1 |
 |  |  |  | [01] TEMPORARY_OVERRIDE | 1 |
 |  |  |  | [02] PERMANENT_OVERRIDE | 1 |
-|  |  | SETBACK_STATE |  | 1 |
+|  |  | Setback State |  | 1 |
 |  |  |  | [79] FROST_PROTECTION | 1 |
 |  |  |  | [7A] ENERGY_SAVING_MODE | 1 |
 |  |  |  | [7F] UNUSED_STATE | 1 |
 |  | [02] THERMOSTAT_SETBACK_GET |  |  | 1 |
 |  | [03] THERMOSTAT_SETBACK_REPORT |  |  | 1 |
-|  |  | SETBACK_TYPE |  | 1 |
+|  |  | Setback Type |  | 1 |
 |  |  |  | [00] NO_OVERRIDE | 1 |
 |  |  |  | [01] TEMPORARY_OVERRIDE | 1 |
 |  |  |  | [02] PERMANENT_OVERRIDE | 1 |
-|  |  | SETBACK_STATE |  | 1 |
+|  |  | Setback State |  | 1 |
 |  |  |  | [79] FROST_PROTECTION | 1 |
 |  |  |  | [7A] ENERGY_SAVING_MODE | 1 |
 |  |  |  | [7F] UNUSED_STATE | 1 |
 | [48] COMMAND_CLASS_RATE_TBL_CONFIG |  |  |  | 1 |
 |  | [01] RATE_TBL_SET |  |  | 1 |
-|  |  | RATE_PARAMETER_SET_ID |  | 1 |
-|  |  | NUMBER_OF_RATE_CHAR |  | 1 |
-|  |  | RATE_TYPE |  | 1 |
-|  |  | RATE_CHARACTER |  | 1 |
-|  |  | START_HOUR_LOCAL_TIME |  | 1 |
-|  |  | START_MINUTE_LOCAL_TIME |  | 1 |
-|  |  | DURATION_MINUTE |  | 1 |
-|  |  | CONSUMPTION_SCALE |  | 1 |
-|  |  | CONSUMPTION_PRECISION |  | 1 |
-|  |  | MIN_CONSUMPTION_VALUE |  | 1 |
-|  |  | MAX_CONSUMPTION_VALUE |  | 1 |
-|  |  | MAX_DEMAND_SCALE |  | 1 |
-|  |  | MAX_DEMAND_PRECISION |  | 1 |
-|  |  | MAX_DEMAND_VALUE |  | 1 |
-|  |  | DCP_RATE_ID |  | 1 |
+|  |  | Rate Parameter Set ID |  | 1 |
+|  |  | Number of Rate Char |  | 1 |
+|  |  | Rate Type |  | 1 |
+|  |  | Rate Character |  | 1 |
+|  |  | Start Hour Local Time |  | 1 |
+|  |  | Start Minute Local Time |  | 1 |
+|  |  | Duration Minute |  | 1 |
+|  |  | Consumption Scale |  | 1 |
+|  |  | Consumption Precision |  | 1 |
+|  |  | Min Consumption Value |  | 1 |
+|  |  | Max Consumption Value |  | 1 |
+|  |  | Max Demand Scale |  | 1 |
+|  |  | Max Demand Precision |  | 1 |
+|  |  | Max Demand Value |  | 1 |
+|  |  | DCP Rate ID |  | 1 |
 |  | [02] RATE_TBL_REMOVE |  |  | 1 |
-|  |  | RATE_PARAMETER_SET_IDS |  | 1 |
-|  |  | RATE_PARAMETER_SET_ID |  | 1 |
+|  |  | Rate Parameter Set IDs |  | 1 |
+|  |  | Rate Parameter Set ID |  | 1 |
 | [49] COMMAND_CLASS_RATE_TBL_MONITOR |  |  |  | 1 |
 |  | [01] RATE_TBL_SUPPORTED_GET |  |  | 1 |
 |  | [02] RATE_TBL_SUPPORTED_REPORT |  |  | 1 |
-|  |  | RATES_SUPPORTED |  | 1 |
-|  |  | PARAMETER_SET_SUPPORTED_BIT_MASK |  | 1 |
+|  |  | Rates Supported |  | 1 |
+|  |  | Parameter Set Supported Bit Mask |  | 1 |
 |  | [03] RATE_TBL_GET |  |  | 1 |
-|  |  | RATE_PARAMETER_SET_ID |  | 1 |
+|  |  | Rate Parameter Set ID |  | 1 |
 |  | [04] RATE_TBL_REPORT |  |  | 1 |
-|  |  | RATE_PARAMETER_SET_ID |  | 1 |
-|  |  | NUMBER_OF_RATE_CHAR |  | 1 |
-|  |  | RATE_TYPE |  | 1 |
-|  |  | RATE_CHARACTER |  | 1 |
-|  |  | START_HOUR_LOCAL_TIME |  | 1 |
-|  |  | START_MINUTE_LOCAL_TIME |  | 1 |
-|  |  | DURATION_MINUTE |  | 1 |
-|  |  | CONSUMPTION_SCALE |  | 1 |
-|  |  | CONSUMPTION_PRECISION |  | 1 |
-|  |  | MIN_CONSUMPTION_VALUE |  | 1 |
-|  |  | MAX_CONSUMPTION_VALUE |  | 1 |
-|  |  | MAX_DEMAND_SCALE |  | 1 |
-|  |  | MAX_DEMAND_PRECISION |  | 1 |
-|  |  | MAX_DEMAND_VALUE |  | 1 |
-|  |  | DCP_RATE_ID |  | 1 |
+|  |  | Rate Parameter Set ID |  | 1 |
+|  |  | Number of Rate Char |  | 1 |
+|  |  | Rate Type |  | 1 |
+|  |  | Rate Character |  | 1 |
+|  |  | Start Hour Local Time |  | 1 |
+|  |  | Start Minute Local Time |  | 1 |
+|  |  | Duration Minute |  | 1 |
+|  |  | Consumption Scale |  | 1 |
+|  |  | Consumption Precision |  | 1 |
+|  |  | Min Consumption Value |  | 1 |
+|  |  | Max Consumption Value |  | 1 |
+|  |  | Max Demand Scale |  | 1 |
+|  |  | Max Demand Precision |  | 1 |
+|  |  | Max Demand Value |  | 1 |
+|  |  | DCP Rate ID |  | 1 |
 |  | [05] RATE_TBL_ACTIVE_RATE_GET |  |  | 1 |
 |  | [06] RATE_TBL_ACTIVE_RATE_REPORT |  |  | 1 |
-|  |  | RATE_PARAMETER_SET_ID |  | 1 |
+|  |  | Rate Parameter Set ID |  | 1 |
 |  | [07] RATE_TBL_CURRENT_DATA_GET |  |  | 1 |
-|  |  | RATE_PARAMETER_SET_ID |  | 1 |
-|  |  | DATASET_REQUESTED |  | 1 |
+|  |  | Rate Parameter Set ID |  | 1 |
+|  |  | Dataset Requested |  | 1 |
 |  | [08] RATE_TBL_CURRENT_DATA_REPORT |  |  | 1 |
-|  |  | REPORTS_TO_FOLLOW |  | 1 |
-|  |  | RATE_PARAMETER_SET_ID |  | 1 |
-|  |  | DATASET |  | 1 |
-|  |  | YEAR |  | 1 |
-|  |  | MONTH |  | 1 |
-|  |  | DAY |  | 1 |
-|  |  | HOUR_LOCAL_TIME |  | 1 |
-|  |  | MINUTE_LOCAL_TIME |  | 1 |
-|  |  | SECOND_LOCAL_TIME |  | 1 |
-|  |  | FLOAT_VALUE |  | 1 |
+|  |  | Reports to Follow |  | 1 |
+|  |  | Rate Parameter Set ID |  | 1 |
+|  |  | Dataset |  | 1 |
+|  |  | Year |  | 1 |
+|  |  | Month |  | 1 |
+|  |  | Day |  | 1 |
+|  |  | Hour Local Time |  | 1 |
+|  |  | Minute Local Time |  | 1 |
+|  |  | Second Local Time |  | 1 |
+|  |  | Float Value |  | 1 |
 |  | [09] RATE_TBL_HISTORICAL_DATA_GET |  |  | 1 |
-|  |  | MAXIMUM_REPORTS |  | 1 |
-|  |  | RATE_PARAMETER_SET_ID |  | 1 |
-|  |  | DATASET_REQUESTED |  | 1 |
-|  |  | START_YEAR |  | 1 |
-|  |  | START_MONTH |  | 1 |
-|  |  | START_DAY |  | 1 |
-|  |  | START_HOUR_LOCAL_TIME |  | 1 |
-|  |  | START_MINUTE_LOCAL_TIME |  | 1 |
-|  |  | START_SECOND_LOCAL_TIME |  | 1 |
-|  |  | STOP_YEAR |  | 1 |
-|  |  | STOP_MONTH |  | 1 |
-|  |  | STOP_DAY |  | 1 |
-|  |  | STOP_HOUR_LOCAL_TIME |  | 1 |
-|  |  | STOP_MINUTE_LOCAL_TIME |  | 1 |
-|  |  | STOP_SECOND_LOCAL_TIME |  | 1 |
+|  |  | Maximum Reports |  | 1 |
+|  |  | Rate Parameter Set ID |  | 1 |
+|  |  | Dataset Requested |  | 1 |
+|  |  | Start Year |  | 1 |
+|  |  | Start Month |  | 1 |
+|  |  | Start Day |  | 1 |
+|  |  | Start Hour Local Time |  | 1 |
+|  |  | Start Minute Local Time |  | 1 |
+|  |  | Start Second Local Time |  | 1 |
+|  |  | Stop Year |  | 1 |
+|  |  | Stop Month |  | 1 |
+|  |  | Stop Day |  | 1 |
+|  |  | Stop Hour Local Time |  | 1 |
+|  |  | Stop Minute Local Time |  | 1 |
+|  |  | Stop Second Local Time |  | 1 |
 |  | [0A] RATE_TBL_HISTORICAL_DATA_REPORT |  |  | 1 |
-|  |  | REPORTS_TO_FOLLOW |  | 1 |
-|  |  | RATE_PARAMETER_SET_ID |  | 1 |
-|  |  | DATASET |  | 1 |
-|  |  | YEAR |  | 1 |
-|  |  | MONTH |  | 1 |
-|  |  | DAY |  | 1 |
-|  |  | HOUR_LOCAL_TIME |  | 1 |
-|  |  | MINUTE_LOCAL_TIME |  | 1 |
-|  |  | SECOND_LOCAL_TIME |  | 1 |
-|  |  | FLOAT_VALUE |  | 1 |
+|  |  | Reports to Follow |  | 1 |
+|  |  | Rate Parameter Set ID |  | 1 |
+|  |  | Dataset |  | 1 |
+|  |  | Year |  | 1 |
+|  |  | Month |  | 1 |
+|  |  | Day |  | 1 |
+|  |  | Hour Local Time |  | 1 |
+|  |  | Minute Local Time |  | 1 |
+|  |  | Second Local Time |  | 1 |
+|  |  | Float Value |  | 1 |
 | [4A] COMMAND_CLASS_TARIFF_CONFIG |  |  |  | 1 |
 |  | [01] TARIFF_TBL_SUPPLIER_SET |  |  | 1 |
-|  |  | YEAR |  | 1 |
-|  |  | MONTH |  | 1 |
-|  |  | DAY |  | 1 |
-|  |  | HOUR_LOCAL_TIME |  | 1 |
-|  |  | MINUTE_LOCAL_TIME |  | 1 |
-|  |  | SECOND_LOCAL_TIME |  | 1 |
-|  |  | CURRENCY |  | 1 |
-|  |  | STANDING_CHARGE_PERIOD |  | 1 |
-|  |  | STANDING_CHARGE_PRECISION |  | 1 |
-|  |  | STANDING_CHARGE_VALUE |  | 1 |
-|  |  | NUMBER_OF_SUPPLIER_CHARACTERS |  | 1 |
-|  |  | SUPPLIER_CHARACTER |  | 1 |
+|  |  | Year |  | 1 |
+|  |  | Month |  | 1 |
+|  |  | Day |  | 1 |
+|  |  | Hour Local Time |  | 1 |
+|  |  | Minute Local Time |  | 1 |
+|  |  | Second Local Time |  | 1 |
+|  |  | Currency |  | 1 |
+|  |  | Standing Charge Period |  | 1 |
+|  |  | Standing Charge Precision |  | 1 |
+|  |  | Standing Charge Value |  | 1 |
+|  |  | Number of Supplier Characters |  | 1 |
+|  |  | Supplier Character |  | 1 |
 |  | [02] TARIFF_TBL_SET |  |  | 1 |
-|  |  | RATE_PARAMETER_SET_ID |  | 1 |
-|  |  | TARIFF_PRECISION |  | 1 |
-|  |  | TARIFF_VALUE |  | 1 |
+|  |  | Rate Parameter Set ID |  | 1 |
+|  |  | Tariff Precision |  | 1 |
+|  |  | Tariff Value |  | 1 |
 |  | [03] TARIFF_TBL_REMOVE |  |  | 1 |
-|  |  | RATE_PARAMETER_SET_IDS |  | 1 |
-|  |  | RATE_PARAMETER_SET_ID |  | 1 |
+|  |  | Rate Parameter Set IDs |  | 1 |
+|  |  | Rate Parameter Set ID |  | 1 |
 | [4B] COMMAND_CLASS_TARIFF_TBL_MONITOR |  |  |  | 1 |
 |  | [01] TARIFF_TBL_SUPPLIER_GET |  |  | 1 |
 |  | [02] TARIFF_TBL_SUPPLIER_REPORT |  |  | 1 |
-|  |  | YEAR |  | 1 |
-|  |  | MONTH |  | 1 |
-|  |  | DAY |  | 1 |
-|  |  | HOUR_LOCAL_TIME |  | 1 |
-|  |  | MINUTE_LOCAL_TIME |  | 1 |
-|  |  | SECOND_LOCAL_TIME |  | 1 |
-|  |  | CURRENCY |  | 1 |
-|  |  | STANDING_CHARGE_PERIOD |  | 1 |
-|  |  | STANDING_CHARGE_PRECISION |  | 1 |
-|  |  | STANDING_CHARGE_VALUE |  | 1 |
-|  |  | NUMBER_OF_SUPPLIER_CHARACTERS |  | 1 |
-|  |  | SUPPLIER_CHARACTER |  | 1 |
+|  |  | Year |  | 1 |
+|  |  | Month |  | 1 |
+|  |  | Day |  | 1 |
+|  |  | Hour Local Time |  | 1 |
+|  |  | Minute Local Time |  | 1 |
+|  |  | Second Local Time |  | 1 |
+|  |  | Currency |  | 1 |
+|  |  | Standing Charge Period |  | 1 |
+|  |  | Standing Charge Precision |  | 1 |
+|  |  | Standing Charge Value |  | 1 |
+|  |  | Number of Supplier Characters |  | 1 |
+|  |  | Supplier Character |  | 1 |
 |  | [03] TARIFF_TBL_GET |  |  | 1 |
-|  |  | RATE_PARAMETER_SET_ID |  | 1 |
+|  |  | Rate Parameter Set ID |  | 1 |
 |  | [04] TARIFF_TBL_REPORT |  |  | 1 |
-|  |  | RATE_PARAMETER_SET_ID |  | 1 |
-|  |  | TARIFF_PRECISION |  | 1 |
-|  |  | TARIFF_VALUE |  | 1 |
+|  |  | Rate Parameter Set ID |  | 1 |
+|  |  | Tariff Precision |  | 1 |
+|  |  | Tariff Value |  | 1 |
 |  | [05] TARIFF_TBL_COST_GET |  |  | 1 |
-|  |  | RATE_PARAMETER_SET_ID |  | 1 |
-|  |  | START_YEAR |  | 1 |
-|  |  | START_MONTH |  | 1 |
-|  |  | START_DAY |  | 1 |
-|  |  | START_HOUR_LOCAL_TIME |  | 1 |
-|  |  | START_MINUTE_LOCAL_TIME |  | 1 |
-|  |  | STOP_YEAR |  | 1 |
-|  |  | STOP_MONTH |  | 1 |
-|  |  | STOP_DAY |  | 1 |
-|  |  | STOP_HOUR_LOCAL_TIME |  | 1 |
-|  |  | STOP_MINUTE_LOCAL_TIME |  | 1 |
+|  |  | Rate Parameter Set ID |  | 1 |
+|  |  | Start Year |  | 1 |
+|  |  | Start Month |  | 1 |
+|  |  | Start Day |  | 1 |
+|  |  | Start Hour Local Time |  | 1 |
+|  |  | Start Minute Local Time |  | 1 |
+|  |  | Stop Year |  | 1 |
+|  |  | Stop Month |  | 1 |
+|  |  | Stop Day |  | 1 |
+|  |  | Stop Hour Local Time |  | 1 |
+|  |  | Stop Minute Local Time |  | 1 |
 |  | [06] TARIFF_TBL_COST_REPORT |  |  | 1 |
-|  |  | RATE_PARAMETER_SET_ID |  | 1 |
-|  |  | RATE_TYPE |  | 1 |
-|  |  | START_YEAR |  | 1 |
-|  |  | START_MONTH |  | 1 |
-|  |  | START_DAY |  | 1 |
-|  |  | START_HOUR_LOCAL_TIME |  | 1 |
-|  |  | START_MINUTE_LOCAL_TIME |  | 1 |
-|  |  | STOP_YEAR |  | 1 |
-|  |  | STOP_MONTH |  | 1 |
-|  |  | STOP_DAY |  | 1 |
-|  |  | STOP_HOUR_LOCAL_TIME |  | 1 |
-|  |  | STOP_MINUTE_LOCAL_TIME |  | 1 |
-|  |  | CURRENCY |  | 1 |
-|  |  | COST_PRECISION |  | 1 |
-|  |  | COST_VALUE |  | 1 |
+|  |  | Rate Parameter Set ID |  | 1 |
+|  |  | Rate Type |  | 1 |
+|  |  | Start Year |  | 1 |
+|  |  | Start Month |  | 1 |
+|  |  | Start Day |  | 1 |
+|  |  | Start Hour Local Time |  | 1 |
+|  |  | Start Minute Local Time |  | 1 |
+|  |  | Stop Year |  | 1 |
+|  |  | Stop Month |  | 1 |
+|  |  | Stop Day |  | 1 |
+|  |  | Stop Hour Local Time |  | 1 |
+|  |  | Stop Minute Local Time |  | 1 |
+|  |  | Currency |  | 1 |
+|  |  | Cost Precision |  | 1 |
+|  |  | Cost Value |  | 1 |
 | [4C] COMMAND_CLASS_DOOR_LOCK_LOGGING |  |  |  | 1 |
 |  | [01] DOOR_LOCK_LOGGING_RECORDS_SUPPORTED_GET |  |  | 1 |
 |  | [02] DOOR_LOCK_LOGGING_RECORDS_SUPPORTED_REPORT |  |  | 1 |
-|  |  | MAX_RECORDS_STORED |  | 1 |
+|  |  | Max records stored |  | 1 |
 |  | [03] RECORD_GET |  |  | 1 |
-|  |  | RECORD_NUMBER |  | 1 |
+|  |  | Record number |  | 1 |
 |  | [04] RECORD_REPORT |  |  | 1 |
-|  |  | RECORD_NUMBER |  | 1 |
-|  |  | YEAR |  | 1 |
-|  |  | MONTH |  | 1 |
-|  |  | DAY |  | 1 |
-|  |  | HOUR_LOCAL_TIME |  | 1 |
-|  |  | RECORD_STATUS |  | 1 |
-|  |  | MINUTE_LOCAL_TIME |  | 1 |
-|  |  | SECOND_LOCAL_TIME |  | 1 |
-|  |  | EVENT_TYPE |  | 1 |
-|  |  | USER_IDENTIFIER |  | 1 |
-|  |  | USER_CODE_LENGTH |  | 1 |
+|  |  | Record number |  | 1 |
+|  |  | Year |  | 1 |
+|  |  | Month |  | 1 |
+|  |  | Day |  | 1 |
+|  |  | Hour Local Time |  | 1 |
+|  |  | Record status |  | 1 |
+|  |  | Minute Local Time |  | 1 |
+|  |  | Second Local Time |  | 1 |
+|  |  | Event Type |  | 1 |
+|  |  | User Identifier |  | 1 |
+|  |  | User Code Length |  | 1 |
 |  |  | USER_CODE |  | 1 |
 | [4D] COMMAND_CLASS_NETWORK_MANAGEMENT_BASIC |  |  |  | 2 |
 |  | [01] LEARN_MODE_SET |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
-|  |  | MODE |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
+|  |  | Mode |  | 1-2 |
 |  |  |  | [00] LEARN_MODE_SET_DISABLE | 1-2 |
 |  |  |  | [01] LEARN_MODE_SET_CLASSIC | 1-2 |
 |  |  |  | [02] LEARN_MODE_SET_NWI | 1-2 |
 |  | [02] LEARN_MODE_SET_STATUS |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
-|  |  | STATUS |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
+|  |  | Status |  | 1-2 |
 |  |  |  | [01] LEARN_MODE_FAILED_TIMEOUT | 1-2 |
 |  |  |  | [06] LEARN_MODE_DONE | 1-2 |
 |  |  |  | [07] LEARN_MODE_FAILED | 1-2 |
 |  |  |  | [09] LEARN_MODE_SECURITY_FAILED | 1-2 |
-|  |  | NEW_NODE_ID |  | 1-2 |
-|  |  | GRANTED_KEYS |  | 2 |
+|  |  | New Node ID |  | 1-2 |
+|  |  | Granted Keys |  | 2 |
 |  |  | DSK |  | 2 |
 |  | [03] NETWORK_UPDATE_REQUEST |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
 |  | [04] NETWORK_UPDATE_REQUEST_STATUS |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
-|  |  | STATUS |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
+|  |  | Status |  | 1-2 |
 |  |  |  | [00] SUC_UPDATE_DONE | 1-2 |
 |  |  |  | [01] SUC_UPDATE_ABORT | 1-2 |
 |  |  |  | [02] SUC_UPDATE_WAIT | 1-2 |
 |  |  |  | [03] SUC_UPDATE_DISABLED | 1-2 |
 |  |  |  | [04] SUC_UPDATE_OVERFLOW | 1-2 |
 |  | [05] NODE_INFORMATION_SEND |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
-|  |  | DESTINATION_NODE_ID |  | 1-2 |
-|  |  | TX_OPTIONS |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
+|  |  | Destination Node ID |  | 1-2 |
+|  |  | tx Options |  | 1-2 |
 |  |  |  | [01] ACK | 1-2 |
 |  |  |  | [02] LOW_POWER | 1-2 |
 |  |  |  | [04] AUTO_ROUTE | 1-2 |
@@ -2259,275 +2256,269 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [40] NO_RETRANSMISSION | 1-2 |
 |  |  |  | [80] HIGH_POWER | 1-2 |
 |  | [06] DEFAULT_SET |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
 |  | [07] DEFAULT_SET_COMPLETE |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
-|  |  | STATUS |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
+|  |  | Status |  | 1-2 |
 |  |  |  | [06] DEFAULT_SET_DONE | 1-2 |
 |  |  |  | [07] DEFAULT_SET_BUSY | 1-2 |
 |  | [08] DSK_GET |  |  | 2 |
-|  |  | SEQ_NO |  | 2 |
+|  |  | Seq No |  | 2 |
 |  | [09] DSK_REPORT |  |  | 2 |
-|  |  | SEQ_NO |  | 2 |
+|  |  | Seq No |  | 2 |
 |  |  | DSK |  | 2 |
 | [4E] COMMAND_CLASS_SCHEDULE_ENTRY_LOCK |  |  |  | 3 |
 |  | [01] SCHEDULE_ENTRY_LOCK_ENABLE_SET |  |  | 1-3 |
-|  |  | USER_IDENTIFIER |  | 1-3 |
-|  |  | ENABLED |  | 1-3 |
+|  |  | User Identifier |  | 1-3 |
+|  |  | Enabled |  | 1-3 |
 |  |  |  | [00] DISABLED | 1-3 |
 |  |  |  | [01] ENABLED | 1-3 |
 |  | [02] SCHEDULE_ENTRY_LOCK_ENABLE_ALL_SET |  |  | 1-3 |
-|  |  | ENABLED |  | 1-3 |
+|  |  | Enabled |  | 1-3 |
 |  |  |  | [00] DISABLED | 1-3 |
 |  |  |  | [01] ENABLED | 1-3 |
 |  | [03] SCHEDULE_ENTRY_LOCK_WEEK_DAY_SET |  |  | 1-3 |
-|  |  | SET_ACTION |  | 1-3 |
+|  |  | Set Action |  | 1-3 |
 |  |  |  | [00] ERASE | 1-3 |
 |  |  |  | [01] MODIFY | 1-3 |
-|  |  | USER_IDENTIFIER |  | 1-3 |
-|  |  | SCHEDULE_SLOT_ID |  | 1-3 |
-|  |  | DAY_OF_WEEK |  | 1-3 |
-|  |  | START_HOUR |  | 1-3 |
-|  |  | START_MINUTE |  | 1-3 |
-|  |  | STOP_HOUR |  | 1-3 |
-|  |  | STOP_MINUTE |  | 1-3 |
+|  |  | User Identifier |  | 1-3 |
+|  |  | Schedule Slot ID |  | 1-3 |
+|  |  | Day of Week |  | 1-3 |
+|  |  | Start Hour |  | 1-3 |
+|  |  | Start Minute |  | 1-3 |
+|  |  | Stop Hour |  | 1-3 |
+|  |  | Stop Minute |  | 1-3 |
 |  | [04] SCHEDULE_ENTRY_LOCK_WEEK_DAY_GET |  |  | 1-3 |
-|  |  | USER_IDENTIFIER |  | 1-3 |
-|  |  | SCHEDULE_SLOT_ID |  | 1-3 |
+|  |  | User Identifier |  | 1-3 |
+|  |  | Schedule Slot ID |  | 1-3 |
 |  | [05] SCHEDULE_ENTRY_LOCK_WEEK_DAY_REPORT |  |  | 1-3 |
-|  |  | USER_IDENTIFIER |  | 1-3 |
-|  |  | SCHEDULE_SLOT_ID |  | 1-3 |
-|  |  | DAY_OF_WEEK |  | 1-3 |
-|  |  | START_HOUR |  | 1-3 |
-|  |  | START_MINUTE |  | 1-3 |
-|  |  | STOP_HOUR |  | 1-3 |
-|  |  | STOP_MINUTE |  | 1-3 |
+|  |  | User Identifier |  | 1-3 |
+|  |  | Schedule Slot ID |  | 1-3 |
+|  |  | Day of Week |  | 1-3 |
+|  |  | Start Hour |  | 1-3 |
+|  |  | Start Minute |  | 1-3 |
+|  |  | Stop Hour |  | 1-3 |
+|  |  | Stop Minute |  | 1-3 |
 |  | [06] SCHEDULE_ENTRY_LOCK_YEAR_DAY_SET |  |  | 1-3 |
-|  |  | SET_ACTION |  | 1-3 |
+|  |  | Set Action |  | 1-3 |
 |  |  |  | [00] ERASE | 1-3 |
 |  |  |  | [01] MODIFY | 1-3 |
-|  |  | USER_IDENTIFIER |  | 1-3 |
-|  |  | SCHEDULE_SLOT_ID |  | 1-3 |
-|  |  | START_YEAR |  | 1-3 |
-|  |  | START_MONTH |  | 1-3 |
-|  |  | START_DAY |  | 1-3 |
-|  |  | START_HOUR |  | 1-3 |
-|  |  | START_MINUTE |  | 1-3 |
-|  |  | STOP_YEAR |  | 1-3 |
-|  |  | STOP_MONTH |  | 1-3 |
-|  |  | STOP_DAY |  | 1-3 |
-|  |  | STOP_HOUR |  | 1-3 |
-|  |  | STOP_MINUTE |  | 1-3 |
+|  |  | User Identifier |  | 1-3 |
+|  |  | Schedule Slot ID |  | 1-3 |
+|  |  | Start Year |  | 1-3 |
+|  |  | Start Month |  | 1-3 |
+|  |  | Start Day |  | 1-3 |
+|  |  | Start Hour |  | 1-3 |
+|  |  | Start Minute |  | 1-3 |
+|  |  | Stop Year |  | 1-3 |
+|  |  | Stop Month |  | 1-3 |
+|  |  | Stop Day |  | 1-3 |
+|  |  | Stop Hour |  | 1-3 |
+|  |  | Stop Minute |  | 1-3 |
 |  | [07] SCHEDULE_ENTRY_LOCK_YEAR_DAY_GET |  |  | 1-3 |
-|  |  | USER_IDENTIFIER |  | 1-3 |
-|  |  | SCHEDULE_SLOT_ID |  | 1-3 |
+|  |  | User Identifier |  | 1-3 |
+|  |  | Schedule Slot ID |  | 1-3 |
 |  | [08] SCHEDULE_ENTRY_LOCK_YEAR_DAY_REPORT |  |  | 1-3 |
-|  |  | USER_IDENTIFIER |  | 1-3 |
-|  |  | SCHEDULE_SLOT_ID |  | 1-3 |
-|  |  | START_YEAR |  | 1-3 |
-|  |  | START_MONTH |  | 1-3 |
-|  |  | START_DAY |  | 1-3 |
-|  |  | START_HOUR |  | 1-3 |
-|  |  | START_MINUTE |  | 1-3 |
-|  |  | STOP_YEAR |  | 1-3 |
-|  |  | STOP_MONTH |  | 1-3 |
-|  |  | STOP_DAY |  | 1-3 |
-|  |  | STOP_HOUR |  | 1-3 |
-|  |  | STOP_MINUTE |  | 1-3 |
+|  |  | User Identifier |  | 1-3 |
+|  |  | Schedule Slot ID |  | 1-3 |
+|  |  | Start Year |  | 1-3 |
+|  |  | Start Month |  | 1-3 |
+|  |  | Start Day |  | 1-3 |
+|  |  | Start Hour |  | 1-3 |
+|  |  | Start Minute |  | 1-3 |
+|  |  | Stop Year |  | 1-3 |
+|  |  | Stop Month |  | 1-3 |
+|  |  | Stop Day |  | 1-3 |
+|  |  | Stop Hour |  | 1-3 |
+|  |  | Stop Minute |  | 1-3 |
 |  | [09] SCHEDULE_ENTRY_TYPE_SUPPORTED_GET |  |  | 1-3 |
 |  | [0A] SCHEDULE_ENTRY_TYPE_SUPPORTED_REPORT |  |  | 1-3 |
-|  |  | NUMBER_OF_SLOTS_WEEK_DAY |  | 1-3 |
-|  |  | NUMBER_OF_SLOTS_YEAR_DAY |  | 1-3 |
-|  |  | NUMBER_OF_SLOTS_DAILY_REPEATING |  | 3 |
+|  |  | Number of Slots Week Day |  | 1-3 |
+|  |  | Number of Slots Year Day |  | 1-3 |
+|  |  | Number of Slots Daily Repeating |  | 3 |
 |  | [0B] SCHEDULE_ENTRY_LOCK_TIME_OFFSET_GET |  |  | 2-3 |
 |  | [0C] SCHEDULE_ENTRY_LOCK_TIME_OFFSET_REPORT |  |  | 2-3 |
-|  |  | HOUR_TZO |  | 2-3 |
-|  |  | SIGN_TZO |  | 2-3 |
-|  |  | MINUTE_TZO |  | 2-3 |
-|  |  | MINUTE_OFFSET_DST |  | 2-3 |
-|  |  | SIGN_OFFSET_DST |  | 2-3 |
+|  |  | Hour TZO |  | 2-3 |
+|  |  | Sign TZO |  | 2-3 |
+|  |  | Minute TZO |  | 2-3 |
+|  |  | Minute Offset DST |  | 2-3 |
+|  |  | Sign Offset DST |  | 2-3 |
 |  | [0D] SCHEDULE_ENTRY_LOCK_TIME_OFFSET_SET |  |  | 2-3 |
-|  |  | HOUR_TZO |  | 2-3 |
-|  |  | SIGN_TZO |  | 2-3 |
-|  |  | MINUTE_TZO |  | 2-3 |
-|  |  | MINUTE_OFFSET_DST |  | 2-3 |
-|  |  | SIGN_OFFSET_DST |  | 2-3 |
+|  |  | Hour TZO |  | 2-3 |
+|  |  | Sign TZO |  | 2-3 |
+|  |  | Minute TZO |  | 2-3 |
+|  |  | Minute Offset DST |  | 2-3 |
+|  |  | Sign Offset DST |  | 2-3 |
 |  | [0E] SCHEDULE_ENTRY_LOCK_DAILY_REPEATING_GET |  |  | 3 |
-|  |  | USER_IDENTIFIER |  | 3 |
-|  |  | SCHEDULE_SLOT_ID |  | 3 |
+|  |  | User Identifier |  | 3 |
+|  |  | Schedule Slot ID |  | 3 |
 |  | [0F] SCHEDULE_ENTRY_LOCK_DAILY_REPEATING_REPORT |  |  | 3 |
-|  |  | USER_IDENTIFIER |  | 3 |
-|  |  | SCHEDULE_SLOT_ID |  | 3 |
-|  |  | WEEK_DAY_BITMASK |  | 3 |
-|  |  | START_HOUR |  | 3 |
-|  |  | START_MINUTE |  | 3 |
-|  |  | DURATION_HOUR |  | 3 |
-|  |  | DURATION_MINUTE |  | 3 |
+|  |  | User Identifier |  | 3 |
+|  |  | Schedule Slot ID |  | 3 |
+|  |  | Week Day Bitmask |  | 3 |
+|  |  | Start Hour |  | 3 |
+|  |  | Start Minute |  | 3 |
+|  |  | Duration Hour |  | 3 |
+|  |  | Duration Minute |  | 3 |
 |  | [10] SCHEDULE_ENTRY_LOCK_DAILY_REPEATING_SET |  |  | 3 |
-|  |  | SET_ACTION |  | 3 |
+|  |  | Set Action |  | 3 |
 |  |  |  | [00] ERASE | 3 |
 |  |  |  | [01] MODIFY | 3 |
-|  |  | USER_IDENTIFIER |  | 3 |
-|  |  | SCHEDULE_SLOT_ID |  | 3 |
-|  |  | WEEK_DAY_BITMASK |  | 3 |
-|  |  | START_HOUR |  | 3 |
-|  |  | START_MINUTE |  | 3 |
-|  |  | DURATION_HOUR |  | 3 |
-|  |  | DURATION_MINUTE |  | 3 |
+|  |  | User Identifier |  | 3 |
+|  |  | Schedule Slot ID |  | 3 |
+|  |  | Week Day Bitmask |  | 3 |
+|  |  | Start Hour |  | 3 |
+|  |  | Start Minute |  | 3 |
+|  |  | Duration Hour |  | 3 |
+|  |  | Duration Minute |  | 3 |
 | [4F] COMMAND_CLASS_ZIP_6LOWPAN |  |  |  | 1 |
 |  | [C0] LOWPAN_FIRST_FRAGMENT |  |  | 1 |
-|  |  | DATAGRAM_SIZE_1 |  | 1 |
-|  |  | DATAGRAM_SIZE_2 |  | 1 |
-|  |  | DATAGRAM_TAG |  | 1 |
-|  |  | PAYLOAD |  | 1 |
+|  |  | Datagram Size 1 |  | 1 |
+|  |  | Datagram Size 2 |  | 1 |
+|  |  | Datagram Tag |  | 1 |
+|  |  | Payload |  | 1 |
 |  | [E0] LOWPAN_SUBSEQUENT_FRAGMENT |  |  | 1 |
-|  |  | DATAGRAM_SIZE_1 |  | 1 |
-|  |  | DATAGRAM_SIZE_2 |  | 1 |
-|  |  | DATAGRAM_TAG |  | 1 |
-|  |  | DATAGRAM_OFFSET |  | 1 |
-|  |  | PAYLOAD |  | 1 |
+|  |  | Datagram Size 1 |  | 1 |
+|  |  | Datagram Size 2 |  | 1 |
+|  |  | Datagram Tag |  | 1 |
+|  |  | Datagram Offset |  | 1 |
+|  |  | Payload |  | 1 |
 | [50] COMMAND_CLASS_BASIC_WINDOW_COVERING |  |  |  | 1 |
 |  | [01] BASIC_WINDOW_COVERING_START_LEVEL_CHANGE |  |  | 1 |
-|  |  | OPEN_CLOSE |  | 1 |
+|  |  | Open/ Close |  | 1 |
 |  | [02] BASIC_WINDOW_COVERING_STOP_LEVEL_CHANGE |  |  | 1 |
 | [51] COMMAND_CLASS_MTP_WINDOW_COVERING |  |  |  | 1 |
 |  | [01] MOVE_TO_POSITION_SET |  |  | 1 |
-|  |  | VALUE |  | 1 |
+|  |  | Value |  | 1 |
 |  |  |  | [00] CLOSE | 1 |
 |  |  |  | [FF] OPEN | 1 |
 |  | [02] MOVE_TO_POSITION_GET |  |  | 1 |
 |  | [03] MOVE_TO_POSITION_REPORT |  |  | 1 |
-|  |  | VALUE |  | 1 |
+|  |  | Value |  | 1 |
 |  |  |  | [00] CLOSE | 1 |
 |  |  |  | [FF] OPEN | 1 |
 | [52] COMMAND_CLASS_NETWORK_MANAGEMENT_PROXY |  |  |  | 2 |
 |  | [01] NODE_LIST_GET |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
 |  | [02] NODE_LIST_REPORT |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
-|  |  | STATUS |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
+|  |  | Status |  | 1-2 |
 |  |  |  | [00] LATEST | 1-2 |
 |  |  |  | [01] MAY_NOT_BE_THE_LATEST | 1-2 |
-|  |  | NODE_LIST_CONTROLLER_ID |  | 1-2 |
-|  |  | NODE_LIST_DATA |  | 1-2 |
+|  |  | Node List Controller ID |  | 1-2 |
+|  |  | Node List Data |  | 1-2 |
 |  | [03] NODE_INFO_CACHED_GET |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
-|  |  | MAX_AGE |  | 1-2 |
-|  |  | NODE_ID |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
+|  |  | Max Age |  | 1-2 |
+|  |  | Node ID |  | 1-2 |
 |  | [04] NODE_INFO_CACHED_REPORT |  |  | 1-2 |
-|  |  | SEQ_NO |  | 1-2 |
-|  |  | AGE |  | 1-2 |
-|  |  | STATUS |  | 1-2 |
+|  |  | Seq. No |  | 1-2 |
+|  |  | Age |  | 1-2 |
+|  |  | Status |  | 1-2 |
 |  |  |  | [00] STATUS_OK | 1-2 |
 |  |  |  | [01] STATUS_NOT_RESPONDING | 1-2 |
 |  |  |  | [02] STATUS_UNKNOWN | 1-2 |
-|  |  | CAPABILITY |  | 1-2 |
-|  |  | LISTENING |  | 1-2 |
-|  |  | SECURITY |  | 1-2 |
-|  |  | SENSOR |  | 1-2 |
-|  |  | OPT |  | 1-2 |
-|  |  | GRANTED_KEYS |  | 2 |
-|  |  | BASIC_DEVICE_CLASS |  | 1-2 |
-|  |  | GENERIC_DEVICE_CLASS |  | 1-2 |
-|  |  | SPECIFIC_DEVICE_CLASS |  | 1-2 |
-|  |  | NON_SECURE_COMMAND_CLASS |  | 1-2 |
-|  |  | SECURITY_SCHEME_0_MARK |  | 1 |
-|  |  |  | [00] SECURITY_SCHEME_0_MARK | 1 |
-|  |  |  | [F1] SECURITY_SCHEME_0_MARK | 1 |
-|  |  | SECURITY_MARK |  | 2 |
-|  |  |  | [00] SECURITY_MARK | 2 |
-|  |  |  | [F1] SECURITY_MARK | 2 |
-|  |  | SECURITY_SCHEME_0_COMMAND_CLASS |  | 1 |
-|  |  | SECURE_COMMAND_CLASS |  | 2 |
+|  |  | Capability |  | 1-2 |
+|  |  | Listening |  | 1-2 |
+|  |  | Security |  | 1-2 |
+|  |  | Sensor |  | 1-2 |
+|  |  | Opt |  | 1-2 |
+|  |  | Granted Keys |  | 2 |
+|  |  | Basic Device Class |  | 1-2 |
+|  |  | Generic Device Class |  | 1-2 |
+|  |  | Specific Device Class |  | 1-2 |
+|  |  | Non-Secure Command Class |  | 1-2 |
+|  |  | Security Scheme 0 Command Class |  | 1 |
+|  |  | Secure Command Class |  | 2 |
 | [53] COMMAND_CLASS_SCHEDULE |  |  |  | 3 |
 |  | [01] SCHEDULE_SUPPORTED_GET |  |  | 1-3 |
-|  |  | SCHEDULE_ID_BLOCK |  | 2-3 |
+|  |  | Schedule ID Block |  | 2-3 |
 |  | [02] SCHEDULE_SUPPORTED_REPORT |  |  | 1-3 |
-|  |  | NUMBER_OF_SUPPORTED_SCHEDULE_ID |  | 1-3 |
-|  |  | START_TIME_SUPPORT |  | 1-3 |
-|  |  | FALLBACK_SUPPORT |  | 1-3 |
-|  |  | SUPPORT_ENABLE_DISABLE |  | 1-3 |
-|  |  | NUMBER_OF_SUPPORTED_CC |  | 1-3 |
-|  |  | COMMAND_CLASS_COMMAND |  | 1-3 |
-|  |  | SUPPORTED_OVERRIDE_TYPES |  | 1-3 |
-|  |  | OVERRIDE_SUPPORT |  | 1-3 |
-|  |  | SCHEDULE_ID_BLOCK |  | 2-3 |
-|  |  | NUMBER_OF_SUPPORTED_SCHEDULE_BLOCKS |  | 2-3 |
+|  |  | Number of Supported Schedule ID |  | 1-3 |
+|  |  | Start Time Support |  | 1-3 |
+|  |  | Fallback Support |  | 1-3 |
+|  |  | Support Enable/Disable |  | 1-3 |
+|  |  | Number of supported CC |  | 1-3 |
+|  |  | Command Class Command |  | 1-3 |
+|  |  | Supported Override Types |  | 1-3 |
+|  |  | Override Support |  | 1-3 |
+|  |  | Schedule ID Block |  | 2-3 |
+|  |  | Number of Supported Schedule Blocks |  | 2-3 |
 |  | [03] COMMAND_SCHEDULE_SET |  |  | 1-3 |
-|  |  | SCHEDULE_ID |  | 1-3 |
-|  |  | USER_IDENTIFIER |  | 1 |
-|  |  | SCHEDULE_ID_BLOCK |  | 2-3 |
-|  |  | START_YEAR |  | 1-3 |
-|  |  | START_MONTH |  | 1-3 |
-|  |  | RECURRENCE_OFFSET |  | 3 |
-|  |  | START_DAY_OF_MONTH |  | 1-3 |
-|  |  | RECURRENCE_MODE |  | 3 |
+|  |  | Schedule ID |  | 1-3 |
+|  |  | User Identifier |  | 1 |
+|  |  | Schedule ID Block |  | 2-3 |
+|  |  | Start Year |  | 1-3 |
+|  |  | Start Month |  | 1-3 |
+|  |  | Recurrence Offset |  | 3 |
+|  |  | Start Day of Month |  | 1-3 |
+|  |  | Recurrence Mode |  | 3 |
 |  |  |  | [00] REPEAT_EVERY_N_HOURS | 3 |
 |  |  |  | [01] REPEAT_EVERY_N_DAYS | 3 |
 |  |  |  | [02] REPEAT_EVERY_N_WEEKS | 3 |
-|  |  | START_WEEKDAY |  | 1-3 |
-|  |  | RES_ |  | 1 |
-|  |  | START_HOUR |  | 1-3 |
-|  |  | DURATION_TYPE |  | 1-3 |
-|  |  | START_MINUTE |  | 1-3 |
-|  |  | RELATIVE |  | 3 |
-|  |  | DURATION_BYTE |  | 1-3 |
-|  |  | REPORTS_TO_FOLLOW |  | 1-3 |
-|  |  | NUMBER_OF_CMD_TO_FOLLOW |  | 1-3 |
-|  |  | SCHEDULED_COMMAND |  | 1-3 |
+|  |  | Start Weekday |  | 1-3 |
+|  |  | Res. |  | 1 |
+|  |  | Start Hour |  | 1-3 |
+|  |  | Duration Type |  | 1-3 |
+|  |  | Start Minute |  | 1-3 |
+|  |  | Relative |  | 3 |
+|  |  | Duration Byte |  | 1-3 |
+|  |  | Reports to Follow |  | 1-3 |
+|  |  | Number of Cmd to Follow |  | 1-3 |
+|  |  | Scheduled Command |  | 1-3 |
 |  | [04] COMMAND_SCHEDULE_GET |  |  | 1-3 |
-|  |  | SCHEDULE_ID |  | 1-3 |
-|  |  | SCHEDULE_ID_BLOCK |  | 2-3 |
+|  |  | Schedule ID |  | 1-3 |
+|  |  | Schedule ID Block |  | 2-3 |
 |  |  | AID_RO_CTL |  | 3 |
 |  | [05] COMMAND_SCHEDULE_REPORT |  |  | 1-3 |
-|  |  | SCHEDULE_ID |  | 1-3 |
-|  |  | USER_IDENTIFIER |  | 1 |
-|  |  | SCHEDULE_ID_BLOCK |  | 2-3 |
-|  |  | START_YEAR |  | 1-3 |
-|  |  | START_MONTH |  | 1-3 |
-|  |  | ACTIVE_ID |  | 1-2 |
+|  |  | Schedule ID |  | 1-3 |
+|  |  | User Identifier |  | 1 |
+|  |  | Schedule ID Block |  | 2-3 |
+|  |  | Start Year |  | 1-3 |
+|  |  | Start Month |  | 1-3 |
+|  |  | Active_ID |  | 1-2 |
 |  |  | AID_RO |  | 3 |
-|  |  | START_DAY_OF_MONTH |  | 1-3 |
+|  |  | Start Day of Month |  | 1-3 |
 |  |  | AID_RO_CTL |  | 3 |
-|  |  | RECURRENCE_MODE |  | 2-3 |
+|  |  | Recurrence Mode |  | 2-3 |
 |  |  |  | [00] REPEAT_EVERY_N_HOURS | 2-3 |
 |  |  |  | [01] REPEAT_EVERY_N_DAYS | 2-3 |
 |  |  |  | [02] REPEAT_EVERY_N_WEEKS | 2-3 |
-|  |  | START_WEEKDAY |  | 1-3 |
-|  |  | RES_ |  | 1 |
-|  |  | START_HOUR |  | 1-3 |
-|  |  | DURATION_TYPE |  | 1-3 |
-|  |  | START_MINUTE |  | 1-3 |
-|  |  | RELATIVE |  | 3 |
-|  |  | DURATION_BYTE |  | 1-3 |
-|  |  | REPORTS_TO_FOLLOW |  | 1-3 |
-|  |  | NUMBER_OF_CMD_TO_FOLLOW |  | 1-3 |
-|  |  | SCHEDULED_COMMAND |  | 1-3 |
+|  |  | Start Weekday |  | 1-3 |
+|  |  | Res. |  | 1 |
+|  |  | Start Hour |  | 1-3 |
+|  |  | Duration Type |  | 1-3 |
+|  |  | Start Minute |  | 1-3 |
+|  |  | Relative |  | 3 |
+|  |  | Duration Byte |  | 1-3 |
+|  |  | Reports to Follow |  | 1-3 |
+|  |  | Number of Cmd to Follow |  | 1-3 |
+|  |  | Scheduled Command |  | 1-3 |
 |  | [06] SCHEDULE_REMOVE |  |  | 1-3 |
-|  |  | SCHEDULE_ID |  | 1-3 |
-|  |  | SCHEDULE_ID_BLOCK |  | 2-3 |
+|  |  | Schedule ID |  | 1-3 |
+|  |  | Schedule ID Block |  | 2-3 |
 |  | [07] SCHEDULE_STATE_SET |  |  | 1-3 |
-|  |  | SCHEDULE_ID |  | 1-3 |
-|  |  | SCHEDULE_STATE |  | 1-3 |
-|  |  | SCHEDULE_ID_BLOCK |  | 2-3 |
+|  |  | Schedule ID |  | 1-3 |
+|  |  | Schedule State |  | 1-3 |
+|  |  | Schedule ID Block |  | 2-3 |
 |  | [08] SCHEDULE_STATE_GET |  |  | 1-3 |
-|  |  | SCHEDULE_ID_BLOCK |  | 2-3 |
+|  |  | Schedule ID Block |  | 2-3 |
 |  | [09] SCHEDULE_STATE_REPORT |  |  | 1-3 |
-|  |  | NUMBER_OF_SUPPORTED_SCHEDULE_ID |  | 1-3 |
-|  |  | OVERRIDE |  | 1-3 |
-|  |  | REPORTS_TO_FOLLOW |  | 1-3 |
-|  |  | ACTIVE_ID_1 |  | 1-3 |
-|  |  | ACTIVE_ID_2 |  | 1-3 |
-|  |  | ACTIVE_ID_3 |  | 1-3 |
-|  |  | ACTIVE_ID_N |  | 1-3 |
-|  |  | SCHEDULE_ID_BLOCK |  | 2-3 |
+|  |  | Number of Supported Schedule ID |  | 1-3 |
+|  |  | Override |  | 1-3 |
+|  |  | Reports to Follow |  | 1-3 |
+|  |  | Active_ID 1 |  | 1-3 |
+|  |  | Active_ID 2 |  | 1-3 |
+|  |  | Active_ID 3 |  | 1-3 |
+|  |  | Active_ID N |  | 1-3 |
+|  |  | Schedule ID Block |  | 2-3 |
 | [54] COMMAND_CLASS_NETWORK_MANAGEMENT_PRIMARY |  |  |  | 1 |
 |  | [01] CONTROLLER_CHANGE |  |  | 1 |
-|  |  | SEQ_NO |  | 1 |
-|  |  | MODE |  | 1 |
+|  |  | Seq. No |  | 1 |
+|  |  | Mode |  | 1 |
 |  |  |  | [02] CONTROLLER_CHANGE_START | 1 |
 |  |  |  | [05] CONTROLLER_CHANGE_STOP | 1 |
-|  |  | TX_OPTIONS |  | 1 |
+|  |  | tx Options |  | 1 |
 |  |  |  | [01] ACK | 1 |
 |  |  |  | [02] LOW_POWER | 1 |
 |  |  |  | [04] AUTO_ROUTE | 1 |
@@ -2536,117 +2527,117 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [40] NO_RETRANSMISSION | 1 |
 |  |  |  | [80] HIGH_POWER | 1 |
 |  | [02] CONTROLLER_CHANGE_STATUS |  |  | 1 |
-|  |  | SEQ_NO |  | 1 |
-|  |  | STATUS |  | 1 |
+|  |  | Seq. No |  | 1 |
+|  |  | Status |  | 1 |
 |  |  |  | [06] NODE_ADD_STATUS_DONE | 1 |
 |  |  |  | [07] NODE_ADD_STATUS_FAILED | 1 |
 |  |  |  | [09] NODE_ADD_STATUS_SECURITY_FAILED | 1 |
-|  |  | NEW_NODE_ID |  | 1 |
-|  |  | NODE_INFO_LENGTH |  | 1 |
-|  |  | CAPABILITY |  | 1 |
-|  |  | LISTENING |  | 1 |
-|  |  | SECURITY |  | 1 |
-|  |  | OPT |  | 1 |
-|  |  | BASIC_DEVICE_CLASS |  | 1 |
-|  |  | GENERIC_DEVICE_CLASS |  | 1 |
-|  |  | SPECIFIC_DEVICE_CLASS |  | 1 |
-|  |  | COMMAND_CLASS |  | 1 |
+|  |  | New Node ID |  | 1 |
+|  |  | Node Info Length |  | 1 |
+|  |  | Capability |  | 1 |
+|  |  | Listening |  | 1 |
+|  |  | Security |  | 1 |
+|  |  | Opt |  | 1 |
+|  |  | Basic Device Class |  | 1 |
+|  |  | Generic Device Class |  | 1 |
+|  |  | Specific Device Class |  | 1 |
+|  |  | Command Class |  | 1 |
 | [55] COMMAND_CLASS_TRANSPORT_SERVICE |  |  |  | 2 |
-|  | [C0] COMMAND_FIRST_FRAGMENT |  |  | 1-2 |
-|  |  | DATAGRAM_SIZE_1 |  | 1-2 |
-|  |  | DATAGRAM_SIZE_2 |  | 1-2 |
-|  |  | EXT |  | 2 |
-|  |  | SEQUENCE_NO |  | 1 |
-|  |  | SESSION_ID |  | 2 |
-|  |  | HEADER_EXTENSION_LENGTH |  | 2 |
-|  |  | PAYLOAD |  | 1-2 |
-|  |  | CHECKSUM |  | 1 |
-|  |  | HEADER_EXTENSION |  | 2 |
-|  |  | FRAME_CHECK_SEQUENCE |  | 2 |
+|  | [C0] COMMAND_FIRST_SEGMENT |  |  | 1-2 |
+|  |  | datagram_size_1  |  | 1-2 |
+|  |  | datagram_size_2 |  | 1-2 |
+|  |  | Ext |  | 2 |
+|  |  | Sequence No |  | 1 |
+|  |  | Session ID |  | 2 |
+|  |  | Header Extension Length |  | 2 |
+|  |  | Payload |  | 1-2 |
+|  |  | Checksum |  | 1 |
+|  |  | Header Extension |  | 2 |
+|  |  | Frame Check Sequence |  | 2 |
 |  | [C8] COMMAND_SEGMENT_REQUEST |  |  | 2 |
-|  |  | DATAGRAM_OFFSET_1 |  | 2 |
-|  |  | SESSION_ID |  | 2 |
-|  |  | DATAGRAM_OFFSET_2 |  | 2 |
-|  | [E0] COMMAND_SUBSEQUENT_FRAGMENT |  |  | 1-2 |
-|  |  | DATAGRAM_SIZE_1 |  | 1-2 |
-|  |  | DATAGRAM_SIZE_2 |  | 1-2 |
-|  |  | DATAGRAM_OFFSET_1 |  | 1-2 |
-|  |  | EXT |  | 2 |
-|  |  | SEQUENCE_NO |  | 1 |
-|  |  | SESSION_ID |  | 2 |
-|  |  | DATAGRAM_OFFSET_2 |  | 1-2 |
-|  |  | HEADER_EXTENSION_LENGTH |  | 2 |
-|  |  | PAYLOAD |  | 1-2 |
-|  |  | CHECKSUM |  | 1 |
-|  |  | HEADER_EXTENSION |  | 2 |
-|  |  | FRAME_CHECK_SEQUENCE |  | 2 |
+|  |  | datagram_offset_1 |  | 2 |
+|  |  | Session ID |  | 2 |
+|  |  | datagram_offset_2 |  | 2 |
+|  | [E0] COMMAND_SUBSEQUENT_SEGMENT |  |  | 1-2 |
+|  |  | datagram_size_1 |  | 1-2 |
+|  |  | datagram_size_2 |  | 1-2 |
+|  |  | datagram_offset_1 |  | 1-2 |
+|  |  | Ext |  | 2 |
+|  |  | Sequence No |  | 1 |
+|  |  | Session ID |  | 2 |
+|  |  | datagram_offset_2 |  | 1-2 |
+|  |  | Header Extension Length |  | 2 |
+|  |  | Payload |  | 1-2 |
+|  |  | Checksum |  | 1 |
+|  |  | Header Extension |  | 2 |
+|  |  | Frame Check Sequence |  | 2 |
 |  | [E8] COMMAND_SEGMENT_COMPLETE |  |  | 2 |
-|  |  | SESSION_ID |  | 2 |
+|  |  | Session ID |  | 2 |
 |  | [F0] COMMAND_SEGMENT_WAIT |  |  | 2 |
-|  |  | PENDING_FRAGMENTS |  | 2 |
+|  |  | pending_fragments |  | 2 |
 | [56] COMMAND_CLASS_CRC_16_ENCAP |  |  |  | 1 |
 |  | [01] CRC_16_ENCAP |  |  | 1 |
-|  |  | COMMAND_CLASS |  | 1 |
-|  |  | COMMAND |  | 1 |
-|  |  | DATA |  | 1 |
-|  |  | CHECKSUM |  | 1 |
+|  |  | Command Class |  | 1 |
+|  |  | Command |  | 1 |
+|  |  | Data |  | 1 |
+|  |  | Checksum |  | 1 |
 | [57] COMMAND_CLASS_APPLICATION_CAPABILITY |  |  |  | 1 |
 |  | [01] COMMAND_COMMAND_CLASS_NOT_SUPPORTED |  |  | 1 |
-|  |  | DYNAMIC |  | 1 |
-|  |  | OFFENDING_COMMAND_CLASS |  | 1 |
-|  |  | OFFENDING_COMMAND |  | 1 |
+|  |  | Dynamic |  | 1 |
+|  |  | Offending Command Class |  | 1 |
+|  |  | Offending Command |  | 1 |
 | [58] COMMAND_CLASS_ZIP_ND |  |  |  | 1 |
 |  | [01] ZIP_NODE_ADVERTISEMENT |  |  | 1 |
-|  |  | VALIDITY |  | 1 |
+|  |  | Validity |  | 1 |
 |  |  |  | [00] INFORMATION_OK | 1 |
 |  |  |  | [01] INFORMATION_OBSOLETE | 1 |
 |  |  |  | [02] INFORMATION_NOT_FOUND | 1 |
-|  |  | LOCAL |  | 1 |
-|  |  | NODE_ID |  | 1 |
-|  |  | IPV6_ADDRESS |  | 1 |
-|  |  | HOME_ID |  | 1 |
+|  |  | Local |  | 1 |
+|  |  | Node ID |  | 1 |
+|  |  | IPv6 Address |  | 1 |
+|  |  | Home ID |  | 1 |
 |  | [03] ZIP_NODE_SOLICITATION |  |  | 1 |
-|  |  | NODE_ID |  | 1 |
-|  |  | IPV6_ADDRESS |  | 1 |
+|  |  | Node ID |  | 1 |
+|  |  | IPv6 Address |  | 1 |
 |  | [04] ZIP_INV_NODE_SOLICITATION |  |  | 1 |
-|  |  | LOCAL |  | 1 |
-|  |  | NODE_ID |  | 1 |
+|  |  | Local |  | 1 |
+|  |  | Node ID |  | 1 |
 | [59] COMMAND_CLASS_ASSOCIATION_GRP_INFO |  |  |  | 3 |
 |  | [01] ASSOCIATION_GROUP_NAME_GET |  |  | 1-3 |
-|  |  | GROUPING_IDENTIFIER |  | 1-3 |
+|  |  | Grouping Identifier |  | 1-3 |
 |  | [02] ASSOCIATION_GROUP_NAME_REPORT |  |  | 1-3 |
-|  |  | GROUPING_IDENTIFIER |  | 1-3 |
-|  |  | LENGTH_OF_NAME |  | 1-3 |
-|  |  | NAME |  | 1-3 |
+|  |  | Grouping Identifier |  | 1-3 |
+|  |  | Length of Name |  | 1-3 |
+|  |  | Name |  | 1-3 |
 |  | [03] ASSOCIATION_GROUP_INFO_GET |  |  | 1-3 |
-|  |  | LIST_MODE |  | 1-3 |
-|  |  | REFRESH_CACHE |  | 1-3 |
-|  |  | GROUPING_IDENTIFIER |  | 1-3 |
+|  |  | List Mode |  | 1-3 |
+|  |  | Refresh cache |  | 1-3 |
+|  |  | Grouping Identifier |  | 1-3 |
 |  | [04] ASSOCIATION_GROUP_INFO_REPORT |  |  | 1-3 |
-|  |  | GROUP_COUNT |  | 1-3 |
-|  |  | DYNAMIC_INFO |  | 1-3 |
-|  |  | LIST_MODE |  | 1-3 |
-|  |  | ASSOCIATION_GROUP_INFO |  | 1-3 |
+|  |  | Group Count |  | 1-3 |
+|  |  | Dynamic Info |  | 1-3 |
+|  |  | List mode |  | 1-3 |
+|  |  | Association Group Info |  | 1-3 |
 |  | [05] ASSOCIATION_GROUP_COMMAND_LIST_GET |  |  | 1-3 |
-|  |  | ALLOW_CACHE |  | 1-3 |
-|  |  | GROUPING_IDENTIFIER |  | 1-3 |
+|  |  | Allow cache |  | 1-3 |
+|  |  | Grouping Identifier |  | 1-3 |
 |  | [06] ASSOCIATION_GROUP_COMMAND_LIST_REPORT |  |  | 1-3 |
-|  |  | GROUPING_IDENTIFIER |  | 1-3 |
-|  |  | LIST_LENGTH |  | 1-3 |
-|  |  | COMMAND |  | 1-3 |
+|  |  | Grouping Identifier |  | 1-3 |
+|  |  | List Length |  | 1-3 |
+|  |  | Command |  | 1-3 |
 | [5A] COMMAND_CLASS_DEVICE_RESET_LOCALLY |  |  |  | 1 |
 |  | [01] DEVICE_RESET_LOCALLY_NOTIFICATION |  |  | 1 |
 | [5B] COMMAND_CLASS_CENTRAL_SCENE |  |  |  | 3 |
 |  | [01] CENTRAL_SCENE_SUPPORTED_GET |  |  | 1-3 |
 |  | [02] CENTRAL_SCENE_SUPPORTED_REPORT |  |  | 1-3 |
-|  |  | SUPPORTED_SCENES |  | 1-3 |
-|  |  | IDENTICAL |  | 2-3 |
-|  |  | NUMBER_OF_BIT_MASK_BYTES |  | 2-3 |
-|  |  | SLOW_REFRESH_SUPPORT |  | 3 |
-|  |  | SCENE_INFORMATION |  | 2-3 |
+|  |  | Supported Scenes |  | 1-3 |
+|  |  | Identical |  | 2-3 |
+|  |  | Number of Bit Mask Bytes |  | 2-3 |
+|  |  | Slow Refresh Support |  | 3 |
+|  |  | Scene Information |  | 2-3 |
 |  | [03] CENTRAL_SCENE_NOTIFICATION |  |  | 1-3 |
-|  |  | SEQUENCE_NUMBER |  | 1-3 |
-|  |  | KEY_ATTRIBUTES |  | 1-3 |
+|  |  | Sequence Number |  | 1-3 |
+|  |  | Key Attributes |  | 1-3 |
 |  |  |  | [00] KEY_PRESSED_1_TIME | 1-3 |
 |  |  |  | [01] KEY_RELEASED | 1-3 |
 |  |  |  | [02] KEY_HELD_DOWN | 1-3 |
@@ -2654,50 +2645,50 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [04] KEY_PRESSED_3_TIMES | 1-3 |
 |  |  |  | [05] KEY_PRESSED_4_TIMES | 1-3 |
 |  |  |  | [06] KEY_PRESSED_5_TIMES | 1-3 |
-|  |  | SLOW_REFRESH |  | 3 |
-|  |  | SCENE_NUMBER |  | 1-3 |
+|  |  | Slow Refresh |  | 3 |
+|  |  | Scene Number |  | 1-3 |
 |  | [04] CENTRAL_SCENE_CONFIGURATION_SET |  |  | 3 |
-|  |  | SLOW_REFRESH |  | 3 |
+|  |  | Slow Refresh |  | 3 |
 |  | [05] CENTRAL_SCENE_CONFIGURATION_GET |  |  | 3 |
 |  | [06] CENTRAL_SCENE_CONFIGURATION_REPORT |  |  | 3 |
-|  |  | SLOW_REFRESH |  | 3 |
+|  |  | Slow Refresh |  | 3 |
 | [5C] COMMAND_CLASS_IP_ASSOCIATION |  |  |  | 1 |
 |  | [01] IP_ASSOCIATION_SET |  |  | 1 |
-|  |  | GROUPING_IDENTIFIER |  | 1 |
-|  |  | IPV6_ADDRESS |  | 1 |
-|  |  | END_POINT |  | 1 |
+|  |  | Grouping Identifier |  | 1 |
+|  |  | IPv6 Address |  | 1 |
+|  |  | End Point |  | 1 |
 |  | [02] IP_ASSOCIATION_GET |  |  | 1 |
-|  |  | GROUPING_IDENTIFIER |  | 1 |
-|  |  | INDEX |  | 1 |
+|  |  | Grouping Identifier |  | 1 |
+|  |  | Index |  | 1 |
 |  | [03] IP_ASSOCIATION_REPORT |  |  | 1 |
-|  |  | GROUPING_IDENTIFIER |  | 1 |
-|  |  | INDEX |  | 1 |
-|  |  | ACTUAL_NODES |  | 1 |
-|  |  | IPV6_ADDRESS |  | 1 |
-|  |  | END_POINT |  | 1 |
+|  |  | Grouping Identifier |  | 1 |
+|  |  | Index |  | 1 |
+|  |  | Actual Nodes |  | 1 |
+|  |  | IPv6 Address |  | 1 |
+|  |  | End Point |  | 1 |
 |  | [04] IP_ASSOCIATION_REMOVE |  |  | 1 |
-|  |  | GROUPING_IDENTIFIER |  | 1 |
-|  |  | IPV6_ADDRESS |  | 1 |
-|  |  | END_POINT |  | 1 |
+|  |  | Grouping Identifier |  | 1 |
+|  |  | IPv6 Address |  | 1 |
+|  |  | End Point |  | 1 |
 | [5D] COMMAND_CLASS_ANTITHEFT |  |  |  | 2 |
 |  | [01] ANTITHEFT_SET |  |  | 1-2 |
-|  |  | NUMBER_OF_MAGIC_CODE_BYTES |  | 1-2 |
-|  |  | ENABLE |  | 1-2 |
-|  |  | MAGIC_CODE |  | 1-2 |
-|  |  | MANUFACTURER_ID |  | 1-2 |
-|  |  | ANTI_THEFT_HINT_NUMBER_BYTES |  | 1-2 |
-|  |  | ANTI_THEFT_HINT_BYTE |  | 1-2 |
+|  |  | Number of Magic Code bytes |  | 1-2 |
+|  |  | Enable |  | 1-2 |
+|  |  | Magic Code |  | 1-2 |
+|  |  | Manufacturer ID |  | 1-2 |
+|  |  | Anti-theft Hint Number Bytes |  | 1-2 |
+|  |  | Anti-theft Hint Byte |  | 1-2 |
 |  | [02] ANTITHEFT_GET |  |  | 1-2 |
 |  | [03] ANTITHEFT_REPORT |  |  | 1-2 |
-|  |  | ANTI_THEFT_PROTECTION_STATUS |  | 1-2 |
-|  |  | MANUFACTURER_ID |  | 1-2 |
-|  |  | ANTI_THEFT_HINT_NUMBER_BYTES |  | 1-2 |
-|  |  | ANTI_THEFT_HINT_BYTE |  | 1-2 |
+|  |  | Anti-theft Protection Status |  | 1-2 |
+|  |  | Manufacturer ID |  | 1-2 |
+|  |  | Anti-theft Hint Number Bytes |  | 1-2 |
+|  |  | Anti-theft Hint Byte |  | 1-2 |
 | [5E] COMMAND_CLASS_ZWAVEPLUS_INFO |  |  |  | 2 |
 |  | [01] ZWAVEPLUS_INFO_GET |  |  | 1-2 |
 |  | [02] ZWAVEPLUS_INFO_REPORT |  |  | 1-2 |
-|  |  | Z_WAVE_PLUS_VERSION |  | 1-2 |
-|  |  | ROLE_TYPE |  | 1-2 |
+|  |  | Z-Wave+ Version |  | 1-2 |
+|  |  | Role Type |  | 1-2 |
 |  |  |  | [00] ROLE_TYPE_CONTROLLER_CENTRAL_STATIC | 1-2 |
 |  |  |  | [01] ROLE_TYPE_CONTROLLER_SUB_STATIC | 1-2 |
 |  |  |  | [02] ROLE_TYPE_CONTROLLER_PORTABLE | 1-2 |
@@ -2706,139 +2697,133 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [05] ROLE_TYPE_SLAVE_ALWAYS_ON | 1-2 |
 |  |  |  | [06] ROLE_TYPE_SLAVE_SLEEPING_REPORTING | 1-2 |
 |  |  |  | [07] ROLE_TYPE_SLAVE_SLEEPING_LISTENING | 1-2 |
-|  |  | NODE_TYPE |  | 1-2 |
+|  |  | Node Type |  | 1-2 |
 |  |  |  | [00] NODE_TYPE_ZWAVEPLUS_NODE | 1-2 |
 |  |  |  | [01] NODE_TYPE_ZWAVEPLUS_FOR_IP_ROUTER | 1 |
 |  |  |  | [02] NODE_TYPE_ZWAVEPLUS_FOR_IP_GATEWAY | 1-2 |
 |  |  |  | [03] NODE_TYPE_ZWAVEPLUS_FOR_IP_CLIENT_IP_NODE | 1 |
 |  |  |  | [04] NODE_TYPE_ZWAVEPLUS_FOR_IP_CLIENT_ZWAVE_NODE | 1 |
-|  |  | INSTALLER_ICON_TYPE |  | 2 |
-|  |  | USER_ICON_TYPE |  | 2 |
+|  |  | Installer Icon Type |  | 2 |
+|  |  | User Icon Type |  | 2 |
 | [5F] COMMAND_CLASS_ZIP_GATEWAY |  |  |  | 1 |
 |  | [01] GATEWAY_MODE_SET |  |  | 1 |
-|  |  | MODE |  | 1 |
+|  |  | Mode |  | 1 |
 |  |  |  | [01] STAND_ALONE | 1 |
 |  |  |  | [02] PORTAL | 1 |
 |  | [02] GATEWAY_MODE_GET |  |  | 1 |
 |  | [03] GATEWAY_MODE_REPORT |  |  | 1 |
-|  |  | MODE |  | 1 |
+|  |  | Mode |  | 1 |
 |  |  |  | [01] STAND_ALONE | 1 |
 |  |  |  | [02] PORTAL | 1 |
 |  | [04] GATEWAY_PEER_SET |  |  | 1 |
-|  |  | PEER_PROFILE |  | 1 |
-|  |  | IPV6_ADDRESS |  | 1 |
-|  |  | PORT |  | 1 |
-|  |  | PEER_NAME_LENGTH |  | 1 |
-|  |  | PEER_NAME |  | 1 |
+|  |  | Peer Profile |  | 1 |
+|  |  | IPv6 Address |  | 1 |
+|  |  | Port |  | 1 |
+|  |  | Peer Name Length |  | 1 |
+|  |  | Peer Name |  | 1 |
 |  | [05] GATEWAY_PEER_GET |  |  | 1 |
-|  |  | PEER_PROFILE |  | 1 |
+|  |  | Peer Profile |  | 1 |
 |  | [06] GATEWAY_PEER_REPORT |  |  | 1 |
-|  |  | PEER_PROFILE |  | 1 |
-|  |  | PEER_COUNT |  | 1 |
-|  |  | IPV6_ADDRESS |  | 1 |
-|  |  | PORT |  | 1 |
-|  |  | PEER_NAME_LENGTH |  | 1 |
-|  |  | PEER_NAME |  | 1 |
+|  |  | Peer Profile |  | 1 |
+|  |  | Peer Count |  | 1 |
+|  |  | IPv6 Address |  | 1 |
+|  |  | Port |  | 1 |
+|  |  | Peer Name Length |  | 1 |
+|  |  | Peer Name |  | 1 |
 |  | [07] GATEWAY_LOCK_SET |  |  | 1 |
-|  |  | LOCK |  | 1 |
-|  |  | SHOW |  | 1 |
+|  |  | Lock |  | 1 |
+|  |  | Show |  | 1 |
 |  | [08] UNSOLICITED_DESTINATION_SET |  |  | 1 |
-|  |  | UNSOLICITED_IPV6_DESTINATION |  | 1 |
-|  |  | UNSOLICITED_DESTINATION_PORT |  | 1 |
+|  |  | Unsolicited IPv6 Destination |  | 1 |
+|  |  | Unsolicited Destination Port |  | 1 |
 |  | [09] UNSOLICITED_DESTINATION_GET |  |  | 1 |
 |  | [0A] UNSOLICITED_DESTINATION_REPORT |  |  | 1 |
-|  |  | UNSOLICITED_IPV6_DESTINATION |  | 1 |
-|  |  | UNSOLICITED_DESTINATION_PORT |  | 1 |
+|  |  | Unsolicited IPv6 Destination |  | 1 |
+|  |  | Unsolicited Destination Port |  | 1 |
 |  | [0B] COMMAND_APPLICATION_NODE_INFO_SET |  |  | 1 |
-|  |  | NON_SECURE_COMMAND_CLASS |  | 1 |
-|  |  | SECURITY_SCHEME_0_MARK |  | 1 |
-|  |  |  | [00] SECURITY_SCHEME_0_MARK | 1 |
-|  |  |  | [F1] SECURITY_SCHEME_0_MARK | 1 |
-|  |  | SECURITY_SCHEME_0_COMMAND_CLASS |  | 1 |
+|  |  | Non-Secure Command Class |  | 1 |
+|  |  | Security Scheme 0 Command Class |  | 1 |
 |  | [0C] COMMAND_APPLICATION_NODE_INFO_GET |  |  | 1 |
 |  | [0D] COMMAND_APPLICATION_NODE_INFO_REPORT |  |  | 1 |
-|  |  | NON_SECURE_COMMAND_CLASS |  | 1 |
-|  |  | SECURITY_SCHEME_0_MARK |  | 1 |
-|  |  |  | [00] SECURITY_SCHEME_0_MARK | 1 |
-|  |  |  | [F1] SECURITY_SCHEME_0_MARK | 1 |
-|  |  | SECURITY_SCHEME_0_COMMAND_CLASS |  | 1 |
-| [60] COMMAND_CLASS_MULTI_INSTANCE |  |  |  | 4 |
+|  |  | Non-Secure Command Class |  | 1 |
+|  |  | Security Scheme 0 Command Class |  | 1 |
+| [60] COMMAND_CLASS_MULTI_CHANNEL |  |  |  | 4 |
 |  | [04] MULTI_INSTANCE_GET |  |  | 1-4 |
-|  |  | COMMAND_CLASS |  | 1-4 |
+|  |  | Command Class |  | 1-4 |
 |  | [05] MULTI_INSTANCE_REPORT |  |  | 1-4 |
-|  |  | COMMAND_CLASS |  | 1-4 |
-|  |  | RES |  | 2-4 |
-|  |  | INSTANCES |  | 1-4 |
+|  |  | Command Class |  | 1-4 |
+|  |  | Res |  | 2-4 |
+|  |  | Instances |  | 1-4 |
 |  | [06] MULTI_INSTANCE_CMD_ENCAP |  |  | 1-4 |
-|  |  | RES |  | 2-4 |
-|  |  | INSTANCE |  | 1-4 |
-|  |  | COMMAND_CLASS |  | 1-4 |
-|  |  | COMMAND |  | 1-4 |
-|  |  | PARAMETER |  | 1-4 |
+|  |  | Res |  | 2-4 |
+|  |  | Instance |  | 1-4 |
+|  |  | Command Class |  | 1-4 |
+|  |  | Command |  | 1-4 |
+|  |  | Parameter |  | 1-4 |
 |  | [07] MULTI_CHANNEL_END_POINT_GET |  |  | 2-4 |
 |  | [08] MULTI_CHANNEL_END_POINT_REPORT |  |  | 2-4 |
-|  |  | RES1 |  | 2-4 |
-|  |  | IDENTICAL |  | 2-4 |
-|  |  | DYNAMIC |  | 2-4 |
-|  |  | END_POINTS |  | 2-3 |
-|  |  | INDIVIDUAL_END_POINTS |  | 4 |
-|  |  | RES2 |  | 2-4 |
-|  |  | AGGREGATED_END_POINTS |  | 4 |
-|  |  | RES3 |  | 4 |
+|  |  | Res1 |  | 2-4 |
+|  |  | Identical |  | 2-4 |
+|  |  | Dynamic |  | 2-4 |
+|  |  | End Points |  | 2-3 |
+|  |  | Individual End Points |  | 4 |
+|  |  | Res2 |  | 2-4 |
+|  |  | Aggregated End Points |  | 4 |
+|  |  | Res3 |  | 4 |
 |  | [09] MULTI_CHANNEL_CAPABILITY_GET |  |  | 2-4 |
-|  |  | END_POINT |  | 2-4 |
-|  |  | RES |  | 2-4 |
+|  |  | End Point |  | 2-4 |
+|  |  | Res |  | 2-4 |
 |  | [0A] MULTI_CHANNEL_CAPABILITY_REPORT |  |  | 2-4 |
-|  |  | END_POINT |  | 2-4 |
-|  |  | DYNAMIC |  | 2-4 |
-|  |  | GENERIC_DEVICE_CLASS |  | 2-4 |
-|  |  | SPECIFIC_DEVICE_CLASS |  | 2-4 |
-|  |  | COMMAND_CLASS |  | 2-4 |
+|  |  | End Point |  | 2-4 |
+|  |  | Dynamic |  | 2-4 |
+|  |  | Generic Device Class |  | 2-4 |
+|  |  | Specific Device Class |  | 2-4 |
+|  |  | Command Class |  | 2-4 |
 |  | [0B] MULTI_CHANNEL_END_POINT_FIND |  |  | 2-4 |
-|  |  | GENERIC_DEVICE_CLASS |  | 2-4 |
-|  |  | SPECIFIC_DEVICE_CLASS |  | 2-4 |
+|  |  | Generic Device Class |  | 2-4 |
+|  |  | Specific Device Class |  | 2-4 |
 |  | [0C] MULTI_CHANNEL_END_POINT_FIND_REPORT |  |  | 2-4 |
-|  |  | REPORTS_TO_FOLLOW |  | 2-4 |
-|  |  | GENERIC_DEVICE_CLASS |  | 2-4 |
-|  |  | SPECIFIC_DEVICE_CLASS |  | 2-4 |
-|  |  | ENDPOINT |  | 2-4 |
+|  |  | Reports to Follow |  | 2-4 |
+|  |  | Generic Device Class |  | 2-4 |
+|  |  | Specific Device Class |  | 2-4 |
+|  |  | Endpoint |  | 2-4 |
 |  | [0D] MULTI_CHANNEL_CMD_ENCAP |  |  | 2-4 |
-|  |  | SOURCE_END_POINT |  | 2-4 |
-|  |  | RES |  | 2-4 |
-|  |  | DESTINATION_END_POINT |  | 2-4 |
-|  |  | BIT_ADDRESS |  | 2-4 |
-|  |  | COMMAND_CLASS |  | 2-4 |
-|  |  | COMMAND |  | 2-4 |
-|  |  | PARAMETER |  | 2-4 |
+|  |  | Source End Point |  | 2-4 |
+|  |  | Res |  | 2-4 |
+|  |  | Destination End Point |  | 2-4 |
+|  |  | Bit address |  | 2-4 |
+|  |  | Command Class |  | 2-4 |
+|  |  | Command |  | 2-4 |
+|  |  | Parameter |  | 2-4 |
 |  | [0E] MULTI_CHANNEL_AGGREGATED_MEMBERS_GET |  |  | 4 |
-|  |  | AGGREGATED_END_POINT |  | 4 |
-|  |  | RES |  | 4 |
+|  |  | Aggregated End Point |  | 4 |
+|  |  | Res |  | 4 |
 |  | [0F] MULTI_CHANNEL_AGGREGATED_MEMBERS_REPORT |  |  | 4 |
-|  |  | AGGREGATED_END_POINT |  | 4 |
-|  |  | RES |  | 4 |
-|  |  | NUMBER_OF_BIT_MASKS |  | 4 |
-|  |  | AGGREGATED_MEMBERS_BIT_MASK |  | 4 |
+|  |  | Aggregated End Point |  | 4 |
+|  |  | Res |  | 4 |
+|  |  | Number of Bit Masks |  | 4 |
+|  |  | Aggregated Members Bit Mask |  | 4 |
 | [61] COMMAND_CLASS_ZIP_PORTAL |  |  |  | 1 |
 |  | [01] GATEWAY_CONFIGURATION_SET |  |  | 1 |
-|  |  | LAN_IPV6_ADDRESS |  | 1 |
-|  |  | LAN_IPV6_PREFIX_LENGTH |  | 1 |
-|  |  | PORTAL_IPV6_PREFIX |  | 1 |
-|  |  | PORTAL_IPV6_PREFIX_LENGTH |  | 1 |
-|  |  | DEFAULT_GATEWAY_IPV6_ADDRESS |  | 1 |
-|  |  | PAN_IPV6_PREFIX |  | 1 |
+|  |  | LAN IPv6 Address |  | 1 |
+|  |  | LAN IPv6 Prefix Length |  | 1 |
+|  |  | Portal IPv6 Prefix |  | 1 |
+|  |  | Portal IPv6 Prefix Length |  | 1 |
+|  |  | Default Gateway IPv6 Address |  | 1 |
+|  |  | PAN IPv6 Prefix |  | 1 |
 |  | [02] GATEWAY_CONFIGURATION_STATUS |  |  | 1 |
-|  |  | STATUS |  | 1 |
+|  |  | Status |  | 1 |
 |  | [03] GATEWAY_CONFIGURATION_GET |  |  | 1 |
 |  | [04] GATEWAY_CONFIGURATION_REPORT |  |  | 1 |
-|  |  | LAN_IPV6_ADDRESS |  | 1 |
-|  |  | LAN_IPV6_PREFIX_LENGTH |  | 1 |
-|  |  | PORTAL_IPV6_PREFIX |  | 1 |
-|  |  | PORTAL_IPV6_PREFIX_LENGTH |  | 1 |
-|  |  | DEFAULT_GATEWAY_IPV6_ADDRESS |  | 1 |
-|  |  | PAN_IPV6_PREFIX |  | 1 |
+|  |  | LAN IPv6 Address |  | 1 |
+|  |  | LAN IPv6 Prefix Length |  | 1 |
+|  |  | Portal IPv6 Prefix |  | 1 |
+|  |  | Portal IPv6 Prefix Length |  | 1 |
+|  |  | Default Gateway IPv6 Address |  | 1 |
+|  |  | PAN IPv6 Prefix |  | 1 |
 | [62] COMMAND_CLASS_DOOR_LOCK |  |  |  | 3 |
 |  | [01] DOOR_LOCK_OPERATION_SET |  |  | 1-3 |
-|  |  | DOOR_LOCK_MODE |  | 1-3 |
+|  |  | Door Lock Mode |  | 1-3 |
 |  |  |  | [00] DOOR_UNSECURED | 1-3 |
 |  |  |  | [01] DOOR_UNSECURED_WITH_TIMEOUT | 1-3 |
 |  |  |  | [10] DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES | 1-3 |
@@ -2849,7 +2834,7 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [FF] DOOR_SECURED | 1-3 |
 |  | [02] DOOR_LOCK_OPERATION_GET |  |  | 1-3 |
 |  | [03] DOOR_LOCK_OPERATION_REPORT |  |  | 1-3 |
-|  |  | DOOR_LOCK_MODE |  | 1-3 |
+|  |  | Door Lock Mode |  | 1-3 |
 |  |  |  | [00] DOOR_UNSECURED | 1-3 |
 |  |  |  | [01] DOOR_UNSECURED_WITH_TIMEOUT | 1-3 |
 |  |  |  | [10] DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES | 1-3 |
@@ -2858,12 +2843,12 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [21] DOOR_UNSECURED_FOR_OUTSIDE_DOOR_HANDLES_WITH_TIMEOUT | 1-3 |
 |  |  |  | [FE] DOOR_LOCK_STATE_UNKNOWN | 2-3 |
 |  |  |  | [FF] DOOR_SECURED | 1-3 |
-|  |  | INSIDE_DOOR_HANDLES_MODE |  | 1-3 |
-|  |  | OUTSIDE_DOOR_HANDLES_MODE |  | 1-3 |
-|  |  | DOOR_CONDITION |  | 1-3 |
-|  |  | LOCK_TIMEOUT_MINUTES |  | 1-3 |
-|  |  | LOCK_TIMEOUT_SECONDS |  | 1-3 |
-|  |  | TARGET_DOOR_LOCK_MODE |  | 3 |
+|  |  | Inside Door Handles Mode |  | 1-3 |
+|  |  | Outside Door Handles Mode |  | 1-3 |
+|  |  | Door Condition |  | 1-3 |
+|  |  | Lock Timeout Minutes |  | 1-3 |
+|  |  | Lock Timeout Seconds |  | 1-3 |
+|  |  | Target Door Lock Mode |  | 3 |
 |  |  |  | [00] DOOR_UNSECURED | 3 |
 |  |  |  | [01] DOOR_UNSECURED_WITH_TIMEOUT | 3 |
 |  |  |  | [10] DOOR_UNSECURED_FOR_INSIDE_DOOR_HANDLES | 3 |
@@ -2872,132 +2857,132 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [21] DOOR_UNSECURED_FOR_OUTSIDE_DOOR_HANDLES_WITH_TIMEOUT | 3 |
 |  |  |  | [FE] DOOR_LOCK_STATE_UNKNOWN | 3 |
 |  |  |  | [FF] DOOR_SECURED | 3 |
-|  |  | DURATION |  | 3 |
+|  |  | Duration |  | 3 |
 |  |  |  | [00] ALREADY_AT_THE_TARGET_VALUE | 3 |
 |  |  |  | [FE] UNKNOWN_DURATION | 3 |
 |  | [04] DOOR_LOCK_CONFIGURATION_SET |  |  | 1-3 |
-|  |  | OPERATION_TYPE |  | 1-3 |
+|  |  | Operation Type |  | 1-3 |
 |  |  |  | [01] CONSTANT_OPERATION | 1-3 |
 |  |  |  | [02] TIMED_OPERATION | 1-3 |
-|  |  | INSIDE_DOOR_HANDLES_STATE |  | 1-3 |
-|  |  | OUTSIDE_DOOR_HANDLES_STATE |  | 1-3 |
-|  |  | LOCK_TIMEOUT_MINUTES |  | 1-3 |
-|  |  | LOCK_TIMEOUT_SECONDS |  | 1-3 |
+|  |  | Inside Door Handles State |  | 1-3 |
+|  |  | Outside Door Handles State |  | 1-3 |
+|  |  | Lock Timeout Minutes |  | 1-3 |
+|  |  | Lock Timeout Seconds |  | 1-3 |
 |  | [05] DOOR_LOCK_CONFIGURATION_GET |  |  | 1-3 |
 |  | [06] DOOR_LOCK_CONFIGURATION_REPORT |  |  | 1-3 |
-|  |  | OPERATION_TYPE |  | 1-3 |
+|  |  | Operation Type |  | 1-3 |
 |  |  |  | [01] CONSTANT_OPERATION | 1-3 |
 |  |  |  | [02] TIMED_OPERATION | 1-3 |
-|  |  | INSIDE_DOOR_HANDLES_STATE |  | 1-3 |
-|  |  | OUTSIDE_DOOR_HANDLES_STATE |  | 1-3 |
-|  |  | LOCK_TIMEOUT_MINUTES |  | 1-3 |
-|  |  | LOCK_TIMEOUT_SECONDS |  | 1-3 |
+|  |  | Inside Door Handles State |  | 1-3 |
+|  |  | Outside Door Handles State |  | 1-3 |
+|  |  | Lock Timeout Minutes |  | 1-3 |
+|  |  | Lock Timeout Seconds |  | 1-3 |
 | [63] COMMAND_CLASS_USER_CODE |  |  |  | 1 |
 |  | [01] USER_CODE_SET |  |  | 1 |
-|  |  | USER_IDENTIFIER |  | 1 |
-|  |  | USER_ID_STATUS |  | 1 |
+|  |  | User Identifier |  | 1 |
+|  |  | User ID Status |  | 1 |
 |  |  |  | [00] AVAILABLE | 1 |
 |  |  |  | [01] OCCUPIED | 1 |
 |  |  |  | [FE] STATUS_NOT_AVAILABLE | 1 |
 |  |  | USER_CODE |  | 1 |
 |  | [02] USER_CODE_GET |  |  | 1 |
-|  |  | USER_IDENTIFIER |  | 1 |
+|  |  | User Identifier |  | 1 |
 |  | [03] USER_CODE_REPORT |  |  | 1 |
-|  |  | USER_IDENTIFIER |  | 1 |
-|  |  | USER_ID_STATUS |  | 1 |
+|  |  | User Identifier |  | 1 |
+|  |  | User ID Status |  | 1 |
 |  |  |  | [00] AVAILABLE | 1 |
 |  |  |  | [01] OCCUPIED | 1 |
 |  |  |  | [FE] STATUS_NOT_AVAILABLE | 1 |
 |  |  | USER_CODE |  | 1 |
 |  | [04] USERS_NUMBER_GET |  |  | 1 |
 |  | [05] USERS_NUMBER_REPORT |  |  | 1 |
-|  |  | SUPPORTED_USERS |  | 1 |
+|  |  | Supported Users |  | 1 |
 | [64] COMMAND_CLASS_HUMIDITY_CONTROL_SETPOINT |  |  |  | 1 |
 |  | [01] HUMIDITY_CONTROL_SETPOINT_SET |  |  | 1 |
-|  |  | SETPOINT_TYPE |  | 1 |
+|  |  | Setpoint Type |  | 1 |
 |  |  |  | [00] HUMIDIFIER | 1 |
 |  |  |  | [01] DEHUMIDIFIER | 1 |
-|  |  | SIZE |  | 1 |
-|  |  | SCALE |  | 1 |
+|  |  | Size |  | 1 |
+|  |  | Scale |  | 1 |
 |  |  |  | [00] PERCENTAGE | 1 |
 |  |  |  | [01] ABSOLUTE | 1 |
-|  |  | PRECISION |  | 1 |
-|  |  | VALUE |  | 1 |
+|  |  | Precision |  | 1 |
+|  |  | Value |  | 1 |
 |  | [02] HUMIDITY_CONTROL_SETPOINT_GET |  |  | 1 |
-|  |  | SETPOINT_TYPE |  | 1 |
+|  |  | Setpoint Type |  | 1 |
 |  |  |  | [00] HUMIDIFIER | 1 |
 |  |  |  | [01] DEHUMIDIFIER | 1 |
 |  | [03] HUMIDITY_CONTROL_SETPOINT_REPORT |  |  | 1 |
-|  |  | SETPOINT_TYPE |  | 1 |
+|  |  | Setpoint Type |  | 1 |
 |  |  |  | [00] HUMIDIFIER | 1 |
 |  |  |  | [01] DEHUMIDIFIER | 1 |
-|  |  | SIZE |  | 1 |
-|  |  | SCALE |  | 1 |
+|  |  | Size |  | 1 |
+|  |  | Scale |  | 1 |
 |  |  |  | [00] PERCENTAGE | 1 |
 |  |  |  | [01] ABSOLUTE | 1 |
-|  |  | PRECISION |  | 1 |
-|  |  | VALUE |  | 1 |
+|  |  | Precision |  | 1 |
+|  |  | Value |  | 1 |
 |  | [04] HUMIDITY_CONTROL_SETPOINT_SUPPORTED_GET |  |  | 1 |
 |  | [05] HUMIDITY_CONTROL_SETPOINT_SUPPORTED_REPORT |  |  | 1 |
-|  |  | BIT_MASK |  | 1 |
+|  |  | Bit Mask |  | 1 |
 |  |  |  | [01] HUMIDIFIER | 1 |
 |  |  |  | [02] DEHUMIDIFIER | 1 |
 |  | [06] HUMIDITY_CONTROL_SETPOINT_SCALE_SUPPORTED_GET |  |  | 1 |
-|  |  | SETPOINT_TYPE |  | 1 |
+|  |  | Setpoint Type |  | 1 |
 |  |  |  | [00] HUMIDIFIER | 1 |
 |  |  |  | [01] DEHUMIDIFIER | 1 |
 |  | [07] HUMIDITY_CONTROL_SETPOINT_SCALE_SUPPORTED_REPORT |  |  | 1 |
-|  |  | SCALE_BIT_MASK |  | 1 |
+|  |  | Scale Bit Mask |  | 1 |
 |  |  |  | [00] PERCENTAGE | 1 |
 |  |  |  | [01] ABSOLUTE | 1 |
 |  | [08] HUMIDITY_CONTROL_SETPOINT_CAPABILITIES_GET |  |  | 1 |
-|  |  | SETPOINT_TYPE |  | 1 |
+|  |  | Setpoint Type |  | 1 |
 |  |  |  | [00] HUMIDIFIER | 1 |
 |  |  |  | [01] DEHUMIDIFIER | 1 |
 |  | [09] HUMIDITY_CONTROL_SETPOINT_CAPABILITIES_REPORT |  |  | 1 |
-|  |  | SETPOINT_TYPE |  | 1 |
+|  |  | Setpoint Type |  | 1 |
 |  |  |  | [00] HUMIDIFIER | 1 |
 |  |  |  | [01] DEHUMIDIFIER | 1 |
-|  |  | SIZE1 |  | 1 |
-|  |  | SCALE1 |  | 1 |
+|  |  | Size1 |  | 1 |
+|  |  | Scale1 |  | 1 |
 |  |  |  | [00] PERCENTAGE | 1 |
 |  |  |  | [01] ABSOLUTE | 1 |
-|  |  | PRECISION1 |  | 1 |
-|  |  | MINIMUM_VALUE |  | 1 |
-|  |  | SIZE2 |  | 1 |
-|  |  | SCALE2 |  | 1 |
+|  |  | Precision1 |  | 1 |
+|  |  | Minimum Value |  | 1 |
+|  |  | Size2 |  | 1 |
+|  |  | Scale2 |  | 1 |
 |  |  |  | [00] PERCENTAGE | 1 |
 |  |  |  | [01] ABSOLUTE | 1 |
-|  |  | PRECISION2 |  | 1 |
-|  |  | MAXIMUM_VALUE |  | 1 |
+|  |  | Precision2 |  | 1 |
+|  |  | Maximum Value |  | 1 |
 | [65] COMMAND_CLASS_DMX |  |  |  | 1 |
 |  | [01] DMX_ADDRESS_SET |  |  | 1 |
-|  |  | PAGE_ID |  | 1 |
-|  |  | CHANNEL_ID |  | 1 |
+|  |  | Page ID |  | 1 |
+|  |  | Channel ID |  | 1 |
 |  | [02] DMX_ADDRESS_GET |  |  | 1 |
 |  | [03] DMX_ADDRESS_REPORT |  |  | 1 |
-|  |  | PAGE_ID |  | 1 |
-|  |  | CHANNEL_ID |  | 1 |
+|  |  | Page ID |  | 1 |
+|  |  | Channel ID |  | 1 |
 |  | [04] DMX_CAPABILITY_GET |  |  | 1 |
-|  |  | CHANNEL_ID |  | 1 |
+|  |  | Channel ID |  | 1 |
 |  | [05] DMX_CAPABILITY_REPORT |  |  | 1 |
-|  |  | CHANNEL_ID |  | 1 |
-|  |  | PROPERTY_ID |  | 1 |
-|  |  | DEVICE_CHANNELS |  | 1 |
-|  |  | MAX_CHANNELS |  | 1 |
+|  |  | Channel ID |  | 1 |
+|  |  | Property ID |  | 1 |
+|  |  | Device Channels |  | 1 |
+|  |  | Max Channels |  | 1 |
 |  | [06] DMX_DATA |  |  | 1 |
-|  |  | SOURCE |  | 1 |
-|  |  | PAGE |  | 1 |
-|  |  | SEQUENCE_NO |  | 1 |
-|  |  | DMX_CHANNEL |  | 1 |
+|  |  | Source |  | 1 |
+|  |  | Page |  | 1 |
+|  |  | Sequence No |  | 1 |
+|  |  | DMX channel |  | 1 |
 | [66] COMMAND_CLASS_BARRIER_OPERATOR |  |  |  | 1 |
 |  | [01] BARRIER_OPERATOR_SET |  |  | 1 |
-|  |  | TARGET_VALUE |  | 1 |
+|  |  | Target Value |  | 1 |
 |  |  |  | [00] CLOSE | 1 |
 |  |  |  | [FF] OPEN | 1 |
 |  | [02] BARRIER_OPERATOR_GET |  |  | 1 |
 |  | [03] BARRIER_OPERATOR_REPORT |  |  | 1 |
-|  |  | STATE |  | 1 |
+|  |  | State |  | 1 |
 |  |  |  | [00] CLOSED | 1 |
 |  |  |  | [FC] CLOSING | 1 |
 |  |  |  | [FD] STOPPED | 1 |
@@ -3005,94 +2990,94 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [FF] OPEN | 1 |
 |  | [04] BARRIER_OPERATOR_SIGNAL_SUPPORTED_GET |  |  | 1 |
 |  | [05] BARRIER_OPERATOR_SIGNAL_SUPPORTED_REPORT |  |  | 1 |
-|  |  | BIT_MASK |  | 1 |
+|  |  | Bit Mask |  | 1 |
 |  |  |  | [00] NOT_SUPPORTED | 1 |
 |  |  |  | [01] AUDIBLE_NOTIFICATION | 1 |
 |  |  |  | [02] VISUAL_NOTIFICATION | 1 |
 |  | [06] BARRIER_OPERATOR_SIGNAL_SET |  |  | 1 |
-|  |  | SUBSYSTEM_TYPE |  | 1 |
+|  |  | Subsystem Type |  | 1 |
 |  |  |  | [00] NOT_SUPPORTED | 1 |
 |  |  |  | [01] AUDIBLE_NOTIFICATION | 1 |
 |  |  |  | [02] VISUAL_NOTIFICATION | 1 |
-|  |  | SUBSYSTEM_STATE |  | 1 |
+|  |  | Subsystem State |  | 1 |
 |  |  |  | [00] OFF | 1 |
 |  |  |  | [FF] ON | 1 |
 |  | [07] BARRIER_OPERATOR_SIGNAL_GET |  |  | 1 |
-|  |  | SUBSYSTEM_TYPE |  | 1 |
+|  |  | Subsystem Type |  | 1 |
 |  |  |  | [00] NOT_SUPPORTED | 1 |
 |  |  |  | [01] AUDIBLE_NOTIFICATION | 1 |
 |  |  |  | [02] VISUAL_NOTIFICATION | 1 |
 |  | [08] BARRIER_OPERATOR_SIGNAL_REPORT |  |  | 1 |
-|  |  | SUBSYSTEM_TYPE |  | 1 |
+|  |  | Subsystem Type |  | 1 |
 |  |  |  | [00] NOT_SUPPORTED | 1 |
 |  |  |  | [01] AUDIBLE_NOTIFICATION | 1 |
 |  |  |  | [02] VISUAL_NOTIFICATION | 1 |
-|  |  | SUBSYSTEM_STATE |  | 1 |
+|  |  | Subsystem State |  | 1 |
 |  |  |  | [00] OFF | 1 |
 |  |  |  | [FF] ON | 1 |
 | [67] COMMAND_CLASS_NETWORK_MANAGEMENT_INSTALLATION_MAINTENANCE |  |  |  | 1 |
 |  | [01] LAST_WORKING_ROUTE_SET |  |  | 1 |
-|  |  | NODEID |  | 1 |
-|  |  | REPEATER_1 |  | 1 |
-|  |  | REPEATER_2 |  | 1 |
-|  |  | REPEATER_3 |  | 1 |
-|  |  | REPEATER_4 |  | 1 |
-|  |  | SPEED |  | 1 |
+|  |  | NodeID |  | 1 |
+|  |  | Repeater 1 |  | 1 |
+|  |  | Repeater 2 |  | 1 |
+|  |  | Repeater 3 |  | 1 |
+|  |  | Repeater 4 |  | 1 |
+|  |  | Speed |  | 1 |
 |  |  |  | [01] 9_6_KBIT_SEC | 1 |
 |  |  |  | [02] 40_KBIT_SEC | 1 |
 |  |  |  | [03] 100_KBIT_SEC | 1 |
 |  | [02] LAST_WORKING_ROUTE_GET |  |  | 1 |
-|  |  | NODEID |  | 1 |
+|  |  | NodeID |  | 1 |
 |  | [03] LAST_WORKING_ROUTE_REPORT |  |  | 1 |
-|  |  | NODEID |  | 1 |
-|  |  | REPEATER_1 |  | 1 |
-|  |  | REPEATER_2 |  | 1 |
-|  |  | REPEATER_3 |  | 1 |
-|  |  | REPEATER_4 |  | 1 |
-|  |  | SPEED |  | 1 |
+|  |  | NodeID |  | 1 |
+|  |  | Repeater 1 |  | 1 |
+|  |  | Repeater 2 |  | 1 |
+|  |  | Repeater 3 |  | 1 |
+|  |  | Repeater 4 |  | 1 |
+|  |  | Speed |  | 1 |
 |  |  |  | [01] 9_6_KBIT_SEC | 1 |
 |  |  |  | [02] 40_KBIT_SEC | 1 |
 |  |  |  | [03] 100_KBIT_SEC | 1 |
 |  | [04] STATISTICS_GET |  |  | 1 |
-|  |  | NODEID |  | 1 |
+|  |  | NodeID |  | 1 |
 |  | [05] STATISTICS_REPORT |  |  | 1 |
-|  |  | NODEID |  | 1 |
-|  |  | STATISTICS |  | 1 |
+|  |  | NodeID |  | 1 |
+|  |  | Statistics |  | 1 |
 |  | [06] STATISTICS_CLEAR |  |  | 1 |
 | [68] COMMAND_CLASS_ZIP_NAMING |  |  |  | 1 |
 |  | [01] ZIP_NAMING_NAME_SET |  |  | 1 |
-|  |  | NAME |  | 1 |
+|  |  | Name |  | 1 |
 |  | [02] ZIP_NAMING_NAME_GET |  |  | 1 |
 |  | [03] ZIP_NAMING_NAME_REPORT |  |  | 1 |
-|  |  | NAME |  | 1 |
+|  |  | Name |  | 1 |
 |  | [04] ZIP_NAMING_LOCATION_SET |  |  | 1 |
-|  |  | LOCATION |  | 1 |
+|  |  | Location |  | 1 |
 |  | [05] ZIP_NAMING_LOCATION_GET |  |  | 1 |
 |  | [06] ZIP_NAMING_LOCATION_REPORT |  |  | 1 |
-|  |  | LOCATION |  | 1 |
+|  |  | Location |  | 1 |
 | [69] COMMAND_CLASS_MAILBOX |  |  |  | 1 |
 |  | [01] MAILBOX_CONFIGURATION_GET |  |  | 1 |
 |  | [02] MAILBOX_CONFIGURATION_SET |  |  | 1 |
-|  |  | MODE |  | 1 |
+|  |  | Mode |  | 1 |
 |  |  |  | [00] DISABLE | 1 |
 |  |  |  | [01] ENABLE_MAILBOX_SERVICE | 1 |
 |  |  |  | [02] ENABLE_MAILBOX_PROXY | 1 |
-|  |  | FORWARDING_DESTINATION_IPV6_ADDRESS |  | 1 |
-|  |  | UDP_PORT_NUMBER |  | 1 |
+|  |  | Forwarding Destination IPv6 Address |  | 1 |
+|  |  | UDP Port Number |  | 1 |
 |  | [03] MAILBOX_CONFIGURATION_REPORT |  |  | 1 |
-|  |  | MODE |  | 1 |
+|  |  | Mode |  | 1 |
 |  |  |  | [00] DISABLE | 1 |
 |  |  |  | [01] ENABLE_MAILBOX_SERVICE | 1 |
 |  |  |  | [02] ENABLE_MAILBOX_PROXY | 1 |
-|  |  | SUPPORTED_MODES |  | 1 |
+|  |  | Supported Modes |  | 1 |
 |  |  |  | [00] MAILBOX_SERVICE_SUPPORTED | 1 |
 |  |  |  | [01] MAILBOX_PROXY_SUPPORTED | 1 |
-|  |  | MAILBOX_CAPACITY |  | 1 |
-|  |  | FORWARDING_DESTINATION_IPV6_ADDRESS |  | 1 |
-|  |  | UDP_PORT_NUMBER |  | 1 |
+|  |  | Mailbox Capacity |  | 1 |
+|  |  | Forwarding Destination IPv6 Address |  | 1 |
+|  |  | UDP Port Number |  | 1 |
 |  | [04] MAILBOX_QUEUE |  |  | 1 |
-|  |  | SEQUENCE_NUMBER |  | 1 |
-|  |  | MODE |  | 1 |
+|  |  | Sequence Number |  | 1 |
+|  |  | Mode |  | 1 |
 |  |  |  | [00] PUSH | 1 |
 |  |  |  | [01] POP | 1 |
 |  |  |  | [02] WAITING | 1 |
@@ -3100,20 +3085,20 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [04] ACK | 1 |
 |  |  |  | [05] NACK | 1 |
 |  |  |  | [06] QUEUE_FULL | 1 |
-|  |  | LAST |  | 1 |
-|  |  | QUEUE_HANDLE |  | 1 |
-|  |  | MAILBOX_ENTRY |  | 1 |
+|  |  | Last |  | 1 |
+|  |  | Queue Handle |  | 1 |
+|  |  | Mailbox Entry |  | 1 |
 |  | [05] MAILBOX_WAKEUP_NOTIFICATION |  |  | 1 |
-|  |  | QUEUE_HANDLE |  | 1 |
+|  |  | Queue Handle |  | 1 |
 |  | [06] MAILBOX_NODE_FAILING |  |  | 1 |
-|  |  | QUEUE_HANDLE |  | 1 |
+|  |  | Queue Handle |  | 1 |
 | [6A] COMMAND_CLASS_WINDOW_COVERING |  |  |  | 1 |
 |  | [01] WINDOW_COVERING_SUPPORTED_GET |  |  | 1 |
 |  | [02] WINDOW_COVERING_SUPPORTED_REPORT |  |  | 1 |
-|  |  | NUMBER_OF_PARAMETER_MASK_BYTES |  | 1 |
-|  |  | PARAMETER_MASK |  | 1 |
+|  |  | Number of Parameter Mask bytes |  | 1 |
+|  |  | Parameter Mask |  | 1 |
 |  | [03] WINDOW_COVERING_GET |  |  | 1 |
-|  |  | PARAMETER_ID |  | 1 |
+|  |  | Parameter ID |  | 1 |
 |  |  |  | [00] OUT_LEFT_1 | 1 |
 |  |  |  | [01] OUT_LEFT_2 | 1 |
 |  |  |  | [02] OUT_RIGHT_1 | 1 |
@@ -3138,7 +3123,7 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [15] HORIZONTAL_SLATS_ANGLE_1 | 1 |
 |  |  |  | [16] HORIZONTAL_SLATS_ANGLE_2 | 1 |
 |  | [04] WINDOW_COVERING_REPORT |  |  | 1 |
-|  |  | PARAMETER_ID |  | 1 |
+|  |  | Parameter ID |  | 1 |
 |  |  |  | [00] OUT_LEFT_1 | 1 |
 |  |  |  | [01] OUT_LEFT_2 | 1 |
 |  |  |  | [02] OUT_RIGHT_1 | 1 |
@@ -3162,18 +3147,18 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [14] IN_TOP_BOTTOM_2 | 1 |
 |  |  |  | [15] HORIZONTAL_SLATS_ANGLE_1 | 1 |
 |  |  |  | [16] HORIZONTAL_SLATS_ANGLE_2 | 1 |
-|  |  | CURRENT_VALUE |  | 1 |
-|  |  | TARGET_VALUE |  | 1 |
-|  |  | DURATION |  | 1 |
+|  |  | Current Value |  | 1 |
+|  |  | Target Value |  | 1 |
+|  |  | Duration |  | 1 |
 |  | [05] WINDOW_COVERING_SET |  |  | 1 |
-|  |  | PARAMETER_COUNT |  | 1 |
-|  |  | WINDOW_COVERING |  | 1 |
-|  |  | DURATION |  | 1 |
+|  |  | Parameter Count |  | 1 |
+|  |  | Window Covering |  | 1 |
+|  |  | Duration |  | 1 |
 |  | [06] WINDOW_COVERING_START_LEVEL_CHANGE |  |  | 1 |
-|  |  | RES1 |  | 1 |
-|  |  | UP_DOWN |  | 1 |
-|  |  | RES2 |  | 1 |
-|  |  | PARAMETER_ID |  | 1 |
+|  |  | Res1 |  | 1 |
+|  |  | Up Down |  | 1 |
+|  |  | Res2 |  | 1 |
+|  |  | Parameter ID |  | 1 |
 |  |  |  | [00] OUT_LEFT_1 | 1 |
 |  |  |  | [01] OUT_LEFT_2 | 1 |
 |  |  |  | [02] OUT_RIGHT_1 | 1 |
@@ -3197,9 +3182,9 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [14] IN_TOP_BOTTOM_2 | 1 |
 |  |  |  | [15] HORIZONTAL_SLATS_ANGLE_1 | 1 |
 |  |  |  | [16] HORIZONTAL_SLATS_ANGLE_2 | 1 |
-|  |  | DURATION |  | 1 |
+|  |  | Duration |  | 1 |
 |  | [07] WINDOW_COVERING_STOP_LEVEL_CHANGE |  |  | 1 |
-|  |  | PARAMETER_ID |  | 1 |
+|  |  | Parameter ID |  | 1 |
 |  |  |  | [00] OUT_LEFT_1 | 1 |
 |  |  |  | [01] OUT_LEFT_2 | 1 |
 |  |  |  | [02] OUT_RIGHT_1 | 1 |
@@ -3226,73 +3211,73 @@ different size or mask for example.  If you find error, please report them.
 | [6B] COMMAND_CLASS_IRRIGATION |  |  |  | 1 |
 |  | [01] IRRIGATION_SYSTEM_INFO_GET |  |  | 1 |
 |  | [02] IRRIGATION_SYSTEM_INFO_REPORT |  |  | 1 |
-|  |  | MASTER_VALVE |  | 1 |
-|  |  | TOTAL_NUMBER_OF_VALVES |  | 1 |
-|  |  | TOTAL_NUMBER_OF_VALVE_TABLES |  | 1 |
-|  |  | VALVE_TABLE_MAX_SIZE |  | 1 |
+|  |  | Master Valve |  | 1 |
+|  |  | Total Number of Valves |  | 1 |
+|  |  | Total Number of Valve Tables |  | 1 |
+|  |  | Valve Table Max Size |  | 1 |
 |  | [03] IRRIGATION_SYSTEM_STATUS_GET |  |  | 1 |
 |  | [04] IRRIGATION_SYSTEM_STATUS_REPORT |  |  | 1 |
-|  |  | SYSTEM_VOLTAGE |  | 1 |
-|  |  | SENSOR_STATUS |  | 1 |
+|  |  | System Voltage |  | 1 |
+|  |  | Sensor Status |  | 1 |
 |  |  |  | [00] FLOW_SENSOR_DETECTED | 1 |
 |  |  |  | [01] PRESSURE_SENSOR_DETECTED | 1 |
 |  |  |  | [02] RAIN_SENSOR_DETECTED | 1 |
 |  |  |  | [03] MOISTURE_SENSOR_DETECTED | 1 |
-|  |  | FLOW_SIZE |  | 1 |
-|  |  | FLOW_SCALE |  | 1 |
-|  |  | FLOW_PRECISION |  | 1 |
-|  |  | FLOW_VALUE |  | 1 |
-|  |  | PRESSURE_SIZE |  | 1 |
-|  |  | PRESSURE_SCALE |  | 1 |
-|  |  | PRESSURE_PRECISION |  | 1 |
-|  |  | PRESSURE_VALUE |  | 1 |
-|  |  | SHUTOFF_DURATION |  | 1 |
-|  |  | SYSTEM_ERROR_STATUS |  | 1 |
+|  |  | Flow Size |  | 1 |
+|  |  | Flow Scale |  | 1 |
+|  |  | Flow Precision |  | 1 |
+|  |  | Flow Value |  | 1 |
+|  |  | Pressure Size |  | 1 |
+|  |  | Pressure Scale |  | 1 |
+|  |  | Pressure Precision |  | 1 |
+|  |  | Pressure Value |  | 1 |
+|  |  | Shutoff Duration |  | 1 |
+|  |  | System Error Status |  | 1 |
 |  |  |  | [00] NOT_PROGRAMMED | 1 |
 |  |  |  | [01] EMERGENCY_SHUTDOWN | 1 |
 |  |  |  | [02] HIGH_THRESHOLD_TRIGGERED | 1 |
 |  |  |  | [03] LOW_THRESHOLD_TRIGGERED | 1 |
 |  |  |  | [04] VALVE_ERRORS | 1 |
-|  |  | MASTER_VALVE |  | 1 |
-|  |  | VALVE_ID |  | 1 |
+|  |  | Master Valve |  | 1 |
+|  |  | Valve ID |  | 1 |
 |  | [05] IRRIGATION_SYSTEM_CONFIG_SET |  |  | 1 |
-|  |  | MASTER_VALVE_DELAY |  | 1 |
-|  |  | HIGH_PRESSURE_THRESHOLD_SIZE |  | 1 |
-|  |  | HIGH_PRESSURE_THRESHOLD_SCALE |  | 1 |
-|  |  | HIGH_PRESSURE_THRESHOLD_PRECISION |  | 1 |
-|  |  | HIGH_PRESSURE_THRESHOLD_VALUE |  | 1 |
-|  |  | LOW_PRESSURE_THRESHOLD_SIZE |  | 1 |
-|  |  | LOW_PRESSURE_THRESHOLD_SCALE |  | 1 |
-|  |  | LOW_PRESSURE_THRESHOLD_PRECISION |  | 1 |
-|  |  | LOW_PRESSURE_THRESHOLD_VALUE |  | 1 |
-|  |  | SENSOR_POLARITY |  | 1 |
+|  |  | Master Valve Delay |  | 1 |
+|  |  | High Pressure Threshold Size |  | 1 |
+|  |  | High Pressure Threshold Scale |  | 1 |
+|  |  | High Pressure Threshold Precision |  | 1 |
+|  |  | High Pressure Threshold Value |  | 1 |
+|  |  | Low Pressure Threshold Size |  | 1 |
+|  |  | Low Pressure Threshold Scale |  | 1 |
+|  |  | Low Pressure Threshold Precision |  | 1 |
+|  |  | Low Pressure Threshold Value |  | 1 |
+|  |  | Sensor Polarity |  | 1 |
 |  |  |  | [00] RAIN_SENSOR_POLARITY | 1 |
 |  |  |  | [01] MOISTURE_SENSOR_POLARITY | 1 |
 |  |  |  | [07] VALID | 1 |
 |  | [06] IRRIGATION_SYSTEM_CONFIG_GET |  |  | 1 |
 |  | [07] IRRIGATION_SYSTEM_CONFIG_REPORT |  |  | 1 |
-|  |  | MASTER_VALVE_DELAY |  | 1 |
-|  |  | HIGH_PRESSURE_THRESHOLD_SIZE |  | 1 |
-|  |  | HIGH_PRESSURE_THRESHOLD_SCALE |  | 1 |
-|  |  | HIGH_PRESSURE_THRESHOLD_PRECISION |  | 1 |
-|  |  | HIGH_PRESSURE_THRESHOLD_VALUE |  | 1 |
-|  |  | LOW_PRESSURE_THRESHOLD_SIZE |  | 1 |
-|  |  | LOW_PRESSURE_THRESHOLD_SCALE |  | 1 |
-|  |  | LOW_PRESSURE_THRESHOLD_PRECISION |  | 1 |
-|  |  | LOW_PRESSURE_THRESHOLD_VALUE |  | 1 |
-|  |  | SENSOR_POLARITY |  | 1 |
+|  |  | Master Valve Delay |  | 1 |
+|  |  | High Pressure Threshold Size |  | 1 |
+|  |  | High Pressure Threshold Scale |  | 1 |
+|  |  | High Pressure Threshold Precision |  | 1 |
+|  |  | High Pressure Threshold Value |  | 1 |
+|  |  | Low Pressure Threshold Size |  | 1 |
+|  |  | Low Pressure Threshold Scale |  | 1 |
+|  |  | Low Pressure Threshold Precision |  | 1 |
+|  |  | Low Pressure Threshold Value |  | 1 |
+|  |  | Sensor Polarity |  | 1 |
 |  |  |  | [00] RAIN_SENSOR_POLARITY | 1 |
 |  |  |  | [01] MOISTURE_SENSOR_POLARITY | 1 |
 |  |  |  | [07] VALID | 1 |
 |  | [08] IRRIGATION_VALVE_INFO_GET |  |  | 1 |
-|  |  | MASTER_VALVE |  | 1 |
-|  |  | VALVE_ID |  | 1 |
+|  |  | Master Valve |  | 1 |
+|  |  | Valve ID |  | 1 |
 |  | [09] IRRIGATION_VALVE_INFO_REPORT |  |  | 1 |
-|  |  | MASTER |  | 1 |
-|  |  | CONNECTED |  | 1 |
-|  |  | VALVE_ID |  | 1 |
-|  |  | NOMINAL_CURRENT |  | 1 |
-|  |  | VALVE_ERROR_STATUS |  | 1 |
+|  |  | Master |  | 1 |
+|  |  | Connected |  | 1 |
+|  |  | Valve ID |  | 1 |
+|  |  | Nominal Current |  | 1 |
+|  |  | Valve Error Status |  | 1 |
 |  |  |  | [00] SHORT_CIRCUIT | 1 |
 |  |  |  | [01] CURRENT_HIGH_THRESHOLD | 1 |
 |  |  |  | [02] CURRENT_LOW_THRESHOLD | 1 |
@@ -3300,114 +3285,114 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [04] FLOW_HIGH_THRESHOLD | 1 |
 |  |  |  | [05] FLOW_LOW_THRESHOLD | 1 |
 |  | [0A] IRRIGATION_VALVE_CONFIG_SET |  |  | 1 |
-|  |  | MASTER_VALVE |  | 1 |
-|  |  | VALVE_ID |  | 1 |
-|  |  | NOMINAL_CURRENT_HIGH_THRESHOLD |  | 1 |
-|  |  | NOMINAL_CURRENT_LOW_THRESHOLD |  | 1 |
-|  |  | MAXIMUM_FLOW_SIZE |  | 1 |
-|  |  | MAXIMUM_FLOW_SCALE |  | 1 |
-|  |  | MAXIMUM_FLOW_PRECISION |  | 1 |
-|  |  | MAXIMUM_FLOW_VALUE |  | 1 |
-|  |  | FLOW_HIGH_THRESHOLD_SIZE |  | 1 |
-|  |  | FLOW_HIGH_THRESHOLD_SCALE |  | 1 |
-|  |  | FLOW_HIGH_THRESHOLD_PRECISION |  | 1 |
-|  |  | FLOW_HIGH_THRESHOLD_VALUE |  | 1 |
-|  |  | FLOW_LOW_THRESHOLD_SIZE |  | 1 |
-|  |  | FLOW_LOW_THRESHOLD_SCALE |  | 1 |
-|  |  | FLOW_LOW_THRESHOLD_PRECISION |  | 1 |
-|  |  | FLOW_LOW_THRESHOLD_VALUE |  | 1 |
-|  |  | SENSOR_USAGE |  | 1 |
+|  |  | Master Valve |  | 1 |
+|  |  | Valve ID |  | 1 |
+|  |  | Nominal Current High Threshold |  | 1 |
+|  |  | Nominal Current Low Threshold |  | 1 |
+|  |  | Maximum Flow Size |  | 1 |
+|  |  | Maximum Flow Scale |  | 1 |
+|  |  | Maximum Flow Precision |  | 1 |
+|  |  | Maximum Flow Value |  | 1 |
+|  |  | Flow High Threshold Size |  | 1 |
+|  |  | Flow High Threshold Scale |  | 1 |
+|  |  | Flow High Threshold Precision |  | 1 |
+|  |  | Flow High Threshold Value |  | 1 |
+|  |  | Flow Low Threshold Size |  | 1 |
+|  |  | Flow Low Threshold Scale |  | 1 |
+|  |  | Flow Low Threshold Precision |  | 1 |
+|  |  | Flow Low Threshold Value |  | 1 |
+|  |  | Sensor Usage |  | 1 |
 |  |  |  | [00] USE_RAIN_SENSOR | 1 |
 |  |  |  | [01] USE_MOISTURE_SENSOR | 1 |
 |  | [0B] IRRIGATION_VALVE_CONFIG_GET |  |  | 1 |
-|  |  | MASTER_VALVE |  | 1 |
-|  |  | VALVE_ID |  | 1 |
+|  |  | Master Valve |  | 1 |
+|  |  | Valve ID |  | 1 |
 |  | [0C] IRRIGATION_VALVE_CONFIG_REPORT |  |  | 1 |
-|  |  | MASTER_VALVE |  | 1 |
-|  |  | VALVE_ID |  | 1 |
-|  |  | NOMINAL_CURRENT_HIGH_THRESHOLD |  | 1 |
-|  |  | NOMINAL_CURRENT_LOW_THRESHOLD |  | 1 |
-|  |  | MAXIMUM_FLOW_SIZE |  | 1 |
-|  |  | MAXIMUM_FLOW_SCALE |  | 1 |
-|  |  | MAXIMUM_FLOW_PRECISION |  | 1 |
-|  |  | MAXIMUM_FLOW_VALUE |  | 1 |
-|  |  | FLOW_HIGH_THRESHOLD_SIZE |  | 1 |
-|  |  | FLOW_HIGH_THRESHOLD_SCALE |  | 1 |
-|  |  | FLOW_HIGH_THRESHOLD_PRECISION |  | 1 |
-|  |  | FLOW_HIGH_THRESHOLD_VALUE |  | 1 |
-|  |  | FLOW_LOW_THRESHOLD_SIZE |  | 1 |
-|  |  | FLOW_LOW_THRESHOLD_SCALE |  | 1 |
-|  |  | FLOW_LOW_THRESHOLD_PRECISION |  | 1 |
-|  |  | FLOW_LOW_THRESHOLD_VALUE |  | 1 |
-|  |  | SENSOR_USAGE |  | 1 |
+|  |  | Master Valve |  | 1 |
+|  |  | Valve ID |  | 1 |
+|  |  | Nominal Current High Threshold |  | 1 |
+|  |  | Nominal Current Low Threshold |  | 1 |
+|  |  | Maximum Flow Size |  | 1 |
+|  |  | Maximum Flow Scale |  | 1 |
+|  |  | Maximum Flow Precision |  | 1 |
+|  |  | Maximum Flow Value |  | 1 |
+|  |  | Flow High Threshold Size |  | 1 |
+|  |  | Flow High Threshold Scale |  | 1 |
+|  |  | Flow High Threshold Precision |  | 1 |
+|  |  | Flow High Threshold Value |  | 1 |
+|  |  | Flow Low Threshold Size |  | 1 |
+|  |  | Flow Low Threshold Scale |  | 1 |
+|  |  | Flow Low Threshold Precision |  | 1 |
+|  |  | Flow Low Threshold Value |  | 1 |
+|  |  | Sensor Usage |  | 1 |
 |  |  |  | [00] USE_RAIN_SENSOR | 1 |
 |  |  |  | [01] USE_MOISTURE_SENSOR | 1 |
 |  | [0D] IRRIGATION_VALVE_RUN |  |  | 1 |
-|  |  | MASTER_VALVE |  | 1 |
-|  |  | VALVE_ID |  | 1 |
-|  |  | DURATION |  | 1 |
+|  |  | Master Valve |  | 1 |
+|  |  | Valve ID |  | 1 |
+|  |  | Duration |  | 1 |
 |  | [0E] IRRIGATION_VALVE_TABLE_SET |  |  | 1 |
-|  |  | VALVE_TABLE_ID |  | 1 |
-|  |  | IRRIGATION_VALVE |  | 1 |
+|  |  | Valve Table ID |  | 1 |
+|  |  | Irrigation Valve |  | 1 |
 |  | [0F] IRRIGATION_VALVE_TABLE_GET |  |  | 1 |
-|  |  | VALVE_TABLE_ID |  | 1 |
+|  |  | Valve Table ID |  | 1 |
 |  | [10] IRRIGATION_VALVE_TABLE_REPORT |  |  | 1 |
-|  |  | VALVE_TABLE_ID |  | 1 |
-|  |  | IRRIGATION_VALVE |  | 1 |
+|  |  | Valve Table ID |  | 1 |
+|  |  | Irrigation Valve |  | 1 |
 |  | [11] IRRIGATION_VALVE_TABLE_RUN |  |  | 1 |
-|  |  | VALVE_TABLE_ID |  | 1 |
+|  |  | Valve Table ID |  | 1 |
 |  | [12] IRRIGATION_SYSTEM_SHUTOFF |  |  | 1 |
-|  |  | DURATION |  | 1 |
+|  |  | Duration |  | 1 |
 | [6C] COMMAND_CLASS_SUPERVISION |  |  |  | 1 |
 |  | [01] SUPERVISION_GET |  |  | 1 |
-|  |  | SESSION_ID |  | 1 |
-|  |  | STATUS_UPDATES |  | 1 |
-|  |  | ENCAPSULATED_COMMAND_LENGTH |  | 1 |
-|  |  | ENCAPSULATED_COMMAND |  | 1 |
+|  |  | Session ID |  | 1 |
+|  |  | Status Updates |  | 1 |
+|  |  | Encapsulated Command Length |  | 1 |
+|  |  | Encapsulated Command |  | 1 |
 |  | [02] SUPERVISION_REPORT |  |  | 1 |
-|  |  | SESSION_ID |  | 1 |
-|  |  | MORE_STATUS_UPDATES |  | 1 |
-|  |  | STATUS |  | 1 |
+|  |  | Session ID |  | 1 |
+|  |  | More Status Updates |  | 1 |
+|  |  | Status |  | 1 |
 |  |  |  | [00] NO_SUPPORT | 1 |
 |  |  |  | [01] WORKING | 1 |
 |  |  |  | [02] FAIL | 1 |
 |  |  |  | [03] BUSY | 1 |
 |  |  |  | [FF] SUCCESS | 1 |
-|  |  | DURATION |  | 1 |
+|  |  | Duration |  | 1 |
 | [6D] COMMAND_CLASS_HUMIDITY_CONTROL_MODE |  |  |  | 1 |
 |  | [01] HUMIDITY_CONTROL_MODE_SET |  |  | 1 |
-|  |  | MODE |  | 1 |
+|  |  | Mode |  | 1 |
 |  |  |  | [00] OFF | 1 |
 |  |  |  | [01] HUMIDIFY | 1 |
 |  |  |  | [02] DEHUMIDIFY | 1 |
 |  | [02] HUMIDITY_CONTROL_MODE_GET |  |  | 1 |
 |  | [03] HUMIDITY_CONTROL_MODE_REPORT |  |  | 1 |
-|  |  | MODE |  | 1 |
+|  |  | Mode |  | 1 |
 |  |  |  | [00] OFF | 1 |
 |  |  |  | [01] HUMIDIFY | 1 |
 |  |  |  | [02] DEHUMIDIFY | 1 |
 |  | [04] HUMIDITY_CONTROL_MODE_SUPPORTED_GET |  |  | 1 |
 |  | [05] HUMIDITY_CONTROL_MODE_SUPPORTED_REPORT |  |  | 1 |
-|  |  | BIT_MASK |  | 1 |
+|  |  | Bit Mask |  | 1 |
 |  |  |  | [00] OFF | 1 |
 |  |  |  | [01] HUMIDIFY | 1 |
 |  |  |  | [02] DEHUMIDIFY | 1 |
 | [6E] COMMAND_CLASS_HUMIDITY_CONTROL_OPERATING_STATE |  |  |  | 1 |
 |  | [01] HUMIDITY_CONTROL_OPERATING_STATE_GET |  |  | 1 |
 |  | [02] HUMIDITY_CONTROL_OPERATING_STATE_REPORT |  |  | 1 |
-|  |  | OPERATING_STATE |  | 1 |
+|  |  | Operating State |  | 1 |
 |  |  |  | [00] IDLE | 1 |
 |  |  |  | [01] HUMIDIFYING | 1 |
 |  |  |  | [02] DEHUMIDIFYING | 1 |
 | [6F] COMMAND_CLASS_ENTRY_CONTROL |  |  |  | 1 |
 |  | [01] ENTRY_CONTROL_NOTIFICATION |  |  | 1 |
-|  |  | SEQUENCE_NUMBER |  | 1 |
-|  |  | DATA_TYPE |  | 1 |
+|  |  | Sequence Number |  | 1 |
+|  |  | Data Type |  | 1 |
 |  |  |  | [00] NA | 1 |
 |  |  |  | [01] RAW | 1 |
 |  |  |  | [02] ASCII | 1 |
 |  |  |  | [03] MD5 | 1 |
-|  |  | EVENT_TYPE |  | 1 |
+|  |  | Event Type |  | 1 |
 |  |  |  | [00] CACHING | 1 |
 |  |  |  | [01] CACHED_KEYS | 1 |
 |  |  |  | [02] ENTER | 1 |
@@ -3434,22 +3419,22 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [17] UNLOCK | 1 |
 |  |  |  | [18] TEST | 1 |
 |  |  |  | [19] CANCEL | 1 |
-|  |  | EVENT_DATA_LENGTH |  | 1 |
-|  |  | EVENT_DATA |  | 1 |
+|  |  | Event Data Length |  | 1 |
+|  |  | Event Data |  | 1 |
 |  | [02] ENTRY_CONTROL_KEY_SUPPORTED_GET |  |  | 1 |
 |  | [03] ENTRY_CONTROL_KEY_SUPPORTED_REPORT |  |  | 1 |
-|  |  | KEY_SUPPORTED_BIT_MASK_LENGTH |  | 1 |
-|  |  | KEY_SUPPORTED_BIT_MASK |  | 1 |
+|  |  | Key Supported Bit Mask Length |  | 1 |
+|  |  | Key Supported Bit Mask |  | 1 |
 |  | [04] ENTRY_CONTROL_EVENT_SUPPORTED_GET |  |  | 1 |
 |  | [05] ENTRY_CONTROL_EVENT_SUPPORTED_REPORT |  |  | 1 |
-|  |  | DATA_TYPE_SUPPORTED_BIT_MASK_LENGTH |  | 1 |
-|  |  | DATA_TYPE_SUPPORTED_BIT_MASK |  | 1 |
+|  |  | Data Type Supported Bit Mask Length |  | 1 |
+|  |  | Data Type Supported Bit Mask |  | 1 |
 |  |  |  | [00] NA | 1 |
 |  |  |  | [01] RAW | 1 |
 |  |  |  | [02] ASCII | 1 |
 |  |  |  | [03] MD5 | 1 |
-|  |  | EVENT_SUPPORTED_BIT_MASK_LENGTH |  | 1 |
-|  |  | EVENT_TYPE_SUPPORTED_BIT_MASK |  | 1 |
+|  |  | Event Supported Bit Mask Length |  | 1 |
+|  |  | Event Type Supported Bit Mask |  | 1 |
 |  |  |  | [00] CACHING | 1 |
 |  |  |  | [01] CACHED_KEYS | 1 |
 |  |  |  | [02] ENTER | 1 |
@@ -3476,81 +3461,81 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [17] UNLOCK | 1 |
 |  |  |  | [18] TEST | 1 |
 |  |  |  | [19] CANCEL | 1 |
-|  |  | KEY_CACHED_SIZE_SUPPORTED_MINIMUM |  | 1 |
-|  |  | KEY_CACHED_SIZE_SUPPORTED_MAXIMUM |  | 1 |
-|  |  | KEY_CACHED_TIMEOUT_SUPPORTED_MINIMUM |  | 1 |
-|  |  | KEY_CACHED_TIMEOUT_SUPPORTED_MAXIMUM |  | 1 |
+|  |  | Key Cached Size supported Minimum |  | 1 |
+|  |  | Key Cached Size supported Maximum |  | 1 |
+|  |  | Key Cached Timeout supported Minimum |  | 1 |
+|  |  | Key Cached Timeout supported Maximum |  | 1 |
 |  | [06] ENTRY_CONTROL_CONFIGURATION_SET |  |  | 1 |
-|  |  | KEY_CACHE_SIZE |  | 1 |
-|  |  | KEY_CACHE_TIMEOUT |  | 1 |
+|  |  | Key Cache Size |  | 1 |
+|  |  | Key Cache Timeout |  | 1 |
 |  | [07] ENTRY_CONTROL_CONFIGURATION_GET |  |  | 1 |
 |  | [08] ENTRY_CONTROL_CONFIGURATION_REPORT |  |  | 1 |
-|  |  | KEY_CACHE_SIZE |  | 1 |
-|  |  | KEY_CACHE_TIMEOUT |  | 1 |
+|  |  | Key Cache Size |  | 1 |
+|  |  | Key Cache Timeout |  | 1 |
 | [70] COMMAND_CLASS_CONFIGURATION |  |  |  | 4 |
 |  | [01] CONFIGURATION_DEFAULT_RESET |  |  | 4 |
 |  | [04] CONFIGURATION_SET |  |  | 1-4 |
-|  |  | PARAMETER_NUMBER |  | 1-4 |
-|  |  | SIZE |  | 1-4 |
-|  |  | DEFAULT |  | 1-4 |
-|  |  | CONFIGURATION_VALUE |  | 1-4 |
+|  |  | Parameter Number |  | 1-4 |
+|  |  | Size |  | 1-4 |
+|  |  | Default Value |  | 1-4 |
+|  |  | Configuration Value |  | 1-4 |
 |  | [05] CONFIGURATION_GET |  |  | 1-4 |
-|  |  | PARAMETER_NUMBER |  | 1-4 |
+|  |  | Parameter Number |  | 1-4 |
 |  | [06] CONFIGURATION_REPORT |  |  | 1-4 |
-|  |  | PARAMETER_NUMBER |  | 1-4 |
-|  |  | SIZE |  | 1-4 |
-|  |  | CONFIGURATION_VALUE |  | 1-4 |
+|  |  | Parameter Number |  | 1-4 |
+|  |  | Size |  | 1-4 |
+|  |  | Configuration Value |  | 1-4 |
 |  | [07] CONFIGURATION_BULK_SET |  |  | 2-4 |
-|  |  | PARAMETER_OFFSET |  | 2-4 |
-|  |  | NUMBER_OF_PARAMETERS |  | 2-4 |
-|  |  | SIZE |  | 2-4 |
-|  |  | HANDSHAKE |  | 2-4 |
-|  |  | DEFAULT |  | 2-4 |
-|  |  | CONFIGURATION_PARAMETER |  | 2-4 |
+|  |  | Parameter Offset |  | 2-4 |
+|  |  | Number of Parameters |  | 2-4 |
+|  |  | Size |  | 2-4 |
+|  |  | Handshake |  | 2-4 |
+|  |  | Default Value |  | 2-4 |
+|  |  | Configuration Parameter |  | 2-4 |
 |  | [08] CONFIGURATION_BULK_GET |  |  | 2-4 |
-|  |  | PARAMETER_OFFSET |  | 2-4 |
-|  |  | NUMBER_OF_PARAMETERS |  | 2-4 |
+|  |  | Parameter Offset |  | 2-4 |
+|  |  | Number of Parameters |  | 2-4 |
 |  | [09] CONFIGURATION_BULK_REPORT |  |  | 2-4 |
-|  |  | PARAMETER_OFFSET |  | 2-4 |
-|  |  | NUMBER_OF_PARAMETERS |  | 2-4 |
-|  |  | REPORTS_TO_FOLLOW |  | 2-4 |
-|  |  | SIZE |  | 2-4 |
-|  |  | HANDSHAKE |  | 2-4 |
-|  |  | DEFAULT |  | 2-4 |
-|  |  | CONFIGURATION_PARAMETER |  | 2-4 |
+|  |  | Parameter Offset |  | 2-4 |
+|  |  | Number of Parameters |  | 2-4 |
+|  |  | Reports to follow |  | 2-4 |
+|  |  | Size |  | 2-4 |
+|  |  | Handshake |  | 2-4 |
+|  |  | Default Value |  | 2-4 |
+|  |  | Configuration Parameter |  | 2-4 |
 |  | [0A] CONFIGURATION_NAME_GET |  |  | 3-4 |
-|  |  | PARAMETER_NUMBER |  | 3-4 |
+|  |  | Parameter Number |  | 3-4 |
 |  | [0B] CONFIGURATION_NAME_REPORT |  |  | 3-4 |
-|  |  | PARAMETER_NUMBER |  | 3-4 |
-|  |  | REPORTS_TO_FOLLOW |  | 3-4 |
-|  |  | NAME |  | 3-4 |
+|  |  | Parameter Number |  | 3-4 |
+|  |  | Reports to follow |  | 3-4 |
+|  |  | Name |  | 3-4 |
 |  | [0C] CONFIGURATION_INFO_GET |  |  | 3-4 |
-|  |  | PARAMETER_NUMBER |  | 3-4 |
+|  |  | Parameter Number |  | 3-4 |
 |  | [0D] CONFIGURATION_INFO_REPORT |  |  | 3-4 |
-|  |  | PARAMETER_NUMBER |  | 3-4 |
-|  |  | REPORTS_TO_FOLLOW |  | 3-4 |
-|  |  | INFO |  | 3-4 |
+|  |  | Parameter Number |  | 3-4 |
+|  |  | Reports to follow |  | 3-4 |
+|  |  | Info |  | 3-4 |
 |  | [0E] CONFIGURATION_PROPERTIES_GET |  |  | 3-4 |
-|  |  | PARAMETER_NUMBER |  | 3-4 |
+|  |  | Parameter Number |  | 3-4 |
 |  | [0F] CONFIGURATION_PROPERTIES_REPORT |  |  | 3-4 |
-|  |  | PARAMETER_NUMBER |  | 3-4 |
-|  |  | SIZE |  | 3-4 |
-|  |  | FORMAT |  | 3-4 |
+|  |  | Parameter Number |  | 3-4 |
+|  |  | Size |  | 3-4 |
+|  |  | Format |  | 3-4 |
 |  |  |  | [00] SIGNED_INTEGER | 3-4 |
 |  |  |  | [01] UNSIGNED_INTEGER | 3-4 |
 |  |  |  | [02] ENUMERATED | 3-4 |
 |  |  |  | [03] BIT_FIELD | 3-4 |
-|  |  | READONLY |  | 4 |
-|  |  | RE_INCLUSION_REQUIRED |  | 4 |
-|  |  | MIN_VALUE |  | 3-4 |
-|  |  | MAX_VALUE |  | 3-4 |
-|  |  | DEFAULT_VALUE |  | 3-4 |
-|  |  | NEXT_PARAMETER_NUMBER |  | 3-4 |
-|  |  | ADVANCED |  | 4 |
-|  |  | NO_BULK_SUPPORT |  | 4 |
-| [71] COMMAND_CLASS_ALARM |  |  |  | 8 |
+|  |  | Readonly |  | 4 |
+|  |  | Re-inclusion required |  | 4 |
+|  |  | Min Value |  | 3-4 |
+|  |  | Max Value |  | 3-4 |
+|  |  | Default Value |  | 3-4 |
+|  |  | Next Parameter Number |  | 3-4 |
+|  |  | Advanced |  | 4 |
+|  |  | No Bulk support |  | 4 |
+| [71] COMMAND_CLASS_NOTIFICATION |  |  |  | 8 |
 |  | [01] EVENT_SUPPORTED_GET |  |  | 3-8 |
-|  |  | NOTIFICATION_TYPE |  | 3-8 |
+|  |  | Notification Type |  | 3-8 |
 |  |  |  | [01] SMOKE | 3-8 |
 |  |  |  | [02] CO | 3-8 |
 |  |  |  | [03] CO2 | 3-8 |
@@ -3570,7 +3555,7 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [11] IRRIGATION | 7-8 |
 |  |  |  | [12] GAS_ALARM | 7-8 |
 |  | [02] EVENT_SUPPORTED_REPORT |  |  | 3-8 |
-|  |  | NOTIFICATION_TYPE |  | 3-8 |
+|  |  | Notification Type |  | 3-8 |
 |  |  |  | [01] SMOKE | 3-8 |
 |  |  |  | [02] CO | 3-8 |
 |  |  |  | [03] CO2 | 3-8 |
@@ -3589,11 +3574,11 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [10] WEATHER_ALARM | 7-8 |
 |  |  |  | [11] IRRIGATION | 7-8 |
 |  |  |  | [12] GAS_ALARM | 7-8 |
-|  |  | NUMBER_OF_BIT_MASKS |  | 3-8 |
-|  |  | BIT_MASK |  | 3-8 |
-|  | [04] ALARM_GET |  |  | 1-8 |
-|  |  | V1_ALARM_TYPE |  | 1-8 |
-|  |  | ZWAVE_ALARM_TYPE |  | 2 |
+|  |  | Number of Bit Masks |  | 3-8 |
+|  |  | Bit Mask |  | 3-8 |
+|  | [04] NOTIFICATION_GET |  |  | 1-8 |
+|  |  | V1 Alarm Type |  | 1-8 |
+|  |  | ZWave Alarm Type |  | 2 |
 |  |  |  | [01] SMOKE | 2 |
 |  |  |  | [02] CO | 2 |
 |  |  |  | [03] CO2 | 2 |
@@ -3605,7 +3590,7 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [09] SYSTEM | 2 |
 |  |  |  | [0A] EMERGENCY | 2 |
 |  |  |  | [0B] CLOCK | 2 |
-|  |  | NOTIFICATION_TYPE |  | 3-8 |
+|  |  | Notification Type |  | 3-8 |
 |  |  |  | [01] SMOKE | 3-8 |
 |  |  |  | [02] CO | 3-8 |
 |  |  |  | [03] CO2 | 3-8 |
@@ -3624,19 +3609,19 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [10] WEATHER_ALARM | 7-8 |
 |  |  |  | [11] IRRIGATION | 7-8 |
 |  |  |  | [12] GAS_ALARM | 7-8 |
-|  |  | EVENT |  | 3-8 |
-|  | [05] ALARM_REPORT |  |  | 1-8 |
-|  |  | V1_ALARM_TYPE |  | 1-8 |
-|  |  | V1_ALARM_LEVEL |  | 1-8 |
-|  |  | ZENSOR_NET_SOURCE_NODE_ID |  | 2 |
-|  |  | ZWAVE_ALARM_STATUS |  | 2 |
+|  |  | Event |  | 3-8 |
+|  | [05] NOTIFICATION_REPORT |  |  | 1-8 |
+|  |  | V1 Alarm Type |  | 1-8 |
+|  |  | V1 Alarm Level |  | 1-8 |
+|  |  | Zensor Net Source Node ID |  | 2 |
+|  |  | ZWave Alarm Status |  | 2 |
 |  |  |  | [00] OFF | 2 |
 |  |  |  | [FF] ON | 2 |
-|  |  | NOTIFICATION_STATUS |  | 3-8 |
+|  |  | Notification Status |  | 3-8 |
 |  |  |  | [00] OFF | 3-8 |
 |  |  |  | [FE] NO_PENDING_NOTIFICATIONS | 4-8 |
 |  |  |  | [FF] ON | 3-8 |
-|  |  | ZWAVE_ALARM_TYPE |  | 2 |
+|  |  | ZWave Alarm Type |  | 2 |
 |  |  |  | [01] SMOKE | 2 |
 |  |  |  | [02] CO | 2 |
 |  |  |  | [03] CO2 | 2 |
@@ -3648,7 +3633,7 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [09] SYSTEM | 2 |
 |  |  |  | [0A] EMERGENCY | 2 |
 |  |  |  | [0B] CLOCK | 2 |
-|  |  | NOTIFICATION_TYPE |  | 3-8 |
+|  |  | Notification Type |  | 3-8 |
 |  |  |  | [01] SMOKE | 3-8 |
 |  |  |  | [02] CO | 3-8 |
 |  |  |  | [03] CO2 | 3-8 |
@@ -3667,15 +3652,15 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [10] WEATHER_ALARM | 7-8 |
 |  |  |  | [11] IRRIGATION | 7-8 |
 |  |  |  | [12] GAS_ALARM | 7-8 |
-|  |  | ZWAVE_ALARM_EVENT |  | 2 |
-|  |  | EVENT |  | 3-8 |
-|  |  | EVENT_PARAMETERS_LENGTH |  | 3-8 |
-|  |  | SEQUENCE |  | 3-8 |
-|  |  | NUMBER_OF_EVENT_PARAMETERS |  | 2 |
-|  |  | EVENT_PARAMETER |  | 2-8 |
-|  |  | SEQUENCE_NUMBER |  | 3-8 |
-|  | [06] ALARM_SET |  |  | 2-8 |
-|  |  | ZWAVE_ALARM_TYPE |  | 2 |
+|  |  | ZWave Alarm Event |  | 2 |
+|  |  | Event |  | 3-8 |
+|  |  | Event Parameters Length |  | 3-8 |
+|  |  | Sequence |  | 3-8 |
+|  |  | Number of Event Parameters |  | 2 |
+|  |  | Event Parameter |  | 2-8 |
+|  |  | Sequence Number |  | 3-8 |
+|  | [06] NOTIFICATION_SET |  |  | 2-8 |
+|  |  | ZWave Alarm Type |  | 2 |
 |  |  |  | [01] SMOKE | 2 |
 |  |  |  | [02] CO | 2 |
 |  |  |  | [03] CO2 | 2 |
@@ -3687,7 +3672,7 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [09] SYSTEM | 2 |
 |  |  |  | [0A] EMERGENCY | 2 |
 |  |  |  | [0B] CLOCK | 2 |
-|  |  | NOTIFICATION_TYPE |  | 3-8 |
+|  |  | Notification Type |  | 3-8 |
 |  |  |  | [01] SMOKE | 3-8 |
 |  |  |  | [02] CO | 3-8 |
 |  |  |  | [03] CO2 | 3-8 |
@@ -3706,18 +3691,18 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [10] WEATHER_ALARM | 7-8 |
 |  |  |  | [11] IRRIGATION | 7-8 |
 |  |  |  | [12] GAS_ALARM | 7-8 |
-|  |  | ZWAVE_ALARM_STATUS |  | 2 |
+|  |  | ZWave Alarm Status |  | 2 |
 |  |  |  | [00] OFF | 2 |
 |  |  |  | [FF] ON | 2 |
-|  |  | NOTIFICATION_STATUS |  | 3-8 |
+|  |  | Notification Status |  | 3-8 |
 |  |  |  | [00] OFF | 3-8 |
 |  |  |  | [FE] NO_PENDING_NOTIFICATIONS | 4-8 |
 |  |  |  | [FF] ON | 3-8 |
-|  | [07] ALARM_TYPE_SUPPORTED_GET |  |  | 2-8 |
-|  | [08] ALARM_TYPE_SUPPORTED_REPORT |  |  | 2-8 |
-|  |  | NUMBER_OF_BIT_MASKS |  | 2-8 |
-|  |  | V1_ALARM |  | 2-8 |
-|  |  | BIT_MASK |  | 2-8 |
+|  | [07] NOTIFICATION_SUPPORTED_GET |  |  | 2-8 |
+|  | [08] NOTIFICATION_SUPPORTED_REPORT |  |  | 2-8 |
+|  |  | Number of Bit Masks |  | 2-8 |
+|  |  | V1 Alarm |  | 2-8 |
+|  |  | Bit Mask |  | 2-8 |
 |  |  |  | [01] SMOKE | 2-8 |
 |  |  |  | [02] CO | 2-8 |
 |  |  |  | [03] CO2 | 2-8 |
@@ -3739,22 +3724,22 @@ different size or mask for example.  If you find error, please report them.
 | [72] COMMAND_CLASS_MANUFACTURER_SPECIFIC |  |  |  | 2 |
 |  | [04] MANUFACTURER_SPECIFIC_GET |  |  | 1-2 |
 |  | [05] MANUFACTURER_SPECIFIC_REPORT |  |  | 1-2 |
-|  |  | MANUFACTURER_ID |  | 1-2 |
-|  |  | PRODUCT_TYPE_ID |  | 1-2 |
-|  |  | PRODUCT_ID |  | 1-2 |
+|  |  | Manufacturer ID |  | 1-2 |
+|  |  | Product Type ID |  | 1-2 |
+|  |  | Product ID |  | 1-2 |
 |  | [06] DEVICE_SPECIFIC_GET |  |  | 2 |
-|  |  | DEVICE_ID_TYPE |  | 2 |
+|  |  | Device ID Type |  | 2 |
 |  |  |  | [01] SERIAL_NUMBER | 2 |
 |  | [07] DEVICE_SPECIFIC_REPORT |  |  | 2 |
-|  |  | DEVICE_ID_TYPE |  | 2 |
+|  |  | Device ID Type |  | 2 |
 |  |  |  | [01] SERIAL_NUMBER | 2 |
-|  |  | DEVICE_ID_DATA_LENGTH_INDICATOR |  | 2 |
-|  |  | DEVICE_ID_DATA_FORMAT |  | 2 |
+|  |  | Device ID Data Length Indicator |  | 2 |
+|  |  | Device ID Data Format |  | 2 |
 |  |  |  | [01] BINARY | 2 |
-|  |  | DEVICE_ID_DATA |  | 2 |
+|  |  | Device ID Data |  | 2 |
 | [73] COMMAND_CLASS_POWERLEVEL |  |  |  | 1 |
 |  | [01] POWERLEVEL_SET |  |  | 1 |
-|  |  | POWER_LEVEL |  | 1 |
+|  |  | Power level |  | 1 |
 |  |  |  | [00] NORMALPOWER | 1 |
 |  |  |  | [01] MINUS1DBM | 1 |
 |  |  |  | [02] MINUS2DBM | 1 |
@@ -3765,10 +3750,10 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [07] MINUS7DBM | 1 |
 |  |  |  | [08] MINUS8DBM | 1 |
 |  |  |  | [09] MINUS9DBM | 1 |
-|  |  | TIMEOUT |  | 1 |
+|  |  | Timeout |  | 1 |
 |  | [02] POWERLEVEL_GET |  |  | 1 |
 |  | [03] POWERLEVEL_REPORT |  |  | 1 |
-|  |  | POWER_LEVEL |  | 1 |
+|  |  | Power level |  | 1 |
 |  |  |  | [00] NORMALPOWER | 1 |
 |  |  |  | [01] MINUS1DBM | 1 |
 |  |  |  | [02] MINUS2DBM | 1 |
@@ -3779,10 +3764,10 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [07] MINUS7DBM | 1 |
 |  |  |  | [08] MINUS8DBM | 1 |
 |  |  |  | [09] MINUS9DBM | 1 |
-|  |  | TIMEOUT |  | 1 |
+|  |  | Timeout |  | 1 |
 |  | [04] POWERLEVEL_TEST_NODE_SET |  |  | 1 |
-|  |  | TEST_NODEID |  | 1 |
-|  |  | POWER_LEVEL |  | 1 |
+|  |  | Test NodeID |  | 1 |
+|  |  | Power level |  | 1 |
 |  |  |  | [00] NORMALPOWER | 1 |
 |  |  |  | [01] MINUS1DBM | 1 |
 |  |  |  | [02] MINUS2DBM | 1 |
@@ -3793,117 +3778,117 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [07] MINUS7DBM | 1 |
 |  |  |  | [08] MINUS8DBM | 1 |
 |  |  |  | [09] MINUS9DBM | 1 |
-|  |  | TEST_FRAME_COUNT |  | 1 |
+|  |  | Test frame count |  | 1 |
 |  | [05] POWERLEVEL_TEST_NODE_GET |  |  | 1 |
 |  | [06] POWERLEVEL_TEST_NODE_REPORT |  |  | 1 |
-|  |  | TEST_NODEID |  | 1 |
+|  |  | Test NodeID |  | 1 |
 |  |  |  | [00] ZW_TEST_NOT_A_NODEID | 1 |
-|  |  | STATUS_OF_OPERATION |  | 1 |
+|  |  | Status of operation |  | 1 |
 |  |  |  | [00] ZW_TEST_FAILED | 1 |
 |  |  |  | [01] ZW_TEST_SUCCES | 1 |
 |  |  |  | [02] ZW_TEST_INPROGRESS | 1 |
-|  |  | TEST_FRAME_COUNT |  | 1 |
+|  |  | Test Frame Count |  | 1 |
 | [74] COMMAND_CLASS_INCLUSION_CONTROLLER |  |  |  | 1 |
 |  | [01] INITIATE |  |  | 1 |
-|  |  | NODE_ID |  | 1 |
-|  |  | STEP_ID |  | 1 |
+|  |  | Node ID |  | 1 |
+|  |  | Step ID |  | 1 |
 |  |  |  | [01] PROXY_INCLUSION | 1 |
 |  |  |  | [02] S0_INCLUSION | 1 |
 |  | [02] COMPLETE |  |  | 1 |
-|  |  | STEP_ID |  | 1 |
+|  |  | Step ID |  | 1 |
 |  |  |  | [01] PROXY_INCLUSION | 1 |
 |  |  |  | [02] S0_INCLUSION | 1 |
-|  |  | STATUS |  | 1 |
+|  |  | Status |  | 1 |
 |  |  |  | [01] STEP_OK | 1 |
 |  |  |  | [02] STEP_USER_REJECTED | 1 |
 |  |  |  | [03] STEP_FAILED | 1 |
 |  |  |  | [04] STEP_NOT_SUPPORTED | 1 |
 | [75] COMMAND_CLASS_PROTECTION |  |  |  | 2 |
 |  | [01] PROTECTION_SET |  |  | 1-2 |
-|  |  | LOCAL_PROTECTION_STATE |  | 1-2 |
+|  |  | Local Protection State |  | 1-2 |
 |  |  |  | [00] UNPROTECTED | 1-2 |
 |  |  |  | [01] PROTECTION_BY_SEQUENCE | 1-2 |
 |  |  |  | [02] NO_OPERATION_POSSIBLE | 1-2 |
-|  |  | RF_PROTECTION_STATE |  | 2 |
+|  |  | RF Protection State |  | 2 |
 |  |  |  | [00] UNPROTECTED | 2 |
 |  |  |  | [01] PROTECTION_BY_SEQUENCE | 2 |
 |  |  |  | [02] NO_OPERATION_POSSIBLE | 2 |
 |  | [02] PROTECTION_GET |  |  | 1-2 |
 |  | [03] PROTECTION_REPORT |  |  | 1-2 |
-|  |  | LOCAL_PROTECTION_STATE |  | 1-2 |
+|  |  | Local Protection State |  | 1-2 |
 |  |  |  | [00] UNPROTECTED | 1-2 |
 |  |  |  | [01] PROTECTION_BY_SEQUENCE | 1-2 |
 |  |  |  | [02] NO_OPERATION_POSSIBLE | 1-2 |
-|  |  | RF_PROTECTION_STATE |  | 2 |
+|  |  | RF Protection State |  | 2 |
 |  |  |  | [00] UNPROTECTED | 2 |
 |  |  |  | [01] PROTECTION_BY_SEQUENCE | 2 |
 |  |  |  | [02] NO_OPERATION_POSSIBLE | 2 |
 |  | [04] PROTECTION_SUPPORTED_GET |  |  | 2 |
 |  | [05] PROTECTION_SUPPORTED_REPORT |  |  | 2 |
-|  |  | TIMEOUT |  | 2 |
-|  |  | EXCLUSIVE_CONTROL |  | 2 |
-|  |  | LOCAL_PROTECTION_STATE |  | 2 |
-|  |  | RF_PROTECTION_STATE |  | 2 |
+|  |  | Timeout |  | 2 |
+|  |  | Exclusive Control |  | 2 |
+|  |  | Local Protection State |  | 2 |
+|  |  | RF Protection State |  | 2 |
 |  | [06] PROTECTION_EC_SET |  |  | 2 |
-|  |  | NODE_ID |  | 2 |
+|  |  | Node ID |  | 2 |
 |  | [07] PROTECTION_EC_GET |  |  | 2 |
 |  | [08] PROTECTION_EC_REPORT |  |  | 2 |
-|  |  | NODE_ID |  | 2 |
+|  |  | Node ID |  | 2 |
 |  | [09] PROTECTION_TIMEOUT_SET |  |  | 2 |
-|  |  | TIMEOUT |  | 2 |
+|  |  | Timeout |  | 2 |
 |  |  |  | [00] NO_TIMER_IS_SET | 2 |
 |  |  |  | [FF] NO_TIMEOUT | 2 |
 |  | [0A] PROTECTION_TIMEOUT_GET |  |  | 2 |
 |  | [0B] PROTECTION_TIMEOUT_REPORT |  |  | 2 |
-|  |  | TIMEOUT |  | 2 |
+|  |  | Timeout |  | 2 |
 |  |  |  | [00] NO_TIMER_IS_SET | 2 |
 |  |  |  | [FF] NO_TIMEOUT_IS_SET | 2 |
 | [76] COMMAND_CLASS_LOCK |  |  |  | 1 |
 |  | [01] LOCK_SET |  |  | 1 |
-|  |  | LOCK_STATE |  | 1 |
+|  |  | Lock State |  | 1 |
 |  |  |  | [00] UNLOCKED | 1 |
 |  |  |  | [01] LOCKED | 1 |
 |  | [02] LOCK_GET |  |  | 1 |
 |  | [03] LOCK_REPORT |  |  | 1 |
-|  |  | LOCK_STATE |  | 1 |
+|  |  | Lock State |  | 1 |
 |  |  |  | [00] UNLOCKED | 1 |
 |  |  |  | [01] LOCKED | 1 |
 | [77] COMMAND_CLASS_NODE_NAMING |  |  |  | 1 |
 |  | [01] NODE_NAMING_NODE_NAME_SET |  |  | 1 |
-|  |  | CHAR_PRESENTATION |  | 1 |
-|  |  | NODE_NAME_CHAR |  | 1 |
+|  |  | Char. Presentation |  | 1 |
+|  |  | Node name char |  | 1 |
 |  | [02] NODE_NAMING_NODE_NAME_GET |  |  | 1 |
 |  | [03] NODE_NAMING_NODE_NAME_REPORT |  |  | 1 |
-|  |  | CHAR_PRESENTATION |  | 1 |
-|  |  | NODE_NAME_CHAR |  | 1 |
+|  |  | Char. Presentation |  | 1 |
+|  |  | Node name char |  | 1 |
 |  | [04] NODE_NAMING_NODE_LOCATION_SET |  |  | 1 |
-|  |  | CHAR_PRESENTATION |  | 1 |
-|  |  | NODE_LOCATION_CHAR |  | 1 |
+|  |  | Char. Presentation |  | 1 |
+|  |  | Node location char |  | 1 |
 |  | [05] NODE_NAMING_NODE_LOCATION_GET |  |  | 1 |
 |  | [06] NODE_NAMING_NODE_LOCATION_REPORT |  |  | 1 |
-|  |  | CHAR_PRESENTATION |  | 1 |
-|  |  | NODE_LOCATION_CHAR |  | 1 |
+|  |  | Char. Presentation |  | 1 |
+|  |  | Node location char |  | 1 |
 | [7A] COMMAND_CLASS_FIRMWARE_UPDATE_MD |  |  |  | 5 |
 |  | [01] FIRMWARE_MD_GET |  |  | 1-5 |
 |  | [02] FIRMWARE_MD_REPORT |  |  | 1-5 |
-|  |  | MANUFACTURER_ID |  | 1-5 |
-|  |  | FIRMWARE_0_ID |  | 1-5 |
-|  |  | FIRMWARE_0_CHECKSUM |  | 1-5 |
-|  |  | FIRMWARE_UPGRADABLE |  | 3-5 |
-|  |  | NUMBER_OF_FIRMWARE_TARGETS |  | 3-5 |
-|  |  | MAX_FRAGMENT_SIZE |  | 3-5 |
-|  |  | FIRMWARE_REPORT |  | 3-5 |
-|  |  | HARDWARE_VERSION |  | 5 |
+|  |  | Manufacturer ID |  | 1-5 |
+|  |  | Firmware 0 ID |  | 1-5 |
+|  |  | Firmware 0 Checksum |  | 1-5 |
+|  |  | Firmware Upgradable |  | 3-5 |
+|  |  | Number of Firmware Targets |  | 3-5 |
+|  |  | Max Fragment Size  |  | 3-5 |
+|  |  | Firmware Report |  | 3-5 |
+|  |  | Hardware Version |  | 5 |
 |  | [03] FIRMWARE_UPDATE_MD_REQUEST_GET |  |  | 1-5 |
-|  |  | MANUFACTURER_ID |  | 1-5 |
-|  |  | FIRMWARE_ID |  | 1-5 |
-|  |  | CHECKSUM |  | 1-5 |
-|  |  | FIRMWARE_TARGET |  | 3-5 |
-|  |  | FRAGMENT_SIZE |  | 3-5 |
-|  |  | ACTIVATION |  | 4-5 |
-|  |  | HARDWARE_VERSION |  | 5 |
+|  |  | Manufacturer ID |  | 1-5 |
+|  |  | Firmware ID |  | 1-5 |
+|  |  | Checksum |  | 1-5 |
+|  |  | Firmware Target |  | 3-5 |
+|  |  | Fragment Size |  | 3-5 |
+|  |  | Activation |  | 4-5 |
+|  |  | Hardware Version |  | 5 |
 |  | [04] FIRMWARE_UPDATE_MD_REQUEST_REPORT |  |  | 1-5 |
-|  |  | STATUS |  | 1-5 |
+|  |  | Status |  | 1-5 |
 |  |  |  | [00] INVALID_COMBINATION | 1-5 |
 |  |  |  | [01] REQUIRES_AUTHENTICATION | 1-5 |
 |  |  |  | [02] INVALID_FRAGMENT_SIZE | 3-5 |
@@ -3911,18 +3896,18 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [04] INVALID_HARDWARE_VERSION | 5 |
 |  |  |  | [FF] VALID_COMBINATION | 1-5 |
 |  | [05] FIRMWARE_UPDATE_MD_GET |  |  | 1-5 |
-|  |  | NUMBER_OF_REPORTS |  | 1-5 |
-|  |  | REPORT_NUMBER_1 |  | 1-5 |
-|  |  | ZERO |  | 1-5 |
-|  |  | REPORT_NUMBER_2 |  | 1-5 |
+|  |  | Number of Reports |  | 1-5 |
+|  |  | Report number 1 |  | 1-5 |
+|  |  | zero |  | 1-5 |
+|  |  | Report number 2 |  | 1-5 |
 |  | [06] FIRMWARE_UPDATE_MD_REPORT |  |  | 1-5 |
-|  |  | REPORT_NUMBER_1 |  | 1-5 |
-|  |  | LAST |  | 1-5 |
-|  |  | REPORT_NUMBER_2 |  | 1-5 |
-|  |  | DATA |  | 1-5 |
-|  |  | CHECKSUM |  | 2-5 |
+|  |  | Report number 1 |  | 1-5 |
+|  |  | Last |  | 1-5 |
+|  |  | Report number 2 |  | 1-5 |
+|  |  | Data |  | 1-5 |
+|  |  | Checksum |  | 2-5 |
 |  | [07] FIRMWARE_UPDATE_MD_STATUS_REPORT |  |  | 1-5 |
-|  |  | STATUS |  | 1-5 |
+|  |  | Status |  | 1-5 |
 |  |  |  | [00] UNABLE_TO_RECEIVE_WITHOUT_CHECKSUM_ERROR | 1-5 |
 |  |  |  | [01] UNABLE_TO_RECEIVE | 1-5 |
 |  |  |  | [02] DOES_NOT_MATCH_THE_MANUFACTURER_ID | 4-5 |
@@ -3935,145 +3920,145 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [FD] SUCCESSFULLY_WAITING_FOR_ACTIVATION | 4-5 |
 |  |  |  | [FE] SUCCESSFULLY_STORED | 3-5 |
 |  |  |  | [FF] SUCCESSFULLY | 1-5 |
-|  |  | WAITTIME |  | 3-5 |
+|  |  | WaitTime |  | 3-5 |
 |  | [08] FIRMWARE_UPDATE_ACTIVATION_SET |  |  | 4-5 |
-|  |  | MANUFACTURER_ID |  | 4-5 |
-|  |  | FIRMWARE_ID |  | 4-5 |
-|  |  | CHECKSUM |  | 4-5 |
-|  |  | FIRMWARE_TARGET |  | 4-5 |
-|  |  | HARDWARE_VERSION |  | 5 |
+|  |  | Manufacturer ID |  | 4-5 |
+|  |  | Firmware ID |  | 4-5 |
+|  |  | Checksum |  | 4-5 |
+|  |  | Firmware Target |  | 4-5 |
+|  |  | Hardware Version |  | 5 |
 |  | [09] FIRMWARE_UPDATE_ACTIVATION_STATUS_REPORT |  |  | 4-5 |
-|  |  | MANUFACTURER_ID |  | 4-5 |
-|  |  | FIRMWARE_ID |  | 4-5 |
-|  |  | CHECKSUM |  | 4-5 |
-|  |  | FIRMWARE_TARGET |  | 4-5 |
-|  |  | FIRMWARE_UPDATE_STATUS |  | 4-5 |
+|  |  | Manufacturer ID |  | 4-5 |
+|  |  | Firmware ID |  | 4-5 |
+|  |  | Checksum |  | 4-5 |
+|  |  | Firmware Target |  | 4-5 |
+|  |  | Firmware Update Status |  | 4-5 |
 |  |  |  | [00] INVALID_COMBINATION | 4-5 |
 |  |  |  | [01] ERROR_ACTIVATING_THE_FIRMWARE | 4-5 |
 |  |  |  | [FF] FIRMWARE_UPDATE_COMPLETED_SUCCESSFULLY | 4-5 |
-|  |  | HARDWARE_VERSION |  | 5 |
+|  |  | Hardware Version |  | 5 |
 |  | [0A] FIRMWARE_UPDATE_MD_PREPARE_GET |  |  | 5 |
-|  |  | MANUFACTURER_ID |  | 5 |
-|  |  | FIRMWARE_ID |  | 5 |
-|  |  | FIRMWARE_TARGET |  | 5 |
-|  |  | FRAGMENT_SIZE |  | 5 |
-|  |  | HARDWARE_VERSION |  | 5 |
+|  |  | Manufacturer ID |  | 5 |
+|  |  | Firmware ID |  | 5 |
+|  |  | Firmware Target |  | 5 |
+|  |  | Fragment Size |  | 5 |
+|  |  | Hardware Version |  | 5 |
 |  | [0B] FIRMWARE_UPDATE_MD_PREPARE_REPORT |  |  | 5 |
-|  |  | STATUS |  | 5 |
+|  |  | Status |  | 5 |
 |  |  |  | [00] INVALID_COMBINATION | 5 |
 |  |  |  | [01] REQUIRES_AUTHENTICATION | 5 |
 |  |  |  | [02] INVALID_FRAGMENT_SIZE | 5 |
 |  |  |  | [03] NOT_UPGRADABLE | 5 |
 |  |  |  | [04] INVALID_HARDWARE_VERSION | 5 |
 |  |  |  | [FF] VALID_COMBINATION | 5 |
-|  |  | FIRMWARE_CHECKSUM |  | 5 |
+|  |  | Firmware Checksum |  | 5 |
 | [7B] COMMAND_CLASS_GROUPING_NAME |  |  |  | 1 |
 |  | [01] GROUPING_NAME_SET |  |  | 1 |
-|  |  | GROUPING_IDENTIFIER |  | 1 |
-|  |  | CHAR_PRESENTATION |  | 1 |
-|  |  | GROUPING_NAME |  | 1 |
+|  |  | Grouping identifier |  | 1 |
+|  |  | Char. Presentation |  | 1 |
+|  |  | Grouping Name |  | 1 |
 |  | [02] GROUPING_NAME_GET |  |  | 1 |
-|  |  | GROUPING_IDENTIFIER |  | 1 |
+|  |  | Grouping identifier |  | 1 |
 |  | [03] GROUPING_NAME_REPORT |  |  | 1 |
-|  |  | GROUPING_IDENTIFIER |  | 1 |
-|  |  | CHAR_PRESENTATION |  | 1 |
-|  |  | GROUPING_NAME |  | 1 |
+|  |  | Grouping identifier |  | 1 |
+|  |  | Char. Presentation |  | 1 |
+|  |  | Grouping Name |  | 1 |
 | [7C] COMMAND_CLASS_REMOTE_ASSOCIATION_ACTIVATE |  |  |  | 1 |
 |  | [01] REMOTE_ASSOCIATION_ACTIVATE |  |  | 1 |
-|  |  | GROUPING_IDENTIFIER |  | 1 |
+|  |  | Grouping identifier |  | 1 |
 | [7D] COMMAND_CLASS_REMOTE_ASSOCIATION |  |  |  | 1 |
 |  | [01] REMOTE_ASSOCIATION_CONFIGURATION_SET |  |  | 1 |
-|  |  | LOCAL_GROUPING_IDENTIFIER |  | 1 |
+|  |  | Local Grouping identifier |  | 1 |
 |  |  |  | [00] ERASE_ALL_LIN | 1 |
-|  |  | REMOTE_NODEID |  | 1 |
+|  |  | Remote NodeID |  | 1 |
 |  |  |  | [00] REMOVE_A_LINK | 1 |
-|  |  | REMOTE_GROUPING_IDENTIFIER |  | 1 |
+|  |  | Remote Grouping identifier |  | 1 |
 |  | [02] REMOTE_ASSOCIATION_CONFIGURATION_GET |  |  | 1 |
-|  |  | LOCAL_GROUPING_IDENTIFIER |  | 1 |
+|  |  | Local Grouping identifier |  | 1 |
 |  | [03] REMOTE_ASSOCIATION_CONFIGURATION_REPORT |  |  | 1 |
-|  |  | LOCAL_GROUPING_IDENTIFIER |  | 1 |
+|  |  | Local Grouping identifier |  | 1 |
 |  |  |  | [00] ERASE_ALL_LIN | 1 |
-|  |  | REMOTE_NODEID |  | 1 |
+|  |  | Remote NodeID |  | 1 |
 |  |  |  | [00] REMOVE_A_LINK | 1 |
-|  |  | REMOTE_GROUPING_IDENTIFIER |  | 1 |
+|  |  | Remote Grouping identifier |  | 1 |
 | [80] COMMAND_CLASS_BATTERY |  |  |  | 1 |
 |  | [02] BATTERY_GET |  |  | 1 |
 |  | [03] BATTERY_REPORT |  |  | 1 |
-|  |  | BATTERY_LEVEL |  | 1 |
+|  |  | Battery Level |  | 1 |
 |  |  |  | [FF] BATTERY_LOW_WARNING | 1 |
 | [81] COMMAND_CLASS_CLOCK |  |  |  | 1 |
 |  | [04] CLOCK_SET |  |  | 1 |
-|  |  | HOUR |  | 1 |
-|  |  | WEEKDAY |  | 1 |
-|  |  | MINUTE |  | 1 |
+|  |  | Hour |  | 1 |
+|  |  | Weekday |  | 1 |
+|  |  | Minute |  | 1 |
 |  | [05] CLOCK_GET |  |  | 1 |
 |  | [06] CLOCK_REPORT |  |  | 1 |
-|  |  | HOUR |  | 1 |
-|  |  | WEEKDAY |  | 1 |
-|  |  | MINUTE |  | 1 |
+|  |  | Hour |  | 1 |
+|  |  | Weekday |  | 1 |
+|  |  | Minute |  | 1 |
 | [82] COMMAND_CLASS_HAIL |  |  |  | 1 |
 |  | [01] HAIL |  |  | 1 |
 | [84] COMMAND_CLASS_WAKE_UP |  |  |  | 2 |
 |  | [04] WAKE_UP_INTERVAL_SET |  |  | 1-2 |
-|  |  | SECONDS |  | 1-2 |
-|  |  | NODEID |  | 1-2 |
+|  |  | Seconds |  | 1-2 |
+|  |  | NodeID |  | 1-2 |
 |  | [05] WAKE_UP_INTERVAL_GET |  |  | 1-2 |
 |  | [06] WAKE_UP_INTERVAL_REPORT |  |  | 1-2 |
-|  |  | SECONDS |  | 1-2 |
-|  |  | NODEID |  | 1-2 |
+|  |  | Seconds |  | 1-2 |
+|  |  | NodeID |  | 1-2 |
 |  | [07] WAKE_UP_NOTIFICATION |  |  | 1-2 |
 |  | [08] WAKE_UP_NO_MORE_INFORMATION |  |  | 1-2 |
 |  | [09] WAKE_UP_INTERVAL_CAPABILITIES_GET |  |  | 2 |
 |  | [0A] WAKE_UP_INTERVAL_CAPABILITIES_REPORT |  |  | 2 |
-|  |  | MINIMUM_WAKE_UP_INTERVAL_SECONDS |  | 2 |
-|  |  | MAXIMUM_WAKE_UP_INTERVAL_SECONDS |  | 2 |
-|  |  | DEFAULT_WAKE_UP_INTERVAL_SECONDS |  | 2 |
-|  |  | WAKE_UP_INTERVAL_STEP_SECONDS |  | 2 |
+|  |  | Minimum Wake Up Interval Seconds |  | 2 |
+|  |  | Maximum Wake Up Interval Seconds |  | 2 |
+|  |  | Default Wake Up Interval Seconds |  | 2 |
+|  |  | Wake Up Interval Step Seconds |  | 2 |
 | [85] COMMAND_CLASS_ASSOCIATION |  |  |  | 2 |
 |  | [01] ASSOCIATION_SET |  |  | 1-2 |
-|  |  | GROUPING_IDENTIFIER |  | 1-2 |
-|  |  | NODE_ID |  | 1-2 |
+|  |  | Grouping Identifier |  | 1-2 |
+|  |  | Node ID |  | 1-2 |
 |  | [02] ASSOCIATION_GET |  |  | 1-2 |
-|  |  | GROUPING_IDENTIFIER |  | 1-2 |
+|  |  | Grouping Identifier |  | 1-2 |
 |  | [03] ASSOCIATION_REPORT |  |  | 1-2 |
-|  |  | GROUPING_IDENTIFIER |  | 1-2 |
-|  |  | MAX_NODES_SUPPORTED |  | 1-2 |
-|  |  | REPORTS_TO_FOLLOW |  | 1-2 |
-|  |  | NODEID |  | 1-2 |
+|  |  | Grouping Identifier |  | 1-2 |
+|  |  | Max Nodes Supported |  | 1-2 |
+|  |  | Reports to Follow |  | 1-2 |
+|  |  | NodeID |  | 1-2 |
 |  | [04] ASSOCIATION_REMOVE |  |  | 1-2 |
-|  |  | GROUPING_IDENTIFIER |  | 1-2 |
-|  |  | NODE_ID |  | 1-2 |
+|  |  | Grouping Identifier |  | 1-2 |
+|  |  | Node ID |  | 1-2 |
 |  | [05] ASSOCIATION_GROUPINGS_GET |  |  | 1-2 |
 |  | [06] ASSOCIATION_GROUPINGS_REPORT |  |  | 1-2 |
-|  |  | SUPPORTED_GROUPINGS |  | 1-2 |
+|  |  | Supported Groupings |  | 1-2 |
 |  | [0B] ASSOCIATION_SPECIFIC_GROUP_GET |  |  | 2 |
 |  | [0C] ASSOCIATION_SPECIFIC_GROUP_REPORT |  |  | 2 |
-|  |  | GROUP |  | 2 |
+|  |  | Group |  | 2 |
 | [86] COMMAND_CLASS_VERSION |  |  |  | 2 |
 |  | [11] VERSION_GET |  |  | 1-2 |
 |  | [12] VERSION_REPORT |  |  | 1-2 |
-|  |  | Z_WAVE_LIBRARY_TYPE |  | 1-2 |
-|  |  | Z_WAVE_PROTOCOL_VERSION |  | 1-2 |
-|  |  | Z_WAVE_PROTOCOL_SUB_VERSION |  | 1-2 |
-|  |  | FIRMWARE_0_VERSION |  | 1-2 |
-|  |  | FIRMWARE_0_SUB_VERSION |  | 1-2 |
-|  |  | HARDWARE_VERSION |  | 2 |
-|  |  | NUMBER_OF_FIRMWARE_TARGETS |  | 2 |
-|  |  | FIRMWARE_VERSION |  | 2 |
+|  |  | Z-Wave Library Type |  | 1-2 |
+|  |  | Z-Wave Protocol Version |  | 1-2 |
+|  |  | Z-Wave Protocol Sub Version |  | 1-2 |
+|  |  | Firmware 0 Version |  | 1-2 |
+|  |  | Firmware 0 Sub Version |  | 1-2 |
+|  |  | Hardware Version |  | 2 |
+|  |  | Number of firmware targets |  | 2 |
+|  |  | Firmware Version |  | 2 |
 |  | [13] VERSION_COMMAND_CLASS_GET |  |  | 1-2 |
-|  |  | REQUESTED_COMMAND_CLASS |  | 1-2 |
+|  |  | Requested Command Class |  | 1-2 |
 |  | [14] VERSION_COMMAND_CLASS_REPORT |  |  | 1-2 |
-|  |  | REQUESTED_COMMAND_CLASS |  | 1-2 |
-|  |  | COMMAND_CLASS_VERSION |  | 1-2 |
+|  |  | Requested Command Class |  | 1-2 |
+|  |  | Command Class Version |  | 1-2 |
 | [87] COMMAND_CLASS_INDICATOR |  |  |  | 2 |
 |  | [01] INDICATOR_SET |  |  | 1-2 |
-|  |  | INDICATOR_0_VALUE |  | 1-2 |
+|  |  | Indicator 0 Value |  | 1-2 |
 |  |  |  | [00] OFF_DISABLE | 1-2 |
 |  |  |  | [FF] ON_ENABLE | 1-2 |
-|  |  | INDICATOR_OBJECT_COUNT |  | 2 |
-|  |  | INDICATOR_INFORMATION |  | 2 |
+|  |  | Indicator Object Count |  | 2 |
+|  |  | Indicator Information |  | 2 |
 |  | [02] INDICATOR_GET |  |  | 1-2 |
-|  |  | INDICATOR_ID |  | 2 |
+|  |  | Indicator ID |  | 2 |
 |  |  |  | [00] NA | 2 |
 |  |  |  | [01] ARMED | 2 |
 |  |  |  | [02] NOT_ARMED | 2 |
@@ -4108,13 +4093,13 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [4E] BUTTON12_INDICATION | 2 |
 |  |  |  | [F0] BUZZER | 2 |
 |  | [03] INDICATOR_REPORT |  |  | 1-2 |
-|  |  | INDICATOR_0_VALUE |  | 1-2 |
+|  |  | Indicator 0 Value |  | 1-2 |
 |  |  |  | [00] OFF_DISABLE | 1-2 |
 |  |  |  | [FF] ON_ENABLE | 1-2 |
-|  |  | INDICATOR_OBJECT_COUNT |  | 2 |
-|  |  | INDICATOR_INFORMATION |  | 2 |
+|  |  | Indicator Object Count |  | 2 |
+|  |  | Indicator Information |  | 2 |
 |  | [04] INDICATOR_SUPPORTED_GET |  |  | 2 |
-|  |  | INDICATOR_ID |  | 2 |
+|  |  | Indicator ID |  | 2 |
 |  |  |  | [00] NA | 2 |
 |  |  |  | [01] ARMED | 2 |
 |  |  |  | [02] NOT_ARMED | 2 |
@@ -4149,7 +4134,7 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [4E] BUTTON12_INDICATION | 2 |
 |  |  |  | [F0] BUZZER | 2 |
 |  | [05] INDICATOR_SUPPORTED_REPORT |  |  | 2 |
-|  |  | INDICATOR_ID |  | 2 |
+|  |  | Indicator ID |  | 2 |
 |  |  |  | [00] NA | 2 |
 |  |  |  | [01] ARMED | 2 |
 |  |  |  | [02] NOT_ARMED | 2 |
@@ -4183,7 +4168,7 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [4D] BUTTON11_INDICATION | 2 |
 |  |  |  | [4E] BUTTON12_INDICATION | 2 |
 |  |  |  | [F0] BUZZER | 2 |
-|  |  | NEXT_INDICATOR_ID |  | 2 |
+|  |  | Next Indicator ID |  | 2 |
 |  |  |  | [00] NA | 2 |
 |  |  |  | [01] ARMED | 2 |
 |  |  |  | [02] NOT_ARMED | 2 |
@@ -4217,8 +4202,8 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [4D] BUTTON11_INDICATION | 2 |
 |  |  |  | [4E] BUTTON12_INDICATION | 2 |
 |  |  |  | [F0] BUZZER | 2 |
-|  |  | PROPERTY_SUPPORTED_BIT_MASK_LENGTH |  | 2 |
-|  |  | PROPERTY_SUPPORTED_BIT_MASK |  | 2 |
+|  |  | Property Supported Bit Mask Length |  | 2 |
+|  |  | Property Supported Bit Mask |  | 2 |
 |  |  |  | [01] MULTILEVEL | 2 |
 |  |  |  | [02] BINARY | 2 |
 |  |  |  | [03] ON_OFF_PERIOD | 2 |
@@ -4226,177 +4211,171 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [10] LOW_POWER | 2 |
 | [88] COMMAND_CLASS_PROPRIETARY |  |  |  | 1 |
 |  | [01] PROPRIETARY_SET |  |  | 1 |
-|  |  | DATA |  | 1 |
+|  |  | Data |  | 1 |
 |  | [02] PROPRIETARY_GET |  |  | 1 |
-|  |  | DATA |  | 1 |
+|  |  | Data |  | 1 |
 |  | [03] PROPRIETARY_REPORT |  |  | 1 |
-|  |  | DATA |  | 1 |
+|  |  | Data |  | 1 |
 | [89] COMMAND_CLASS_LANGUAGE |  |  |  | 1 |
 |  | [01] LANGUAGE_SET |  |  | 1 |
-|  |  | LANGUAGE |  | 1 |
-|  |  | COUNTRY |  | 1 |
+|  |  | Language |  | 1 |
+|  |  | Country |  | 1 |
 |  | [02] LANGUAGE_GET |  |  | 1 |
 |  | [03] LANGUAGE_REPORT |  |  | 1 |
-|  |  | LANGUAGE |  | 1 |
-|  |  | COUNTRY |  | 1 |
+|  |  | Language |  | 1 |
+|  |  | Country |  | 1 |
 | [8A] COMMAND_CLASS_TIME |  |  |  | 2 |
 |  | [01] TIME_GET |  |  | 1-2 |
 |  | [02] TIME_REPORT |  |  | 1-2 |
-|  |  | HOUR_LOCAL_TIME |  | 1-2 |
-|  |  | RTC_FAILURE |  | 1-2 |
-|  |  | MINUTE_LOCAL_TIME |  | 1-2 |
-|  |  | SECOND_LOCAL_TIME |  | 1-2 |
+|  |  | Hour Local Time |  | 1-2 |
+|  |  | RTC failure |  | 1-2 |
+|  |  | Minute Local Time |  | 1-2 |
+|  |  | Second Local Time |  | 1-2 |
 |  | [03] DATE_GET |  |  | 1-2 |
 |  | [04] DATE_REPORT |  |  | 1-2 |
-|  |  | YEAR |  | 1-2 |
-|  |  | MONTH |  | 1-2 |
-|  |  | DAY |  | 1-2 |
+|  |  | Year |  | 1-2 |
+|  |  | Month |  | 1-2 |
+|  |  | Day |  | 1-2 |
 |  | [05] TIME_OFFSET_SET |  |  | 2 |
-|  |  | HOUR_TZO |  | 2 |
-|  |  | SIGN_TZO |  | 2 |
-|  |  | MINUTE_TZO |  | 2 |
-|  |  | MINUTE_OFFSET_DST |  | 2 |
-|  |  | SIGN_OFFSET_DST |  | 2 |
-|  |  | MONTH_START_DST |  | 2 |
-|  |  | DAY_START_DST |  | 2 |
-|  |  | HOUR_START_DST |  | 2 |
-|  |  | MONTH_END_DST |  | 2 |
-|  |  | DAY_END_DST |  | 2 |
-|  |  | HOUR_END_DST |  | 2 |
+|  |  | Hour TZO |  | 2 |
+|  |  | Sign TZO |  | 2 |
+|  |  | Minute TZO |  | 2 |
+|  |  | Minute Offset DST |  | 2 |
+|  |  | Sign Offset DST |  | 2 |
+|  |  | Month Start DST |  | 2 |
+|  |  | Day Start DST |  | 2 |
+|  |  | Hour Start DST |  | 2 |
+|  |  | Month End DST |  | 2 |
+|  |  | Day End DST |  | 2 |
+|  |  | Hour End DST |  | 2 |
 |  | [06] TIME_OFFSET_GET |  |  | 2 |
 |  | [07] TIME_OFFSET_REPORT |  |  | 2 |
-|  |  | HOUR_TZO |  | 2 |
-|  |  | SIGN_TZO |  | 2 |
-|  |  | MINUTE_TZO |  | 2 |
-|  |  | MINUTE_OFFSET_DST |  | 2 |
-|  |  | SIGN_OFFSET_DST |  | 2 |
-|  |  | MONTH_START_DST |  | 2 |
-|  |  | DAY_START_DST |  | 2 |
-|  |  | HOUR_START_DST |  | 2 |
-|  |  | MONTH_END_DST |  | 2 |
-|  |  | DAY_END_DST |  | 2 |
-|  |  | HOUR_END_DST |  | 2 |
+|  |  | Hour TZO |  | 2 |
+|  |  | Sign TZO |  | 2 |
+|  |  | Minute TZO |  | 2 |
+|  |  | Minute Offset DST |  | 2 |
+|  |  | Sign Offset DST |  | 2 |
+|  |  | Month Start DST |  | 2 |
+|  |  | Day Start DST |  | 2 |
+|  |  | Hour Start DST |  | 2 |
+|  |  | Month End DST |  | 2 |
+|  |  | Day End DST |  | 2 |
+|  |  | Hour End DST |  | 2 |
 | [8B] COMMAND_CLASS_TIME_PARAMETERS |  |  |  | 1 |
 |  | [01] TIME_PARAMETERS_SET |  |  | 1 |
-|  |  | YEAR |  | 1 |
-|  |  | MONTH |  | 1 |
-|  |  | DAY |  | 1 |
-|  |  | HOUR_UTC |  | 1 |
-|  |  | MINUTE_UTC |  | 1 |
-|  |  | SECOND_UTC |  | 1 |
+|  |  | Year |  | 1 |
+|  |  | Month |  | 1 |
+|  |  | Day |  | 1 |
+|  |  | Hour UTC |  | 1 |
+|  |  | Minute UTC |  | 1 |
+|  |  | Second UTC |  | 1 |
 |  | [02] TIME_PARAMETERS_GET |  |  | 1 |
 |  | [03] TIME_PARAMETERS_REPORT |  |  | 1 |
-|  |  | YEAR |  | 1 |
-|  |  | MONTH |  | 1 |
-|  |  | DAY |  | 1 |
-|  |  | HOUR_UTC |  | 1 |
-|  |  | MINUTE_UTC |  | 1 |
-|  |  | SECOND_UTC |  | 1 |
+|  |  | Year |  | 1 |
+|  |  | Month |  | 1 |
+|  |  | Day |  | 1 |
+|  |  | Hour UTC |  | 1 |
+|  |  | Minute UTC |  | 1 |
+|  |  | Second UTC |  | 1 |
 | [8C] COMMAND_CLASS_GEOGRAPHIC_LOCATION |  |  |  | 1 |
 |  | [01] GEOGRAPHIC_LOCATION_SET |  |  | 1 |
-|  |  | LONGITUDE_DEGREES |  | 1 |
-|  |  | LONGITUDE_MINUTES |  | 1 |
-|  |  | LONG_SIGN |  | 1 |
-|  |  | LATITUDE_DEGREES |  | 1 |
-|  |  | LATITUDE_MINUTES |  | 1 |
-|  |  | LAT_SIGN |  | 1 |
+|  |  | Longitude Degrees |  | 1 |
+|  |  | Longitude Minutes |  | 1 |
+|  |  | Long. Sign |  | 1 |
+|  |  | Latitude Degrees |  | 1 |
+|  |  | Latitude Minutes |  | 1 |
+|  |  | Lat. Sign |  | 1 |
 |  | [02] GEOGRAPHIC_LOCATION_GET |  |  | 1 |
 |  | [03] GEOGRAPHIC_LOCATION_REPORT |  |  | 1 |
-|  |  | LONGITUDE_DEGREES |  | 1 |
-|  |  | LONGITUDE_MINUTES |  | 1 |
-|  |  | LONG_SIGN |  | 1 |
-|  |  | LATITUDE_DEGREES |  | 1 |
-|  |  | LATITUDE_MINUTES |  | 1 |
-|  |  | LAT_SIGN |  | 1 |
-| [8E] COMMAND_CLASS_MULTI_INSTANCE_ASSOCIATION |  |  |  | 3 |
-|  | [01] MULTI_INSTANCE_ASSOCIATION_SET |  |  | 1-3 |
-|  |  | GROUPING_IDENTIFIER |  | 1-3 |
-|  |  | NODE_ID |  | 1-3 |
-|  |  | MARKER |  | 1-3 |
-|  |  |  | [00] MARKER | 1-3 |
-|  |  | MULTI_INSTANCE |  | 1 |
-|  |  | MULTI_CHANNEL_ASSOCIATION_GROUP |  | 2-3 |
-|  | [02] MULTI_INSTANCE_ASSOCIATION_GET |  |  | 1-3 |
-|  |  | GROUPING_IDENTIFIER |  | 1-3 |
-|  | [03] MULTI_INSTANCE_ASSOCIATION_REPORT |  |  | 1-3 |
-|  |  | GROUPING_IDENTIFIER |  | 1-3 |
-|  |  | MAX_NODES_SUPPORTED |  | 1-3 |
-|  |  | REPORTS_TO_FOLLOW |  | 1-3 |
-|  |  | NODE_ID |  | 1-3 |
-|  |  | MARKER |  | 1-3 |
-|  |  |  | [00] MARKER | 1-3 |
-|  |  | MULTI_INSTANCE |  | 1 |
-|  |  | MULTI_CHANNEL_ASSOCIATION_GROUP |  | 2-3 |
-|  | [04] MULTI_INSTANCE_ASSOCIATION_REMOVE |  |  | 1-3 |
-|  |  | GROUPING_IDENTIFIER |  | 1-3 |
-|  |  | NODE_ID |  | 1-3 |
-|  |  | MARKER |  | 1-3 |
-|  |  |  | [00] MARKER | 1-3 |
-|  |  | MULTI_INSTANCE |  | 1 |
-|  |  | MULTI_CHANNEL_ASSOCIATION_GROUP |  | 2-3 |
-|  | [05] MULTI_INSTANCE_ASSOCIATION_GROUPINGS_GET |  |  | 1-3 |
-|  | [06] MULTI_INSTANCE_ASSOCIATION_GROUPINGS_REPORT |  |  | 1-3 |
-|  |  | SUPPORTED_GROUPINGS |  | 1-3 |
+|  |  | Longitude Degrees |  | 1 |
+|  |  | Longitude Minutes |  | 1 |
+|  |  | Long. Sign |  | 1 |
+|  |  | Latitude Degrees |  | 1 |
+|  |  | Latitude Minutes |  | 1 |
+|  |  | Lat. Sign |  | 1 |
+| [8E] COMMAND_CLASS_MULTI_CHANNEL_ASSOCIATION |  |  |  | 3 |
+|  | [01] MULTI_CHANNEL_ASSOCIATION_SET |  |  | 1-3 |
+|  |  | Grouping Identifier |  | 1-3 |
+|  |  | Node ID |  | 1-3 |
+|  |  | Multi Instance |  | 1 |
+|  |  | Multi Channel Association Group |  | 2-3 |
+|  | [02] MULTI_CHANNEL_ASSOCIATION_GET |  |  | 1-3 |
+|  |  | Grouping Identifier |  | 1-3 |
+|  | [03] MULTI_CHANNEL_ASSOCIATION_REPORT |  |  | 1-3 |
+|  |  | Grouping Identifier |  | 1-3 |
+|  |  | Max Nodes Supported |  | 1-3 |
+|  |  | Reports to Follow |  | 1-3 |
+|  |  | Node ID |  | 1-3 |
+|  |  | Multi Instance |  | 1 |
+|  |  | Multi Channel Association Group |  | 2-3 |
+|  | [04] MULTI_CHANNEL_ASSOCIATION_REMOVE |  |  | 1-3 |
+|  |  | Grouping Identifier |  | 1-3 |
+|  |  | Node ID |  | 1-3 |
+|  |  | Multi Instance |  | 1 |
+|  |  | Multi Channel Association Group |  | 2-3 |
+|  | [05] MULTI_CHANNEL_ASSOCIATION_GROUPINGS_GET |  |  | 1-3 |
+|  | [06] MULTI_CHANNEL_ASSOCIATION_GROUPINGS_REPORT |  |  | 1-3 |
+|  |  | Supported Groupings |  | 1-3 |
 | [8F] COMMAND_CLASS_MULTI_CMD |  |  |  | 1 |
 |  | [01] MULTI_CMD_ENCAP |  |  | 1 |
-|  |  | NUMBER_OF_COMMANDS |  | 1 |
-|  |  | ENCAPSULATED_COMMAND |  | 1 |
+|  |  | Number of Commands |  | 1 |
+|  |  | Encapsulated Command |  | 1 |
 | [90] COMMAND_CLASS_ENERGY_PRODUCTION |  |  |  | 1 |
 |  | [02] ENERGY_PRODUCTION_GET |  |  | 1 |
-|  |  | PARAMETER_NUMBER |  | 1 |
+|  |  | Parameter Number |  | 1 |
 |  |  |  | [00] INSTANT_ENERGY_PRODUCTION | 1 |
 |  |  |  | [01] TOTAL_ENERGY_PRODUCTION | 1 |
 |  |  |  | [02] ENERGY_PRODUCTION_TODAY | 1 |
 |  |  |  | [03] TOTAL_PRODUCTION_TIME | 1 |
 |  | [03] ENERGY_PRODUCTION_REPORT |  |  | 1 |
-|  |  | PARAMETER_NUMBER |  | 1 |
+|  |  | Parameter Number |  | 1 |
 |  |  |  | [00] INSTANT_ENERGY_PRODUCTION | 1 |
 |  |  |  | [01] TOTAL_ENERGY_PRODUCTION | 1 |
 |  |  |  | [02] ENERGY_PRODUCTION_TODAY | 1 |
 |  |  |  | [03] TOTAL_PRODUCTION_TIME | 1 |
-|  |  | SIZE |  | 1 |
-|  |  | SCALE |  | 1 |
-|  |  | PRECISION |  | 1 |
-|  |  | VALUE |  | 1 |
+|  |  | Size |  | 1 |
+|  |  | Scale |  | 1 |
+|  |  | Precision |  | 1 |
+|  |  | Value |  | 1 |
 | [91] COMMAND_CLASS_MANUFACTURER_PROPRIETARY |  |  |  | 1 |
 | [92] COMMAND_CLASS_SCREEN_MD |  |  |  | 2 |
 |  | [01] SCREEN_MD_GET |  |  | 1-2 |
-|  |  | NUMBER_OF_REPORTS |  | 1-2 |
-|  |  | NODE_ID |  | 1-2 |
+|  |  | Number of Reports |  | 1-2 |
+|  |  | Node ID |  | 1-2 |
 |  | [02] SCREEN_MD_REPORT |  |  | 1 |
-|  |  | CHAR_PRESENTATION |  | 1 |
-|  |  | SCREEN_SETTINGS |  | 1 |
-|  |  | MORE_DATA |  | 1 |
-|  |  | SCREEN_MD_STRING |  | 1 |
+|  |  | Char. Presentation |  | 1 |
+|  |  | Screen Settings |  | 1 |
+|  |  | More Data |  | 1 |
+|  |  | Screen MD String |  | 1 |
 |  | [03] SCREEN_MD_REPORT |  |  | 2 |
-|  |  | CHAR_PRESENTATION |  | 2 |
-|  |  | SCREEN_SETTINGS |  | 2 |
-|  |  | MORE_DATA |  | 2 |
-|  |  | SCREEN_MD_STRING |  | 2 |
-|  |  | SCREEN_TIMEOUT |  | 2 |
+|  |  | Char. Presentation |  | 2 |
+|  |  | Screen Settings |  | 2 |
+|  |  | More Data |  | 2 |
+|  |  | Screen MD String |  | 2 |
+|  |  | Screen Timeout |  | 2 |
 | [93] COMMAND_CLASS_SCREEN_ATTRIBUTES |  |  |  | 2 |
 |  | [01] SCREEN_ATTRIBUTES_GET |  |  | 1-2 |
 |  | [02] SCREEN_ATTRIBUTES_REPORT |  |  | 1-2 |
-|  |  | NUMBER_OF_LINES |  | 1-2 |
-|  |  | ESCAPE_SEQUENCE |  | 2 |
-|  |  | NUMBER_OF_CHARACTERS_PER_LINE |  | 1-2 |
-|  |  | SIZE_OF_LINE_BUFFER |  | 1-2 |
-|  |  | NUMERICAL_PRESENTATION_OF_A_CHARACTER |  | 1-2 |
-|  |  | SCREEN_TIMEOUT |  | 2 |
+|  |  | Number of Lines |  | 1-2 |
+|  |  | Escape Sequence |  | 2 |
+|  |  | Number of Characters per Line |  | 1-2 |
+|  |  | Size of Line Buffer |  | 1-2 |
+|  |  | Numerical Presentation of a Character |  | 1-2 |
+|  |  | Screen Timeout |  | 2 |
 | [94] COMMAND_CLASS_SIMPLE_AV_CONTROL |  |  |  | 1 |
 |  | [01] SIMPLE_AV_CONTROL_SET |  |  | 1 |
-|  |  | SEQUENCE_NUMBER |  | 1 |
-|  |  | KEY_ATTRIBUTES |  | 1 |
-|  |  | ITEM_ID |  | 1 |
-|  |  | AV_COMMAND |  | 1 |
+|  |  | Sequence Number |  | 1 |
+|  |  | Key Attributes |  | 1 |
+|  |  | Item ID |  | 1 |
+|  |  | AV Command |  | 1 |
 |  | [02] SIMPLE_AV_CONTROL_GET |  |  | 1 |
 |  | [03] SIMPLE_AV_CONTROL_REPORT |  |  | 1 |
-|  |  | NUMBER_OF_REPORTS |  | 1 |
+|  |  | Number of reports |  | 1 |
 |  | [04] SIMPLE_AV_CONTROL_SUPPORTED_GET |  |  | 1 |
-|  |  | REPORT_NO |  | 1 |
+|  |  | Report No |  | 1 |
 |  | [05] SIMPLE_AV_CONTROL_SUPPORTED_REPORT |  |  | 1 |
-|  |  | REPORT_NO |  | 1 |
-|  |  | BIT_MASK |  | 1 |
+|  |  | Report No |  | 1 |
+|  |  | Bit Mask |  | 1 |
 | [95] COMMAND_CLASS_AV_CONTENT_DIRECTORY_MD |  |  |  | 1 |
 |  | [01] AV_CONTENT_BROWSE_MD_GET |  |  | 1 |
 |  | [02] AV_CONTENT_BROWSE_MD_REPORT |  |  | 1 |
@@ -4415,92 +4394,90 @@ different size or mask for example.  If you find error, please report them.
 | [98] COMMAND_CLASS_SECURITY |  |  |  | 1 |
 |  | [02] SECURITY_COMMANDS_SUPPORTED_GET |  |  | 1 |
 |  | [03] SECURITY_COMMANDS_SUPPORTED_REPORT |  |  | 1 |
-|  |  | REPORTS_TO_FOLLOW |  | 1 |
-|  |  | COMMAND_CLASS_SUPPORT |  | 1 |
-|  |  | COMMAND_CLASS_MARK |  | 1 |
-|  |  |  | [EF] COMMAND_CLASS_MARK | 1 |
-|  |  | COMMAND_CLASS_CONTROL |  | 1 |
+|  |  | Reports to follow |  | 1 |
+|  |  | Command Class support |  | 1 |
+|  |  | Command Class control |  | 1 |
 |  | [04] SECURITY_SCHEME_GET |  |  | 1 |
-|  |  | SUPPORTED_SECURITY_SCHEMES |  | 1 |
+|  |  | Supported Security Schemes |  | 1 |
 |  | [05] SECURITY_SCHEME_REPORT |  |  | 1 |
-|  |  | SUPPORTED_SECURITY_SCHEMES |  | 1 |
+|  |  | Supported Security Schemes |  | 1 |
 |  | [06] NETWORK_KEY_SET |  |  | 1 |
-|  |  | NETWORK_KEY_BYTE |  | 1 |
+|  |  | Network Key byte |  | 1 |
 |  | [07] NETWORK_KEY_VERIFY |  |  | 1 |
 |  | [08] SECURITY_SCHEME_INHERIT |  |  | 1 |
-|  |  | SUPPORTED_SECURITY_SCHEMES |  | 1 |
+|  |  | Supported Security Schemes |  | 1 |
 |  | [40] SECURITY_NONCE_GET |  |  | 1 |
 |  | [80] SECURITY_NONCE_REPORT |  |  | 1 |
-|  |  | NONCE_BYTE |  | 1 |
+|  |  | Nonce byte |  | 1 |
 |  | [81] SECURITY_MESSAGE_ENCAPSULATION |  |  | 1 |
-|  |  | INITIALIZATION_VECTOR_BYTE |  | 1 |
-|  |  | SEQUENCE_COUNTER |  | 1 |
-|  |  | SEQUENCED |  | 1 |
-|  |  | SECOND_FRAME |  | 1 |
-|  |  | COMMAND_BYTE |  | 1 |
-|  |  | RECEIVERS_NONCE_IDENTIFIER |  | 1 |
-|  |  | MESSAGE_AUTHENTICATION_CODE_BYTE |  | 1 |
+|  |  | Initialization Vector byte |  | 1 |
+|  |  | Sequence Counter |  | 1 |
+|  |  | Sequenced |  | 1 |
+|  |  | Second Frame |  | 1 |
+|  |  | Command byte |  | 1 |
+|  |  | Receivers nonce Identifier |  | 1 |
+|  |  | Message Authentication Code byte |  | 1 |
 |  | [C1] SECURITY_MESSAGE_ENCAPSULATION_NONCE_GET |  |  | 1 |
-|  |  | INITIALIZATION_VECTOR_BYTE |  | 1 |
-|  |  | SEQUENCE_COUNTER |  | 1 |
-|  |  | SEQUENCED |  | 1 |
-|  |  | SECOND_FRAME |  | 1 |
-|  |  | COMMAND_BYTE |  | 1 |
-|  |  | RECEIVERS_NONCE_IDENTIFIER |  | 1 |
-|  |  | MESSAGE_AUTHENTICATION_CODE_BYTE |  | 1 |
+|  |  | Initialization Vector byte |  | 1 |
+|  |  | Sequence Counter |  | 1 |
+|  |  | Sequenced |  | 1 |
+|  |  | Second Frame |  | 1 |
+|  |  | Command byte |  | 1 |
+|  |  | Receivers nonce Identifier |  | 1 |
+|  |  | Message Authentication Code byte |  | 1 |
 | [99] COMMAND_CLASS_AV_TAGGING_MD |  |  |  | 1 |
 |  | [01] AV_TAGGING_MD_GET |  |  | 1 |
 |  | [02] AV_TAGGING_MD_REPORT |  |  | 1 |
 | [9A] COMMAND_CLASS_IP_CONFIGURATION |  |  |  | 1 |
 |  | [01] IP_CONFIGURATION_SET |  |  | 1 |
-|  |  | AUTO_DNS |  | 1 |
-|  |  | AUTO_IP |  | 1 |
-|  |  | IP_ADDRESS |  | 1 |
-|  |  | SUBNET_MASK |  | 1 |
-|  |  | GATEWAY |  | 1 |
+|  |  | Auto DNS |  | 1 |
+|  |  | Auto IP |  | 1 |
+|  |  | IP Address |  | 1 |
+|  |  | Subnet Mask |  | 1 |
+|  |  | Gateway |  | 1 |
 |  |  | DNS1 |  | 1 |
 |  |  | DNS2 |  | 1 |
 |  | [02] IP_CONFIGURATION_GET |  |  | 1 |
 |  | [03] IP_CONFIGURATION_REPORT |  |  | 1 |
-|  |  | AUTO_DNS |  | 1 |
-|  |  | AUTO_IP |  | 1 |
-|  |  | IP_ADDRESS |  | 1 |
-|  |  | SUBNET_MASK |  | 1 |
-|  |  | GATEWAY |  | 1 |
+|  |  | Auto DNS |  | 1 |
+|  |  | Auto IP |  | 1 |
+|  |  | IP Address |  | 1 |
+|  |  | Subnet Mask |  | 1 |
+|  |  | Gateway |  | 1 |
 |  |  | DNS1 |  | 1 |
 |  |  | DNS2 |  | 1 |
-|  |  | LEASETIME |  | 1 |
+|  |  | LeaseTime |  | 1 |
 |  | [04] IP_CONFIGURATION_RELEASE |  |  | 1 |
 |  | [05] IP_CONFIGURATION_RENEW |  |  | 1 |
 | [9B] COMMAND_CLASS_ASSOCIATION_COMMAND_CONFIGURATION |  |  |  | 1 |
 |  | [01] COMMAND_RECORDS_SUPPORTED_GET |  |  | 1 |
 |  | [02] COMMAND_RECORDS_SUPPORTED_REPORT |  |  | 1 |
-|  |  | CONF_CMD |  | 1 |
-|  |  | V_C |  | 1 |
-|  |  | MAX_COMMAND_LENGTH |  | 1 |
-|  |  | FREE_COMMAND_RECORDS |  | 1 |
-|  |  | MAX_COMMAND_RECORDS |  | 1 |
+|  |  | Conf. Cmd |  | 1 |
+|  |  | V/C |  | 1 |
+|  |  | Max command length |  | 1 |
+|  |  | Free Command records |  | 1 |
+|  |  | Max Command records |  | 1 |
 |  | [03] COMMAND_CONFIGURATION_SET |  |  | 1 |
-|  |  | GROUPING_IDENTIFIER |  | 1 |
-|  |  | NODE_ID |  | 1 |
-|  |  | COMMAND_LENGTH |  | 1 |
-|  |  | COMMAND_CLASS_IDENTIFIER |  | 1 |
-|  |  | COMMAND_IDENTIFIER |  | 1 |
-|  |  | COMMAND_BYTE |  | 1 |
+|  |  | Grouping identifier |  | 1 |
+|  |  | Node ID |  | 1 |
+|  |  | Command length |  | 1 |
+|  |  | Command Class identifier |  | 1 |
+|  |  | Command identifier |  | 1 |
+|  |  | Command byte |  | 1 |
 |  | [04] COMMAND_CONFIGURATION_GET |  |  | 1 |
-|  |  | GROUPING_IDENTIFIER |  | 1 |
-|  |  | NODE_ID |  | 1 |
+|  |  | Grouping identifier |  | 1 |
+|  |  | Node ID |  | 1 |
 |  | [05] COMMAND_CONFIGURATION_REPORT |  |  | 1 |
-|  |  | GROUPING_IDENTIFIER |  | 1 |
-|  |  | NODE_ID |  | 1 |
-|  |  | REPORTS_TO_FOLLOW |  | 1 |
-|  |  | COMMAND_LENGTH |  | 1 |
-|  |  | COMMAND_CLASS_IDENTIFIER |  | 1 |
-|  |  | COMMAND_IDENTIFIER |  | 1 |
-|  |  | COMMAND_BYTE |  | 1 |
+|  |  | Grouping identifier |  | 1 |
+|  |  | Node ID |  | 1 |
+|  |  | Reports to follow |  | 1 |
+|  |  | Command length |  | 1 |
+|  |  | Command Class identifier |  | 1 |
+|  |  | Command identifier |  | 1 |
+|  |  | Command byte |  | 1 |
 | [9C] COMMAND_CLASS_SENSOR_ALARM |  |  |  | 1 |
 |  | [01] SENSOR_ALARM_GET |  |  | 1 |
-|  |  | SENSOR_TYPE |  | 1 |
+|  |  | Sensor Type |  | 1 |
 |  |  |  | [00] GENERAL_PURPOSE_ALARM | 1 |
 |  |  |  | [01] SMOKE_ALARM | 1 |
 |  |  |  | [02] CO_ALARM | 1 |
@@ -4509,8 +4486,8 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [05] WATER_LEAK_ALARM | 1 |
 |  |  |  | [FF] RETURN_FIRST_ALARM_ON_SUPPORTED_LIST | 1 |
 |  | [02] SENSOR_ALARM_REPORT |  |  | 1 |
-|  |  | SOURCE_NODE_ID |  | 1 |
-|  |  | SENSOR_TYPE |  | 1 |
+|  |  | Source Node ID |  | 1 |
+|  |  | Sensor Type |  | 1 |
 |  |  |  | [00] GENERAL_PURPOSE_ALARM | 1 |
 |  |  |  | [01] SMOKE_ALARM | 1 |
 |  |  |  | [02] CO_ALARM | 1 |
@@ -4518,29 +4495,29 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [04] HEAT_ALARM | 1 |
 |  |  |  | [05] WATER_LEAK_ALARM | 1 |
 |  |  |  | [FF] RETURN_FIRST_ALARM_ON_SUPPORTED_LIST | 1 |
-|  |  | SENSOR_STATE |  | 1 |
+|  |  | Sensor State |  | 1 |
 |  |  |  | [00] NO_ALARM | 1 |
 |  |  |  | [FF] ALARM | 1 |
-|  |  | SECONDS |  | 1 |
+|  |  | Seconds |  | 1 |
 |  | [03] SENSOR_ALARM_SUPPORTED_GET |  |  | 1 |
 |  | [04] SENSOR_ALARM_SUPPORTED_REPORT |  |  | 1 |
-|  |  | NUMBER_OF_BIT_MASKS |  | 1 |
-|  |  | BIT_MASK |  | 1 |
+|  |  | Number of Bit Masks |  | 1 |
+|  |  | Bit Mask |  | 1 |
 | [9D] COMMAND_CLASS_SILENCE_ALARM |  |  |  | 1 |
 |  | [01] SENSOR_ALARM_SET |  |  | 1 |
-|  |  | MODE |  | 1 |
+|  |  | Mode |  | 1 |
 |  |  |  | [00] DISABLE_SOUNDING_OF_ALL_SENSOR_ALARMS | 1 |
 |  |  |  | [01] DISABLE_SOUNDING_OF_ALL_SENSOR_ALARMS_INDEPENDENT_OF_BIT_MASK_WHICH_HAVE_RECEIVED_THE_ALARM | 1 |
 |  |  |  | [02] DISABLE_SOUNDING_OF_ALL_SENSOR_ALARMS_ACCORDING_TO_BIT_MASK | 1 |
 |  |  |  | [03] DISABLE_SOUNDING_OF_ALL_SENSOR_ALARMS_ACCORDING_TO_BIT_MASK_WHICH_HAVE_RECEIVED_THE_ALARM | 1 |
-|  |  | SECONDS |  | 1 |
-|  |  | NUMBER_OF_BIT_MASKS |  | 1 |
-|  |  | BIT_MASK |  | 1 |
+|  |  | Seconds |  | 1 |
+|  |  | Number of Bit Masks |  | 1 |
+|  |  | Bit Mask |  | 1 |
 | [9E] COMMAND_CLASS_SENSOR_CONFIGURATION |  |  |  | 1 |
 |  | [01] SENSOR_TRIGGER_LEVEL_SET |  |  | 1 |
-|  |  | CURRENT |  | 1 |
-|  |  | DEFAULT |  | 1 |
-|  |  | SENSOR_TYPE |  | 1 |
+|  |  | Current |  | 1 |
+|  |  | Default Value |  | 1 |
+|  |  | Sensor Type |  | 1 |
 |  |  |  | [01] TEMPERATURE | 1 |
 |  |  |  | [02] GENERAL_PURPOSE_VALUE | 1 |
 |  |  |  | [03] LUMINANCE | 1 |
@@ -4554,13 +4531,13 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [0B] DEW_POINT | 1 |
 |  |  |  | [0C] RAIN_RATE | 1 |
 |  |  |  | [0D] TIDE_LEVEL | 1 |
-|  |  | SIZE |  | 1 |
-|  |  | SCALE |  | 1 |
-|  |  | PRECISION |  | 1 |
-|  |  | TRIGGER_VALUE |  | 1 |
+|  |  | Size |  | 1 |
+|  |  | Scale |  | 1 |
+|  |  | Precision |  | 1 |
+|  |  | Trigger Value |  | 1 |
 |  | [02] SENSOR_TRIGGER_LEVEL_GET |  |  | 1 |
 |  | [03] SENSOR_TRIGGER_LEVEL_REPORT |  |  | 1 |
-|  |  | SENSOR_TYPE |  | 1 |
+|  |  | Sensor Type |  | 1 |
 |  |  |  | [01] TEMPERATURE | 1 |
 |  |  |  | [02] GENERAL_PURPOSE_VALUE | 1 |
 |  |  |  | [03] LUMINANCE | 1 |
@@ -4574,47 +4551,47 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [0B] DEW_POINT | 1 |
 |  |  |  | [0C] RAIN_RATE | 1 |
 |  |  |  | [0D] TIDE_LEVEL | 1 |
-|  |  | SIZE |  | 1 |
-|  |  | SCALE |  | 1 |
-|  |  | PRECISION |  | 1 |
-|  |  | TRIGGER_VALUE |  | 1 |
+|  |  | Size |  | 1 |
+|  |  | Scale |  | 1 |
+|  |  | Precision |  | 1 |
+|  |  | Trigger Value |  | 1 |
 | [9F] COMMAND_CLASS_SECURITY_2 |  |  |  | 1 |
 |  | [01] SECURITY_2_NONCE_GET |  |  | 1 |
-|  |  | SEQUENCE_NUMBER |  | 1 |
+|  |  | Sequence Number |  | 1 |
 |  | [02] SECURITY_2_NONCE_REPORT |  |  | 1 |
-|  |  | SEQUENCE_NUMBER |  | 1 |
+|  |  | Sequence Number |  | 1 |
 |  |  | SOS |  | 1 |
 |  |  | MOS |  | 1 |
-|  |  | RECEIVERS_ENTROPY_INPUT |  | 1 |
+|  |  | Receivers Entropy Input |  | 1 |
 |  | [03] SECURITY_2_MESSAGE_ENCAPSULATION |  |  | 1 |
-|  |  | SEQUENCE_NUMBER |  | 1 |
-|  |  | EXTENSION |  | 1 |
-|  |  | ENCRYPTED_EXTENSION |  | 1 |
-|  |  | SECURITY_HEADER |  | 1 |
-|  |  | CCM_CIPHERTEXT_OBJECT |  | 1 |
+|  |  | Sequence Number |  | 1 |
+|  |  | Extension |  | 1 |
+|  |  | Encrypted Extension |  | 1 |
+|  |  | Security Header |  | 1 |
+|  |  | CCM Ciphertext Object |  | 1 |
 |  | [04] KEX_GET |  |  | 1 |
 |  | [05] KEX_REPORT |  |  | 1 |
-|  |  | ECHO |  | 1 |
-|  |  | REQUEST_CSA |  | 1 |
-|  |  | SUPPORTED_KEX_SCHEMES |  | 1 |
-|  |  | SUPPORTED_ECDH_PROFILES |  | 1 |
-|  |  | REQUESTED_KEYS |  | 1 |
+|  |  | Echo |  | 1 |
+|  |  | Request CSA |  | 1 |
+|  |  | Supported KEX Schemes |  | 1 |
+|  |  | Supported ECDH Profiles |  | 1 |
+|  |  | Requested Keys |  | 1 |
 |  |  |  | [00] UNAUTHENTICATED | 1 |
 |  |  |  | [01] AUTHENTICATED | 1 |
 |  |  |  | [02] ACCESS | 1 |
 |  |  |  | [07] S0 | 1 |
 |  | [06] KEX_SET |  |  | 1 |
-|  |  | ECHO |  | 1 |
-|  |  | REQUEST_CSA |  | 1 |
-|  |  | SELECTED_KEX_SCHEME |  | 1 |
-|  |  | SELECTED_ECDH_PROFILE |  | 1 |
-|  |  | GRANTED_KEYS |  | 1 |
+|  |  | Echo |  | 1 |
+|  |  | Request CSA |  | 1 |
+|  |  | Selected KEX Scheme |  | 1 |
+|  |  | Selected ECDH Profile |  | 1 |
+|  |  | Granted Keys |  | 1 |
 |  |  |  | [00] UNAUTHENTICATED | 1 |
 |  |  |  | [01] AUTHENTICATED | 1 |
 |  |  |  | [02] ACCESS | 1 |
 |  |  |  | [07] S0 | 1 |
 |  | [07] KEX_FAIL |  |  | 1 |
-|  |  | KEX_FAIL_TYPE |  | 1 |
+|  |  | KEX Fail Type |  | 1 |
 |  |  |  | [01] KEX_KEY | 1 |
 |  |  |  | [02] KEX_SCHEME | 1 |
 |  |  |  | [03] KEX_CURVES | 1 |
@@ -4625,31 +4602,31 @@ different size or mask for example.  If you find error, please report them.
 |  |  |  | [09] KEY_VERIFY | 1 |
 |  |  |  | [0A] KEY_REPORT | 1 |
 |  | [08] PUBLIC_KEY_REPORT |  |  | 1 |
-|  |  | INCLUDING_NODE |  | 1 |
-|  |  | ECDH_PUBLIC_KEY |  | 1 |
+|  |  | Including Node |  | 1 |
+|  |  | ECDH Public Key |  | 1 |
 |  | [09] SECURITY_2_NETWORK_KEY_GET |  |  | 1 |
-|  |  | REQUESTED_KEY |  | 1 |
+|  |  | Requested Key |  | 1 |
 |  |  |  | [00] UNAUTHENTICATED | 1 |
 |  |  |  | [01] AUTHENTICATED | 1 |
 |  |  |  | [02] ACCESS | 1 |
 |  |  |  | [07] S0 | 1 |
 |  | [0A] SECURITY_2_NETWORK_KEY_REPORT |  |  | 1 |
-|  |  | GRANTED_KEY |  | 1 |
+|  |  | Granted Key |  | 1 |
 |  |  |  | [00] UNAUTHENTICATED | 1 |
 |  |  |  | [01] AUTHENTICATED | 1 |
 |  |  |  | [02] ACCESS | 1 |
 |  |  |  | [07] S0 | 1 |
-|  |  | NETWORK_KEY |  | 1 |
+|  |  | Network Key |  | 1 |
 |  | [0B] SECURITY_2_NETWORK_KEY_VERIFY |  |  | 1 |
 |  | [0C] SECURITY_2_TRANSFER_END |  |  | 1 |
-|  |  | KEY_REQUEST_COMPLETE |  | 1 |
-|  |  | KEY_VERIFIED |  | 1 |
+|  |  | Key Request Complete |  | 1 |
+|  |  | Key Verified |  | 1 |
 |  | [0D] SECURITY_2_COMMANDS_SUPPORTED_GET |  |  | 1 |
 |  | [0E] SECURITY_2_COMMANDS_SUPPORTED_REPORT |  |  | 1 |
-|  |  | COMMAND_CLASS |  | 1 |
+|  |  | Command Class |  | 1 |
 |  | [0F] SECURITY_2_CAPABILITIES_GET |  |  | 1 |
 |  | [10] SECURITY_2_CAPABILITIES_REPORT |  |  | 1 |
-|  |  | SUPPORTED_SPANS |  | 1 |
-|  |  | SUPPORTED_MPANS |  | 1 |
+|  |  | Supported SPANs |  | 1 |
+|  |  | Supported MPANs |  | 1 |
 | [EF] COMMAND_CLASS_MARK |  |  |  | 1 |
 | [F0] COMMAND_CLASS_NON_INTEROPERABLE |  |  |  | 1 |
